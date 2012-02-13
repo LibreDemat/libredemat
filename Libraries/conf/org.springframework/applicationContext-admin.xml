@@ -359,6 +359,27 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="cronExpression" value="0 0 1 * * ?" />
   </bean>
 
+  <bean id="userNotificationJob" class="fr.cg95.cvq.service.users.job.UserNotificationJob">
+    <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
+    <property name="genericDAO" ref="genericDAO" />
+    <property name="homeFolderDAO" ref="homeFolderDAO" />
+    <property name="mailService" ref="mailService" />
+    <property name="translationService" ref="translationService" />
+  </bean>
+
+  <bean id="userNotificationInvoker"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="userNotificationJob" />
+    <property name="targetMethod" value="launch" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <bean id="userNotificationTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="userNotificationInvoker" />
+    <property name="cronExpression" value="0 0/1 * * * ?" />
+  </bean>
+
   <!-- *******************************************************************  -->
   <!-- ************ Where everything happens (or not) ********************  -->
   <!-- *******************************************************************  -->
@@ -378,6 +399,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <ref bean="paymentInitializationCheckerTrigger" />
         <ref bean="paymentNotificationTrigger" />
         <ref bean="paymentErrorReportTrigger" />
+        <ref bean="userNotificationTrigger" />
         <!--
         <ref bean="requestWorkflowNavigatorTrigger" />
         -->

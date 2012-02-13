@@ -20,6 +20,7 @@ import fr.cg95.cvq.service.users.IMeansOfContactService;
 import fr.cg95.cvq.service.users.IUserNotificationService;
 import fr.cg95.cvq.service.users.IUserSearchService;
 import fr.cg95.cvq.util.JSONUtils;
+import fr.cg95.cvq.util.UserUtils;
 import fr.cg95.cvq.util.logging.impl.Log;
 import fr.cg95.cvq.util.mail.IMailService;
 import fr.cg95.cvq.util.sms.ISmsService;
@@ -94,22 +95,12 @@ public class UserNotificationService implements IUserNotificationService, Applic
                             && !payload.get("atom").getAsJsonObject()
                                 .get("fields").getAsJsonObject().get("login").getAsJsonObject()
                                     .get("to").isJsonNull()))) {
-                    try {
-                        mailService.send(
-                            SecurityContext.getCurrentSite().getAdminEmail(),
-                            adult.getEmail(),
-                            null,
-                            translationService.translate("homeFolder.adult.notification.loginAssigned.subject",
-                                new Object[]{SecurityContext.getCurrentSite().getDisplayTitle()}),
-                            translationService.translate("homeFolder.adult.notification.loginAssigned.body",
-                                new Object[]{SecurityContext.getCurrentSite().getDisplayTitle(), adult.getLogin()})
-                        );
-
-                        Log.logger(SecurityContext.getCurrentSite().getName()).info("NOTIFY HOME FOLDER CREATION: " 
-                                + " to " + adult.getFullName() + " <" + adult.getEmail() + ">");
-                    } catch (CvqException e) {
-                        throw new RuntimeException(e);
-                    }
+                    JsonObject user = new JsonObject();
+                    user.addProperty("login", adult.getLogin());
+                    user.addProperty("email", adult.getEmail());
+                    UserAction action = new UserAction(UserAction.Type.WAITING_NOTIFICATION, adult.getId(), user);
+                    adult.getHomeFolder().getActions().add(action);
+                    homeFolderDAO.update(adult.getHomeFolder());
                 }
             }
         }

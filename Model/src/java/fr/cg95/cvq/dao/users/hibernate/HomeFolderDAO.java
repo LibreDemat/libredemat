@@ -5,8 +5,9 @@ import java.util.List;
 import org.hibernate.Query;
 
 import fr.cg95.cvq.business.users.HomeFolder;
-import fr.cg95.cvq.dao.jpa.JpaTemplate;
+import fr.cg95.cvq.business.users.UserAction;
 import fr.cg95.cvq.dao.hibernate.HibernateUtil;
+import fr.cg95.cvq.dao.jpa.JpaTemplate;
 import fr.cg95.cvq.dao.users.IHomeFolderDAO;
 
 /**
@@ -28,4 +29,13 @@ public class HomeFolderDAO extends JpaTemplate<HomeFolder,Long> implements IHome
         
         return query.list();    
     }
+
+    @SuppressWarnings("unchecked")
+    public List<UserAction> waitingNotification() {
+        return getEntityManager().createQuery("select u from " + UserAction.class.getName() + " u " +
+                "where u.type = :type")
+                .setParameter("type", UserAction.Type.WAITING_NOTIFICATION)
+                .getResultList();
+    }
+
 }

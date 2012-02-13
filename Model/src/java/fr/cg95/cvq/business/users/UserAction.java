@@ -30,7 +30,11 @@ public class UserAction {
         CONTACT("Contact"),
         DELETION("Deletion"),
         MERGE("Merge"),
-        MOVE("Move");
+        MOVE("Move"),
+        INTERNAL_NOTE("InternalNote"),
+        WAITING_NOTIFICATION("WaitingNotification"),
+        NOTIFICATION_ERROR("NotificationError"),
+        NOTIFIED("Notified");
 
         private String name;
         private Type(String type) { this.name = type; }

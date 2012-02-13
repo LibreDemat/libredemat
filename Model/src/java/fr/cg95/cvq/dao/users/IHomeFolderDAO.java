@@ -3,6 +3,7 @@ package fr.cg95.cvq.dao.users;
 import java.util.List;
 
 import fr.cg95.cvq.business.users.HomeFolder;
+import fr.cg95.cvq.business.users.UserAction;
 import fr.cg95.cvq.dao.jpa.IJpaTemplate;
 
 /**
@@ -14,4 +15,9 @@ public interface IHomeFolderDAO extends IJpaTemplate<HomeFolder,Long> {
      * Return the list of all known home folders.
      */
     List<HomeFolder> listAll(boolean filterArchived, boolean filterTemporary);
+
+    /**
+     * Return the list of all UserAction with type WAITING_NOTIFICATION
+     */
+    List<UserAction> waitingNotification();
 }

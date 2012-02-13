@@ -56,7 +56,8 @@ invoice : paid, no_paid
 .tag-draftdeletenotification, .tag-creationnotification,
 .tag-qos, .tag-urgent, .tag-late,
 .tag-orangealertnotification, .tag-redalertnotification, .tag-creation, .tag-modification, .tag-modified,
-.tag-statechange, .tag-contact, .tag-contactcitizen, .tag-comment, .tag-move,
+.tag-statechange, .tag-contact, .tag-contactcitizen, .tag-comment, .tag-move, .tag-waiting_notification,
+.tag-notified, .tag-notification_error,
 /* document (request creation) */
 .tag-new, .tag-pageaddition, .tag-pageedition, .tag-pagedeletion, .tag-merge,
 /* request admin actions */
@@ -84,6 +85,7 @@ invoice : paid, no_paid
 .tag-sent,
 .tag-statechange,
 .tag-rectified,
+.tag-waiting_notification,
 .tag-uncomplete    { background: #ffcc20; border-color:#ffaa20; color: #000;}
 
 /* green */
@@ -100,6 +102,7 @@ invoice : paid, no_paid
 .tag-accepted,
 .tag-lockacquired,
 .tag-creation,
+.tag-notified,
 .tag-enable        { background: #20cc20; border-color:#20aa20; }
 
 /* red */
@@ -112,6 +115,7 @@ invoice : paid, no_paid
 .tag-error,
 .tag-rejected,
 .tag-locked,
+.tag-notification_error,
 .tag-redalertnotification, .tag-late,
 .tag-disable       { background: #cc2020; border-color:#aa2020; }
 
