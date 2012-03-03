@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/rts"
+                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/rts"
+                  name=""
+                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/rts">
+   <wsdl:types>
+      <xs:schema xmlns:rts="http://www.capwebct.fr/modules/payment/schema/rts"
+                 xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/rts"
+                 elementFormDefault="qualified"
+                 attributeFormDefault="unqualified">
+
+         <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/common/CVQCommonElements.xsd"/>
+
+         <xs:element name="requestTypeSeasonRequest">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="RequestTypeLabel" type="xs:string"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+         <xs:element name="requestTypeSeasonResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="Season" type="cvq:RequestSeasonType" maxOccurs="unbounded"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="requestTypeSeasonRequestMessage">
+      <wsdl:part name="body" element="schema:requestTypeSeasonRequest"/>
+   </wsdl:message>
+   <wsdl:message name="requestTypeSeasonResponseMessage">
+      <wsdl:part name="body" element="schema:requestTypeSeasonResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="PortType">
+      <wsdl:operation name="requestTypeSeason">
+         <wsdl:input name="requestTypeSeasonInput" message="tns:requestTypeSeasonRequestMessage"/>
+         <wsdl:output name="requestTypeSeasonOutput" message="tns:requestTypeSeasonResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="Binding" type="tns:PortType">
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="requestTypeSeason">
+         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/rts/requestTypeSeason"/>
+         <wsdl:input name="requestTypeSeasonInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="requestTypeSeasonOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="Service">
+      <wsdl:port name="Port" binding="tns:Binding">
+         <wsdlsoap:address location=""/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

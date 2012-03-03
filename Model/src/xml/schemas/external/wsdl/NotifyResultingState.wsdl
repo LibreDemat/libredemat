@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.capwebct.fr/capdemat/rin"
+                  xmlns:tns="http://www.capwebct.fr/capdemat/rin"
+                  name=""
+                  targetNamespace="http://www.capwebct.fr/capdemat/rin">
+   <wsdl:types>
+      <xs:schema xmlns:rin="http://www.capwebct.fr/capdemat/rin"
+                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 xmlns:common="http://www.cg95.fr/cvq/schema/common"
+                 targetNamespace="http://www.capwebct.fr/capdemat/rin"
+                 elementFormDefault="qualified"
+                 attributeFormDefault="unqualified">
+
+         <xs:element name="NotifiyResultingStateRequest">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="RequestId" type="xs:long"/>
+                  <xs:element name="ResultingState" type="common:RequestStateType" default="Validated"/>
+                  <xs:element name="BusinessData" type="rin:BusinessDataType" minOccurs="0"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+         <xs:element name="NotifiyResultingStateResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="Accomplished" type="xs:boolean"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+         <xs:complexType name="BusinessDataType">
+            <xs:sequence>
+               <xs:element name="Data" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+            The business data to modify. This field must have exactly the same name as in the sent request.
+          </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="Value" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+            The value to set to the business field
+          </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:complexType>
+
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="NotifiyResultingStateRequestMessage">
+      <wsdl:part name="body" element="schema:NotifiyResultingStateRequest"/>
+   </wsdl:message>
+   <wsdl:message name="NotifiyResultingStateResponseMessage">
+      <wsdl:part name="body" element="schema:NotifiyResultingStateResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="PortType">
+      <wsdl:operation name="NotifiyResultingState">
+         <wsdl:input name="NotifiyResultingStateInput"
+                     message="tns:NotifiyResultingStateRequestMessage"/>
+         <wsdl:output name="NotifiyResultingStateOutput"
+                      message="tns:NotifiyResultingStateResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="Binding" type="tns:PortType">
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="NotifiyResultingState">
+         <wsdlsoap:operation soapAction="http://www.capwebct.fr/capdemat/rin/NotifiyResultingState"/>
+         <wsdl:input name="NotifiyResultingStateInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="NotifiyResultingStateOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="Service">
+      <wsdl:port name="Port" binding="tns:Binding">
+         <wsdlsoap:address location=""/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/ca"
+                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/ca"
+                  name=""
+                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/ca">
+   <wsdl:types>
+      <xs:schema xmlns:ca="http://www.capwebct.fr/modules/payment/schema/ca"
+                 xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/ca"
+                 elementFormDefault="qualified"
+                 attributeFormDefault="unqualified">
+
+         <xs:element name="CheckAvailabilityRequest">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="RequestTypeLabel" type="xs:string">
+                     <xs:annotation>
+                        <xs:documentation>
+              The label of the request type.
+            </xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+         <xs:element name="CheckAvailabilityResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="Available" type="xs:boolean" default="true"/>
+                  <xs:element name="Message" type="xs:string" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>
+              Complementary message to display if the request type is not available
+            </xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="CheckAvailabilityRequestMessage">
+      <wsdl:part name="body" element="schema:CheckAvailabilityRequest"/>
+   </wsdl:message>
+   <wsdl:message name="CheckAvailabilityResponseMessage">
+      <wsdl:part name="body" element="schema:CheckAvailabilityResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="PortType">
+      <wsdl:operation name="CheckAvailability">
+         <wsdl:input name="CheckAvailabilityInput" message="tns:CheckAvailabilityRequestMessage"/>
+         <wsdl:output name="CheckAvailabilityOutput" message="tns:CheckAvailabilityResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="Binding" type="tns:PortType">
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="CheckAvailability">
+         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/ca/CheckAvailability"/>
+         <wsdl:input name="CheckAvailabilityInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="CheckAvailabilityOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="Service">
+      <wsdl:port name="Port" binding="tns:Binding">
+         <wsdlsoap:address location=""/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
