@@ -39,10 +39,12 @@
 
   <target name="clean" depends="init">
     <delete dir="${basedir}/${build.dir}" />
+    <delete dir="${basedir}/${src.java.dir}/com" />
     <delete file="${bong.dir}/grails-app/views/backofficeRequestInstruction/external/Edemande/_externalReferentialChecks.gsp" />
     <delete file="${bong.dir}/grails-app/views/backofficeRequestInstruction/external/Edemande/_block.gsp" />
     <delete file="${bong.dir}/grails-app/views/backofficeRequestInstruction/external/Edemande/_externalStatus.gsp" />
     <delete file="${bong.dir}/grails-app/views/backofficeRequestInstruction/external/Edemande/_requestExternalActionComplementaryData.gsp" />
+    <delete file="${bong.dir}/grails-app/views/backofficeRequestInstruction/external/Edemande/_subExternalStatus.gsp" />
   </target>
 
   <target name="compile" depends="init">
