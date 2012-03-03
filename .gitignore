@@ -3,3 +3,4 @@ Libraries/fr.cg95/plugins
 Libraries/conf/deployments/local.properties
 *~
 .DS_Store
+build/
