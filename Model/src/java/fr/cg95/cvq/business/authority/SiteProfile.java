@@ -28,4 +28,10 @@ public enum SiteProfile {
     public String toString() {
         return name;
     }
+
+    public static SiteProfile forString(String name) {
+        for (SiteProfile s : allSiteProfiles)
+            if (s.name.equals(name)) return s;
+        return null;
+    }
 }

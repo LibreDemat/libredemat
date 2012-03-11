@@ -258,6 +258,14 @@
       } else {
         return true;
       }
+    }),
+    'areEqual': new me.complexRule(function(){
+      if (arguments.length < 2) return true;
+      var first = arguments[0].value;
+      for (i=1; i<arguments.length; i++)
+        if (first != arguments[i].value)
+          return false;
+      return true;
     })
   });
 

@@ -3,6 +3,7 @@ package fr.cg95.cvq.dao.authority.hibernate;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 
 import fr.cg95.cvq.business.authority.School;
 import fr.cg95.cvq.dao.authority.ISchoolDAO;
@@ -33,5 +34,21 @@ public class SchoolDAO extends JpaTemplate<School,Long> implements ISchoolDAO {
     @Override
     public List<School> getActive() {
         return (List<School>)HibernateUtil.getSession().createQuery("from School as s where s.active = true").list();
+    }
+
+    public boolean exists(String name, Long id) {
+        String request = "from School school where school.name = :name";
+        if (id != null) {
+            request += " and not school.id = :id";
+        }
+        Query query = HibernateUtil.getSession().createQuery(request)
+            .setString("name", name);
+        if (id != null) {
+            query.setLong("id", id.longValue());
+        }
+        if (query.uniqueResult() == null)
+            return false;
+        else
+            return true;
     }
 }

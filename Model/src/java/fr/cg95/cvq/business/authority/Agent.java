@@ -34,6 +34,9 @@ public class Agent implements Serializable {
     @Column(name="login")
     private String login;
 
+    @Column(name="password")
+    private String password;
+
     @Column(name="last_name")
     private String lastName;
 
@@ -70,6 +73,14 @@ public class Agent implements Serializable {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getLastName() {

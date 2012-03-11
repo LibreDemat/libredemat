@@ -16,7 +16,12 @@ public interface IAgentDAO extends IJpaTemplate<Agent,Long> {
     boolean exists(final Long id);
 
     /**
-     * Look up an agent by login.
+     * Return whether there exists an agent with the given login and with a different ID. 
+     */
+    boolean exists(final String login, final Long id);
+
+    /**
+     * Look up an Agent by login.
      */
     Agent findByLogin(final String login);
 

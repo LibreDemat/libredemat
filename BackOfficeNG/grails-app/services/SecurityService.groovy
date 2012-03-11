@@ -18,6 +18,7 @@ public class SecurityService {
                 "backofficeHomeFolder" : [/importHomeFolders/,/meansOfContact/,/moCs/,/moC/],
                 "backofficeLocalAuthority" : /.*/,
                 "backofficeLogin" : /.*/,
+                "backofficeReferential" : /.*/,
                 "backofficePayment" : /.*/,
                 "backofficeRequestAdmin" : /.*/,
                 "backofficeRequestArchives" : /.*/,
@@ -84,6 +85,14 @@ public class SecurityService {
         (ContextType.UNAUTH_ECITIZEN) :
             [controller : "frontofficeHome", action : "login"]
     ]
+
+    public Map defaultAccessPoint(ContextType contextType, String securityContext) {
+        def contextTypePoint = defaultPoints[contextType]
+        if (contextTypePoint[securityContext] == null)
+            return contextTypePoint
+        else
+            return contextTypePoint[securityContext]
+    }
 
     /**
      * According to application and user context,

@@ -1,0 +1,42 @@
+#all {
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    color: #666;
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 1em;
+    border: 3px solid #888;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+form.error {
+  border-color: red;
+}
+
+form p.error {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+form p {
+    line-height: 1.5em;
+    padding: .5em 0;
+}
+
+form label { 
+    float: left; 
+    width: 35%;
+    padding: 0 1em 0;
+    text-align: right; 
+}

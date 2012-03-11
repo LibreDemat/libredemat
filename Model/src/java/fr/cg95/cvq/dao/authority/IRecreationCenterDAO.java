@@ -24,4 +24,6 @@ public interface IRecreationCenterDAO extends IJpaTemplate<RecreationCenter,Long
      * @return The list of the active recreation centers.
      */
     List<RecreationCenter> getActive();
+
+    boolean exists(final String name, final Long id);
 }

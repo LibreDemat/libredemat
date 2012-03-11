@@ -11,6 +11,8 @@ cas_logout_url = https://<sso_domain_name>/cas/logout
 cas_mocking = false
 cas_url_pattern = /*
 
+authentication.method = cas
+
 referential.properties.path=/usr/local/CapDemat/conf/
 assets.properties.path=/usr/local/CapDemat/assets/
 assets.included_authorities=**

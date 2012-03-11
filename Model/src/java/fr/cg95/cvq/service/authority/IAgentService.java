@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import fr.cg95.cvq.business.authority.Agent;
+import fr.cg95.cvq.business.authority.SiteProfile;
 import fr.cg95.cvq.exception.CvqException;
 import fr.cg95.cvq.exception.CvqObjectNotFoundException;
 
@@ -15,10 +16,13 @@ import fr.cg95.cvq.exception.CvqObjectNotFoundException;
  */
 public interface IAgentService {
 
+    /** minimal password length for agent and admin accounts **/
+    int passwordMinLength = fr.cg95.cvq.authentication.IAuthenticationService.passwordMinLength;
+
     Long create(Agent agent)
         throws CvqException;
     
-    void modify(Agent agent);
+    void modify(Agent agent) throws CvqException;
     
     void delete(final String agentLogin);
     
@@ -38,11 +42,27 @@ public interface IAgentService {
      */
     Agent getByLogin(final String login)
         throws CvqObjectNotFoundException;
+    
+    /**
+     * Sets the new profiles of an agent
+     *
+     * @param agent the agent to modify
+     * @param siteProfiles the new profiles
+     */    
+    void setProfiles(Agent agent, final List<SiteProfile> siteProfiles)
+        throws CvqException;
 
     /**
      * Return whether an agent with the given id exists.
+     * Return agents that have a right (read or write) for the given category.
      */
     boolean exists(final Long id);
+
+    /**
+     * Return whether an agent with the given login exists,
+     * and is not the same agent (with the same ID).
+     */
+    boolean exists(final String login, final Long id);    
 
     void modifyProfiles(Agent agent, final List<String> newGroups, 
         final List<String> administratorGroups,
@@ -57,7 +77,17 @@ public interface IAgentService {
      * @return Cutoff of agent preferences
      */
     Hashtable<String, String> getPreferenceByKey(String key);
+
+    /**
+     * Return whether an agent has the Agent profile.
+     */
+    boolean isAgent(final Agent agent);
     
+    /**
+     * Return whether an agent has the Admin profile.
+     */
+    boolean isAdmin(final Agent agent);
+
     /**
      * Modify current agent preferences for the given key.
      * 

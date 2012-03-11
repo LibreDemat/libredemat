@@ -15,14 +15,17 @@ import org.apache.log4j.Logger;
 
 import fr.cg95.cvq.authentication.IAuthenticationService;
 import fr.cg95.cvq.business.users.UserState;
+import fr.cg95.cvq.business.authority.Agent;
 import fr.cg95.cvq.business.users.Adult;
 import fr.cg95.cvq.business.users.HomeFolder;
 import fr.cg95.cvq.dao.users.IAdultDAO;
+import fr.cg95.cvq.dao.authority.IAgentDAO;
 import fr.cg95.cvq.dao.users.IIndividualDAO;
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException;
 import fr.cg95.cvq.exception.CvqDisabledAccountException;
 import fr.cg95.cvq.exception.CvqModelException;
 import fr.cg95.cvq.exception.CvqUnknownUserException;
+import fr.cg95.cvq.security.SecurityContext;
 import fr.cg95.cvq.security.annotation.Context;
 import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
@@ -36,10 +39,13 @@ public class AuthenticationService implements IAuthenticationService {
 
     static Logger logger = Logger.getLogger(AuthenticationService.class);
 
+    private IAgentDAO agentDAO;
     private IIndividualDAO individualDAO;
 
     private IAdultDAO adultDAO;
 
+    private String defaultAuthenticationMethod;
+    
     private static String[] alph = {
         "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
         "P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f",
@@ -64,6 +70,21 @@ public class AuthenticationService implements IAuthenticationService {
             if (StringUtils.equals(adult.getPassword(),
                 "{SHA}" + new String(Base64.encodeBase64(md.digest()), "8859_1"))) {
                 resetAdultPassword(adult, password);
+            }
+        } catch (Exception e) {
+            logger.debug("migrateFromSHA() : could not migrate old password", e);
+        }
+    }
+
+    private void migrateFromSHA(Agent agent, String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            md.update(password.getBytes());
+            if (StringUtils.equals(agent.getPassword(),
+                "{SHA}" + new String(Base64.encodeBase64(md.digest()), "8859_1"))) {
+                String encryptedPassword = encryptPassword(password);
+                agent.setPassword(encryptedPassword);
+                agentDAO.update(agent);
             }
         } catch (Exception e) {
             logger.debug("migrateFromSHA() : could not migrate old password", e);
@@ -114,7 +135,33 @@ public class AuthenticationService implements IAuthenticationService {
         }
         return adult;
     }
+
+    public String getAuthenticationMethod() {
+        if (SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() != null)
+            return SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod();
+        else
+            return defaultAuthenticationMethod;
+    }
     
+    public Agent authenticateAgent(String login, String passwd)
+        throws CvqAuthenticationFailedException, CvqDisabledAccountException {
+        Agent agent = agentDAO.findByLogin(login);
+        if (agent == null) {
+            logger.error("authenticateAgent() inexistent login " + login);
+            throw new CvqAuthenticationFailedException("account.error.authenticationFailed");
+        }
+        if (agent.getPassword() != null && agent.getPassword().startsWith("{SHA}"))
+            migrateFromSHA(agent, passwd);
+        if (!check(passwd, agent.getPassword())) {
+            logger.error("authenticateAgent() bad password for login " + login);
+            throw new CvqAuthenticationFailedException("account.error.authenticationFailed");
+        }
+        if (!agent.getActive()) {
+            throw new CvqDisabledAccountException("account.error.disabledAccount");
+        }
+        return agent;
+    }
+
     public void resetAdultPassword(final Adult adult, final String newPassword) {
 
         String encryptedPassword = encryptPassword(newPassword);
@@ -237,5 +284,13 @@ public class AuthenticationService implements IAuthenticationService {
 
     public void setIndividualDAO(IIndividualDAO individualDAO) {
         this.individualDAO = individualDAO;
+    }
+
+    public void setAgentDAO(IAgentDAO agentDAO) {
+        this.agentDAO = agentDAO;
+    }
+
+    public void setDefaultAuthenticationMethod(String defaultAuthenticationMethod) {
+        this.defaultAuthenticationMethod = defaultAuthenticationMethod;
     }
 }

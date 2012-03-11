@@ -6,6 +6,7 @@ import zdb.core.Store
 import edu.yale.its.tp.cas.client.CASAuthenticationException
 import edu.yale.its.tp.cas.client.CASReceipt
 import edu.yale.its.tp.cas.client.ProxyTicketValidator
+import fr.cg95.cvq.authentication.IAuthenticationService
 import fr.cg95.cvq.business.authority.LocalAuthority
 import fr.cg95.cvq.dao.jpa.JpaUtil
 import fr.cg95.cvq.exception.CvqException
@@ -29,6 +30,7 @@ class SessionFilters {
     ICategoryService categoryService
     ILocalAuthorityRegistry localAuthorityRegistry
     IOAuth2Service oauth2Service
+    IAuthenticationService authenticationService
 
     static filters = {
         
@@ -216,10 +218,14 @@ class SessionFilters {
             }
         }
 
-        authenticateBackUser(uri: '/backoffice/**') {
+        casAuth(uri: '/backoffice/**') {
             before = {
             		
-            	if (org.codehaus.groovy.grails.commons.ConfigurationHolder.config.cas_mocking == 'true') {
+                if (authenticationService.getAuthenticationMethod() != "cas") {
+                    return true
+                }
+
+                if (CH.config.cas_mocking == 'true') {
             		if (session.getAttribute(CASFilter.CAS_FILTER_USER) == null) {
             			response.sendRedirect('/CapDemat/cas.gsp')
                         flash.redirect = true
@@ -236,7 +242,7 @@ class SessionFilters {
                 	// TODO : did gateway support
                 	
                    	def redirectUrl =
-                   	  "${org.codehaus.groovy.grails.commons.ConfigurationHolder.config.cas_login_url}?localAuthority=${session.getAttribute('currentSiteName')}&service=https://${request.serverName}${request.forwardURI}"
+                   	  "${CH.config.cas_login_url}?localAuthority=${session.getAttribute('currentSiteName')}&service=https://${request.serverName}${request.forwardURI}"
                    	response.sendRedirect(redirectUrl)
                     flash.redirect = true
                    	return false
@@ -246,7 +252,7 @@ class SessionFilters {
                 	try {
                 		ProxyTicketValidator pv = null;
                 		pv = new ProxyTicketValidator()
-                		pv.setCasValidateUrl(org.codehaus.groovy.grails.commons.ConfigurationHolder.config.cas_validate_url)
+                		pv.setCasValidateUrl(CH.config.cas_validate_url)
                 		pv.setServiceTicket(ticket)
                 		pv.setService("https://${request.serverName}${request.forwardURI}")
                 		pv.setRenew(false)
@@ -266,8 +272,56 @@ class SessionFilters {
             }
         }
         
+        builtinAuth(uri: '/backoffice/**') {
+            before = {
+                if (authenticationService.getAuthenticationMethod() != "builtin") {
+                    return true
+                }
+                try {
+                    SecurityContext.setCurrentContext(SecurityContext.BACK_OFFICE_CONTEXT)
+                    if (!session.currentUser) {
+                        if (controllerName != 'backofficeLogin') {
+                            redirect(controller: 'backofficeLogin')
+                            return false
+                        } else {
+                            return true
+                        }
+                    } else {
+
+                        SecurityContext.setCurrentAgent(session.currentUser)
+                        session.setAttribute("currentCredentialBean", SecurityContext.currentCredentialBean)
+
+                        def point = securityService.defineAccessPoint(
+                        	session.currentCredentialBean.hasSiteAdminRole() ?
+                        		ContextType.ADMIN : ContextType.AGENT,
+                        	SecurityContext.BACK_OFFICE_CONTEXT,
+                        	controllerName, actionName)
+                        if (point.controller != controllerName || point.action != actionName) {
+                        	redirect(controller: point.controller, action: point.action)
+                        	return false
+                        }
+        	        }
+        	    } catch (CvqObjectNotFoundException ce) {
+        	        session.currentUser = null
+        	        redirect(controller: 'backofficeLogin')
+        	        return false
+        	    } catch (CvqException ce) {
+        	        if (session.currentUser) session.currentUser = null
+                	log.error "Unexpected error while setting current agent : ${ce.message}"
+                	response.setStatus(500)
+                	render "Unexpected error while setting current agent : ${ce.message}"
+                    ce.printStackTrace()
+					return false
+        	    }
+        	}
+        }
+
         setupBackUser(uri: '/backoffice/**') {
         	before = {
+               if (authenticationService.getAuthenticationMethod() != "cas") {
+                   return true
+               }
+
                 String user = (String) session.getAttribute(CASFilter.CAS_FILTER_USER)
                 if (user != null && user.indexOf(";") != -1) {
                     // we are receiving a chain with user and groups information
@@ -369,13 +423,15 @@ class SessionFilters {
 
 		    setBackOfficeAgentForRequests(uri: '/backoffice/**') {
 			    before = {
-			        if (!categoryService.getManaged().isEmpty()) {
-				        session['isACategoryManager'] = true
-				      }
-			        else {
-				        session['isACategoryManager'] = false
-              }
-              return true
+			        if (SecurityContext.currentAgent) {
+			            if (!categoryService.getManaged().isEmpty()) {
+			                session['isACategoryManager'] = true
+			            }
+			            else {
+			                session['isACategoryManager'] = false
+			            }
+			        }
+			        return true
 			    }
 		    }
 

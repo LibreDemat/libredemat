@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import fr.cg95.cvq.business.authority.RecreationCenter;
 import fr.cg95.cvq.dao.authority.IRecreationCenterDAO;
+import fr.cg95.cvq.exception.CvqModelException;
 import fr.cg95.cvq.security.annotation.Context;
 import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
@@ -44,21 +45,48 @@ public final class RecreationCenterService implements IRecreationCenterService {
 
     @Override
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.WRITE)
-    public Long create(final RecreationCenter recreationCenter) {
+    public Long create(final RecreationCenter recreationCenter) throws CvqModelException {
         Long recreationCenterId = null;
-        if (recreationCenter != null)
+
+        if (recreationCenter != null) {
+            if (exists(recreationCenter.getName(), recreationCenter.getId())) {
+                logger.error("create() there is already a recreation center with name : " + recreationCenter.getName());
+                throw new CvqModelException("recreationCenter.error.nameAlreadyExists");
+            }
             recreationCenterId = recreationCenterDAO.create(recreationCenter).getId();
+        }
         logger.debug("Created recreation center object with id : "
             + recreationCenterId);
         return recreationCenterId;
     }
 
     @Override
-    public void modify(RecreationCenter recreationCenter) {
-        recreationCenterDAO.update(recreationCenter);
+    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.WRITE)
+    public void modify(final RecreationCenter recreationCenter)
+        throws CvqModelException {
+
+        if (recreationCenter != null) {
+            if (exists(recreationCenter.getName(), recreationCenter.getId())) {
+                logger.error("modify() there is already a recreation center with name : " + recreationCenter.getName());
+                throw new CvqModelException("recreationCenter.error.nameAlreadyExists");
+            }
+            recreationCenterDAO.update(recreationCenter);
+        }   
     }
 
     public void setDAO(IRecreationCenterDAO recreationCenterDAO) {
         this.recreationCenterDAO = recreationCenterDAO;
+    }
+
+    @Override
+    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.WRITE)
+    public void delete(final RecreationCenter recreationCenter) {
+
+        if (recreationCenter != null)
+            recreationCenterDAO.delete(recreationCenter);
+    }
+
+    public boolean exists(String name, Long id) {
+        return recreationCenterDAO.exists(name, id);
     }
 }

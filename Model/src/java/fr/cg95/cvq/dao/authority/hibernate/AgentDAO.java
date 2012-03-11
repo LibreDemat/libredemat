@@ -24,6 +24,22 @@ public class AgentDAO extends JpaTemplate<Agent,Long> implements IAgentDAO {
         return query.uniqueResult() != null;
     }
 
+    public boolean exists(String login, Long id) {
+        String request = "from Agent agent where agent.login = :login";
+        if (id != null) {
+            request += " and not agent.id = :id";
+        }
+        Query query = HibernateUtil.getSession().createQuery(request)
+            .setString("login", login);
+        if (id != null) {
+            query.setLong("id", id.longValue());
+        }
+        if (query.uniqueResult() == null)
+            return false;
+        else
+            return true;
+    }
+
     public Agent findByLogin(final String login) {
         Query query = HibernateUtil.getSession()
             .createQuery("from Agent agent where agent.login = :login ")

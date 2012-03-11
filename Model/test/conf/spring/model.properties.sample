@@ -8,10 +8,12 @@ cas_logout_url = https://localhost:8443/cas/logout
 cas_mocking = true
 cas_url_pattern = /*
 
-referential.properties.path=Model/conf/
-assets.properties.path=/home/capdemat/Model/test/assets/
-assets.included_authorities=dummy
-data.properties.path=/home/capdemat/Model/test/data/
+authentication.method = cas
+
+referential.properties.path=/home/capdemat/Conf/
+assets.properties.path=/home/capdemat/Assets/
+assets.included_authorities=enghienlesbains,saintleulaforet,jouylemoutier,zendematct
+data.properties.path=/home/capdemat/Assets/zendematct/test/data/
 
 mail.sender_host=127.0.0.1
 mail.sender_port=2500

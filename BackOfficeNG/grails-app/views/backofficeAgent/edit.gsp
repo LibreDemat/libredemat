@@ -5,6 +5,7 @@
   </title>
   <meta name="layout" content="main" />
   <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" >
+  <link rel="stylesheet" href="${resource(dir:'css/backoffice/hacks',file:'agentProfile.css')}" >
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'agentEdit.js')}"></script>
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'agentCategories.js')}"></script>
   <script type="text/javascript">
@@ -38,10 +39,23 @@
             <dd>${agent.login}</dd>
 
             <dt><g:message code="agent.property.sitesRoles" /> : </dt>
-            <dd>
-              <g:each in="${agent.sitesRoles}" var="siteRoles">
-                <g:message code="agent.siteProfile.${siteRoles.profile.toString().toLowerCase()}" /> <br />
-              </g:each>
+            <dd id="agentProfileDD">
+              <form id="agentProfileForm" action="${createLink(action:'edit')}" method="post">
+                <select name="siteProfile">
+                  <g:each in="${siteProfiles}" var="siteProfile">
+                    <option value="${siteProfile.toString()}"
+                      <g:if test="${agent.sitesRoles.iterator().next().profile.equals(siteProfile)}">
+                        selected="selected"
+                      </g:if>>
+                      <g:message code="agent.siteProfile.${siteProfile.toString().toLowerCase()}" />
+                    </option>
+                  </g:each>
+                </select>
+                <input type="hidden" name="id" value="${agent.id}" />
+                <input id="saveProfile"
+                  class="submitEditItem form-button first-button"
+                  type="button" value="${message(code:'action.save')}" />
+              </form>
             </dd>
           </dl>
         </div>

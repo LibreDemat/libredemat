@@ -108,11 +108,13 @@ p.field a.calendarLink { float : none; }
 .editableList li a.createSubItem   { background-image: url(../../images/icons/16-add.png); }
 
 .editableList li a.currentEditItem { cursor: default; }
+.editableList li a.editPassword    { background-image: url(../../images/icons/padlock.png); }
 .editableList li a:hover           { background-color: transparent;}
 
+.editableList li span.name,
 .editableList li span.itemName     { width: 35%; float: left; }
-.editableList li span.categoryName  { margin: 0 1em; font-size: 0.9em; }
-.editableList li strong             { font-weight: normal !important; }
+.editableList li span.categoryName { margin: 0 1em; font-size: 0.9em; }
+.editableList li strong            { font-weight: normal !important; }
 
 /* editable list display switcher */
 .editableListSwithcher { padding: .5em 5%; text-align: right; }
@@ -124,9 +126,14 @@ p.field a.calendarLink { float : none; }
   color: #000000;
 }
 
+.editableListSwithcher a.createItem {
+  padding: 0 21px 0 0; font-size: 1.3em;
+  background: transparent url(../../images/icons/16-add.png) no-repeat scroll right center;
+}
+
 .editableListSwithcher a#linkShowDatasheet {
   padding: 0 21px 0 0; font-size: 1.3em;
-  background: transparent url(../../images/icons/16-add.png) no-repeat right 4px;
+  background: transparent url(../../images/icons/16-add.png) no-repeat scroll right center;
 }
 
 .editableListSwithcher a:hover,
@@ -154,7 +161,13 @@ form.editable-list-form ul li .tag-read_only  { color: #2020cc; }
 form.editable-list-form ul li .tag-read_write { color: #ec7000; }
 form.editable-list-form ul li .tag-manager    { color: #aa00ff; }
 
-
+form span.legend {
+  float : left;
+  margin : 1em;
+  font-style : italic;
+  font-size : 0.8em;
+}
+  
 /* table display
    display definition list with appearance of a table
 -------------------------------------------------------------- */

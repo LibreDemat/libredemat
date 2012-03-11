@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import fr.cg95.cvq.authentication.IAuthenticationService;
 import fr.cg95.cvq.business.authority.Agent;
 import fr.cg95.cvq.business.authority.SiteProfile;
 import fr.cg95.cvq.business.authority.SiteRoles;
@@ -20,17 +21,19 @@ import fr.cg95.cvq.security.annotation.Context;
 import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
 import fr.cg95.cvq.service.authority.IAgentService;
+import fr.cg95.cvq.service.authority.ILocalAuthorityLifecycleAware;
 
 /**
  * Implementation of the agent service.
  *
  * @author Benoit Orihuela (bor@zenexity.fr)
  */
-public final class AgentService implements IAgentService {
+public final class AgentService implements IAgentService, ILocalAuthorityLifecycleAware {
 
     private static Logger logger = Logger.getLogger(AgentService.class);
 
     private IAgentDAO agentDAO;
+    private IAuthenticationService authenticationService;
 
     @Override
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
@@ -38,8 +41,22 @@ public final class AgentService implements IAgentService {
         
         if (agent == null)
             throw new CvqException("No agent object provided");
-        if (agentDAO.findByLogin(agent.getLogin()) != null)
-            throw new CvqModelException("");
+
+        if (exists(agent.getLogin(), agent.getId())) {
+            logger.error("create() there is already an agent with login : " + agent.getLogin());
+            throw new CvqModelException("agent.error.loginAlreadyExists");
+        }
+        //FIXME empty passwords on application launch
+        if (agent.getPassword() == null || agent.getPassword().isEmpty()) {
+            agent.setPassword("aaaaaaaa");
+        }
+        agent.setPassword(authenticationService.encryptPassword(agent.getPassword()));
+        if (agent.getSitesRoles() == null) {
+            SiteRoles siteRoles = new SiteRoles(SiteProfile.AGENT, agent);
+            Set<SiteRoles> siteRolesSet = new HashSet<SiteRoles>(1);
+            siteRolesSet.add(siteRoles);
+            agent.setSitesRoles(siteRolesSet);
+        }
         Long agentId = agentDAO.create(agent).getId();
         logger.debug("Created agent object with id : " + agentId);
         return agentId;
@@ -47,8 +64,12 @@ public final class AgentService implements IAgentService {
 
     @Override
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
-    public void modify(final Agent agent) {
+    public void modify(final Agent agent) throws CvqException {
         if (agent != null) {
+            if (exists(agent.getLogin(), agent.getId())) {
+                logger.error("modify() there is already an agent with login : " + agent.getLogin());
+                throw new CvqModelException("agent.error.loginAlreadyExists");
+            }
             agentDAO.update(agent);
         }
     }
@@ -70,6 +91,38 @@ public final class AgentService implements IAgentService {
     @Override
     public boolean exists(Long id) {
         return agentDAO.exists(id);
+    }
+
+    public boolean exists(String login, Long id) {
+        return agentDAO.exists(login, id);
+    }
+
+    @Override
+    @Context(types={ContextType.ADMIN},privilege=ContextPrivilege.NONE)
+    public boolean isAgent(Agent agent) {
+
+        if (agent != null) {
+            for (SiteRoles siteRoles : agent.getSitesRoles()) {
+                if (siteRoles.getProfile().equals(SiteProfile.AGENT)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    @Context(types={ContextType.ADMIN},privilege=ContextPrivilege.NONE)
+    public boolean isAdmin(Agent agent) {
+
+        if (agent != null) {
+            for (SiteRoles siteRoles : agent.getSitesRoles()) {
+                if (siteRoles.getProfile().equals(SiteProfile.ADMIN)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -150,8 +203,7 @@ public final class AgentService implements IAgentService {
                     adminSiteRoles.setAgent(agent);
                     agent.getSitesRoles().clear();
                     agent.getSitesRoles().add(adminSiteRoles);
-
-                    modify(agent);
+                    agentDAO.update(agent);
                 }
 
                 return;
@@ -181,12 +233,25 @@ public final class AgentService implements IAgentService {
                 defaultSiteRoles.setAgent(agent);
                 agent.getSitesRoles().clear();
                 agent.getSitesRoles().add(defaultSiteRoles);
-
-                modify(agent);
+                agentDAO.update(agent);
             }
         }
     }
-    
+
+    @Override
+    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    public void setProfiles(Agent agent, final List<SiteProfile> siteProfiles)
+        throws CvqException {
+
+        if (agent == null)
+            throw new CvqException("No agent object provided");
+
+        agent.getSitesRoles().clear();
+        for (SiteProfile siteProfile : siteProfiles) {
+            agent.getSitesRoles().add(new SiteRoles(siteProfile, agent));
+        }
+    }
+
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.NONE)
     public Hashtable<String, String> getPreferenceByKey(String key) {
@@ -203,10 +268,40 @@ public final class AgentService implements IAgentService {
         if (agent.getPreferences() == null)
             agent.setPreferences(new Hashtable<String, Hashtable<String,String>>());
         agent.getPreferences().put(key, preference);
-        modify(agent);
+        agentDAO.update(agent);
     }
-    
+
+    @Override
+    public void addLocalAuthority(String localAuthorityName) {
+        String agentLogin = "admin." + SecurityContext.getCurrentSite().getName();
+        if (authenticationService.getAuthenticationMethod().equals("builtin")
+                && agentDAO.findByLogin(agentLogin) == null) {
+            logger.debug("addLocalAuthority() in builtin auth mode, creating default admin");
+            Agent agent = new Agent();
+            agent.setActive(Boolean.TRUE);
+            agent.setLogin(agentLogin);
+            agent.setFirstName("admin");
+            agent.setLastName(SecurityContext.getCurrentSite().getName());
+            agent.setPassword(authenticationService.encryptPassword(agentLogin));
+            SiteRoles siteRoles = new SiteRoles();
+            siteRoles.setAgent(agent);
+            siteRoles.setProfile(SiteProfile.ADMIN);
+            Set<SiteRoles> siteRolesSet = new HashSet<SiteRoles>();
+            siteRolesSet.add(siteRoles);
+            agent.setSitesRoles(siteRolesSet);
+            agentDAO.create(agent);
+        }
+    }
+
+    @Override
+    public void removeLocalAuthority(String localAuthorityName) {
+    }
+
     public void setAgentDAO(IAgentDAO agentDAO) {
         this.agentDAO = agentDAO;
+    }
+
+    public void setAuthenticationService(IAuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
     }
 }

@@ -789,12 +789,13 @@
 
     create table agent (
         id int8 not null,
-        active bool,
-        email varchar(255),
-        first_name varchar(255),
-        last_name varchar(255),
         login varchar(255),
+        password varchar(255),
+        last_name varchar(255),
+        first_name varchar(255),
+        active bool,
         preferences bytea,
+        email varchar(255),
         primary key (id)
     );
 

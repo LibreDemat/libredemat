@@ -16,6 +16,11 @@ public interface ISchoolDAO extends IJpaTemplate<School,Long> {
     School findByName(final String name);
 
     /**
+     * Return whether there exists a school with the given name and with a different ID.
+     */
+    boolean exists(final String name, final Long id);
+
+    /**
      * Return the list of all known schools.
      */
     List<School> listAll();

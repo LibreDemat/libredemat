@@ -12,6 +12,8 @@ cas_logout_url = https://localhost:8443/cas/logout
 cas_mocking = true
 cas_url_pattern = /*
 
+authentication.method = builtin
+
 referential.properties.path=/home/bor/capdemat/Model/conf/
 assets.properties.path=/home/bor/capdemat/Assets/
 assets.included_authorities=blainville

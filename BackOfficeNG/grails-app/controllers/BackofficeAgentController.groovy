@@ -1,3 +1,4 @@
+import fr.cg95.cvq.business.authority.SiteProfile;
 import fr.cg95.cvq.service.authority.IAgentService
 
 import grails.converters.JSON
@@ -28,10 +29,16 @@ class BackofficeAgentController {
            params.id = params.agentId
 
         def agent = agentService.getById(Long.valueOf(params.id))
-        def agents = agentService.getAll()
-        // hack to load sitesRoles
-        agent.sitesRoles.each {}
-              
-        return [agents:agents, agent:agent, scope:"Agent"]
+        if (request.get) {
+            def agents = agentService.getAll()
+            // hack to load sitesRoles
+            agent.sitesRoles.each {}
+            return [agents:agents, agent:agent,
+                    siteProfiles : SiteProfile.allSiteProfiles, scope:"Agent"]
+        } else if (request.post) {
+            agentService.setProfiles(agent,
+                [SiteProfile.forString(params.siteProfile)])
+            render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+        }
     }
 }

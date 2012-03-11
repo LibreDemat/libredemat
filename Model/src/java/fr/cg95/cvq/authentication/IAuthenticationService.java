@@ -1,5 +1,6 @@
 package fr.cg95.cvq.authentication;
 
+import fr.cg95.cvq.business.authority.Agent;
 import fr.cg95.cvq.business.users.Adult;
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException;
 import fr.cg95.cvq.exception.CvqDisabledAccountException;
@@ -21,6 +22,21 @@ public interface IAuthenticationService {
     Adult authenticate(final String login, final String passwd)
         throws CvqModelException, CvqUnknownUserException,
                CvqAuthenticationFailedException, CvqDisabledAccountException;
+
+    /**
+     * Return the supported BO authentication method for the current local authority.
+     */
+    String getAuthenticationMethod();
+
+    /**
+     * Authenticate an agent with login/password (builtin authentication mode).
+     *
+     * @return the authenticated agent object is sucessful
+     * @throws CvqAuthenticationFailedException
+     * @throws CvqDisabledAccountException
+     */
+    Agent authenticateAgent(final String login, final String password)
+        throws CvqAuthenticationFailedException, CvqDisabledAccountException;
 
     String encryptPassword(final String clearPassword);
 
