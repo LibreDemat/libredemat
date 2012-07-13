@@ -19,4 +19,9 @@ public interface IDocumentTypeDAO extends IJpaTemplate<DocumentType, Long> {
      * Return the list of all known documents types.
      */
     List<DocumentType> listAll();
+    Integer getNextTypeId();
+
+    Boolean isRequiredByARequest(Long documentTypeId);
+    Boolean isUsedInARequest(Long documentTypeId);
+    Boolean nameAlreadyInUse(String name);
 }

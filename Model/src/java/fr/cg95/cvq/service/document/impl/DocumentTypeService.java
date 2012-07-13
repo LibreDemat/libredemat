@@ -61,4 +61,38 @@ public class DocumentTypeService
     public void setDocumentBootstrapper(DocumentBootstrapper documentBootstrapper) {
         this.documentBootstrapper = documentBootstrapper;
     }
+
+    @Override
+    public DocumentType create(DocumentType type) {
+        return this.documentTypeDAO.create(type);
+    }
+
+    @Override
+    public void update(DocumentType type) {
+        this.documentTypeDAO.update(type);
+    }
+
+    @Override
+    public void delete(DocumentType type) {
+        this.documentTypeDAO.delete(type);
+    }
+
+    @Override
+    public Integer getNextTypeId() {
+        return this.documentTypeDAO.getNextTypeId();
+    }
+
+    @Override
+    public Boolean isRequiredByARequest(Long documentTypeId) {
+        return this.documentTypeDAO.isRequiredByARequest(documentTypeId);
+    }
+    @Override
+    public Boolean isUsedInARequest(Long documentTypeId) {
+        return this.documentTypeDAO.isUsedInARequest(documentTypeId);
+    }
+
+    @Override
+    public Boolean nameAlreadyInUse(String name) {
+        return this.documentTypeDAO.nameAlreadyInUse(name);
+    }
 }

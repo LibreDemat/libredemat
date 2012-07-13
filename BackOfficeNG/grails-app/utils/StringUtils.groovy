@@ -1,3 +1,4 @@
+import org.apache.commons.lang3.StringUtils as clSU
 
 public class StringUtils {
     
@@ -22,6 +23,22 @@ public class StringUtils {
                 isNewWord = true
         }
         return pascalCaseSb.toString()
+    }
+
+    /**
+     *  Remove accents an special characters
+     */
+    public static String cleanString(String str) {
+        return clSU.stripAccents(str).replaceAll("[\\W]|_", " ").trim().replaceAll(" +", " ");
+    }
+
+    /**
+     * Transform a string like 'First_NaME' or 'FirstNaME' to 'firstNaME'
+     */
+    public static String toCamelCase(String s){
+        s = s.replaceAll( "([a-z])([A-Z])", "\$1@\$2" ) //add @ between words
+        s = s.replaceAll( "([_@])([A-Za-z0-9])", { Object[] it -> it[2].toUpperCase() } )
+        return s
     }
 
     /**

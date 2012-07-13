@@ -1,5 +1,5 @@
 import fr.cg95.cvq.business.request.RequestState;
-
+import org.apache.commons.lang3.StringUtils as clSU
 
 class CapdematUtils {
 
@@ -38,7 +38,20 @@ class CapdematUtils {
     }
 
     public static adaptDocumentTypeName(name) {
-        return "documentType."+ StringUtils.firstCase(name.replaceAll(' ',''),"Lower")
+        return "documentType."+ this.codifyName(name)
+    }
+
+    public static codifyName(name) {
+        try {
+            return StringUtils.firstCase(
+                StringUtils.toCamelCase(
+                    StringUtils.cleanString(name)
+                        .replaceAll(" ", "_")
+                ).replaceAll("_", "")
+            , 'Lower')
+        } catch(NullPointerException e) {
+            return '';
+        }
     }
 
     public static requestTypeLabelAsDir(label) {

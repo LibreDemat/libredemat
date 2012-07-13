@@ -80,4 +80,16 @@ public interface IDocumentTypeService {
      * Get all known document types.
      */
     List<DocumentType> getAllDocumentTypes();
+
+    DocumentType create(DocumentType type);
+
+    void update(DocumentType type);
+
+    void delete(DocumentType object);
+
+    Integer getNextTypeId();
+
+    Boolean isRequiredByARequest(Long documentTypeId);
+    Boolean isUsedInARequest(Long documentTypeId);
+    Boolean nameAlreadyInUse(String name);
 }

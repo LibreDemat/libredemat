@@ -9,6 +9,9 @@ import fr.cg95.cvq.dao.document.IDocumentTypeDAO;
 import fr.cg95.cvq.dao.jpa.JpaTemplate;
 import fr.cg95.cvq.dao.hibernate.HibernateUtil;
 import fr.cg95.cvq.util.Critere;
+import java.math.BigInteger;
+import fr.cg95.cvq.dao.jpa.JpaUtil;
+
 
 /**
  * Implementation of the {@link IDocumentTypeDAO} interface.
@@ -27,5 +30,31 @@ public class DocumentTypeDAO extends JpaTemplate<DocumentType,Long> implements I
     public List<DocumentType> listAll() {
         return (List<DocumentType>)HibernateUtil.getSession()
             .createQuery("from DocumentType as documentType").list();
+    }
+
+    public Integer getNextTypeId() {
+        String sql ="SELECT max(type)+1 FROM document_type";
+        return (Integer)HibernateUtil.getSession().createSQLQuery(sql).uniqueResult();
+    }
+
+    public Boolean isRequiredByARequest(Long documentTypeId) {
+        return ((BigInteger)JpaUtil.getEntityManager()
+                .createNativeQuery("SELECT count(*) FROM requirement WHERE document_type_id = :doc_id")
+                .setParameter("doc_id", documentTypeId)
+                .getSingleResult()).intValue() != 0;
+    }
+
+    public Boolean isUsedInARequest(Long documentTypeId) {
+        return ((BigInteger)JpaUtil.getEntityManager()
+                .createNativeQuery("SELECT count(*) FROM document WHERE document_type_id = :doc_id")
+                .setParameter("doc_id", documentTypeId)
+                .getSingleResult()).intValue() != 0;
+    }
+
+    public Boolean nameAlreadyInUse(String name) {
+        return ((BigInteger)JpaUtil.getEntityManager()
+                .createNativeQuery("SELECT count(document_type.name) FROM document_type WHERE lower(name) = lower(:name)")
+                .setParameter("name", name)
+                .getSingleResult()).intValue() != 0;
     }
 }
