@@ -363,39 +363,32 @@ public class RequestTypeService implements IRequestTypeService, ILocalAuthorityL
         if (seasonContainer.getEffectEnd() == null)
             throw new CvqModelException("request.season.effect_end_required");
 
-        // check registration start
-        if (seasonContainer.getId() == null
-            && seasonContainer.getRegistrationStart().isBeforeNow())
-            throw new CvqModelException("request.season.registration_start_before_now");
-
         // check scheduling chronological respect
-        if (!seasonContainer.getRegistrationStart().isBefore(seasonContainer.getRegistrationEnd()))
+        if (!(seasonContainer.getRegistrationStart().isBefore(seasonContainer.getRegistrationEnd())
+            || seasonContainer.getRegistrationStart().isEqual(seasonContainer.getRegistrationEnd())))
             throw new CvqModelException("request.season.registration_start_after_registration_end");
-        if (!seasonContainer.getEffectStart().isBefore(seasonContainer.getEffectEnd()))
+        if (!(seasonContainer.getEffectStart().isBefore(seasonContainer.getEffectEnd())
+            || seasonContainer.getEffectStart().isEqual(seasonContainer.getEffectEnd())))
             throw new CvqModelException("request.season.effect_start_after_effect_end");
 
         // Registration and effect date overlapping policy
-        if (!seasonContainer.getRegistrationStart().isBefore(seasonContainer.getEffectStart()))
+        if (!(seasonContainer.getRegistrationStart().isBefore(seasonContainer.getEffectStart())
+              || seasonContainer.getRegistrationStart().isEqual(seasonContainer.getEffectStart())))
             throw new CvqModelException("request.season.registration_start_after_effect_start");
-        if (!seasonContainer.getRegistrationEnd().isBefore(seasonContainer.getEffectEnd()))
+        if (!(seasonContainer.getRegistrationEnd().isBefore(seasonContainer.getEffectEnd())
+              || seasonContainer.getRegistrationEnd().isEqual(seasonContainer.getEffectEnd())))
             throw new CvqModelException("request.season.registration_end_after_effect_end");
+
+        if (seasonContainer.getEffectEnd().isBeforeNow())
+          throw new CvqModelException("request.season.effect_ended");
+        if (seasonContainer.getRegistrationEnd().isBeforeNow())
+          throw new CvqModelException("request.season.registration_ended");
 
         for(RequestSeason rs : seasons) {
             if (!rs.getId().equals(seasonContainer.getId())) {
                 // test the label uniqueness
                 if (rs.getLabel().equals(seasonContainer.getLabel()))
                     throw new CvqModelException("request.season.already_used_label");
-            }
-            // This rules apply just for modification
-            else {
-                if (rs.getEffectEnd().isBeforeNow())
-                    throw new CvqModelException("request.season.effect_ended");
-                if (rs.getRegistrationStart().isBeforeNow()
-                    && !rs.getRegistrationStart().equals(seasonContainer.getRegistrationStart()))
-                    throw new CvqModelException("request.season.registration_started");
-                if (rs.getRegistrationEnd().isBeforeNow()
-                    && !rs.getRegistrationEnd().equals(seasonContainer.getRegistrationEnd()))
-                    throw new CvqModelException("request.season.registration_ended");
             }
         }
     }

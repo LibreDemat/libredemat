@@ -1,6 +1,11 @@
 <form id="seasonForm_${season?.id}" class="listItem" action="${createLink(action:'editSeason')}" method="post">
   <input type="hidden" name="requestTypeId" value="${requestTypeId}" />
   <input type="hidden" name="id" value="${season?.id}" />
+  <div class="help mainbox">
+    <h3><g:message code="requestSeason.action.addSeason.help"/></h3>
+    <p class="message"><g:message code="requestSeason.action.addSeason.helpmessage"/></p>
+  </div>
+  <br/>
   <p>
     <label class="required" for="label"><g:message code="requestSeason.property.label"/> * :</label>
     <input type="text" name="label" class="required" value="${season?.label}" />
@@ -42,7 +47,7 @@
   </p>
   <p id="error-container_${season?.id}" class="error"></p>
   <p class="button">
-    <input id="saveSeason_${season?.id}" name="save" type="button"" value="${message(code:'action.save')}" />
+    <input id="saveSeason_${season?.id}" name="save" type="button" value="${message(code:'action.save')}" />
     <input id="cancelEditSeason_${season?.id}" name="cancel" type="button" value="${message(code:'action.close')}" />
   </p>
 </form>

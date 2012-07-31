@@ -11,10 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
 import org.joda.time.DateMidnight;
 
 import fr.cg95.cvq.xml.common.RequestSeasonType;
@@ -45,8 +44,7 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
 
     /** date until which users can issue new requests */
     @Column(name="registration_end",nullable=false)
-    @Type(type="fr.cg95.cvq.dao.hibernate.PersistentDateMidnight")
-    private DateMidnight registrationEnd;
+    private DateTime registrationEnd;
 
     /**
      * can block validations for a given season
@@ -63,8 +61,7 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
 
     /** date to which registration will be considered as active */
     @Column(name="effect_end", nullable=false)
-    @Type(type="fr.cg95.cvq.dao.hibernate.PersistentDateMidnight")
-    private DateMidnight effectEnd;
+    private DateTime effectEnd;
 
     public final RequestType getRequestType() {
         return requestType;
@@ -74,12 +71,12 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
         this.requestType = requestType;
     }
 
-    public final DateMidnight getEffectEnd() {
+    public final DateTime getEffectEnd() {
         return effectEnd;
     }
 
-    public final void setEffectEnd(DateMidnight effectEnd) {
-        this.effectEnd = effectEnd;
+    public final void setEffectEnd(DateTime effectEnd) {
+        this.effectEnd = effectEnd.withHourOfDay(23).withMinuteOfHour(59).withSecondOfMinute(59);
     }
 
     public final DateMidnight getEffectStart() {
@@ -98,12 +95,12 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
         this.label = label;
     }
 
-    public final DateMidnight getRegistrationEnd() {
+    public final DateTime getRegistrationEnd() {
         return registrationEnd;
     }
 
-    public final void setRegistrationEnd(DateMidnight registrationEnd) {
-        this.registrationEnd = registrationEnd;
+    public final void setRegistrationEnd(DateTime registrationEnd) {
+        this.registrationEnd = registrationEnd.withHourOfDay(23).withMinuteOfHour(59).withSecondOfMinute(59);
     }
 
     public final DateMidnight getRegistrationStart() {
@@ -176,10 +173,10 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
         requestSeason.setId(requestSeasonType.getId());
         requestSeason.setLabel(requestSeasonType.getLabel());
         requestSeason.setRegistrationStart(new DateMidnight(requestSeasonType.getRegistrationStart()));
-        requestSeason.setRegistrationEnd(new DateMidnight(requestSeasonType.getRegistrationEnd()));
+        requestSeason.setRegistrationEnd(new DateTime(requestSeasonType.getRegistrationEnd()));
         requestSeason.setValidationAuthorizationStart(new DateMidnight(requestSeasonType.getValidationAuthorizationStart()));
         requestSeason.setEffectStart(new DateMidnight(requestSeasonType.getEffectStart()));
-        requestSeason.setEffectEnd(new DateMidnight(requestSeasonType.getEffectEnd()));
+        requestSeason.setEffectEnd(new DateTime(requestSeasonType.getEffectEnd()));
         return requestSeason;
     }
 }

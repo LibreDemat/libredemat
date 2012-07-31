@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.joda.time.DateTime;
 import org.joda.time.DateMidnight;
 
 import fr.cg95.cvq.business.request.Category;
@@ -165,10 +166,10 @@ public class BusinessObjectsFactory {
         RequestSeason requestSeason = new RequestSeason();
         requestSeason.setLabel(label);
         requestSeason.setRegistrationStart(new DateMidnight().plusMonths(registrationStartOffset));
-        requestSeason.setRegistrationEnd(new DateMidnight().plusMonths(registrationEndOffset));
-        requestSeason.setValidationAuthorizationStart(requestSeason.getRegistrationEnd());
+        requestSeason.setRegistrationEnd(new DateTime().plusMonths(registrationEndOffset));
+        requestSeason.setValidationAuthorizationStart(new DateMidnight(requestSeason.getRegistrationEnd()));
         requestSeason.setEffectStart(new DateMidnight().plusMonths(effectStartOffset));
-        requestSeason.setEffectEnd(new DateMidnight().plusMonths(effectEndOffset));
+        requestSeason.setEffectEnd(new DateTime().plusMonths(effectEndOffset));
         return requestSeason;
     }
 }

@@ -148,7 +148,7 @@
       },
 
       displayErrors: function(errorsEl, errorMsgs) {
-        zct.html(errorsEl, errorMsgs.join('').length > 0 ? errorMsgs.join('<br />') : 'Certains champs ne sont pas correctement remplis, merci de v&eacute;rifier les champs en rouge');
+        zct.html(errorsEl, errorMsgs.join('').length > 0 ? zct.uniq(errorMsgs).join('<br />') : 'Certains champs ne sont pas correctement remplis, merci de v&eacute;rifier les champs en rouge');
       },
 
       checkComplexRules: function(errorMsgs) {
@@ -206,11 +206,21 @@
     'alpha': new me.rule('regex', /^[a-zA-Z]+$/),
     'alphanum': new me.rule('regex', /\W/), //false
     'date': new me.rule('func', function(f){
-      var in_year = parseInt(f.value.split('/')[2]);
-      var in_month = parseInt(f.value.split('/')[1].replace(/^0+/g, ""));
-      var in_day = parseInt(f.value.split('/')[0].replace(/^0+/g, ""));
-      var d = new Date(in_year, in_month-1, in_day);
-      return (d.getFullYear() == in_year && d.getMonth()+1 == in_month && d.getDate() == in_day);
+      var valid = false
+      if(f.value.split('/').length != 3) valid = false
+      else {
+        var splitted = f.value.split('/')
+        if(splitted[2].length != 4) valid = false
+        else {
+          var in_year = parseInt(splitted[2]);
+          var in_month = parseInt(f.value.split('/')[1].replace(/^0+/g, ""));
+          var in_day = parseInt(f.value.split('/')[0].replace(/^0+/g, ""));
+          var d = new Date(in_year, in_month-1, in_day);
+          valid = (d.getFullYear() == in_year && d.getMonth()+1 == in_month && d.getDate() == in_day);
+        }
+      }
+      if(!valid) f.errorMsg = "La date doit être au format JJ/MM/AAAA"
+      return valid
     }),
     'email': new me.rule('regex', /\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$/),
     'url': new me.rule('regex', /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i),

@@ -208,6 +208,27 @@
   };
 
   /**
+   * @description Returns an array containning only unique elements from the passed array
+   * @method uniq
+   * @namespace zenexity.capdemat.tools
+   * @param arr {Array} array used as source
+   * @returns {Array} array containning all elements from first array with no duplicates
+   *
+   * @author ama@zenexity.com
+   **/
+  zct.uniq = function(arr) {
+    var seen = []
+    var results = []
+    for(var i = 0; i < arr.length; i++ ) {
+      if(zct.inArray(arr[i], seen) == -1) {
+        results.push(arr[i])
+        seen.push(arr[i])
+      }
+    }
+    return results
+  }
+
+  /**
    * @description Check if an object is a function (more sophisticated check that YUI)
    * @method isFunction
    * @namespace zenexity.capdemat.tools
