@@ -459,3 +459,16 @@ select { display: block; }
   width:  183px !important;
   height: 400px !important;
 }
+/* Texts & helps configuration
+-------------------------------------------------------------- */
+#texts p.field {
+  border-bottom: 0;
+}
+#texts .step-form {
+  padding: 5px 0 0 0;
+}
+#texts #save {
+  float: right;
+  margin: 5px 0;
+  font-size: 1.2em;
+}

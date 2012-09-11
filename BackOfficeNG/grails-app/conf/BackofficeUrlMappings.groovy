@@ -6,6 +6,7 @@ class BackofficeUrlMappings {
     "/backoffice/requestType/$action?/$id?" (controller : "backofficeRequestType" )
     "/backoffice/email/states/$state" (controller : "backofficeEmail", action = [GET : "email", POST : "saveEmail"])
     "/backoffice/email/$action?/$id?" (controller : "backofficeEmail")
+    "/backoffice/requestType/help/$id/step/$step" (controller : "backofficeRequestType", action = [GET : "helpFile", POST : "saveHelpFile"])
     "/backoffice/payment/$action?/$id?" (controller : "backofficePayment" )
     "/backoffice/category/$action?/$id?" (controller : "backofficeCategory" )
     "/backoffice/request/$action?/$id?" (controller : "backofficeRequest" )

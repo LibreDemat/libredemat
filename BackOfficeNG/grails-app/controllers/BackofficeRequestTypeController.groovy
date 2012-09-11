@@ -20,6 +20,7 @@ import fr.cg95.cvq.util.Critere
 
 import org.springframework.web.context.request.RequestContextHolder
 import org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine
+import org.apache.commons.lang.StringUtils
 
 import java.io.File
 import java.util.Collections
@@ -113,7 +114,8 @@ class BackofficeRequestTypeController {
             "delays" : ["requestType.configuration.delays", false],
             "documents" : ["requestType.configuration.documentType", false],
             "steps" : ["requestType.configuration.steps", false],
-            "emails" : ["requestType.configuration.emails", false]
+            "emails" : ["requestType.configuration.emails", false],
+            "texts" : ["requestType.configuration.texts", false]
         ]
         if (requestTypeService.getRulesAcceptanceFieldNames(requestType.id).size() > 0) {
             result["configurationItems"]["rules"] = ["requestType.configuration.rules", false]
@@ -549,6 +551,79 @@ class BackofficeRequestTypeController {
             view:'configure',
             model:['states':states].plus(getCommonModel(requestType))
         )
+    }
+
+    /* Texts & helps related actions
+     * ------------------------------------------------------------------------------------------ */
+
+    def texts = {
+        def id = Long.valueOf(params.id)
+        def requestType = requestTypeService.getRequestTypeById(id)
+        def keys = requestServiceRegistry.getRequestService(requestType.getLabel())
+                                         .getSkeletonRequest()
+                                         .getStepStates().keySet()
+        def acronym = RequestTypeAdaptorService.generateAcronym(requestType.getLabel())
+
+        def steps = ['introduction':message(code:'requestType.configuration.texts.intro')]
+        steps = keys.inject(steps, { map, step ->
+            def code = acronym + '.step.' + step + '.label'
+            map[step] = message(code:'requestType.configuration.texts.help') \
+                      + ' ' \
+                      + message(code:code, default:StringUtils.capitalize(step))
+            return map
+        })
+
+        render(
+            view:'configure',
+            model:['steps':steps].plus(getCommonModel(requestType))
+        )
+    }
+
+    def helpFile = {
+        def id = Long.valueOf(params.id)
+        def requestType = requestTypeService.getRequestTypeById(id)
+
+        def step = params.step
+        def dir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+        File file = localAuthorityRegistry.getLocalAuthorityResourceFile(
+            Type.HTML,
+            'request/' + dir + '/' + step,
+            false)
+        def text
+        try {
+            text = file.getText('utf-8')
+        } catch(FileNotFoundException fnfe) {
+            text = ''
+        } finally {
+            render(text:text)
+        }
+    }
+
+    def saveHelpFile = {
+        def id = Long.valueOf(params.id)
+        def requestType = requestTypeService.getRequestTypeById(id)
+
+        def step = params.step
+        if (!requestType) {
+            render(status:404, text:['message':message(code:'requestType.configuration.unknownRequestType')] as JSON)
+            return
+        }
+        def dir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+
+        def html = params.html ?: ''
+
+        if (html) {
+          localAuthorityRegistry.saveLocalAuthorityResource(
+              Type.HTML,
+              'request/' + dir + '/' + step,
+              html.getBytes('UTF-8'))
+          render message(code:'message.updateDone')
+        } else {
+          localAuthorityRegistry.removeLocalAuthorityResource(
+              Type.HTML,
+              'request/' + dir + '/' + step)
+          render message(code:'message.updateDone')
+        }
     }
 
     def ticketBooking = {
