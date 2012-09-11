@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${resource(dir:'css/backoffice/common',file:'layout.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css/backoffice/common',file:'box.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css/common',file:'tag.css')}" />
+<link rel="stylesheet" href="${resource(dir:'css/common',file:'cf.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css/backoffice/common',file:'form.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css/backoffice/common',file:'list.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css/backoffice/common',file:'panel.css')}" />
@@ -25,11 +26,15 @@
 <link rel="stylesheet" href="${resource(dir:'css/backoffice/hacks',file:'ie7.css')}" />
 <![endif]-->
 
+<!-- DOM event -->
+<script src="${resource(dir:'js/yui/yahoo-dom-event',file:'yahoo-dom-event.js')}"></script>
+<!-- Element -->
+<script src="${resource(dir:'js/yui/element',file:'element-min.js')}"></script>
 <!-- Utilities -->
 <script type="text/javascript" src="${resource(dir:'js/yui/utilities',file:'utilities.js')}"></script>
 <!-- Dialog Container -->
 <script type="text/javascript" src="${resource(dir:'js/yui/container',file:'container-min.js')}"></script>
-<!-- Depedency for Datatable -->
+<!-- Data source -->
 <script type="text/javascript" src="${resource(dir:'js/yui/datasource',file:'datasource-min.js')}"></script>
 <!-- Datatable -->
 <script type="text/javascript" src="${resource(dir:'js/yui/paginator',file:'paginator-min.js')}"></script>

@@ -272,6 +272,7 @@ class BackofficeContactController {
 
     // directly taken from RequestInstructionController
     // TODO request decoupling
+    //      and use RequestNotificationService.evaluate() for templating.
     private prepareTemplate(requestId,formId,observations,meansOfContact,type) {
 
         def requestAttributes = RequestContextHolder.currentRequestAttributes()

@@ -240,6 +240,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="localAuthorityRegistry"><ref bean="localAuthorityRegistry"/></property>
     <property name="translationService" ref="translationService"/>
     <property name="agentService" ref="agentService" />
+    <property name="requestSearchService" ref="requestSearchService" />
   </bean>
 
   <bean id="requestStatisticsService" class="fr.cg95.cvq.service.request.impl.RequestStatisticsService">

@@ -430,3 +430,28 @@ select { display: block; }
 }
 
 .overviewConfigurationList p { padding: .3em .5em; }
+
+/* E-mails
+-------------------------------------------------------------- */
+#emails p.field {
+  border-bottom: 0;
+}
+#emails .state-form {
+  padding: 5px 0 0 0;
+}
+#emails input {
+  float: right;
+  margin: 5px 0 5px 5px;
+  font-size: 1.2em;
+  padding: 0 2px;
+}
+.cke_combo__variables .cke_combo_text {
+  width: 117px;
+}
+.cke_combo__variables .cke_combo_button {
+  margin-right: 0;
+}
+.cke_combopanel__variables {
+  width:  183px !important;
+  height: 400px !important;
+}

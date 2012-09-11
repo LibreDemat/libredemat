@@ -30,13 +30,16 @@ public final class MailService implements IMailService {
     private ILocalAuthorityRegistry localAuthorityRegistry;
 
     @Override
-    public void send(final String from, final String to, final String[] cc, final String subject, 
-            final String body, final Map<String, byte[]> attachments)
+    public void send(final String from, final String to, final String[] cc,
+            final String subject,
+            final String body,
+            final Map<String, byte[]> attachments,
+            final boolean html)
         throws CvqException {
 
         if (to == null)
             throw new CvqModelException("email.to_is_required");
-        
+
         logger.debug("send() sending mail with " + subject);
         try {
             mailSender.send(new MimeMessagePreparator() {
@@ -63,7 +66,7 @@ public final class MailService implements IMailService {
                         }
                     }
                     message.setSubject(subject);
-                    message.setText(body);
+                    message.setText(body, html);
                     if (cc != null && cc.length > 0)
                         message.setCc(cc);
                     if (attachments != null) {
@@ -83,19 +86,50 @@ public final class MailService implements IMailService {
     }
 
     @Override
-    public void send(final String from, final String to, final String[] cc, final String subject,
-        final String body, final byte[] attachment, final String attachmentName)
+    public void send(final String from, final String to, final String[] cc,
+            final String subject,
+            final String body,
+            final Map<String, byte[]> attachments)
         throws CvqException {
-        Map<String, byte[]> attachments = new HashMap<String, byte[]>(1);
-        attachments.put(attachmentName, attachment);
-        send(from, to, cc, subject, body, attachments);
+        send(from, to, cc, subject, body, attachments, false);
     }
 
     @Override
-    public void send(final String from, final String to, final String[] cc, final String subject, 
-            final String body) throws CvqException {
+    public void send(final String from, final String to, final String[] cc,
+            final String subject,
+            final String body,
+            final byte[] attachment, final String attachmentName,
+            final boolean html)
+        throws CvqException {
+        Map<String, byte[]> attachments = new HashMap<String, byte[]>(1);
+        attachments.put(attachmentName, attachment);
+        send(from, to, cc, subject, body, attachments, html);
+    }
 
-        send(from, to, cc, subject, body, null);
+    @Override
+    public void send(final String from, final String to, final String[] cc,
+            final String subject,
+            final String body,
+            final byte[] attachment, final String attachmentName)
+        throws CvqException {
+        send(from, to, cc, subject, body, attachment, attachmentName, false);
+    }
+
+    @Override
+    public void send(final String from, final String to, final String[] cc,
+            final String subject,
+            final String body,
+            final boolean html)
+        throws CvqException {
+        send(from, to, cc, subject, body, null, html);
+    }
+
+    @Override
+    public void send(final String from, final String to, final String[] cc,
+            final String subject,
+            final String body)
+        throws CvqException {
+        send(from, to, cc, subject, body, false);
     }
 
     public String prepareBodyFromAsset(final String fileName, final Map<String, String> variables) {

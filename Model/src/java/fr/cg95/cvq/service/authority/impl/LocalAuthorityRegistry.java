@@ -439,8 +439,10 @@ public class LocalAuthorityRegistry
     private void writeLocalAuthorityResource(Type type, File assetsFile, byte[] data)
         throws CvqException {
         try {
-            if (!assetsFile.exists())
+            if (!assetsFile.exists()) {
+                assetsFile.getParentFile().mkdirs();
                 assetsFile.createNewFile();
+            }
             if (type == LocalAuthorityResource.Type.IMAGE
                     || type == LocalAuthorityResource.Type.DISPLAY_GROUP_IMAGE
                     || type == LocalAuthorityResource.Type.PDF
@@ -457,10 +459,10 @@ public class LocalAuthorityRegistry
                 out.close();
             }
         } catch (FileNotFoundException e) {
-            logger.error("writeLocalAuthorityResource() failel !" + e.getMessage());
+            logger.error("writeLocalAuthorityResource() failed!" + e.getMessage());
             throw new CvqException(e.getMessage());
         } catch (IOException ioe) {
-            logger.error("writeLocalAuthorityResource() failel !" + ioe.getMessage());
+            logger.error("writeLocalAuthorityResource() failed!" + ioe.getMessage());
             throw new CvqException(ioe.getMessage());
         }
     }
