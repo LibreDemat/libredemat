@@ -42,6 +42,7 @@
   text-align: right; color: #444;
 }
 .individual dt:after { content: " : " ;}
+.individual dt.empty:after {content: "" }
 .individual dt.required { font-weight: bold;}
 
 .individual dd { width: 60%; font-size: 1.15em; }
@@ -60,11 +61,15 @@
   margin: 5px 0 0; padding: 0;
   text-align: left; font-size: .9em;
 }
+
+#homeFolder form label.inline-help { display:inline }
+
 #homeFolder form input.line1 { width: 22%; }
 #homeFolder form input.line2 { width: 58%; }
 
 #homeFolder form li label { display: inline; font-size: .95em; }
 
+#homeFolder form input.default-email { background-color: #eee }
 
 
 /* actions
@@ -202,3 +207,6 @@ dl.atom .previous { text-decoration: line-through; }
 
 optgroup { font-style: italic; font-weight: bold; }
 option { font-style: normal; font-weight: normal; }
+
+
+.taskstate .btn { padding: 3px; }

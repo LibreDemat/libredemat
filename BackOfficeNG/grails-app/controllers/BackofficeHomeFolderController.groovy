@@ -71,7 +71,7 @@ class BackofficeHomeFolderController {
     def beforeInterceptor = {
         session["currentMenu"] = "users"
         if (SecurityContext.currentCredentialBean.hasSiteAdminRole()) {
-            subMenuEntries = ["userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders"]
+            subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders"]
         } else {
             if (userSecurityService.can(SecurityContext.getCurrentAgent(), ContextPrivilege.MANAGE))
                 subMenuEntries = ["homeFolder.search", "homeFolder.configure", "homeFolder.create"]
@@ -91,7 +91,7 @@ class BackofficeHomeFolderController {
         
         if(!request.get) {
             records = this.doSearch(state)
-            count = userSearchService.getCount(this.prepareCriterias(state))
+            count = userSearchService.getCount(this.prepareCriterias(state), true)
         }
         
         return ([
@@ -167,7 +167,7 @@ class BackofficeHomeFolderController {
         result.responsibles = [:]
         for(Child child : result.children)
             result.responsibles.put(child.id, userSearchService.listBySubjectRoles(child.id, RoleType.childRoleTypes))
-        
+
         result.homeMappings = externalHomeFolderService.getHomeFolderMappings(Long.valueOf(params.id))
 
         result.agentCanWrite = agentCanWrite
@@ -182,6 +182,8 @@ class BackofficeHomeFolderController {
 
         result.unarchivableIndividuals = unarchivableIndividuals
 
+        result.canResetPassword = isAllowedToResetPassword(homeFolder, result.homeFolderResponsible)
+
         return result
     }
 
@@ -190,17 +192,18 @@ class BackofficeHomeFolderController {
             def adult = new Adult()
             DataBindingUtils.initBind(adult, params)
             bind(adult)
-            def invalidFields = userService.validate(adult, true)
+            def invalidFields = userService.validate(adult, false)
             if (!invalidFields.isEmpty()) {
                 session.doRollback = true
                 render (['invalidFields': invalidFields] as JSON)
                 return false
             }
-            userWorkflowService.create(adult, false)
+            userWorkflowService.create(adult, false, null)
             render (['id' : adult.homeFolder.id] as JSON)
             return false
         }
-        return (['subMenuEntries': subMenuEntries])
+        return (['subMenuEntries': subMenuEntries,
+                 'defaultEmail': SecurityContext.getCurrentConfigurationBean().getDefaultEmail()])
     }
 
     def adult = { 
@@ -291,6 +294,12 @@ class BackofficeHomeFolderController {
         } catch (CvqModelException cme) {
             render(['status':'error', 'message':cme.message] as JSON)
         }
+    }
+
+    def resetPassword = {
+        def adult = userSearchService.getHomeFolderResponsible(params.long("id"))
+        userWorkflowService.launchResetPasswordProcess(adult)
+        render(['status': 'success', 'message': message(code:'homeFolder.action.resetPwd.btnFeedback')] as JSON)
     }
 
     def state = {
@@ -459,7 +468,15 @@ class BackofficeHomeFolderController {
         return result;
     }
 
-  
+    def currentResetPasswordBox = {
+        def homeFolder = userSearchService.getHomeFolderById(Long.parseLong(params.id))
+        def responsible = userSearchService.getHomeFolderResponsible(homeFolder.id)
+        def model = [
+            canResetPassword : isAllowedToResetPassword(homeFolder, responsible)
+        ]
+        render(template: "currentResetPasswordBox", model: model)
+    }
+
     // TODO : move in request module
     def requests = {
         def result = [requests:[]]
@@ -560,7 +577,7 @@ class BackofficeHomeFolderController {
 
     protected List doSearch(state) {
         return userSearchService.get(prepareCriterias(state), prepareSort(state), defaultMax,
-            params.currentOffset ? Integer.parseInt(params.currentOffset) : 0)
+            params.currentOffset ? Integer.parseInt(params.currentOffset) : 0, true)
     }
     
     protected Set<Critere> prepareCriterias(state) {
@@ -613,8 +630,8 @@ class BackofficeHomeFolderController {
     
     protected List buildHomeFolderStateFilter() {
         def result = []
-        
-        for(UserState state : UserState.allUserStates) {
+
+        for(UserState state : UserState.filtersStates) {
             result.add([
                 'name':state.toString(),
                 'i18nKey': message(code:"user.state.${state.toString().toLowerCase()}")
@@ -716,4 +733,30 @@ class BackofficeHomeFolderController {
             render(text: message(code: pe.message), status: 403)
         }
     }
+
+
+    /*def note = {
+        def hf = userSearchService.getHomeFolderById(Long.valueOf(params.id))
+        render(template: 'note', model: ['hf': hf])
+    }
+
+    def saveNote = {
+        def hf = userSearchService.getHomeFolderById(Long.valueOf(params.id))
+        if (hf && params.note) {
+            def action = new UserAction(UserAction.Type.INTERNAL_NOTE, hf.id)
+            action.userId = SecurityContext.getCurrentUserId()
+            action.note = params.note
+            hf.actions.add(action)
+            homeFolderDAO.update(hf)
+
+            render(text:['message':message(code:'homeFolder.note.added')] as JSON)
+        } else {
+            render(status:403, text:['message':message(code:'homeFolder.note.add.failed')] as JSON)
+        }
+    }*/
+
+    private isAllowedToResetPassword(homeFolder, homeFolderResponsible) {
+        return userService.hasValidEmail(homeFolderResponsible) && homeFolder.state != UserState.ARCHIVED
+    }
+
 }

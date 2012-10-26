@@ -33,5 +33,6 @@ class BackofficeUrlMappings {
     "/backoffice/userSecurity/$action?/$id?" (controller : "backofficeUserSecurity" )
     "/backoffice/userDocumentInstruction/$action?/$id?" (controller : "backofficeUserDocumentInstruction" )
     "/backoffice/documentType/$action?/$id?" (controller : "backofficeDocumentType" )
+    "/backoffice/userAdmin/$action?/$id?" (controller : "backofficeUserAdmin")
   }
 }

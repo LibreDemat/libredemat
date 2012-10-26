@@ -10,6 +10,7 @@ import fr.cg95.cvq.business.users.HomeFolder
 import fr.cg95.cvq.business.payment.Payment
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException
 import fr.cg95.cvq.exception.CvqDisabledAccountException
+import fr.cg95.cvq.exception.CvqNotValidatedAccount;
 import fr.cg95.cvq.exception.CvqUnknownUserException
 import fr.cg95.cvq.security.SecurityContext
 import fr.cg95.cvq.security.annotation.ContextType
@@ -116,6 +117,8 @@ class FrontofficeHomeController {
                 error = "account.error.authenticationFailed"
             } catch (CvqDisabledAccountException e) {
                 error = "account.error.disabledAccount"
+            } catch (CvqNotValidatedAccount e) {
+                error = "account.error.accountNotValidated"
             }
         }
         if (params.errorURL) {

@@ -30,7 +30,9 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.localauthority');
         yue.on(yud.get('platformConfigurationBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
         yue.on(yud.get('archivesPasswordBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
         yue.on(yud.get('seasonsDraftsBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
+        yue.on(yud.get('pendingBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
       },
+
       /**
       * @description The name of the method to call is the first part of the clicked item's ID, except for new season creation
       */
@@ -38,6 +40,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.localauthority');
         var target  = yue.getTarget(e);
         return (target.id||'_').split('_')[0];
       },
+
       save : function(e) {
         var id = splitEvent(e);
         var cont = yud.get(id + "FormErrors");
@@ -49,6 +52,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.localauthority');
           });
         }
       },
+
       resetArchivesPassword : function(e) {
         var target  = yue.getTarget(e);
         zct.doAjaxDeleteCall("/../requestArchives/password", null, function(o){

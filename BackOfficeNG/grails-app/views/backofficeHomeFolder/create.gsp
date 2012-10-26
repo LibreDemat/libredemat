@@ -58,8 +58,10 @@
                   </dl>
                   <h3>${message(code:'homeFolder.individual.header.contact')}</h3>
                   <dl>
+                    <dt class="empty"></dt>
+                    <dd><input type="checkbox" name="no-email" id="no-email" value="${defaultEmail}" /> <label for="no-email" class="inline-help">${message(code:'homeFolder.adult.property.noEmail')}</label></dd>
                     <dt class="required">${message(code:'homeFolder.adult.property.email')}</dt>
-                    <dd class="required"><input type="text" name="email" /></dd>
+                    <dd class="required"><input type="text" name="email" id="email" /></dd>
                     <dt>${message(code:'homeFolder.adult.property.homePhone')}</dt>
                     <dd><input type="text" name="homePhone" /></dd>
                     <dt>${message(code:'homeFolder.adult.property.mobilePhone')}</dt>
@@ -91,27 +93,6 @@
                       <input type="hidden" id="address_streetRivoliCode" name="address.streetRivoliCode" />
                       <input type="hidden" id="address_cityInseeCode" name="address.cityInseeCode"  />
                     </dl>
-                    <h3>${message(code:'homeFolder.individual.header.connexion')}</h3>
-                    <dl>
-                      <dt class="required">${message(code:'request.step.validation.label.choosePassword')}</dt>
-                      <dd><input type="password" name="password" value="" autocomplete="off"/></dd>
-                      <dt class="required">${message(code:'request.step.validation.label.confirmPassword')}</dt>
-                      <dd><input type="password" name="confirmPassword" value="" autocomplete="off"/></dd>
-                      <dt class="required">${message(code:'homeFolder.adult.property.question')}</dt>
-                      <dd>
-                        <select id="question" name="question">
-                          <option value="">${message(code:'message.select.defaultOption')}</option>
-                          <g:each in="${['q1','q2','q3','q4']}">
-                            <option value="${message(code:'homeFolder.adult.question.' + it)}">
-                              ${message(code:'homeFolder.adult.question.' + it)}
-                            </option>
-                          </g:each>
-                        </select>
-                      </dd>
-                      <dt class="required">${message(code:'homeFolder.adult.property.answer')}</dt>
-                      <dd><input type="text" name="answer" /></dd>
-                    </dd>
-                  </dl>
                 </div>
               </div>
               <p style="text-align: center; margin-top: 1em;">

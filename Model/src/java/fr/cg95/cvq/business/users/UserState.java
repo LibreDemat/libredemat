@@ -3,6 +3,7 @@ package fr.cg95.cvq.business.users;
 public enum UserState {
 
     /* Warn : the order off declaration is important! */
+    PENDING("Pending"),
     NEW("New"),
     VALID("Valid"),
     MODIFIED("Modified"),
@@ -21,6 +22,11 @@ public enum UserState {
     public static final UserState[] allUserStates = UserState.values();
 
     public static final UserState[] activeStates = { NEW, VALID, MODIFIED, INVALID };
+
+    /**
+     * States shown in user search
+     */
+    public static final UserState[] filtersStates = { NEW, VALID, MODIFIED, INVALID, ARCHIVED };
 
     public static UserState forString(final String enumAsString) {
         for (UserState state : values()) {

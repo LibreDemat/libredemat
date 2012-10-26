@@ -239,6 +239,13 @@
         </div>
       </div>
 
+      <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
+      <!--  Reset password box -->
+      <div id="reset-pwd-outer">
+        <g:render template="currentResetPasswordBox" model="['canResetPassword': canResetPassword]"/>
+      </div>
+      </g:if>
+
     </div>
 
   </body>

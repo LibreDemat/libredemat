@@ -368,6 +368,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="userService" class="fr.cg95.cvq.service.users.impl.UserService">
     <property name="userSearchService" ref="userSearchService" />
     <property name="genericDAO" ref="genericDAO" />
+    <property name="adultDAO" ref="adultDAO" />
   </bean>
 
   <bean id="userNotificationService" class="fr.cg95.cvq.service.users.impl.UserNotificationService">
@@ -377,6 +378,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="smsService" ref="fakeSmsService"/>
     <property name="translationService" ref="translationService"/>
     <property name="homeFolderDAO" ref="homeFolderDAO"/>
+    <property name="userService" ref="userService" />
+    <property name="genericDAO" ref="genericDAO" />
   </bean>
 
   <bean id="userWorkflowService" class="fr.cg95.cvq.service.users.impl.UserWorkflowService">

@@ -41,13 +41,13 @@ public class UserSearchService implements IUserSearchService {
 
     @Override
     public List<Individual> get(Set<Critere> criterias, Map<String,String> sortParams,
-        Integer max, Integer offset) {
-        return individualDAO.search(criterias,sortParams,max,offset);
+        Integer max, Integer offset, boolean filterPendings) {
+        return individualDAO.search(filterPendings ? filterPendingUsers(criterias) : criterias, sortParams, max, offset);
     }
 
     @Override
-    public Integer getCount(Set<Critere> criterias) {
-        return individualDAO.searchCount(criterias);
+    public Integer getCount(Set<Critere> criterias, boolean filterPendings) {
+        return individualDAO.searchCount(filterPendings ? filterPendingUsers(criterias) : criterias);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE},
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.UNAUTH_ECITIZEN, ContextType.EXTERNAL_SERVICE},
             privilege = ContextPrivilege.READ)
     public Individual getById(Long id) {
         return individualDAO.findById(id);
@@ -120,7 +120,7 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE, ContextType.UNAUTH_ECITIZEN}, privilege = ContextPrivilege.READ)
     public final HomeFolder getHomeFolderById(final Long id) {
         return homeFolderDAO.findById(id);
     }
@@ -209,6 +209,16 @@ public class UserSearchService implements IUserSearchService {
 
     public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService) {
         this.externalHomeFolderService = externalHomeFolderService;
+    }
+
+    /**
+     * Filter users in pending state (email validation pending) from searchs
+     * @param criterias
+     * @return
+     */
+    private Set<Critere> filterPendingUsers(final Set<Critere> criterias) {
+        criterias.add(new Critere(Adult.SEARCH_BY_USER_STATE, UserState.PENDING.name(), Critere.NEQUALS));
+        return criterias;
     }
 
     public void setHomeFolderDAO(IHomeFolderDAO homeFolderDAO) {

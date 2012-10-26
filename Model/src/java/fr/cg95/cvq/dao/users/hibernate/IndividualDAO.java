@@ -252,6 +252,10 @@ public class IndividualDAO extends JpaTemplate<Individual,Long> implements IIndi
                 objectList.add(criteria.getValue());
                 typeList.add(Hibernate.STRING);
                 searchByUserState = true;
+            } else if (criteria.getAttribut().equals(Individual.SEARCH_BY_CREATION_DATE)) {
+                sb.append(String.format(" and individual.creationDate %1$s ?" , criteria.getSqlComparatif()));
+                objectList.add(criteria.getValue());
+                typeList.add(Hibernate.DATE);
             } else {
                 logger.warn("Unknown search criteria for Individual object");
             }

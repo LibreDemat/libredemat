@@ -74,6 +74,7 @@ import fr.cg95.cvq.service.users.IUserNotificationService;
 import fr.cg95.cvq.service.users.IUserSearchService;
 import fr.cg95.cvq.service.users.IUserService;
 import fr.cg95.cvq.service.users.IUserWorkflowService;
+import fr.cg95.cvq.service.users.job.UserNotificationJob.NotificationType;
 import fr.cg95.cvq.util.JSONUtils;
 import fr.cg95.cvq.util.UserUtils;
 import fr.cg95.cvq.util.development.BusinessObjectsFactory;
@@ -126,7 +127,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                     BusinessObjectsFactory.gimmeAdult(TitleType.MISTER, "Dupont", "Jean",
                         address, FamilyStatusType.SINGLE);
                 homeFolderResponsible.setPassword("aaaaaaaa");
-                HomeFolder homeFolder = create(homeFolderResponsible, false);
+                HomeFolder homeFolder = create(homeFolderResponsible, false, null);
                 Adult other = BusinessObjectsFactory.gimmeAdult(TitleType.MISTER, "Durand",
                     "Jacques", address, FamilyStatusType.SINGLE);
                 add(homeFolder, other, false);
@@ -212,11 +213,11 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     @Override
     @Context(types = {ContextType.UNAUTH_ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
-    public HomeFolder create(Adult adult, boolean temporary)
+    public HomeFolder create(Adult adult, boolean temporary, String callbackUrl)
         throws CvqException {
         HomeFolder homeFolder = new HomeFolder();
         homeFolder.setAddress(adult.getAddress());
-        homeFolder.setEnabled(Boolean.TRUE);
+        homeFolder.setEnabled(true);
         homeFolder.setState(SecurityContext.isFrontOfficeContext() ? UserState.NEW : UserState.VALID);
         homeFolder.setTemporary(temporary);
         homeFolderDAO.create(homeFolder);
@@ -225,6 +226,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
             adult.setHomeFolder(homeFolder);
             SecurityContext.setCurrentEcitizen(adult);
         }
+        adult.assignRandomValidationCode();
         add(homeFolder, adult, !temporary);
         UserAction action = new UserAction(UserAction.Type.CREATION, homeFolder.getId());
         action = (UserAction) genericDAO.create(action);
@@ -237,7 +239,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 JsonObject payload = JSONUtils.deserialize(tempAction.getData());
                 JsonObject user = payload.getAsJsonObject("user");
                 user.addProperty("id", adult.getId());
-                user.addProperty("name", UserUtils.getDisplayName(adult.getId()));
+                user.addProperty("callbackUrl", callbackUrl);
                 tempAction.setData(gson.toJson(payload));
             }
         }
@@ -274,7 +276,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     private Long add(HomeFolder homeFolder, Individual individual) throws CvqModelException, CvqInvalidTransitionException {
         homeFolder.getIndividuals().add(individual);
         individual.setHomeFolder(homeFolder);
-        individual.setState(SecurityContext.isFrontOfficeContext() ? UserState.NEW : UserState.VALID);
+        individual.setState(SecurityContext.isFrontOfficeContext() ? UserState.PENDING : UserState.VALID);
         individual.setCreationDate(new Date());
         individual.setQoS(SecurityContext.isFrontOfficeContext() ? QoS.GOOD : null);
         individual.setLastModificationDate(new Date());
@@ -380,7 +382,31 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    public String resetPassword(Adult adult)
+    @Context(types = {ContextType.UNAUTH_ECITIZEN}, privilege = ContextPrivilege.WRITE)
+    public void modifyConnection(@IsUser Adult adult, String password, String question, String answer) {
+        authenticationService.resetAdultPassword(adult, password);
+
+        // Modify password and question/answer
+        adult.setQuestion(question);
+        adult.setAnswer(answer);
+        adult.setValidationCode(null);
+        adult.setValidationCodeExpiration(null);
+        if (adult.getState() == UserState.PENDING) {
+            adult.setState(UserState.NEW);
+        }
+        individualDAO.update(adult);
+
+        // Add Modification trace
+        UserAction action = new UserAction(UserAction.Type.MODIFICATION, adult.getHomeFolder().getId());
+        action.setNote(translationService.translate("requestAdminAction.type.passwordReset"));
+        action = (UserAction) genericDAO.create(action);
+        adult.getHomeFolder().getActions().add(action);
+        homeFolderDAO.update(adult.getHomeFolder());
+    }
+
+    @Deprecated
+    @Override
+    public String generateAndSendNewPassword(Adult adult)
         throws CvqException {
         String password = authenticationService.generatePassword();
         authenticationService.resetAdultPassword(adult, password);
@@ -725,6 +751,13 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
+    public void launchResetPasswordProcess(Adult adult) {
+        userService.prepareResetPassword(adult);
+        userNotificationService.sendNotification(adult, NotificationType.RESET_PASSWORD,
+                translationService.translate("homeFolder.notification.note.resetPassword"));
+    }
+
+    @Override
     @Async
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.WRITE)
     public void importHomeFolders(HomeFolderImportDocument doc)
@@ -830,7 +863,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 }
                 if (responsible == null)
                     throw new CvqModelException("homeFolder.error.responsibleIsRequired");
-                HomeFolder result = create(responsible, false);
+                HomeFolder result = create(responsible, false, null);
                 HibernateUtil.getSession().flush();
                 for (Adult a : adults) add(result, a, false);
                 adults.add(responsible);
@@ -992,4 +1025,5 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     public void setGenericDAO(IGenericDAO genericDAO) {
         this.genericDAO = genericDAO;
     }
+
 }

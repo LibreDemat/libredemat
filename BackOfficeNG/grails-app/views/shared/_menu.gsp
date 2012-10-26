@@ -37,7 +37,7 @@
       <a id="referentialMenuItem" href="${createLink(controller:'backofficeReferential')}">
         <g:message code="menu.referentials" />
       </a>
-      <a id="usersMenuItem" href="${createLink(controller:'backofficeUserSecurity', action:'index')}">
+      <a id="usersMenuItem" href="${createLink(controller:'backofficeUserAdmin', action:'index')}">
         <g:message code="menu.users" />
       </a>
       <g:if test="${session.additionalTabs.contains('Payments')}">

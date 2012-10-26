@@ -113,7 +113,7 @@ public class AssoImporter {
                     } else {
                         adult.setHomePhone(phoneNumber);
                     }
-                    userWorkflowService.create(adult, false);
+                    userWorkflowService.create(adult, false, null);
                     String [] record = { adult.getProfession(), adult.getLogin(), adult.getEmail()};
                     csvImportDetails.writeNext(record);
                     JpaUtil.getEntityManager().flush();

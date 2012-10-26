@@ -1,5 +1,8 @@
 package fr.cg95.cvq.business.users;
 
+import java.util.Date;
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -100,7 +103,13 @@ public class Adult extends Individual {
     @Column(name="password")
     private String password;
 
-    @SuppressWarnings("unused")
+
+    @Column(name="validation_code", length=100)
+    private String validationCode;
+
+    @Column(name="validation_code_expiration")
+    private Date validationCodeExpiration;
+
     @NotNull(message = "confirmPassword", profiles = {"login"})
     @MaxLength(value=255, message="confirmPassword")
     @EqualToField(message = "confirmPassword", value = "password", profiles = {"login"})
@@ -305,4 +314,25 @@ public class Adult extends Individual {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    public String getValidationCode() {
+        return validationCode;
+    }
+
+    public void setValidationCode(String validationCode) {
+        this.validationCode = validationCode;
+    }
+
+    public void assignRandomValidationCode() {
+        setValidationCode(UUID.randomUUID().toString());
+    }
+
+    public Date getValidationCodeExpiration() {
+        return validationCodeExpiration;
+    }
+
+    public void setValidationCodeExpiration(Date validationCodeExpiration) {
+        this.validationCodeExpiration = validationCodeExpiration;
+    }
+
 }

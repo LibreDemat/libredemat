@@ -1,0 +1,12 @@
+Bonjour,
+
+Nous vous informations que vous n'avez toujours pas activé votre compte ${site} créé le ${creationDate}.
+
+Nous vous invitons à suivre le lien ci-dessous pour valider votre compte. Vous pourrez alors accéder aux téléservices de la collectivité.
+
+http://localhost:8080/CapDemat/${lien}
+
+À défaut, votre compte va expirer le ${expirationDate} et sera définitivement supprimé.
+
+Cordialement,
+L'équipe Capdemat

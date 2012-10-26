@@ -380,6 +380,54 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="cronExpression" value="0 0/1 * * * ?" />
   </bean>
 
+  <!-- ******************************************************************** -->
+  <!-- ***************** Pending Users Job Configuration ****************** -->
+  <!-- ******************************************************************** -->
+
+  <bean id="userPendingManagementJob"
+    class="fr.cg95.cvq.service.users.job.UserPendingManagementJob">
+    <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
+    <property name="translationService" ref="translationService" />
+    <property name="mailService" ref="mailService"/>
+    <property name="userSearchService" ref="userSearchService"/>
+    <property name="userService" ref="userService"/>
+    <property name="userWorkflowService" ref="userWorkflowService" />
+  </bean>
+
+  <bean id="userPendingManagementRemoverJobInvoker"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="userPendingManagementJob" />
+    <property name="targetMethod" value="launchRemovalJob" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <bean id="userPendingManagementRemoverJobTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="userPendingManagementRemoverJobInvoker" />
+    <property name="cronExpression" value="0 0 5 * * ?" />
+  </bean>
+
+  <bean id="userPendingManagementNotifierJobInvoker"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="userPendingManagementJob" />
+    <property name="targetMethod" value="launchNotificationJob" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <bean id="userPendingManagementNotifierJobTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="userPendingManagementNotifierJobInvoker" />
+    <property name="cronExpression" value="0 30 5 * * ?" />
+  </bean>
+
+  <!-- testing purposes only
+  <bean id="userPendingManagementRemoverDevJobTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="userPendingManagementRemoverJobInvoker" />
+    <property name="cronExpression" value="0 * * * * ?" />
+  </bean> -->
+
+
   <!-- *******************************************************************  -->
   <!-- ************ Where everything happens (or not) ********************  -->
   <!-- *******************************************************************  -->
@@ -400,6 +448,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <ref bean="paymentNotificationTrigger" />
         <ref bean="paymentErrorReportTrigger" />
         <ref bean="userNotificationTrigger" />
+        <ref bean="userPendingManagementNotifierJobTrigger" />
+        <ref bean="userPendingManagementRemoverJobTrigger" />
         <!--
         <ref bean="requestWorkflowNavigatorTrigger" />
         -->

@@ -1,0 +1,10 @@
+Bonjour,
+
+L'identifiant suivant vous a été assigné pour accéder aux téléservices :
+
+	${login}
+
+Vous devez au préalable activer votre compte en cliquant sur le lien suivant : http://localhost:8080/CapDemat/${link}
+
+Cordialement,
+L'équipe ${city}.

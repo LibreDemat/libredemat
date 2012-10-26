@@ -34,16 +34,16 @@ public interface IIndividualDAO extends IJpaTemplate<Individual,Long>{
      * provided) or any role (if none provided) on the given home folder.
      */
     List<Individual> listByHomeFolderRole(final Long homeFolderId, final RoleType role);
-    
+
     List<Individual> listByHomeFolderRoles(final Long homeFolderId, final RoleType[] roles, 
             boolean onlyExternals);
-    
+
     /**
      * Return the list of {@link Individual individuals} who have the given role (if one 
      * provided) or any role (if none provided) on the given subject.
      */
     List<Individual> listBySubjectRole(final Long subjectId, final RoleType role);
-    
+
     /**
      * Return the list of {@link Individual individuals} who have the given roles 
      * on the given subject.
@@ -53,7 +53,7 @@ public interface IIndividualDAO extends IJpaTemplate<Individual,Long>{
      */
     List<Individual> listBySubjectRoles(final Long subjectId, final RoleType[] roles, 
             boolean onlyExternals);
-    
+
     /**
      * Return the list of individual logins that start with the given
      * base login.

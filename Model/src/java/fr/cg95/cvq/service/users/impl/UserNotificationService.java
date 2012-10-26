@@ -6,9 +6,11 @@ import org.springframework.context.ApplicationListener;
 import com.google.gson.JsonObject;
 
 import fr.cg95.cvq.business.users.Adult;
+import fr.cg95.cvq.business.users.Individual;
 import fr.cg95.cvq.business.users.MeansOfContactEnum;
 import fr.cg95.cvq.business.users.UserAction;
 import fr.cg95.cvq.business.users.UserEvent;
+import fr.cg95.cvq.dao.jpa.IGenericDAO;
 import fr.cg95.cvq.dao.users.IHomeFolderDAO;
 import fr.cg95.cvq.exception.CvqException;
 import fr.cg95.cvq.exception.CvqModelException;
@@ -19,9 +21,9 @@ import fr.cg95.cvq.security.annotation.ContextType;
 import fr.cg95.cvq.service.users.IMeansOfContactService;
 import fr.cg95.cvq.service.users.IUserNotificationService;
 import fr.cg95.cvq.service.users.IUserSearchService;
+import fr.cg95.cvq.service.users.IUserService;
+import fr.cg95.cvq.service.users.job.UserNotificationJob.NotificationType;
 import fr.cg95.cvq.util.JSONUtils;
-import fr.cg95.cvq.util.UserUtils;
-import fr.cg95.cvq.util.logging.impl.Log;
 import fr.cg95.cvq.util.mail.IMailService;
 import fr.cg95.cvq.util.sms.ISmsService;
 import fr.cg95.cvq.util.translation.ITranslationService;
@@ -34,6 +36,8 @@ public class UserNotificationService implements IUserNotificationService, Applic
     private ISmsService smsService;
     private ITranslationService translationService;
     private IHomeFolderDAO homeFolderDAO;
+    private IUserService userService;
+    private IGenericDAO genericDAO;
 
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
@@ -81,29 +85,54 @@ public class UserNotificationService implements IUserNotificationService, Applic
 
     @Override
     public void onApplicationEvent(UserEvent event) {
-        if ((UserAction.Type.CREATION.equals(event.getAction().getType())
-            && SecurityContext.isFrontOfficeContext())
-            || UserAction.Type.MODIFICATION.equals(event.getAction().getType())) {
-            Adult adult = userSearchService.getAdultById(event.getAction().getTargetId());
-            if (adult != null) {
-                JsonObject payload = JSONUtils.deserialize(event.getAction().getData());
-                if (!StringUtils.isEmpty(adult.getLogin())
-                    && (UserAction.Type.CREATION.equals(event.getAction().getType())
-                        || (payload.has("atom")
-                            && payload.get("atom").getAsJsonObject().get("fields").getAsJsonObject()
-                                .has("login")
-                            && !payload.get("atom").getAsJsonObject()
-                                .get("fields").getAsJsonObject().get("login").getAsJsonObject()
-                                    .get("to").isJsonNull()))) {
-                    JsonObject user = new JsonObject();
-                    user.addProperty("login", adult.getLogin());
-                    user.addProperty("email", adult.getEmail());
-                    UserAction action = new UserAction(UserAction.Type.WAITING_NOTIFICATION, adult.getId(), user);
-                    adult.getHomeFolder().getActions().add(action);
-                    homeFolderDAO.update(adult.getHomeFolder());
+        Adult adult = userSearchService.getAdultById(event.getAction().getTargetId());
+        UserAction.Type action = event.getAction().getType();
+
+        if (adult != null && adult.getLogin() != null && !adult.getLogin().trim().isEmpty()) {
+            if (UserAction.Type.CREATION == action && hasValidEmail(adult)) {
+                // From BO : Send new-password link
+                if (SecurityContext.isBackOfficeContext()) {
+                    userService.prepareResetPassword(adult);
+                    sendNotification(adult, NotificationType.NEW_ACCOUNT_BO,
+                            translationService.translate("homeFolder.notification.note.newAccountBO"));
+                // From FO : Send validation link
+                } else {
+                    sendNotification(adult, NotificationType.NEW_ACCOUNT,
+                            translationService.translate("homeFolder.notification.note.newAccount"));
                 }
+            } else if (UserAction.Type.MODIFICATION == action && isLoginModified(event, adult) && hasValidEmail(adult)) {
+                sendNotification(adult, NotificationType.LOGIN_ASSIGNED,
+                        translationService.translate("homeFolder.notification.note.loginAssigned"));
             }
         }
+    }
+
+    private boolean hasValidEmail(Adult adult) {
+        return adult != null
+            && adult.getEmail() != null
+            && !adult.getEmail().equals(SecurityContext.getCurrentConfigurationBean().getDefaultEmail());
+    }
+
+    private boolean isLoginModified(UserEvent event, Adult adult) {
+        JsonObject payload = JSONUtils.deserialize(event.getAction().getData());
+        return adult != null
+            && !StringUtils.isEmpty(adult.getLogin())
+            && payload != null
+            && payload.has("atom")
+            && payload.get("atom").getAsJsonObject().get("fields").getAsJsonObject().has("login")
+            && !payload.get("atom").getAsJsonObject().get("fields").getAsJsonObject().get("login").getAsJsonObject().get("to").isJsonNull();
+    }
+
+    @Override
+    public void sendNotification(Adult adult, NotificationType type, String note) {
+        JsonObject data = new JsonObject();
+        data.addProperty("login", adult.getLogin());
+        data.addProperty("email", adult.getEmail());
+        data.addProperty("action", type.toString());
+        UserAction action = new UserAction(UserAction.Type.WAITING_NOTIFICATION, adult.getId(), data);
+        action.setNote(note);
+        adult.getHomeFolder().getActions().add(action);
+        genericDAO.update(adult.getHomeFolder());
     }
 
     public void setUserSearchService(IUserSearchService userSearchService) {
@@ -128,5 +157,13 @@ public class UserNotificationService implements IUserNotificationService, Applic
 
     public void setHomeFolderDAO(IHomeFolderDAO homeFolderDAO) {
         this.homeFolderDAO = homeFolderDAO;
+    }
+
+    public void setUserService(IUserService userService) {
+        this.userService = userService;
+    }
+
+    public void setGenericDAO(IGenericDAO genericDAO) {
+        this.genericDAO = genericDAO;
     }
 }

@@ -184,7 +184,7 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
             IRequestService requestService = requestServiceRegistry.getRequestService(request);
             if (requestService.supportUnregisteredCreation()) {
                 logger.debug("create() Gonna create implicit home folder");
-                HomeFolder homeFolder = userWorkflowService.create(requester, true);
+                HomeFolder homeFolder = userWorkflowService.create(requester, true, null);
                 request.setHomeFolderId(homeFolder.getId());
                 request.setRequesterId(requester.getId());
                 request.setRequesterLastName(requester.getLastName());

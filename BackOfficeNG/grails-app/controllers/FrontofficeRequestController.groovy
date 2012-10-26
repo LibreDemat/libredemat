@@ -102,6 +102,9 @@ class FrontofficeRequestController {
             redirect(controller : "frontofficeRequestType")
             return false
         }
+        if (params.validation == "success") {
+            flash.successMessage = message("code": "homeFolder.action.confirmation.validationSuccess")
+        }
         def requestType = requestTypeService.getRequestTypeByLabel(params.label)
         def requestSeasonId = params.long("requestSeasonId")
         if (!requestWorkflowService.validateSeason(requestType,

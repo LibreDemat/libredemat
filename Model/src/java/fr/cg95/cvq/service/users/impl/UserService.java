@@ -2,7 +2,9 @@ package fr.cg95.cvq.service.users.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,18 +16,23 @@ import fr.cg95.cvq.business.users.GlobalHomeFolderConfiguration;
 import fr.cg95.cvq.business.users.Individual;
 import fr.cg95.cvq.business.users.IndividualRole;
 import fr.cg95.cvq.business.users.RoleType;
+import fr.cg95.cvq.business.users.UserState;
 import fr.cg95.cvq.dao.jpa.IGenericDAO;
+import fr.cg95.cvq.dao.users.IAdultDAO;
+import fr.cg95.cvq.security.SecurityContext;
 import fr.cg95.cvq.security.annotation.Context;
 import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
 import fr.cg95.cvq.service.users.IUserSearchService;
 import fr.cg95.cvq.service.users.IUserService;
+import fr.cg95.cvq.util.DateUtils;
 import fr.cg95.cvq.util.ValidationUtils;
 
 public class UserService implements IUserService {
 
     private IUserSearchService userSearchService;
     private IGenericDAO genericDAO;
+    private IAdultDAO adultDAO;
 
     public void setGenericDAO(IGenericDAO genericDAO) {
         this.genericDAO = genericDAO;
@@ -83,11 +90,14 @@ public class UserService implements IUserService {
         this.userSearchService = userSearchService;
     }
 
-    private GlobalHomeFolderConfiguration getGlobalHomeFolderConfiguration() {
+    public GlobalHomeFolderConfiguration getGlobalHomeFolderConfiguration() {
         GlobalHomeFolderConfiguration conf =
             genericDAO.simpleSelect(GlobalHomeFolderConfiguration.class).unique();
-
-        return (conf != null) ? conf : new GlobalHomeFolderConfiguration();
+        if (conf == null) {
+            conf = new GlobalHomeFolderConfiguration();
+            genericDAO.update(conf);
+        }
+        return conf;
     }
 
     @Override
@@ -109,5 +119,43 @@ public class UserService implements IUserService {
         GlobalHomeFolderConfiguration conf = getGlobalHomeFolderConfiguration();
         conf.setIndependentCreation(false);
         genericDAO.update(conf);
+    }
+
+    @Override
+    public Adult activateAccount(String login, String code) {
+        Adult adult = adultDAO.findByLogin(login);
+        if (isCodeVerificationValid(adult, code) && adult.getState() == UserState.PENDING) {
+            adult.setState(UserState.NEW);
+            adult.setValidationCode("");
+            adultDAO.update(adult);
+            return adult;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean checkResetPasswordLink(String login, String key) {
+        Adult adult = adultDAO.findByLogin(login);
+        return isCodeVerificationValid(adult, key) && adult.getValidationCodeExpiration().after(new Date());
+    }
+
+    @Override
+    public boolean hasValidEmail(Adult adult) {
+        return adult.getEmail() != null && !adult.getEmail().equals(SecurityContext.getCurrentConfigurationBean().getDefaultEmail());
+    }
+
+    @Override
+    public void prepareResetPassword(Adult adult) {
+        adult.assignRandomValidationCode();
+        adult.setValidationCodeExpiration(DateUtils.getShiftedDate(Calendar.DAY_OF_YEAR, 3));
+        genericDAO.update(adult);
+    }
+
+    private boolean isCodeVerificationValid(Adult adult, String code) {
+        return adult != null && code != null && code.equals(adult.getValidationCode());
+    }
+
+    public void setAdultDAO(IAdultDAO adultDAO) {
+        this.adultDAO = adultDAO;
     }
 }

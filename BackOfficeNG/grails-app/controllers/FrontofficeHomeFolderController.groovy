@@ -1,3 +1,5 @@
+import groovy.text.SimpleTemplateEngine;
+
 import fr.cg95.cvq.authentication.IAuthenticationService
 import fr.cg95.cvq.business.request.Request
 import fr.cg95.cvq.business.request.RequestState
@@ -159,6 +161,7 @@ class FrontofficeHomeFolderController {
                 redirect(controller : 'frontofficeHomeFolder', action : 'create', params : parameters)
                 return
             } else {
+
                 def authMethod = SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront()
 
                 if(authMethod.equals("builtin")) {
@@ -184,7 +187,33 @@ class FrontofficeHomeFolderController {
                             , params:['callback':logincallback])
                     return
                 }
+                // Subscription ok
+                render(view: "registerConfirmation", model: model)
             }
+        }
+        else {
+            render(view: '/system/error', model:["i18nKey":"homeFolder.action.confirmation.error"])
+        }
+    }
+
+    def validation = {
+        if (!params.login || !params.key) {
+            render(text: 'Lien de validation invalide', status: 400)
+            return
+        }
+
+        Adult adult = userService.activateAccount(params.login, params.key)
+        if (adult != null) {
+            securityService.setEcitizenSessionInformation(adult, session)
+
+            if (params.callback) {
+                redirect(url: params.callback+"?validation=success")
+            } else {
+                flash.successMessage = message("code": "homeFolder.action.confirmation.validationSuccess")
+                redirect(action: 'index')
+            }
+        } else {
+            render(view: '/system/error', model:["i18nKey":"homeFolder.action.confirmation.error"])
         }
     }
 
@@ -249,10 +278,16 @@ class FrontofficeHomeFolderController {
             flash.invalidFields.add('captchaText')
         }
         if (flash.invalidFields.isEmpty()) {
-            userWorkflowService.create(adult, model.temporary && params.boolean('temporary'))
 
             if(SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront().equals("builtin"))
               securityService.setEcitizenSessionInformation(adult, session)
+
+            if (!model.temporary && !individualAdaptorService.duplicationIsValid(adult)) {
+                flash.invalidFields.add('duplicateIndividual')
+            } else {
+                session["registerCallback"] = params.callback;
+                userWorkflowService.create(adult, model.temporary && params.boolean('temporary'), params.callback)
+            }
         }
     }
 
@@ -430,12 +465,8 @@ class FrontofficeHomeFolderController {
             return model
         } else if (request.post) {
             if (params.cancel == null) {
-                if (params.newPassword != params.newPasswordConfirmation) {
-                    flash.errorMessage = message("code":"homeFolder.adult.property.newPasswordConfirmation.validationError")
-                    return model
-                } else if (params.newPassword == null || params.newPassword.length() < authenticationService.passwordMinLength) {
-                    flash.errorMessage = message("code":"homeFolder.adult.property.newPassword.validationError", "args":[authenticationService.passwordMinLength])
-                    return model
+                if (!checkPasswords()) {
+                    return model;
                 }
                 try {
                     userWorkflowService.modifyPassword(currentEcitizen, params.oldPassword, params.newPassword)
@@ -447,6 +478,17 @@ class FrontofficeHomeFolderController {
             }
             redirect(controller : "frontofficeHomeFolder")
         }
+    }
+
+    private def checkPasswords = {
+        if (params.newPassword != params.newPasswordConfirmation) {
+            flash.errorMessage = message("code":"homeFolder.adult.property.newPasswordConfirmation.validationError")
+            return false
+        } else if (params.newPassword == null || params.newPassword.length() < authenticationService.passwordMinLength) {
+            flash.errorMessage = message("code":"homeFolder.adult.property.newPassword.validationError", "args":[authenticationService.passwordMinLength])
+            return false
+        }
+        return true
     }
 
     def resetPassword = {
@@ -461,7 +503,8 @@ class FrontofficeHomeFolderController {
                 return false
             }
             if (adult.answer != null && (adult.answer == params.answer)) {
-                flash.successMessage = userWorkflowService.resetPassword(adult)
+                userWorkflowService.launchResetPasswordProcess(adult)
+                flash.successMessage = message("code": "homeFolder.action.resetPwd.alert", "args": [adult.getEmail()])
                 redirect(controller : "frontofficeHome", action : "login")
                 return false
             } else {
@@ -486,22 +529,65 @@ class FrontofficeHomeFolderController {
                     flash.errorMessage = message("code":"homeFolder.adult.property.oldPassword.validationError")
                     return model
                 }
-                if (params.question != message("code":"homeFolder.adult.question.q1")
-                       && params.question != message("code":"homeFolder.adult.question.q2")
-                       && params.question != message("code":"homeFolder.adult.question.q3")
-                       && params.question != message("code":"homeFolder.adult.question.q4")
-                   ) {
-                    flash.errorMessage = message("code":"homeFolder.adult.property.question.validationError")
-                    return model
+
+                if (!checkQuestion()) {
+                    return model;
                 }
-                if (params.answer == null || params.answer.trim().isEmpty()) {
-                    flash.errorMessage = message("code":"homeFolder.adult.property.answer.validationError")
-                    return model
-                }
+
                 historize("connexion", currentEcitizen)
                 flash.successMessage = message("code":"homeFolder.adult.property.question.changeSuccess")
             }
             redirect(controller : "frontofficeHomeFolder")
+        }
+    }
+
+    private def checkQuestion = {
+        if (params.question != message("code":"homeFolder.adult.question.q1")
+            && params.question != message("code":"homeFolder.adult.question.q2")
+            && params.question != message("code":"homeFolder.adult.question.q3")
+            && params.question != message("code":"homeFolder.adult.question.q4")) {
+             flash.errorMessage = message("code":"homeFolder.adult.property.question.validationError")
+             return false
+         }
+         if (params.answer == null || params.answer.trim().isEmpty()) {
+             flash.errorMessage = message("code":"homeFolder.adult.property.answer.validationError")
+             return false
+         }
+         return true
+    }
+
+    /**
+     * After password reset, user send its new password/Question/answer
+     */
+    def newPassword = {
+        if (!params.login || !params.key) {
+            render(view: '/system/error', model:["i18nKey":"homeFolder.action.resetPwd.badLink"])
+            return
+        }
+        if (currentEcitizen) {
+            render(view: '/system/error', model:["i18nKey": "homeFolder.action.resetPwd.alreadyLogged"])
+            return
+        }
+
+        def linkIsValid = userService.checkResetPasswordLink(params.login, params.key)
+        if (linkIsValid) {
+            def model = ["passwordMinLength" : authenticationService.passwordMinLength]
+            if (request.get) {
+                return model
+            } else if (request.post) {
+                if (!checkPasswords() || !checkQuestion()) { // Error in form
+                    return model
+                } else {
+                    def adult = userSearchService.getByLogin(params.login)
+                    userWorkflowService.modifyConnection(adult, params.newPassword, params.question, params.answer)
+                    securityService.setEcitizenSessionInformation(adult, session)
+                    flash.successMessage = message("code": "homeFolder.action.resetPwd.success")
+                    redirect(action: 'index')
+                }
+            }
+        } else {
+            render(view: '/system/error', model:["i18nKey":"homeFolder.action.resetPwd.error"])
+            return
         }
     }
 

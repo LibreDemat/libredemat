@@ -30,7 +30,8 @@ form label span {
   color: #333;
 }
 
-form input, form textarea, form select {
+form input, form textarea, form select,
+.form input, .form textarea, .form select {
 	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
 	width: auto;      /* set width of form elements to auto-size, otherwise watch for wrap on resize */
 	margin: 3px 0 5px 1%; /* set margin on left of form elements rather than right of

@@ -21,11 +21,8 @@ import fr.cg95.cvq.business.users.HomeFolder;
 import fr.cg95.cvq.dao.users.IAdultDAO;
 import fr.cg95.cvq.dao.authority.IAgentDAO;
 import fr.cg95.cvq.dao.users.IIndividualDAO;
-import fr.cg95.cvq.exception.CvqAuthenticationFailedException;
-import fr.cg95.cvq.exception.CvqDisabledAccountException;
-import fr.cg95.cvq.exception.CvqModelException;
-import fr.cg95.cvq.exception.CvqUnknownUserException;
 import fr.cg95.cvq.security.SecurityContext;
+import fr.cg95.cvq.exception.*;
 import fr.cg95.cvq.security.annotation.Context;
 import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
@@ -107,13 +104,15 @@ public class AuthenticationService implements IAuthenticationService {
     @Override
     public Adult authenticate(final String login, final String passwd)
         throws CvqModelException, CvqUnknownUserException,
-               CvqAuthenticationFailedException, CvqDisabledAccountException {
+               CvqAuthenticationFailedException, CvqDisabledAccountException,
+               CvqNotValidatedAccount {
 
         Adult adult = adultDAO.findByLogin(login);
         if (adult == null)
             throw new CvqUnknownUserException();
         if (adult.getPassword() != null && adult.getPassword().startsWith("{SHA}"))
             migrateFromSHA(adult, passwd);
+
         HomeFolder homeFolder = adult.getHomeFolder();
         if (homeFolder == null)
             throw new CvqModelException("authenticate() : no home folder bound to individual " + adult.getId());
@@ -128,6 +127,10 @@ public class AuthenticationService implements IAuthenticationService {
         if (UserState.ARCHIVED.equals(adult.getState())) {
             logger.warn("authenticate() user is archived");
             throw new CvqUnknownUserException();
+        }
+        if (UserState.PENDING.equals(adult.getState())) {
+            logger.warn("authenticate() user is not activated");
+            throw new CvqNotValidatedAccount();
         }
         if (!check(passwd, adult.getPassword())) {
             logger.error("authenticate() bad password for login " + login);

@@ -783,19 +783,21 @@
         profession varchar(255),
         question varchar(255),
         title varchar(16),
+        validation_code varchar(100),
+        validation_code_expiration timestamp,
         id int8 not null,
         primary key (id)
     );
 
     create table agent (
         id int8 not null,
+        active bool,
+        email varchar(255),
+        first_name varchar(255),
+        last_name varchar(255),
         login varchar(255),
         password varchar(255),
-        last_name varchar(255),
-        first_name varchar(255),
-        active bool,
         preferences bytea,
-        email varchar(255),
         validation_code varchar(100),
         validation_code_expiration timestamp,
         primary key (id)
@@ -1260,6 +1262,8 @@
     create table global_home_folder_configuration (
         id int8 not null,
         independentCreation bool not null,
+        pending_users_notification_purge int4 not null,
+        pending_users_live_duration int4 not null,
         primary key (id)
     );
 

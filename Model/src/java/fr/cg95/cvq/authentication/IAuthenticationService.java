@@ -2,10 +2,7 @@ package fr.cg95.cvq.authentication;
 
 import fr.cg95.cvq.business.authority.Agent;
 import fr.cg95.cvq.business.users.Adult;
-import fr.cg95.cvq.exception.CvqAuthenticationFailedException;
-import fr.cg95.cvq.exception.CvqDisabledAccountException;
-import fr.cg95.cvq.exception.CvqModelException;
-import fr.cg95.cvq.exception.CvqUnknownUserException;
+import fr.cg95.cvq.exception.*;
 
 /**
  * An authentication service aimed at authenticating e-citizens only.
@@ -21,7 +18,8 @@ public interface IAuthenticationService {
 
     Adult authenticate(final String login, final String passwd)
         throws CvqModelException, CvqUnknownUserException,
-               CvqAuthenticationFailedException, CvqDisabledAccountException;
+               CvqAuthenticationFailedException, CvqDisabledAccountException,
+               CvqNotValidatedAccount;
 
     /**
      * Return the supported BO authentication method for the current local authority.

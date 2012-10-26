@@ -75,7 +75,7 @@ public class ServiceTestCase extends AbstractJUnit4SpringContextTests {
             Adult homeFolderResponsible = BusinessObjectsFactory.gimmeAdult(
                 TitleType.MISTER, "lastName", "firstName", BusinessObjectsFactory.gimmeAddress("12","Rue d'Aligre", "Paris", "75012"), FamilyStatusType.SINGLE);
             homeFolderResponsible.setPassword("toto");
-            userWorkflowService.create(homeFolderResponsible, false);
+            userWorkflowService.create(homeFolderResponsible, false, null);
             SecurityContext.setCurrentEcitizen(homeFolderResponsible);
             id = homeFolderResponsible.getHomeFolder().getId();
             responsibleId = homeFolderResponsible.getId();
@@ -240,7 +240,7 @@ public class ServiceTestCase extends AbstractJUnit4SpringContextTests {
             SecurityContext.setCurrentAgent(agentNameWithCategoriesRoles);
 
             // ensure all requests have been deleted after each test
-            assertEquals(0, userSearchService.get(new HashSet<Critere>(), null, null, null).size());
+            assertEquals(0, userSearchService.get(new HashSet<Critere>(), null, null, null, false).size());
 
             rollbackTransaction();
             SecurityContext.resetCurrentSite();

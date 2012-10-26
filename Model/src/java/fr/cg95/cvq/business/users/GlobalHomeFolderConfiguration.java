@@ -35,6 +35,18 @@ public class GlobalHomeFolderConfiguration implements Serializable {
     private Boolean independentCreation = false;
 
     /**
+     * After how many days a non-validated account is deleted
+     */
+    @Column(name="pending_users_live_duration", nullable=false)
+    private Integer pendingUsersLiveDuration = 10;
+
+    /**
+     * After how many days a notification is sent for non-validated account
+     */
+    @Column(name="pending_users_notification_purge", nullable=false)
+    private Integer pendingUserNotificationPurge = 5;
+
+    /**
      * Document types wished at home folder creation time.
      */
     @OneToMany
@@ -67,5 +79,21 @@ public class GlobalHomeFolderConfiguration implements Serializable {
 
     public void setWishedDocumentTypes(Set<DocumentType> documentTypes) {
         this.wishedDocumentTypes = documentTypes;
+    }
+
+    public Integer getPendingUserNotificationPurge() {
+        return pendingUserNotificationPurge;
+    }
+
+    public Integer getPendingUsersLiveDuration() {
+        return pendingUsersLiveDuration;
+    }
+
+    public void setPendingUserNotificationPurge(Integer pendingUserNotificationPurge) {
+        this.pendingUserNotificationPurge = pendingUserNotificationPurge;
+    }
+
+    public void setPendingUsersLiveDuration(Integer pendingUsersLiveDuration) {
+        this.pendingUsersLiveDuration = pendingUsersLiveDuration;
     }
 }

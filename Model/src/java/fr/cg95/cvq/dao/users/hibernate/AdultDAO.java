@@ -61,7 +61,7 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
                     " (lower(a.firstName) = lower(:firstName) and lower(a.lastName) = lower(:lastName))" +
                     " and ( lower(a.email) = lower(:email) " +
                     " or lower(:address) like '%'|| lower(a.address.streetName) || '%' )" +
-                    " and a.state != '" + UserState.ARCHIVED.name() + "'" +
+                    " and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' )" +
                     " and a.homeFolder.temporary is false"
         );
 
@@ -71,7 +71,7 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
     @Override
     public Long countDuplicates() {
         return (Long)HibernateUtil.getSession()
-            .createQuery("select count(*) from Adult a where a.duplicateAlert is true and homeFolder != null")
+            .createQuery("select count(*) from Adult a where a.duplicateAlert is true and homeFolder != null and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' )")
             .iterate().next();
     }
 
@@ -79,9 +79,10 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
     public List<Adult> listDuplicates(int max) {
         Query query = HibernateUtil.getSession()
             .createQuery("from Adult a where a.duplicateAlert is true and homeFolder != null " + 
-                    "and homeFolder.temporary is false order by a.lastModificationDate");
+                    "and homeFolder.temporary is false and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' ) order by a.lastModificationDate");
         if (max > 0)
             query.setMaxResults(max);
         return query.list();
     }
+
 }

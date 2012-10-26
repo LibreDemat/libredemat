@@ -32,7 +32,7 @@ public interface IUserWorkflowService {
 
     UserState[] getStatesWithProperty(String propertyName);
 
-    HomeFolder create(Adult adult, boolean temporary)
+    HomeFolder create(Adult adult, boolean temporary, String callbackUrl)
         throws CvqException;
 
     Long add(@IsUser HomeFolder homeFolder, @IsUser Adult adult, boolean assignLogin)
@@ -49,6 +49,8 @@ public interface IUserWorkflowService {
     void modifyPassword(@IsUser Adult adult, String oldPassword, String newPassword)
         throws CvqException, CvqBadPasswordException;
 
+    void modifyConnection(@IsUser Adult adult, String password, String question, String answer);
+
     /**
      * Send the new password by email to the home folder's responsible,
      * or to the admin address if the responsible has no email address,
@@ -56,8 +58,14 @@ public interface IUserWorkflowService {
      *
      * @return the confirmation message
      */
-    String resetPassword(Adult adult)
+    String generateAndSendNewPassword(Adult adult)
         throws CvqException;
+
+    /**
+     * Start the reset password process by sending email to user with reset link
+     * @param adult
+     */
+    void launchResetPasswordProcess(Adult adult);
 
     void link(@IsUser Individual owner, @IsUser HomeFolder target, Collection<RoleType> types);
 

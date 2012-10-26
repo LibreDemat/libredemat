@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import fr.cg95.cvq.business.users.Adult;
+import fr.cg95.cvq.business.users.GlobalHomeFolderConfiguration;
 import fr.cg95.cvq.business.users.Individual;
 import fr.cg95.cvq.business.users.RoleType;
 import fr.cg95.cvq.security.annotation.IsUser;
@@ -44,4 +45,39 @@ public interface IUserService {
      * Disable home folder creation without starting a request.
      */
     void disableHomeFolderIndependentCreation();
+
+    /**
+     * Activate user account after email verification
+     * @param login
+     * @param code
+     * @return
+     */
+    Adult activateAccount(String login, String code);
+
+    /**
+     * Return true if this adult has an email different from default email
+     * @param adult
+     * @return
+     */
+    boolean hasValidEmail(Adult adult);
+
+    /**
+     * Prepare password resetting process by affecting a new validation code with an expiration to user
+     * @param adult
+     */
+    void prepareResetPassword(Adult adult);
+
+    /**
+     * Check if validation code is correct for password reset
+     * @param login
+     * @param key
+     * @return
+     */
+    boolean checkResetPasswordLink(String login, String key);
+
+    /**
+     * Return Homefolder configuration
+     * @return
+     */
+    public GlobalHomeFolderConfiguration getGlobalHomeFolderConfiguration();
 }

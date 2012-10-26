@@ -49,6 +49,11 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       init : function() {
         if (!!zcbh.Details.homeFolderId) {
           initControls();
+          if(yud.get("homeFolderState").className=="tag-archived") {
+            zct.each(yus.query("a.toggle",null,false),function(){
+              yue.on(this,"click",zcbh.Details.toggle);
+            });
+          }
           zcb.Contact.init(yud.get("contactLink"), yud.get("contactPanel"), zcb.contactPanelUrl);
           zca.advise("notify", new zca.Advice("afterReturn", function() {
             zcb.Contact.hide();
@@ -67,7 +72,21 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
             body : 'Voulez-vous supprimer cet individu ?' },
           zcbh.Details.removeIndividual);
 
+        zcbh.Details.resetPwdDialog = new zct.ConfirmationDialog(
+          { head : 'Attention',
+            body : 'Etes-vous sûr de vouloir réinitialiser le mot de passe de cet individu ?' },
+          zcbh.Details.resetPassword);
+
         zcbh.Details.initSecurityRule(zcbh.Details.agentCanWrite);
+
+        // Switch "aucun courriel" on/off and add default email
+        yue.on(yud.get("no-email"), "click", zcbh.Details.switchNoEmail);
+
+        zcbh.Details.attachResetPwdEvent();
+      },
+
+      attachResetPwdEvent: function() {
+        yue.on(yud.get("reset-pwd"), "click", zcbh.Details.toggleResetPwdDialog);
       },
 
       initSecurityRule : function(canWrite) {
@@ -227,18 +246,23 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       },
 
       refreshActions : function() {
-        zct.each(zcbh.Details.bottomTabView.get("tabs"), function() {
-            if (this.get("label") === "Historique") {
-              var cacheData = this.get("cacheData");
-              var contentVisible = this.get("contentVisible");
-              this.set("cacheData", false);
-              this.set("contentVisible", false);
-              this.set("contentVisible", true);
-              this.set("contentVisible", contentVisible);
-              this.set("cacheData", cacheData);
-            }
-          }, null);
+        zcbh.Details.refreshBottomTab();
         zcbh.Details.refreshHomeFolderState();
+        zcbh.Details.refreshPasswordReset();
+      },
+
+      refreshBottomTab: function() {
+        zct.each(zcbh.Details.bottomTabView.get("tabs"), function() {
+          if (this.get("label") === "Historique") {
+            var cacheData = this.get("cacheData");
+            var contentVisible = this.get("contentVisible");
+            this.set("cacheData", false);
+            this.set("contentVisible", false);
+            this.set("contentVisible", true);
+            this.set("contentVisible", contentVisible);
+            this.set("cacheData", cacheData);
+          }
+        }, null);
       },
 
       add : function(e) {
@@ -265,6 +289,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       },
 
       confirmRemoveIndividual : function(e) { zcbh.Details.confirmRemoveDialog.show(e); },
+
       removeIndividual : function(e, se) {
         var target = (yue.getTarget(se)||se);
         var individual = yud.getAncestorByTagName(target, 'div');
@@ -286,6 +311,47 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
             var parentNode=state.parentNode;
             parentNode.innerHTML = o.responseText;
           });
+      },
+
+      refreshPasswordReset: function() {
+        zct.doAjaxCall('/currentResetPasswordBox/'+zenexity.capdemat.bong.homeFolder.Details.homeFolderId, null, function(o) {
+          var box = document.getElementById('reset-pwd-outer');
+          box.innerHTML = o.responseText;
+          zcbh.Details.attachResetPwdEvent();
+        });
+      },
+
+      switchNoEmail : function() {
+        var email = yud.get("email");
+        var defautEmail = this.value;
+
+        email.readOnly = this.checked;
+        if (this.checked) {
+          email.value = defautEmail;
+          yud.addClass(email, 'default-email');
+        } else {
+          email.value = "";
+          yud.removeClass(email, 'default-email');
+        }
+      },
+
+      toggleResetPwdDialog : function(e) {
+        zcbh.Details.resetPwdDialog.show(e);
+      },
+
+      resetPassword : function(e, se) {
+        var homeFolderId = zenexity.capdemat.bong.homeFolder.Details.homeFolderId;
+        zct.doAjaxCall('/resetPassword/' + homeFolderId, null, function(o) {
+          var body = yud.get("reset-pwd-body")
+          var json = ylj.parse(o.responseText);
+
+          if (json.status === 'success') {
+            body.innerHTML = json.message;
+            zcbh.Details.refreshBottomTab();
+          } else {
+            zct.Notifier.processMessage('error',  "Unexpected error", null, (yue.getTarget(se) || se));
+          }
+        });
       }
     };
   }();

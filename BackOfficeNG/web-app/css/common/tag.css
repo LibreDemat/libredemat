@@ -64,6 +64,8 @@ invoice : paid, no_paid
 .tag-archivesdeleted, .tag-archivesdownloaded, .tag-passwordreset, .tag-requestsarchived, .tag-archivesmigrated,
 /* homefolder mapping */
 .tag-free, .tag-binded, .tag-ignored, 
+/* homefolder user */
+.tag-passwordreset, .tag-password_reset,
 /*  misc */
 .tag-draft { 
   padding: 0 .2em;
@@ -146,7 +148,7 @@ invoice : paid, no_paid
 
 /* violet */
 .tag-qos,
-.tag-passwordreset,
+.tag-passwordreset, .tag-password_reset,
 .tag-required,
 .tag-e_citizen,
 .tag-creationnotification,

@@ -17,9 +17,9 @@ import fr.cg95.cvq.util.Critere;
 
 public interface IUserSearchService extends IAutofillTriggerService {
 
-    List<Individual> get(Set<Critere> criterias, Map<String,String> sortParams, Integer max, Integer offset);
+    List<Individual> get(Set<Critere> criterias, Map<String,String> sortParams, Integer max, Integer offset, boolean filterPendings);
 
-    Integer getCount(Set<Critere> criterias);
+    Integer getCount(Set<Critere> criterias, boolean filterPendings);
 
     List<Adult> match(final Set<Critere> criteriaSet);
 

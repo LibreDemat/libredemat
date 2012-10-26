@@ -25,6 +25,7 @@ public class SecurityService {
                 "backofficeDocumentType" : /.*/,
                 "backofficeUserSecurity" : /.*/,
                 "backofficeEmail" : /.*/,
+                "backofficeUserAdmin" : /.*/,
                 "system" : /error/
             ]
         ],
@@ -63,7 +64,7 @@ public class SecurityService {
         (ContextType.UNAUTH_ECITIZEN) : [
             (SecurityContext.FRONT_OFFICE_CONTEXT) : [
                 "frontofficeRequestType" : [/login/, /start/],
-                "frontofficeHomeFolder" : [/create/, /resetPassword/],
+                "frontofficeHomeFolder" : [/create/, /resetPassword/, /validation/, /newPassword/],
                 "frontofficeHome" : [/loginAgent/, /login/, /accessibilityPolicy/, /browsers/, /test/],
                 "frontofficeDocument" : [/details/, /binary/, /preview/],
                 "system" : /error/

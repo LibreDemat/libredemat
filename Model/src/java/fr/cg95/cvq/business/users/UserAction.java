@@ -70,13 +70,16 @@ public class UserAction {
     }
 
     public UserAction(Type type, Long targetId, JsonObject payload) {
-        date = new Date();
+        this.date = new Date();
         this.type = type;
-        userId = SecurityContext.getCurrentUserId();
+        this.userId = SecurityContext.getCurrentUserId();
+        if (this.userId == null) this.userId = -1l;
+
         JsonObject user = new JsonObject();
         user.addProperty("id", userId);
         user.addProperty("name", UserUtils.getDisplayName(userId));
         payload.add("user", user);
+
         this.targetId = targetId;
         user = new JsonObject();
         user.addProperty("id", targetId);

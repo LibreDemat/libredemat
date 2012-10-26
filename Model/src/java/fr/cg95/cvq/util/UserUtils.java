@@ -1,6 +1,7 @@
 package fr.cg95.cvq.util;
 
 import fr.cg95.cvq.business.authority.Agent;
+import fr.cg95.cvq.business.users.Adult;
 import fr.cg95.cvq.business.users.Individual;
 import fr.cg95.cvq.service.authority.IAgentService;
 import fr.cg95.cvq.service.users.IUserSearchService;
@@ -52,6 +53,14 @@ public class UserUtils {
 
     public static String getDisplayName(Long id) {
         return getUserDetails(id).name;
+    }
+
+    public static String getUrlValidation(Adult adult) {
+        return String.format("frontoffice/homeFolder/validation?login=%s&key=%s", adult.getLogin(), adult.getValidationCode());
+    }
+
+    public static String getUrlResetPassword(Adult adult) {
+        return String.format("frontoffice/homeFolder/newPassword?login=%s&key=%s", adult.getLogin(), adult.getValidationCode());
     }
 
     public static void setAgentService(IAgentService agentService) {

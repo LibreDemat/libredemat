@@ -4,6 +4,7 @@ import fr.cg95.cvq.business.users.Adult;
 import fr.cg95.cvq.business.users.MeansOfContactEnum;
 import fr.cg95.cvq.exception.CvqException;
 import fr.cg95.cvq.security.annotation.IsUser;
+import fr.cg95.cvq.service.users.job.UserNotificationJob.NotificationType;
 
 public interface IUserNotificationService {
 
@@ -15,4 +16,6 @@ public interface IUserNotificationService {
 
     void notifyBySms(String to, String body)
         throws CvqException;
+
+    void sendNotification(Adult adult, NotificationType type, String note);
 }

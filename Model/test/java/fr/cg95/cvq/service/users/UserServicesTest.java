@@ -91,7 +91,7 @@ public class UserServicesTest extends ServiceTestCase {
         SecurityContext.setCurrentSite(localAuthorityName, SecurityContext.BACK_OFFICE_CONTEXT);
         SecurityContext.setCurrentAgent(agentNameWithCategoriesRoles);
 
-        List<Individual> initialResults = userSearchService.get(new HashSet<Critere>(), null, null, null);
+        List<Individual> initialResults = userSearchService.get(new HashSet<Critere>(), null, null, null, false);
         int initialResultsSize = initialResults.size();
         int homeFoldersCountBeforeArchive = userSearchService.getAll(true, false).size();
         continueWithNewTransaction();
@@ -106,7 +106,7 @@ public class UserServicesTest extends ServiceTestCase {
         assertEquals(homeFoldersCountBeforeArchive - 1, userSearchService.getAll(true, true).size());
 
         // individuals from home folder should no longer appear in search results
-        initialResults = userSearchService.get(new HashSet<Critere>(), null, null, null);
+        initialResults = userSearchService.get(new HashSet<Critere>(), null, null, null, false);
         assertEquals(initialResultsSize, 
                 initialResults.size() + userSearchService.getHomeFolderById(fake.id).getIndividuals().size());
         
@@ -149,9 +149,9 @@ public class UserServicesTest extends ServiceTestCase {
         continueWithNewTransaction();
         
         Integer result1 = userSearchService.get(new HashSet<Critere>(),
-            new HashMap<String,String>(),null,null).size();
+            new HashMap<String,String>(),null,null, false).size();
         
-        Integer count1 = userSearchService.getCount(new HashSet<Critere>());
+        Integer count1 = userSearchService.getCount(new HashSet<Critere>(), false);
         
         assertEquals(total1,result1);
         assertEquals(count1,result1);
@@ -161,9 +161,9 @@ public class UserServicesTest extends ServiceTestCase {
         ct.setAttribut(Individual.SEARCH_IS_HOME_FOLDER_RESPONSIBLE);
         criterias.add(ct);
         
-        Integer count2 = userSearchService.getCount(criterias);
+        Integer count2 = userSearchService.getCount(criterias, false);
         Integer result2 = userSearchService.get(criterias,
-            new HashMap<String,String>(),null,null).size();
+            new HashMap<String,String>(),null,null, false).size();
         
         assertEquals(total2,result2);
         assertEquals(count2,result2);
@@ -179,15 +179,15 @@ public class UserServicesTest extends ServiceTestCase {
         ct.setValue(fake.id);
         criterias.add(ct);
         
-        Integer count3 = userSearchService.getCount(criterias);
+        Integer count3 = userSearchService.getCount(criterias, false);
         Integer result3 = userSearchService.get(criterias,
-            new HashMap<String,String>(),null,null).size();
+            new HashMap<String,String>(),null,null, false).size();
         
         assertTrue(result3 <= 1);
         assertEquals(count3,result3);
         
         Integer result4 = userSearchService.get(new HashSet<Critere>(),
-            new HashMap<String,String>(),5,null).size();
+            new HashMap<String,String>(),5,null, false).size();
         
         assertTrue(result4 <= 5);
         for (FakeHomeFolder fake : homeFolders) {
@@ -303,7 +303,7 @@ public class UserServicesTest extends ServiceTestCase {
             crit2.setComparatif(comparatif2);
             criteriaSet.add(crit2);
         }
-        return userSearchService.get(criteriaSet, null, null, null);
+        return userSearchService.get(criteriaSet, null, null, null, false);
     }
 
     
@@ -322,13 +322,13 @@ public class UserServicesTest extends ServiceTestCase {
         }
 
         server.getQueue().clear();
-        String message = userWorkflowService.resetPassword(adult);
+        String message = userWorkflowService.generateAndSendNewPassword(adult);
         assertTrue(message.contains("veuillez le conserver précieusement"));
         email = server.getMessage(1000);
         assertNull(email);
 
         server.getQueue().clear();
-        message = userWorkflowService.resetPassword(adult);
+        message = userWorkflowService.generateAndSendNewPassword(adult);
         assertTrue(message.contains("veuillez prendre contact avec votre collectivité afin de le récupérer"));
         email = server.getMessage(1000);
         assertEquals(email.getRecipients().size(), 1);
@@ -345,7 +345,7 @@ public class UserServicesTest extends ServiceTestCase {
         adult.setEmail(address);
 
         server.getQueue().clear();
-        message = userWorkflowService.resetPassword(adult);
+        message = userWorkflowService.generateAndSendNewPassword(adult);
         assertTrue(message.contains(address));
         email = server.getMessage(1000);
         assertEquals(email.getRecipients().size(), 1);
@@ -359,7 +359,7 @@ public class UserServicesTest extends ServiceTestCase {
         }
 
         server.getQueue().clear();
-        message = userWorkflowService.resetPassword(adult);
+        message = userWorkflowService.generateAndSendNewPassword(adult);
         assertTrue(message.contains(address));
         email = server.getMessage(1000);
         assertEquals(email.getRecipients().size(), 1);
