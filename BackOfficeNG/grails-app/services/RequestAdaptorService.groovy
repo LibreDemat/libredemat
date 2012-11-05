@@ -85,7 +85,8 @@ class RequestAdaptorService {
               'isViewable' : !RequestState.ARCHIVED.equals(request.state)
                   && categoryService.hasProfileOnCategory(SecurityContext.currentAgent,
                       request.requestType.category?.id),
-              'hasAllDocuments' : requestDocumentService.hasAllDocuments(request)
+              'hasAllDocuments' : requestDocumentService.hasAllDocuments(request),
+              'season': request.requestSeason ? request.requestSeason.label : null
         ]
 
         return record

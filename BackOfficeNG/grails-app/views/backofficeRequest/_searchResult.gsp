@@ -35,6 +35,9 @@
   </p>
 
   <p class="third-line">
+    <g:if test="${record.season}">
+      <span><g:message code="property.requestSeason" /> : ${record.season} - </span>
+    </g:if>
     <g:if test="${record.hasAllDocuments !=  null}">
       <g:message code="property.documents" /> :
       <g:if test="${record.hasAllDocuments}">
