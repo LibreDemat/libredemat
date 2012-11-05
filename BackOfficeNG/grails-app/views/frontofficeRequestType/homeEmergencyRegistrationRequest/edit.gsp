@@ -73,6 +73,9 @@
           </g:if>
         </g:else>
         <g:message code="herr.label" /> <g:message code="message.number" args="[rqt.id]" />
+        <g:if test="${rqt.requestSeason}">
+          <span id="requestSeasonLabel">${rqt.requestSeason.label} (<g:formatDate formatName="format.date" date="${rqt.requestSeason.effectStart.toDate()}"/> - <g:formatDate formatName="format.date" date="${rqt.requestSeason.effectEnd.toDate()}"/>)</span>
+        </g:if>
       </h2>
       <p><g:message code="request.duration.label" /><strong> : <g:message code="herr.duration.value" /></strong></p>
       <p>

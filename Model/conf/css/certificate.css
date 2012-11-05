@@ -15,6 +15,7 @@ body {
 
 h1,h2,h3,h4 { font-weight: normal; }
 h1 { font-size: 2.2em; text-align: center; }
+h1 small { font-size: 0.6em; text-align: center; color: #333 }
 h2 { font-size: 1.8em; color: #DB4366; border-bottom: 1px solid #DB4366; }
 h3 { font-size: 1.5em; color: #444; }
 h4 { font-size: 1.3em; }

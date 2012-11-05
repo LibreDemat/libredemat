@@ -130,6 +130,7 @@
 /* validation screen
 -------------------------------------------------------------- */
 #request .summary-box p { margin: 0; }
+.summary-box .season-subtitle { font-size: 0.6em; }
 
 /* tree
 -------------------------------------------------------------- */

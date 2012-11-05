@@ -23,6 +23,11 @@
       <h2>
         <g:message code="request.header.summary"
           args="${[requestTypeLabel,rqt.id.toString()]}" />
+
+        <g:if test="${rqt.requestSeason}">
+          <span class="season-subtitle">${rqt.requestSeason.label} (<g:formatDate formatName="format.date" date="${rqt.requestSeason.effectStart.toDate()}"/> - <g:formatDate formatName="format.date" date="${rqt.requestSeason.effectEnd.toDate()}"/>)</span>
+        </g:if>
+
         <span>
           <g:message code="requestAction.action.download.Creation" /> :
           <a title="<g:message code='requestAction.property.requestCertificate' />"
@@ -38,6 +43,7 @@
           model="['rqt':rqt]" />
       </div>
     </div>
+
     <g:if test="${requestNotes}">
       <div class="main-box" id="requestNotes">
         <h2><g:message code="request.property.notes" /></h2>

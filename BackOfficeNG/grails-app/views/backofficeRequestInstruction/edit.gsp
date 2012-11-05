@@ -67,7 +67,7 @@
             ${requestLabel} (${rqt.id})
           </h1>
           <g:if test="${rqt.requestSeason}">
-            <span id="requestSeasonLabel">${rqt.requestSeason.label}</span>
+            <span id="requestSeasonLabel">${rqt.requestSeason.label} (<g:formatDate formatName="format.date" date="${rqt.requestSeason.effectStart.toDate()}"/> - <g:formatDate formatName="format.date" date="${rqt.requestSeason.effectEnd.toDate()}"/>)</span>
           </g:if>
           <span id="requestTypeLabel">${requestTypeLabel}</span>
         </div>

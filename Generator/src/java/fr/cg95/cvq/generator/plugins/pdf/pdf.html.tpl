@@ -343,7 +343,12 @@ ${endGT()}
     <p>\${esc(localAuthority.displayTitle)}</p>
     <img src="file://\${logoPath}" alt="mairie2424" />
   </div>
-  <h1>\${esc(i18n.translate('${requestPdf.acronym}.label'))}</h1>
+  <h1>\${esc(i18n.translate('${requestPdf.acronym}.label'))}
+  ${toGT('if (rqt.requestSeason) {')}
+    <br /><small>\${rqt.requestSeason.label} (\${rqt.requestSeason.effectStart.toString(i18n.translate('format.date'))} - 
+                 \${rqt.requestSeason.effectEnd.toString(i18n.translate('format.date'))})</small>
+  ${toGT('}')}
+  </h1>
   <div class="localAuthority">
     <h2>\${i18n.translate('pdf.localAutorityReservedSection')}</h2>
     <ul>
