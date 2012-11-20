@@ -92,6 +92,12 @@
     <div id="narrow" class="yui-b">
     </div>
 
+    <g:if test="${flash.successMessage}">
+      <script type="text/javascript">
+        zenexity.capdemat.tools.Notifier.processMessage('success', "${flash.successMessage}");
+      </script>
+    </g:if>
+
   </body>
 </html>
 

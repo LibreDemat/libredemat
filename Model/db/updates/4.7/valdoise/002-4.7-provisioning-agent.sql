@@ -1,1 +1,0 @@
-ALTER TABLE agent ADD COLUMN password character varying(255);

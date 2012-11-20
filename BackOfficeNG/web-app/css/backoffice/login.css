@@ -19,6 +19,10 @@ form {
     font-size: 1.2em;
 }
 
+form.editable-list-form {
+	width: auto
+}
+
 form.error {
   border-color: red;
 }
@@ -27,6 +31,12 @@ form p.error {
     text-align: center;
     font-weight: bold;
     color: red;
+}
+
+form p.success {
+	text-align: center;
+	font-weight: bold;
+	color: blue
 }
 
 form p {
@@ -39,4 +49,18 @@ form label {
     width: 35%;
     padding: 0 1em 0;
     text-align: right; 
+}
+
+form a.forgot {
+	font-size: 0.85em;
+	color: #333;
+}
+
+p {
+	font-size: 0.9em;
+}
+
+p.info, .mainbox-orange, .mainbox-blue {
+	text-align: center;
+	margin-bottom: 0.5em
 }

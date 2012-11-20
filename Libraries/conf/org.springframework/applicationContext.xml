@@ -58,6 +58,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
       <ref bean="mailSender"/>
     </property>
     <property name="systemEmail" value="${mail.admin_address}"/> 
+    <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
   </bean>
 
 <!-- 
@@ -107,6 +108,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="authenticationService">
       <ref bean="authenticationService"/>
     </property>
+    <property name="translationService" ref="translationService" />
+    <property name="mailService" ref="mailService" />
   </bean>
 
   <bean id="agentServiceToUserUtilsInjector"

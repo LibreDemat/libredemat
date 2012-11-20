@@ -22,5 +22,10 @@
     <div id="narrow" class="yui-b">
       <menu:subMenu id="secondMenu" i18nPrefix="header" data="${subMenuEntries}" />
     </div>
+    <g:if test="${flash.successMessage}">
+      <script type="text/javascript">
+        zenexity.capdemat.tools.Notifier.processMessage('success', "${flash.successMessage}");
+      </script>
+    </g:if>
   </body>
 </html>

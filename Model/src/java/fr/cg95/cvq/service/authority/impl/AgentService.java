@@ -1,5 +1,8 @@
 package fr.cg95.cvq.service.authority.impl;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
@@ -22,6 +25,9 @@ import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
 import fr.cg95.cvq.service.authority.IAgentService;
 import fr.cg95.cvq.service.authority.ILocalAuthorityLifecycleAware;
+import fr.cg95.cvq.util.DateUtils;
+import fr.cg95.cvq.util.mail.IMailService;
+import fr.cg95.cvq.util.translation.ITranslationService;
 
 /**
  * Implementation of the agent service.
@@ -34,6 +40,8 @@ public final class AgentService implements IAgentService, ILocalAuthorityLifecyc
 
     private IAgentDAO agentDAO;
     private IAuthenticationService authenticationService;
+    private IMailService mailService;
+    private ITranslationService translationService;
 
     @Override
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
@@ -294,6 +302,51 @@ public final class AgentService implements IAgentService, ILocalAuthorityLifecyc
     }
 
     @Override
+    public void sendResetPasswordEmail(final Agent agent) throws CvqException {
+        agent.assignRandomValidationCode();
+        agent.setValidationCodeExpiration(DateUtils.getShiftedDate(Calendar.DAY_OF_YEAR, 3));
+        agentDAO.update(agent);
+
+        String urlReset = String.format("backoffice/login/newPassword?login=%s&key=%s",
+            agent.getLogin(),
+            agent.getValidationCode());
+
+        String subject = translationService.translate("agent.reset.email.subject",
+            new Object[] { SecurityContext.getCurrentSite().getDisplayTitle() });
+
+        HashMap<String, String> variables = new HashMap<String, String>();
+        variables.put("link", urlReset);
+        variables.put("login", agent.getLogin());
+        variables.put("firstName", agent.getFirstName());
+        variables.put("lastName", agent.getLastName());
+
+        mailService.send(
+            SecurityContext.getCurrentSite().getAdminEmail(),
+            agent.getEmail(),
+            null,
+            subject,
+            mailService.prepareBodyFromAsset("ResetPasswordAgent", variables));
+    }
+
+    @Override
+    public void assignNewPassword(final Agent agent, final String password) {
+        agent.setPassword(authenticationService.encryptPassword(password));
+        agent.setValidationCode("");
+        agent.setValidationCodeExpiration(null);
+        agentDAO.update(agent);
+    }
+
+    @Override
+    public boolean checkResetPasswordLink(String login, String key) {
+        Agent agent = agentDAO.findByLogin(login);
+        return isCodeVerificationValid(agent, key) && agent.getValidationCodeExpiration().after(new Date());
+    }
+
+    private boolean isCodeVerificationValid(Agent agent, String code) {
+        return agent != null && code != null && code.equals(agent.getValidationCode());
+    }
+
+    @Override
     public void removeLocalAuthority(String localAuthorityName) {
     }
 
@@ -303,5 +356,13 @@ public final class AgentService implements IAgentService, ILocalAuthorityLifecyc
 
     public void setAuthenticationService(IAuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
+    }
+
+    public void setTranslationService(ITranslationService translationService) {
+        this.translationService = translationService;
+    }
+
+    public void setMailService(IMailService mailService) {
+        this.mailService = mailService;
     }
 }

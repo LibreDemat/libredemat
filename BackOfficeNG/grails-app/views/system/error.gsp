@@ -10,7 +10,12 @@
           <g:message code="${i18nKey}" args="${i18nArgs}" />
         </p>
         <div class="links">
-          <a href="${createLink(controller:'frontofficeHome', action: temporary ? 'logout' : '')}"><g:message code="action.goHome" /></a>
+          <g:if test="${context == 'bo'}">
+            <a href="${createLink(controller: 'backofficeLogin', action: 'login')}"><g:message code="action.goBack" /></a>
+          </g:if>
+          <g:if test="${context != 'bo'}">
+            <a href="${createLink(controller: 'frontofficeHome', action: temporary ? 'logout' : '')}"><g:message code="action.goHome" /></a>
+          </g:if>
         </div>
       </div>
     </div>

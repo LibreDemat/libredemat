@@ -1,6 +1,7 @@
 package fr.cg95.cvq.business.authority;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-
+import java.util.UUID;
 
 /**
  * @author bor@zenexity.fr
@@ -58,6 +59,12 @@ public class Agent implements Serializable {
 
     @Column(name="preferences")
     private Hashtable<String, Hashtable<String, String>> preferences; 
+
+    @Column(name="validation_code", length=100)
+    private String validationCode;
+
+    @Column(name="validation_code_expiration")
+    private Date validationCodeExpiration;
 
     public Long getId() {
         return this.id;
@@ -129,6 +136,26 @@ public class Agent implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getValidationCode() {
+        return validationCode;
+    }
+
+    public void setValidationCode(String validationCode) {
+        this.validationCode = validationCode;
+    }
+
+    public Date getValidationCodeExpiration() {
+        return validationCodeExpiration;
+    }
+
+    public void setValidationCodeExpiration(Date validationCodeExpiration) {
+        this.validationCodeExpiration = validationCodeExpiration;
+    }
+
+    public void assignRandomValidationCode() {
+        setValidationCode(UUID.randomUUID().toString());
     }
 
     @Override

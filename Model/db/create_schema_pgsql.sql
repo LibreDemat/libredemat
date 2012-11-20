@@ -796,6 +796,8 @@
         active bool,
         preferences bytea,
         email varchar(255),
+        validation_code varchar(100),
+        validation_code_expiration timestamp,
         primary key (id)
     );
 

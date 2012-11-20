@@ -94,4 +94,26 @@ public interface IAgentService {
      * @param preference cutoff to replace
      */
     void modifyPreference(String key, Hashtable<String,String> preference);
+
+    /**
+     * Send email to agent to reset its password
+     * @param agent
+     * @throws CvqException
+     */
+    void sendResetPasswordEmail(final Agent agent) throws CvqException;
+
+    /**
+     * Check if validation key is valid (value and expiration)
+     * @param login
+     * @param key
+     * @return
+     */
+    boolean checkResetPasswordLink(String login, String key);
+
+    /**
+     * Assign new password to agent and invalidate 'validation code'
+     * @param agent
+     * @param password
+     */
+    void assignNewPassword(final Agent agent, final String password);
 }
