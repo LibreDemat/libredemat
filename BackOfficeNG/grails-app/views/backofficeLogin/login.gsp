@@ -10,7 +10,7 @@
       <img class="logo-authority" 
         src="${createLink(controller : 'localAuthorityResource', action : 'resource', id : 'logoFo')}"
         alt="Logo Collectivité""></img>
-        <h1><g:message code="action.login.mairie24" /></h1>
+        <h1><g:message code="action.login" /></h1>
         <form method="post" class="${error ? 'error' : ''}">
             <p class="error"><g:message code="${error}" /></p>
             <g:if test="${flash.successMessage}"><p class="success">${flash.successMessage}</p></g:if>
