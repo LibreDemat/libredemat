@@ -95,10 +95,14 @@ public class UserNotificationService implements IUserNotificationService, Applic
                     userService.prepareResetPassword(adult);
                     sendNotification(adult, NotificationType.NEW_ACCOUNT_BO,
                             translationService.translate("homeFolder.notification.note.newAccountBO"));
-                // From FO : Send validation link
-                } else {
+                // From FO with validation required : Send validation email
+                } else if (SecurityContext.isFrontOfficeContext() && SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired()) {
                     sendNotification(adult, NotificationType.NEW_ACCOUNT,
                             translationService.translate("homeFolder.notification.note.newAccount"));
+                // From FO without validation : Send Login assigned email
+                } else if (SecurityContext.isFrontOfficeContext()) {
+                    sendNotification(adult, NotificationType.LOGIN_ASSIGNED,
+                            translationService.translate("homeFolder.notification.note.loginAssigned"));
                 }
             } else if (UserAction.Type.MODIFICATION == action && isLoginModified(event, adult) && hasValidEmail(adult)) {
                 sendNotification(adult, NotificationType.LOGIN_ASSIGNED,

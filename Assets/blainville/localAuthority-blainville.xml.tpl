@@ -17,6 +17,7 @@
     <property name="autotransition" value="true"/>
     <property name="authenticationMethod" value="builtin"/> <!-- builtin,cas -->
     <property name="authenticationMethodFront" value="builtin"/> <!-- builtin,oauth2-->
+    <property name="accountValidationRequired" value="true" />
     <property name="jpaConfigurations">
         <props>
             <prop key="hibernate.show_sql">false</prop>

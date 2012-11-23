@@ -164,31 +164,36 @@ class FrontofficeHomeFolderController {
 
                 def authMethod = SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront()
 
-                if(authMethod.equals("builtin")) {
-                    if(params.callback)
-                    {
-                        redirect(url : params.callback)
-                        return
-                    }
-                    else
-                    {
-                        redirect(
-                            controller : model.callback.controller,
-                            action : model.callback.action,
-                            params : model.callback.params)
-                        return
-                    }
-                } else if (authMethod.equals("oauth2")) {
-                    def logincallback = params.callback ?: createLink( controller:model.callback.controller
-                            , action:model.callback.action
-                            , params:model.callback.params).toString()
-                    redirect( controller:'OAuth2'
-                            , action:'askLogin'
-                            , params:['callback':logincallback])
-                    return
+                if (SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired()) {
+                    render(view: "registerConfirmation", model: model)
                 }
-                // Subscription ok
-                render(view: "registerConfirmation", model: model)
+                else 
+                {
+                    if(authMethod.equals("builtin")) {
+                        if(params.callback)
+                        {
+                            redirect(url : params.callback)
+                            return
+                        }
+                        else
+                        {
+                            redirect(
+                                controller : model.callback.controller,
+                                action : model.callback.action,
+                                params : model.callback.params)
+                            return
+                        }
+                    } else if (authMethod.equals("oauth2")) {
+                        def logincallback = params.callback ?: createLink( controller:model.callback.controller
+                                , action:model.callback.action
+                                , params:model.callback.params).toString()
+                        redirect( controller:'OAuth2'
+                                , action:'askLogin'
+                                , params:['callback':logincallback])
+                        return
+                    }
+                }
+
             }
         }
         else {
@@ -278,15 +283,10 @@ class FrontofficeHomeFolderController {
             flash.invalidFields.add('captchaText')
         }
         if (flash.invalidFields.isEmpty()) {
-
-            if(SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront().equals("builtin"))
-              securityService.setEcitizenSessionInformation(adult, session)
-
-            if (!model.temporary && !individualAdaptorService.duplicationIsValid(adult)) {
-                flash.invalidFields.add('duplicateIndividual')
-            } else {
-                session["registerCallback"] = params.callback;
-                userWorkflowService.create(adult, model.temporary && params.boolean('temporary'), params.callback)
+            session["registerCallback"] = params.callback;
+            userWorkflowService.create(adult, model.temporary && params.boolean('temporary'), params.callback)
+            if (!SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired()) {
+                securityService.setEcitizenSessionInformation(adult, session)
             }
         }
     }

@@ -38,6 +38,7 @@ public final class LocalAuthorityConfigurationBean {
     private String defaultEmail;
     private String authenticationMethod;
     private String authenticationMethodFront;
+    private boolean accountValidationRequired = false;
 
     private Map<String, String> authorizations;
     private Map<IPaymentProviderService, PaymentServiceBean> paymentServices;
@@ -319,6 +320,7 @@ public final class LocalAuthorityConfigurationBean {
         this.authorizations = authorizations;
     }
 
+
     public String getExternalApplicationProperty(String key) {
         if (externalApplicationProperties != null) {
             return externalApplicationProperties.get(key);
@@ -328,5 +330,13 @@ public final class LocalAuthorityConfigurationBean {
     }
     public void setExternalApplicationProperties(Map<String, String> externalApplicationProperties) {
         this.externalApplicationProperties = externalApplicationProperties;
+    }
+
+    public boolean isAccountValidationRequired() {
+        return accountValidationRequired;
+    }
+
+    public void setAccountValidationRequired(boolean accountValidationRequired) {
+        this.accountValidationRequired = accountValidationRequired;
     }
 }
