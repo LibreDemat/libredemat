@@ -7,6 +7,8 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
@@ -36,6 +38,10 @@ public abstract class ExternalAccountItem extends PurchaseItem {
 
     @Column(name="external_individual_id")
     private String externalIndividualId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="external_notification_status",length=32)
+    private ExternalNotificationStatus externalNotificationStatus;
 
     /** 
      * Used to pass external service providers specific information, eg the child's card 
@@ -97,6 +103,14 @@ public abstract class ExternalAccountItem extends PurchaseItem {
 
     public void setExternalIndividualId(String externalIndividualId) {
         this.externalIndividualId = externalIndividualId;
+    }
+
+    public ExternalNotificationStatus getExternalNotificationStatus() {
+        return externalNotificationStatus;
+    }
+
+    public void setExternalNotificationStatus(ExternalNotificationStatus externalNotificationStatus) {
+        this.externalNotificationStatus = externalNotificationStatus;
     }
 
     public void addExternalServiceSpecificData(final String key, final String value) {

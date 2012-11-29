@@ -14,10 +14,12 @@ import org.springframework.context.ApplicationListener;
 import fr.cg95.cvq.business.payment.ExternalAccountItem;
 import fr.cg95.cvq.business.payment.ExternalDepositAccountItem;
 import fr.cg95.cvq.business.payment.ExternalInvoiceItem;
+import fr.cg95.cvq.business.payment.ExternalNotificationStatus;
 import fr.cg95.cvq.business.payment.Payment;
 import fr.cg95.cvq.business.payment.PaymentEvent;
 import fr.cg95.cvq.business.payment.PurchaseItem;
 import fr.cg95.cvq.business.users.external.HomeFolderMapping;
+import fr.cg95.cvq.dao.payment.IPaymentDAO;
 import fr.cg95.cvq.exception.CvqException;
 import fr.cg95.cvq.external.IExternalProviderService;
 import fr.cg95.cvq.external.impl.ExternalService;
@@ -33,6 +35,7 @@ public class PaymentExternalService extends ExternalService implements IPaymentE
     private static Logger logger = Logger.getLogger(PaymentExternalService.class);
 
     private IExternalHomeFolderService externalHomeFolderService;
+    private IPaymentDAO paymentDAO;
 
     @Override
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.READ)
@@ -80,9 +83,25 @@ public class PaymentExternalService extends ExternalService implements IPaymentE
     }
 
     @Context(types = {ContextType.SUPER_ADMIN})
-    private void creditHomeFolderAccounts(Payment payment)
-        throws CvqException {
+    private void creditHomeFolderAccounts(Payment payment) {
+        Map<String, List<PurchaseItem>> externalServicesToNotify = externalServicesToNotify(payment);
 
+        if (!externalServicesToNotify.isEmpty()) {
+            for (List<PurchaseItem> items: externalServicesToNotify.values()) {
+                for (PurchaseItem item: items) {
+                    if (item != null && ((ExternalAccountItem)item)
+                            .getExternalNotificationStatus() == null) {
+                        ((ExternalAccountItem) item).setExternalNotificationStatus(
+                                ExternalNotificationStatus.ITEM_NOT_SENT);
+                    }
+                }
+            }
+            paymentDAO.update(payment);
+        }
+    }
+
+    @Override
+    public Map<String, List<PurchaseItem>> externalServicesToNotify(Payment payment) {
         Map<String, List<PurchaseItem>> externalServicesToNotify =
             new HashMap<String, List<PurchaseItem>>();
         Set<PurchaseItem> purchaseItems = payment.getPurchaseItems();
@@ -103,41 +122,24 @@ public class PaymentExternalService extends ExternalService implements IPaymentE
                 externalServicesToNotify.get(externalServiceLabel).add(purchaseItem);
             }
         }
-
-        if (!externalServicesToNotify.isEmpty()) {
-            for (String externalServiceLabel : externalServicesToNotify.keySet()) {
-                IExternalProviderService service = getExternalServiceByLabel(externalServiceLabel);
-                if (service == null) {
-                    logger.error("notifyPayments() No external service with label " + 
-                            externalServiceLabel + " has been found");
-                    continue;
-                }
-                HomeFolderMapping mapping = 
-                    externalHomeFolderService.getHomeFolderMapping(externalServiceLabel, payment.getHomeFolderId());
-                service.creditHomeFolderAccounts(externalServicesToNotify.get(externalServiceLabel),
-                        payment.getCvqReference(), payment.getBankReference(),
-                        payment.getHomeFolderId(), 
-                        mapping == null ? null : mapping.getExternalCapDematId(),
-                        mapping == null ? null : mapping.getExternalId(), payment.getCommitDate());
-            }
-        }
+        return externalServicesToNotify;
     }
 
     @Override
     public void onApplicationEvent(PaymentEvent paymentEvent) {
         logger.debug("onApplicationEvent() got a payment event of type " + paymentEvent.getEvent());
-        if (paymentEvent.getEvent().equals(PaymentEvent.EVENT_TYPE.PAYMENT_VALIDATED))
-            try {
-                creditHomeFolderAccounts(paymentEvent.getPayment());
-            } catch (CvqException e) {
-                // FIXME : we have nothing to handle this 
-                logger.error("onApplicationEvent() unable to credit home folder account");
-                e.printStackTrace();
-            }
+        if (paymentEvent.getEvent().equals(PaymentEvent.EVENT_TYPE.PAYMENT_VALIDATED)) {
+            logger.info("Validated payment with id : " + paymentEvent.getPayment().getId());
+            creditHomeFolderAccounts(paymentEvent.getPayment());
+        }
     }
 
     public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService) {
         this.externalHomeFolderService = externalHomeFolderService;
+    }
+
+    public void setPaymentDAO(IPaymentDAO paymentDAO) {
+        this.paymentDAO = paymentDAO;
     }
 
 }

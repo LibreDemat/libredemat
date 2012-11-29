@@ -1,10 +1,14 @@
 package fr.cg95.cvq.service.payment.external;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import fr.cg95.cvq.business.payment.ExternalAccountItem;
 import fr.cg95.cvq.business.payment.ExternalDepositAccountItem;
 import fr.cg95.cvq.business.payment.ExternalInvoiceItem;
+import fr.cg95.cvq.business.payment.Payment;
+import fr.cg95.cvq.business.payment.PurchaseItem;
 import fr.cg95.cvq.exception.CvqException;
 import fr.cg95.cvq.security.annotation.IsUser;
 
@@ -36,4 +40,11 @@ public interface IPaymentExternalService {
      */
     void loadInvoiceDetails(ExternalInvoiceItem eii)
         throws CvqException;
+
+    /**
+     * Find externals services to notify from payment.
+     * @param payment
+     * @throws CvqException
+     */
+    Map<String, List<PurchaseItem>> externalServicesToNotify(Payment payment);
 }

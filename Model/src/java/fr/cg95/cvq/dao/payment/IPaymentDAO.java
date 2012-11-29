@@ -67,4 +67,8 @@ public interface IPaymentDAO extends IJpaTemplate<Payment,Long> {
             int recordsReturned, int startIndex);
 
     List<Payment> findByIds(List<Long> paymentsIds);
+
+    List<Payment> paymentNotSent();
+
+    List<Payment> paymentSentError();
 }

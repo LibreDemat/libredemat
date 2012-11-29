@@ -322,6 +322,42 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="cronExpression" value="0 0 3 * * ?" />
   </bean>
 
+  <bean id="paymentNotificationJob" class="fr.cg95.cvq.service.payment.job.PaymentNotifyToExternalServicesJob">
+    <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
+    <property name="paymentDAO" ref="paymentDAO" />
+    <property name="externalService" ref="externalService" />
+    <property name="paymentExternalService" ref="paymentExternalService" />
+    <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+    <property name="translationService" ref="translationService" />
+    <property name="mailService" ref="mailService" />
+  </bean>
+
+  <bean id="paymentNotificationInvoker"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="paymentNotificationJob" />
+    <property name="targetMethod" value="launchPaymentNotification" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <bean id="paymentNotificationTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="paymentNotificationInvoker" />
+    <property name="cronExpression" value="0 0/5 * * * ?" />
+  </bean>
+
+  <bean id="paymentErrorReportInvoker"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="paymentNotificationJob" />
+    <property name="targetMethod" value="launchErrorReport" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <bean id="paymentErrorReportTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="paymentErrorReportInvoker" />
+    <property name="cronExpression" value="0 0 1 * * ?" />
+  </bean>
+
   <!-- *******************************************************************  -->
   <!-- ************ Where everything happens (or not) ********************  -->
   <!-- *******************************************************************  -->
@@ -339,6 +375,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <ref bean="requestLocksCleaningTrigger"/>
         <ref bean="requestArchivingTrigger"/>
         <ref bean="paymentInitializationCheckerTrigger" />
+        <ref bean="paymentNotificationTrigger" />
+        <ref bean="paymentErrorReportTrigger" />
         <!--
         <ref bean="requestWorkflowNavigatorTrigger" />
         -->

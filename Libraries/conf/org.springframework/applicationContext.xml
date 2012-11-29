@@ -846,6 +846,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="paymentExternalService" class="fr.cg95.cvq.service.payment.external.impl.PaymentExternalService"
       parent="externalService">
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+    <property name="paymentDAO" ref="paymentDAO" />
   </bean>
 
   <bean id="externalApplicationService" class="fr.cg95.cvq.service.payment.external.impl.ExternalApplicationService">

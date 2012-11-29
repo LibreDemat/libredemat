@@ -14,10 +14,13 @@ import org.hibernate.type.Type;
 import fr.cg95.cvq.business.payment.ExternalAccountItem;
 import fr.cg95.cvq.business.payment.ExternalDepositAccountItem;
 import fr.cg95.cvq.business.payment.ExternalInvoiceItem;
+import fr.cg95.cvq.business.payment.ExternalNotificationStatus;
 import fr.cg95.cvq.business.payment.ExternalTicketingContractItem;
 import fr.cg95.cvq.business.payment.Payment;
 import fr.cg95.cvq.business.payment.PaymentMode;
 import fr.cg95.cvq.business.payment.PaymentState;
+import fr.cg95.cvq.business.request.Request;
+import fr.cg95.cvq.business.request.RequestActionType;
 import fr.cg95.cvq.dao.jpa.JpaTemplate;
 import fr.cg95.cvq.dao.hibernate.HibernateUtil;
 import fr.cg95.cvq.dao.payment.IPaymentDAO;
@@ -435,5 +438,24 @@ public class PaymentDAO extends JpaTemplate<Payment,Long> implements IPaymentDAO
             .createQuery(sb.toString())
             .setParameters(values.toArray(new Object[0]), types.toArray(new Type[0]))
             .iterate().next();
+    }
+
+    public List<Payment> paymentNotSent() {
+        return find("select distinct(payment) from Payment payment " +
+                    "join fetch payment.purchaseItems items " +
+                    "where payment.state = ? and " +
+                    "(items.externalNotificationStatus = ? or items.externalNotificationStatus = ?)",
+                PaymentState.VALIDATED,
+                ExternalNotificationStatus.ITEM_NOT_SENT,
+                ExternalNotificationStatus.ITEM_SENT_ERROR);
+    }
+
+    public List<Payment> paymentSentError() {
+        return find("select distinct(payment) from Payment payment " +
+                    "join fetch payment.purchaseItems items " +
+                    "where payment.state = ? and " +
+                    "items.externalNotificationStatus = ?",
+                PaymentState.VALIDATED,
+                ExternalNotificationStatus.ITEM_SENT_ERROR);
     }
 }
