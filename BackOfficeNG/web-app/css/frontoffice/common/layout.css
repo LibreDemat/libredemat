@@ -109,3 +109,9 @@ p.agent-note {
     font-size: 18px;
 }
 
+.yui-skin-sam #browser-alert.yui-panel .bd, .yui-skin-sam #browser-alert.yui-panel .ft {
+  background-color: #ffc;
+}
+#browser-alert p {
+  margin: 1em 0;
+}
