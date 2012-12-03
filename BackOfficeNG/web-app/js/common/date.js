@@ -43,4 +43,4 @@
 
   yue.onDOMReady(date.init)
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.tool.ui.date'))
+})(zenexity.capdemat.tools.namespace('zenexity.capdemat.tools.ui.date'))
