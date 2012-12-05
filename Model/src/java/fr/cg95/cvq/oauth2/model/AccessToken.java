@@ -1,6 +1,5 @@
 package fr.cg95.cvq.oauth2.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;

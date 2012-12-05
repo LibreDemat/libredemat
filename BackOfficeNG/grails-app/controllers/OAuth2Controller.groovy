@@ -1,8 +1,8 @@
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException
 import fr.cg95.cvq.exception.CvqDisabledAccountException
 import fr.cg95.cvq.exception.CvqUnknownUserException
-import fr.cg95.cvq.oauth2.IAuthorizationServerInfosService;
 import fr.cg95.cvq.oauth2.IOAuth2Service
+import fr.cg95.cvq.oauth2.OAuth2Exception;
 import fr.cg95.cvq.oauth2.model.Token
 
 import grails.converters.JSON
@@ -13,7 +13,6 @@ class OAuth2Controller {
     def localAuthorityRegistry
 
     IOAuth2Service oauth2Service
-    IAuthorizationServerInfosService authorizationServerInfosService
 
     def askLogin = {
         if (session?.currentEcitizenId == null) {
@@ -74,8 +73,12 @@ class OAuth2Controller {
         }
 
         securityService.logout(session)
-
-        redirect(url:authorizationServerInfosService.getLogoutUri() + "?callback=" + callback)
+        try {
+            redirect(url:oauth2Service.getOAuth2Configuration().getLogoutUri() + "?callback=" + callback)
+        } catch (OAuth2Exception e) {
+            log.error(e.errorCode)
+            redirect(home)
+        }
         return false
     }
 

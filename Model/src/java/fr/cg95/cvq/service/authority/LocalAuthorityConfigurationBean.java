@@ -17,6 +17,7 @@ import fr.cg95.cvq.exception.CvqConfigurationException;
 import fr.cg95.cvq.external.ExternalServiceBean;
 import fr.cg95.cvq.external.ExternalServiceConfigurationBean;
 import fr.cg95.cvq.external.IExternalProviderService;
+import fr.cg95.cvq.oauth2.OAuth2ConfigurationBean;
 import fr.cg95.cvq.service.payment.IPaymentProviderService;
 import fr.cg95.cvq.service.payment.PaymentServiceBean;
 
@@ -45,6 +46,7 @@ public final class LocalAuthorityConfigurationBean {
     private Map<String, Map<String, String>> paymentNotifications;
     private Properties jpaConfigurations;
     private EntityManagerFactory entityManagerFactory;
+    //private OAuth2ConfigurationBean oauth2ConfigurationBean;
 
     private boolean autotransition = false;
 
@@ -295,4 +297,5 @@ public final class LocalAuthorityConfigurationBean {
     public void setAuthorizations(Map<String, String> authorizations) {
         this.authorizations = authorizations;
     }
+
 }

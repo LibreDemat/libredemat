@@ -15,7 +15,9 @@ public interface IOAuth2Service {
 
     AccessToken valide(String token) throws InvalidTokenException;
 
-    String authorizationRequestUri(String state);
+    String authorizationRequestUri(String state) throws OAuth2Exception;
 
-    Token authorizationCodeGrant(String code);
+    Token authorizationCodeGrant(String code) throws OAuth2Exception;
+
+    OAuth2ConfigurationBean getOAuth2Configuration() throws OAuth2Exception;
 }

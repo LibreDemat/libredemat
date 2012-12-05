@@ -23,11 +23,13 @@ import fr.cg95.cvq.exception.CvqAuthenticationFailedException;
 import fr.cg95.cvq.exception.CvqDisabledAccountException;
 import fr.cg95.cvq.exception.CvqModelException;
 import fr.cg95.cvq.exception.CvqUnknownUserException;
-import fr.cg95.cvq.oauth2.IAuthorizationServerInfosService;
 import fr.cg95.cvq.oauth2.IOAuth2Service;
 import fr.cg95.cvq.oauth2.InvalidTokenException;
+import fr.cg95.cvq.oauth2.OAuth2ConfigurationBean;
+import fr.cg95.cvq.oauth2.OAuth2Exception;
 import fr.cg95.cvq.oauth2.model.AccessToken;
 import fr.cg95.cvq.oauth2.model.Token;
+import fr.cg95.cvq.security.SecurityContext;
 import fr.cg95.cvq.util.JSONUtils;
 import fr.cg95.cvq.util.web.WS;
 import fr.cg95.cvq.util.web.WS.HttpResponse;
@@ -35,13 +37,7 @@ import fr.cg95.cvq.util.web.WS.HttpResponse;
 public class OAuth2Service implements IOAuth2Service {
 
     private static final Logger logger = Logger.getLogger(OAuth2Service.class);
-    private IAuthorizationServerInfosService authorizationServerInfos;
     private IAdultDAO adultDAO;
-    private String resourceServerName;
-    private String clientId;
-    private String password;
-    private String redirectionUri;
-    private String identificationScope;
 
     @Override
     public Adult authenticate(String token) throws CvqModelException,
@@ -78,6 +74,7 @@ public class OAuth2Service implements IOAuth2Service {
     @Override
     public AccessToken valide(String token) throws InvalidTokenException {
         try {
+            OAuth2ConfigurationBean oauth2Config = getOAuth2Configuration();
             String jsonToken = new String(verify(Base64.decodeBase64(token.getBytes("UTF-8"))));
             JsonObject json = JSONUtils.deserialize(jsonToken);
             AccessToken accessToken = new AccessToken(
@@ -85,7 +82,7 @@ public class OAuth2Service implements IOAuth2Service {
                 json.get("owner_name").getAsString(),
                 json.get("scope").getAsString(),
                 json.get("expiration").getAsLong());
-            if (!accessToken.isValid(resourceServerName)) {
+            if (!accessToken.isValid(oauth2Config.getResourceServerName())) {
                 throw new InvalidTokenException();
             }
             return accessToken;
@@ -97,46 +94,51 @@ public class OAuth2Service implements IOAuth2Service {
 
     private byte[] verify(byte[] token)
             throws NoSuchAlgorithmException, NoSuchPaddingException,
-            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException, OAuth2Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, authorizationServerInfos.getPublicKey());
+        cipher.init(Cipher.DECRYPT_MODE, getOAuth2Configuration().getPublicKey());
         return cipher.doFinal(token);
     }
 
     @Override
-    public String authorizationRequestUri(String state) {
+    public String authorizationRequestUri(String state) throws OAuth2Exception {
         String redirectUri = null;
         String stateParam = null;
+        OAuth2ConfigurationBean oauth2Config = getOAuth2Configuration();
         try {
-            redirectUri = URLEncoder.encode(redirectionUri, "UTF-8");
+            redirectUri = URLEncoder.encode(oauth2Config.getRedirectionUri(), "UTF-8");
             stateParam = (state != null) ? URLEncoder.encode(state, "UTF-8") : "";
         } catch (UnsupportedEncodingException e) {
             logger.error("Encoding redirectUri error.", e);
             return null;
         }
-        return authorizationServerInfos.getAuthorizationUri() +
-                "?response_type=code&client_id=" + clientId +
+        return oauth2Config.getAuthorizationUri() +
+                "?response_type=code&client_id=" + oauth2Config.getClientId() +
                 "&redirect_uri=" + redirectUri +
-                "&scope=" + identificationScope +
-                "&state=" + stateParam;
+                "&scope=" + oauth2Config.getIdentificationScope() +
+                "&state=" + stateParam +
+                "&resource_server=" + oauth2Config.getResourceServerName();
     }
 
     @Override
-    public Token authorizationCodeGrant(String code) {
+    public Token authorizationCodeGrant(String code) throws OAuth2Exception {
         String auth = null;
+        OAuth2ConfigurationBean oauth2Config = getOAuth2Configuration();
         try {
-            auth = new String(Base64.encodeBase64((clientId + ":" + password).getBytes("UTF-8")), "UTF-8");
+            auth = new String(Base64.encodeBase64(
+                    (oauth2Config.getClientId() + ":" + oauth2Config.getPassword())
+                    .getBytes("UTF-8")), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             logger.error("Encoding authentification error.", e);
             return null;
         }
 
-        HttpResponse response = WS.url(authorizationServerInfos.getTokenUri())
+        HttpResponse response = WS.url(oauth2Config.getTokenUri())
             .setHeader("Content-Type", "application/x-www-form-urlencoded")
             .setHeader("Authorization", "Basic " + auth)
             .body("grant_type=authorization_code&code="+ code +
-                  "&redirect_uri=" + redirectionUri +
-                  "&resource_server=" + resourceServerName)
+                  "&redirect_uri=" + oauth2Config.getRedirectionUri() +
+                  "&resource_server=" + oauth2Config.getResourceServerName())
             .post();
 
         if (logger.isDebugEnabled()) {
@@ -155,32 +157,18 @@ public class OAuth2Service implements IOAuth2Service {
         return null;
     }
 
-    public void setResourceServerName(String resourceServerName) {
-        this.resourceServerName = resourceServerName;
+    @Override
+    public OAuth2ConfigurationBean getOAuth2Configuration() throws OAuth2Exception {
+        OAuth2ConfigurationBean config = SecurityContext.getCurrentConfigurationBean()
+                .getOauth2ConfigurationBean();
+        if (config == null) {
+            throw new OAuth2Exception(500, "invalid_configuration", "");
+        }
+        return config;
     }
 
     public void setAdultDAO(IAdultDAO adultDAO) {
         this.adultDAO = adultDAO;
-    }
-
-    public void setAuthorizationServerInfos(IAuthorizationServerInfosService authorizationServerInfos) {
-        this.authorizationServerInfos = authorizationServerInfos;
-    }
-
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setRedirectionUri(String redirectionUri) {
-        this.redirectionUri = redirectionUri;
-    }
-
-    public void setIdentificationScope(String identificationScope) {
-        this.identificationScope = identificationScope;
     }
 
 }
