@@ -73,12 +73,12 @@ public class I18nPlugin implements IPluginGenerator {
             Template template2 = templateEngine.createTemplate(new BufferedReader(new InputStreamReader(new FileInputStream(i18nTmpTemplate), "UTF8")));
             
             for (String lang: requestI18n.getI18nLabels().keySet()) {
+                // support is deprecated for langages other than FR
+                if (!lang.equals("fr"))
+                    continue;
+
                 String output = outputDir + requestI18n.getAcronym();
                 String templateOutput = outputDir + requestI18n.getAcronym() + "customized";
-                if (!lang.equals("fr")) {
-                    output += "_" + lang;
-                    templateOutput += "_" + lang;
-                }
                 output += ".properties";
                 templateOutput += ".properties";
                 
