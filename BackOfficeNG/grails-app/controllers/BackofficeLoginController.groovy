@@ -86,6 +86,13 @@ class BackofficeLoginController {
         render(view: 'resetPasswordForm', model: [])
     }
 
+    def activateAccount = {
+        if (SecurityContext.getCurrentAgent()) {
+            return render(view: '/system/error', model: [i18nKey: 'agent.reset.error.alreadyLogged', context: 'bo'])
+        }
+        render(view: 'activateAccount', model: [])
+    }
+
 
     def newPassword = {
         if (!params.login || !params.key) {

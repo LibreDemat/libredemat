@@ -7,9 +7,10 @@
   </head>
   <body>
     <div id="all">
-      <img class="logo-authority" 
-        src="${createLink(controller : 'localAuthorityResource', action : 'resource', id : 'logoFo')}"
-        alt="Logo Collectivité""></img>
+
+      <a href="${createLink()}">
+        <img class="logo-authority" src="${createLink(controller : 'localAuthorityResource', action : 'resource', id : 'logoFo')}" alt="Logo Collectivité" />
+      </a>
         <h1><g:message code="action.login" /></h1>
         <form method="post" class="${error ? 'error' : ''}">
             <p class="error"><g:message code="${error}" /></p>
@@ -28,7 +29,10 @@
             <p>
               <label>&nbsp;</label>
               <input type="submit" value="${message(code:'action.login')}"/> &nbsp;
-              <a href="${createLink(controller: 'backofficeLogin', action: 'resetPassword')}" class="forgot">${message(code:'agent.reset.action.lost')}</a>
+              <a href="${createLink(action: 'resetPassword')}" class="forgot">${message(code:'agent.reset.action.lost')}</a>
+            </p>
+            <p style="text-align:center">
+              <a href="${createLink(action: 'activateAccount')}"  class="activate">${message(code:'agent.reset.action.activate')}</a>
             </p>
         </form>
     </div>

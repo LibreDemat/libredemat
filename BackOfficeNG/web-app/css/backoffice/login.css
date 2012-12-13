@@ -56,6 +56,10 @@ form a.forgot {
 	color: #333;
 }
 
+form a.activate {
+	font-size: 0.95em;
+	color: #333;
+}
 p {
 	font-size: 0.9em;
 }

@@ -10,26 +10,14 @@
       <a href="${createLink()}">
         <img class="logo-authority" src="${createLink(controller : 'localAuthorityResource', action : 'resource', id : 'logoFo')}" alt="Logo Collectivité" />
       </a>
-        <h1><g:message code="agent.reset.action.lost" /></h1>
+        <h1><g:message code="agent.reset.title.activate" /></h1>
         <form method="post" class="${error ? 'error' : ''}">
             <g:if test="${flash.errorMessage}"><div class="mainbox-orange"><p>${flash.errorMessage}</p></div></g:if>
 
-            <p><g:message code="agent.reset.message.plzFillForm" /></p>
+            <p><g:message code="agent.reset.message.descActivate1" /></p>
+            <p><g:message code="agent.reset.message.descActivate2" /></p>
 
-            <p>
-              <label class="required" for="login"><g:message code="agent.property.login"/> * :</label>
-              <input type="text" name="login" value="" />
-            </p>
-
-            <p>
-              <label class="required" for="email"><g:message code="agent.property.email"/> * :</label>
-              <input type="text" name="email" value="" />
-            </p>
-
-            <p>
-              <label>&nbsp;</label>
-              <input type="submit" value="${message(code:'agent.reset.action.reset')}" />
-            </p>
+            <p><g:message code="agent.reset.message.activateFollow" /> <a href="${createLink(action: 'resetPassword')}"><g:message code="agent.reset.message.activateFollowLink" /></a>.</p>
         </form>
     </div>
   </body>
