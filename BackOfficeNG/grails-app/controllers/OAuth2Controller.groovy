@@ -4,6 +4,7 @@ import fr.cg95.cvq.exception.CvqUnknownUserException
 import fr.cg95.cvq.oauth2.IOAuth2Service
 import fr.cg95.cvq.oauth2.OAuth2Exception;
 import fr.cg95.cvq.oauth2.model.Token
+import fr.cg95.cvq.security.SecurityContext
 
 import grails.converters.JSON
 
@@ -29,6 +30,7 @@ class OAuth2Controller {
     }
 
     def login = {
+      def error = ''
         if (params.code != null) {
             Token t = oauth2Service.authorizationCodeGrant(params.code)
             if (t != null) {

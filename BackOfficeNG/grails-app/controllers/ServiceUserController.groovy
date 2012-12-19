@@ -1,9 +1,14 @@
 import fr.cg95.cvq.security.SecurityContext
 import fr.cg95.cvq.service.users.IUserSearchService
+import fr.cg95.cvq.authentication.IAuthenticationService
+import fr.cg95.cvq.exception.CvqAuthenticationFailedException
+import fr.cg95.cvq.exception.CvqDisabledAccountException
+import fr.cg95.cvq.exception.CvqUnknownUserException
 import grails.converters.JSON
 
 class ServiceUserController {
     IUserSearchService userSearchService
+    IAuthenticationService authenticationService
 
     /**
      * Send back a JSON object {"connected": false}
@@ -47,5 +52,27 @@ class ServiceUserController {
                        status: 200
             }
         }
+    }
+    def auth = {
+      println("POST - auth")
+      def error
+        try {
+          def res = authenticationService.authenticate(params.login,params.password)
+          render text: "",
+                contentType: "application/json",
+                status: 200
+          return true;
+        } catch (CvqUnknownUserException e) {
+          error = "account.error.invalidLogin"
+        } catch (CvqAuthenticationFailedException e) {
+          error = "account.error.authenticationFailed"
+        } catch (CvqDisabledAccountException e) {
+          error = "account.error.disabledAccount"
+        }
+        render text: "{ error: \""+error+"\", error_description: \""+message(code : error)+"\"}",
+               contentType: 'application/json',
+               status: (error == "account.error.authenticationFailed") ? 500 :
+                         (error == "account.error.invalidLogin") ? 404 :
+                         401
     }
 }
