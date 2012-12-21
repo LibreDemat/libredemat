@@ -5,11 +5,46 @@ import fr.cg95.cvq.exception.CvqAuthenticationFailedException
 import fr.cg95.cvq.exception.CvqDisabledAccountException
 import fr.cg95.cvq.exception.CvqUnknownUserException
 import grails.converters.JSON
+import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
+
+import org.apache.commons.codec.binary.Base64
+import org.apache.commons.lang.StringUtils
 
 class ServiceUserController {
     IUserSearchService userSearchService
     IAuthenticationService authenticationService
+    ILocalAuthorityRegistry localAuthorityRegistry
 
+    def beforeInterceptor = [action:this.&authenticate, only:['auth']]
+    def authenticate() {
+        def authorization = request.getHeader('Authorization')
+        if (!authorization) {
+            render(text: 'Authorization required', status: 403)
+            return false
+        }
+        def method = authorization.subSequence(0, 6)
+        if (!(method.equals('Basic '))){
+            render(text: '"' + method + '" unavailable. Use "Basic" instead.', status: 403)
+            return false
+        }
+        def credentials = StringUtils.split(
+            new String(Base64.decodeBase64(authorization.substring(6).bytes),
+            "UTF-8"),
+            ":")
+        if (credentials?.length < 2) {
+            render(text: '"login" and "password" required', status: 403)
+            return false
+        }
+        def password = localAuthorityRegistry
+            .getLocalAuthorityBeanByName(SecurityContext.getCurrentConfigurationBean().getName())
+            .getAuthorizations()
+            .get(credentials[0])
+        if (!password && !(password.equals(credentials[1]))){
+            render(text: '"login"/"password" don\'t match', status: 403)
+            return false
+        }
+        return true
+    }
     /**
      * Send back a JSON object {"connected": false}
      *                      or {"connected": true, "firstname": "Jean", "lastname": "DUPONT"}
@@ -54,7 +89,6 @@ class ServiceUserController {
         }
     }
     def auth = {
-      println("POST - auth")
       def error
         try {
           def res = authenticationService.authenticate(params.login,params.password)
