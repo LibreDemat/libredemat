@@ -385,7 +385,7 @@ class FrontofficeHomeFolderController {
     }
 
     // FIXME :
-    private historize(fragment, individual) throws CvqValidationException {
+    private historize(fragment, individual, boolean validate = true) throws CvqValidationException {
         def fields, dto
         if (fragment == 'identity') {
             dto = individual instanceof Adult ? new Adult() : new Child()
@@ -407,7 +407,7 @@ class FrontofficeHomeFolderController {
         }
         bind(dto)
         individualAdaptorService.historize(individual,
-            (fragment == 'address' ? individual.address : individual), dto, fragment, fields)
+            (fragment == 'address' ? individual.address : individual), dto, fragment, fields, validate)
     }
 
     def editPassword = {
@@ -537,8 +537,9 @@ class FrontofficeHomeFolderController {
                     flash.errorMessage = message("code":"homeFolder.adult.property.oldPassword.validationError")
                     return model
                 }
-                historize("connexion", currentEcitizen)
-                historize("contact", currentEcitizen)
+
+                historize("connexion", currentEcitizen, false)
+                historize("contact", currentEcitizen, false)
             }
             redirect(controller : "frontofficeHomeFolder")
         }

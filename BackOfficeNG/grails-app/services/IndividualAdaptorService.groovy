@@ -58,7 +58,7 @@ class IndividualAdaptorService {
         return result.sort {it.label}
     }
 
-    public historize(individual, bean, dto, name, fields) throws CvqValidationException {
+    public historize(individual, bean, dto, name, fields, boolean validate = true) throws CvqValidationException {
         def atom = new JsonObject()
         atom.addProperty("name", name)
         def diff = new JsonObject()
@@ -72,8 +72,10 @@ class IndividualAdaptorService {
                 bean[it] = dto[it]
             }
         }
-        def invalidFields = userService.validate(individual)
-        if (!invalidFields.isEmpty()) throw new CvqValidationException(invalidFields)
+        if (validate) {
+            def invalidFields = userService.validate(individual)
+            if (!invalidFields.isEmpty()) throw new CvqValidationException(invalidFields)
+        }
         if (diff.entrySet().size() > 0) userWorkflowService.modify(individual, atom)
     }
 }
