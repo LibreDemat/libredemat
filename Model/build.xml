@@ -228,6 +228,7 @@ clean-tests
             </classpath>
             <hbm2ddl drop="true" create="true" export="true" outputfilename="create_schema_pgsql.sql" delimiter=";" format="true" />
         </hibernatetool>
+        <echo file="${db.dir}/create_schema_pgsql.sql" append="true" message="CREATE SEQUENCE systempay_trans_id_seq MINVALUE 0 MAXVALUE 899999 INCREMENT 1 CYCLE;" />
     </target>
 
     <!-- =================================================================== -->
