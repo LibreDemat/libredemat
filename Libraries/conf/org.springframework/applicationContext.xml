@@ -161,6 +161,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="requestService" class="fr.cg95.cvq.service.request.impl.RequestService"
     abstract="true" init-method="init">
     <property name="genericDAO" ref="genericDAO" />
+    <property name="requestTypeService" ref="requestTypeService" />
     <property name="filingDelay" value="6"/>
     <property name="archiveDocuments" value="false"/>
   </bean>

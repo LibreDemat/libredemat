@@ -3,11 +3,15 @@ package fr.cg95.cvq.service.request.impl;
 import java.util.Collections;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import fr.cg95.cvq.business.CapDematEvent;
 import fr.cg95.cvq.business.request.Request;
+import fr.cg95.cvq.business.request.RequestType;
 import fr.cg95.cvq.dao.jpa.IGenericDAO;
 import fr.cg95.cvq.exception.CvqException;
 import fr.cg95.cvq.service.request.IRequestService;
+import fr.cg95.cvq.service.request.IRequestTypeService;
 import fr.cg95.cvq.service.request.IRequestWorkflowService;
 
 /**
@@ -17,6 +21,8 @@ import fr.cg95.cvq.service.request.IRequestWorkflowService;
  * @author Benoit Orihuela (bor@zenexity.fr)
  */
 public abstract class RequestService implements IRequestService {
+
+    private static Logger logger = Logger.getLogger(RequestService.class);
 
     protected String localReferentialFilename;
     protected String externalReferentialFilename;
@@ -30,6 +36,7 @@ public abstract class RequestService implements IRequestService {
     protected boolean supportMultiple = Boolean.FALSE;
 
     protected IGenericDAO genericDAO;
+    private IRequestTypeService requestTypeService;
 
     public void init() {
         // empty method to avoid breaking specific services instantiation by spring
@@ -114,7 +121,17 @@ public abstract class RequestService implements IRequestService {
 
     @Override
     public boolean supportUnregisteredCreation() {
-        return supportUnregisteredCreation == null ? false : supportUnregisteredCreation;
+        Boolean sUnregisteredCreation = null;
+        try {
+            RequestType rqtType = requestTypeService.getRequestTypeByLabel(label);
+            sUnregisteredCreation = rqtType.getSupportUnregisteredCreation();
+        } catch (CvqException e) {
+            logger.error("Cannot retrieve requestTypeByLabel : " + label +
+                    "\n Error: " + e.getMessage());
+        }
+        return sUnregisteredCreation == null ?
+                (supportUnregisteredCreation == null ? false : supportUnregisteredCreation)
+                : sUnregisteredCreation;
     }
 
     public void setExternalReferentialFilename(String externalReferentialFilename) {
@@ -128,7 +145,15 @@ public abstract class RequestService implements IRequestService {
 
     @Override
     public String getSubjectPolicy() {
-        return subjectPolicy;
+        String sPolicy = null;
+        try {
+            RequestType rqtType = requestTypeService.getRequestTypeByLabel(label);
+            sPolicy = rqtType.getSubjectPolicy();
+        } catch (CvqException e) {
+            logger.error("Cannot retrieve requestTypeByLabel : " + label +
+                    "\n Error: " + e.getMessage());
+        }
+        return sPolicy == null ? subjectPolicy : sPolicy;
     }
 
     public void setSubjectPolicy(final String subjectPolicy) {
@@ -137,7 +162,17 @@ public abstract class RequestService implements IRequestService {
 
     @Override
     public boolean isOfRegistrationKind() {
-        return isOfRegistrationKind == null ? false : isOfRegistrationKind;
+        Boolean isOfRegKind = null;
+        try {
+            RequestType rqtType = requestTypeService.getRequestTypeByLabel(label);
+            isOfRegKind = rqtType.getIsOfRegistrationKind();
+        } catch (CvqException e) {
+            logger.error("Cannot retrieve requestTypeByLabel : " + label +
+                    "\n Error: " + e.getMessage());
+        }
+        return isOfRegKind == null ?
+                (isOfRegistrationKind == null ? false : isOfRegistrationKind)
+                : isOfRegKind;
     }
 
     public void setIsOfRegistrationKind(String isOfRegistrationKind) {
@@ -159,7 +194,15 @@ public abstract class RequestService implements IRequestService {
 
     @Override
     public int getFilingDelay() {
-        return filingDelay;
+        Integer fDelay = null;
+        try {
+            RequestType rqtType = requestTypeService.getRequestTypeByLabel(label);
+            fDelay = rqtType.getFilingDelay();
+        } catch (CvqException e) {
+            logger.error("Cannot retrieve requestTypeByLabel : " + label +
+                    "\n Error: " + e.getMessage());
+        }
+        return fDelay == null ? filingDelay : fDelay;
     }
 
     public void setFilingDelay(int filingDelay) {
@@ -180,10 +223,26 @@ public abstract class RequestService implements IRequestService {
     
     @Override
     public boolean getSupportMultiple() {
-        return supportMultiple;
+        Boolean sMultiple = null;
+        try {
+            RequestType rqtType = requestTypeService.getRequestTypeByLabel(label);
+            sMultiple = rqtType.getSupportMultiple();
+        } catch (CvqException e) {
+            logger.error("Cannot retrieve requestTypeByLabel : " + label +
+                    "\n Error: " + e.getMessage());
+        }
+        return sMultiple == null ? supportMultiple : sMultiple;
     }
 
     public void setSupportMultiple(boolean supportMultiple) {
         this.supportMultiple = supportMultiple;
+    }
+
+    public IRequestTypeService getRequestTypeService() {
+        return requestTypeService;
+    }
+
+    public void setRequestTypeService(IRequestTypeService requestTypeService) {
+        this.requestTypeService = requestTypeService;
     }
 }

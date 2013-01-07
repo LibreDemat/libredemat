@@ -84,6 +84,21 @@ public class RequestType implements Serializable {
     @Column(name="step_account_completion")
     private Boolean stepAccountCompletion;
 
+    @Column(name="subject_policy")
+    private String subjectPolicy;
+
+    @Column(name="support_unregistered_creation")
+    private Boolean supportUnregisteredCreation;
+
+    @Column(name="is_of_registration_kind")
+    private Boolean isOfRegistrationKind;
+
+    @Column(name="support_multiple")
+    private Boolean supportMultiple;
+
+    @Column(name="filing_delay")
+    private int filingDelay = 12;
+
     public RequestType() {
         setSeasons(new TreeSet<RequestSeason>());
     }
@@ -183,6 +198,46 @@ public class RequestType implements Serializable {
 
     public void setStepAccountCompletion(Boolean stepAccountCompletion) {
         this.stepAccountCompletion = stepAccountCompletion;
+    }
+
+    public String getSubjectPolicy() {
+        return subjectPolicy;
+    }
+
+    public void setSubjectPolicy(String subjectPolicy) {
+        this.subjectPolicy = subjectPolicy;
+    }
+
+    public Boolean getSupportUnregisteredCreation() {
+        return supportUnregisteredCreation;
+    }
+
+    public void setSupportUnregisteredCreation(Boolean supportUnregisteredCreation) {
+        this.supportUnregisteredCreation = supportUnregisteredCreation;
+    }
+
+    public Boolean getIsOfRegistrationKind() {
+        return isOfRegistrationKind;
+    }
+
+    public void setIsOfRegistrationKind(Boolean isOfRegistrationKind) {
+        this.isOfRegistrationKind = isOfRegistrationKind;
+    }
+
+    public Boolean getSupportMultiple() {
+        return supportMultiple;
+    }
+
+    public void setSupportMultiple(Boolean supportMultiple) {
+        this.supportMultiple = supportMultiple;
+    }
+
+    public int getFilingDelay() {
+        return filingDelay;
+    }
+
+    public void setFilingDelay(int filingDelay) {
+        this.filingDelay = filingDelay;
     }
 
     @Override

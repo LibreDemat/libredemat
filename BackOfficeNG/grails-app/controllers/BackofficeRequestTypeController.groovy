@@ -15,6 +15,7 @@ import fr.cg95.cvq.service.request.ICategoryService
 import fr.cg95.cvq.service.request.ILocalReferentialService
 import fr.cg95.cvq.service.request.IRequestTypeService
 import fr.cg95.cvq.service.request.IRequestServiceRegistry
+import fr.cg95.cvq.service.request.impl.RequestServiceRegistry;
 import fr.cg95.cvq.util.Critere
 
 import org.springframework.web.context.request.RequestContextHolder
@@ -107,6 +108,7 @@ class BackofficeRequestTypeController {
         ]
         def requestService = requestServiceRegistry.getRequestService(requestType.label)
         result["configurationItems"] = [
+            "requestProperty" : ["requestType.configuration.requestProperty", false],
             "forms" : ["requestType.configuration.forms", false],
             "delays" : ["requestType.configuration.delays", false],
             "documents" : ["requestType.configuration.documentType", false],
@@ -371,7 +373,42 @@ class BackofficeRequestTypeController {
 
         render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
     }
-    
+
+    def requestProperty = {
+        def id = Long.valueOf(params.id)
+        def rqt = requestTypeService.getRequestTypeById(id)
+        def requestService = requestServiceRegistry.getRequestService(rqt.label)
+        render(
+            view : "configure",
+            model : ["unregisteredCreation" : requestService.supportUnregisteredCreation(),
+                "isOfRegistrationKind" : requestService.isOfRegistrationKind(),
+                "supportMultiple" : requestService.getSupportMultiple(),
+                "subjectPolicy" : requestService.getSubjectPolicy(),
+                "filingDelay" : requestService.getFilingDelay(),
+                "id" : params.id].plus(getCommonModel(requestTypeService.getRequestTypeById(Long.valueOf(id))))
+        )
+    }
+
+    def saveRequestProperty = {
+        def rqtType = requestTypeService.getRequestTypeById(Long.valueOf(params.id))
+        rqtType.setSupportUnregisteredCreation(params.supportUnregisteredCreation.equals("active"))
+        rqtType.setSupportMultiple(params.supportMultiple.equals("active"))
+        rqtType.setIsOfRegistrationKind(params.isOfRegistrationKind.equals("active"))
+        rqtType.setSubjectPolicy(params.subjectPolicy)
+        try {
+            rqtType.setFilingDelay(Integer.valueOf(params.filingDelay))
+            if(Integer.valueOf(params.filingDelay) <= 0) {
+                render([status:"error", error_msg:message(code : "requestType.property.filingDelay.badformat", args : [params.filingDelay])] as JSON)
+                return;
+            }
+        } catch (NumberFormatException nfe) {
+            render([status:"error", error_msg:message(code : "requestType.property.filingDelay.badformat", args : [params.filingDelay])] as JSON)
+            return;
+        }
+        requestTypeService.modifyRequestType(rqtType)
+        render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+    }
+
     /* Local referential related action
      * ------------------------------------------------------------------------------------------ */
     def localReferential = {

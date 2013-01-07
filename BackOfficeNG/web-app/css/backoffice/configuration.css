@@ -10,6 +10,10 @@
 
 /* Overview configuration List
 -------------------------------------------------------------- */
+
+li.unactiveLi {
+  color:grey;
+}
 .overviewConfigurationList { margin: 2em; }
 
 .overviewConfigurationList li {
