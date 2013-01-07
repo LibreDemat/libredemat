@@ -397,7 +397,7 @@ class FrontofficeHomeFolderController {
             dto = new Adult()
             fields = ["email", "homePhone", "mobilePhone", "officePhone"]
         }
-        if (fragment == "connexion") {
+        if (fragment == 'connexion') {
             dto = new Adult()
             fields = ["question", "answer"]
         }
