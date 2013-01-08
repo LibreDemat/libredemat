@@ -6,6 +6,8 @@ import zdb.core.Store
 import edu.yale.its.tp.cas.client.CASAuthenticationException
 import edu.yale.its.tp.cas.client.CASReceipt
 import edu.yale.its.tp.cas.client.ProxyTicketValidator
+import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+
 import fr.cg95.cvq.authentication.IAuthenticationService
 import fr.cg95.cvq.business.authority.LocalAuthority
 import fr.cg95.cvq.dao.jpa.JpaUtil
