@@ -218,6 +218,13 @@
       <copy file="${deploy.properties_dir}/${deploy.properties_file}"
             tofile="BackOfficeNG/CapDemat-config.properties"
             overwrite="true" />
+      <copy file="${deploy.properties_dir}/log4j.properties.dev"
+            tofile="BackOfficeNG/grails-app/conf/log4j.properties"
+            overwrite="true" />
+      <!-- Hack coz Grails need two launches before seeing the previous one -->
+      <copy file="${deploy.properties_dir}/log4j.properties.dev"
+            tofile="BackOfficeNG/log4j.properties"
+            overwrite="true" />
   </target>
 
   <!-- ================================================================================= -->
@@ -225,6 +232,9 @@
   <!-- ================================================================================= -->
 
   <target name="release" depends="clean, deploy-libs, deploy-plugins, prepare-webapp-fobo">
+    <copy file="${deploy.properties_dir}/log4j.properties.prod"
+          tofile="BackOfficeNG/grails-app/conf/log4j.properties"
+          overwrite="true" />
     <delete dir="${release.dir}" />
     <mkdir dir="${release.dir}" />
     <ant dir="${bong.dir}" target="war" />

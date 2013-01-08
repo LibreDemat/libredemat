@@ -2,7 +2,7 @@ grails.project.plugins.dir="./plugins"
 
 grails.war.resources = { stagingDir ->
     File libDir = new  File(stagingDir, 'WEB-INF/lib')
-    
+    copy(file: "grails-app/conf/log4j.properties", tofile: "${stagingDir}/WEB-INF/classes/log4j.properties")
     def deleteJars = { jarNamePattern ->
         libDir.eachFile { file ->
             if (file.name.matches(jarNamePattern)) {

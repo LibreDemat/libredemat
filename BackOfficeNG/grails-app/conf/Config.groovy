@@ -85,40 +85,10 @@ jcaptchas {
 }
 
 environments {
-	development {
-		grails.config.locations = [ "file:${basedir}/${appName}-config.properties" ]
-		log4j = {
-			// in development mode, let's see all my log messages
-			debug 'grails.app', 'fr.cg95', 'fr.capwebct'
-		}
+  development {
+		grails.config.locations = [ "file:${basedir}/${appName}-config.properties"]
 	}
-	
 	production {
-		grails.config.locations = [ "classpath:${appName}-config.properties" ]
-		def catalinaBase = System.properties.getProperty('catalina.base')
-		if (!catalinaBase) catalinaBase = '.'   // just in case
-		def logDirectory = "${catalinaBase}/logs"
-		
-		log4j = {
-			appenders {
-				// set up a log file in the standard tomcat area; be sure to use .toString() with ${}
-				rollingFile name:'capdemat', file:"${logDirectory}/${appName}.log".toString(), layout:pattern(conversionPattern: '%d{yyyy-MM-dd HH:mm:ss} [%t:%x]  %c{1} [%p] %m%n'),
-					maxFileSize:'20000KB', maxBackupIndex:"10"
-				'null' name:'stacktrace'
-			}
-			
-			root {
-				// change the root logger to my tomcatLog file
-				error 'capdemat'
-				additivity = true
-			}
-			
-			// example for sending stacktraces to my tomcatLog file
-			error capdemat:'StackTrace'
-			
-			// set level for my messages; this uses the root logger (and thus the tomcatLog file)
-			warn 'fr.cg95', 'fr.capwebct'
-			info 'grails.app'
-		}
+		grails.config.locations = [ "classpath:${appName}-config.properties"]
 	}
 }

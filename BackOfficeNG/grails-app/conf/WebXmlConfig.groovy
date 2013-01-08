@@ -23,7 +23,7 @@ webxml {
 
     // Set to true to add Listeners
     listener.add = true
-    listener.classNames = ["TicketBookingSessionListener"]
+    listener.classNames = ["TicketBookingSessionListener","org.codehaus.groovy.grails.web.util.Log4jConfigListener"]
 
     //-------------------------------------------------
     // These settings usually do not need to be changed
