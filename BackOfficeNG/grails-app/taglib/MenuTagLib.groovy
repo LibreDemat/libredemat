@@ -21,7 +21,7 @@ class MenuTagLib {
     def subMenu = {attrs,body ->
         def items = attrs['data'], id = attrs['id'], blocks = ''
         def i18nPrefix = attrs['i18nPrefix']
-        def itemAction, itemController, itemModule
+        def itemAction, itemController, itemModule, itemParams
         
         for(String item : items) {
             
@@ -42,15 +42,24 @@ class MenuTagLib {
 
             // Internal link
             } else {
-                itemAction = item.split('\\.')[1]
-                itemController = item.split('\\.')[0]
+                def split = item.split('\\.')
+                itemAction = split[1]
+                itemController = split[0]
+                def qs = (split.size() == 3) ? split[2] : ''
+                itemParams = qs.split('&').inject([:]) {map, kv ->
+                    def (key, value) = kv.split('=').toList()
+                    if (value != null) {
+                        map[key] = value
+                    }
+                    return map
+                }
                 itemModule = exclude.find { controllerName.contains(it) }
-     
+
                 if ((itemAction != actionName) || (itemModule + StringUtils.capitalize(itemController) != controllerName)) {
                     blocks += """
                     <li>
-                        <a id="display${StringUtils.capitalize(item)}" href="${createLink(controller:itemModule+StringUtils.capitalize(itemController), action:itemAction)}" target="_self">
-                         ${message(code:itemController+'.'+i18nPrefix+'.'+itemAction)}
+                        <a id="display${StringUtils.capitalize(item)}" href="${createLink(controller:itemModule+StringUtils.capitalize(itemController), action:itemAction, params:itemParams)}" target="_self">
+                        ${message(code:itemController+'.'+i18nPrefix+'.'+itemAction, args: itemParams.values())}
                         </a>
                     </li>
                     """

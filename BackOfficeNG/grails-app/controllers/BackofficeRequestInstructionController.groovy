@@ -127,6 +127,7 @@ class BackofficeRequestInstructionController {
         }
 
         def subject = rqt.subjectId != null ? userSearchService.getById(rqt.subjectId) : null
+        def hasHomeFolder = !userSearchService.getHomeFolderById(rqt.homeFolderId).temporary
 
         def subMenuEntries = ["request.search"]
         if (categoryService.hasManagerProfile(SecurityContext.currentAgent)) {
@@ -136,13 +137,16 @@ class BackofficeRequestInstructionController {
                 subMenuEntries.add(translationService.translate("submenu.booker") + "|" + urlBooker + "admin")
             }
         }
+        if (hasHomeFolder) {
+            subMenuEntries.add("homeFolder.details.id=" + rqt.homeFolderId)
+        }
 
         return ([
             "rqt": rqt,
             "requestTypeLabel": rqt.requestType.label,
             "lrTypes": getLocalReferentialTypes(localReferentialService, rqt.requestType.label),
             "requester": requester,
-            'hasHomeFolder': !userSearchService.getHomeFolderById(rqt.homeFolderId).temporary,
+            'hasHomeFolder': hasHomeFolder,
             "editableStates": (editableStates as JSON).toString(),
             "agentCanWrite": categoryService.hasWriteProfileOnCategory(SecurityContext.currentAgent, 
                 rqt.requestType.category.id),
