@@ -7,6 +7,7 @@ import grails.converters.JSON
 class BackofficeRequestAdminController {
 
     IRequestTypeService requestTypeService
+    def emailNotificationAdaptorService
 
     def defaultAction = 'requests'
         
@@ -14,7 +15,8 @@ class BackofficeRequestAdminController {
         'requestAdmin.requests',
         "category.list",
         'displayGroup.list',
-        'requestArchives.index'
+        'requestArchives.index',
+        'requestAdmin.emails'
     ]
 
     def beforeInterceptor = { 
@@ -37,5 +39,14 @@ class BackofficeRequestAdminController {
             render ([status:"success", success_msg:message(code:"message.updateDone")] as JSON)
             return false
         }
+    }
+
+    /* Email notifications
+     * --------------------------------------------------------------------- */
+
+    def emails = {
+        def states = emailNotificationAdaptorService.states('templates/mails/notification')
+
+        return [ 'states':states, 'subMenuEntries':subMenuEntries ]
     }
 }

@@ -17,11 +17,11 @@ CKEDITOR.editorConfig = function(config) {
 
   config.toolbar = 'foremails'
   config.toolbar_foremails =
-    [ { name: 'Format', items : [ 'Format'  ] }
-    , { name: 'Paragraphe', items : [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] }
-    , { name: 'Style', items : [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'TextColor', 'BGColor', '-', 'RemoveFormat' ] }
-    , { name: 'Lien', items : [ 'Link', 'Unlink' ] }
-    , { name: 'Variables', items : [ 'Variables' ] }
-    , { name: 'Historique', items : [ 'Undo', 'Redo', '-', 'ShowBlocks' ] }
+    [ { name: 'Format', items: [ 'Format'  ] }
+    , { name: 'Paragraphe', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] }
+    , { name: 'Style', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'TextColor', 'BGColor', '-', 'RemoveFormat' ] }
+    , { name: 'Lien', items: [ 'Link', 'Unlink' ] }
+    , { name: 'Variables', items: [ 'Variables' ] }
+    , { name: 'Historique', items: [ 'Undo', 'Redo', '-', 'ShowBlocks' ] }
     ]
 }

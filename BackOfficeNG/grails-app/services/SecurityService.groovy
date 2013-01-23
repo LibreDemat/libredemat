@@ -23,6 +23,7 @@ public class SecurityService {
                 "backofficeRequestAdmin" : /.*/,
                 "backofficeRequestArchives" : /.*/,
                 "backofficeUserSecurity" : /.*/,
+                "backofficeEmail" : /.*/,
                 "system" : /error/
             ]
         ],
@@ -40,6 +41,7 @@ public class SecurityService {
                 "backofficeStatistic" : /.*/,
                 "backofficeTasks" : /.*/,
                 "backofficeTicketBooking" : /.*/,
+                "backofficeEmail" : /.*/,
                 "system" : /error/
             ],
             (SecurityContext.FRONT_OFFICE_CONTEXT) : [
