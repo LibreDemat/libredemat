@@ -51,7 +51,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
           zcb.Contact.init(yud.get("contactLink"), yud.get("contactPanel"), zcb.contactPanelUrl);
           zca.advise("notify", new zca.Advice("afterReturn", function() {
             zcb.Contact.hide();
-            zcbh.Details.refreshActions;
+            zcbh.Details.refreshActions();
           }
           ), zcb.Contact);
         }
