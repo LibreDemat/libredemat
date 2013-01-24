@@ -96,6 +96,9 @@
             <a class="toggle">${message(code:'action.expand')} / ${message(code:'action.collapse')}</a>
             <div class="yui-g">
               <div class="yui-u first">
+                <dl class="required">
+                  <g:render template="static/id" model="['user':homeFolderResponsible]" />
+                </dl>
                 <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} individual-state required collapse">
                   <g:render template="static/state" model="['user':homeFolderResponsible]" />
                 </dl>

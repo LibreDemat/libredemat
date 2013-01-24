@@ -3,6 +3,9 @@
   <a class="confirmRemoveIndividual" style="float: right;">${message(code:'action.delete')}</a>
   </g:if>
   <a class="toggle">${message(code:'action.expand')} / ${message(code:'action.collapse')}</a>
+  <dl class="required">
+    <g:render template="static/id" model="['user':child]" />
+  </dl>
   <dl class="${child?.state?.toString() != 'Archived' ? 'edit' : ''} individual-state required collapse">
     <g:render template="static/state" model="['user':child]" />
   </dl>
