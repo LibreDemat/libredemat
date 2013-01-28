@@ -91,9 +91,6 @@ class BackofficeReferentialController {
                 agent.password = authenticationService.encryptPassword(params.password);
             }
             render([status:"ok", success_msg:message(code:codeString)] as JSON)
-        } else if (request.getMethod().toLowerCase() == "delete") {
-            agentService.delete(agent.login)
-            render([status:"ok", success_msg:message(code:"message.deleteDone")] as JSON)
         }
     }
 

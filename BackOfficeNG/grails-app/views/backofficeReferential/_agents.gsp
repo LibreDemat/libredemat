@@ -1,7 +1,6 @@
 <ul id="agents" class="editableList">
   <g:each in="${agents}" var="agent">
     <li id="agent_${agent.id}">
-      <a id="remove_${agent.id}" class="deleteItem"><span>deleteItem</span></a>
       <a id="editPassword_${agent.id}" class="editPassword"><span>editPassword</span></a>
       <a id="edit_${agent.id}" class="editItem"><span>editItem</span></a>
       <span class="name">${agent.firstName} ${agent.lastName} (${agent.login})</span>
