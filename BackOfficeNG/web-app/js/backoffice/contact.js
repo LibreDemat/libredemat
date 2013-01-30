@@ -68,10 +68,16 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong');
           if (!!link) zcb.Contact.show({"target" : link, "event" : "click"});
         }, true);
         zcb.Contact.clickEv = new zct.Event(zcb.Contact, zcb.Contact.processClick);
-        yue.on(container, "click", zcb.Contact.clickEv.dispatch, zcb.Contact.clickEv, true);
+        yue.addListener(container, "click", zcb.Contact.clickEv.dispatch, zcb.Contact.clickEv, true);
+        yue.addListener(container, "change", zcb.Contact.clickEv.dispatch, zcb.Contact.clickEv, true);
       },
       processClick : function(e) {
-        return (yue.getTarget(e).id||'_').split('_')[0];
+        var tgt = yue.getTarget(e);
+        if(tgt.options) {
+            return tgt.options[0].id.split('_')[0];
+        } else {
+            return (yue.getTarget(e).id||'_').split('_')[0];
+        }
       },
       switchMoC : function(e) {
         zcb.Contact.switchField("recipient");
