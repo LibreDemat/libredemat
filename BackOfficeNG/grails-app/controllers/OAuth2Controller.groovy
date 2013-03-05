@@ -10,13 +10,14 @@ import grails.converters.JSON
 class OAuth2Controller {
 
     def securityService
+    def localAuthorityRegistry
 
     IOAuth2Service oauth2Service
     IAuthorizationServerInfosService authorizationServerInfosService
 
     def askLogin = {
         if (session?.currentEcitizenId == null) {
-            def callback = createLink(controller:'frontofficeHome').toString()
+            def callback = params.callback ?: createLink(controller:'frontofficeHome').toString()
             def url = oauth2Service.authorizationRequestUri(callback)
             if (url != null) {
                 redirect(url:url)
@@ -51,11 +52,30 @@ class OAuth2Controller {
         return false
     }
 
+
+    /**
+     * Logout in chain from CapDémat, from Swarm and from Booker (if needed).
+     */
     def logout = {
+        def lacbname = SecurityContext.getCurrentConfigurationBean().getName()
+        def lacb = localAuthorityRegistry.getLocalAuthorityBeanByName(lacbname)
+
+        def home = request.getRequestURL().toString() \
+        - request.getRequestURI() \
+        + createLink(controller:'frontofficeHome').toString()
+        def callback
+
+        if (lacb.getAdditionalTabs().contains('Planning')) {
+            callback = URLEncoder.encode( lacb.getExternalApplicationProperty('booker.logouturl') + '?callback=' + home
+                    , 'UTF-8'
+                    )
+        } else {
+            callback = URLEncoder.encode(home, 'UTF-8')
+        }
+
         securityService.logout(session)
-        def callbackUrl = request.getRequestURL().toString().replaceFirst(request.getRequestURI(), "") +
-            createLink(controller:'frontofficeHome').toString()
-        redirect(url: authorizationServerInfosService.getLogoutUri() + "?callback=" + callbackUrl)
+
+        redirect(url:authorizationServerInfosService.getLogoutUri() + "?callback=" + callback)
         return false
     }
 

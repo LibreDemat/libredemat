@@ -15,6 +15,7 @@
     <property name="defaultServerName" value="localhost"/>
     <property name="defaultEmail" value="sansmail@blainville.fr"/>
     <property name="autotransition" value="true"/>
+    <property name="authenticationMethod" value="builtin"/>
     <property name="jpaConfigurations">
         <props>
             <prop key="hibernate.show_sql">false</prop>

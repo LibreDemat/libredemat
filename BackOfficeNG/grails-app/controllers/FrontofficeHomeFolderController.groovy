@@ -159,17 +159,31 @@ class FrontofficeHomeFolderController {
                 redirect(controller : 'frontofficeHomeFolder', action : 'create', params : parameters)
                 return
             } else {
-                if(params.callback)
-                {
-                    redirect(url : params.callback)
-                    return
-                }
-                else
-                {
-                    redirect(
-                        controller : model.callback.controller,
-                        action : model.callback.action,
-                        params : model.callback.params)
+                def authMethod = localAuthorityRegistry
+                        .getLocalAuthorityBeanByName(SecurityContext.getCurrentConfigurationBean().getName())
+                        .getExternalApplicationProperty('authentication.method')
+
+                if(authMethod.equals("builtin")) {
+                    if(params.callback)
+                    {
+                        redirect(url : params.callback)
+                        return
+                    }
+                    else
+                    {
+                        redirect(
+                            controller : model.callback.controller,
+                            action : model.callback.action,
+                            params : model.callback.params)
+                        return
+                    }
+                } else if (authMethod.equals("oauth2")) {
+                    def logincallback = params.callback ?: createLink( controller:model.callback.controller
+                            , action:model.callback.action
+                            , params:model.callback.params).toString()
+                    redirect( controller:'OAuth2'
+                            , action:'askLogin'
+                            , params:['callback':logincallback])
                     return
                 }
             }
