@@ -112,3 +112,5 @@ plugins.paymentproviders.paybox.payment_url=localhost
 plugins.paymentproviders.paylinev4.return_url=/frontoffice/payment/status
 plugins.paymentproviders.paylinev4.cancel_url=/frontoffice/payment/status
 plugins.paymentproviders.paylinev4.default_uri=https://homologation.payline.com/V4/services/WebPaymentAPI
+
+authentication.method=oauth2
