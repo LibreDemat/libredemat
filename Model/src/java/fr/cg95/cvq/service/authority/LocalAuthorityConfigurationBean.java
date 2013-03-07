@@ -40,13 +40,14 @@ public final class LocalAuthorityConfigurationBean {
 
     private Map<String, String> authorizations;
     private Map<IPaymentProviderService, PaymentServiceBean> paymentServices;
+    private Map<String, String> externalApplicationProperties;
     private ExternalServiceConfigurationBean escb;
 
     private Map<String, Map<String, String>> agentNotifications;
     private Map<String, Map<String, String>> paymentNotifications;
     private Properties jpaConfigurations;
     private EntityManagerFactory entityManagerFactory;
-    //private OAuth2ConfigurationBean oauth2ConfigurationBean;
+    private OAuth2ConfigurationBean oauth2ConfigurationBean;
 
     private boolean autotransition = false;
 
@@ -54,6 +55,14 @@ public final class LocalAuthorityConfigurationBean {
         paymentServices =
             new HashMap<IPaymentProviderService, PaymentServiceBean>();
         escb = new ExternalServiceConfigurationBean();
+    }
+
+    public OAuth2ConfigurationBean getOauth2ConfigurationBean(){
+        return oauth2ConfigurationBean;
+    }
+
+    public void setOauth2ConfigurationBean(OAuth2ConfigurationBean oauth2ConfigurationBean) {
+        this.oauth2ConfigurationBean = oauth2ConfigurationBean;
     }
 
     /**
@@ -298,4 +307,14 @@ public final class LocalAuthorityConfigurationBean {
         this.authorizations = authorizations;
     }
 
+    public String getExternalApplicationProperty(String key) {
+        if (externalApplicationProperties != null) {
+            return externalApplicationProperties.get(key);
+        } else {
+            return "";
+        }
+    }
+    public void setExternalApplicationProperties(Map<String, String> externalApplicationProperties) {
+        this.externalApplicationProperties = externalApplicationProperties;
+    }
 }
