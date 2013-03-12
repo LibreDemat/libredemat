@@ -159,9 +159,7 @@ class FrontofficeHomeFolderController {
                 redirect(controller : 'frontofficeHomeFolder', action : 'create', params : parameters)
                 return
             } else {
-                def authMethod = localAuthorityRegistry
-                        .getLocalAuthorityBeanByName(SecurityContext.getCurrentConfigurationBean().getName())
-                        .getExternalApplicationProperty('authentication.method')
+                def authMethod = SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront()
 
                 if(authMethod.equals("builtin")) {
                     if(params.callback)

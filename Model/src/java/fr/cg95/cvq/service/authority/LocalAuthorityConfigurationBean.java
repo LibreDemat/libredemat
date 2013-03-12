@@ -37,6 +37,7 @@ public final class LocalAuthorityConfigurationBean {
     private String defaultServerName;
     private String defaultEmail;
     private String authenticationMethod;
+    private String authenticationMethodFront;
 
     private Map<String, String> authorizations;
     private Map<IPaymentProviderService, PaymentServiceBean> paymentServices;
@@ -220,6 +221,14 @@ public final class LocalAuthorityConfigurationBean {
 
     public void setAuthenticationMethod(String authenticationMethod) {
         this.authenticationMethod = authenticationMethod;
+    }
+
+    public String getAuthenticationMethodFront() {
+        return authenticationMethodFront;
+    }
+
+    public void setAuthenticationMethodFront(String authenticationMethodFront) {
+        this.authenticationMethodFront = authenticationMethodFront;
     }
 
     public Properties getJpaConfigurations() {

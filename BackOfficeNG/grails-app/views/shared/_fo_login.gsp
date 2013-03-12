@@ -1,7 +1,7 @@
 <div id="hd">
   <div class="top">
     <g:if test="${session.currentCredentialBean?.ecitizen && !(session.currentCredentialBean.ecitizen.homeFolder.temporary)}">
-      <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() == 'oauth2'}">
+      <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
         <strong>${session.currentEcitizenName}</strong> <a class="menu" href="${session.proxyAgent ? createLink(controller:'frontofficeHome', action:'logoutAgent') : createLink(controller:'OAuth2', action: 'logout')}"><strong>${message(code:'action.logout')}</strong></a>
       </g:if>
       <g:else>
@@ -9,7 +9,7 @@
       </g:else>
     </g:if>
     <g:elseif test="${isLogin}">
-      <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() == 'oauth2'}">
+      <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
         <a href="${createLink(controller:'OAuth2', action:'askLogin', params:[callback:params.callback])}" class="menu"><strong>${message(code:'action.login')}</strong></a>
       </g:if>
       <g:else>

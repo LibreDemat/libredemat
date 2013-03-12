@@ -18,7 +18,7 @@
     </g:if>
     <div class="yui-g">
       <div class="yui-u first main-box">
-        <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() == 'oauth2'}">
+        <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
           <p>
             <h2>${message(code:'account.message.useMyAccount')}</h2>
             <p class="warning">${message(code:'account.message.localAuthorityInformation')}</p>
@@ -60,7 +60,7 @@
             <li>${message(code : "homeFolder.message.outOfAccount2")}</li>
           </ul>
           <p>
-            <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() == 'oauth2'}">
+            <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
               <a class="action" href="${createLink(controller:'frontofficeHomeFolder', action:'create', params:['requestTypeLabel':params.requestTypeLabel])}">${message(code:'action.begin')}</a>
             </g:if>
             <g:else>
@@ -82,7 +82,7 @@
           </ul>
           <p class="warning">${message(code:'homeFolder.message.createAccount.warning')}</p>
           <p>
-            <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() == 'oauth2'}">
+            <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
               </a>
               <a class="action" href="${createLink(controller:'frontofficeHomeFolder', action:'create', params:['requestTypeLabel':params.requestTypeLabel] + params)}">${message(code:'homeFolder.action.wishCreateAccount')}</a>
             </g:if>

@@ -136,6 +136,9 @@ public class AuthenticationService implements IAuthenticationService {
         return adult;
     }
 
+    /**
+     * Return the supported BO authentication method for the current local authority.
+     */   
     public String getAuthenticationMethod() {
         if (SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod() != null)
             return SecurityContext.getCurrentConfigurationBean().getAuthenticationMethod();
