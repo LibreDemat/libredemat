@@ -40,6 +40,14 @@ accesskey = 0
       </span>
     </a>
   </g:if>
+  <g:if test="${session.additionalTabs.contains('Planning')}">
+    <a href="${createLink(controller : 'frontofficePlanning')}"
+      class="${menu.current(elem : 'planning')}" accesskey="${accesskey++}">
+      <span>
+        <g:message code="menu.planning" />
+      </span>
+    </a>
+  </g:if>
   <g:if test="${session.additionalTabs.contains('Payments')}">
     <a href="${createLink(controller : 'frontofficePayment')}"
       class="${menu.current(elem : 'payment')}" accesskey="${accesskey++}">

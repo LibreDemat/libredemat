@@ -196,6 +196,9 @@ public final class LocalAuthorityConfigurationBean {
         if (escb.supportsActivitiesTab()) {
             tabs.add("Activities");
         }
+        if (!getExternalApplicationProperty("booker.url").isEmpty()) {
+            tabs.add("Planning");
+        }
         return tabs;
     }
 
