@@ -442,7 +442,8 @@ class BackofficeHomeFolderController {
     def actions = {
         def list = new ArrayList(userSearchService.getHomeFolderById(Long.valueOf(params.id)).actions)
         Collections.reverse(list)
-        return ["actions" : homeFolderAdaptorService.prepareActions(list)]
+        return ["actions" : homeFolderAdaptorService.prepareActions(list),
+                "archived" : params.boolean("archived")]
     }
     
     def currentHomeFolderState = {

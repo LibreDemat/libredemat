@@ -455,7 +455,7 @@ class FrontofficeHomeFolderController {
             return false
         } else if (request.post) {
             def adult = userSearchService.getByLogin(params.login)
-            if (adult == null) {
+            if (adult == null || adult.state.equals(UserState.ARCHIVED)) {
                 flash.errorMessage = message("code":"account.error.invalidLogin")
                 render(view : "answerLogin", model : [])
                 return false

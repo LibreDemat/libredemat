@@ -84,8 +84,10 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.document');
       },
       refreshList : function(shrt) {
         var url = zcbd.Instruction.listUrl;
-        var id = 'fullDocumentList';
-        zct.doAjaxCall(url,[],function(o){yud.get(id).innerHTML = o.responseText;},true);
+        var listElem = yud.get('fullDocumentList');
+        if(listElem){
+          zct.doAjaxCall(url,[],function(o){listElem.innerHTML = o.responseText;},true);
+        }
       },
       displayDocPanel : function(e,json) {
         zcbd.Instruction.cancelDocumentState();

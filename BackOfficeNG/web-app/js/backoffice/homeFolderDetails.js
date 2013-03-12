@@ -25,10 +25,11 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
 
   zcbh.Details = function() {
     var initControls = function() {
+      var archived = yud.get("homeFolderState").className=="tag-archived";
       zcbh.Details.bottomTabView = new yw.TabView();
       zcbh.Details.bottomTabView.addTab( new yw.Tab({
         label: 'Historique', cacheData: true,active:true,
-        dataSrc: [zc.baseUrl,'/actions/',zcbh.Details.homeFolderId].join('')
+        dataSrc: [zc.baseUrl,'/actions/',zcbh.Details.homeFolderId].join('')+"?archived="+archived
       }));
       zcbh.Details.bottomTabView.addTab( new yw.Tab({
         label: 'Demandes', cacheData: true,

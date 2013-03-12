@@ -28,16 +28,17 @@
     <div id="yui-main">
       <div class="yui-b">
         <div class="head">
-          <div id="contactContainer" class="txt-right">
-            <a id="contactLink">
-              <g:message code="contact.header.contactEcitizen" />
-            </a>
-            <div id="contactPanel">
-              <div class="hd"></div>
-              <div class="bd">
+          <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
+            <div id="contactContainer" class="txt-right">
+              <a id="contactLink">
+                <g:message code="contact.header.contactEcitizen" />
+              </a>
+              <div id="contactPanel">
+                <div class="hd"></div>
+                <div class="bd"></div>
               </div>
             </div>
-          </div>
+          </g:if>
           <h1>${message(code:'homeFolder.header.details', args:[params.id])}</h1>
         </div>
 
@@ -138,7 +139,9 @@
             <div class="yui-u first">
               <h2>
                 ${message(code:'homeFolder.property.adults')}
-                <a class="add adult" style="font-size:.7em;">${message(code:'action.add')}</a>
+                <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
+                  <a class="add adult" style="font-size:.7em;">${message(code:'action.add')}</a>
+                </g:if>
               </h2>
               <div class="new"></div>
               <g:each var="adult" in="${adults}">
@@ -148,7 +151,9 @@
             <div class="yui-u">
               <h2>
                 ${message(code:'homeFolder.property.children')}
-                <a class="add child" style="font-size:.7em;">${message(code:'action.add')}</a>
+                <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
+                  <a class="add child" style="font-size:.7em;">${message(code:'action.add')}</a>
+                </g:if>
               </h2>
               <div class="new"></div>
               <g:each var="child" in="${children}">
@@ -171,27 +176,29 @@
       </div>
     </div>
     <div id="narrow" class="yui-b">
-      <div class="nobox taskstate">
-        <h3>${message(code:'home.header.realizeRequest')}</h3>
-        <div class="body">
-          <form method="post" action="${g.createLink(action:'realizeRequest', id:homeFolderResponsible.id)}">
-            <label for="requestTypeId">${message(code:'property.requestType')} :</label>
-            <select id="requestTypeId" name="requestTypeId">
-              <option value=""><g:message code="search.filter.defaultValue"/></option>
-              <g:each var="group" in="${groups}">
-                  <optgroup label="${group.value.get('label')}">
-                      <g:each in="${group.value.get('requests')}" var="requestType">
-                        <option value="${requestType.id}">
-                          <g:translateRequestTypeLabel label="${requestType.label}"/>
-                        </option>
-                      </g:each>
-                  </optgroup>
-              </g:each>
-            </select>
-            <input type="submit" value="${message(code:'action.begin')}" />
-          </form>
+      <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
+        <div class="nobox taskstate">
+          <h3>${message(code:'home.header.realizeRequest')}</h3>
+          <div class="body">
+            <form method="post" action="${g.createLink(action:'realizeRequest', id:homeFolderResponsible.id)}">
+              <label for="requestTypeId">${message(code:'property.requestType')} :</label>
+              <select id="requestTypeId" name="requestTypeId">
+                <option value=""><g:message code="search.filter.defaultValue"/></option>
+                <g:each var="group" in="${groups}">
+                    <optgroup label="${group.value.get('label')}">
+                        <g:each in="${group.value.get('requests')}" var="requestType">
+                          <option value="${requestType.id}">
+                            <g:translateRequestTypeLabel label="${requestType.label}"/>
+                          </option>
+                        </g:each>
+                    </optgroup>
+                </g:each>
+              </select>
+              <input type="submit" value="${message(code:'action.begin')}" />
+            </form>
+          </div>
         </div>
-      </div>
+      </g:if>
 
       <!-- home folder state -->
       <div class="nobox taskstate">
@@ -210,13 +217,15 @@
       </div>
 
       <!-- request document state -->
-      <div class="nobox taskstate">
-        <h3><g:message code="property.documents" /></h3>
-        <div class="body">
-          <ul class="document-list" id="fullDocumentList">
-          </ul>
+      <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
+        <div class="nobox taskstate">
+          <h3><g:message code="property.documents" /></h3>
+          <div class="body">
+            <ul class="document-list" id="fullDocumentList">
+            </ul>
+          </div>
         </div>
-      </div>
+      </g:if>
 
       <div id="documentStateOverlay" class="state-overlay">
         <div class="hd"> </div>
