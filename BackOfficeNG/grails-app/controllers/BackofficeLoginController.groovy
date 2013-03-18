@@ -56,6 +56,8 @@ class BackofficeLoginController {
         		response.sendRedirect('/CapDemat/cas.gsp')
         	else
         		redirect(url:CH.config.cas_logout_url)
+        } else if (authenticationService.getAuthenticationMethod() == "oauth2") {
+          redirect(controller:"OAuth2", action:"logout")
         }
         return false
     }

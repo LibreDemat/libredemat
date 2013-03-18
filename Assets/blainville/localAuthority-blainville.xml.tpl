@@ -164,6 +164,7 @@
         <property name="password" value="aaaaaaaa"/>
         <property name="redirectionUri" value="http://localhost:8080/CapDemat/OAuth2/login"/>
         <property name="identificationScope" value="ident"/>
+        <property name="agentScope" value="agent"/>
       </bean>
     </property>
   </bean>

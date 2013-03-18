@@ -36,6 +36,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="oauth2Service" class="fr.cg95.cvq.oauth2.impl.OAuth2Service">
+    <property name="agentDAO" ref="agentDAO"/>
     <property name="adultDAO" ref="adultDAO"/>
   </bean>
 

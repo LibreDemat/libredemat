@@ -35,10 +35,17 @@ class OAuth2Controller {
             Token t = oauth2Service.authorizationCodeGrant(params.code)
             if (t != null) {
                 try {
+                  if(t.getScope() == "agent") {
+                    securityService.setAgentSessionInformation(
+                        oauth2Service.authenticateAgent(t.getAccessToken()), session)
+
+                    params.state ? redirect(uri:(params.state - request.contextPath)) : redirect(controller:"backofficeHome")
+                  } else {
                     securityService.setEcitizenSessionInformation(
                         oauth2Service.authenticate(t.getAccessToken()), session)
                     params.state ? redirect(uri:(params.state - request.contextPath)) : redirect(controller:"frontofficeHome")
-                    return false
+                  }
+                  return false
                 } catch (CvqUnknownUserException e) {
                     error = "account.error.authenticationFailed"
                 } catch (CvqAuthenticationFailedException e) {

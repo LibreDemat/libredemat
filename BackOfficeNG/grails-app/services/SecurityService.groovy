@@ -145,6 +145,15 @@ public class SecurityService {
         session.currentEcitizenName = adult.firstName + " " + adult.lastName
     }
 
+    public void setAgentSessionInformation(agent, session) {
+        session.currentUser = agent.login
+        session.currentAgentId = agent.id
+        session.frontContext = ContextType.AGENT
+        SecurityContext.setCurrentContext(SecurityContext.BACK_OFFICE_CONTEXT)
+        SecurityContext.setCurrentAgent(agent)
+        session.currentAgentName = agent.firstName + " " + agent.lastName
+    }
+
     public void logout(session) {
         session.frontContext = null
         session.currentEcitizenId = null

@@ -109,4 +109,23 @@ class ServiceUserController {
                          (error == "account.error.invalidLogin") ? 404 :
                          401
     }
+    def authAgent = {
+      def error
+        try {
+          def res = authenticationService.authenticateAgent(params.login,params.password)
+          render text: "",
+                contentType: "application/json",
+                status: 200
+          return true;
+        } catch (CvqAuthenticationFailedException e) {
+          error = "account.error.authenticationFailed"
+        } catch (CvqDisabledAccountException e) {
+          error = "account.error.disabledAccount"
+        }
+        render text: "{ error: \""+error+"\", error_description: \""+message(code : error)+"\"}",
+               contentType: 'application/json',
+               status: (error == "account.error.authenticationFailed") ? 500 :
+                         (error == "account.error.invalidLogin") ? 404 :
+                         401
+    }
 }

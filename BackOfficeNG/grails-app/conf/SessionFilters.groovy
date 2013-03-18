@@ -23,6 +23,7 @@ import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
 import fr.cg95.cvq.service.authority.LocalAuthorityConfigurationBean
 import fr.cg95.cvq.service.request.ICategoryService
 import fr.cg95.cvq.util.web.filter.CASFilter
+import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
 class SessionFilters {
 
@@ -274,6 +275,48 @@ class SessionFilters {
             }
         }
         
+
+        oauth2Auth(uri: '/backoffice/**') {
+          before = {
+            if (authenticationService.getAuthenticationMethod() != "oauth2") {
+              return true
+            }
+            try {
+              SecurityContext.setCurrentContext(SecurityContext.BACK_OFFICE_CONTEXT)
+              if (!session.currentUser) {
+                  def callback = params.callback ?: new ApplicationTagLib().createLink(controller:'backofficeHome').toString()
+                  def url = oauth2Service.authorizationRequestUri(callback, true)
+                  response.sendRedirect(url)
+                  return false
+              } else {
+                  SecurityContext.setCurrentAgent(session.currentUser)
+                  session.setAttribute("currentCredentialBean", SecurityContext.currentCredentialBean)
+
+                  def point = securityService.defineAccessPoint(
+                    session.currentCredentialBean.hasSiteAdminRole() ?
+                    ContextType.ADMIN : ContextType.AGENT,
+                    SecurityContext.BACK_OFFICE_CONTEXT,
+                    controllerName, actionName)
+                  if (point.controller != controllerName || point.action != actionName) {
+                    redirect(controller: point.controller, action: point.action)
+                    return false
+                  }
+              }
+            } catch (CvqObjectNotFoundException ce) {
+              session.currentUser = null
+              redirect(controller: 'backofficeLogin')
+              return false
+            } catch (CvqException ce) {
+              if (session.currentUser) session.currentUser = null
+              log.error "Unexpected error while setting current agent : ${ce.message}"
+              response.setStatus(500)
+              render "Unexpected error while setting current agent : ${ce.message}"
+              ce.printStackTrace()
+              return false
+            }
+          }
+        }
+
         builtinAuth(uri: '/backoffice/**') {
             before = {
                 if (authenticationService.getAuthenticationMethod() != "builtin") {

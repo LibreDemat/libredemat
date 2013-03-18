@@ -19,6 +19,8 @@ import fr.cg95.cvq.business.users.Adult;
 import fr.cg95.cvq.business.users.HomeFolder;
 import fr.cg95.cvq.business.users.UserState;
 import fr.cg95.cvq.dao.users.IAdultDAO;
+import fr.cg95.cvq.dao.authority.IAgentDAO;
+import fr.cg95.cvq.business.authority.Agent;
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException;
 import fr.cg95.cvq.exception.CvqDisabledAccountException;
 import fr.cg95.cvq.exception.CvqModelException;
@@ -38,6 +40,7 @@ public class OAuth2Service implements IOAuth2Service {
 
     private static final Logger logger = Logger.getLogger(OAuth2Service.class);
     private IAdultDAO adultDAO;
+    private IAgentDAO agentDAO;
 
     @Override
     public Adult authenticate(String token) throws CvqModelException,
@@ -71,6 +74,20 @@ public class OAuth2Service implements IOAuth2Service {
         return adult;
     }
 
+    public Agent authenticateAgent(String token) throws CvqModelException,
+        CvqUnknownUserException, CvqAuthenticationFailedException, CvqDisabledAccountException {
+        AccessToken accessToken;
+        try {
+            accessToken = valide(token);
+        } catch (InvalidTokenException e) {
+            logger.info("Authentication error : invalid token.", e);
+            throw new CvqAuthenticationFailedException("Authentication error : invalid token.");
+        }
+        Agent agent = agentDAO.findByLogin(accessToken.getResourceOwnerName());
+
+        return agent;
+    }
+
     @Override
     public AccessToken valide(String token) throws InvalidTokenException {
         try {
@@ -102,6 +119,10 @@ public class OAuth2Service implements IOAuth2Service {
 
     @Override
     public String authorizationRequestUri(String state) throws OAuth2Exception {
+      return authorizationRequestUri(state, false);
+    }
+
+    public String authorizationRequestUri(String state, boolean agent) throws OAuth2Exception {
         String redirectUri = null;
         String stateParam = null;
         OAuth2ConfigurationBean oauth2Config = getOAuth2Configuration();
@@ -115,7 +136,7 @@ public class OAuth2Service implements IOAuth2Service {
         return oauth2Config.getAuthorizationUri() +
                 "?response_type=code&client_id=" + oauth2Config.getClientId() +
                 "&redirect_uri=" + redirectUri +
-                "&scope=" + oauth2Config.getIdentificationScope() +
+                "&scope=" + (agent ? oauth2Config.getAgentScope() : oauth2Config.getIdentificationScope() ) +
                 "&state=" + stateParam +
                 "&resource_server=" + oauth2Config.getResourceServerName();
     }
@@ -169,6 +190,10 @@ public class OAuth2Service implements IOAuth2Service {
 
     public void setAdultDAO(IAdultDAO adultDAO) {
         this.adultDAO = adultDAO;
+    }
+
+    public void setAgentDAO(IAgentDAO agentDAO) {
+        this.agentDAO = agentDAO;
     }
 
 }

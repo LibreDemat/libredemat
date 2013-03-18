@@ -23,6 +23,7 @@ public final class OAuth2ConfigurationBean {
     private String password;
     private String redirectionUri;
     private String identificationScope;
+    private String agentScope;
 
     public OAuth2ConfigurationBean(String publicKey)
             throws NoSuchAlgorithmException, InvalidKeySpecException, UnsupportedEncodingException {
@@ -97,6 +98,14 @@ public final class OAuth2ConfigurationBean {
 
     public void setIdentificationScope(String identificationScope) {
         this.identificationScope = identificationScope;
+    }
+
+    public String getAgentScope() {
+        return agentScope;
+    }
+
+    public void setAgentScope(String agentScope) {
+        this.agentScope = agentScope;
     }
 
     public void setPublicKey(PublicKey publicKey) {
