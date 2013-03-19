@@ -171,6 +171,10 @@ class BackofficeHomeFolderController {
 
         result.groups = requestTypeAdaptorService.getActiveRequestTypeByDisplayGroup(homeFolder)
 
+        if(!SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url").isEmpty()) {
+            result.groups["Other"] = ['label': "Autre",requests:[['label':"Planning",'id':'booking']]]
+        }
+
         result.unarchivableIndividuals = unarchivableIndividuals
 
         return result
@@ -315,8 +319,11 @@ class BackofficeHomeFolderController {
     }
 
     def realizeRequest = {
-        def requestTypeLabel = params.requestTypeId != null && !params.requestTypeId.isEmpty() ? requestTypeService.getRequestTypeById(Long.valueOf(params.requestTypeId)).label : null
-        redirect(controller: 'frontofficeHome', action:'loginAgent', params:['id' : params.id, 'requestTypeLabel' : requestTypeLabel])
+      def requestTypeLabel = params.requestTypeId != null && !params.requestTypeId.isEmpty() ?
+                               params.requestTypeId.equals("booking") ?
+                                 "booking" : requestTypeService.getRequestTypeById(Long.valueOf(params.requestTypeId)).label : null
+
+      redirect(controller: 'frontofficeHome', action:'loginAgent', params:['id' : params.id, 'requestTypeLabel' : requestTypeLabel])
     }
 
     def address = {
