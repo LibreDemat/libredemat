@@ -56,6 +56,9 @@ public class GlobalRequestTypeConfiguration {
     @Column(name="archives_password")
     private String archivesPassword;
 
+    @Column(name="season_draft_notification_before_delete",nullable=false)
+    private int seasonDraftNotificationBeforeDelete = 5;
+
     public Long getId() {
         return id;
     }
@@ -134,5 +137,13 @@ public class GlobalRequestTypeConfiguration {
 
     public void setArchivesPassword(String archivesPassword) {
         this.archivesPassword = archivesPassword;
+    }
+
+    public int getSeasonDraftNotificationBeforeDelete() {
+        return seasonDraftNotificationBeforeDelete;
+    }
+
+    public void setSeasonDraftNotificationBeforeDelete(int seasonDraftNotificationBeforeDelete) {
+        this.seasonDraftNotificationBeforeDelete = seasonDraftNotificationBeforeDelete;
     }
 }

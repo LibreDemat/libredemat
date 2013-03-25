@@ -1274,6 +1274,7 @@
         instruction_max_delay int4 not null,
         request_lock_max_delay int4 not null,
         requests_creation_notification_enabled bool not null,
+        season_draft_notification_before_delete int4 not null,
         primary key (id)
     );
 

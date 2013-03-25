@@ -1,0 +1,3 @@
+ALTER TABLE global_request_type_configuration ADD COLUMN season_draft_notification_before_delete int4;
+UPDATE global_request_type_configuration SET season_draft_notification_before_delete=5;
+ALTER TABLE global_request_type_configuration ALTER COLUMN season_draft_notification_before_delete SET NOT NULL;

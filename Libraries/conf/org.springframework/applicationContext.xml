@@ -241,6 +241,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="translationService" ref="translationService"/>
     <property name="agentService" ref="agentService" />
     <property name="requestSearchService" ref="requestSearchService" />
+    <property name="requestTypeService" ref="requestTypeService" />
   </bean>
 
   <bean id="requestStatisticsService" class="fr.cg95.cvq.service.request.impl.RequestStatisticsService">

@@ -117,6 +117,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="requestTypeService"><ref bean="requestTypeService"/></property>
     <property name="requestWorkflowService"><ref bean="requestWorkflowService"/></property>
     <property name="requestSearchService" ref="requestSearchService" />
+    <property name="requestActionService" ref="requestActionService" />
   </bean>
 
   <bean id="requestSeasonsJobInvoker"

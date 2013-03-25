@@ -1,6 +1,9 @@
 package fr.cg95.cvq.service.request.impl;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -33,6 +36,7 @@ import fr.cg95.cvq.security.SecurityContext;
 import fr.cg95.cvq.service.authority.IAgentService;
 import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry;
 import fr.cg95.cvq.service.request.IRequestSearchService;
+import fr.cg95.cvq.service.request.IRequestTypeService;
 import fr.cg95.cvq.service.request.job.RequestArchivingJob;
 import fr.cg95.cvq.service.request.job.RequestArchivingJob.Result;
 import fr.cg95.cvq.service.users.IUserSearchService;
@@ -57,7 +61,7 @@ public class RequestNotificationService implements ApplicationListener<CapDematE
     private IAgentService agentService;
     private ITranslationService translationService;
     private IRequestSearchService requestSearchService;
-
+    private IRequestTypeService requestTypeService;
     private IRequestDAO requestDAO;
 
     private String getTitle(Individual individual) {
@@ -302,6 +306,66 @@ public class RequestNotificationService implements ApplicationListener<CapDematE
         this.requestSearchService = requestSearchService;
     }
 
+    public void setRequestTypeService(IRequestTypeService requestTypeService) {
+        this.requestTypeService = requestTypeService;
+    }
+
+    private boolean notifySeasonsDraftExpiration(Request request) throws CvqException {
+        String requestTypeLabelAsDir = StringUtils.uncapitalize(request.getRequestType().getLabel().replace(" ", "")) + "Request";
+        File mailTemplate = localAuthorityRegistry.getLocalAuthorityResourceFile(
+                Type.TXT, "notification/" + requestTypeLabelAsDir + "/SEASON_DRAFT_EXPIRATION", false);
+
+        if (!mailTemplate.exists()){
+            mailTemplate = localAuthorityRegistry.getLocalAuthorityResourceFile(
+                Type.TXT, "notification/SEASON_DRAFT_EXPIRATION", false);
+        }
+
+        if(!mailTemplate.exists()){
+            logger.error("No Season Draft Expiration template exists");
+            return false;
+        }
+
+        StringWriter sw = new StringWriter();
+        SimpleTemplateEngine templateEngine = new SimpleTemplateEngine();
+        Template template;
+        try {
+            template = templateEngine.createTemplate(
+                new InputStreamReader( new FileInputStream(mailTemplate), "UTF-8") );
+            Map<String, Object> bindingMap = new HashMap<String, Object>();
+            bindingMap.put("request", request);
+            Integer seasonDraftDeletionLimit = requestTypeService.getGlobalRequestTypeConfiguration().getSeasonDraftNotificationBeforeDelete();
+            Adult requester = (Adult) userSearchService.getById(request.getRequesterId());
+            bindingMap.put("requester", requester);
+            bindingMap.put("seasonDraftDeletionLimit", seasonDraftDeletionLimit);
+            bindingMap.put("serveurName", SecurityContext.getCurrentConfigurationBean().getDefaultServerName());
+            bindingMap.put("i18n", translationService);
+            template.make(bindingMap).writeTo(sw);
+        } catch (IOException e) {
+            logger.error("A problem occurred during Season Draft Expiration template building.",e);
+            return false;
+        }
+
+        String mailBody = sw.toString();
+        String mailSubject = translationService.translate(
+                "request.notification.subject.season.draft.expiration",
+                new Object[] {
+                    SecurityContext.getCurrentSite().getDisplayTitle(),
+                    translationService.translateRequestTypeLabel(request.getRequestType().getLabel())
+        });
+
+        if (mailSubject.equals("request.notification.subject.season.draft.expiration")) {
+            mailSubject = "[" + SecurityContext.getCurrentSite().getDisplayTitle() + "]" +
+             " " + translationService.translateRequestTypeLabel(request.getRequestType().getLabel());
+        }
+
+        Adult requester = (Adult) userSearchService.getById(request.getRequesterId());
+        mailService.send(
+                request.getRequestType().getCategory().getPrimaryEmail(),
+                requester.getEmail(), null,
+                mailSubject, mailBody);
+
+        return true;
+    }
     private void onApplicationEvent(RequestEvent requestEvent) {
         logger.debug("onApplicationEvent() got a request event of type " + requestEvent.getEvent());
         try {
@@ -313,6 +377,9 @@ public class RequestNotificationService implements ApplicationListener<CapDematE
                 case NOTE_ADDED :
                     notifyAgentNote(requestEvent.getRequest().getId(),
                         ((RequestNote)requestEvent.getComplementaryData(COMP_DATA.REQUEST_NOTE)));
+                    break;
+                case SEASONS_DRAFT_EXPIRATION :
+                    notifySeasonsDraftExpiration(requestEvent.getRequest());
                     break;
             }
         } catch (CvqException e) {

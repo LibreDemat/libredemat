@@ -29,6 +29,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.localauthority');
         yue.on(yud.get('draftsBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
         yue.on(yud.get('platformConfigurationBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
         yue.on(yud.get('archivesPasswordBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
+        yue.on(yud.get('seasonsDraftsBox'),'click',zcbl.Requests.clickEv.dispatch,zcbl.Requests.clickEv,true);
       },
       /**
       * @description The name of the method to call is the first part of the clicked item's ID, except for new season creation

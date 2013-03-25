@@ -9,7 +9,8 @@ public class RequestEvent extends CapDematEvent {
 
     private static final long serialVersionUID = 1L;
 
-    public static enum EVENT_TYPE { STATE_CHANGED, REQUEST_CREATED, REQUEST_CLONED, REQUEST_VALIDATED, REQUEST_DELETED, NOTE_ADDED }
+    public static enum EVENT_TYPE { STATE_CHANGED, REQUEST_CREATED, REQUEST_CLONED, REQUEST_VALIDATED, REQUEST_DELETED,
+        NOTE_ADDED, SEASONS_DRAFT_EXPIRATION }
     public static enum COMP_DATA { PDF_FILE, REQUEST_NOTE }
     
     private EVENT_TYPE event;

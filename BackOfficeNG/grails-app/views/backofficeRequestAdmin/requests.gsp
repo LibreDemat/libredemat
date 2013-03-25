@@ -39,6 +39,24 @@
             </div>
           </form>
         </div>
+
+        <div id="seasonsDraftsBox" class="mainbox mainbox-yellow">
+          <h2><g:message code="localAuthority.header.setupSeasonsDrafts" /></h2>
+          <form method="post" id="seasonsForm" action="${createLink(action:'requests')}">
+            <div class="error" id="seasonsFormErrors"> </div>
+            <p class="field">
+              <label for="seasonDraftNotificationBeforeDelete">
+                <g:message code="requestAdmin.property.seasonDraftNotificationBeforeDelete" /> :
+              </label>
+              <input type="text" name="seasonDraftNotificationBeforeDelete"
+                value="${globalRequestTypeConfiguration.seasonDraftNotificationBeforeDelete}"
+              class="required validate-positiveInteger" />
+            </p>
+            <div class="form-button">
+              <input id="save_seasons_drafts" type="button" value="${message(code:'action.save')}" />
+            </div>
+          </form>
+        </div>
         <div id="platformConfigurationBox" class="mainbox mainbox-yellow">
           <h2><g:message code="localAuthority.header.setup.platformConfiguration" /></h2>
           <form method="post" id="platformConfigurationForm" action="${createLink(action : 'requests')}">
