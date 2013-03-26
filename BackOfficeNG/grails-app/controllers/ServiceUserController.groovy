@@ -6,6 +6,10 @@ import fr.cg95.cvq.exception.CvqDisabledAccountException
 import fr.cg95.cvq.exception.CvqUnknownUserException
 import grails.converters.JSON
 import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
+import fr.cg95.cvq.oauth2.IOAuth2Service
+import fr.cg95.cvq.oauth2.model.AccessToken
+import fr.cg95.cvq.oauth2.OAuth2Exception
+import fr.cg95.cvq.service.authority.IAgentService;
 
 import org.apache.commons.codec.binary.Base64
 import org.apache.commons.lang.StringUtils
@@ -14,8 +18,10 @@ class ServiceUserController {
     IUserSearchService userSearchService
     IAuthenticationService authenticationService
     ILocalAuthorityRegistry localAuthorityRegistry
+    IOAuth2Service oauth2Service
+    IAgentService agentService
 
-    def beforeInterceptor = [action:this.&authenticate, only:['auth']]
+    def beforeInterceptor = [action:this.&authenticate, only:['auth','authAgent']]
     def authenticate() {
         def authorization = request.getHeader('Authorization')
         if (!authorization) {
@@ -87,6 +93,36 @@ class ServiceUserController {
                        status: 200
             }
         }
+    }
+    def loginAgent = {
+        def agent = null
+        def authHeader = request.getHeader("Authorization")
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+          log.debug("OAuth2 token is missing.");
+          throw new OAuth2Exception();
+        }
+
+        String [] bearer = authHeader.split(" ", 2);
+        AccessToken token = oauth2Service.valide(bearer[1]);
+        try {
+          agent = agentService.getByLogin(token.resourceOwnerName)
+        } catch (Exception e) {
+            log.error e.message
+            render status: 500
+        }
+        if (agent == null) {
+          render( status: 404)
+        } else {
+          render text:  ([
+                        'firstName': agent.firstName,
+                        'lastName': agent.lastName,
+                        'login': agent.login,
+                        'email': agent.email
+                      ] as JSON),
+               contentType: 'application/json',
+               status: 200
+       }
     }
     def auth = {
       def error
