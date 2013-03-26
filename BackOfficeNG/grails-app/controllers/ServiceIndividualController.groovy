@@ -3,6 +3,8 @@ import fr.cg95.cvq.security.SecurityContext;
 import fr.cg95.cvq.service.users.IUserSearchService;
 import fr.cg95.cvq.service.users.external.IExternalHomeFolderService;
 import fr.cg95.cvq.oauth2.InsufficientScopeException;
+import fr.cg95.cvq.exception.CvqObjectNotFoundException
+import fr.cg95.cvq.service.authority.IAgentService
 
 import grails.converters.JSON
 
@@ -10,6 +12,7 @@ class ServiceIndividualController {
 
     IUserSearchService userSearchService
     IExternalHomeFolderService externalHomeFolderService
+    IAgentService agentService
 
     def beforeInterceptor = {
         def token = request.getAttribute("accessToken")
@@ -23,7 +26,22 @@ class ServiceIndividualController {
 
     def userInfo = {
         def token = request.getAttribute("accessToken")
-        def user = userSearchService.getByLogin(token.resourceOwnerName)
+        def user
+
+        try {
+          if(params.eCitizenId != null && params.eCitizenId != "") {
+            def agent = agentService.getByLogin(token.resourceOwnerName)
+            if(agent) {
+                user = userSearchService.getById(params.eCitizenId as Long)
+            } else {
+                render(status: 403)
+            }
+          } else {
+            user = userSearchService.getByLogin(token.resourceOwnerName)
+          }
+        } catch (CvqObjectNotFoundException ex) {
+          render(status: 404)
+        }
 
         def individualMapping = externalHomeFolderService.
                 getIndividualMapping(user, SecurityContext.getCurrentExternalService())
