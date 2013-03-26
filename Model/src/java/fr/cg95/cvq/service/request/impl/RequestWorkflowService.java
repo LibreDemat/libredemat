@@ -743,14 +743,15 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         IRequestService requestService = requestServiceRegistry.getRequestService(request);
         requestService.onRequestIssued(request);
 
-        WorkflowPendingEvent wfEvent = new WorkflowPendingEvent(request);
-        requestExternalService.publish(wfEvent);
 
         byte[] pdfData = requestPdfService.generateCertificate(request);
         requestActionService.addCreationAction(request.getId(), date, pdfData, note);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.REQUEST_CREATED, request));
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request, pdfData));
+
+        WorkflowPendingEvent wfEvent = new WorkflowPendingEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -773,13 +774,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.INPROGRESS);
 
-        WorkflowInProgressEvent wfEvent = new WorkflowInProgressEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.INPROGRESS, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowInProgressEvent wfEvent = new WorkflowInProgressEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -789,13 +790,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.EXTINPROGRESS);
 
-        WorkflowExtInProgressEvent wfEvent = new WorkflowExtInProgressEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.EXTINPROGRESS, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowExtInProgressEvent wfEvent = new WorkflowExtInProgressEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -812,13 +813,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.COMPLETE);
 
-        WorkflowCompleteEvent wfEvent = new WorkflowCompleteEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.COMPLETE, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowCompleteEvent wfEvent = new WorkflowCompleteEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -831,13 +832,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.UNCOMPLETE);
 
-        WorkflowUncompleteEvent wfEvent = new WorkflowUncompleteEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.UNCOMPLETE, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowUncompleteEvent wfEvent = new WorkflowUncompleteEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -847,13 +848,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.RECTIFIED);
 
-        WorkflowRectifiedEvent wfEvent = new WorkflowRectifiedEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.RECTIFIED, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowRectifiedEvent wfEvent = new WorkflowRectifiedEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -871,9 +872,6 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.REJECTED);
 
-        WorkflowRejectedEvent wfEvent = new WorkflowRejectedEvent(request);
-        requestExternalService.publish(wfEvent);
-
         byte[] pdfData = requestPdfService.generateCertificate(request);
         if (requestServiceRegistry.getRequestService(request).isArchiveDocuments()) {
             request.setDocumentsArchive(
@@ -884,6 +882,9 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
             RequestState.REJECTED, pdfData);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request, pdfData));
+
+        WorkflowRejectedEvent wfEvent = new WorkflowRejectedEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
 
@@ -916,9 +917,6 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.CANCELLED);
 
-        WorkflowCancelledEvent wfEvent = new WorkflowCancelledEvent(request);
-        requestExternalService.publish(wfEvent);
-
         byte[] pdfData = requestPdfService.generateCertificate(request);
         if (requestServiceRegistry.getRequestService(request).isArchiveDocuments()) {
             request.setDocumentsArchive(
@@ -929,6 +927,9 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
             RequestState.CANCELLED, pdfData);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request, pdfData));
+
+        WorkflowCancelledEvent wfEvent = new WorkflowCancelledEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
 
@@ -952,9 +953,6 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         request.setDataState(DataState.VALID);
         request.setStep(RequestStep.DELIVERY);
 
-        WorkflowValidatedEvent wfEvent = new WorkflowValidatedEvent(request);
-        requestExternalService.publish(wfEvent);
-
         // TODO Decoupling
         byte[] pdfData = requestPdfService.generateCertificate(request);
         if (requestServiceRegistry.getRequestService(request).isArchiveDocuments()) {
@@ -974,6 +972,9 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request, pdfData));
 
+        WorkflowValidatedEvent wfEvent = new WorkflowValidatedEvent(request);
+        requestExternalService.publish(wfEvent);
+
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
 
@@ -985,13 +986,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.NOTIFIED);
 
-        WorkflowNotifiedEvent wfEvent = new WorkflowNotifiedEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.NOTIFIED, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowNotifiedEvent wfEvent = new WorkflowNotifiedEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -1004,13 +1005,13 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.CLOSED);
 
-        WorkflowClosedEvent wfEvent = new WorkflowClosedEvent(request);
-        requestExternalService.publish(wfEvent);
-
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.CLOSED, null);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request));
+
+        WorkflowClosedEvent wfEvent = new WorkflowClosedEvent(request);
+        requestExternalService.publish(wfEvent);
 
         postActionsProcess(wfEvent.getWorkflowPostActions());
     }
@@ -1024,11 +1025,12 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.ARCHIVED);
 
+        requestActionService.addWorfklowAction(request.getId(), note, date,
+            RequestState.ARCHIVED, null);
+
         WorkflowArchivedEvent wfEvent = new WorkflowArchivedEvent(request);
         requestExternalService.publish(wfEvent);
 
-        requestActionService.addWorfklowAction(request.getId(), note, date,
-            RequestState.ARCHIVED, null);
         postActionsProcess(wfEvent.getWorkflowPostActions());
 
         HomeFolder homeFolder = userSearchService.getHomeFolderById(request.getHomeFolderId());
