@@ -10,7 +10,7 @@ class FrontofficePlanningController {
                                   .getName()
         def url = localAuthorityRegistry.getLocalAuthorityBeanByName(name)
                     .getExternalApplicationProperty('booker.url') + (
-                    ((session.frontContext == ContextType.AGENT) ? "as/"+session.currentEcitizenId : ""))
+                    ((session.frontContext == ContextType.AGENT) ? "?as="+session.currentEcitizenId : ""))
         return [url: url]
     }
 }

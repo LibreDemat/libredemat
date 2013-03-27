@@ -112,11 +112,14 @@ class ServiceUserController {
             render status: 500
         }
         if (agent == null) {
-          render( status: 404)
+          render( 
+            text: (['error': 'No agent found'] as JSON),
+            contentType: 'application/json',
+            status: 200)
         } else {
           render text:  ([
-                        'firstName': agent.firstName,
-                        'lastName': agent.lastName,
+                        'firstname': agent.firstName,
+                        'lastname': agent.lastName,
                         'login': agent.login,
                         'email': agent.email
                       ] as JSON),

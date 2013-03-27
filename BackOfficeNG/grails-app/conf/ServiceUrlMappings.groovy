@@ -19,5 +19,6 @@ class ServiceUrlMappings {
     "/service/oauth/v$version/home" (controller : "serviceHomeFolder" )
     "/service/oauth/v$version/authority" (controller : "serviceLocalAuthority" )
     "/service/oauth/v$version/request/$individual/$requestTypeLabel" (controller : "serviceRequest" )
+    "/service/oauth/v$version/agent" (controller : "serviceUser"){action = [GET : "loginAgent"]}
   }
 }
