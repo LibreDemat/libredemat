@@ -24,20 +24,15 @@ class BackofficeReferentialController {
     }
 
     def afterInterceptor = { model ->
-        model["subMenuEntries"] = []
-        if (authenticationService.getAuthenticationMethod() == "builtin")
-            model["subMenuEntries"] += "referential.agents"
-        model["subMenuEntries"] += [
+        model["subMenuEntries"] = [
+            "referential.agents",
             "referential.schools",
             "referential.recreationCenters"
         ]
     }
 	
     def index = {
-    	if (authenticationService.getAuthenticationMethod() == "builtin")
-            redirect(action:'agents')
-        else
-            redirect(action:'schools')
+    	redirect(action:'agents')
 	}
     
     def agents = {
