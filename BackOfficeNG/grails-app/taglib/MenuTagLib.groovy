@@ -1,5 +1,5 @@
 import org.apache.commons.lang.StringUtils
-
+import fr.cg95.cvq.util.logging.impl.Log
 
 class MenuTagLib {
     def static namespace = "menu"
@@ -24,24 +24,43 @@ class MenuTagLib {
         def itemAction, itemController, itemModule
         
         for(String item : items) {
-            itemAction = item.split('\\.')[1]
-            itemController = item.split('\\.')[0]
-            itemModule = exclude.find { controllerName.contains(it) }
- 
-            if ((itemAction != actionName) || (itemModule + StringUtils.capitalize(itemController) != controllerName)) {
-                blocks += """
-                <li>
-                    <a id="display${StringUtils.capitalize(item)}" href="${createLink(controller:itemModule+StringUtils.capitalize(itemController), action:itemAction)}" target="_self">
-                     ${message(code:itemController+'.'+i18nPrefix+'.'+itemAction)}
-                    </a>
-                </li>
-                """
+            
+            // External link
+            if (item.contains('|')) {
+                def itemParts = item.split("\\|")
+                if (itemParts.length != 2) {
+                    log.warn("Invalid external link. Expected format: 'label|link', found: '$item'")
+                } else {
+                    blocks += """
+                    <li>
+                        <a id="display${StringUtils.capitalize(item)}" href="${itemParts[1]}" target="_self">
+                         ${itemParts[0]}
+                        </a>
+                    </li>
+                    """
+                }
+
+            // Internal link
             } else {
-                blocks += """
-                <li>
-                   ${message(code:itemController +'.'+ i18nPrefix +'.'+ itemAction)}
-                </li>
-                """
+                itemAction = item.split('\\.')[1]
+                itemController = item.split('\\.')[0]
+                itemModule = exclude.find { controllerName.contains(it) }
+     
+                if ((itemAction != actionName) || (itemModule + StringUtils.capitalize(itemController) != controllerName)) {
+                    blocks += """
+                    <li>
+                        <a id="display${StringUtils.capitalize(item)}" href="${createLink(controller:itemModule+StringUtils.capitalize(itemController), action:itemAction)}" target="_self">
+                         ${message(code:itemController+'.'+i18nPrefix+'.'+itemAction)}
+                        </a>
+                    </li>
+                    """
+                } else {
+                    blocks += """
+                    <li>
+                       ${message(code:itemController +'.'+ i18nPrefix +'.'+ itemAction)}
+                    </li>
+                    """
+                }
             }
         }
         if (items.size() > 1)

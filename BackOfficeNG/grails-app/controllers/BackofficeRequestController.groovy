@@ -10,6 +10,7 @@ import fr.cg95.cvq.service.request.IRequestSearchService
 import fr.cg95.cvq.service.request.IRequestStatisticsService
 import fr.cg95.cvq.service.request.IRequestTypeService
 import fr.cg95.cvq.util.Critere
+import fr.cg95.cvq.util.translation.impl.TranslationService;
 import fr.cg95.cvq.security.SecurityContext
 
 class BackofficeRequestController {
@@ -22,6 +23,7 @@ class BackofficeRequestController {
     
     def translationService
     def requestAdaptorService
+    def localAuthorityRegistry
     
     def defaultAction = 'initSearch'
     // keys supported in advanced search screen : match with keys defined in Request.java
@@ -156,8 +158,13 @@ class BackofficeRequestController {
 
     def initSearchReferential() {
         def subMenuEntries = ["request.search"]
-        if (categoryService.hasManagerProfile(SecurityContext.currentAgent))
+        if (categoryService.hasManagerProfile(SecurityContext.currentAgent)) {
             subMenuEntries.add("requestType.list")
+            def urlBooker = SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url")
+            if (!urlBooker.isEmpty()) {
+                subMenuEntries.add(translationService.translate("submenu.booker") + "|" + urlBooker + "admin")
+            }
+        }
 
         return ['allStates':RequestState.allRequestStates.findAll { it != RequestState.DRAFT },
                 'allAgents':agentService.getAll(),
