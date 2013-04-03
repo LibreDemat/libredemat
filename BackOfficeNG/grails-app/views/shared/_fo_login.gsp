@@ -8,7 +8,7 @@
         <em>${session.currentEcitizenName}</em> <a class="menu" href="${createLink(controller:'frontofficeHome', action:session.proxyAgent ? 'logoutAgent': 'logout')}">${message(code:'action.logout')}</a>
       </g:else>
     </g:if>
-    <g:elseif test="${isLogin}">
+    <g:else>
       <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
         <a href="${createLink(controller:'OAuth2', action:'askLogin', params:[callback:params.callback])}" class="menu"><strong>${message(code:'action.login')}</strong></a>
       </g:if>
@@ -24,7 +24,7 @@
           <a href="${createLink(controller:'frontofficeHomeFolder', action:'resetPassword')}">${message(code:'account.message.forgottenPassword')}</a>
         </form>
       </g:else>
-    </g:elseif>
+    </g:else>
     <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'helpFo')}" class="menu" target="blank">${message(code:'menu.help')}</a>
     <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'faqFo')}" class="menu" target="blank">${message(code:'menu.faq')}</a>
   </div>

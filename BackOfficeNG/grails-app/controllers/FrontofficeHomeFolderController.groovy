@@ -250,7 +250,9 @@ class FrontofficeHomeFolderController {
         }
         if (flash.invalidFields.isEmpty()) {
             userWorkflowService.create(adult, model.temporary && params.boolean('temporary'))
-            securityService.setEcitizenSessionInformation(adult, session)
+
+            if(SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront().equals("builtin"))
+              securityService.setEcitizenSessionInformation(adult, session)
         }
     }
 
