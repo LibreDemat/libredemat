@@ -36,6 +36,8 @@ import org.apache.xmlbeans.XmlError
 import org.apache.xmlbeans.XmlException
 import org.apache.xmlbeans.XmlOptions
 
+import fr.cg95.cvq.service.request.ICategoryService
+
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 import org.codehaus.groovy.grails.web.json.JSONArray
 import org.codehaus.groovy.grails.web.json.JSONObject
@@ -54,6 +56,7 @@ class BackofficeHomeFolderController {
     IDocumentTypeService documentTypeService
     IHomeFolderDocumentService homeFolderDocumentService
     IRequestTypeService requestTypeService
+    ICategoryService categoryService
 
     def translationService
     def homeFolderAdaptorService
@@ -171,7 +174,8 @@ class BackofficeHomeFolderController {
 
         result.groups = requestTypeAdaptorService.getActiveRequestTypeByDisplayGroup(homeFolder)
 
-        if(!SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url").isEmpty()) {
+        if(!SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url").isEmpty()
+          && categoryService.hasWriteProfile(SecurityContext.getCurrentAgent())) {
             result.groups["Other"] = ['label': "Autre",requests:[['label':"Planning",'id':'booking']]]
         }
 

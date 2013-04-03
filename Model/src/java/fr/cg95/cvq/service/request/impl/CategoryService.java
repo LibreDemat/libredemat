@@ -184,6 +184,22 @@ public class CategoryService implements ICategoryService, ILocalAuthorityLifecyc
 
     @Override
     @Context(types = {ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    public boolean hasWriteProfile(Agent agent) {
+        List<Category> categories = getAll();
+        for (Category category : categories) {
+            for (CategoryRoles categoryRole : category.getCategoriesRoles()) {
+                if (categoryRole.getAgentId().equals(agent.getId())
+                    && (categoryRole.getProfile().equals(CategoryProfile.MANAGER)
+                    || categoryRole.getProfile().equals(CategoryProfile.READ_WRITE )))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    @Context(types = {ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
     public boolean hasManagerProfile(Agent agent) {
         for(Category category : getAll()) {
             for (CategoryRoles role : category.getCategoriesRoles()) {

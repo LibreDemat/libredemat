@@ -32,6 +32,13 @@ public interface ICategoryService {
      */
     boolean hasWriteProfileOnCategory(Agent agent, @IsCategory Long categoryId);
 
+    /**
+     * Return whether the given agent has at least a
+     * {@link CategoryProfile#READ_WRITE} profile on any category
+     */
+    boolean hasWriteProfile(Agent agent);
+
+
     boolean hasManagerProfile(Agent agent);
 
     /**
