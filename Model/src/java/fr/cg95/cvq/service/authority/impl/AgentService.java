@@ -120,7 +120,7 @@ public final class AgentService implements IAgentService, ILocalAuthorityLifecyc
     }
 
     @Override
-    @Context(types={ContextType.ADMIN},privilege=ContextPrivilege.NONE)
+    @Context(types={ContextType.ADMIN, ContextType.EXTERNAL_SERVICE},privilege=ContextPrivilege.NONE)
     public boolean isAdmin(Agent agent) {
 
         if (agent != null) {

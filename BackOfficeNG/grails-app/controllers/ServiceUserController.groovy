@@ -10,6 +10,7 @@ import fr.cg95.cvq.oauth2.IOAuth2Service
 import fr.cg95.cvq.oauth2.model.AccessToken
 import fr.cg95.cvq.oauth2.OAuth2Exception
 import fr.cg95.cvq.service.authority.IAgentService;
+import fr.cg95.cvq.service.request.ICategoryService
 
 import org.apache.commons.codec.binary.Base64
 import org.apache.commons.lang.StringUtils
@@ -20,6 +21,7 @@ class ServiceUserController {
     ILocalAuthorityRegistry localAuthorityRegistry
     IOAuth2Service oauth2Service
     IAgentService agentService
+    ICategoryService categoryService
 
     def beforeInterceptor = [action:this.&authenticate, only:['auth','authAgent']]
     def authenticate() {
@@ -117,11 +119,15 @@ class ServiceUserController {
             contentType: 'application/json',
             status: 200)
         } else {
+          def role = (agentService.isAdmin(agent)) ? 'admin' :
+              (categoryService.hasWriteProfile(agent)) ? 'manager' : 'agent'
+
           render text:  ([
                         'firstname': agent.firstName,
                         'lastname': agent.lastName,
                         'login': agent.login,
-                        'email': agent.email
+                        'email': agent.email,
+                        'role' : role
                       ] as JSON),
                contentType: 'application/json',
                status: 200

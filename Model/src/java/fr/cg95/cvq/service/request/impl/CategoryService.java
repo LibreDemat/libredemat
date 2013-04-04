@@ -64,7 +64,7 @@ public class CategoryService implements ICategoryService, ILocalAuthorityLifecyc
             return categoryDAO.listAll();
         
         // if agent is an admin, return the whole list
-        if (SecurityContext.getCurrentCredentialBean().hasSiteAdminRole())
+        if (SecurityContext.getCurrentCredentialBean().hasSiteAdminRole() || SecurityContext.isExternalServiceContext())
             return categoryDAO.listAll();
         
         // else only return those categories it has a role on
@@ -183,7 +183,7 @@ public class CategoryService implements ICategoryService, ILocalAuthorityLifecyc
     }
 
     @Override
-    @Context(types = {ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    @Context(types = {ContextType.AGENT, ContextType.ADMIN, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.NONE)
     public boolean hasWriteProfile(Agent agent) {
         List<Category> categories = getAll();
         for (Category category : categories) {
