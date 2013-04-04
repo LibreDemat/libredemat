@@ -71,4 +71,6 @@ public interface IUserSearchService extends IAutofillTriggerService {
      * Get a list of individuals who have a role in the home folder but are not part of it.
      */
     List<Individual> getExternalIndividuals(@IsUser Long homeFolderId);
+
+    Boolean hasExternalCapdematId(@IsUser Long uId);
 }

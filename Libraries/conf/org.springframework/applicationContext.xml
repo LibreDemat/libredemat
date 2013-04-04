@@ -394,6 +394,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="adultDAO" ref="adultDAO" />
     <property name="childDAO" ref="childDAO" />
     <property name="homeFolderDAO" ref="homeFolderDAO"/>
+    <property name="externalHomeFolderService" ref="externalHomeFolderService" />
   </bean>
 
   <bean id="userDeduplicationService" class="fr.cg95.cvq.service.users.impl.UserDeduplicationService">

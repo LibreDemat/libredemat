@@ -24,6 +24,7 @@ import fr.cg95.cvq.service.authority.LocalAuthorityConfigurationBean
 import fr.cg95.cvq.service.request.ICategoryService
 import fr.cg95.cvq.util.web.filter.CASFilter
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
+import fr.cg95.cvq.service.users.IUserSearchService
 
 class SessionFilters {
 
@@ -34,6 +35,7 @@ class SessionFilters {
     ILocalAuthorityRegistry localAuthorityRegistry
     IOAuth2Service oauth2Service
     IAuthenticationService authenticationService
+    IUserSearchService userSearchService
 
     static filters = {
         
@@ -202,6 +204,8 @@ class SessionFilters {
                     ce.printStackTrace()
 					return false
                 }
+                if(session.additionalTabs.contains("Planning") && !userSearchService.hasExternalCapdematId(session.currentEcitizenId))
+                  session.additionalTabs = session.additionalTabs.remove("Planning")
             }
         }
 

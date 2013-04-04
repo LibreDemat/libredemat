@@ -24,6 +24,8 @@ import fr.cg95.cvq.security.annotation.ContextPrivilege;
 import fr.cg95.cvq.security.annotation.ContextType;
 import fr.cg95.cvq.service.users.IUserSearchService;
 import fr.cg95.cvq.util.Critere;
+import fr.cg95.cvq.service.users.external.IExternalHomeFolderService;
+
 
 public class UserSearchService implements IUserSearchService {
 
@@ -34,6 +36,8 @@ public class UserSearchService implements IUserSearchService {
     private IAdultDAO adultDAO;
 
     private IChildDAO childDAO;
+
+    private IExternalHomeFolderService externalHomeFolderService;
 
     @Override
     public List<Individual> get(Set<Critere> criterias, Map<String,String> sortParams,
@@ -196,6 +200,15 @@ public class UserSearchService implements IUserSearchService {
         }
 
         return children;
+    }
+
+    @Override
+    public Boolean hasExternalCapdematId(Long uId) {
+        return (externalHomeFolderService.getIndividualMappings(uId).size() != 0);
+    }
+
+    public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService) {
+        this.externalHomeFolderService = externalHomeFolderService;
     }
 
     public void setHomeFolderDAO(IHomeFolderDAO homeFolderDAO) {

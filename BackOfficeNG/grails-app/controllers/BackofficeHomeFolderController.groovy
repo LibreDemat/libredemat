@@ -175,7 +175,8 @@ class BackofficeHomeFolderController {
         result.groups = requestTypeAdaptorService.getActiveRequestTypeByDisplayGroup(homeFolder)
 
         if(!SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url").isEmpty()
-          && categoryService.hasWriteProfile(SecurityContext.getCurrentAgent())) {
+          && categoryService.hasWriteProfile(SecurityContext.getCurrentAgent())
+          && userSearchService.hasExternalCapdematId(result.homeFolderResponsible.id)) {
             result.groups["Other"] = ['label': "Autre",requests:[['label':"Planning",'id':'booking']]]
         }
 
