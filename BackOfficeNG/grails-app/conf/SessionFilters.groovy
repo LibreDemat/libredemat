@@ -190,7 +190,7 @@ class SessionFilters {
                         SecurityContext.setCurrentEcitizen(session.currentEcitizenId)
                         session.setAttribute("currentCredentialBean", SecurityContext.currentCredentialBean)
                         if(session.additionalTabs.contains("Planning") && !userSearchService.hasExternalCapdematId(session.currentEcitizenId))
-                        session.additionalTabs = session.additionalTabs.remove("Planning")
+                            session.additionalTabs.remove("Planning")
                     }
                 } catch (CvqObjectNotFoundException ce) {
                     log.error "Object not found : ${ce}"
