@@ -189,6 +189,8 @@ class SessionFilters {
                     } else if (session.currentEcitizenId) {
                         SecurityContext.setCurrentEcitizen(session.currentEcitizenId)
                         session.setAttribute("currentCredentialBean", SecurityContext.currentCredentialBean)
+                        if(session.additionalTabs.contains("Planning") && !userSearchService.hasExternalCapdematId(session.currentEcitizenId))
+                        session.additionalTabs = session.additionalTabs.remove("Planning")
                     }
                 } catch (CvqObjectNotFoundException ce) {
                     log.error "Object not found : ${ce}"
@@ -204,8 +206,6 @@ class SessionFilters {
                     ce.printStackTrace()
 					return false
                 }
-                if(session.additionalTabs.contains("Planning") && !userSearchService.hasExternalCapdematId(session.currentEcitizenId))
-                  session.additionalTabs = session.additionalTabs.remove("Planning")
             }
         }
 
