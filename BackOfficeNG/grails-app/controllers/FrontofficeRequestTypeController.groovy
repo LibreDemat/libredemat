@@ -78,7 +78,7 @@ class FrontofficeRequestTypeController {
         {
           params.remove(i)
         }
-        if ( request.queryString != null)
+        if ( request.queryString != null && params.long("requestSeasonId")!=null)
         {
             redirect(controller : "frontofficeRequest", action : "create", params : params)
             return false
