@@ -160,5 +160,7 @@ public class SecurityService {
         session.currentEcitizenId = null
         session.currentEcitizenName = null
         session.currentCredentialBean = null
+        session.currentAgentName = null;
+        session.currentAgentId = null;
     }
 }

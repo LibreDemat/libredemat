@@ -36,9 +36,13 @@ class OAuth2Controller {
             if (t != null) {
                 try {
                   if(t.getScope() == "agent") {
-                    securityService.setAgentSessionInformation(
-                        oauth2Service.authenticateAgent(t.getAccessToken()), session)
-
+                    def agent = oauth2Service.authenticateAgent(t.getAccessToken())
+                    if (agent == null) {
+                        session.redirectToBo = true
+                        redirect(action : 'logout')
+                        return false;
+                    }
+                    securityService.setAgentSessionInformation(agent, session)
                     params.state ? redirect(uri:(params.state - request.contextPath)) : redirect(controller:"backofficeHome")
                   } else {
                     securityService.setEcitizenSessionInformation(
@@ -68,11 +72,10 @@ class OAuth2Controller {
         def lacbname = SecurityContext.getCurrentConfigurationBean().getName()
         def lacb = localAuthorityRegistry.getLocalAuthorityBeanByName(lacbname)
 
-        def home = request.getRequestURL().toString() \
-        - request.getRequestURI() \
-        + createLink(controller:'frontofficeHome').toString()
-        def callback
+        def home = request.getRequestURL().toString() - request.getRequestURI() + createLink(
+            controller: (session.redirectToBo ? 'backofficeHome' : 'frontofficeHome')).toString()
 
+        def callback
         if (lacb.getAdditionalTabs().contains('Planning')) {
             callback = URLEncoder.encode( lacb.getExternalApplicationProperty('booker.logouturl') + '?callback=' + home
                     , 'UTF-8'
