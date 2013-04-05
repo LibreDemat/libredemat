@@ -129,8 +129,13 @@ class BackofficeRequestInstructionController {
         def subject = rqt.subjectId != null ? userSearchService.getById(rqt.subjectId) : null
 
         def subMenuEntries = ["request.search"]
-        if (categoryService.hasManagerProfile(SecurityContext.currentAgent))
+        if (categoryService.hasManagerProfile(SecurityContext.currentAgent)) {
             subMenuEntries.add("requestType.list")
+            def urlBooker = SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url")
+            if (!urlBooker.isEmpty()) {
+                subMenuEntries.add(translationService.translate("submenu.booker") + "|" + urlBooker + "admin")
+            }
+        }
 
         return ([
             "rqt": rqt,
