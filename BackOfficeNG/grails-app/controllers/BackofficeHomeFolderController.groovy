@@ -328,6 +328,7 @@ class BackofficeHomeFolderController {
                                params.requestTypeId.equals("booking") ?
                                  "booking" : requestTypeService.getRequestTypeById(Long.valueOf(params.requestTypeId)).label : null
 
+      session.startAgentSpoofEcitizenProcess = true
       redirect(controller: 'frontofficeHome', action:'loginAgent', params:['id' : params.id, 'requestTypeLabel' : requestTypeLabel])
     }
 

@@ -173,13 +173,17 @@ class SessionFilters {
                 log.debug "Security service returned point : ${point}"
                 try {
                     SecurityContext.setCurrentContext(SecurityContext.FRONT_OFFICE_CONTEXT)
-                    if (session.frontContext == ContextType.AGENT) {
+                    if (session.currentAgentId != null && session.currentEcitizenId == null && session.startAgentSpoofEcitizenProcess == null) {
+                        redirect(controller: 'backofficeLogin', action: 'logout')
+                        return false
+                    } else if (session.frontContext == ContextType.AGENT && session.currentEcitizenId != null) {
                         SecurityContext.setProxyAgent(session.currentUser)
                         session.proxyAgent = SecurityContext.proxyAgent
                     } else {
                         SecurityContext.setProxyAgent(null)
                         session.proxyAgent = null
                     }
+
                     if ((point.controller == controllerName && point.action != actionName) || 
                         (point.controller != controllerName)) {
                         if(point.action) redirect(controller: point.controller, action: point.action,params : ["callback" : callbackURI])

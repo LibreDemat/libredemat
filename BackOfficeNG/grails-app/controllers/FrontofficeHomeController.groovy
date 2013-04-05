@@ -153,6 +153,7 @@ class FrontofficeHomeController {
         if(session.currentUser) {
             session.frontContext = ContextType.AGENT
             session.currentEcitizenId = params.long("id")
+            session.startAgentSpoofEcitizenProcess = null;
             SecurityContext.setCurrentEcitizen(session.currentEcitizenId)
 
             if(params.requestTypeLabel.equals("booking"))
