@@ -30,8 +30,12 @@ class OAuth2Controller {
     }
 
     def login = {
-      def error = ''
-        if (params.code != null) {
+        def error = ''
+        if (params.error != null) {
+            log.error(params.error)
+            log.error(params.error_description)
+            error = "account.error.authenticationFailed"
+        } else if (params.code != null) {
             Token t = oauth2Service.authorizationCodeGrant(params.code)
             if (t != null) {
                 try {
