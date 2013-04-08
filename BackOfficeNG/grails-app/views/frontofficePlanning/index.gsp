@@ -9,6 +9,12 @@
     </script>
   </head>
   <body>
+    <g:if test="${message(code:'planning.desc') != 'planning.desc' && message(code:'planning.desc') != ''}">
+       <div class="information-box">
+           ${message(code:'planning.desc')}
+       </div>
+    </g:if>
+
     <iframe id="booker" src="${url}" name="booker" scrolling='no' frameborder=0 seamless>${message(code:'planning.no_iframe_support')}</iframe>
   </body>
 </html>
