@@ -12,7 +12,7 @@
       <g:if test="${fr.cg95.cvq.security.SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront() == 'oauth2'}">
         <a href="${createLink(controller:'OAuth2', action:'askLogin', params:[callback:params.callback])}" class="menu"><strong>${message(code:'action.login')}</strong></a>
       </g:if>
-      <g:else>
+      <g:elseif test="${isLogin}">
         <form action="${createLink(controller:'frontofficeHome', action:'login')}" method="post">
           <g:if test="${error}"><p class="error">${error}</p></g:if>
           <label for="login">${message(code:'account.property.login')}</label>
@@ -23,7 +23,7 @@
           <input type="submit" class="button" value="${message(code:'action.login')}"/>
           <a href="${createLink(controller:'frontofficeHomeFolder', action:'resetPassword')}">${message(code:'account.message.forgottenPassword')}</a>
         </form>
-      </g:else>
+      </g:elseif>
     </g:else>
     <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'helpFo')}" class="menu" target="blank">${message(code:'menu.help')}</a>
     <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'faqFo')}" class="menu" target="blank">${message(code:'menu.faq')}</a>
