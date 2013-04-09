@@ -11,3 +11,7 @@ iframe {
   background: white;
   width: 100%;
 }
+
+.information-box-booker {
+  margin: 0.7em 1.3em 1em;
+}

@@ -10,7 +10,7 @@
   </head>
   <body>
     <g:if test="${message(code:'planning.desc') != 'planning.desc' && message(code:'planning.desc') != ''}">
-       <div class="information-box">
+       <div class="information-box information-box-booker">
            ${message(code:'planning.desc')}
        </div>
     </g:if>
