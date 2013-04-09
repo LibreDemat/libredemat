@@ -47,14 +47,19 @@ class BackofficeRequestTypeController {
 
     def afterInterceptor = { model ->
         def subMenuEntries = ["request.search"]
-        if (categoryService.hasManagerProfile(SecurityContext.currentAgent))
+        if (categoryService.hasManagerProfile(SecurityContext.currentAgent)) {
             subMenuEntries.add("requestType.list")
+            def urlBooker = SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url")
+            if (!urlBooker.isEmpty()) {
+                subMenuEntries.add(translationService.translate("submenu.booker") + "|" + urlBooker + "admin")
+            }
+        }
         model["subMenuEntries"] = subMenuEntries
     }
 
     def list = {
         def requestTypes = []
-            
+
         // deal with dynamic filters
         def parsedFilters = SearchUtils.parseFilters(params.filterBy)
         if (parsedFilters.filters.size() > 0) {

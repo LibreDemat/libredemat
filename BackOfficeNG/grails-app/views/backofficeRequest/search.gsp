@@ -3,6 +3,7 @@
     <title><g:message code="request.header.search" /></title>
     <meta name="layout" content="main" />
     <script type="text/javascript" src="${resource(dir:'js/common',file:'calendar.js')}"></script>
+    <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" ></link>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestSearch.js')}"></script>
   </head>
   <body>
