@@ -56,7 +56,6 @@ class ServiceHomeFolderController {
             for (Individual individual: individuals) {
                 def individualMapping = externalHomeFolderService.getIndividualMapping(
                     individual, SecurityContext.getCurrentExternalService())
-                individualMapping = null;
                 if (individualMapping != null) {
                     individual.externalCapDematId = individualMapping.externalCapDematId
                     individual.externalId = individualMapping.externalId
