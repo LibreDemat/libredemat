@@ -4,6 +4,7 @@ import fr.cg95.cvq.authentication.IAuthenticationService
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException
 import fr.cg95.cvq.exception.CvqDisabledAccountException
 import fr.cg95.cvq.exception.CvqUnknownUserException
+import fr.cg95.cvq.exception.CvqObjectNotFoundException
 import grails.converters.JSON
 import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
 import fr.cg95.cvq.oauth2.IOAuth2Service
@@ -122,13 +123,35 @@ class ServiceUserController {
           def role = (agentService.isAdmin(agent)) ? 'admin' :
               (categoryService.hasWriteProfile(agent)) ? 'manager' : 'agent'
 
-          render text:  ([
+          def result = [
                         'firstname': agent.firstName,
                         'lastname': agent.lastName,
                         'login': agent.login,
                         'email': agent.email,
                         'role' : role
-                      ] as JSON),
+                      ]
+
+          def user
+          try {
+            if(params.eCitizenId != null && params.eCitizenId != "") {
+              if(agent) {
+                  user = userSearchService.getById(params.eCitizenId as Long)
+              } else {
+                  render(status: 403)
+              }
+            } else {
+              user = userSearchService.getByLogin(token.resourceOwnerName)
+            }
+          } catch (CvqObjectNotFoundException ex) {
+            render(status: 404)
+          }
+          if(user)  {
+            if(token.scope.contains("homefolderId")) {
+              result += [homefolderId: user.getHomeFolder().getId()]
+            }
+          }
+
+          render text:  (result as JSON),
                contentType: 'application/json',
                status: 200
        }

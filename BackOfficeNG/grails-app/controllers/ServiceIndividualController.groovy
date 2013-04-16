@@ -50,8 +50,14 @@ class ServiceIndividualController {
             user.setExternalId(individualMapping.getExternalId())
         }
 
-        render ([externalCapdematId:user.externalCapDematId, externalId:user.externalId,
-             email: user.email, firstname: user.firstName, lastname: user.lastName] as JSON)
+        def result = [externalCapdematId:user.externalCapDematId, externalId:user.externalId,
+               email: user.email, firstname: user.firstName, lastname: user.lastName]
+
+        if(token.scope.contains("homefolderId")) {
+          result += [homefolderId: user.getHomeFolder().getId()]
+        }
+
+        render (result as JSON)
     }
 
 }
