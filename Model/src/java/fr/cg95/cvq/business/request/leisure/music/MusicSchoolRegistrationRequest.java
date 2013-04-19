@@ -46,6 +46,13 @@ public class MusicSchoolRegistrationRequest extends Request implements Serializa
         
           stepState = new HashMap<String, Object>(4);
           stepState.put("state", "uncomplete");
+          stepState.put("required", false);
+          stepState.put("errorMsg", null);
+          stepState.put("invalidFields", new ArrayList<String>());
+          getStepStates().put("homeFolder", stepState);
+        
+          stepState = new HashMap<String, Object>(4);
+          stepState.put("state", "unavailable");
           stepState.put("required", true);
           stepState.put("errorMsg", null);
           stepState.put("invalidFields", new ArrayList<String>());
@@ -157,6 +164,13 @@ public class MusicSchoolRegistrationRequest extends Request implements Serializa
         
           stepState = new HashMap<String, Object>(4);
           stepState.put("state", "uncomplete");
+          stepState.put("required", false);
+          stepState.put("errorMsg", null);
+          stepState.put("invalidFields", new ArrayList<String>());
+          clone.getStepStates().put("homeFolder", stepState);
+        
+          stepState = new HashMap<String, Object>(4);
+          stepState.put("state", "unavailable");
           stepState.put("required", true);
           stepState.put("errorMsg", null);
           stepState.put("invalidFields", new ArrayList<String>());

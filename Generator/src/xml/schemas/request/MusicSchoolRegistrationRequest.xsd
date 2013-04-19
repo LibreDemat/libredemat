@@ -28,6 +28,11 @@
         <common>
           <namespace name="leisure.music" />
           <steps>
+            <step index="-1" ref="homeFolder">
+              <widget>
+                <homeFolder />
+              </widget>
+            </step>
             <step index="0" name="registration" >
               <widgets>
                 <subject />
