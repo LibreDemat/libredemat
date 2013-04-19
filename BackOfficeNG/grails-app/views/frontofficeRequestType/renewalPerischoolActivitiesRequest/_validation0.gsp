@@ -2,6 +2,81 @@
 
 
   
+
+    <h3>${message(code:'rpar.step.homeFolder.label')}</h3>
+
+    
+            <dl>
+              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dd>
+                <ul>
+                  <li>
+                    <span class="tag-homefolderresponsible tag-state">${message(code:'homeFolder.role.homeFolderResponsible')}</span>
+                  </li>
+                  <g:if test="${requester.homePhone}">
+                    <li>${requester.homePhone}</li>
+                  </g:if>
+                  <g:if test="${requester.mobilePhone}">
+                    <li>${requester.mobilePhone}</li>
+                  </g:if>
+                  <g:if test="${requester.email}">
+                    <li>${requester.email}</li>
+                  </g:if>
+                </ul>
+              </dd>
+            </dl>
+          
+
+
+    
+          <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
+            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+              <dl>
+                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dd>
+                  <ul>
+                    <g:if test="${individual.homePhone}">
+                      <li>${individual.homePhone}</li>
+                    </g:if>
+                    <g:if test="${individual.mobilePhone}">
+                      <li>${individual.mobilePhone}</li>
+                    </g:if>
+                    <g:if test="${individual.email}">
+                      <li>${individual.email}</li>
+                    </g:if>
+                  </ul>
+                </dd>
+              </dl>
+            </g:if>
+          </g:each>
+          
+
+
+    
+          <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
+            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+              <dl class="${individual.state}">
+                <dt>
+                  <g:if test="${individual.born}">${individual.fullName}</g:if>
+                  <g:else>${message(code:'request.subject.childNoBorn', args:[individual.fullName])}</g:else>
+                <dd>
+                  <g:if test="${individual.born}">${message(code:'homeFolder.header.born')}</g:if>
+                  <g:else>${message(code:'homeFolder.header.noBorn')}</g:else>
+                  <g:if test="${individual.birthDate}">
+                    ${message(code:'homeFolder.header.on')}
+                    ${formatDate(date:individual.birthDate,formatName:'format.date')}
+                  </g:if>
+                </dd>
+              </dl>
+            </g:if>
+          </g:each>
+          
+
+
+  
+
+
+  
     <h3><g:message code="rpar.step.enfant.label" /></h3>
     
       
