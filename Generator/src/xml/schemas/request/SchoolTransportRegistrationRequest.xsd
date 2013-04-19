@@ -21,6 +21,11 @@
         <common>
           <namespace name="school" />
           <steps>
+            <step index="-1" ref="homeFolder">
+              <widget>
+                <homeFolder />
+              </widget>
+            </step>
             <step index="0" name="enfant" >
               <widgets>
                 <subject />
