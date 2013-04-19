@@ -104,10 +104,45 @@
   
 
   
+        <g:if test="${rqt.requestType.getStepAccountCompletion() && !session.proxyAgent}">
+  
+
+        <li class="${currentStep == 'homeFolder' ? 'current ' : ''}
+          
+            ${individual ? rqt.stepStates['homeFolder-' + params.type].state : rqt.stepStates['homeFolder'].state}
+          "
+          >
+          <span class="number">${stepNumber++}</span>
+          <a
+            <g:if test="${currentStep != 'homeFolder' && rqt.stepStates['homeFolder'].state != 'unavailable'}">
+              href="${createLink(controller:'frontofficeRequest', action : 'edit', params:['id':rqt.id,'currentStep':'homeFolder'])}"
+            </g:if>
+          >
+            
+              <g:message code="${individual ? 'homeFolder.action.add' + org.apache.commons.lang.StringUtils.capitalize(params.type) : 'request.step.homeFolder.label'}" />
+
+              
+
+              <span class="help">
+                <g:message code="request.step.message.${rqt.stepStates['homeFolder' + (individual ? '-' + params.type : '')].state}" />
+              </span>
+            
+          </a>
+        </li>
+
+  
+        </g:if>
+  
+
+  
+
+  
+
+  
 
         <li class="${currentStep == 'enfant' ? 'current ' : ''}
           
-            ${individual ? rqt.stepStates['enfant-' + params.type].state : rqt.stepStates['enfant'].state}
+            ${rqt.stepStates['enfant'].state}
           "
           >
           <span class="number">${stepNumber++}</span>
@@ -117,14 +152,11 @@
             </g:if>
           >
             
-              <g:message code="${individual ? 'homeFolder.action.add' + org.apache.commons.lang.StringUtils.capitalize(params.type) : 'lcrr.step.enfant.label'}" />
-
-              
-                ${individual ? '' : '*'}
-              
-
+              <g:message code="lcrr.step.enfant.label" /> *
               <span class="help">
-                <g:message code="request.step.message.${rqt.stepStates['enfant' + (individual ? '-' + params.type : '')].state}" />
+                
+                  <g:message code="request.step.message.${rqt.stepStates['enfant'].state}" />
+                
               </span>
             
           </a>
