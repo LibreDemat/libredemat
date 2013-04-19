@@ -22,6 +22,11 @@
         <common>
           <namespace name="social" />
           <steps>
+            <step index="-1" ref="homeFolder">
+              <widget>
+                <homeFolder />
+              </widget>
+            </step>
             <step index="0" name="association">
               <conditions>
                 <condition name="estAdresseCorrespondantPrincipal" />
