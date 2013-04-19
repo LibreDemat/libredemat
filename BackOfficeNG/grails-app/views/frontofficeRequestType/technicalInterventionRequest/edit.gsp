@@ -104,10 +104,45 @@
   
 
   
+        <g:if test="${rqt.requestType.getStepAccountCompletion() && !session.proxyAgent}">
+  
+
+        <li class="${currentStep == 'homeFolder' ? 'current ' : ''}
+          
+            ${individual ? rqt.stepStates['homeFolder-' + params.type].state : rqt.stepStates['homeFolder'].state}
+          "
+          >
+          <span class="number">${stepNumber++}</span>
+          <a
+            <g:if test="${currentStep != 'homeFolder' && rqt.stepStates['homeFolder'].state != 'unavailable'}">
+              href="${createLink(controller:'frontofficeRequest', action : 'edit', params:['id':rqt.id,'currentStep':'homeFolder'])}"
+            </g:if>
+          >
+            
+              <g:message code="${individual ? 'homeFolder.action.add' + org.apache.commons.lang.StringUtils.capitalize(params.type) : 'request.step.homeFolder.label'}" />
+
+              
+
+              <span class="help">
+                <g:message code="request.step.message.${rqt.stepStates['homeFolder' + (individual ? '-' + params.type : '')].state}" />
+              </span>
+            
+          </a>
+        </li>
+
+  
+        </g:if>
+  
+
+  
+
+  
+
+  
 
         <li class="${currentStep == 'intervention' ? 'current ' : ''}
           
-            ${individual ? rqt.stepStates['intervention-' + params.type].state : rqt.stepStates['intervention'].state}
+            ${rqt.stepStates['intervention'].state}
           "
           >
           <span class="number">${stepNumber++}</span>
@@ -117,14 +152,11 @@
             </g:if>
           >
             
-              <g:message code="${individual ? 'homeFolder.action.add' + org.apache.commons.lang.StringUtils.capitalize(params.type) : 'tir.step.intervention.label'}" />
-
-              
-                ${individual ? '' : '*'}
-              
-
+              <g:message code="tir.step.intervention.label" /> *
               <span class="help">
-                <g:message code="request.step.message.${rqt.stepStates['intervention' + (individual ? '-' + params.type : '')].state}" />
+                
+                  <g:message code="request.step.message.${rqt.stepStates['intervention'].state}" />
+                
               </span>
             
           </a>
