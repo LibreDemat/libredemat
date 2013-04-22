@@ -131,26 +131,6 @@ class ServiceUserController {
                         'role' : role
                       ]
 
-          def user
-          try {
-            if(params.eCitizenId != null && params.eCitizenId != "") {
-              if(agent) {
-                  user = userSearchService.getById(params.eCitizenId as Long)
-              } else {
-                  render(status: 403)
-              }
-            } else {
-              user = userSearchService.getByLogin(token.resourceOwnerName)
-            }
-          } catch (CvqObjectNotFoundException ex) {
-            render(status: 404)
-          }
-          if(user)  {
-            if(token.scope.contains("homefolderId")) {
-              result += [homefolderId: user.getHomeFolder().getId()]
-            }
-          }
-
           render text:  (result as JSON),
                contentType: 'application/json',
                status: 200

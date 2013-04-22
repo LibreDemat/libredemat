@@ -77,7 +77,8 @@ class ServiceHomeFolderController {
             indMap.put("lastname", i.lastName)
             individualList.add(indMap)
         }
-        render ([
+
+        def result = [
             externalCapDematId: homeFolder.externalCapDematId,
             externalId: homeFolder.externalId,
             address: [
@@ -86,6 +87,13 @@ class ServiceHomeFolderController {
                 cp: homeFolder.address.postalCode,
                 city: homeFolder.address.city
             ],
-            individuals: individualList] as JSON)
+            individuals: individualList
+        ]
+      
+        if (token.scope.contains("homefolderId")) {
+          result += [homefolderId: homeFolder.getId()]
+        }
+
+        render(result as JSON)
     }
 }
