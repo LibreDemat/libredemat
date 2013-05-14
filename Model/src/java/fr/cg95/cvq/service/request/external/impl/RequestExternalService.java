@@ -227,7 +227,17 @@ public class RequestExternalService extends ExternalService implements IRequestE
         JpaUtil.init(emf);
         Set<Long> successes = new HashSet<Long>();
         Map<Long, String> failures = new HashMap<Long, String>();
-        for (Request request : requestSearchService.get(ids, null, null, 0, 0, true)) {
+        List<Long> ints = new ArrayList<Long>();
+        try {
+            for(Critere ct : ids)
+                ints.addAll((List<Long>)ct.getValue());
+        } catch (Exception ex) {
+            logger.error("RequestExternalService:sendRequests(), I do not understand the criterias. It must be a set of one Criteria with a list of Ids");
+            throw new CvqException("RequestExternalService:sendRequests(), I do not understand the criterias. It must be a set of one Criteria with a list of Ids");
+        }
+
+        for (Long rqId : ints) {
+            Request request = requestSearchService.getById(rqId, true);
             try {
                 sendRequest(request);
                 successes.add(request.getId());
