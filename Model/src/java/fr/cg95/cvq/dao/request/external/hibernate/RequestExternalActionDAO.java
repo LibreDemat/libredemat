@@ -126,7 +126,20 @@ public final class RequestExternalActionDAO extends JpaTemplate<RequestExternalA
     public List<String> getKeys(Set<Critere> criterias) {
         StringBuffer sb = new StringBuffer();
         sb.append("select distinct key from request_external_action");
-        sb.append(" where 1 = 1 ");
+
+        List<BigInteger> ids = HibernateUtil.getSession()
+            .createSQLQuery("select max(id) from request_external_action group by key").list();
+        if (ids.isEmpty()) {
+            return Collections.emptyList();
+        }
+        String stringIds[] = new String[ids.size()];
+        int idx = 0;
+        for (BigInteger id : ids)
+            stringIds[idx++] = id.toString();
+        sb.append(" where id in (");
+        sb.append(StringUtils.join(stringIds, ", "));
+        sb.append(')');
+
         List<Object> parametersValues = new ArrayList<Object>();
         List<Type> parametersTypes = new ArrayList<Type>();
         for (Critere searchCrit : criterias) {
