@@ -138,7 +138,7 @@ public final class RequestExternalActionDAO extends JpaTemplate<RequestExternalA
             } else if (RequestExternalAction.SEARCH_BY_REQUEST_STATE.equals(searchCrit.getAttribut())) {
                 sb.append(" and (select state from request where id = key) ")
                     .append(searchCrit.getSqlComparatif()).append(" ?");
-                parametersValues.add(searchCrit.getSqlStringValue());
+                parametersValues.add(((RequestState)searchCrit.getValue()).name());
                 parametersTypes.add(Hibernate.STRING);
             } else if (searchCrit.getAttribut().equals("belongsToCategory")) {
                 sb.append(
