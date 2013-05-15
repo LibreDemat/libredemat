@@ -6,6 +6,7 @@ import fr.cg95.cvq.exception.CvqObjectNotFoundException
 import fr.cg95.cvq.service.authority.IAgentService
 import fr.cg95.cvq.service.users.IUserSearchService
 import fr.cg95.cvq.service.users.external.IExternalHomeFolderService
+import fr.cg95.cvq.business.users.UserState
 
 import grails.converters.JSON
 
@@ -47,6 +48,7 @@ class ServiceHomeFolderController {
 
         def homeFolder = user.getHomeFolder()
         def individuals = homeFolder.getIndividuals()
+            .findAll { it.state != UserState.ARCHIVED } // Exclude archived individuals
 
         def homeFolderMapping = externalHomeFolderService
             .getHomeFolderMapping(SecurityContext.getCurrentExternalService(), homeFolder?.id)
