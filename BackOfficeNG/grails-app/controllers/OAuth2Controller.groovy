@@ -1,3 +1,4 @@
+import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type;
 import fr.cg95.cvq.exception.CvqAuthenticationFailedException
 import fr.cg95.cvq.exception.CvqDisabledAccountException
 import fr.cg95.cvq.exception.CvqUnknownUserException
@@ -5,6 +6,8 @@ import fr.cg95.cvq.oauth2.IOAuth2Service
 import fr.cg95.cvq.oauth2.OAuth2Exception;
 import fr.cg95.cvq.oauth2.model.Token
 import fr.cg95.cvq.security.SecurityContext
+import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry;
+import fr.cg95.cvq.util.translation.ITranslationService;
 
 import grails.converters.JSON
 
@@ -14,6 +17,7 @@ class OAuth2Controller {
     def localAuthorityRegistry
 
     IOAuth2Service oauth2Service
+    ITranslationService translationService
 
     def askLogin = {
         if (session?.currentEcitizenId == null) {
@@ -104,6 +108,59 @@ class OAuth2Controller {
         render([error : "insufficient_scope",
             error_description : "The request requires higher privileges than provided by the access token."] as JSON);
         return false;
+    }
+
+    def css = {
+
+        def scope = params.scope
+
+        def agentScope = oauth2Service.getOAuth2Configuration().getAgentScope()
+        if (scope != null && scope.contains(agentScope)) {
+            def cssNameBack = oauth2Service.getOAuth2Configuration().getCssNameBack()
+            def contentFile = localAuthorityRegistry.getFileContent(localAuthorityRegistry.getLocalAuthorityResourceFile(Type.CSS, cssNameBack, true))
+            render(text: contentFile, contentType:"text/css", status: 200)
+            return false;
+        }
+
+        def cssNameFront = oauth2Service.getOAuth2Configuration().getCssNameFront()
+        def contentFile = localAuthorityRegistry.getFileContent(localAuthorityRegistry.getLocalAuthorityResourceFile(Type.CSS, cssNameFront, true))
+        render(text: contentFile, contentType:"text/css", status: 200)
+        return false;
+    }
+
+    def i18n = {
+        def scope = params.scope
+
+        def agentScope = oauth2Service.getOAuth2Configuration().getAgentScope()
+        if (scope != null && scope.contains(agentScope) ) {
+            def i18nMap = ["auth.connexion" : translationService.translate("back.auth.connexion"),
+                "auth.connexionTo" : translationService.translate("back.auth.connexionTo"),
+                "auth.identifiant" : translationService.translate("back.auth.identifiant"),
+                "auth.password" : translationService.translate("back.auth.password"),
+                "auth.badPassword" : translationService.translate("back.auth.badPassword"),
+                "auth.signup" : translationService.translate("back.auth.signup"),
+                "auth.signup.url" : translationService.translate("back.auth.signup.url"),
+                "auth.forgotpassword" : translationService.translate("back.auth.forgotpassword"),
+                "auth.forgotpassword.url" : translationService.translate("back.auth.forgotpassword.url"),
+                "auth.appName" : translationService.translate("back.auth.appName")
+                ]
+            render( i18nMap as JSON)
+            return false;
+        }
+        def i18nMap = ["auth.connexion" : translationService.translate("front.auth.connexion"),
+            "auth.connexionTo" : translationService.translate("front.auth.connexionTo"),
+            "auth.identifiant" : translationService.translate("front.auth.identifiant"),
+            "auth.password" : translationService.translate("front.auth.password"),
+            "auth.badPassword" : translationService.translate("front.auth.badPassword"),
+            "auth.signup" : translationService.translate("front.auth.signup"),
+            "auth.signup.url" : translationService.translate("front.auth.signup.url"),
+            "auth.forgotpassword" : translationService.translate("front.auth.forgotpassword"),
+            "auth.forgotpassword.url" : translationService.translate("front.auth.forgotpassword.url"),
+            "auth.appName" : translationService.translate("front.auth.appName")
+            ]
+        render( i18nMap as JSON)
+        return false;
+
     }
 
 }

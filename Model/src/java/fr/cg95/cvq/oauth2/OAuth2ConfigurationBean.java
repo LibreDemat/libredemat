@@ -25,6 +25,10 @@ public final class OAuth2ConfigurationBean {
     private String identificationScope;
     private String agentScope;
 
+    // Client style for Oauth2 login page
+    private String cssNameFront;
+    private String cssNameBack;
+
     public OAuth2ConfigurationBean(String publicKey)
             throws NoSuchAlgorithmException, InvalidKeySpecException, UnsupportedEncodingException {
        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -110,6 +114,22 @@ public final class OAuth2ConfigurationBean {
 
     public void setPublicKey(PublicKey publicKey) {
         this.publicKey = publicKey;
+    }
+
+    public String getCssNameFront() {
+        return cssNameFront;
+    }
+
+    public void setCssNameFront(String cssNameFront) {
+        this.cssNameFront = cssNameFront;
+    }
+
+    public String getCssNameBack() {
+        return cssNameBack;
+    }
+
+    public void setCssNameBack(String cssNameBack) {
+        this.cssNameBack = cssNameBack;
     }
 
 }

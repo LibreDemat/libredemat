@@ -165,6 +165,8 @@
         <property name="redirectionUri" value="http://localhost:8080/CapDemat/OAuth2/login"/>
         <property name="identificationScope" value="ident"/>
         <property name="agentScope" value="agent"/>
+        <property name="cssNameFront" value="cssFrontLoginOauth"/>
+        <property name="cssNameBack" value="cssBackLoginOauth" />
       </bean>
     </property>
   </bean>

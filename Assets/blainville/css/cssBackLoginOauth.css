@@ -1,0 +1,151 @@
+
+body {
+  background: #FFFFFF;
+}
+
+.navbar {
+  display: none;
+}
+
+div.span12 {
+  display: none;
+}
+
+#retrievepw {
+  clear: both;
+  text-align: right !important;
+  padding-right: 0px !important;
+  margin-top: 0px !important;
+}
+
+.container {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF url('https://demarches-pessac.mairie24.fr/localAuthorityResource/resource/logoFo') fixed center 0px;
+  margin-top: 0 !important;
+  height: 400px;
+}
+
+form {
+  padding-left: 15px;
+}
+
+fieldset {
+  background-color: white;
+  border: 1px solid #C7C7C7;
+  padding: 20px;
+  width: 300px;
+}
+
+label {
+  float: left;
+  font-size: 1.2em;
+  padding: 2px;
+}
+
+.input-xlarge {
+  padding: 0;
+  background: #F8F8F8;
+  border: 1px solid #C7C7C7;
+  width: 155px;
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.actions {
+  margin-top: 10px !important;
+  margin-bottom: 0px !important;
+}
+
+input.btn, input.btn:hover {
+  width: 155px;
+  background: #22BBEA;
+}
+
+input, textarea, select, .input-xlarge {
+  font-family:Arial;
+  font-size:1em;
+  padding:2px;
+}
+option { padding:0 10px 0 5px; }
+span.cases {
+  float:left;
+  width:auto;
+}
+input.case { border:none; }
+span.submit {
+  padding-left:27px;
+  display:inline-block;
+  cursor:pointer;
+  cursor:pointer;
+}
+input.submit {
+  border:none;
+  color:#FFF;
+  font-weight:bold;
+  min-height:30px;
+  padding:0 10px 0 0;
+  cursor:pointer;
+}
+
+h1 {
+  color:#000000;
+  font-size:2em;
+  margin:0 0 15px 0;
+  font-weight:normal;
+}
+h2 {
+  color:#D81E41;
+  font-size:1.417em;
+  margin:0 0 15px 0;
+  font-weight:normal;
+}
+h3 {
+  color:#000000;
+  font-size:1.25em;
+  margin:0 0 5px 0;
+  font-weight:normal;
+}
+h4 {
+  color:#000000;
+  font-size:1.084em;
+  margin:0 0 5px 0;
+  font-weight:normal;
+}
+h5 {
+  color:#000000;
+  font-size:1em;
+  margin:0 0 5px 0;
+  font-weight:normal;
+}
+
+.span11 form {
+  text-align: center;
+}
+
+.span11 fieldset {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.form-horizontal {
+  text-align: center;
+}
+
+.form-horizontal fieldset {
+  width: 500px;
+  margin: auto;
+}
+
+.span6 {
+  margin-top: 150px;
+}
+
+.span6 fieldset {
+  margin: auto;
+}
+
+
