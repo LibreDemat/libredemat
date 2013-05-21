@@ -48,9 +48,6 @@ public class BulkyWasteCollectionRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> bulkyWasteTypeList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : bulkyWasteType) {
-            bulkyWasteTypeList.add(object.clone());
-        }
         result.setBulkyWasteType(bulkyWasteTypeList);
       
           
