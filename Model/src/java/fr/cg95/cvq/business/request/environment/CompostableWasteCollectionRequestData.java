@@ -55,9 +55,6 @@ public class CompostableWasteCollectionRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> compostableWasteTypeList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : compostableWasteType) {
-            compostableWasteTypeList.add(object.clone());
-        }
         result.setCompostableWasteType(compostableWasteTypeList);
       
           
