@@ -59,9 +59,6 @@ public class SportsAssociationsGrantRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.SagrMembreBureau> autreMembreBureauList = new ArrayList<fr.cg95.cvq.business.request.social.SagrMembreBureau>();
-        for (SagrMembreBureau object : autreMembreBureau) {
-            autreMembreBureauList.add(object.clone());
-        }
         result.setAutreMembreBureau(autreMembreBureauList);
       
           
@@ -193,9 +190,6 @@ public class SportsAssociationsGrantRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.SagrActiviteAssociation> sagrActiviteAssociationList = new ArrayList<fr.cg95.cvq.business.request.social.SagrActiviteAssociation>();
-        for (SagrActiviteAssociation object : sagrActiviteAssociation) {
-            sagrActiviteAssociationList.add(object.clone());
-        }
         result.setSagrActiviteAssociation(sagrActiviteAssociationList);
       
           
