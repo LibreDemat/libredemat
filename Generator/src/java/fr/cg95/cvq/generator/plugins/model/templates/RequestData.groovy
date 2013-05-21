@@ -84,9 +84,6 @@
       """,
       "complexList" : """
         List<${element.javaPackageName}${element.modelClassName}> ${element.nameAsParam}List = new ArrayList<${element.javaPackageName}${element.modelClassName}>();
-        for (${element.modelClassName} object : ${element.nameAsParam}) {
-            ${element.nameAsParam}List.add(object.clone());
-        }
         result.set${StringUtils.capitalize(element.nameAsParam)}(${element.nameAsParam}List);
       """
     ]
