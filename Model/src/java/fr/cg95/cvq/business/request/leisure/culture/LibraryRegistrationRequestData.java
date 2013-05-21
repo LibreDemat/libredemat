@@ -78,9 +78,6 @@ public class LibraryRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> subscriptionList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : subscription) {
-            subscriptionList.add(object.clone());
-        }
         result.setSubscription(subscriptionList);
       
           
