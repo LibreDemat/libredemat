@@ -108,9 +108,6 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> motifsDerogationCentreLoisirsList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : motifsDerogationCentreLoisirs) {
-            motifsDerogationCentreLoisirsList.add(object.clone());
-        }
         result.setMotifsDerogationCentreLoisirs(motifsDerogationCentreLoisirsList);
       
           
