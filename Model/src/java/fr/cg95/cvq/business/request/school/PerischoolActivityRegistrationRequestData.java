@@ -58,9 +58,6 @@ public class PerischoolActivityRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.school.PerischoolAuthorizedIndividual> authorizedIndividualsList = new ArrayList<fr.cg95.cvq.business.request.school.PerischoolAuthorizedIndividual>();
-        for (PerischoolAuthorizedIndividual object : authorizedIndividuals) {
-            authorizedIndividualsList.add(object.clone());
-        }
         result.setAuthorizedIndividuals(authorizedIndividualsList);
       
           
@@ -80,9 +77,6 @@ public class PerischoolActivityRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.school.PerischoolContactIndividual> contactIndividualsList = new ArrayList<fr.cg95.cvq.business.request.school.PerischoolContactIndividual>();
-        for (PerischoolContactIndividual object : contactIndividuals) {
-            contactIndividualsList.add(object.clone());
-        }
         result.setContactIndividuals(contactIndividualsList);
       
           
@@ -96,9 +90,6 @@ public class PerischoolActivityRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> perischoolActivityList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : perischoolActivity) {
-            perischoolActivityList.add(object.clone());
-        }
         result.setPerischoolActivity(perischoolActivityList);
       
           
