@@ -179,9 +179,6 @@ public class DomesticHelpRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.DhrNotRealAsset> dhrNotRealAssetList = new ArrayList<fr.cg95.cvq.business.request.social.DhrNotRealAsset>();
-        for (DhrNotRealAsset object : dhrNotRealAsset) {
-            dhrNotRealAssetList.add(object.clone());
-        }
         result.setDhrNotRealAsset(dhrNotRealAssetList);
       
           
@@ -195,9 +192,6 @@ public class DomesticHelpRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.DhrPreviousDwelling> dhrPreviousDwellingList = new ArrayList<fr.cg95.cvq.business.request.social.DhrPreviousDwelling>();
-        for (DhrPreviousDwelling object : dhrPreviousDwelling) {
-            dhrPreviousDwellingList.add(object.clone());
-        }
         result.setDhrPreviousDwelling(dhrPreviousDwellingList);
       
           
@@ -214,9 +208,6 @@ public class DomesticHelpRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.DhrRealAsset> dhrRealAssetList = new ArrayList<fr.cg95.cvq.business.request.social.DhrRealAsset>();
-        for (DhrRealAsset object : dhrRealAsset) {
-            dhrRealAssetList.add(object.clone());
-        }
         result.setDhrRealAsset(dhrRealAssetList);
       
           
