@@ -61,9 +61,6 @@ public class TechnicalInterventionRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> interventionTypeList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : interventionType) {
-            interventionTypeList.add(object.clone());
-        }
         result.setInterventionType(interventionTypeList);
       
           
