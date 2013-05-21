@@ -56,9 +56,6 @@ public class RecreationActivityRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.school.RecreationAuthorizedIndividual> authorizedIndividualsList = new ArrayList<fr.cg95.cvq.business.request.school.RecreationAuthorizedIndividual>();
-        for (RecreationAuthorizedIndividual object : authorizedIndividuals) {
-            authorizedIndividualsList.add(object.clone());
-        }
         result.setAuthorizedIndividuals(authorizedIndividualsList);
       
           
@@ -78,9 +75,6 @@ public class RecreationActivityRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.school.RecreationContactIndividual> contactIndividualsList = new ArrayList<fr.cg95.cvq.business.request.school.RecreationContactIndividual>();
-        for (RecreationContactIndividual object : contactIndividuals) {
-            contactIndividualsList.add(object.clone());
-        }
         result.setContactIndividuals(contactIndividualsList);
       
           
@@ -94,9 +88,6 @@ public class RecreationActivityRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> recreationActivityList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : recreationActivity) {
-            recreationActivityList.add(object.clone());
-        }
         result.setRecreationActivity(recreationActivityList);
       
           
