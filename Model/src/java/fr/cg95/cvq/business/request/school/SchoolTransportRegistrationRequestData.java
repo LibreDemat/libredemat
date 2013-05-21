@@ -121,9 +121,6 @@ public class SchoolTransportRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.school.TiersInformations> tiersAutorisesList = new ArrayList<fr.cg95.cvq.business.request.school.TiersInformations>();
-        for (TiersInformations object : tiersAutorises) {
-            tiersAutorisesList.add(object.clone());
-        }
         result.setTiersAutorises(tiersAutorisesList);
       
           
