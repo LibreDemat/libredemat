@@ -110,9 +110,6 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> motifsDerogationEcoleList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : motifsDerogationEcole) {
-            motifsDerogationEcoleList.add(object.clone());
-        }
         result.setMotifsDerogationEcole(motifsDerogationEcoleList);
       
           
