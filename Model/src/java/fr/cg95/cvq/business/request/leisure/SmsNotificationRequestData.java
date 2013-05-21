@@ -56,9 +56,6 @@ public class SmsNotificationRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> interestsList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : interests) {
-            interestsList.add(object.clone());
-        }
         result.setInterests(interestsList);
       
           
