@@ -256,9 +256,6 @@ public class StudyGrantRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> taxHouseholdCityList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : taxHouseholdCity) {
-            taxHouseholdCityList.add(object.clone());
-        }
         result.setTaxHouseholdCity(taxHouseholdCityList);
       
           
