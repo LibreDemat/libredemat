@@ -208,9 +208,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrAdditionalFee> additionalFeeList = new ArrayList<fr.cg95.cvq.business.request.social.HccrAdditionalFee>();
-        for (HccrAdditionalFee object : additionalFee) {
-            additionalFeeList.add(object.clone());
-        }
         result.setAdditionalFee(additionalFeeList);
       
           
@@ -410,9 +407,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrCareService> careServicesList = new ArrayList<fr.cg95.cvq.business.request.social.HccrCareService>();
-        for (HccrCareService object : careServices) {
-            careServicesList.add(object.clone());
-        }
         result.setCareServices(careServicesList);
       
           
@@ -542,9 +536,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrFamilyAssistanceMember> familyAssistanceMembersList = new ArrayList<fr.cg95.cvq.business.request.social.HccrFamilyAssistanceMember>();
-        for (HccrFamilyAssistanceMember object : familyAssistanceMembers) {
-            familyAssistanceMembersList.add(object.clone());
-        }
         result.setFamilyAssistanceMembers(familyAssistanceMembersList);
       
           
@@ -552,9 +543,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrFamilyDependent> familyDependentsList = new ArrayList<fr.cg95.cvq.business.request.social.HccrFamilyDependent>();
-        for (HccrFamilyDependent object : familyDependents) {
-            familyDependentsList.add(object.clone());
-        }
         result.setFamilyDependents(familyDependentsList);
       
           
@@ -724,9 +712,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrHomeIntervenant> homeIntervenantsList = new ArrayList<fr.cg95.cvq.business.request.social.HccrHomeIntervenant>();
-        for (HccrHomeIntervenant object : homeIntervenants) {
-            homeIntervenantsList.add(object.clone());
-        }
         result.setHomeIntervenants(homeIntervenantsList);
       
           
@@ -776,9 +761,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrOtherBenefit> otherBenefitsList = new ArrayList<fr.cg95.cvq.business.request.social.HccrOtherBenefit>();
-        for (HccrOtherBenefit object : otherBenefits) {
-            otherBenefitsList.add(object.clone());
-        }
         result.setOtherBenefits(otherBenefitsList);
       
           
@@ -786,9 +768,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrOtherFolder> otherFoldersList = new ArrayList<fr.cg95.cvq.business.request.social.HccrOtherFolder>();
-        for (HccrOtherFolder object : otherFolders) {
-            otherFoldersList.add(object.clone());
-        }
         result.setOtherFolders(otherFoldersList);
       
           
@@ -915,9 +894,6 @@ public class HandicapCompensationChildRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.social.HccrProfessional> professionalsList = new ArrayList<fr.cg95.cvq.business.request.social.HccrProfessional>();
-        for (HccrProfessional object : professionals) {
-            professionalsList.add(object.clone());
-        }
         result.setProfessionals(professionalsList);
       
           
