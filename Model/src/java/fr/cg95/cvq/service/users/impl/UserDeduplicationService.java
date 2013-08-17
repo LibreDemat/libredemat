@@ -1,6 +1,7 @@
 package fr.cg95.cvq.service.users.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.ApplicationListener;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import fr.cg95.cvq.business.users.Adult;
@@ -53,23 +55,88 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
     @Override
     public void onApplicationEvent(UserEvent userEvent) {
         if (userEvent.getAction().getType().equals(UserAction.Type.CREATION)) {
-            Individual individual =  userSearchService.getById(userEvent.getAction().getTargetId());
+            Individual individual = findIndividual(userEvent.getAction().getTargetId());
             if (individual == null) {
-                logger.debug("onApplicationEvent() ignoring creation event on home folder");
-                return;
-            } else if (individual.getHomeFolder().isTemporary()) {
-                logger.debug("onApplicationEvent() ignoring creation event on temporary home folder");
+                logger.debug("onApplicationEvent() ignoring event on home folder");
                 return;
             }
-            
-            if (individual instanceof Adult) {
-                findAdultDuplicates((Adult) individual);
-            } else {
-                Adult homeFolderResponsible = userSearchService.getHomeFolderResponsible(individual.getHomeFolder().getId());
-                for (Long homeFolderId : getResponsibleDuplicatedHomeFolders(homeFolderResponsible.getId()))
-                    findChildDuplicates((Child) individual, homeFolderId);
+
+            calculateDuplicates(individual);
+        } else if (userEvent.getAction().getType().equals(UserAction.Type.STATE_CHANGE)) {
+            JsonObject json = JSONUtils.deserialize(userEvent.getAction().getData());
+            JsonElement state = json.get("state");
+            if (state != null && UserState.ARCHIVED.equals(UserState.forString(state.getAsString()))) {
+                Individual individual = findIndividual(userEvent.getAction().getTargetId());
+                if (individual != null) {
+                  recalculateDuplicates(individual);
+                }
             }
         }
+    }
+
+    private void calculateDuplicates(Individual individual) {
+        if (individual instanceof Adult) {
+            findAdultDuplicates((Adult) individual);
+        } else {
+            Adult homeFolderResponsible = userSearchService.getHomeFolderResponsible(individual.getHomeFolder().getId());
+            for (Long homeFolderId : getResponsibleDuplicatedHomeFolders(homeFolderResponsible.getId()))
+                findChildDuplicates((Child) individual, homeFolderId);
+        }
+    }
+
+    // remove old references to archived individual
+    private void recalculateDuplicates(Individual individual) {
+        calculateDuplicates(individual);
+        logger.debug(individual.getDuplicateData());
+        Map<Long, Map<String, String>> similars = JSONUtils.deserializeAsArray(individual.getDuplicateData());
+        if (similars != null) {
+            Long homeFolderId = individual.getHomeFolder().getId();
+            for (Map<String, String> similar: similars.values()) {
+                String id = similar.get("id");
+                if (id != null && !id.trim().isEmpty()) {
+                    Individual i = findIndividual(Long.parseLong(id));
+                    if (i != null) {
+                        List<Individual> individuals = (i.getHomeFolder() != null &&
+                                i.getHomeFolder().getIndividuals() != null &&
+                                !i.getHomeFolder().getIndividuals().isEmpty()) ?
+                                     i.getHomeFolder().getIndividuals() : Arrays.asList(i);
+                        for (Individual ind: individuals) {
+                            Map<Long, Map<String, String>> duplicates = JSONUtils
+                                    .deserializeAsArray(ind.getDuplicateData());
+                            if (duplicates != null && duplicates.get(homeFolderId) != null) {
+                                String individualId = duplicates.get(homeFolderId).get("id");
+                                if (individualId != null && !individualId.trim().isEmpty()
+                                        && Long.parseLong(individualId) == individual.getId()) {
+                                    duplicates.remove(homeFolderId);
+                                    if (duplicates.isEmpty()) {
+                                        ind.setDuplicateData(null);
+                                        ind.setDuplicateAlert(false);
+                                    } else {
+                                        Gson gson = new Gson();
+                                        ind.setDuplicateData(gson.toJson(duplicates));
+                                    }
+                                    individualDAO.update(ind);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        individual.setDuplicateAlert(false);
+        individual.setDuplicateData(null);
+        individualDAO.update(individual);
+    }
+
+
+    private Individual findIndividual(Long targetId) {
+        Individual individual =  userSearchService.getById(targetId);
+        if (individual == null) {
+            return null;
+        } else if (individual.getHomeFolder().isTemporary()) {
+            return null;
+        }
+        return individual;
     }
 
     private void findChildDuplicates(Child child, Long targetHomeFolderId) {
@@ -395,6 +462,7 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
             payload.addProperty("state", UserState.ARCHIVED.toString());
             action = new UserAction(UserAction.Type.STATE_CHANGE, individual.getId(), payload);
             individual.getHomeFolder().getActions().add(action);
+            recalculateDuplicates(individual);
         }
         
         individual.setDuplicateAlert(false);
