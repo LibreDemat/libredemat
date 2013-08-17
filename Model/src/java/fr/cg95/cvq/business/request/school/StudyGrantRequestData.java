@@ -153,9 +153,6 @@ public class StudyGrantRequestData implements Serializable {
           
             
         List<fr.cg95.cvq.business.request.LocalReferentialData> currentSchoolNameList = new ArrayList<fr.cg95.cvq.business.request.LocalReferentialData>();
-        for (LocalReferentialData object : currentSchoolName) {
-            currentSchoolNameList.add(object.clone());
-        }
         result.setCurrentSchoolName(currentSchoolNameList);
       
           
