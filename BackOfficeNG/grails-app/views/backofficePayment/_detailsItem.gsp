@@ -49,7 +49,7 @@
         </dd>
         <dt><g:message code="payment.item.property.oldValue"/> :</dt>
         <dd>
-         ${item.oldValue}
+         ${item.oldValue / 100} &euro;
         </dd>
         <dt><g:message code="payment.item.property.oldValueDate"/> :</dt>
         <dd>
