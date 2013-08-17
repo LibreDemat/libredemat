@@ -1,6 +1,5 @@
 package fr.cg95.cvq.service.request.job;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
@@ -51,9 +50,6 @@ public class DraftManagementJob {
     private IRequestTypeService requestTypeService;
     private IRequestWorkflowService requestWorkflowService;
 
-    private static String DRAFT_NOTIFICATION_SUBJECT = 
-        "[CapDémat] Expiration d'une demande sauvée en tant que brouillon";
-    
     public void launchNotificationJob() {
         localAuthorityRegistry.browseAndCallback(this, "sendNotifications", null);
     }
@@ -84,6 +80,12 @@ public class DraftManagementJob {
         List<Request> requests = requestDAO.listDraftsToNotify(
             DateUtils.getShiftedDate(Calendar.DAY_OF_YEAR, -limit));
         
+        String mailSubject = translationService.translate(
+                "request.draftExpiration.subject",
+                new Object[] {
+                    SecurityContext.getCurrentSite().getDisplayTitle()
+        });
+
         for (Request r : requests) {
             Adult adult = userSearchService.getAdultById(r.getRequesterId());
             String from = null;
@@ -97,13 +99,7 @@ public class DraftManagementJob {
                 String mailBody =
                     this.buildMailTemplate(r, config.getDraftLiveDuration());
                 if (mailBody != null) {
-                    try {
-                        mailService.send(from, adult.getEmail(), null,
-                            new String(DRAFT_NOTIFICATION_SUBJECT.getBytes(), "UTF-8"),
-                            mailBody);
-                    } catch (UnsupportedEncodingException e) {
-                        // unlikely to happen
-                    }
+                    mailService.send(from, adult.getEmail(), null, mailSubject, mailBody);
                 }
                 logger.debug("sendNotifications() sent for request " + r.getId());
                 sent = true;
