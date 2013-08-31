@@ -826,8 +826,7 @@ public class LocalAuthorityRegistry
             }
 
         } catch (Exception e) {
-            logger.error("callback() got an exception, rollbacking");
-            e.printStackTrace();
+            logger.error("callback() got an exception, rollbacking", e);
             rollback = true;
         } finally {
             Store.release();
