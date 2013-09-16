@@ -36,7 +36,7 @@
     <label for="childTitle" class="required"><g:message code="mcr.property.childTitle.label" /> *  <span><g:message code="mcr.property.childTitle.help" /></span></label>
             <select id="childTitle" name="childTitle" class="required  validate-not-first ${rqt.stepStates['census'].invalidFields.contains('childTitle') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childTitle.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
-              <g:each in="${['MISTER','MADAM','MISS','AGENCY','UNKNOWN']}">
+              <g:each in="${['MISTER','MADAM','AGENCY','UNKNOWN']}">
                 <option value="${it}" ${it == rqt.childTitle?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="mcr.property.childTitle" /></option>
               </g:each>
             </select>

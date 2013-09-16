@@ -696,10 +696,10 @@
       <xs:element name="MotherLastName" type="cvq:LastNameType">
         <xs:annotation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
-            Le nom de jeune fille de la mère
+            Le nom de naissance de la mère
           </xs:documentation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
-            Nom de jeune fille
+            Nom de naissance
           </xs:documentation>
           <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
             The mother last name
