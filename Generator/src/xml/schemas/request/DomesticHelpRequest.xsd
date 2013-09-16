@@ -430,10 +430,10 @@
       <xs:element name="DhrRequesterMaidenName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
-            Nom de jeune fille
+            Nom de naissance
           </xs:documentation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
-            Nom de jeune fille
+            Nom de naissance
           </xs:documentation>
           <xs:appinfo>
             <model namespace="users"/>
@@ -995,10 +995,10 @@
       <xs:element name="DhrSpouseMaidenName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
-            Nom de jeune fille
+            Nom de naissance
           </xs:documentation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
-            Nom de jeune fille
+            Nom de naissance
           </xs:documentation>
           <xs:appinfo>
             <model namespace="users"/>
