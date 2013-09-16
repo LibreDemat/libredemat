@@ -44,6 +44,7 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
 
     /** date until which users can issue new requests */
     @Column(name="registration_end",nullable=false)
+    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
     private DateTime registrationEnd;
 
     /**
@@ -61,6 +62,7 @@ public class RequestSeason implements Serializable, Comparable<RequestSeason> {
 
     /** date to which registration will be considered as active */
     @Column(name="effect_end", nullable=false)
+    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
     private DateTime effectEnd;
 
     public final RequestType getRequestType() {
