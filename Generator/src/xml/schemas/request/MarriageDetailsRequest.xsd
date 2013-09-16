@@ -566,10 +566,10 @@
       <xs:element name="FatherLastName" type="cvq:LastNameType" minOccurs="1">
         <xs:annotation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
-            Nom du père
+            Nom de naissance du père
           </xs:documentation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
-            Nom
+            Nom de naissance
           </xs:documentation>
           <xs:appinfo>
             <common>
@@ -607,10 +607,10 @@
       <xs:element name="MotherMaidenName" type="cvq:LastNameType" minOccurs="1">
         <xs:annotation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
-            Nom de jeune fille de la mère
+            Nom de naissance de la mère
           </xs:documentation>
           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
-            Nom de jeune fille
+            Nom de naissance
           </xs:documentation>
           <xs:appinfo>
             <common>
