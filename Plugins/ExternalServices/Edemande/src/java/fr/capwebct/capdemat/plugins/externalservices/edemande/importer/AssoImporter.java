@@ -103,7 +103,7 @@ public class AssoImporter {
                     if ("Madame".equals(line[8])) {
                         adult.setTitle(TitleType.MADAM);
                     } else if ("Mademoiselle".equals(line[8])) {
-                        adult.setTitle(TitleType.MISS);
+                        adult.setTitle(TitleType.MADAM);
                     } else if ("Monsieur".equals(line[8])) {
                         adult.setTitle(TitleType.MISTER);
                     }

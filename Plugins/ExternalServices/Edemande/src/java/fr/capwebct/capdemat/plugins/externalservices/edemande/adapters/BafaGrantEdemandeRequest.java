@@ -129,7 +129,7 @@ public class BafaGrantEdemandeRequest implements EdemandeRequest {
         }
         switch (request.getSubject().getChild().getSex().intValue()) {
             case SexType.INT_FEMALE :
-                return TitleType.MISS;
+                return TitleType.MADAM;
             case SexType.INT_MALE :
                 return TitleType.MISTER;
             default :
