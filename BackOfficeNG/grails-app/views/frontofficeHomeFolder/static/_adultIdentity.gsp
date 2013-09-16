@@ -10,8 +10,6 @@
   <dd><g:capdematEnumToField var="${adult.familyStatus}" i18nKeyPrefix="homeFolder.adult.familyStatus" /></dd>
   <dt>${message(code:'homeFolder.adult.property.maidenName')} : </dt>
   <dd>${adult.maidenName}</dd>
-  <dt>${message(code:'homeFolder.adult.property.nameOfUse')} : </dt>
-  <dd>${adult.nameOfUse}</dd>
   <dt>${message(code:'homeFolder.individual.property.firstName')} : </dt>
   <dd>${adult.firstName}</dd>
   <dt>${message(code:'homeFolder.individual.property.firstName2')} : </dt>

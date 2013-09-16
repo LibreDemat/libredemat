@@ -6,7 +6,6 @@ package fr.cg95.cvq.business.users;
 public enum TitleType {
     MISTER("Mister"),
     MADAM("Madam"),
-    MISS("Miss"),
     AGENCY("Agency"),
     UNKNOWN("Unknown");
 
@@ -40,8 +39,6 @@ public enum TitleType {
             return MISTER;
         else if (enumAsString.equals(MADAM.toString()))
             return MADAM;
-        else if (enumAsString.equals(MISS.toString()))
-            return MISS;
         else if (enumAsString.equals(AGENCY.toString()))
             return AGENCY;
 
@@ -56,8 +53,6 @@ public enum TitleType {
             return MISTER;
         else if (legacyLabel.equals(MADAM.getLegacyLabel()))
             return MADAM;
-        else if (legacyLabel.equals(MISS.getLegacyLabel()))
-            return MISS;
         else if (legacyLabel.equals(AGENCY.getLegacyLabel()))
             return AGENCY;
 

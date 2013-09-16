@@ -777,7 +777,6 @@
         login varchar(255),
         maiden_name varchar(255),
         mobile_phone varchar(32),
-        name_of_use varchar(255),
         office_phone varchar(32),
         password varchar(255),
         profession varchar(255),

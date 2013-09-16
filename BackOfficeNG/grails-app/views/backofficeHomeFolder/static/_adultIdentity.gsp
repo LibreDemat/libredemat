@@ -6,8 +6,6 @@
 <dd class="required">${individual.lastName}</dd>
 <dt>${message(code:'homeFolder.adult.property.maidenName')}</dt>
 <dd>${individual.maidenName}</dd>
-<dt>${message(code:'homeFolder.adult.property.nameOfUse')}</dt>
-<dd>${individual.nameOfUse}</dd>
 <dt class="required">${message(code:'homeFolder.individual.property.firstName')}</dt>
 <dd class="required">${individual.firstName}</dd>
 <dt>${message(code:'homeFolder.individual.property.firstName2')}</dt>

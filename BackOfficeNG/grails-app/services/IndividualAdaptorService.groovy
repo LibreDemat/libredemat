@@ -27,7 +27,7 @@ class IndividualAdaptorService {
                     result.title = TitleType.MISTER
                     break;
                 case SexType.FEMALE :
-                    result.title = TitleType.MISS
+                    result.title = TitleType.MADAM
                     break;
                 default :
                     result.title = TitleType.UNKNOWN

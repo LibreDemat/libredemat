@@ -36,11 +36,6 @@ public class Adult extends Individual {
     @Column(name="maiden_name")
     private String maidenName;
 
-    @NotEmpty(message = "nameOfUse")
-    @MaxLength(value=255, message="nameOfUse")
-    @Column(name="name_of_use")
-    private String nameOfUse;
-
     @Enumerated(EnumType.STRING)
     @Column(name="family_status",length=32)
     private FamilyStatusType familyStatus;
@@ -123,7 +118,6 @@ public class Adult extends Individual {
             adultType.setTitle(fr.cg95.cvq.xml.common.TitleType.Enum.forString(getTitle().getLegacyLabel()));
         if (getMaidenName() != null)
             adultType.setMaidenName(getMaidenName());
-        adultType.setNameOfUse(getNameOfUse());
         if (getFamilyStatus() != null)
             adultType.setFamilyStatus(fr.cg95.cvq.xml.common.FamilyStatusType.Enum.forString(getFamilyStatus().getLegacyLabel()));
         if (getHomePhone() != null)
@@ -160,7 +154,6 @@ public class Adult extends Individual {
                 adult.setTitle(TitleType.forLegacyLabel(adultType.getTitle().toString()));
             if (adultType.getMaidenName() != null)
                 adult.setMaidenName(adultType.getMaidenName());
-            adult.setNameOfUse(adultType.getNameOfUse());
             if (adultType.getFamilyStatus() != null)
                 adult.setFamilyStatus(FamilyStatusType.forLegacyLabel(adultType.getFamilyStatus().toString()));
             adult.setExternalCapDematId(adultType.getExternalCapdematId());
@@ -204,14 +197,6 @@ public class Adult extends Individual {
 
     public void setMaidenName(String maidenName) {
         this.maidenName = maidenName;
-    }
-
-    public String getNameOfUse() {
-        return this.nameOfUse;
-    }
-
-    public void setNameOfUse(String nameOfUse) {
-        this.nameOfUse = nameOfUse;
     }
 
     public FamilyStatusType getFamilyStatus() {

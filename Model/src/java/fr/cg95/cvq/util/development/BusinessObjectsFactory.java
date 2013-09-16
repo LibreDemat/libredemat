@@ -72,7 +72,6 @@ public class BusinessObjectsFactory {
         adult.setFirstName(firstName);
         adult.setFirstName2("Firstname2");
         adult.setFirstName3("Firstname3");
-        adult.setNameOfUse("NAMEOFUSE");
         adult.setFamilyStatus(fs);
         adult.setHomePhone("0101010101");
         adult.setMobilePhone("0606060606");

@@ -1142,7 +1142,7 @@
               <elementProp name="title" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.name">title</stringProp>
-                <stringProp name="Argument.value">fr.cg95.cvq.business.users.TitleType_Miss</stringProp>
+                <stringProp name="Argument.value">fr.cg95.cvq.business.users.TitleType_Madam</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>

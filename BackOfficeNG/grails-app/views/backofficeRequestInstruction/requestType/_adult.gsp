@@ -25,11 +25,6 @@
         <span>${adult.maidenName}</span>
       </dd>
       
-      <dt><g:message code="homeFolder.adult.property.nameOfUse" /> : </dt> 
-      <dd id="individuals[${index}].nameOfUse" class="${action}-editField validate-lastname i18n-homeFolder.adult.property.nameOfUse">
-        <span>${adult.nameOfUse}</span>
-      </dd>
-      
       <dt><g:message code="homeFolder.individual.property.firstName" /> : </dt>
       <dd id="individuals[${index}].firstName" class="${action}-editField validate-firstname required-true i18n-homeFolder.individual.property.firstName">
         <span>${adult.firstName}</span>

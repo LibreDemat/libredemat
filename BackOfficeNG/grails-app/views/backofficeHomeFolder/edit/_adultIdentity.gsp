@@ -28,10 +28,6 @@
   <dd>
     <input type="text" name="maidenName" value="${individual.maidenName}" />
   </dd>
-  <dt>${message(code:'homeFolder.adult.property.nameOfUse')}</dt>
-  <dd>
-    <input type="text" name="nameOfUse" value="${individual.nameOfUse}" />
-  </dd>
   <dt class="required">${message(code:'homeFolder.individual.property.firstName')}</dt>
   <dd class="required">
     <input type="text" name="firstName" value="${individual.firstName}" />

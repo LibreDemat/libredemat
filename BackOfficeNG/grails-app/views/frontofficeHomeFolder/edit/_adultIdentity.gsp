@@ -32,9 +32,6 @@
   <label for="maidenName">${message(code:'homeFolder.adult.property.maidenName')}</label>
   <input type="text" name="maidenName" value="${adult.maidenName}" />
 
-  <label for="nameOfUse">${message(code:'homeFolder.adult.property.nameOfUse')}</label>
-  <input type="text" name="nameOfUse" value="${adult.nameOfUse}" />
-
   <label for="firstName" class="required">${message(code:'homeFolder.individual.property.firstName')} *</label>
   <input type="text" id="firstName" name="firstName" value="${adult.firstName}"
       class="required validate-firstName ${invalidFields?.contains('firstName') ? 'validation-failed' : ''}"
