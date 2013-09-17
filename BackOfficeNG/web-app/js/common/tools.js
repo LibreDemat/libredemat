@@ -864,6 +864,7 @@
           pos[0] -= el.get("element").offsetWidth/2 - relative.offsetWidth/2;
           if (!box) pos[1] -= el.get("element").offsetHeight;
           yud.setXY(el, pos);
+          el.setStyle('position', 'fixed');
         } else {
           el.addClass("static-top");
         }

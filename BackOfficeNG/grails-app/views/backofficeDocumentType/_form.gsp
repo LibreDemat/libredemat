@@ -1,5 +1,5 @@
 
-            <form method="post" action="/CapDemat/backoffice/documentType/editDocumentType" class="listItem" id="documentTypeForm_${documentType?.getId()}">
+          <form method="post" action="${createLink(controller:'backofficeDocumentType', action:'editDocumentType')}" class="listItem" id="documentTypeForm_${documentType?.getId()}">
 
             <input type="hidden" value="${documentType?.getId()}" name="id" id="id">
             <input type="hidden" value="${codename?.toString()}" name="codename" id="codename">
