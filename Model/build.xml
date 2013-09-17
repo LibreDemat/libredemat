@@ -58,7 +58,7 @@ clean-tests
                 <include name="**/jsmtpd-core-*.jar" />
                 <include name="**/jmock-*.jar" />
                 <include name="**/hamcrest-*.jar" />
-                <include name="**/aspectjtools.jar" />
+                <include name="**/aspectjtools-1.7.3.jar" />
                 <include name="**/soap.jar" />
             </fileset>
 

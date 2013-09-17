@@ -62,7 +62,7 @@
 	<classpathentry kind="lib" path="Model/lib/org.jmock/hamcrest-library-1.1.jar"/>
 	<classpathentry kind="lib" path="Model/lib/jsmtpd/mina-core-1.1.4.jar"/>
 	<classpathentry kind="lib" path="Libraries/com.sun/saaj-impl.jar"/>
-	<classpathentry kind="lib" path="Libraries/org.aspectj/aspectjrt-1.6.jar"/>
+	<classpathentry kind="lib" path="Libraries/org.aspectj/aspectjrt-1.7.3.jar"/>
 	<classpathentry kind="lib" path="Libraries/javax.servlet/servlet-api.jar"/>
 	<classpathentry kind="lib" path="Libraries/org.joda/joda-time-1.6.jar"/>
 	<classpathentry kind="lib" path="Libraries/opencsv/opencsv-2.2.jar"/>
