@@ -120,6 +120,7 @@ public class RequestNotificationService implements ApplicationListener<CapDematE
         model.put(RequestVariable.RQ_CDATE.toString(), DateUtils.formatDate(request.getCreationDate()));
         model.put(RequestVariable.RQ_DVAL.toString(), request.getValidationDate() != null ? DateUtils.formatDate(request.getValidationDate()) : "");
         model.put(RequestVariable.RQ_OBSERV.toString(), observations);
+        model.put(RequestVariable.RQ_SEASON.toString(), request.getRequestSeason() != null ? request.getRequestSeason().getLabel() : "");
         model.put(RequestVariable.RR_FNAME.toString(), requester.getFirstName());
         model.put(RequestVariable.RR_LNAME.toString(), requester.getLastName());
         model.put(RequestVariable.RR_TITLE.toString(), getTitle(requester));
@@ -138,6 +139,7 @@ public class RequestNotificationService implements ApplicationListener<CapDematE
         model.put(RequestVariable.HF_ADDRESS_ZIP.toString(), address.getPostalCode());
         model.put(RequestVariable.HF_ADDRESS_TOWN.toString(), address.getCity());
         model.put(RequestVariable.HF_ADDRESS_CN.toString(), address.getCountryName());
+        model.put(RequestVariable.LA_NAME.toString(), localAuthorityRegistry.getLocalAuthorityByName(SecurityContext.getCurrentSite().getName()).getDisplayTitle());
 
         for (String key : model.keySet()) {
             if (model.get(key) == null) {

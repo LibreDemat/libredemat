@@ -11,6 +11,7 @@ public enum RequestVariable {
     LAST_AGENT_NAME,
     LAST_AGENT_EMAIL,
     MOC,
+    LA_NAME,
     RQ_ID,
     RQ_CAT,
     RQ_CAT_EMAIL,
@@ -18,6 +19,7 @@ public enum RequestVariable {
     RQ_CDATE,
     RQ_DVAL,
     RQ_OBSERV,
+    RQ_SEASON,
     RR_FNAME,
     RR_LNAME,
     RR_TITLE,
@@ -44,11 +46,11 @@ public enum RequestVariable {
     public static Map<Group, Set<RequestVariable>> grouped() {
         Map<Group, Set<RequestVariable>> map = new EnumMap<Group, Set<RequestVariable>>(Group.class);
         map.put(Group.AGENT, EnumSet.range(LAST_AGENT_NAME, LAST_AGENT_EMAIL));
-        map.put(Group.REQUEST, EnumSet.range(RQ_ID, RQ_OBSERV));
+        map.put(Group.REQUEST, EnumSet.range(RQ_ID, RQ_SEASON));
         map.put(Group.REQUESTER, EnumSet.range(RR_FNAME, RR_ANSWER));
         map.put(Group.SUBJECT, EnumSet.range(SU_FNAME, SU_TITLE));
         map.put(Group.HOMEFOLDER, EnumSet.range(HF_ID, HF_ADDRESS_CN));
-        map.put(Group.OTHER, EnumSet.of(DATE, MOC));
+        map.put(Group.OTHER, EnumSet.of(DATE, MOC, LA_NAME));
         return map;
     }
 }

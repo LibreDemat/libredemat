@@ -17,6 +17,7 @@ public class EmailNotificationAdaptorService {
         def states, file, code, enabled
 
         states = RequestState.values().inject([], { array, state ->
+            if(state == RequestState.DRAFT) return array;
             file = localAuthorityRegistry.getLocalAuthorityResourceFile(
                 Type.HTML,
                 dir + '/' + state.toString().toUpperCase(),

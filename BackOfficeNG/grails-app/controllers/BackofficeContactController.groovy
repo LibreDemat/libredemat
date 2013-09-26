@@ -373,7 +373,8 @@ class BackofficeContactController {
                 "HF_ADDRESS_PNS" : address.placeNameOrService,
                 "HF_ADDRESS_ZIP" : address.postalCode,
                 "HF_ADDRESS_TOWN" : address.city,
-                "HF_ADDRESS_CN" : address.countryName
+                "HF_ADDRESS_CN" : address.countryName,
+                "LA_NAME" : localAuthorityRegistry.getLocalAuthorityByName(SecurityContext.getCurrentSite().getName()).getDisplayTitle()
             ]
             model.each { k, v -> if (v == null) model[k] = "" }
 
