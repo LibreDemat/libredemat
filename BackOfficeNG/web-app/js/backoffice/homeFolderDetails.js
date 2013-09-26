@@ -29,7 +29,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       zcbh.Details.bottomTabView = new yw.TabView();
       zcbh.Details.bottomTabView.addTab( new yw.Tab({
         label: 'Historique', cacheData: true,active:true,
-        dataSrc: [zc.baseUrl,'/actions/',zcbh.Details.homeFolderId].join('')+"?archived="+archived
+        dataSrc: [zc.baseUrl,'/actions/',zcbh.Details.homeFolderId].join('')+"?archived="+archived + "&rnd=" + new Date().valueOf()
       }));
       zcbh.Details.bottomTabView.addTab( new yw.Tab({
         label: 'Demandes', cacheData: true,
@@ -256,6 +256,10 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
           if (this.get("label") === "Historique") {
             var cacheData = this.get("cacheData");
             var contentVisible = this.get("contentVisible");
+            //Force cache update on IE.
+            console.log(this.get("dataSrc"))
+            this.set('dataSrc', this.get('dataSrc').replace(/rnd.*/, 'rnd=' + new Date().valueOf()));
+
             this.set("cacheData", false);
             this.set("contentVisible", false);
             this.set("contentVisible", true);
