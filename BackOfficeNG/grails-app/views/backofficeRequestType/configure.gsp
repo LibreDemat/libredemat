@@ -11,11 +11,10 @@
     <script type="text/javascript" src="${resource(dir:'js/common',file:'calendar.js')}"></script>
     <g:if test="${params.action.equals('emails')}">
     <script src="${resource(dir:'js/backoffice', file:'email-editor.js')}"></script>
-    <script src="${resource(dir:'js/backoffice/ckeditor-317c37a', file:'ckeditor.js')}"></script>
     </g:if>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestTypeConfigure.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestType' + org.apache.commons.lang3.StringUtils.capitalize(params.action) + '.js')}"></script>
-    <script src="${resource(dir:'js/backoffice/ckeditor-317c37a', file:'ckeditor.js')}"></script>
+    <script src="${resource(dir:'js/backoffice/ckeditor', file:'ckeditor.js')}"></script>
     <script type="text/javascript">
       zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.requesttype');
       zenexity.capdemat.bong.requesttype.currentId = '${requestType.id}';

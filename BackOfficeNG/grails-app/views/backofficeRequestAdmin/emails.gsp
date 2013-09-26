@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="${resource(dir:'css/backoffice', file:'configuration.css')}" />
     <meta name="layout" content="main" />
     <script src="${resource(dir:'js/backoffice', file:'email-editor.js')}"></script>
-    <script src="${resource(dir:'js/backoffice/ckeditor-317c37a', file:'ckeditor.js')}"></script>
+    <script src="${resource(dir:'js/backoffice/ckeditor', file:'ckeditor.js')}"></script>
     <script src="${resource(dir:'js/backoffice', file:'requestAdminEmails.js')}"></script>
   </head>
   <body>
