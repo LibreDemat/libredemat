@@ -298,10 +298,14 @@ class SessionFilters {
             try {
               SecurityContext.setCurrentContext(SecurityContext.BACK_OFFICE_CONTEXT)
               if (!session.currentUser) {
-                  def callback = params.callback ?: new ApplicationTagLib().createLink(controller:'backofficeHome').toString()
-                  def url = oauth2Service.authorizationRequestUri(callback, true)
-                  response.sendRedirect(url)
-                  return false
+                  if (controllerName == 'backofficeLogin') {
+                    return true
+                  } else {
+                    def callback = params.callback ?: new ApplicationTagLib().createLink(controller:'backofficeHome').toString()
+                    def url = oauth2Service.authorizationRequestUri(callback, true)
+                    response.sendRedirect(url)
+                    return false
+                  }
               } else {
                   SecurityContext.setCurrentAgent(session.currentUser)
                   session.setAttribute("currentCredentialBean", SecurityContext.currentCredentialBean)

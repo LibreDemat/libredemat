@@ -75,7 +75,11 @@ class BackofficeLoginController {
                 } else {
                     agentService.sendResetPasswordEmail(agent);
                     flash.successMessage = message(code: 'agent.reset.message.confirmation', args:[agent.email])
-                    return redirect(action: 'login')
+                    if (authenticationService.getAuthenticationMethod() == "oauth2") {
+                      return render(view: 'resetPasswordSuccess', model: [ message: flash.successMessage ])
+                    } else {
+                      return redirect(action: 'login')
+                    }
                 }
             } catch (CvqObjectNotFoundException ex) {
                 flash.errorMessage = message(code: 'agent.reset.error.badEmail')
