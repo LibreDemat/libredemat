@@ -50,6 +50,12 @@ class SessionFilters {
             }
         }
         
+        monitoring(controller:'system', action:'monitoring') {
+            before = {
+                return false
+            }
+        }
+
         // filter used for local authority resources (images, css, pdf, ...)
         // that do not need a BD connection
         openSiteContextOnly(controller:'localAuthorityResource') {

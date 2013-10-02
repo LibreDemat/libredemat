@@ -1,5 +1,6 @@
 class UrlMappings {
     static mappings = {
+        "/" (controller: "system", action: "monitoring")
         "/frontoffice/payment/details/$type/$externalItemId" (controller : "frontofficePayment",action: "details" )
         "/$controller/$action?/$id?" {
             constraints {
