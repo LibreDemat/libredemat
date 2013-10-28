@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/dhr"
-  xmlns:dhr="http://www.cg95.fr/cvq/schema/dhr" 
+<xs:schema targetNamespace="http://www.libredemat.org/schema/dhr"
+  xmlns:dhr="http://www.libredemat.org/schema/dhr" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="DomesticHelpRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'aide ménagère
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Domestic help request
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Aide ménagère
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Domestic help
       </xs:documentation>
       <xs:appinfo>
@@ -84,10 +84,10 @@
 
             <xs:element name="DhrRequester" type="dhr:DhrRequesterType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Sujet
                 </xs:documentation>
                 <xs:appinfo>
@@ -103,10 +103,10 @@
 
             <xs:element name="DhrRequesterPensionPlan" type="dhr:DhrRequesterPensionPlanType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Régime de retraite
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Régime de retraite
                 </xs:documentation>
                 <xs:appinfo>
@@ -122,10 +122,10 @@
 
             <xs:element name="DhrRequesterGuardian" type="dhr:DhrRequesterGuardianType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Tuteur
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Tuteur
                 </xs:documentation>
                 <xs:appinfo>
@@ -141,10 +141,10 @@
 
             <xs:element name="DhrFamilyReferent" type="dhr:DhrFamilyReferentType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Référent familial
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Référent familial
                 </xs:documentation>
                 <xs:appinfo>
@@ -160,10 +160,10 @@
 
             <xs:element name="DhrSpouse" type="dhr:DhrSpouseType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Conjoint
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Conjoint
                 </xs:documentation>
                 <xs:appinfo>
@@ -179,10 +179,10 @@
 
             <xs:element name="DhrSpouseStatus" type="dhr:DhrSpouseStatusType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Statut du conjoint
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Statut du conjoint 
                 </xs:documentation>
                 <xs:appinfo>
@@ -201,10 +201,10 @@
 
             <xs:element name="DhrSpouseIncomes" type="dhr:DhrIncomesType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Ressources du conjoint
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Ressources du conjoint
                 </xs:documentation>
                 <xs:appinfo>
@@ -228,10 +228,10 @@
 
             <xs:element name="DhrCurrentDwelling" type="dhr:DhrCurrentDwellingType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Habitation actuelle
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Habitation actuelle
                 </xs:documentation>
                 <xs:appinfo>
@@ -247,10 +247,10 @@
 
             <xs:element name="DhrPreviousDwelling" type="dhr:DhrPreviousDwellingType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Habitations antérieures
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Habitations antérieures
                 </xs:documentation>
                 <xs:appinfo>
@@ -268,10 +268,10 @@
 
             <xs:element name="DhrRequesterIncomes" type="dhr:DhrIncomesType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Ressources du sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Ressources du sujet
                 </xs:documentation>
                 <xs:appinfo>
@@ -287,10 +287,10 @@
 
             <xs:element name="DhrRealAsset" type="dhr:DhrRealAssetType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Biens immobiliers
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Biens immobiliers
                 </xs:documentation>
                 <xs:appinfo>
@@ -308,10 +308,10 @@
 
             <xs:element name="DhrNotRealAsset" type="dhr:DhrNotRealAssetType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Biens Partage, Donation ou Vente
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Biens Partage, Donation ou Vente
                 </xs:documentation>
                 <xs:appinfo>
@@ -329,10 +329,10 @@
 
             <xs:element name="DhrTaxesAmount" type="dhr:DhrTaxesAmountType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Montant d'imposition
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Montant d'imposition
                 </xs:documentation>
                 <xs:appinfo>
@@ -354,10 +354,10 @@
 
   <xs:complexType name="DhrRequesterType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Sujet
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Sujet
       </xs:documentation>
     </xs:annotation>
@@ -429,10 +429,10 @@
 
       <xs:element name="DhrRequesterMaidenName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -453,10 +453,10 @@
 
       <xs:element name="DhrRequesterBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -472,10 +472,10 @@
 
       <xs:element name="DhrRequesterBirthPlace" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Lieu de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Lieu de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -511,10 +511,10 @@
 
       <xs:element name="DhrRequesterFranceArrivalDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date d'arrivée en France
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date d'arrivée en France
           </xs:documentation>
           <xs:appinfo>
@@ -533,10 +533,10 @@
 
       <xs:element name="DhrRequesterIsFrenchResident" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Je réside en France depuis plus de 15 ans de manière continue
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Je réside en France depuis plus de 15 ans de manière continue
           </xs:documentation>
           <xs:appinfo>
@@ -559,10 +559,10 @@
 
   <xs:complexType name="DhrRequesterPensionPlanType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Régime de retraite
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Régime de retraite
       </xs:documentation>
     </xs:annotation>
@@ -570,10 +570,10 @@
 
       <xs:element name="DhrPrincipalPensionPlan" type="dhr:DhrPrincipalPensionPlanType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Régime de retraite principal
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Régime de retraite principal
           </xs:documentation>
           <xs:appinfo>
@@ -594,10 +594,10 @@
 
       <xs:element name="DhrPensionPlanDetail" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -616,10 +616,10 @@
 
       <xs:element name="DhrComplementaryPensionPlan" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Indiquer le ou les régimes de retraite complémentaires
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Régime de retraite complémentaire
           </xs:documentation>
           <xs:appinfo>
@@ -638,13 +638,13 @@
 
   <xs:simpleType name="DhrPrincipalPensionPlanType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Régime de retraite principal
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Régime de retraite principal
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="CNAV" value="CNAV"/>
         <enum key="MSA" value="MSA"/>
         <enum key="CRAM" value="CRAM"/>
@@ -665,10 +665,10 @@
 
   <xs:complexType name="DhrRequesterGuardianType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Tuteur
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Tuteur
       </xs:documentation>
     </xs:annotation>
@@ -676,10 +676,10 @@
 
       <xs:element name="DhrRequesterHaveGuardian" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le sujet est-il sous tutelle ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Présence tuteur
           </xs:documentation>
           <xs:appinfo>
@@ -716,10 +716,10 @@
 
       <xs:element name="DhrGuardianName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du tuteur ou de l'association
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom du tuteur ou de l'association
           </xs:documentation>
           <xs:appinfo>
@@ -759,13 +759,13 @@
 
   <xs:simpleType name="DhrGuardianMeasureType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Mesure tuteur
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Mesure tuteur
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="safeguardingJustice" value="Sauvegarde de justice"/>
         <enum key="guardianship" value="Tutelle"/>
         <enum key="curatorship" value="Curatelle"/>
@@ -780,13 +780,13 @@
 
   <xs:simpleType name="DhrRequestKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Type de la demande
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Type de la demande
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Individual" value="Individuelle"/>
         <enum key="Couple" value="Couple"/>
       </xs:documentation>
@@ -799,10 +799,10 @@
 
   <xs:complexType name="DhrFamilyReferentType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Référent familial
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Référent familial
       </xs:documentation>
     </xs:annotation>
@@ -810,10 +810,10 @@
 
       <xs:element name="DhrHaveFamilyReferent" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Référent familial
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Référent familial
           </xs:documentation>
           <xs:appinfo>
@@ -886,10 +886,10 @@
 
   <xs:complexType name="DhrSpouseType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Conjoint
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Conjoint
       </xs:documentation>
     </xs:annotation>
@@ -897,10 +897,10 @@
 
       <xs:element name="DhrRequestKind" type="dhr:DhrRequestKindType" default="Individual">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Type de la demande
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Type de la demande
           </xs:documentation>
           <xs:appinfo>
@@ -994,10 +994,10 @@
 
       <xs:element name="DhrSpouseMaidenName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1017,10 +1017,10 @@
 
       <xs:element name="DhrSpouseBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1039,10 +1039,10 @@
 
       <xs:element name="DhrSpouseBirthPlace" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Lieu de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Lieu de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1081,10 +1081,10 @@
 
       <xs:element name="DhrSpouseFranceArrivalDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date d'arrivée en France
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date d'arrivée en France
           </xs:documentation>
           <xs:appinfo>
@@ -1103,10 +1103,10 @@
 
       <xs:element name="DhrSpouseIsFrenchResident" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Je réside en France depuis plus de 15 ans de manière continue
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Je réside en France depuis plus de 15 ans de manière continue
           </xs:documentation>
           <xs:appinfo>
@@ -1128,10 +1128,10 @@
 
   <xs:complexType name="DhrSpouseStatusType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Statut
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Statut
       </xs:documentation>
     </xs:annotation>
@@ -1139,10 +1139,10 @@
 
       <xs:element name="DhrIsSpouseRetired" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Retraité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Retraité
           </xs:documentation>
           <xs:appinfo>
@@ -1161,10 +1161,10 @@
 
       <xs:element name="DhrSpousePrincipalPensionPlan" type="dhr:DhrPrincipalPensionPlanType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Régime de retraite principal
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Régime de retraite principal
           </xs:documentation>
           <xs:appinfo>
@@ -1186,10 +1186,10 @@
 
       <xs:element name="DhrSpousePensionPlanDetail" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -1208,10 +1208,10 @@
 
       <xs:element name="DhrSpouseComplementaryPensionPlan" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Indiquer le ou les régimes de retraite complémentaires
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Régime de retraite complémentaire
           </xs:documentation>
           <xs:appinfo>
@@ -1230,10 +1230,10 @@
 
       <xs:element name="DhrSpouseProfession" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Profession
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Profession
           </xs:documentation>
           <xs:appinfo>
@@ -1252,10 +1252,10 @@
 
       <xs:element name="DhrSpouseEmployer" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Employeur
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Employeur
           </xs:documentation>
           <xs:appinfo>
@@ -1294,10 +1294,10 @@
 
   <xs:complexType name="DhrCurrentDwellingType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Habitation actuelle
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Habitation actuelle
       </xs:documentation>
     </xs:annotation>
@@ -1319,10 +1319,10 @@
 
       <xs:element name="DhrCurrentDwellingPhone" type="cvq:PhoneType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Téléphone personnel
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Téléphone personnel
           </xs:documentation>
           <xs:appinfo>
@@ -1339,10 +1339,10 @@
 
       <xs:element name="DhrCurrentDwellingKind" type="dhr:DhrDwellingKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nature de l'habitation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nature de l'habitation
           </xs:documentation>
           <xs:appinfo>
@@ -1363,10 +1363,10 @@
 
       <xs:element name="DhrCurrentDwellingArrivalDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date d'arrivée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date d'arrivée
           </xs:documentation>
           <xs:appinfo>
@@ -1385,10 +1385,10 @@
 
       <xs:element name="DhrCurrentDwellingStatus" type="dhr:DhrDwellingStatusType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Statut de l'habitation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Statut de l'habitation
           </xs:documentation>
           <xs:appinfo>
@@ -1409,10 +1409,10 @@
 
       <xs:element name="DhrCurrentDwellingNumberOfRoom" type="dhr:DhrDwellingNumberOfRoom" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nombre de pièces (hors cuisine et salle de bains)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre de pièces
           </xs:documentation>
           <xs:appinfo>
@@ -1431,10 +1431,10 @@
 
       <xs:element name="DhrCurrentDwellingNetArea" type="dhr:DhrDwellingNetArea" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Surface habitable (en m²)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Surface habitable
           </xs:documentation>
           <xs:appinfo>
@@ -1457,13 +1457,13 @@
 
   <xs:simpleType name="DhrDwellingKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Nature de l'habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Nature de l'habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="placeOfResidence" value="Domicile"/>
         <enum key="retirementHome" value="Etablissement PA"/>
         <enum key="other" value="Accueil particulier à titre onéreux"/>
@@ -1478,13 +1478,13 @@
 
   <xs:simpleType name="DhrDwellingStatusType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Statut de l'habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Statut de l'habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="owner" value="Propriétaire"/>
         <enum key="tenant" value="Locataire"/>
       </xs:documentation>
@@ -1497,10 +1497,10 @@
 
   <xs:simpleType name="DhrDwellingNumberOfRoom">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Nombre de pièces (hors cuisine et salle de bains)
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Nombre de pièces
       </xs:documentation>
     </xs:annotation>
@@ -1512,10 +1512,10 @@
 
   <xs:simpleType name="DhrDwellingNetArea">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Surface habitable (en m²)
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Surface habitable
       </xs:documentation>
     </xs:annotation>
@@ -1527,10 +1527,10 @@
 
   <xs:complexType name="DhrPreviousDwellingType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Habitation antérieure
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Habitation antérieure
       </xs:documentation>
     </xs:annotation>
@@ -1552,10 +1552,10 @@
 
       <xs:element name="DhrPreviousDwellingKind" type="dhr:DhrDwellingKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nature de l'habitation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nature de l'habitation
           </xs:documentation>
           <xs:appinfo>
@@ -1576,10 +1576,10 @@
 
       <xs:element name="DhrPreviousDwellingStatus" type="dhr:DhrDwellingStatusType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Statut de l'habitation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Statut de l'habitation
           </xs:documentation>
           <xs:appinfo>
@@ -1600,10 +1600,10 @@
 
       <xs:element name="DhrPreviousDwellingArrivalDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date d'arrivée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date d'arrivée
           </xs:documentation>
           <xs:appinfo>
@@ -1619,10 +1619,10 @@
 
       <xs:element name="DhrPreviousDwellingDepartureDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de départ
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de départ
           </xs:documentation>
           <xs:appinfo>
@@ -1638,10 +1638,10 @@
 
       <xs:element name="DhrPreviousDwellingComment" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Commentaire
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Commentaire
           </xs:documentation>
           <xs:appinfo>
@@ -1660,10 +1660,10 @@
 
   <xs:complexType name="DhrIncomesType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Ressources
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Ressources
       </xs:documentation>
     </xs:annotation>
@@ -1671,10 +1671,10 @@
 
       <xs:element name="Pensions" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pensions et retraites
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pensions et retraites
           </xs:documentation>
           <xs:appinfo>
@@ -1690,10 +1690,10 @@
 
       <xs:element name="DhrAllowances" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocations diverses
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocations diverses
           </xs:documentation>
           <xs:appinfo>
@@ -1709,10 +1709,10 @@
       
       <xs:element name="DhrFurnitureInvestmentIncome" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Revenus du capital mobilier
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Revenus du capital mobilier
           </xs:documentation>
           <xs:appinfo>
@@ -1728,10 +1728,10 @@
       
       <xs:element name="DhrRealEstateInvestmentIncome" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Revenus du capital immobilier
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Revenus du capital immobilier
           </xs:documentation>
           <xs:appinfo>
@@ -1747,10 +1747,10 @@
 
       <xs:element name="DhrNetIncome" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Salaire ou bénéfice déclaré
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Salaire ou bénéfice déclaré
           </xs:documentation>
           <xs:appinfo>
@@ -1766,10 +1766,10 @@
 
       <xs:element name="DhrIncomesAnnualTotal" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Total annuel des revenus
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Total annuel
           </xs:documentation>
           <xs:appinfo>
@@ -1787,10 +1787,10 @@
 
   <xs:complexType name="DhrRealAssetType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Bien immobilier
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Bien immobilier
       </xs:documentation>
     </xs:annotation>
@@ -1812,10 +1812,10 @@
 
       <xs:element name="DhrRealAssetValue" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Valeur estimée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Valeur estimée
           </xs:documentation>
           <xs:appinfo>
@@ -1831,10 +1831,10 @@
 
       <xs:element name="RealAssetNetFloorArea" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Surface habitable (en m²)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Superficie
           </xs:documentation>
           <xs:appinfo>
@@ -1853,10 +1853,10 @@
 
   <xs:complexType name="DhrNotRealAssetType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Bien immobilier
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Bien immobilier
       </xs:documentation>
     </xs:annotation>
@@ -1864,10 +1864,10 @@
 
       <xs:element name="DhrNotRealAssetType" type="dhr:DhrAssetTypeType" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Type
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Type
           </xs:documentation>
           <xs:appinfo>
@@ -1885,10 +1885,10 @@
 
       <xs:element name="DhrNotRealAssetKind" type="dhr:DhrAssetKindType" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nature du bien
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nature du bien
           </xs:documentation>
           <xs:appinfo>
@@ -1926,10 +1926,10 @@
     
       <xs:element name="DhrNotRealAssetBeneficiaryName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du bénéficiaire 
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom du bénéficiaire
           </xs:documentation>
           <xs:appinfo>
@@ -1946,10 +1946,10 @@
 
       <xs:element name="DhrNotRealAssetBeneficiaryFirstName" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénom du bénéficiaire 
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom du bénéficiaire
           </xs:documentation>
           <xs:appinfo>
@@ -1980,10 +1980,10 @@
 
       <xs:element name="DhrNotRealAssetValue" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Valeur déclarée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Valeur déclarée
           </xs:documentation>
           <xs:appinfo>
@@ -1999,10 +1999,10 @@
 
       <xs:element name="DhrNotRealAssetDate" type="xs:date" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date partage, donation ou vente
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date partage, donation ou vente
           </xs:documentation>
           <xs:appinfo>
@@ -2018,10 +2018,10 @@
 
       <xs:element name="DhrNotRealAssetNotaryName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du notaire 
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom du notaire
           </xs:documentation>
           <xs:appinfo>
@@ -2055,13 +2055,13 @@
 
   <xs:simpleType name="DhrAssetTypeType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Type de bien
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Type
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Share" value="Partage" />
         <enum key="Gift" value="Donation" />
         <enum key="Sale" value="Vente" />
@@ -2076,13 +2076,13 @@
 
   <xs:simpleType name="DhrAssetKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Nature du bien 
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Nature du bien 
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="RealEstate" value="Immobilier" />
         <enum key="Other" value="Autre" />
       </xs:documentation>
@@ -2098,10 +2098,10 @@
 
       <xs:element name="DhrIncomeTax" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Impôt sur le revenu
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Impôt sur le revenu
           </xs:documentation>
           <xs:appinfo>
@@ -2117,10 +2117,10 @@
 
       <xs:element name="LocalRate" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Taxes d'habitation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Taxes d'habitation
           </xs:documentation>
           <xs:appinfo>
@@ -2136,10 +2136,10 @@
 
       <xs:element name="PropertyTaxes" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Taxes foncières
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Taxes foncières
           </xs:documentation>
           <xs:appinfo>
@@ -2155,10 +2155,10 @@
 
       <xs:element name="ProfessionalTaxes" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Taxes professionnelles
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Taxes professionnelles
           </xs:documentation>
           <xs:appinfo>

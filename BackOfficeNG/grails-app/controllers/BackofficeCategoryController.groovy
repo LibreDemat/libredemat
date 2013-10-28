@@ -1,8 +1,8 @@
-import fr.cg95.cvq.business.request.Category
-import fr.cg95.cvq.business.request.CategoryProfile
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IRequestTypeService
+import org.libredemat.business.request.Category
+import org.libredemat.business.request.CategoryProfile
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestTypeService
 
 import grails.converters.JSON
 
@@ -26,7 +26,7 @@ class BackofficeCategoryController {
         categories.each { category ->
             requestTypesByCategory[category.id] = []
             category.requestTypes?.each { rt ->
-                requestTypesByCategory[category.id].add(CapdematUtils.adaptRequestType(translationService, rt))
+                requestTypesByCategory[category.id].add(LibredematUtils.adaptRequestType(translationService, rt))
             }
             requestTypesByCategory[category.id].sort {it.label.toLowerCase()}
         }
@@ -34,7 +34,7 @@ class BackofficeCategoryController {
         def orphanRequestTypes = []
         requestTypeService.getAllRequestTypes().each {
             if (it.category == null)
-                orphanRequestTypes.add(CapdematUtils.adaptRequestType(translationService,it))
+                orphanRequestTypes.add(LibredematUtils.adaptRequestType(translationService,it))
         }
 
         return [
@@ -108,11 +108,11 @@ class BackofficeCategoryController {
         
         if ((request.post && params.scope == null) || params.scope == 'All') {
             requestTypeService.getAllRequestTypes().each{
-                requestTypes.add(CapdematUtils.adaptRequestType(translationService,it)) 
+                requestTypes.add(LibredematUtils.adaptRequestType(translationService,it)) 
             }
         } else if (params.scope == 'Category') {
             categoryService.getById(Long.valueOf(params.id)).getRequestTypes().each {
-                requestTypes.add(CapdematUtils.adaptRequestType(translationService,it))
+                requestTypes.add(LibredematUtils.adaptRequestType(translationService,it))
             }
         }
         

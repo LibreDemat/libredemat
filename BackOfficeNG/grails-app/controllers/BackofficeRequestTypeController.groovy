@@ -1,22 +1,22 @@
-import fr.cg95.cvq.business.request.LocalReferentialEntry
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestFormType
-import fr.cg95.cvq.business.request.RequestSeason
-import fr.cg95.cvq.business.request.RequestType
-import fr.cg95.cvq.business.request.Requirement
-import fr.cg95.cvq.business.request.RequestForm
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Version
-import fr.cg95.cvq.security.SecurityContext;
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.ILocalReferentialService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.request.IRequestServiceRegistry
-import fr.cg95.cvq.service.request.impl.RequestServiceRegistry;
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.request.LocalReferentialEntry
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestFormType
+import org.libredemat.business.request.RequestSeason
+import org.libredemat.business.request.RequestType
+import org.libredemat.business.request.Requirement
+import org.libredemat.business.request.RequestForm
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.authority.LocalAuthorityResource.Version
+import org.libredemat.security.SecurityContext;
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.ILocalReferentialService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.request.IRequestServiceRegistry
+import org.libredemat.service.request.impl.RequestServiceRegistry;
+import org.libredemat.util.Critere
 
 import org.springframework.web.context.request.RequestContextHolder
 import org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine
@@ -92,7 +92,7 @@ class BackofficeRequestTypeController {
 
         def adaptedRequestTypes = []
         requestTypes.each{ 
-        	adaptedRequestTypes.add(CapdematUtils.adaptRequestType(translationService, it)) 
+        	adaptedRequestTypes.add(LibredematUtils.adaptRequestType(translationService, it)) 
         }
         adaptedRequestTypes = adaptedRequestTypes.sort{ it.label.toLowerCase() }
         
@@ -215,7 +215,7 @@ class BackofficeRequestTypeController {
         documentTypeService.getAllDocumentTypes().each{ d ->
             list.add([
                 'documentId' : d.id,
-                'name' : message(code:CapdematUtils.adaptDocumentTypeName(d.name)),
+                'name' : message(code:LibredematUtils.adaptDocumentTypeName(d.name)),
                 'bound' : reqs.contains(d.id),
                 'class' : reqs.contains(d.id) ? '' : 'notBelong'
             ])
@@ -501,7 +501,7 @@ class BackofficeRequestTypeController {
 
     def loadRules = {
         def requestType = requestTypeService.getRequestTypeById(Long.valueOf(params.id))
-        def requestTypeLabelAsDir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+        def requestTypeLabelAsDir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
 
         def rulesFieldNames = [:]
         requestTypeService.getRulesAcceptanceFieldNames(Long.valueOf(params.id))?.each {
@@ -520,7 +520,7 @@ class BackofficeRequestTypeController {
     // TODO: Manage in LocalAuthorityRegistry the requestType ressource dir persistence
     def saveRule = {
         def requestType = requestTypeService.getRequestTypeById(Long.valueOf(params.requestTypeId))
-        def requestTypeLabelAsDir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+        def requestTypeLabelAsDir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
         def file = request.getFile('rulesFile')
         response.contentType = 'text/html; charset=utf-8'
         if (file.empty) {
@@ -544,7 +544,7 @@ class BackofficeRequestTypeController {
     def emails = {
         def id = Long.valueOf(params.id)
         def requestType = requestTypeService.getRequestTypeById(id)
-        def dir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+        def dir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
         def states = emailNotificationAdaptorService.states('templates/mails/notification/' + dir)
 
         render(
@@ -584,7 +584,7 @@ class BackofficeRequestTypeController {
         def requestType = requestTypeService.getRequestTypeById(id)
 
         def step = params.step
-        def dir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+        def dir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
         File file = localAuthorityRegistry.getLocalAuthorityResourceFile(
             Type.HTML,
             'request/' + dir + '/' + step,
@@ -608,7 +608,7 @@ class BackofficeRequestTypeController {
             render(status:404, text:['message':message(code:'requestType.configuration.unknownRequestType')] as JSON)
             return
         }
-        def dir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+        def dir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
 
         def html = params.html ?: ''
 

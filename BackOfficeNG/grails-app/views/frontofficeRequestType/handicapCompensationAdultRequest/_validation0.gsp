@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -90,7 +90,7 @@
           <dt><g:message code="hcar.property.subjectTitle.label" /></dt>
           <dd>
             <g:if test="${rqt.subjectTitle}">
-              <g:capdematEnumToField var="${rqt.subjectTitle}" i18nKeyPrefix="hcar.property.subjectTitle" />
+              <g:libredematEnumToField var="${rqt.subjectTitle}" i18nKeyPrefix="hcar.property.subjectTitle" />
             </g:if>
           </dd>
           
@@ -125,7 +125,7 @@
           <dt><g:message code="hcar.property.legalAccessKind.label" /></dt>
           <dd>
             <g:if test="${rqt.legalAccessKind}">
-              <g:capdematEnumToField var="${rqt.legalAccessKind}" i18nKeyPrefix="hcar.property.legalAccessKind" />
+              <g:libredematEnumToField var="${rqt.legalAccessKind}" i18nKeyPrefix="hcar.property.legalAccessKind" />
             </g:if>
           </dd>
           
@@ -134,7 +134,7 @@
           <dt><g:message code="hcar.property.legalAccessRepresentativeKind.label" /></dt>
           <dd>
             <g:if test="${rqt.legalAccessRepresentativeKind}">
-              <g:capdematEnumToField var="${rqt.legalAccessRepresentativeKind}" i18nKeyPrefix="hcar.property.legalAccessRepresentativeKind" />
+              <g:libredematEnumToField var="${rqt.legalAccessRepresentativeKind}" i18nKeyPrefix="hcar.property.legalAccessRepresentativeKind" />
             </g:if>
           </dd>
           
@@ -159,7 +159,7 @@
           <dt><g:message code="hcar.property.familyStatus.label" /></dt>
           <dd>
             <g:if test="${rqt.familyStatus}">
-              <g:capdematEnumToField var="${rqt.familyStatus}" i18nKeyPrefix="hcar.property.familyStatus" />
+              <g:libredematEnumToField var="${rqt.familyStatus}" i18nKeyPrefix="hcar.property.familyStatus" />
             </g:if>
           </dd>
           
@@ -192,7 +192,7 @@
           <dt><g:message code="hcar.property.familyDependentActualSituation.label" /></dt>
           <dd>
             <g:if test="${it.familyDependentActualSituation}">
-              <g:capdematEnumToField var="${it.familyDependentActualSituation}" i18nKeyPrefix="hcar.property.familyDependentActualSituation" />
+              <g:libredematEnumToField var="${it.familyDependentActualSituation}" i18nKeyPrefix="hcar.property.familyDependentActualSituation" />
             </g:if>
           </dd>
           
@@ -215,7 +215,7 @@
           <dt><g:message code="hcar.property.dwellingKind.label" /></dt>
           <dd>
             <g:if test="${rqt.dwellingKind}">
-              <g:capdematEnumToField var="${rqt.dwellingKind}" i18nKeyPrefix="hcar.property.dwellingKind" />
+              <g:libredematEnumToField var="${rqt.dwellingKind}" i18nKeyPrefix="hcar.property.dwellingKind" />
             </g:if>
           </dd>
           
@@ -232,7 +232,7 @@
           <dt><g:message code="hcar.property.dwellingReceptionType.label" /></dt>
           <dd>
             <g:if test="${rqt.dwellingReceptionType}">
-              <g:capdematEnumToField var="${rqt.dwellingReceptionType}" i18nKeyPrefix="hcar.property.dwellingReceptionType" />
+              <g:libredematEnumToField var="${rqt.dwellingReceptionType}" i18nKeyPrefix="hcar.property.dwellingReceptionType" />
             </g:if>
           </dd>
           
@@ -293,7 +293,7 @@
           <dt><g:message code="hcar.property.socialSecurityMemberShipKind.label" /></dt>
           <dd>
             <g:if test="${rqt.socialSecurityMemberShipKind}">
-              <g:capdematEnumToField var="${rqt.socialSecurityMemberShipKind}" i18nKeyPrefix="hcar.property.socialSecurityMemberShipKind" />
+              <g:libredematEnumToField var="${rqt.socialSecurityMemberShipKind}" i18nKeyPrefix="hcar.property.socialSecurityMemberShipKind" />
             </g:if>
           </dd>
           
@@ -329,7 +329,7 @@
           <dt><g:message code="hcar.property.paymentAgencyBeneficiary.label" /></dt>
           <dd>
             <g:if test="${rqt.paymentAgencyBeneficiary}">
-              <g:capdematEnumToField var="${rqt.paymentAgencyBeneficiary}" i18nKeyPrefix="hcar.property.paymentAgencyBeneficiary" />
+              <g:libredematEnumToField var="${rqt.paymentAgencyBeneficiary}" i18nKeyPrefix="hcar.property.paymentAgencyBeneficiary" />
             </g:if>
           </dd>
           
@@ -430,7 +430,7 @@
           <dt><g:message code="hcar.property.professionalStatusKind.label" /></dt>
           <dd>
             <g:if test="${rqt.professionalStatusKind}">
-              <g:capdematEnumToField var="${rqt.professionalStatusKind}" i18nKeyPrefix="hcar.property.professionalStatusKind" />
+              <g:libredematEnumToField var="${rqt.professionalStatusKind}" i18nKeyPrefix="hcar.property.professionalStatusKind" />
             </g:if>
           </dd>
           
@@ -444,7 +444,7 @@
           <dt><g:message code="hcar.property.professionalStatusEnvironment.label" /></dt>
           <dd>
             <g:if test="${rqt.professionalStatusEnvironment}">
-              <g:capdematEnumToField var="${rqt.professionalStatusEnvironment}" i18nKeyPrefix="hcar.property.professionalStatusEnvironment" />
+              <g:libredematEnumToField var="${rqt.professionalStatusEnvironment}" i18nKeyPrefix="hcar.property.professionalStatusEnvironment" />
             </g:if>
           </dd>
           

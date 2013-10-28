@@ -1,17 +1,17 @@
 import java.util.Hashtable
 
-import fr.cg95.cvq.business.authority.Agent
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.request.RequestType
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestStatisticsService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.util.Critere
-import fr.cg95.cvq.util.translation.impl.TranslationService;
-import fr.cg95.cvq.security.SecurityContext
+import org.libredemat.business.authority.Agent
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.request.RequestType
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestStatisticsService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.util.Critere
+import org.libredemat.util.translation.impl.TranslationService;
+import org.libredemat.security.SecurityContext
 
 class BackofficeRequestController {
 

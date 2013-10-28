@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" >
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'externalApplicationEdit.js')}"></script>
     <script type="text/javascript">
-        zenexity.capdemat.bong.externalApplicationEdit.editMode = '${editMode}';
-        zenexity.capdemat.bong.externalApplicationEdit.appId = '${app?.id}';
+        zenexity.libredemat.bong.externalApplicationEdit.editMode = '${editMode}';
+        zenexity.libredemat.bong.externalApplicationEdit.appId = '${app?.id}';
     </script>
   </head>
 

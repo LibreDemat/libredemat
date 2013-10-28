@@ -21,7 +21,7 @@
              <dd><span>${rqt?.subjectFirstName} ${rqt?.subjectLastName}</span></dd>
           
           
-              <dt class="required condition-isMadam-trigger">${message(code:'hcar.property.subjectTitle.label')}&nbsp;*&nbsp;:</dt><dd id="subjectTitle" class="action-editField validate-capdematEnum required-true i18n-hcar.property.subjectTitle javatype-fr.cg95.cvq.business.users.TitleType" ><g:capdematEnumToField var="${rqt?.subjectTitle}" i18nKeyPrefix="hcar.property.subjectTitle" /></dd>
+              <dt class="required condition-isMadam-trigger">${message(code:'hcar.property.subjectTitle.label')}&nbsp;*&nbsp;:</dt><dd id="subjectTitle" class="action-editField validate-libredematEnum required-true i18n-hcar.property.subjectTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.subjectTitle}" i18nKeyPrefix="hcar.property.subjectTitle" /></dd>
           
               <dt class="required condition-isMadam-filled">${message(code:'hcar.property.subjectMaidenName.label')}&nbsp;*&nbsp;:</dt><dd id="subjectMaidenName" class="action-editField validate-lastName required-true i18n-hcar.property.subjectMaidenName maxLength-38" ><span>${rqt?.subjectMaidenName}</span></dd>
           
@@ -40,9 +40,9 @@
           
               <dt class="required condition-isLegalAccessPresence-trigger">${message(code:'hcar.property.legalAccessPresence.label')}&nbsp;*&nbsp;:</dt><dd id="legalAccessPresence" class="action-editField validate-boolean required-true i18n-hcar.property.legalAccessPresence" ><span class="value-${rqt?.legalAccessPresence}"><g:message code="message.${rqt?.legalAccessPresence ? 'yes' : 'no'}" /></span></dd>
           
-              <dt class="required condition-isLegalAccessPresence-filled">${message(code:'hcar.property.legalAccessKind.label')}&nbsp;*&nbsp;:</dt><dd id="legalAccessKind" class="action-editField validate-capdematEnum required-true i18n-hcar.property.legalAccessKind javatype-fr.cg95.cvq.business.request.social.HcarLegalAccessKindType" ><g:capdematEnumToField var="${rqt?.legalAccessKind}" i18nKeyPrefix="hcar.property.legalAccessKind" /></dd>
+              <dt class="required condition-isLegalAccessPresence-filled">${message(code:'hcar.property.legalAccessKind.label')}&nbsp;*&nbsp;:</dt><dd id="legalAccessKind" class="action-editField validate-libredematEnum required-true i18n-hcar.property.legalAccessKind javatype-org.libredemat.business.request.social.HcarLegalAccessKindType" ><g:libredematEnumToField var="${rqt?.legalAccessKind}" i18nKeyPrefix="hcar.property.legalAccessKind" /></dd>
           
-              <dt class="required condition-isLegalAccessPresence-filled condition-isOtherLegalAccessRepresentative-trigger">${message(code:'hcar.property.legalAccessRepresentativeKind.label')}&nbsp;*&nbsp;:</dt><dd id="legalAccessRepresentativeKind" class="action-editField validate-capdematEnum required-true i18n-hcar.property.legalAccessRepresentativeKind javatype-fr.cg95.cvq.business.request.social.HcarLegalAccessRepresentativeKindType" ><g:capdematEnumToField var="${rqt?.legalAccessRepresentativeKind}" i18nKeyPrefix="hcar.property.legalAccessRepresentativeKind" /></dd>
+              <dt class="required condition-isLegalAccessPresence-filled condition-isOtherLegalAccessRepresentative-trigger">${message(code:'hcar.property.legalAccessRepresentativeKind.label')}&nbsp;*&nbsp;:</dt><dd id="legalAccessRepresentativeKind" class="action-editField validate-libredematEnum required-true i18n-hcar.property.legalAccessRepresentativeKind javatype-org.libredemat.business.request.social.HcarLegalAccessRepresentativeKindType" ><g:libredematEnumToField var="${rqt?.legalAccessRepresentativeKind}" i18nKeyPrefix="hcar.property.legalAccessRepresentativeKind" /></dd>
           
               <dt class="required condition-isOtherLegalAccessRepresentative-filled">${message(code:'hcar.property.legalAccessRepresentativeKindDetail.label')}&nbsp;*&nbsp;:</dt><dd id="legalAccessRepresentativeKindDetail" class="action-editField validate- required-true i18n-hcar.property.legalAccessRepresentativeKindDetail maxLength-80" ><span>${rqt?.legalAccessRepresentativeKindDetail}</span></dd>
           
@@ -63,7 +63,7 @@
         <h3><g:message code="hcar.property.family.label" /></h3>
         <dl class="required">
           
-              <dt class="required">${message(code:'hcar.property.familyStatus.label')}&nbsp;*&nbsp;:</dt><dd id="familyStatus" class="action-editField validate-capdematEnum required-true i18n-hcar.property.familyStatus javatype-fr.cg95.cvq.business.users.FamilyStatusType" ><g:capdematEnumToField var="${rqt?.familyStatus}" i18nKeyPrefix="hcar.property.familyStatus" /></dd>
+              <dt class="required">${message(code:'hcar.property.familyStatus.label')}&nbsp;*&nbsp;:</dt><dd id="familyStatus" class="action-editField validate-libredematEnum required-true i18n-hcar.property.familyStatus javatype-org.libredemat.business.users.FamilyStatusType" ><g:libredematEnumToField var="${rqt?.familyStatus}" i18nKeyPrefix="hcar.property.familyStatus" /></dd>
           
               <dt class="required condition-isFamilyDependents-trigger">${message(code:'hcar.property.familyFamilyDependents.label')}&nbsp;*&nbsp;:</dt><dd id="familyFamilyDependents" class="action-editField validate-boolean required-true i18n-hcar.property.familyFamilyDependents" ><span class="value-${rqt?.familyFamilyDependents}"><g:message code="message.${rqt?.familyFamilyDependents ? 'yes' : 'no'}" /></span></dd>
           
@@ -99,13 +99,13 @@
         <h3><g:message code="hcar.property.dwelling.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isNotPlaceOfResidence-trigger">${message(code:'hcar.property.dwellingKind.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingKind" class="action-editField validate-capdematEnum required-true i18n-hcar.property.dwellingKind javatype-fr.cg95.cvq.business.request.social.HcarDwellingKindType" ><g:capdematEnumToField var="${rqt?.dwellingKind}" i18nKeyPrefix="hcar.property.dwellingKind" /></dd>
+              <dt class="required condition-isNotPlaceOfResidence-trigger">${message(code:'hcar.property.dwellingKind.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingKind" class="action-editField validate-libredematEnum required-true i18n-hcar.property.dwellingKind javatype-org.libredemat.business.request.social.HcarDwellingKindType" ><g:libredematEnumToField var="${rqt?.dwellingKind}" i18nKeyPrefix="hcar.property.dwellingKind" /></dd>
           
               <dt class="required condition-isNotPlaceOfResidence-filled">${message(code:'hcar.property.dwellingPrecision.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingPrecision" class="action-editField validate-textarea required-true i18n-hcar.property.dwellingPrecision rows-2 maxLength-120" ><span>${rqt?.dwellingPrecision}</span></dd>
           
               <dt class="required condition-isInEstablishmentReception-trigger">${message(code:'hcar.property.dwellingEstablishmentReception.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingEstablishmentReception" class="action-editField validate-boolean required-true i18n-hcar.property.dwellingEstablishmentReception" ><span class="value-${rqt?.dwellingEstablishmentReception}"><g:message code="message.${rqt?.dwellingEstablishmentReception ? 'yes' : 'no'}" /></span></dd>
           
-              <dt class="required condition-isInEstablishmentReception-filled">${message(code:'hcar.property.dwellingReceptionType.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingReceptionType" class="action-editField validate-capdematEnum required-true i18n-hcar.property.dwellingReceptionType javatype-fr.cg95.cvq.business.request.social.HcarDwellingReceptionKindType" ><g:capdematEnumToField var="${rqt?.dwellingReceptionType}" i18nKeyPrefix="hcar.property.dwellingReceptionType" /></dd>
+              <dt class="required condition-isInEstablishmentReception-filled">${message(code:'hcar.property.dwellingReceptionType.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingReceptionType" class="action-editField validate-libredematEnum required-true i18n-hcar.property.dwellingReceptionType javatype-org.libredemat.business.request.social.HcarDwellingReceptionKindType" ><g:libredematEnumToField var="${rqt?.dwellingReceptionType}" i18nKeyPrefix="hcar.property.dwellingReceptionType" /></dd>
           
               <dt class="required condition-isInEstablishmentReception-filled">${message(code:'hcar.property.dwellingReceptionNaming.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingReceptionNaming" class="action-editField validate- required-true i18n-hcar.property.dwellingReceptionNaming maxLength-80" ><span>${rqt?.dwellingReceptionNaming}</span></dd>
           
@@ -149,7 +149,7 @@
         <h3><g:message code="hcar.property.socialSecurity.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isSocialSecurityMemberShip-trigger">${message(code:'hcar.property.socialSecurityMemberShipKind.label')}&nbsp;*&nbsp;:</dt><dd id="socialSecurityMemberShipKind" class="action-editField validate-capdematEnum required-true i18n-hcar.property.socialSecurityMemberShipKind javatype-fr.cg95.cvq.business.request.social.HcarSocialSecurityMemberShipKindType" ><g:capdematEnumToField var="${rqt?.socialSecurityMemberShipKind}" i18nKeyPrefix="hcar.property.socialSecurityMemberShipKind" /></dd>
+              <dt class="required condition-isSocialSecurityMemberShip-trigger">${message(code:'hcar.property.socialSecurityMemberShipKind.label')}&nbsp;*&nbsp;:</dt><dd id="socialSecurityMemberShipKind" class="action-editField validate-libredematEnum required-true i18n-hcar.property.socialSecurityMemberShipKind javatype-org.libredemat.business.request.social.HcarSocialSecurityMemberShipKindType" ><g:libredematEnumToField var="${rqt?.socialSecurityMemberShipKind}" i18nKeyPrefix="hcar.property.socialSecurityMemberShipKind" /></dd>
           
               <dt class="required condition-isSocialSecurityMemberShip-filled">${message(code:'hcar.property.socialSecurityNumber.label')}&nbsp;*&nbsp;:</dt><dd id="socialSecurityNumber" class="action-editField validate- required-true i18n-hcar.property.socialSecurityNumber" ><span>${rqt?.socialSecurityNumber}</span></dd>
           
@@ -170,7 +170,7 @@
         <h3><g:message code="hcar.property.paymentAgency.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isPaymentAgencyBeneficiary-trigger">${message(code:'hcar.property.paymentAgencyBeneficiary.label')}&nbsp;*&nbsp;:</dt><dd id="paymentAgencyBeneficiary" class="action-editField validate-capdematEnum required-true i18n-hcar.property.paymentAgencyBeneficiary javatype-fr.cg95.cvq.business.request.social.HcarPaymentAgencyBeneficiaryType" ><g:capdematEnumToField var="${rqt?.paymentAgencyBeneficiary}" i18nKeyPrefix="hcar.property.paymentAgencyBeneficiary" /></dd>
+              <dt class="required condition-isPaymentAgencyBeneficiary-trigger">${message(code:'hcar.property.paymentAgencyBeneficiary.label')}&nbsp;*&nbsp;:</dt><dd id="paymentAgencyBeneficiary" class="action-editField validate-libredematEnum required-true i18n-hcar.property.paymentAgencyBeneficiary javatype-org.libredemat.business.request.social.HcarPaymentAgencyBeneficiaryType" ><g:libredematEnumToField var="${rqt?.paymentAgencyBeneficiary}" i18nKeyPrefix="hcar.property.paymentAgencyBeneficiary" /></dd>
           
               <dt class="required condition-isPaymentAgencyBeneficiary-filled">${message(code:'hcar.property.paymentAgencyBeneficiaryNumber.label')}&nbsp;*&nbsp;:</dt><dd id="paymentAgencyBeneficiaryNumber" class="action-editField validate- required-true i18n-hcar.property.paymentAgencyBeneficiaryNumber maxLength-20" ><span>${rqt?.paymentAgencyBeneficiaryNumber}</span></dd>
           
@@ -244,11 +244,11 @@
         <h3><g:message code="hcar.property.professionalStatus.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isEmployed-trigger condition-isUnemployed-trigger">${message(code:'hcar.property.professionalStatusKind.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusKind" class="action-editField validate-capdematEnum required-true i18n-hcar.property.professionalStatusKind javatype-fr.cg95.cvq.business.request.social.HcarProfessionalStatusKindType" ><g:capdematEnumToField var="${rqt?.professionalStatusKind}" i18nKeyPrefix="hcar.property.professionalStatusKind" /></dd>
+              <dt class="required condition-isEmployed-trigger condition-isUnemployed-trigger">${message(code:'hcar.property.professionalStatusKind.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusKind" class="action-editField validate-libredematEnum required-true i18n-hcar.property.professionalStatusKind javatype-org.libredemat.business.request.social.HcarProfessionalStatusKindType" ><g:libredematEnumToField var="${rqt?.professionalStatusKind}" i18nKeyPrefix="hcar.property.professionalStatusKind" /></dd>
           
               <dt class="required">${message(code:'hcar.property.professionalStatusDate.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusDate" class="action-editField validate-date required-true i18n-hcar.property.professionalStatusDate" ><span><g:formatDate formatName="format.date" date="${rqt?.professionalStatusDate}"/></span></dd>
           
-              <dt class="required condition-isEmployed-filled">${message(code:'hcar.property.professionalStatusEnvironment.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusEnvironment" class="action-editField validate-capdematEnum required-true i18n-hcar.property.professionalStatusEnvironment javatype-fr.cg95.cvq.business.request.social.HcarProfessionalStatusEnvironmentType" ><g:capdematEnumToField var="${rqt?.professionalStatusEnvironment}" i18nKeyPrefix="hcar.property.professionalStatusEnvironment" /></dd>
+              <dt class="required condition-isEmployed-filled">${message(code:'hcar.property.professionalStatusEnvironment.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusEnvironment" class="action-editField validate-libredematEnum required-true i18n-hcar.property.professionalStatusEnvironment javatype-org.libredemat.business.request.social.HcarProfessionalStatusEnvironmentType" ><g:libredematEnumToField var="${rqt?.professionalStatusEnvironment}" i18nKeyPrefix="hcar.property.professionalStatusEnvironment" /></dd>
           
               <dt class="required condition-isEmployed-filled">${message(code:'hcar.property.professionalStatusProfession.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusProfession" class="action-editField validate- required-true i18n-hcar.property.professionalStatusProfession maxLength-60" ><span>${rqt?.professionalStatusProfession}</span></dd>
           

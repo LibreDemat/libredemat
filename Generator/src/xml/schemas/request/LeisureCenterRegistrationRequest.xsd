@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/lcrr"
-  xmlns:lcrr="http://www.cg95.fr/cvq/schema/lcrr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/lcrr"
+  xmlns:lcrr="http://www.libredemat.org/schema/lcrr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="LeisureCenterRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'inscription au centre de loisirs
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Inscription aux centres de loisirs
       </xs:documentation>
       <xs:appinfo>
@@ -49,10 +49,10 @@
           <xs:sequence>
             <xs:element name="EstDerogation" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Souhaitez-vous faire une demande de dérogation ?
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Souhaitez-vous faire une demande de dérogation ?
                 </xs:documentation>
                 <xs:appinfo>
@@ -70,10 +70,10 @@
             </xs:element>
             <xs:element name="MotifsDerogationCentreLoisirs" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Motifs
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Motifs
                 </xs:documentation>
                 <xs:appinfo>
@@ -92,10 +92,10 @@
             </xs:element>
             <xs:element name="CentresLoisirs" type="lcrr:CentreLoisirsType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Centre de loisirs
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Centre de loisirs
                 </xs:documentation>
                 <xs:appinfo>
@@ -110,10 +110,10 @@
             </xs:element>
             <xs:element name="EstTransport" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Souhaitez-vous bénéficier des transports ?
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Souhaitez-vous bénéficier des transports ?
                 </xs:documentation>
                 <xs:appinfo>
@@ -131,10 +131,10 @@
             </xs:element>
             <xs:element name="Transports" type="lcrr:TransportsType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Lignes et arrêts
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Lignes et arrêts
                 </xs:documentation>
                 <xs:appinfo>
@@ -152,10 +152,10 @@
             </xs:element>
             <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
                 <xs:appinfo>
@@ -178,10 +178,10 @@
     <xs:sequence>
       <xs:element name="IdCentreLoisirs" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Identifiant du centre de loisirs
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Identifiant du centre de loisirs
           </xs:documentation>
           <xs:appinfo>
@@ -196,10 +196,10 @@
       </xs:element>
       <xs:element name="LabelCentreLoisirs" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Label du centre de loisirs
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Label du centre de loisirs
           </xs:documentation>
           <xs:appinfo>
@@ -219,10 +219,10 @@
     <xs:sequence>
       <xs:element name="IdLigne" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Choisissez votre ligne
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Choisissez votre ligne
           </xs:documentation>
           <xs:appinfo>
@@ -237,10 +237,10 @@
       </xs:element>
       <xs:element name="LabelLigne" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Choisissez votre ligne
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Choisissez votre ligne
           </xs:documentation>
           <xs:appinfo>
@@ -255,10 +255,10 @@
       </xs:element>
       <xs:element name="IdArret" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Choisissez votre arrêt de montée et descente
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Choisissez votre arrêt de montée et descente
           </xs:documentation>
           <xs:appinfo>
@@ -273,10 +273,10 @@
       </xs:element>
       <xs:element name="LabelArret" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Choisissez votre arrêt de montée et descente
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Choisissez votre arrêt de montée et descente
           </xs:documentation>
           <xs:appinfo>

@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -94,7 +94,7 @@
           <dt><g:message code="dccrr.property.situationActuelleMere.label" /></dt>
           <dd>
             <g:if test="${rqt.situationActuelleMere}">
-              <g:capdematEnumToField var="${rqt.situationActuelleMere}" i18nKeyPrefix="dccrr.property.situationActuelleMere" />
+              <g:libredematEnumToField var="${rqt.situationActuelleMere}" i18nKeyPrefix="dccrr.property.situationActuelleMere" />
             </g:if>
           </dd>
           
@@ -142,7 +142,7 @@
           <dt><g:message code="dccrr.property.situationActuellePere.label" /></dt>
           <dd>
             <g:if test="${rqt.situationActuellePere}">
-              <g:capdematEnumToField var="${rqt.situationActuellePere}" i18nKeyPrefix="dccrr.property.situationActuellePere" />
+              <g:libredematEnumToField var="${rqt.situationActuellePere}" i18nKeyPrefix="dccrr.property.situationActuellePere" />
             </g:if>
           </dd>
           
@@ -203,7 +203,7 @@
         <dt><g:message code="dccrr.property.modeAccueilChoixUn.label" /></dt>
           <dd>
             <g:if test="${rqt.modeAccueilChoixUn}">
-              <g:capdematEnumToField var="${rqt.modeAccueilChoixUn}" i18nKeyPrefix="dccrr.property.modeAccueilChoixUn" />
+              <g:libredematEnumToField var="${rqt.modeAccueilChoixUn}" i18nKeyPrefix="dccrr.property.modeAccueilChoixUn" />
             </g:if>
           </dd>
           
@@ -216,7 +216,7 @@
         <dt><g:message code="dccrr.property.modeAccueilChoixDeux.label" /></dt>
           <dd>
             <g:if test="${rqt.modeAccueilChoixDeux}">
-              <g:capdematEnumToField var="${rqt.modeAccueilChoixDeux}" i18nKeyPrefix="dccrr.property.modeAccueilChoixDeux" />
+              <g:libredematEnumToField var="${rqt.modeAccueilChoixDeux}" i18nKeyPrefix="dccrr.property.modeAccueilChoixDeux" />
             </g:if>
           </dd>
           
@@ -238,7 +238,7 @@
           <dt><g:message code="dccrr.property.choixTypeDatePlacementAccueilRegulier.label" /></dt>
           <dd>
             <g:if test="${rqt.choixTypeDatePlacementAccueilRegulier}">
-              <g:capdematEnumToField var="${rqt.choixTypeDatePlacementAccueilRegulier}" i18nKeyPrefix="dccrr.property.choixTypeDatePlacementAccueilRegulier" />
+              <g:libredematEnumToField var="${rqt.choixTypeDatePlacementAccueilRegulier}" i18nKeyPrefix="dccrr.property.choixTypeDatePlacementAccueilRegulier" />
             </g:if>
           </dd>
           
@@ -257,7 +257,7 @@
         <dt><g:message code="dccrr.property.choixHorairesAccueil.label" /></dt>
           <dd>
             <g:if test="${rqt.choixHorairesAccueil}">
-              <g:capdematEnumToField var="${rqt.choixHorairesAccueil}" i18nKeyPrefix="dccrr.property.choixHorairesAccueil" />
+              <g:libredematEnumToField var="${rqt.choixHorairesAccueil}" i18nKeyPrefix="dccrr.property.choixHorairesAccueil" />
             </g:if>
           </dd>
           
@@ -534,7 +534,7 @@
         <dt><g:message code="dccrr.property.choixTypeRendezVous.label" /></dt>
           <dd>
             <g:if test="${rqt.choixTypeRendezVous}">
-              <g:capdematEnumToField var="${rqt.choixTypeRendezVous}" i18nKeyPrefix="dccrr.property.choixTypeRendezVous" />
+              <g:libredematEnumToField var="${rqt.choixTypeRendezVous}" i18nKeyPrefix="dccrr.property.choixTypeRendezVous" />
             </g:if>
           </dd>
           
@@ -554,7 +554,7 @@
         <dt><g:message code="dccrr.property.plageHoraireContact.label" /></dt>
           <dd>
             <g:if test="${rqt.plageHoraireContact}">
-              <g:capdematEnumToField var="${rqt.plageHoraireContact}" i18nKeyPrefix="dccrr.property.plageHoraireContact" />
+              <g:libredematEnumToField var="${rqt.plageHoraireContact}" i18nKeyPrefix="dccrr.property.plageHoraireContact" />
             </g:if>
           </dd>
           
@@ -585,7 +585,7 @@
           <g:if test="${document.endValidityDate}">${message(code:'document.header.expireOn')} ${formatDate(date:document.endValidityDate,formatName:'format.date')}</g:if>
         </dt>
         <dd>
-          <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details', id:document.id)}" target="blank" title="${message(code:'document.message.preview.longdesc')}">${message(code:'document.message.preview')}</a>
         </dd>
         </g:each>

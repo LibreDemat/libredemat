@@ -106,7 +106,7 @@
         
               <dd class="${rqt.stepStates['aid'].invalidFields.contains('homeIntervenants[' + index + '].homeIntervenantKind') ? 'validation-failed' : ''}">
                 <g:if test="${it.homeIntervenantKind}">
-                  <g:capdematEnumToField var="${it.homeIntervenantKind}" i18nKeyPrefix="hcar.property.homeIntervenantKind" />
+                  <g:libredematEnumToField var="${it.homeIntervenantKind}" i18nKeyPrefix="hcar.property.homeIntervenantKind" />
                 </g:if>
               </dd>
               

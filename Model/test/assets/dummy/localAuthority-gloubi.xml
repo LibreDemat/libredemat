@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="configurationBean_gloubi"
-    class="fr.cg95.cvq.service.authority.LocalAuthorityConfigurationBean" init-method="init">
+    class="org.libredemat.service.authority.LocalAuthorityConfigurationBean" init-method="init">
     <property name="name" value="gloubi" />
     <property name="sessionFactory">
       <ref bean="sessionFactory_gloubi" />
@@ -15,7 +15,7 @@
           <key>
             <ref bean="fakePaymentProviderService" />
           </key>
-          <bean class="fr.cg95.cvq.service.payment.PaymentServiceBean">
+          <bean class="org.libredemat.service.payment.PaymentServiceBean">
             <property name="broker" value="Régie de la ville de gloubi"></property>
             <property name="requestTypes">
               <list>
@@ -40,7 +40,7 @@
           <key>
             <ref bean="wynidPaymentProvider" />
           </key>
-          <bean class="fr.cg95.cvq.service.payment.PaymentServiceBean">
+          <bean class="org.libredemat.service.payment.PaymentServiceBean">
             <property name="broker" value="Wynid"></property>
             <property name="serviceProperties">
               <map>
@@ -66,7 +66,7 @@
           <key>
             <ref bean="spplusPaymentProvider" />
           </key>
-          <bean class="fr.cg95.cvq.service.payment.PaymentServiceBean">
+          <bean class="org.libredemat.service.payment.PaymentServiceBean">
             <property name="broker" value="Spplus"></property>
             <property name="serviceProperties">
               <map>
@@ -169,13 +169,13 @@
       <value>org.postgresql.Driver</value>
     </property>
     <property name="jdbcUrl">
-      <value>jdbc:postgresql://localhost:5432/capdemat_dummy</value>
+      <value>jdbc:postgresql://localhost:5432/libredemat_dummy</value>
     </property>
     <property name="user">
-      <value>capdemat</value>
+      <value>libredemat</value>
     </property>
     <property name="password">
-      <value>capdematpass</value>
+      <value>libredematpass</value>
     </property>
     <property name="acquireIncrement" value="3" />
     <property name="initialPoolSize" value="3" />

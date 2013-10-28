@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/hccr"
-  xmlns:hccr="http://www.cg95.fr/cvq/schema/hccr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/hccr"
+  xmlns:hccr="http://www.libredemat.org/schema/hccr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified"
 >
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" schemaLocation="../common/CVQCommonElements.xsd" />
+  <xs:import namespace="http://www.libredemat.org/schema/common" schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="HandicapCompensationChildRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de compensation du handicap (Enfant de moins de 20 ans)
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Handicap Compensation request (Less than 20 child)
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Compensation du handicap (Enfant de moins de 20 ans)
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Handicap Compensation request (Less than 20 child)
       </xs:documentation>
       <xs:appinfo>
@@ -137,10 +137,10 @@
               
             <xs:element name="HccrSubject" type="hccr:HccrSubjectType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant le sujet de la demande
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Sujet
                 </xs:documentation>
                 <xs:appinfo>
@@ -158,10 +158,10 @@
 
             <xs:element name="Father" type="hccr:HccrFather" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant le père du sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Père
                 </xs:documentation>
                 <xs:appinfo>
@@ -182,10 +182,10 @@
 
             <xs:element name="Mother" type="hccr:HccrMother" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant la mère du sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Mère
                 </xs:documentation>
                 <xs:appinfo>
@@ -206,10 +206,10 @@
 
             <xs:element name="AseReferent" type="hccr:HccrAseReferent" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant le référent ASE du sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Aide sociale à l'enfance
                 </xs:documentation>
                 <xs:appinfo>
@@ -230,10 +230,10 @@
 
             <xs:element name="Referent" type="hccr:HccrReferent">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant le référent du sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Référent du sujet
                 </xs:documentation>
                 <xs:appinfo>
@@ -251,10 +251,10 @@
 
             <xs:element name="FamilyDependents" type="hccr:HccrFamilyDependentType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les enfants et personnes à charge du référent
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Enfants et personnes à charge du référent
                  </xs:documentation>
                 <xs:appinfo>
@@ -274,10 +274,10 @@
 
             <xs:element name="Dwelling" type="hccr:HccrDwellingType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                  Informations conçernant l'habitation du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Habitation
                  </xs:documentation>
                 <xs:appinfo>
@@ -293,10 +293,10 @@
 
             <xs:element name="SocialSecurity" type="hccr:HccrSocialSecurityType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant la Sécurité Sociale du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Sécurité Sociale
                  </xs:documentation>
                 <xs:appinfo>
@@ -314,10 +314,10 @@
 
             <xs:element name="PaymentAgency" type="hccr:HccrPaymentAgencyType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant l'organisme payeur du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Organisme payeur
                  </xs:documentation>
                 <xs:appinfo>
@@ -335,10 +335,10 @@
 
             <xs:element name="Schooling" type="hccr:HccrSchoolingType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant la scolarité du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Scolarité
                  </xs:documentation>
                 <xs:appinfo>
@@ -356,10 +356,10 @@
 
             <xs:element name="Studies" type="hccr:HccrStudiesType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les études secondaires et supérieures du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Etudes
                  </xs:documentation>
                 <xs:appinfo>
@@ -377,10 +377,10 @@
 
             <xs:element name="Formation" type="hccr:HccrFormationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant la formation du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Formation
                  </xs:documentation>
                 <xs:appinfo>
@@ -398,10 +398,10 @@
 
             <xs:element name="ProfessionalStatus" type="hccr:HccrProfessionalStatusType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant la situation professionnelle sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Situation professionnelle
                  </xs:documentation>
                 <xs:appinfo>
@@ -419,10 +419,10 @@
 
             <xs:element name="Folders" type="hccr:HccrFoldersType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les dossiers du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Dossiers
                  </xs:documentation>
                 <xs:appinfo>
@@ -440,10 +440,10 @@
 
             <xs:element name="OtherFolders" type="hccr:HccrOtherFolderType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les autres dossiers du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autres dossiers
                  </xs:documentation>
                 <xs:appinfo>
@@ -462,10 +462,10 @@
 
             <xs:element name="Benefits" type="hccr:HccrBenefitsType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les prestations perçues par le sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Prestations
                  </xs:documentation>
                 <xs:appinfo>
@@ -483,10 +483,10 @@
 
             <xs:element name="OtherBenefits" type="hccr:HccrOtherBenefitType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les autres prestations du sujet
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autres prestations
                 </xs:documentation>
                 <xs:appinfo>
@@ -505,10 +505,10 @@
 
             <xs:element name="FamilyAssistance" type="hccr:HccrFamilyAssistanceType" minOccurs="0" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant l'aide d'un membre de la famille du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Membre de famille
                  </xs:documentation>
                 <xs:appinfo>
@@ -526,10 +526,10 @@
 
             <xs:element name="FamilyAssistanceMembers" type="hccr:HccrFamilyAssistanceMemberType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les membres de la famille du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Membre de famille
                  </xs:documentation>
                 <xs:appinfo>
@@ -548,10 +548,10 @@
 
             <xs:element name="HomeIntervention" type="hccr:HccrHomeInterventionType" minOccurs="0" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les interventions au domicile du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Intervention à domicile
                  </xs:documentation>
                 <xs:appinfo>
@@ -569,10 +569,10 @@
 
             <xs:element name="HomeIntervenants" type="hccr:HccrHomeIntervenantType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les intervenants au domicile du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Intervenants à domicile
                  </xs:documentation>
                 <xs:appinfo>
@@ -591,10 +591,10 @@
 
             <xs:element name="Care" type="hccr:HccrCareType" minOccurs="0" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les soins perçus par le sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Soins
                  </xs:documentation>
                 <xs:appinfo>
@@ -612,10 +612,10 @@
 
             <xs:element name="CareServices" type="hccr:HccrCareServiceType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les soins du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Profesionnel/Service de soins
                  </xs:documentation>
                 <xs:appinfo>
@@ -634,10 +634,10 @@
 
             <xs:element name="Facilities" type="hccr:HccrFacilitiesType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les aménagements du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Aménagements
                  </xs:documentation>
                 <xs:appinfo>
@@ -655,10 +655,10 @@
 
             <xs:element name="ProfessionalSupport" type="hccr:HccrProfessionalSupportType" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les évaluation et accompagnement par professionnels du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Professionels
                  </xs:documentation>
                 <xs:appinfo>
@@ -674,10 +674,10 @@
 
             <xs:element name="Professionals" type="hccr:HccrProfessionalType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les professionels
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Professionels
                  </xs:documentation>
                 <xs:appinfo>
@@ -696,10 +696,10 @@
 
             <xs:element name="SocialService" type="hccr:HccrSocialServiceType" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les services sociaux
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Service social ou association
                  </xs:documentation>
                 <xs:appinfo>
@@ -715,10 +715,10 @@
 
             <xs:element name="AdditionalFee" type="hccr:HccrAdditionalFeeType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant frais supplémentaires liés au handicap du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Frais supplémentaires liés au handicap
                  </xs:documentation>
                 <xs:appinfo>
@@ -734,10 +734,10 @@
 
             <xs:element name="Health" type="hccr:HccrHealthType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant la santé du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Santé
                  </xs:documentation>
                 <xs:appinfo>
@@ -755,10 +755,10 @@
 
             <xs:element name="ProjectRequests" type="hccr:HccrProjectRequestsType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les demandes du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Demandes
                  </xs:documentation>
                 <xs:appinfo>
@@ -776,10 +776,10 @@
 
             <xs:element name="ProjectWish" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les souhaits du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Souhaits
                  </xs:documentation>
                 <xs:appinfo>
@@ -804,10 +804,10 @@
 
             <xs:element name="ProjectNeeds" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les besoins du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Besoins
                  </xs:documentation>
                 <xs:appinfo>
@@ -832,10 +832,10 @@
 
             <xs:element name="ProjectComments" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations conçernant les observations complémentaires du sujet
                  </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Observations
                  </xs:documentation>
                 <xs:appinfo>
@@ -866,10 +866,10 @@
 
   <xs:complexType name="HccrSubjectType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations conçernant le sujet de la demande
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Sujet
       </xs:documentation>
     </xs:annotation>
@@ -877,10 +877,10 @@
         
       <xs:element name="SubjectBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de naissance du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -899,10 +899,10 @@
 
       <xs:element name="SubjectBirthCity" type="cvq:CityType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Ville de naissance du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Ville de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -919,10 +919,10 @@
 
       <xs:element name="SubjectBirthCountry">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pays de naissance du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pays de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -943,10 +943,10 @@
       <!-- CheckBox -->
       <xs:element name="SubjectParentalAuthorityHolder" type="hccr:HccrSubjectParentalAuthorityHolderType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Détenteur(s) de l'autorité parentale
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Détenteur(s) de l'autorité parentale
           </xs:documentation>
           <xs:appinfo>
@@ -968,13 +968,13 @@
 
   <xs:simpleType name="HccrSubjectParentalAuthorityHolderType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Détenteur(s) de l'autorité parentale
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Détenteur(s) de l'autorité parentale
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Father" value="Père"/>
         <enum key="Mother" value="Mère"/>
         <enum key="Other" value="Autre représentant légal"/>
@@ -989,10 +989,10 @@
 
   <xs:complexType name="HccrFather">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations conçernant le père du sujet
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Père
       </xs:documentation>
     </xs:annotation>
@@ -1000,10 +1000,10 @@
       <!-- A selectionner dans la liste des adultes du foyer -->
       <xs:element name="FatherLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du père du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -1020,10 +1020,10 @@
 
       <xs:element name="FatherFirstName" type="cvq:FirstNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénoms du père du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénoms
           </xs:documentation>
           <xs:appinfo>
@@ -1040,10 +1040,10 @@
 
       <xs:element name="FatherJob" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Profession du père du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Profession
           </xs:documentation>
           <xs:appinfo>
@@ -1065,10 +1065,10 @@
 
       <xs:element name="FatherActivityReduction" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Réduction d'activité du père du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Réduction d'activité
           </xs:documentation>
           <xs:appinfo>
@@ -1087,10 +1087,10 @@
 
       <xs:element name="FatherActivityReductionRatio" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Proportion de la réduction du père du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Proportion de la réduction
           </xs:documentation>
           <xs:appinfo>
@@ -1112,10 +1112,10 @@
 
   <xs:complexType name="HccrMother">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Information conçernant la mère du sujet
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Mère
       </xs:documentation>
     </xs:annotation>
@@ -1123,10 +1123,10 @@
       <!-- A selectionner dans la liste des adultes du foyer -->
       <xs:element name="MotherLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de la mère du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -1143,10 +1143,10 @@
 
       <xs:element name="MotherFirstName" type="cvq:FirstNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénoms de la mère du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénoms
           </xs:documentation>
           <xs:appinfo>
@@ -1163,10 +1163,10 @@
 
       <xs:element name="MotherJob" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Profession de la mère du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Profession
           </xs:documentation>
           <xs:appinfo>
@@ -1188,10 +1188,10 @@
 
       <xs:element name="MotherActivityReduction" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Réduction d'activité de la mère du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Réduction d'activité
           </xs:documentation>
           <xs:appinfo>
@@ -1210,10 +1210,10 @@
 
       <xs:element name="MotherActivityReductionRatio" type="xs:positiveInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Proportion de la réduction de la mère du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Proportion de la réduction
           </xs:documentation>
           <xs:appinfo>
@@ -1235,10 +1235,10 @@
 
   <xs:complexType name="HccrAseReferent">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations conçernant le référent ASE du sujet
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Aide sociale à l'enfance
       </xs:documentation>
     </xs:annotation>
@@ -1246,10 +1246,10 @@
 
       <xs:element name="AseReferentLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Nom du référent ASE du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -1266,10 +1266,10 @@
 
       <xs:element name="AseReferentDepartment" type="cvq:DepartmentCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département du référent ASE du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département
           </xs:documentation>
           <xs:appinfo>
@@ -1289,10 +1289,10 @@
 
   <xs:complexType name="HccrReferent">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Référent du sujet
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Référent du sujet
       </xs:documentation>
     </xs:annotation>
@@ -1300,10 +1300,10 @@
 
       <xs:element name="ReferentLastName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -1320,10 +1320,10 @@
 
       <xs:element name="ReferentFirstName" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénoms du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénoms
           </xs:documentation>
           <xs:appinfo>
@@ -1340,10 +1340,10 @@
 
       <xs:element name="ReferentTitle" type="cvq:TitleType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Civilité du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Civilité
           </xs:documentation>
           <xs:appinfo>
@@ -1365,10 +1365,10 @@
 
       <xs:element name="ReferentMaidenName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom marital du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom marital
           </xs:documentation>
           <xs:appinfo>
@@ -1388,10 +1388,10 @@
 
       <xs:element name="ReferentBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de naissance du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1407,10 +1407,10 @@
 
       <xs:element name="ReferentBirthCity" type="cvq:CityType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Ville de naissance du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Ville de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1427,10 +1427,10 @@
 
       <xs:element name="ReferentBirthCountry">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pays de naissance du référent du sujet
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pays de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1451,10 +1451,10 @@
 
       <xs:element name="ReferentFamilyStatus" type="cvq:FamilyStatusType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Situation de famille du référent
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Situation de famille
           </xs:documentation>
           <xs:appinfo>
@@ -1471,10 +1471,10 @@
 
       <xs:element name="ReferentFamilyDependents" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Enfants et personnes à charges du référent
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Enfants et personnes à charges du référent
           </xs:documentation>
           <xs:appinfo>
@@ -1496,10 +1496,10 @@
 
   <xs:complexType name="HccrFamilyDependentType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Personne à charge du sujet
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Personne à charge
       </xs:documentation>
     </xs:annotation>
@@ -1507,10 +1507,10 @@
 
       <xs:element name="ReferentFamilyDependentLastName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de la personne à charge du référent
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -1527,10 +1527,10 @@
 
       <xs:element name="ReferentFamilyDependentFirstName" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénom de la personne à charge du référent
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
           <xs:appinfo>
@@ -1547,10 +1547,10 @@
 
       <xs:element name="ReferentFamilyDependentBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de naissance de la personne à charge du référent
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
           <xs:appinfo>
@@ -1566,10 +1566,10 @@
 
       <xs:element name="ReferentFamilyDependentActualSituation" type="hccr:HccrReferentFamilyDependentActualSituationType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Situation actuelle de la personne à charge du référent
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Situation actuelle
           </xs:documentation>
           <xs:appinfo>
@@ -1587,13 +1587,13 @@
 
   <xs:simpleType name="HccrReferentFamilyDependentActualSituationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Situation actuelle de la personne à charge
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Situation actuelle
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Schooling" value="Scolarité" />
         <enum key="Learning" value="Apprentissage" />
         <enum key="MedicoSocial" value="Etablissement de soins ou médico-social" />
@@ -1608,10 +1608,10 @@
 
   <xs:complexType name="HccrDwellingType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Habitation
       </xs:documentation>
     </xs:annotation>
@@ -1619,10 +1619,10 @@
 
       <xs:element name="DwellingKind" type="hccr:HccrDwellingKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nature de l'habitation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nature de l'habitation
           </xs:documentation>
           <xs:appinfo>
@@ -1643,10 +1643,10 @@
 
       <xs:element name="DwellingPrecision" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -1674,10 +1674,10 @@
 
       <xs:element name="DwellingEstablishmentReception" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             La personne concernée par la demande est-elle accueillie dans un établissement social, médico-social ou sanitaire ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Accueil en établissement
           </xs:documentation>
           <xs:appinfo>
@@ -1696,10 +1696,10 @@
 
       <xs:element name="DwellingReceptionType" type="hccr:HccrDwellingReceptionKindType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Type d'accueil établissement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Type d'accueil établissement
           </xs:documentation>
           <xs:appinfo>
@@ -1718,10 +1718,10 @@
 
       <xs:element name="DwellingReceptionNaming" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Dénomination de l'établissement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Dénomination établissement
           </xs:documentation>
           <xs:appinfo>
@@ -1745,10 +1745,10 @@
 
       <xs:element name="DwellingReceptionAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse de l'établissement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse établissement
           </xs:documentation>
           <xs:appinfo>
@@ -1768,10 +1768,10 @@
 
       <xs:element name="DwellingSocialReception" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Accueil en établissement social
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Accueil social
           </xs:documentation>
           <xs:appinfo>
@@ -1790,10 +1790,10 @@
 
       <xs:element name="DwellingSocialReceptionNaming" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Dénomination de l'accueil social
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Dénomination
           </xs:documentation>
           <xs:appinfo>
@@ -1817,10 +1817,10 @@
 
       <xs:element name="DwellingSocialReceptionAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse l'accueil social
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -1843,13 +1843,13 @@
 
   <xs:simpleType name="HccrDwellingKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Nature de l'habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Nature de l'habitation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="PlaceOfResidence" value="Domicile" />
         <enum key="ThirdPartyDomicile" value="Domicile d'un tiers (famille, amis ...)" />
         <enum key="Other" value="Autre" />
@@ -1864,13 +1864,13 @@
 
   <xs:simpleType name="HccrDwellingReceptionKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Type d'accueil
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Type d'accueil
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Internship" value="Internat" />
         <enum key="Clerkship" value="Externat" />
       </xs:documentation>
@@ -1883,10 +1883,10 @@
 
   <xs:complexType name="HccrSocialSecurityType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Sécurité Sociale
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Sécurité Sociale
       </xs:documentation>
     </xs:annotation>
@@ -1894,10 +1894,10 @@
 
       <xs:element name="SocialSecurityMemberShipKind" type="hccr:HccrSocialSecurityMemberShipKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nature de l'affiliation à la sécurité social
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nature de l'affiliation
           </xs:documentation>
           <xs:appinfo>
@@ -1916,10 +1916,10 @@
 
       <xs:element name="SocialSecurityNumber" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Numéro de sécurité sociale
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro de sécurité sociale
           </xs:documentation>
           <xs:appinfo>
@@ -1944,10 +1944,10 @@
 
       <xs:element name="SocialSecurityAgencyName" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'organisme de sécurité social
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'organisme sécu
           </xs:documentation>
           <xs:appinfo>
@@ -1971,10 +1971,10 @@
 
       <xs:element name="SocialSecurityAgencyAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse de l'organisme de sécurité social
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse organisme sécu
           </xs:documentation>
           <xs:appinfo>
@@ -1997,13 +1997,13 @@
 
   <xs:simpleType name="HccrSocialSecurityMemberShipKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Nature de l'affiliation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Nature de l'affiliation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Insured" value="Assuré" />
         <enum key="Claimant" value="Ayant droit" />
         <enum key="NoMemberShip" value="Aucune affiliation à un organisme" />
@@ -2018,10 +2018,10 @@
 
   <xs:complexType name="HccrPaymentAgencyType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Organisme payeur
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Organisme payeur
       </xs:documentation>
     </xs:annotation>
@@ -2029,10 +2029,10 @@
 
       <xs:element name="PaymentAgencyBeneficiary" type="hccr:HccrPaymentAgencyBeneficiaryType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocataire
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocataire
           </xs:documentation>
           <xs:appinfo>
@@ -2053,10 +2053,10 @@
 
       <xs:element name="PaymentAgencyBeneficiaryNumber" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Numéro d'allocataire
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro d'allocataire
           </xs:documentation>
           <xs:appinfo>
@@ -2080,10 +2080,10 @@
 
       <xs:element name="PaymentAgencyName" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'organisme payeur de la sécu
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'organisme payeur sécu
           </xs:documentation>
           <xs:appinfo>
@@ -2107,10 +2107,10 @@
 
       <xs:element name="PaymentAgencyAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse de l'organisme payeur de la sécu
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -2133,13 +2133,13 @@
 
   <xs:simpleType name="HccrPaymentAgencyBeneficiaryType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Allocataire
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Allocataire
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="CAF" value="Allocataire de la CAF" />
         <enum key="MSA" value="Allocataire de la MSA" />
         <enum key="Other" value="Autre organisme" />
@@ -2156,10 +2156,10 @@
 
   <xs:complexType name="HccrSchoolingType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Scolarité
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Scolarité
       </xs:documentation>
     </xs:annotation>
@@ -2167,10 +2167,10 @@
 
       <xs:element name="SchoolingEnrolment" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Inscription scolaire
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Inscription scolaire
           </xs:documentation>
           <xs:appinfo>
@@ -2189,10 +2189,10 @@
 
       <xs:element name="SchoolingSchoolName" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'établissement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'établissement
           </xs:documentation>
           <xs:appinfo>
@@ -2217,10 +2217,10 @@
 
       <xs:element name="SchoolingSchoolAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -2240,10 +2240,10 @@
 
       <xs:element name="SchoolingSendToSchool" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Scolarisé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Scolarisé
           </xs:documentation>
           <xs:appinfo>
@@ -2262,10 +2262,10 @@
 
       <xs:element name="SchoolingAttendedGrade" type="cvq:SectionType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Classe fréquentée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Classe fréquentée
           </xs:documentation>
           <xs:appinfo>
@@ -2285,10 +2285,10 @@
 
       <xs:element name="SchoolingSpecializedGrade" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Orientation vers une classe spécialisée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Classe spécialisée
           </xs:documentation>
           <xs:appinfo>
@@ -2307,10 +2307,10 @@
 
       <xs:element name="SchoolingSpecializedGradeDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -2334,10 +2334,10 @@
 
       <xs:element name="SchoolingSchoolingKind" type="hccr:HccrSchoolingKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Mode de scolarité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Mode de scolarité
           </xs:documentation>
           <xs:appinfo>
@@ -2356,10 +2356,10 @@
 
       <xs:element name="SchoolingTime" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nombre d'heures
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre d'heures
           </xs:documentation>
           <xs:appinfo>
@@ -2384,10 +2384,10 @@
 
       <xs:element name="SchoolingHomeSchooling" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Scolarité à domicile
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Scolarité à domicile
           </xs:documentation>
           <xs:appinfo>
@@ -2403,10 +2403,10 @@
 
       <xs:element name="SchoolingPersonalizedSchoolingPlan" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Plan personnalisé de scolarisation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Plan personnalisé de scolarisation
           </xs:documentation>
           <xs:appinfo>
@@ -2422,10 +2422,10 @@
 
       <xs:element name="SchoolingHomeSchoolingKind" type="hccr:HccrHomeSchoolingKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Temps journalier passé à domicile
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Temps journalier passé à domicile
           </xs:documentation>
           <xs:appinfo>
@@ -2444,10 +2444,10 @@
 
       <xs:element name="SchoolingHomeSchoolingAccompanistLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -2467,10 +2467,10 @@
 
       <xs:element name="SchoolingHomeSchoolingAccompanistFirstName" type="cvq:FirstNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénoms
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénoms
           </xs:documentation>
           <xs:appinfo>
@@ -2490,10 +2490,10 @@
 
       <xs:element name="SchoolingHomeSchoolingAccompanistAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -2513,10 +2513,10 @@
 
       <xs:element name="SchoolingExtraCurricular" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             (Centre de loisirs, Centre de vacances, Halte garderie, Crèche, …)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prise en charge extra-scolaire
           </xs:documentation>
           <xs:appinfo>
@@ -2535,10 +2535,10 @@
 
       <xs:element name="SchoolingExtraCurricularDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             (Centre de loisirs, Centre de vacances, Halte garderie, Crèche, …)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prise en charge extra-scolaire
           </xs:documentation>
           <xs:appinfo>
@@ -2565,13 +2565,13 @@
 
   <xs:simpleType name="HccrSchoolingKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Mode de scolarité
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Mode de scolarité
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="FullTime" value="Temps pleins"/>
         <enum key="PartTime" value="Temps partiel"/>
       </xs:documentation>
@@ -2584,13 +2584,13 @@
 
   <xs:simpleType name="HccrHomeSchoolingKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Temps journalier passé à domicile
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Temps journalier passé à domicile
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Alone" value="Seul"/>
         <enum key="Accompanied" value="Avec un accompagnant"/>
       </xs:documentation>
@@ -2603,10 +2603,10 @@
 
   <xs:complexType name="HccrStudiesType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Etudes
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Etudes
       </xs:documentation>
     </xs:annotation>
@@ -2614,10 +2614,10 @@
 
       <xs:element name="StudiesHighSchool" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Suivez-vous actuellement des études secondaires ou supérieures ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Etudes secondaires ou supérieures
           </xs:documentation>
           <xs:appinfo>
@@ -2636,10 +2636,10 @@
 
       <xs:element name="StudiesHighSchoolGrade" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Classe ou formation préparée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Classe ou formation préparée
           </xs:documentation>
           <xs:appinfo>
@@ -2663,10 +2663,10 @@
 
       <xs:element name="StudiesHighSchoolName" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'établissement fréquenté
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'établissement fréquenté
           </xs:documentation>
           <xs:appinfo>
@@ -2690,10 +2690,10 @@
 
       <xs:element name="StudiesHighSchoolAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -2713,10 +2713,10 @@
 
       <xs:element name="StudiesAssistanceUnderDisability" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Bénéficiez-vous d'une aide au titre de votre handicap au sein de l'établissement d'enseignement ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide au titre du handicap
           </xs:documentation>
           <xs:appinfo>
@@ -2736,10 +2736,10 @@
 
       <xs:element name="StudiesAssistanceUnderDisabilityDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -2766,10 +2766,10 @@
 
   <xs:complexType name="HccrFormationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Formation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Formation
       </xs:documentation>
     </xs:annotation>
@@ -2777,10 +2777,10 @@
 
       <xs:element name="FormationStudiesLevel" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Niveau d'études
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Niveau d'études
           </xs:documentation>
           <xs:appinfo>
@@ -2801,10 +2801,10 @@
 
       <xs:element name="FormationDiploma" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Diplômes obtenus
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Diplômes obtenus
           </xs:documentation>
           <xs:appinfo>
@@ -2829,10 +2829,10 @@
 
       <xs:element name="FormationPreviousFormation" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Formations déjà suivies
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Formations déjà suivies
           </xs:documentation>
           <xs:appinfo>
@@ -2857,10 +2857,10 @@
 
       <xs:element name="FormationCurrentFormation" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Formations en cours
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Formations en cours
           </xs:documentation>
           <xs:appinfo>
@@ -2888,10 +2888,10 @@
 
   <xs:complexType name="HccrProfessionalStatusType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Situation professionelle
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Situation professionelle
       </xs:documentation>
     </xs:annotation>
@@ -2899,10 +2899,10 @@
 
       <xs:element name="ProfessionalStatusKind" type="hccr:HccrProfessionalStatusKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Situation professionnelle
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Situation professionnelle
           </xs:documentation>
           <xs:appinfo>
@@ -2924,10 +2924,10 @@
 
       <xs:element name="ProfessionalStatusDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Depuis le
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Depuis le
           </xs:documentation>
           <xs:appinfo>
@@ -2943,10 +2943,10 @@
 
       <xs:element name="ProfessionalStatusEnvironment" type="hccr:HccrProfessionalStatusEnvironmentType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Milieu
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Milieu
           </xs:documentation>
           <xs:appinfo>
@@ -2965,10 +2965,10 @@
 
       <xs:element name="ProfessionalStatusProfession" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Profession
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Profession
           </xs:documentation>
           <xs:appinfo>
@@ -2992,10 +2992,10 @@
 
       <xs:element name="ProfessionalStatusEmployerName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'employeur
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'employeur
           </xs:documentation>
           <xs:appinfo>
@@ -3015,10 +3015,10 @@
 
       <xs:element name="ProfessionalStatusAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -3038,10 +3038,10 @@
 
       <xs:element name="ProfessionalStatusRegisterAsUnemployed" type="xs:boolean" minOccurs="0" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Inscrit à l'ANPE
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Inscrit à l'ANPE
           </xs:documentation>
           <xs:appinfo>
@@ -3061,10 +3061,10 @@
 
       <xs:element name="ProfessionalStatusRegisterAsUnemployedDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Depuis le
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Depuis le
           </xs:documentation>
           <xs:appinfo>
@@ -3083,10 +3083,10 @@
 
       <xs:element name="ProfessionalStatusIndemnified" type="xs:boolean" minOccurs="0" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Indemnisé par l'ASSEDIC
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Indemnisé par l'ASSEDIC
           </xs:documentation>
           <xs:appinfo>
@@ -3106,10 +3106,10 @@
 
       <xs:element name="ProfessionalStatusIndemnifiedDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Depuis le
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Depuis le
           </xs:documentation>
           <xs:appinfo>
@@ -3128,10 +3128,10 @@
 
       <xs:element name="ProfessionalStatusElectiveFunction" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Exercez-vous une fonction élective ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Fonction élective
           </xs:documentation>
           <xs:appinfo>
@@ -3150,10 +3150,10 @@
 
       <xs:element name="ProfessionalStatusElectiveFunctionDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -3180,13 +3180,13 @@
 
   <xs:simpleType name="HccrProfessionalStatusKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Situation professionnelle
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Situation professionnelle
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Employee" value="Occupe un emploi" />
         <enum key="Unemployed" value="Chômeur" />
         <enum key="Jobless" value="Sans activité d'ordre professionnelle" />
@@ -3205,13 +3205,13 @@
 
   <xs:simpleType name="HccrProfessionalStatusEnvironmentType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Milieu
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Milieu
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Ordinary" value="Ordinaire" />
         <enum key="Adapted" value="Adapté" />
         <enum key="Protected" value="Protégé" />
@@ -3226,10 +3226,10 @@
 
   <xs:complexType name="HccrFoldersType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Dossiers
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Dossiers
       </xs:documentation>
     </xs:annotation>
@@ -3237,10 +3237,10 @@
 
       <xs:element name="FoldersMdph" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Dossier MDPH
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Dossier MDPH
           </xs:documentation>
           <xs:appinfo>
@@ -3259,10 +3259,10 @@
 
       <xs:element name="FoldersMdphNumber" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Numéro dossier MDPH
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro dossier MDPH
           </xs:documentation>
           <xs:appinfo>
@@ -3286,10 +3286,10 @@
 
       <xs:element name="FoldersMdphDepartment" type="cvq:DepartmentCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département
           </xs:documentation>
           <xs:appinfo>
@@ -3309,10 +3309,10 @@
 
       <xs:element name="FoldersCotorep" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Dossier COTOREP
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Dossier COTOREP
           </xs:documentation>
           <xs:appinfo>
@@ -3331,10 +3331,10 @@
 
       <xs:element name="FoldersCotorepNumber" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Numéro
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro
           </xs:documentation>
           <xs:appinfo>
@@ -3358,10 +3358,10 @@
 
       <xs:element name="FoldersCotorepDepartment" type="cvq:DepartmentCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département
           </xs:documentation>
           <xs:appinfo>
@@ -3381,10 +3381,10 @@
 
       <xs:element name="FoldersCdes" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Dossier CDES
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Dossier CDES
           </xs:documentation>
           <xs:appinfo>
@@ -3403,10 +3403,10 @@
 
       <xs:element name="FoldersCdesNumber" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Numéro
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro
           </xs:documentation>
           <xs:appinfo>
@@ -3430,10 +3430,10 @@
 
       <xs:element name="FoldersCdesDepartment" type="cvq:DepartmentCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département
           </xs:documentation>
           <xs:appinfo>
@@ -3453,10 +3453,10 @@
 
       <xs:element name="FoldersOtherFolders" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Autres dossiers
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Autres dossiers
           </xs:documentation>
           <xs:appinfo>
@@ -3479,10 +3479,10 @@
 
   <xs:complexType name="HccrOtherFolderType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Autres dossiers auprès d'organismes
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Autres dossiers auprès d'organismes
       </xs:documentation>
     </xs:annotation>
@@ -3490,10 +3490,10 @@
 
       <xs:element name="OtherFolderName">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'organisme
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'organisme
           </xs:documentation>
           <xs:appinfo>
@@ -3514,10 +3514,10 @@
 
       <xs:element name="OtherFolderNumber" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Numéro
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro
           </xs:documentation>
           <xs:appinfo>
@@ -3538,10 +3538,10 @@
 
       <xs:element name="OtherFolderDepartment" type="cvq:DepartmentCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département
           </xs:documentation>
           <xs:appinfo>
@@ -3561,10 +3561,10 @@
 
   <xs:complexType name="HccrBenefitsType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Prestations
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Prestations
       </xs:documentation>
     </xs:annotation>
@@ -3572,10 +3572,10 @@
 
       <xs:element name="BenefitsDisabilityRecognition" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Reconnaissance de votre handicap
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Reconnaissance de votre handicap
           </xs:documentation>
           <xs:appinfo>
@@ -3594,10 +3594,10 @@
 
       <xs:element name="BenefitsDisabilityRatio" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Taux
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Taux
           </xs:documentation>
           <xs:appinfo>
@@ -3622,10 +3622,10 @@
 
       <xs:element name="BenefitsDisabilityCard" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Carte d'invalidité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Carte d'invalidité
           </xs:documentation>
           <xs:appinfo>
@@ -3641,10 +3641,10 @@
 
       <xs:element name="BenefitsPainfulStandingCard" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Carte station debout pénible
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Carte station debout pénible
           </xs:documentation>
           <xs:appinfo>
@@ -3660,10 +3660,10 @@
 
       <xs:element name="BenefitsParkingCard" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Carte de stationnement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Carte de stationnement
           </xs:documentation>
           <xs:appinfo>
@@ -3679,10 +3679,10 @@
 
       <xs:element name="BenefitsDisabledWorkerRecognition" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Reconnaissance comme travailleur handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Reconnaissance comme travailleur handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -3698,10 +3698,10 @@
 
       <xs:element name="BenefitsProfessionalOrientation" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Orientation professionnelle
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Orientation professionnelle
           </xs:documentation>
           <xs:appinfo>
@@ -3720,10 +3720,10 @@
 
       <xs:element name="BenefitsProfessionalOrientationDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -3747,10 +3747,10 @@
 
       <xs:element name="BenefitsDisabledAdultAllocation" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation d'adulte handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation d'adulte handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -3766,10 +3766,10 @@
 
       <xs:element name="BenefitsIncreaseForIndependentLiving" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Complément de ressources - Majoration pour vie autonome
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Complément de ressources - Majoration pour vie autonome
           </xs:documentation>
           <xs:appinfo>
@@ -3785,10 +3785,10 @@
 
       <xs:element name="BenefitsEducationAllocationOfDisabledChildren" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation d'éducation de l'enfant handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation d'éducation de l'enfant handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -3804,10 +3804,10 @@
 
       <xs:element name="BenefitsEducationOfDisabledChildren" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Complément d'allocation d'éducation de l'enfant handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Complément d'allocation d'éducation de l'enfant handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -3826,10 +3826,10 @@
 
       <xs:element name="BenefitsEducationOfDisabledChildrenDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -3853,10 +3853,10 @@
 
       <xs:element name="BenefitsSupplementForSingleParents" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Majoration pour parent isolé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Majoration pour parent isolé
           </xs:documentation>
           <xs:appinfo>
@@ -3872,10 +3872,10 @@
 
       <xs:element name="BenefitsThirdPersonCompensatoryAllowance" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation compensatrice tierce personne
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation compensatrice tierce personne
           </xs:documentation>
           <xs:appinfo>
@@ -3891,10 +3891,10 @@
 
       <xs:element name="BenefitsThirdPartyCompensatoryAllowance" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation compensatrice tierce personne
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation compensatrice tierce personne
           </xs:documentation>
           <xs:appinfo>
@@ -3910,10 +3910,10 @@
 
       <xs:element name="BenefitsCompensatoryAllowanceForExpenses" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation compensatrice pour frais professionnels
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation compensatrice pour frais professionnels
           </xs:documentation>
           <xs:appinfo>
@@ -3929,10 +3929,10 @@
 
       <xs:element name="BenefitsDisabilityCompensation" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prestation de compensation du handicap
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prestation de compensation du handicap
           </xs:documentation>
           <xs:appinfo>
@@ -3948,10 +3948,10 @@
 
       <xs:element name="BenefitsDisabilityPension" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pension d'invalidité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pension d'invalidité
           </xs:documentation>
           <xs:appinfo>
@@ -3970,10 +3970,10 @@
 
       <xs:element name="BenefitsDisabilityPensionCategory" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Catégorie
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Catégorie
           </xs:documentation>
           <xs:appinfo>
@@ -3997,10 +3997,10 @@
 
       <xs:element name="BenefitsWorkAccidentAnnuity" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Rente accident du travail
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Rente accident du travail
           </xs:documentation>
           <xs:appinfo>
@@ -4019,10 +4019,10 @@
 
       <xs:element name="BenefitsWorkAccidentAnnuityRatio" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Taux
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Taux
           </xs:documentation>
           <xs:appinfo>
@@ -4047,10 +4047,10 @@
 
       <xs:element name="BenefitsSocialWelfare" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Revenu minimum d'insertion (RMI)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Revenu minimum d'insertion (RMI)
           </xs:documentation>
           <xs:appinfo>
@@ -4066,10 +4066,10 @@
 
       <xs:element name="BenefitsUnemploymentBenefits" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Indemnités de chômage
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Indemnités de chômage
           </xs:documentation>
           <xs:appinfo>
@@ -4085,10 +4085,10 @@
 
       <xs:element name="BenefitsDailyAllowances" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Indemnités journalières
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Indemnités journalières
           </xs:documentation>
           <xs:appinfo>
@@ -4104,10 +4104,10 @@
 
       <xs:element name="BenefitsThirdPartySupplement" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Majoration tierce personne (d'un régime d'assurance maladie)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Majoration tierce personne (d'un régime d'assurance maladie)
           </xs:documentation>
           <xs:appinfo>
@@ -4123,10 +4123,10 @@
 
       <xs:element name="BenefitsSupportedByAnInstitution" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prise en charge dans un établissement ou service spécialisé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prise en charge dans un établissement ou service spécialisé
           </xs:documentation>
           <xs:appinfo>
@@ -4145,10 +4145,10 @@
 
       <xs:element name="BenefitsSupportedByAnInstitutionDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4172,10 +4172,10 @@
 
       <xs:element name="BenefitsOtherBenefits" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Autres prestations
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Autres prestations
           </xs:documentation>
           <xs:appinfo>
@@ -4197,20 +4197,20 @@
 
   <xs:complexType name="HccrOtherBenefitType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Autre prestation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Autre prestation
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="OtherBenefitName" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de la prestation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de la prestation
           </xs:documentation>
           <xs:appinfo>
@@ -4233,10 +4233,10 @@
 
   <xs:complexType name="HccrFamilyAssistanceType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Aide membre de la famille
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Aide membre de la famille
       </xs:documentation>
     </xs:annotation>
@@ -4244,10 +4244,10 @@
 
       <xs:element name="IsFamilyAssistance" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide membre de la famille
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide membre de la famille
           </xs:documentation>
           <xs:appinfo>
@@ -4268,10 +4268,10 @@
 
   <xs:complexType name="HccrFamilyAssistanceMemberType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Aide d'un ou plusieurs membres de votre famille
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Aide membre de famille
       </xs:documentation>
     </xs:annotation>
@@ -4279,10 +4279,10 @@
 
       <xs:element name="FamilyAssistanceMemberRelationship" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Lien de parenté
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Lien de parenté
           </xs:documentation>
           <xs:appinfo>
@@ -4304,10 +4304,10 @@
 
       <xs:element name="FamilyAssistanceMemberLastName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -4324,10 +4324,10 @@
 
       <xs:element name="FamilyAssistanceMemberFirstName" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénoms
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénoms
           </xs:documentation>
           <xs:appinfo>
@@ -4347,10 +4347,10 @@
 
   <xs:complexType name="HccrHomeInterventionType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Intervention à domicile
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Intervention à domicile
       </xs:documentation>
     </xs:annotation>
@@ -4358,10 +4358,10 @@
 
       <xs:element name="HomeInterventionHomeIntervenant" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Intervenant à domicile
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Intervenant à domicile
           </xs:documentation>
           <xs:appinfo>
@@ -4382,10 +4382,10 @@
 
   <xs:complexType name="HccrHomeIntervenantType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Intervenant à domicile
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Intervenant(s) à domicile
       </xs:documentation>
     </xs:annotation>
@@ -4393,10 +4393,10 @@
 
       <xs:element name="HomeIntervenantKind" type="hccr:HccrHomeIntervenantKindType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Statut de l'intervenant
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Statut de l'intervenant
           </xs:documentation>
           <xs:appinfo>
@@ -4415,10 +4415,10 @@
 
       <xs:element name="HomeIntervenantDetails">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4445,13 +4445,13 @@
 
   <xs:simpleType name="HccrHomeIntervenantKindType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Statut de l'intervenant
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Statut de l'intervenant
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Carer" value="Auxiliaire de vie" />
         <enum key="HomeHelp" value="Aide ménagère" />
         <enum key="Other" value="Autre" />
@@ -4466,10 +4466,10 @@
 
   <xs:complexType name="HccrCareType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Profesionnel/Service de soins
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Soins
       </xs:documentation>
     </xs:annotation>
@@ -4477,10 +4477,10 @@
 
       <xs:element name="CareCareServices" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Profesionnel/Service de soins
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Profesionnel/Service de soins
           </xs:documentation>
           <xs:appinfo>
@@ -4501,10 +4501,10 @@
 
   <xs:complexType name="HccrCareServiceType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Professionel/Service de soins
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Professionel/Service de soins
       </xs:documentation>
     </xs:annotation>
@@ -4512,10 +4512,10 @@
 
       <xs:element name="CareServiceKind" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             (Aide soignant, infirmière, …)
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Statut de l'intervenant
           </xs:documentation>
           <xs:appinfo>
@@ -4531,10 +4531,10 @@
 
       <xs:element name="CareServiceCareServiceEmployer" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Employeur direct
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Employeur direct
           </xs:documentation>
           <xs:appinfo>
@@ -4553,10 +4553,10 @@
 
       <xs:element name="CareServiceProviderName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du prestataire
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom du prestataire
           </xs:documentation>
           <xs:appinfo>
@@ -4576,10 +4576,10 @@
 
       <xs:element name="CareServiceProviderAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -4602,10 +4602,10 @@
 
  <xs:complexType name="HccrFacilitiesType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Aménagements
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Aménagements
       </xs:documentation>
     </xs:annotation>
@@ -4613,10 +4613,10 @@
 
       <xs:element name="FacilitiesHousing" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aménagement de logement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aménagement de logement
           </xs:documentation>
           <xs:appinfo>
@@ -4635,10 +4635,10 @@
 
       <xs:element name="FacilitiesHousingDetails" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4662,10 +4662,10 @@
 
       <xs:element name="FacilitiesTechnicalAssistance" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide technique
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide technique
           </xs:documentation>
           <xs:appinfo>
@@ -4684,10 +4684,10 @@
 
       <xs:element name="FacilitiesTechnicalAssistanceDetails" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4711,10 +4711,10 @@
 
       <xs:element name="FacilitiesCustomCar" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aménagement de véhicule
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aménagement de véhicule
           </xs:documentation>
           <xs:appinfo>
@@ -4733,10 +4733,10 @@
 
       <xs:element name="FacilitiesCustomCarDetails">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4760,10 +4760,10 @@
 
       <xs:element name="FacilitiesAnimalAid" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide animalière
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide animalière
           </xs:documentation>
           <xs:appinfo>
@@ -4782,10 +4782,10 @@
 
       <xs:element name="FacilitiesAnimalAidDetails">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4809,10 +4809,10 @@
 
       <xs:element name="FacilitiesSpecializedTransport" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Transport spécialisé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Transport spécialisé
           </xs:documentation>
           <xs:appinfo>
@@ -4831,10 +4831,10 @@
 
       <xs:element name="FacilitiesSpecializedTransportDetails">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>
@@ -4861,10 +4861,10 @@
 
   <xs:complexType name="HccrProfessionalSupportType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Accompagnement professionnels
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Accompagnement professionnels
       </xs:documentation>
     </xs:annotation>
@@ -4872,10 +4872,10 @@
 
       <xs:element name="ProfessionalSupportProfessionals" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Accompagnement professionnels
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Accompagnement professionnels
           </xs:documentation>
           <xs:appinfo>
@@ -4894,10 +4894,10 @@
 
       <xs:element name="ProfessionalSupportDealsWithSameProfessional" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Demande traitée par même professionnels
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Demande traitée par même professionnels
           </xs:documentation>
           <xs:appinfo>
@@ -4919,10 +4919,10 @@
 
   <xs:complexType name="HccrProfessionalType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Professionnel
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Professionnel
       </xs:documentation>
     </xs:annotation>
@@ -4930,10 +4930,10 @@
 
       <xs:element name="ProfessionalLastName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -4950,10 +4950,10 @@
 
       <xs:element name="ProfessionalFirstName" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénoms
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénoms
           </xs:documentation>
           <xs:appinfo>
@@ -4970,10 +4970,10 @@
 
       <xs:element name="ProfessionalAddress" type="cvq:AddressType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse
           </xs:documentation>
           <xs:appinfo>
@@ -4993,10 +4993,10 @@
 
   <xs:complexType name="HccrSocialServiceType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Service social ou association
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Service social ou association
       </xs:documentation>
     </xs:annotation>
@@ -5004,10 +5004,10 @@
 
       <xs:element name="SocialServiceSupport" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Suivi par un service social ou une association
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Suivi par un service social ou une association
           </xs:documentation>
           <xs:appinfo>
@@ -5026,10 +5026,10 @@
 
       <xs:element name="SocialServiceName" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom du service social ou de l'association
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom service social assoc
           </xs:documentation>
           <xs:appinfo>
@@ -5053,10 +5053,10 @@
 
       <xs:element name="SocialServiceAddress" type="cvq:AddressType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Adresse du service social ou de l'association
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Adresse service social assoc
           </xs:documentation>
           <xs:appinfo>
@@ -5079,10 +5079,10 @@
 
   <xs:complexType name="HccrAdditionalFeeType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Frais supplémentaires liés au handicap
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Frais supplémentaires liés au handicap
       </xs:documentation>
     </xs:annotation>
@@ -5090,10 +5090,10 @@
 
       <xs:element name="AdditionalFeeKind">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nature des frais
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nature des frais
           </xs:documentation>
           <xs:appinfo>
@@ -5114,10 +5114,10 @@
 
       <xs:element name="AdditionalFeeCost">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Coût
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Coût
           </xs:documentation>
           <xs:appinfo>
@@ -5139,10 +5139,10 @@
 
       <xs:element name="AdditionalFeePeriodicity">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Périodicité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Périodicité
           </xs:documentation>
           <xs:appinfo>
@@ -5166,10 +5166,10 @@
 
   <xs:complexType name="HccrHealthType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Santé
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Santé
       </xs:documentation>
     </xs:annotation>
@@ -5177,10 +5177,10 @@
 
       <xs:element name="HealthFollowedByDoctor" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Etes vous suivi par un médecin généraliste et/ou spécialiste ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Suivi médecin
           </xs:documentation>
           <xs:appinfo>
@@ -5199,10 +5199,10 @@
 
       <xs:element name="HealthDoctorLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom médecin
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom médecin
           </xs:documentation>
           <xs:appinfo>
@@ -5222,10 +5222,10 @@
 
       <xs:element name="HealthDoctorFirstName" type="cvq:FirstNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénom médecin
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom médecin
           </xs:documentation>
           <xs:appinfo>
@@ -5245,10 +5245,10 @@
 
       <xs:element name="HealthFollowedByProfessional" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Etes vous suivi par un professionnel ou un service de santé ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Suivi professionnel ou service de santé
           </xs:documentation>
           <xs:appinfo>
@@ -5267,10 +5267,10 @@
 
       <xs:element name="HealthProfessionalLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom suivi professionnel
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom suivi professionnel
           </xs:documentation>
           <xs:appinfo>
@@ -5290,10 +5290,10 @@
 
       <xs:element name="HealthProfessionalFirstName" type="cvq:FirstNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prénom suivi professionnel
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom suivi professionnel
           </xs:documentation>
           <xs:appinfo>
@@ -5313,10 +5313,10 @@
 
       <xs:element name="HealthFollowedByHospital" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Etes vous suivi par un établissement hospitalier ?
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Suivi établissement hospitalier
           </xs:documentation>
           <xs:appinfo>
@@ -5335,10 +5335,10 @@
 
       <xs:element name="HealthHospitalName" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom établissement hospitalier
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom établissement hospitalier
           </xs:documentation>
           <xs:appinfo>
@@ -5365,10 +5365,10 @@
 
  <xs:complexType name="HccrProjectRequestsType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demandes
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Demandes
       </xs:documentation>
     </xs:annotation>
@@ -5376,10 +5376,10 @@
 
       <xs:element name="ProjectRequestsHandicapRecognition" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Reconnaissance de ma situation de handicap
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Reconnaissance de ma situation de handicap
           </xs:documentation>
           <xs:appinfo>
@@ -5395,10 +5395,10 @@
 
       <xs:element name="ProjectRequestsDisabilityCard" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Carte d'invalidité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Carte d'invalidité
           </xs:documentation>
           <xs:appinfo>
@@ -5414,10 +5414,10 @@
 
       <xs:element name="ProjectRequestsDisabledPriorityCard" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Carte priorité pour personne handicapée
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Carte priorité pour personne handicapée
           </xs:documentation>
           <xs:appinfo>
@@ -5433,10 +5433,10 @@
 
       <xs:element name="ProjectRequestsEuropeanParkingCard" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Carte européenne de stationnement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Carte européenne de stationnement
           </xs:documentation>
           <xs:appinfo>
@@ -5452,10 +5452,10 @@
 
       <xs:element name="ProjectRequestsDisabledAdultAllowance" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation adulte handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation adulte handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -5471,10 +5471,10 @@
 
       <xs:element name="ProjectRequestsIncreaseForIndependentLiving" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Complément de ressources - Majoration pour vie autonome
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Complément de ressources - Majoration pour vie autonome
           </xs:documentation>
           <xs:appinfo>
@@ -5490,10 +5490,10 @@
 
       <xs:element name="ProjectRequestsEducationAllocationOfDisabledChildren" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Allocation d'éducation de l'enfant handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Allocation d'éducation de l'enfant handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -5509,10 +5509,10 @@
 
       <xs:element name="ProjectRequestsACTPRenewal" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Renouvellement de l'ACTP
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Renouvellement de l'ACTP
           </xs:documentation>
           <xs:appinfo>
@@ -5528,10 +5528,10 @@
 
       <xs:element name="ProjectRequestsThirdPartyHelp" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide d'une tièrce personne dans la vie quotidienne
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide d'une tièrce personne dans la vie quotidienne
           </xs:documentation>
           <xs:appinfo>
@@ -5547,10 +5547,10 @@
 
       <xs:element name="ProjectRequestsFreePensionMembership" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Affiliation gratuite à l'assurance vieillesse
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Affiliation gratuite à l'assurance vieillesse
           </xs:documentation>
           <xs:appinfo>
@@ -5566,10 +5566,10 @@
 
       <xs:element name="ProjectRequestsTechnicalHelp" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide technique, matérielle ou d'un équipement particulier
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide technique, matérielle ou d'un équipement particulier
           </xs:documentation>
           <xs:appinfo>
@@ -5585,10 +5585,10 @@
 
       <xs:element name="ProjectRequestsHousingFacilities" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aménagement du logement
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aménagement du logement
           </xs:documentation>
           <xs:appinfo>
@@ -5604,10 +5604,10 @@
 
       <xs:element name="ProjectRequestsCustomCar" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aménagement du véhicule
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aménagement du véhicule
           </xs:documentation>
           <xs:appinfo>
@@ -5623,10 +5623,10 @@
 
       <xs:element name="ProjectRequestsAssistance" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide animalière
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide animalière
           </xs:documentation>
           <xs:appinfo>
@@ -5642,10 +5642,10 @@
 
       <xs:element name="ProjectRequestsTransportCostAllocation" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide pour faire face aux surcoûts de transport
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide pour faire face aux surcoûts de transport
           </xs:documentation>
           <xs:appinfo>
@@ -5661,10 +5661,10 @@
 
       <xs:element name="ProjectRequestsDisabilityCostAllocation" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Aide pour faire face à des dépenses spécifiques ou exeptionnelles dues à mon handicap
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Aide pour faire face à des dépenses spécifiques ou exeptionnelles dues à mon handicap
           </xs:documentation>
           <xs:appinfo>
@@ -5680,10 +5680,10 @@
 
       <xs:element name="ProjectRequestsDisabledWorkerRecognition" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Reconnaissance de la qualité de travailleur handicapé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Reconnaissance de la qualité de travailleur handicapé
           </xs:documentation>
           <xs:appinfo>
@@ -5699,10 +5699,10 @@
 
       <xs:element name="ProjectRequestsProfessionalOrientation" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Orientation professionnelle
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Orientation professionnelle
           </xs:documentation>
           <xs:appinfo>
@@ -5721,10 +5721,10 @@
 
       <xs:element name="ProjectRequestsOrdinaryWorking" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Milieu ordinnaire de travail
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Milieu ordinnaire de travail
           </xs:documentation>
           <xs:appinfo>
@@ -5743,10 +5743,10 @@
 
       <xs:element name="ProjectRequestsShelteredWork" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Milieu protégé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Milieu protégé
           </xs:documentation>
           <xs:appinfo>
@@ -5765,10 +5765,10 @@
 
       <xs:element name="ProjectRequestsVocationalTraining" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Formation professionnelle
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Formation professionnelle
           </xs:documentation>
           <xs:appinfo>
@@ -5787,10 +5787,10 @@
 
       <xs:element name="ProjectRequestsInstitutionSupport" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Prise en charge par un établissement ou service spécialisé
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prise en charge par un établissement ou service spécialisé
           </xs:documentation>
           <xs:appinfo>
@@ -5806,10 +5806,10 @@
 
       <xs:element name="ProjectRequestsOther" type="xs:boolean" default="false" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Autre
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Autre
           </xs:documentation>
           <xs:appinfo>
@@ -5828,10 +5828,10 @@
 
       <xs:element name="ProjectRequestsOtherDetails" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Préciser
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Préciser
           </xs:documentation>
           <xs:appinfo>

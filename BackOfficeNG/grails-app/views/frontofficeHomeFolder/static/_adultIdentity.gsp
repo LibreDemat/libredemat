@@ -3,11 +3,11 @@
 </a>
 <dl>
   <dt>${message(code:'homeFolder.adult.property.title')} : </dt>
-  <dd><g:capdematEnumToField var="${adult.title}" i18nKeyPrefix="homeFolder.adult.title" /></dd>
+  <dd><g:libredematEnumToField var="${adult.title}" i18nKeyPrefix="homeFolder.adult.title" /></dd>
   <dt>${message(code:'homeFolder.individual.property.lastName')} : </dt>
   <dd>${adult.lastName}</dd>
   <dt>${message(code:'homeFolder.adult.property.familyStatus')} : </dt>
-  <dd><g:capdematEnumToField var="${adult.familyStatus}" i18nKeyPrefix="homeFolder.adult.familyStatus" /></dd>
+  <dd><g:libredematEnumToField var="${adult.familyStatus}" i18nKeyPrefix="homeFolder.adult.familyStatus" /></dd>
   <dt>${message(code:'homeFolder.adult.property.maidenName')} : </dt>
   <dd>${adult.maidenName}</dd>
   <dt>${message(code:'homeFolder.individual.property.firstName')} : </dt>

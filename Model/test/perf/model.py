@@ -3,14 +3,14 @@ from net.grinder.script import Test
 from junit.framework import TestSuite
 from junit.framework import TestResult
 
-from fr.cg95.cvq.service.authority import LocalReferentialServiceTest
-from fr.cg95.cvq.service.authority import CategoryServiceTest
-from fr.cg95.cvq.service.users import DocumentServiceTest
-from fr.cg95.cvq.service.users import RequestServiceTest
-from fr.cg95.cvq.service.users import HomeFolderModificationRequestServiceTest
-from fr.cg95.cvq.service.ecitizen import VoCardRequestServiceTest
-from fr.cg95.cvq.service.election import ElectoralRollRegistrationRequestServiceTest
-from fr.cg95.cvq.external import FakeExternalServiceTest
+from org.libredemat.service.authority import LocalReferentialServiceTest
+from org.libredemat.service.authority import CategoryServiceTest
+from org.libredemat.service.users import DocumentServiceTest
+from org.libredemat.service.users import RequestServiceTest
+from org.libredemat.service.users import HomeFolderModificationRequestServiceTest
+from org.libredemat.service.ecitizen import VoCardRequestServiceTest
+from org.libredemat.service.election import ElectoralRollRegistrationRequestServiceTest
+from org.libredemat.external import FakeExternalServiceTest
 
 class TestRunner:
     def __call__(self):

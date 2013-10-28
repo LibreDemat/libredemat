@@ -16,7 +16,7 @@
             <select id="autreMembreBureau.${collectionIndex}.roleMembre" name="autreMembreBureau[${collectionIndex}].roleMembre" class="required  validate-not-first ${rqt.stepStates['bureau'].invalidFields.contains('autreMembreBureau['+collectionIndex+'].roleMembre') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.roleMembre.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['TRESORIER','SECRETAIRE']}">
-                <option value="${it}" ${it == currentCollectionItem?.roleMembre?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="sagr.property.roleMembre" /></option>
+                <option value="${it}" ${it == currentCollectionItem?.roleMembre?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="sagr.property.roleMembre" /></option>
               </g:each>
             </select>
             

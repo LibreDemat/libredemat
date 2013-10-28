@@ -2,15 +2,15 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/capdemat/adc"
-                  xmlns:tns="http://www.capwebct.fr/capdemat/adc"
+                  xmlns:schema="http://www.libredemat.org/adc"
+                  xmlns:tns="http://www.libredemat.org/adc"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/capdemat/adc">
+                  targetNamespace="http://www.libredemat.org/adc">
    <wsdl:types>
-      <xs:schema xmlns:adc="http://www.capwebct.fr/capdemat/adc"
+      <xs:schema xmlns:adc="http://www.libredemat.org/adc"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 xmlns:common="http://www.cg95.fr/cvq/schema/common"
-                 targetNamespace="http://www.capwebct.fr/capdemat/adc"
+                 xmlns:common="http://www.libredemat.org/schema/common"
+                 targetNamespace="http://www.libredemat.org/adc"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -52,7 +52,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="AddDocumentCertificate">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/capdemat/adc/AddDocumentCertificate"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/adc/AddDocumentCertificate"/>
          <wsdl:input name="AddDocumentCertificateInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

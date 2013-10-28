@@ -13,7 +13,7 @@
         <img src="${resource(dir:'images/icons',file:'mime_' + (document.isPDF() ? 'pdf' : 'img') + '.png')}" />
       </dt>
       <dd>
-        <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+        <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
         <g:if test="${document.ecitizenNote}">
           <p>${message(code:'document.header.description')} : ${document.ecitizenNote}</p>
         </g:if>

@@ -1,15 +1,15 @@
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestActionType;
-import fr.cg95.cvq.business.request.RequestState;
-import fr.cg95.cvq.business.users.Individual
-import fr.cg95.cvq.dao.request.IRequestDAO
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.impl.RequestActionService;
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.service.users.external.IExternalHomeFolderService
-import fr.cg95.cvq.oauth2.InsufficientScopeException
-import fr.cg95.cvq.service.request.IRequestActionService
-import fr.cg95.cvq.business.users.TitleType
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestActionType;
+import org.libredemat.business.request.RequestState;
+import org.libredemat.business.users.Individual
+import org.libredemat.dao.request.IRequestDAO
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.impl.RequestActionService;
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.service.users.external.IExternalHomeFolderService
+import org.libredemat.oauth2.InsufficientScopeException
+import org.libredemat.service.request.IRequestActionService
+import org.libredemat.business.users.TitleType
 
 import grails.converters.JSON
 

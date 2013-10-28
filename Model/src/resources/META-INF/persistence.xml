@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-    <persistence-unit name="capdematPersistenceUnit" 
+    <persistence-unit name="libredematPersistenceUnit" 
                       transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="hibernate.show_sql" value="false" />
@@ -9,9 +9,9 @@
             <property name="hibernate.connection.driver_class" 
                       value="org.postgresql.Driver" />
             <property name="hibernate.connection.url" 
-                      value="jdbc:postgresql://localhost:5432/capdemat_dummy" />
-            <property name="hibernate.connection.username" value="capdemat" />
-            <property name="hibernate.connection.password" value="capdematpass"/>
+                      value="jdbc:postgresql://localhost:5432/libredemat_dummy" />
+            <property name="hibernate.connection.username" value="libredemat" />
+            <property name="hibernate.connection.password" value="libredematpass"/>
  
             <property name="hibernate.dialect" 
                       value="org.hibernate.dialect.PostgreSQLDialect" />

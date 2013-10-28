@@ -27,8 +27,8 @@
       </dd>
     
       <dt class="required"><g:message code="hccr.property.referentFamilyDependentActualSituation.label" /> * : </dt>
-      <dd id="familyDependents[${listSize - 1 - index}].referentFamilyDependentActualSituation" class="action-editField validate-capdematEnum required-true i18n-hccr.property.referentFamilyDependentActualSituation javatype-fr.cg95.cvq.business.request.social.HccrReferentFamilyDependentActualSituationType" >
-        <g:capdematEnumToField var="${it?.referentFamilyDependentActualSituation}" i18nKeyPrefix="hccr.property.referentFamilyDependentActualSituation" />
+      <dd id="familyDependents[${listSize - 1 - index}].referentFamilyDependentActualSituation" class="action-editField validate-libredematEnum required-true i18n-hccr.property.referentFamilyDependentActualSituation javatype-org.libredemat.business.request.social.HccrReferentFamilyDependentActualSituationType" >
+        <g:libredematEnumToField var="${it?.referentFamilyDependentActualSituation}" i18nKeyPrefix="hccr.property.referentFamilyDependentActualSituation" />
       </dd>
     
   </dl>

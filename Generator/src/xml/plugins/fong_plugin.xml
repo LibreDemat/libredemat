@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="fong" classname="fr.cg95.cvq.generator.plugins.fo.FoPlugin">
+<plugin id="fong" classname="org.libredemat.generator.plugins.fo.FoPlugin">
 
   <documentation>
-    <element parent="element" source="http://www.cg95.fr/cvq/schema/shortdesc"/>
+    <element parent="element" source="http://www.libredemat.org/schema/shortdesc"/>
     <element parent="*" source="*"/>
   </documentation>
 
@@ -15,11 +15,11 @@
   <configuration>
     <properties
       outputdir="./BackOfficeNG/grails-app/views/frontofficeRequestType/" 
-      edittemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/fo/edit.gsp.tpl"
-      steptemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/fo/step.gsp.tpl"
-      collectiontemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/fo/collection.gsp.tpl"
-      validationtemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/fo/validation.gsp.tpl"
-      summarytemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/fo/summary.gsp.tpl"
+      edittemplate="./Generator/src/java/org/libredemat/generator/plugins/fo/edit.gsp.tpl"
+      steptemplate="./Generator/src/java/org/libredemat/generator/plugins/fo/step.gsp.tpl"
+      collectiontemplate="./Generator/src/java/org/libredemat/generator/plugins/fo/collection.gsp.tpl"
+      validationtemplate="./Generator/src/java/org/libredemat/generator/plugins/fo/validation.gsp.tpl"
+      summarytemplate="./Generator/src/java/org/libredemat/generator/plugins/fo/summary.gsp.tpl"
     />
   </configuration>
   

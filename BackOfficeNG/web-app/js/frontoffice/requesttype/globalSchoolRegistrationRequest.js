@@ -1,10 +1,10 @@
 ;(function(request) {
-  var zct = zenexity.capdemat.tools
+  var zct = zenexity.libredemat.tools
     , yud = YAHOO.util.Dom
     , yus = YAHOO.util.Selector
 
   var initSchools = function() {
-    var prefix = zenexity.capdemat.contextPath + '/frontoffice/technocarte'
+    var prefix = zenexity.libredemat.contextPath + '/frontoffice/technocarte'
 
     var sectorsURL = function() {
       return prefix
@@ -31,4 +31,4 @@
     }
   }
 
-}(zenexity.capdemat.tools.namespace('zenexity.capdemat.fong.requesttype.GlobalSchoolRegistrationRequest')))
+}(zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype.GlobalSchoolRegistrationRequest')))

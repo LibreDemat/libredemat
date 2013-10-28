@@ -1,19 +1,19 @@
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/rpar"
-  xmlns:rpar="http://www.cg95.fr/cvq/schema/rpar" 
+<xs:schema targetNamespace="http://www.libredemat.org/schema/rpar"
+  xmlns:rpar="http://www.libredemat.org/schema/rpar" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="RenewalPerischoolActivitiesRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Renouvellement des inscriptions à la restauration et à l'accueil périscolaire
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Renouvellement des inscriptions à la restauration et à l'accueil périscolaire
       </xs:documentation>
       <xs:appinfo>
@@ -45,10 +45,10 @@
           
             <xs:element name="EstRestauration" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Souhaitez-vous inscrire votre enfant à la restauration scolaire de l'école ?
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Souhaitez-vous inscrire votre enfant à la restauration scolaire de l'école ?
                 </xs:documentation>
                 <xs:appinfo>
@@ -63,10 +63,10 @@
             </xs:element>
             <xs:element name="EstPeriscolaire" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Souhaitez-vous inscrire votre enfant à l'accueil périscolaire de l'école ?
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Souhaitez-vous inscrire votre enfant à l'accueil périscolaire de l'école ?
                 </xs:documentation>
                 <xs:appinfo>
@@ -81,10 +81,10 @@
             </xs:element>
             <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
                 <xs:appinfo>

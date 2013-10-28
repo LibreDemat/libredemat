@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -120,7 +120,7 @@
         <dt><g:message code="serrr.property.sexe.label" /></dt>
           <dd>
             <g:if test="${rqt.sexe}">
-              <g:capdematEnumToField var="${rqt.sexe}" i18nKeyPrefix="serrr.property.sexe" />
+              <g:libredematEnumToField var="${rqt.sexe}" i18nKeyPrefix="serrr.property.sexe" />
             </g:if>
           </dd>
           
@@ -154,7 +154,7 @@
           <dt><g:message code="serrr.property.lieuNaissanceDepartement.label" /></dt>
           <dd>
             <g:if test="${rqt.lieuNaissanceDepartement}">
-              <g:capdematEnumToField var="${rqt.lieuNaissanceDepartement}" i18nKeyPrefix="serrr.property.lieuNaissanceDepartement" />
+              <g:libredematEnumToField var="${rqt.lieuNaissanceDepartement}" i18nKeyPrefix="serrr.property.lieuNaissanceDepartement" />
             </g:if>
           </dd>
           
@@ -163,7 +163,7 @@
           <dt><g:message code="serrr.property.lieuNaissancePays.label" /></dt>
           <dd>
             <g:if test="${rqt.lieuNaissancePays}">
-              <g:capdematEnumToField var="${rqt.lieuNaissancePays}" i18nKeyPrefix="serrr.property.lieuNaissancePays" />
+              <g:libredematEnumToField var="${rqt.lieuNaissancePays}" i18nKeyPrefix="serrr.property.lieuNaissancePays" />
             </g:if>
           </dd>
           
@@ -177,7 +177,7 @@
         <dt><g:message code="serrr.property.nationalite.label" /></dt>
           <dd>
             <g:if test="${rqt.nationalite}">
-              <g:capdematEnumToField var="${rqt.nationalite}" i18nKeyPrefix="serrr.property.nationalite" />
+              <g:libredematEnumToField var="${rqt.nationalite}" i18nKeyPrefix="serrr.property.nationalite" />
             </g:if>
           </dd>
           
@@ -192,7 +192,7 @@
           <dt><g:message code="serrr.property.precisionNationalite.label" /></dt>
           <dd>
             <g:if test="${rqt.precisionNationalite}">
-              <g:capdematEnumToField var="${rqt.precisionNationalite}" i18nKeyPrefix="serrr.property.precisionNationalite" />
+              <g:libredematEnumToField var="${rqt.precisionNationalite}" i18nKeyPrefix="serrr.property.precisionNationalite" />
             </g:if>
           </dd>
           
@@ -201,7 +201,7 @@
           <dt><g:message code="serrr.property.typeElection.label" /></dt>
           <dd>
             <g:if test="${rqt.typeElection}">
-              <g:capdematEnumToField var="${rqt.typeElection}" i18nKeyPrefix="serrr.property.typeElection" />
+              <g:libredematEnumToField var="${rqt.typeElection}" i18nKeyPrefix="serrr.property.typeElection" />
             </g:if>
           </dd>
           
@@ -210,7 +210,7 @@
           <dt><g:message code="serrr.property.paysPrecedent.label" /></dt>
           <dd>
             <g:if test="${rqt.paysPrecedent}">
-              <g:capdematEnumToField var="${rqt.paysPrecedent}" i18nKeyPrefix="serrr.property.paysPrecedent" />
+              <g:libredematEnumToField var="${rqt.paysPrecedent}" i18nKeyPrefix="serrr.property.paysPrecedent" />
             </g:if>
           </dd>
           
@@ -236,7 +236,7 @@
         <dt><g:message code="serrr.property.situation.label" /></dt>
           <dd>
             <g:if test="${rqt.situation}">
-              <g:capdematEnumToField var="${rqt.situation}" i18nKeyPrefix="serrr.property.situation" />
+              <g:libredematEnumToField var="${rqt.situation}" i18nKeyPrefix="serrr.property.situation" />
             </g:if>
           </dd>
           
@@ -254,7 +254,7 @@
           <dt><g:message code="serrr.property.departementAncienneCommune.label" /></dt>
           <dd>
             <g:if test="${rqt.departementAncienneCommune}">
-              <g:capdematEnumToField var="${rqt.departementAncienneCommune}" i18nKeyPrefix="serrr.property.departementAncienneCommune" />
+              <g:libredematEnumToField var="${rqt.departementAncienneCommune}" i18nKeyPrefix="serrr.property.departementAncienneCommune" />
             </g:if>
           </dd>
           
@@ -281,7 +281,7 @@
         <dt><g:message code="serrr.property.paysRadiation.label" /></dt>
           <dd>
             <g:if test="${rqt.paysRadiation}">
-              <g:capdematEnumToField var="${rqt.paysRadiation}" i18nKeyPrefix="serrr.property.paysRadiation" />
+              <g:libredematEnumToField var="${rqt.paysRadiation}" i18nKeyPrefix="serrr.property.paysRadiation" />
             </g:if>
           </dd>
           
@@ -305,7 +305,7 @@
           <g:if test="${document.endValidityDate}">${message(code:'document.header.expireOn')} ${formatDate(date:document.endValidityDate,formatName:'format.date')}</g:if>
         </dt>
         <dd>
-          <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details', id:document.id)}" target="blank" title="${message(code:'document.message.preview.longdesc')}">${message(code:'document.message.preview')}</a>
         </dd>
         </g:each>

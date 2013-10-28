@@ -54,7 +54,7 @@
           <dt><g:message code="hccr.property.homeIntervenantKind.label" /></dt>
           <dd>
             <g:if test="${it.homeIntervenantKind}">
-              <g:capdematEnumToField var="${it.homeIntervenantKind}" i18nKeyPrefix="hccr.property.homeIntervenantKind" />
+              <g:libredematEnumToField var="${it.homeIntervenantKind}" i18nKeyPrefix="hccr.property.homeIntervenantKind" />
             </g:if>
           </dd>
           
@@ -446,7 +446,7 @@
           <g:if test="${document.endValidityDate}">${message(code:'document.header.expireOn')} ${formatDate(date:document.endValidityDate,formatName:'format.date')}</g:if>
         </dt>
         <dd>
-          <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details', id:document.id)}" target="blank" title="${message(code:'document.message.preview.longdesc')}">${message(code:'document.message.preview')}</a>
         </dd>
         </g:each>

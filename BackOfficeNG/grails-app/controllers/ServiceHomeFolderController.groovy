@@ -1,12 +1,12 @@
-import fr.cg95.cvq.business.users.Adult
-import fr.cg95.cvq.business.users.Individual
-import fr.cg95.cvq.oauth2.InsufficientScopeException;
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.exception.CvqObjectNotFoundException
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.service.users.external.IExternalHomeFolderService
-import fr.cg95.cvq.business.users.UserState
+import org.libredemat.business.users.Adult
+import org.libredemat.business.users.Individual
+import org.libredemat.oauth2.InsufficientScopeException;
+import org.libredemat.security.SecurityContext
+import org.libredemat.exception.CvqObjectNotFoundException
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.service.users.external.IExternalHomeFolderService
+import org.libredemat.business.users.UserState
 
 import grails.converters.JSON
 
@@ -54,12 +54,12 @@ class ServiceHomeFolderController {
             .getHomeFolderMapping(SecurityContext.getCurrentExternalService(), homeFolder?.id)
         if (homeFolderMapping) {
             homeFolder.externalId = homeFolderMapping.externalId
-            homeFolder.externalCapDematId = homeFolderMapping.externalCapDematId
+            homeFolder.externalLibreDematId = homeFolderMapping.externalLibreDematId
             for (Individual individual: individuals) {
                 def individualMapping = externalHomeFolderService.getIndividualMapping(
                     individual, SecurityContext.getCurrentExternalService())
                 if (individualMapping != null) {
-                    individual.externalCapDematId = individualMapping.externalCapDematId
+                    individual.externalLibreDematId = individualMapping.externalLibreDematId
                     individual.externalId = individualMapping.externalId
                 } else {
                     log.warn("No individualMapping found for individual " + individual.id + "and External Service " + SecurityContext.getCurrentExternalService());
@@ -70,7 +70,7 @@ class ServiceHomeFolderController {
         def individualList = new ArrayList()
         for (Individual i: individuals) {
             def indMap = new HashMap()
-            indMap.put("externalCapDematId", i.externalCapDematId)
+            indMap.put("externalLibreDematId", i.externalLibreDematId)
             indMap.put("externalId", i.externalId)
             if (i instanceof Adult) {
                 indMap.put("email", i.email)
@@ -81,7 +81,7 @@ class ServiceHomeFolderController {
         }
 
         def result = [
-            externalCapDematId: homeFolder.externalCapDematId,
+            externalLibreDematId: homeFolder.externalLibreDematId,
             externalId: homeFolder.externalId,
             address: [
                 streetNumber: homeFolder.address.streetNumber,

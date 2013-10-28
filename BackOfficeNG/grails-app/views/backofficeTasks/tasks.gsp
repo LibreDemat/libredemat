@@ -15,7 +15,7 @@
           <div class="tasks red">
             <h2>
             <strong class="toggle"><g:message code="tasks.header.late" /> (${taskMap.aboutRequests.late.count})</strong>
-              <a href="${createLink(controller : 'backofficeRequest', action : 'listTasks', params : ['qoS' : fr.cg95.cvq.business.request.Request.QUALITY_TYPE_RED])}"><g:message code="action.seeAll" /></a>
+              <a href="${createLink(controller : 'backofficeRequest', action : 'listTasks', params : ['qoS' : org.libredemat.business.request.Request.QUALITY_TYPE_RED])}"><g:message code="action.seeAll" /></a>
             </h2>
             <ul class="${taskMap.aboutRequests.late.count > 0 ? '' : 'collapse'}">
               <g:render template="requestEntry" var="record" collection="${taskMap.aboutRequests.late.all}" />
@@ -25,7 +25,7 @@
           <div class="tasks orange">
             <h2>
               <strong class="toggle"><g:message code="tasks.header.urgent" /> (${taskMap.aboutRequests.urgent.count})</strong>
-              <a href="${createLink(controller : 'backofficeRequest', action : 'listTasks', params : ['qoS' : fr.cg95.cvq.business.request.Request.QUALITY_TYPE_ORANGE])}"><g:message code="action.seeAll" /></a>
+              <a href="${createLink(controller : 'backofficeRequest', action : 'listTasks', params : ['qoS' : org.libredemat.business.request.Request.QUALITY_TYPE_ORANGE])}"><g:message code="action.seeAll" /></a>
             </h2>
             <ul class="${taskMap.aboutRequests.late.count == 0 && taskMap.aboutRequests.urgent.count > 0 ? '' : 'collapse'}">
               <g:render template="requestEntry" var="record" collection="${taskMap.aboutRequests.urgent.all}" />
@@ -35,7 +35,7 @@
           <div class="tasks green">
             <h2>
               <strong class="toggle"><g:message code="tasks.header.good" /> (${taskMap.aboutRequests.good.count})</strong>
-              <a href="${createLink(controller : 'backofficeRequest', action : 'listTasks', params : ['qoS' : fr.cg95.cvq.business.request.Request.QUALITY_TYPE_OK])}" ><g:message code="action.seeAll" /></a>
+              <a href="${createLink(controller : 'backofficeRequest', action : 'listTasks', params : ['qoS' : org.libredemat.business.request.Request.QUALITY_TYPE_OK])}" ><g:message code="action.seeAll" /></a>
             </h2>
             <ul class="${(taskMap.aboutRequests.late.count == 0 && taskMap.aboutRequests.urgent.count == 0 && taskMap.aboutRequests.good.count > 0) ? '' : 'collapse'}">
               <g:render template="requestEntry" var="record" collection="${taskMap.aboutRequests.good.all}" />
@@ -49,7 +49,7 @@
           <div class="tasks red">
             <h2>
             <strong class="toggle"><g:message code="tasks.header.late" /> (${taskMap.aboutIndividuals.late.count})</strong>
-              <a href="${createLink(controller : 'backofficeHomeFolder', action : 'listTasks', params : ['qoS' : fr.cg95.cvq.business.QoS.LATE])}"><g:message code="action.seeAll" /></a>
+              <a href="${createLink(controller : 'backofficeHomeFolder', action : 'listTasks', params : ['qoS' : org.libredemat.business.QoS.LATE])}"><g:message code="action.seeAll" /></a>
             </h2>
             <ul class="${taskMap.aboutIndividuals.late.count > 0 ? '' : 'collapse'}">
               <g:render template="individualEntry" var="record" collection="${taskMap.aboutIndividuals.late.all}" />
@@ -59,7 +59,7 @@
           <div class="tasks orange">
             <h2>
               <strong class="toggle"><g:message code="tasks.header.urgent" /> (${taskMap.aboutIndividuals.urgent.count})</strong>
-              <a href="${createLink(controller : 'backofficeHomeFolder', action : 'listTasks', params : ['qoS' : fr.cg95.cvq.business.QoS.URGENT])}"><g:message code="action.seeAll" /></a>
+              <a href="${createLink(controller : 'backofficeHomeFolder', action : 'listTasks', params : ['qoS' : org.libredemat.business.QoS.URGENT])}"><g:message code="action.seeAll" /></a>
             </h2>
             <ul class="${taskMap.aboutIndividuals.late.count == 0 && taskMap.aboutIndividuals.urgent.count > 0 ? '' : 'collapse'}">
               <g:render template="individualEntry" var="record" collection="${taskMap.aboutIndividuals.urgent.all}" />
@@ -69,7 +69,7 @@
           <div class="tasks green">
             <h2>
               <strong class="toggle"><g:message code="tasks.header.good" /> (${taskMap.aboutIndividuals.good.count})</strong>
-              <a href="${createLink(controller : 'backofficeHomeFolder', action : 'listTasks', params : ['qoS' : fr.cg95.cvq.business.QoS.GOOD])}" ><g:message code="action.seeAll" /></a>
+              <a href="${createLink(controller : 'backofficeHomeFolder', action : 'listTasks', params : ['qoS' : org.libredemat.business.QoS.GOOD])}" ><g:message code="action.seeAll" /></a>
             </h2>
             <ul class="${(taskMap.aboutIndividuals.late.count == 0 && taskMap.aboutIndividuals.urgent.count == 0 && taskMap.aboutIndividuals.good.count > 0) ? '' : 'collapse'}">
               <g:render template="individualEntry" var="record" collection="${taskMap.aboutIndividuals.good.all}" />
@@ -94,7 +94,7 @@
 
     <g:if test="${flash.successMessage}">
       <script type="text/javascript">
-        zenexity.capdemat.tools.Notifier.processMessage('success', "${flash.successMessage}");
+        zenexity.libredemat.tools.Notifier.processMessage('success', "${flash.successMessage}");
       </script>
     </g:if>
 

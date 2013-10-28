@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/scr" 
-  xmlns:scr="http://www.cg95.fr/cvq/schema/scr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/scr" 
+  xmlns:scr="http://www.libredemat.org/schema/scr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
              schemaLocation="../common/CVQCommonElements.xsd"/>
 
   <xs:element name="SchoolCanteenRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">Demande d'inscription au restaurant scolaire</xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">School canteen registration request</xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">Restaurant scolaire</xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">School canteen</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Demande d'inscription au restaurant scolaire</xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">School canteen registration request</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">Restaurant scolaire</xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">School canteen</xs:documentation>
       <xs:appinfo>
         <model namespace="school"/>
       </xs:appinfo>
@@ -49,8 +49,8 @@
         </xs:element>
         <xs:element name="School" type="cvq:SchoolType" minOccurs="0" maxOccurs="3">
           <xs:annotation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">L'école dans laquelle est inscrit l'enfant</xs:documentation>
-            <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">The school in which the child is registered</xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">L'école dans laquelle est inscrit l'enfant</xs:documentation>
+            <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">The school in which the child is registered</xs:documentation>
             <xs:appinfo>
               <model namespace="authority">
                 <search key="id" uniqueResult="false"/>
@@ -137,8 +137,8 @@
 
   <xs:complexType name="CanteenAttendingDaysType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">Informations relatives aux jours de présence de l'enfant au restaurant scolaire</xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">Jours de présence</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Informations relatives aux jours de présence de l'enfant au restaurant scolaire</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Jours de présence</xs:documentation>
     </xs:annotation>
     <xs:sequence minOccurs="0">
       <xs:element name="EatMonday" type="xs:boolean"/>
@@ -151,7 +151,7 @@
 
   <xs:complexType name="CanteenAttendingFrequencyType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">Informations relatives à la fréquentation du restaurant scolaire</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Informations relatives à la fréquentation du restaurant scolaire</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="EveryDay" type="xs:boolean"/>
@@ -160,8 +160,8 @@
 
   <xs:complexType name="FoodDietType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">Informations relatives au régime alimentaire de l'enfant</xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">Régime alimentaire</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Informations relatives au régime alimentaire de l'enfant</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">Régime alimentaire</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="EatPork" type="xs:boolean"/>

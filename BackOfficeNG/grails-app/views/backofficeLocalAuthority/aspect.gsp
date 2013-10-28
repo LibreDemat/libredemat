@@ -24,7 +24,7 @@
     </div>
     <g:if test="${flash.successMessage}">
       <script type="text/javascript">
-        zenexity.capdemat.tools.Notifier.processMessage('success', "${flash.successMessage}");
+        zenexity.libredemat.tools.Notifier.processMessage('success', "${flash.successMessage}");
       </script>
     </g:if>
   </body>

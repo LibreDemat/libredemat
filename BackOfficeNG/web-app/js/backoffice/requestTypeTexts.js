@@ -4,8 +4,8 @@
     , yud     = yu.Dom
     , yue     = yu.Event
     , yus     = yu.Selector
-    , zc      = zenexity.capdemat
-    , zct     = zenexity.capdemat.tools
+    , zc      = zenexity.libredemat
+    , zct     = zenexity.libredemat.tools
     , zcbrt   = zc.bong.requesttype
 
   // Fetch HTML on step change
@@ -51,11 +51,11 @@
     }
 
     CKEDITOR.replace( 'editor'
-                    , { customConfig: 'capdemat-config-fortexts.js' }
+                    , { customConfig: 'libredemat-config-fortexts.js' }
                     )
             .on('instanceReady', onready)
   }
 
   yue.onDOMReady(Texts.init)
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.requesttype'))
+})(zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype'))

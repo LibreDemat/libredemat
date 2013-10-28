@@ -14,8 +14,8 @@
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'categoryRequests.js')}"></script>
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'categoryAgents.js')}"></script>
   <script type="text/javascript">
-    zenexity.capdemat.bong.categoryId = '${category?.id}';
-    zenexity.capdemat.bong.editMode = '${editMode}';
+    zenexity.libredemat.bong.categoryId = '${category?.id}';
+    zenexity.libredemat.bong.editMode = '${editMode}';
   </script>
   </head>
   

@@ -1,11 +1,11 @@
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.business.document.DocumentType
-import fr.cg95.cvq.business.document.DocumentTypeValidity
-import fr.cg95.cvq.business.document.DocumentUsageType
-import fr.cg95.cvq.dao.document.hibernate.DocumentTypeDAO
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.business.document.DocumentType
+import org.libredemat.business.document.DocumentTypeValidity
+import org.libredemat.business.document.DocumentUsageType
+import org.libredemat.dao.document.hibernate.DocumentTypeDAO
+import org.libredemat.exception.CvqException
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry
 
 import java.util.Properties;
 import java.lang.Character;
@@ -36,8 +36,8 @@ class BackofficeDocumentTypeController {
         documentTypeService.getAllDocumentTypes().each{ d ->
             list.add([
                 'id' : d.id,
-                'name' : message(code:CapdematUtils.adaptDocumentTypeName(d.name)),
-                'code' : CapdematUtils.adaptDocumentTypeName(d.name)
+                'name' : message(code:LibredematUtils.adaptDocumentTypeName(d.name)),
+                'code' : LibredematUtils.adaptDocumentTypeName(d.name)
             ])
         }
         list = list.sort{it.name.toLowerCase()}
@@ -51,7 +51,7 @@ class BackofficeDocumentTypeController {
         DocumentTypeValidity.allDocumentTypeValidity.each { val ->
             validities.add([
                 'id' : val.name.toUpperCase().replaceAll(" ", "_"),
-                'name' : message(code:"documentTypeValidity."+CapdematUtils.codifyName(val.name)),
+                'name' : message(code:"documentTypeValidity."+LibredematUtils.codifyName(val.name)),
                 ])
         }
         render( template : "form",
@@ -70,7 +70,7 @@ class BackofficeDocumentTypeController {
         DocumentTypeValidity.allDocumentTypeValidity.each { val ->
             validities.add([
                 'id' : val.name.toUpperCase().replaceAll(" ", "_"),
-                'name' : message(code:"documentTypeValidity."+CapdematUtils.codifyName(val.name)),
+                'name' : message(code:"documentTypeValidity."+LibredematUtils.codifyName(val.name)),
                 ])
         }
         render( template : "form",
@@ -78,8 +78,8 @@ class BackofficeDocumentTypeController {
                     "documentTypeValidityValues" : validities,
                     "usageTypeValues" : DocumentUsageType.allDocumentUsageType,
                     "documentType" : docType,
-                    'name' : StringEscapeUtils.escapeHtml4(message(code:CapdematUtils.adaptDocumentTypeName(docType.name))),
-                    "codename" : CapdematUtils.adaptDocumentTypeName(docType.getName()),
+                    'name' : StringEscapeUtils.escapeHtml4(message(code:LibredematUtils.adaptDocumentTypeName(docType.name))),
+                    "codename" : LibredematUtils.adaptDocumentTypeName(docType.getName()),
                     "validityDurationFormStyle" : this.displayValidityDurationForm(docType)?"":"display:none"
                 ]
             )
@@ -92,7 +92,7 @@ class BackofficeDocumentTypeController {
             render([status:"success", success_msg:message(code : "message.deleteDone")] as JSON)
             return false
         }
-        def docTypeName = message(code:CapdematUtils.adaptDocumentTypeName(documentTypeService.getDocumentTypeById(params.id.toInteger()).name))
+        def docTypeName = message(code:LibredematUtils.adaptDocumentTypeName(documentTypeService.getDocumentTypeById(params.id.toInteger()).name))
         render([status:"error", error_msg:message(code : "documentType.error.requiredAnrOrUsedInRequest", args:[docTypeName])] as JSON)
         return false
     }
@@ -105,7 +105,7 @@ class BackofficeDocumentTypeController {
             def libelle = apacheCommonLang3StringUtils.trim(params.name)
 
             def codename = params.codename
-            if(codename == '') codename = CapdematUtils.adaptDocumentTypeName(name)
+            if(codename == '') codename = LibredematUtils.adaptDocumentTypeName(name)
 
             if((params.id == null || params.id.trim().isEmpty())
                 && (documentTypeService.nameAlreadyInUse(name)))

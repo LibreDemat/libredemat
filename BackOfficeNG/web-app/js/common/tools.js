@@ -1,15 +1,15 @@
 /**
- * Provides collection of tools customized/optimized for capdemat client-side needs.
+ * Provides collection of tools customized/optimized for libredemat client-side needs.
  * Partially inspired by jQuery and partially based on jQuery syntactic sugar.
  *
- * @namespace zenexity.capdemat.tools
+ * @namespace zenexity.libredemat.tools
  * @author vba@zenexity.fr
  *
  **/
 (function(){
   
   window.zenexity = {
-    capdemat: {
+    libredemat: {
       tools: {},
       common: {},
       aspect : {}
@@ -18,8 +18,8 @@
 
   var userAgent = navigator.userAgent.toLowerCase();
   //var s = YAHOO.util.Selector;
-  var zct = zenexity.capdemat.tools;
-  var zca = zenexity.capdemat.aspect;
+  var zct = zenexity.libredemat.tools;
+  var zca = zenexity.libredemat.aspect;
   var yus = YAHOO.util.Selector;
   var yue = YAHOO.util.Event;
   var yuc = YAHOO.util.Connect;
@@ -38,7 +38,7 @@
   /**
    * @description Returns the namespace specified and creates it if it doesn't exist
    * @method namespace
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param arguments {String*} 1-n namespaces to create
    * @return {Object}  A reference to the last namespace object created
    *
@@ -60,7 +60,7 @@
   /**
    * @description Execute a function within the context of passed element
    * @method each
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param object {Object|Array} context element
    * @param callback {Function} function that will be executed in the context of each element
    * @param args {Array} additional params to be passed in callback function
@@ -96,7 +96,7 @@
   /**
    * @description Returns an array of elements that pass the test(grep) method.
    * @method grep
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param elems {Array} Array of elements to grep
    * @param callback {Function} function that is applied to each element
    * @returns {Array} list of elments passed test
@@ -115,7 +115,7 @@
   /**
    * @description Goes through the array, translating each of the items to their new value (or values). 
    * @method map
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param elems {Array} Array of elements
    * @param callback {Function} Translation function
    * @returns {Array} translated array
@@ -135,7 +135,7 @@
   /**
    * @description Checks if passed node element has indicated name.
    * @method nodeName
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param elem {HTMLElement} DOM node
    * @param name {String} name to check
    * @returns {Boolean} result of test
@@ -149,7 +149,7 @@
   /**
    * @description Normalize an array or transform an element to an array
    * @method makeArray
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param array {Object|Array} element/array to be processed
    * @returns {Array} new array
    * 
@@ -171,7 +171,7 @@
   /**
    * @description Mergs two arrays
    * @method merge
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param first {Array} first array to merge
    * @param second {Array} second array to merge
    * @returns {Array} merged array
@@ -193,7 +193,7 @@
   /**
    * @description Gets element position in array if this one is contained in array or gets -1 otherwise
    * @method inArray
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param elem {Object} element to find
    * @param array {Array} array to perorm test
    * @returns {Integer} position if element found or -1 otherwise
@@ -210,7 +210,7 @@
   /**
    * @description Returns an array containning only unique elements from the passed array
    * @method uniq
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param arr {Array} array used as source
    * @returns {Array} array containning all elements from first array with no duplicates
    *
@@ -231,7 +231,7 @@
   /**
    * @description Check if an object is a function (more sophisticated check that YUI)
    * @method isFunction
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param fn {Object} object to be checked
    * @returns {Boolean} test result
    * 
@@ -246,7 +246,7 @@
   /**
    * @description Serialize an array of form elements or a set of key/values into a query string
    * @method param
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param a {Array} array to be serialized
    * @returns {String} query string
    * 
@@ -276,7 +276,7 @@
   /**
    * @description Normalize an array of HTMLElements for query string serialization.
    * @method serializeArray
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param nodeId {String}  An ID of html element-container 
    * @returns {Array} Normalized array
    * 
@@ -315,7 +315,7 @@
   /**
    * @description Realize a facade for elements serialization
    * @method serialize
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param nodeId {String}  An ID of html element-container
    * @returns {String} query string
    * 
@@ -328,7 +328,7 @@
   /**
    * @description Gets/sets the content of the value attribute of the passed element.
    * @method val
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param element {HTMLElement} scope element
    * @param value {String|Undefined} value to be set
    * @returns {Object} element value if method used as getter case
@@ -386,7 +386,7 @@
   /**
    * @description Strips HTML tags
    * @method stripTags
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param string {String} Striping scope.
    * @returns {String} striped string
    * 
@@ -399,7 +399,7 @@
   /**
    * @description HTMLElement styles setter/getter
    * @method style
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param el {String | HTMLElement | Array} Accepts a string to use as an ID, an actual DOM reference, or an Array of IDs and/or HTMLElements.
    * @param styles {Object} JSON object that describes styles to set
    * @author vba@zenexity.fr
@@ -425,7 +425,7 @@
   /**
    * @description Generates universally unique identifier in string format.
    * @method generateUID
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @returns {String} newly generated UUID
    * 
    * @author vba@zenexity.fr
@@ -453,7 +453,7 @@
   /**
    * @description Tries to call a function safely
    * @method tryToCall
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param f {Function*} function object to be called
    * @param c {Object*} context in which function is called
    * @param params {Object*} parameters to be supplied to function call
@@ -476,7 +476,7 @@
   /**
    * @description Capitalizes entered world/sentence
    * @method capitalize
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param s {String} world to be capitalized
    * @returns {String} Capitalized string
    * 
@@ -489,7 +489,7 @@
   /**
    * @description Get a set of elements containing all of siblings of passed element.
    * @method siblings
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param el {HTMLElement} scope element to retrieve siblings
    * @param callback {Function} function applied to each sibling
    * @returns {Array} siblings collection
@@ -530,7 +530,7 @@
   /**
    * @description Set the combined text contents to indicated DOM element. Escapes HTML (replace "<" and ">" with their HTML entities). Cannot be used on input elements.
    * @method text
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param node {HTMLElement} scope element.
    * @param text {String} to append/apply to node.
    * @param append {Boolean} flag to indicate if specified text has to be append as new text node.
@@ -550,7 +550,7 @@
   /**
    * @description Gets/Sets specified node html. Cannot be used on input elements.
    * @method html
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param node {HTMLElement} scope element.
    * @param html {String} text to apply as node HTML.
    * @returns {String} element html content "as is" (if used as getter)
@@ -584,7 +584,7 @@
   /**
    * @description Toggles css class for specified DOM element
    * @method toggleClass
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param node {HTMLElement} scope element
    * @param className {String} class to be toggled
    * 
@@ -597,7 +597,7 @@
 
   /**
    * @description Removes a class name from a given element or collection of elements.
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @method removeClass
    * @param el {HTMLElement|String|Array} The element or collection to remove the class from
    * @param old {String|Array|RegExp} The class name to remove from the class attribute
@@ -625,7 +625,7 @@
   /**
    * @description Fade in passed element by adjusting its opacity and firing an optional callback after completion
    * @method fadeIn
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param el {HTMLElement} element to be processed
    * @param speed {Float} animation speed(in seconds) 
    * @param callback {Function} function that is called after adjusting
@@ -637,7 +637,7 @@
   /**
    * @description Fade out passed element by adjusting its opacity and firing an optional callback after completion
    * @method fadeOut
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param el {HTMLElement} element to be processed
    * @param speed {Float} animation speed(in seconds) 
    * @param callback {Function} function that is called after adjusting
@@ -649,7 +649,7 @@
   /**
    * @description Cover method that "freeze" element opacity during an interval and fire an optional callback after completion
    * @method fadeNone
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param el {HTMLElement} element to be processeda
    * @param speed {Float} animation speed(in seconds) 
    * @param callback {Function} function that is called after freezing
@@ -691,7 +691,7 @@
   /**
    * @description Provides ajax get-type call
    * @method doAjaxCall
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param callUrl {String} call url (is prefixed by project url before sending)
    * @param args {Array} call arguments
    * @param callback {Function} function called after on success response
@@ -706,7 +706,7 @@
     if (zct.isFunction(callback)) handlers.success = callback;
     if (args) handlers.argument = args;
     
-    var url = [zenexity.capdemat.baseUrl, callUrl].join('');
+    var url = [zenexity.libredemat.baseUrl, callUrl].join('');
     if(!!absoluteUrl) url = callUrl;
     
     if(zct.browser.msie) {
@@ -720,7 +720,7 @@
   /**
    * @description Submit a form to the server
    * @method doAjaxFormSubmitCall
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param formId {String} HTML form identifier
    * @param args {Array} call arguments
    * @param callback {Function} function called after on success response
@@ -744,7 +744,7 @@
   /**
    * @description Provides ajax delete-type call
    * @method doAjaxDeleteCall
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param url {String} call url (is prefixed by project url before sending)
    * @param params {Array} call parameters
    * @param callback {Function} function called after on success response
@@ -757,14 +757,14 @@
       failure: zct.handleUnexpectedError
     };
     if (zct.isFunction(callback)) handlers.success = callback;
-    var uri = [zenexity.capdemat.baseUrl,url,'?',params].join('');
+    var uri = [zenexity.libredemat.baseUrl,url,'?',params].join('');
     YAHOO.util.Connect.asyncRequest('DELETE', uri, handlers);
   };
   
   /**
    * @description Provides ajax post-type call
    * @method doAjaxPostCall
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param url {String} call url (is prefixed by project url before sending)
    * @param params {Array} call parameters
    * @param callback {Function} function called after on success response
@@ -776,14 +776,14 @@
       failure: zct.handleUnexpectedError
     };
     if (zct.isFunction(callback)) handlers.success = callback;
-    var uri = zenexity.capdemat.baseUrl + url;
+    var uri = zenexity.libredemat.baseUrl + url;
     YAHOO.util.Connect.asyncRequest('POST', uri, handlers, params);
   };
   
   /**
    * @description Handles unexpected ajax response errors
    * @method handleUnexpectedError
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param o {Object} response object
    * 
    * @author vba@zenexity.fr
@@ -804,7 +804,7 @@
   /**
    * @description Notifications helper 
    * @class Notifier
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * 
    * @author vba@zenexity.fr
    **/
@@ -966,7 +966,7 @@
   /**
    * @description Limits textarea chars with specified length
    * @method limitArea 
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param targetId {String} target id
    * @param limit {Number} limitation
    * @param infodiv {String} information container id
@@ -991,7 +991,7 @@
   
   /**
    * @description Event dispatcher helper
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param context {Object} scope object within is dispatched DOM event
    * @param rule {Function} client function that analyze event and deduce method name to call
    * 
@@ -1005,7 +1005,7 @@
   /**
    * @description Dispatchs provided event.
    * @method dispatch
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    * @param e {Object} provided event
    * 
    * @author vba@zenexity.fr
@@ -1017,7 +1017,7 @@
 
   /**
    * @description Modify initial function to enable advice function call before
-   * @namespace zenexity.capdemat.aspect
+   * @namespace zenexity.libredemat.aspect
    * 
    * @param func {Function} Initial function
    * @param advice {Function} Advice function
@@ -1032,7 +1032,7 @@
   
   /**
    * @description Modify initial function to enable an evaluation of advice function before, if advice returns true initial function will be executed  
-   * @namespace zenexity.capdemat.aspect
+   * @namespace zenexity.libredemat.aspect
    * 
    * @param func {Function} Initial function
    * @param advice {Function} Advice function
@@ -1050,7 +1050,7 @@
   /**
    * @description Catch "enter" keypress events that happen in <input>s and stop them,
    * to force people to click on the form submit button and go through custom form submission
-   * @namespace zenexity.capdemat.tools
+   * @namespace zenexity.libredemat.tools
    *
    * @param e {Event} The event fired when a key was pressed
    */

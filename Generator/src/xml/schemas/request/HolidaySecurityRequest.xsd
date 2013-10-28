@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/hsr" 
-  xmlns:hsr="http://www.cg95.fr/cvq/schema/hsr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/hsr" 
+  xmlns:hsr="http://www.libredemat.org/schema/hsr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
     
   <xs:element name="HolidaySecurityRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de sécurité vacances
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Security service on holidays
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Sécurité vacances
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Holiday security
       </xs:documentation>
       <xs:appinfo>
@@ -58,16 +58,16 @@
           <xs:sequence>
             <xs:element name="AbsenceStartDate" type="xs:date">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Date de début d'absence du domicile
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Date début d'absence
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Start date of holiday's absence
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Absence start date
                 </xs:documentation>
                 <xs:appinfo>
@@ -82,16 +82,16 @@
             </xs:element>
             <xs:element name="AbsenceEndDate" type="xs:date">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Date de fin d'absence du domicile
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Date fin d'absence
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   End date of holiday's absence
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Absence end date
                 </xs:documentation>
                 <xs:appinfo>
@@ -106,16 +106,16 @@
             </xs:element>
             <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Réglementation du service à accepter
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte les conditions réglementaire de ce service
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Rules and regulation to accept
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Rules
                 </xs:documentation>
                 <xs:appinfo>
@@ -130,16 +130,16 @@
             </xs:element>
             <xs:element name="AlertPhone" type="cvq:PhoneType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Numéro de téléphone d'alerte
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Numéro de téléphone en cas d'alerte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Alert phone number
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Alert phone number
                 </xs:documentation>
                 <xs:appinfo>
@@ -154,10 +154,10 @@
             </xs:element>
             <xs:element name="OtherContact" type="xs:boolean" default="false">
                 <xs:annotation>
-                  <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                  <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                     Souhaitez-vous renseigner un autre contact à prévenir en cas d'alerte ?
                   </xs:documentation>
-                  <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                     Souhaitez-vous renseigner un autre contact à prévenir en cas d'alerte ?
                   </xs:documentation>
                   <xs:appinfo>
@@ -175,10 +175,10 @@
             </xs:element>
             <xs:element name="OtherContactInformations" type="hsr:HsrOtherContactType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                    Informations conçernant l'autre contact
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autre contact
                 </xs:documentation>
                 <xs:appinfo>
@@ -196,16 +196,16 @@
             </xs:element>
             <xs:element name="Alarm" type="xs:boolean" default="false" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Système d'alarme
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Alarme
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Alarm system
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Alarm
                 </xs:documentation>
                 <xs:appinfo>
@@ -220,16 +220,16 @@
             </xs:element>
             <xs:element name="Light" type="xs:boolean" default="false" >
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Système d'éclairage automatique
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Eclairage automatique
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Automatic light system
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Automatic light
                 </xs:documentation>
                 <xs:appinfo>
@@ -250,10 +250,10 @@
   
   <xs:complexType name="HsrOtherContactType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations sur l'autre contact
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Informations sur l'autre contact
       </xs:documentation>
     </xs:annotation>
@@ -261,16 +261,16 @@
     
     <xs:element name="OtherContactLastName" type="cvq:LastNameType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom de l'autre personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom de la personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Other contact lastname
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Other contact lastname
                 </xs:documentation>
                 <xs:appinfo>
@@ -285,16 +285,16 @@
             </xs:element>
             <xs:element name="OtherContactFirstName" type="cvq:FirstNameType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prénom de l'autre personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Prénom de la personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Other contact firstname
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Other contact firstname
                 </xs:documentation>
                 <xs:appinfo>
@@ -309,16 +309,16 @@
             </xs:element>
             <xs:element name="OtherContactAddress" type="cvq:AddressType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Adresse de l'autre personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Adresse de la personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Other contact address
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Other contact address
                 </xs:documentation>
                 <xs:appinfo>
@@ -334,16 +334,16 @@
             </xs:element>
             <xs:element name="OtherContactPhone" type="cvq:PhoneType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Téléphone de l'autre personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Téléphone de la personne à contacter
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Other contact phone number
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Other contact phone
                 </xs:documentation>
                 <xs:appinfo>

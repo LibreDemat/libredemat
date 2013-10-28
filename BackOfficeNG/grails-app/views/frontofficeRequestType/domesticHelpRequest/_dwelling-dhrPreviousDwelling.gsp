@@ -38,7 +38,7 @@
             <select id="dhrPreviousDwelling.${collectionIndex}.dhrPreviousDwellingKind" name="dhrPreviousDwelling[${collectionIndex}].dhrPreviousDwellingKind" class="required condition-isPreviousDwellingPlaceOfResidence-trigger  validate-not-first ${rqt.stepStates['dwelling'].invalidFields.contains('dhrPreviousDwelling['+collectionIndex+'].dhrPreviousDwellingKind') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrPreviousDwellingKind.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['PLACE_OF_RESIDENCE','RETIREMENT_HOME','OTHER']}">
-                <option value="${it}" ${it == currentCollectionItem?.dhrPreviousDwellingKind?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" /></option>
+                <option value="${it}" ${it == currentCollectionItem?.dhrPreviousDwellingKind?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" /></option>
               </g:each>
             </select>
             
@@ -49,7 +49,7 @@
               <g:each in="${['OWNER','TENANT']}">
               <li>
                 <input type="radio" id="dhrPreviousDwelling.${collectionIndex}.dhrPreviousDwellingStatus_${it}" class="required condition-isPreviousDwellingPlaceOfResidence-filled  validate-one-required" value="${it}" name="dhrPreviousDwelling[${collectionIndex}].dhrPreviousDwellingStatus" ${it == currentCollectionItem?.dhrPreviousDwellingStatus.toString() ? 'checked="checked"': ''} title="<g:message code="dhr.property.dhrPreviousDwellingStatus.validationError" />" />
-                <label for="dhrPreviousDwelling.${collectionIndex}.dhrPreviousDwellingStatus_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" /></label>
+                <label for="dhrPreviousDwelling.${collectionIndex}.dhrPreviousDwellingStatus_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" /></label>
               </li>
               </g:each>
             </ul>

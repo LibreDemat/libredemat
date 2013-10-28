@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/msrr" 
-  xmlns:msrr="http://www.cg95.fr/cvq/schema/msrr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/msrr" 
+  xmlns:msrr="http://www.libredemat.org/schema/msrr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="MusicSchoolRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'inscription à l'école de musique
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Music school registration request
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Inscription à l'école de musique
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Music School Registration
       </xs:documentation>
       <xs:appinfo>
@@ -52,14 +52,14 @@
           <xs:sequence>
             <xs:element name="Activity" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations relatives aux activités musicales
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Activités
                 </xs:documentation>
                 <xs:documentation xml:lang="en"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Activities
                 </xs:documentation>
                 <xs:appinfo>
@@ -76,10 +76,10 @@
             <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType"
               minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prise en compte et acceptation du règlement intérieur
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
                 <xs:appinfo>

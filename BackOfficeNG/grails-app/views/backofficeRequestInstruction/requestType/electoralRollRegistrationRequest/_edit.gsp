@@ -38,13 +38,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'errr.property.subjectNationality.label')}&nbsp;*&nbsp;:</dt><dd id="subjectNationality" class="action-editField validate-capdematEnum required-true i18n-errr.property.subjectNationality javatype-fr.cg95.cvq.business.users.NationalityType maxLength-32" ><g:capdematEnumToField var="${rqt?.subjectNationality}" i18nKeyPrefix="errr.property.subjectNationality" /></dd>
+                <dt class="required">${message(code:'errr.property.subjectNationality.label')}&nbsp;*&nbsp;:</dt><dd id="subjectNationality" class="action-editField validate-libredematEnum required-true i18n-errr.property.subjectNationality javatype-org.libredemat.business.users.NationalityType maxLength-32" ><g:libredematEnumToField var="${rqt?.subjectNationality}" i18nKeyPrefix="errr.property.subjectNationality" /></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required condition-isDirect-trigger">${message(code:'errr.property.motive.label')}&nbsp;*&nbsp;:</dt><dd id="motive" class="action-editField validate-capdematEnum required-true i18n-errr.property.motive javatype-fr.cg95.cvq.business.request.election.ElectoralMotiveType" ><g:capdematEnumToField var="${rqt?.motive}" i18nKeyPrefix="errr.property.motive" /></dd>
+                <dt class="required condition-isDirect-trigger">${message(code:'errr.property.motive.label')}&nbsp;*&nbsp;:</dt><dd id="motive" class="action-editField validate-libredematEnum required-true i18n-errr.property.motive javatype-org.libredemat.business.request.election.ElectoralMotiveType" ><g:libredematEnumToField var="${rqt?.motive}" i18nKeyPrefix="errr.property.motive" /></dd>
               </dl>
               
             

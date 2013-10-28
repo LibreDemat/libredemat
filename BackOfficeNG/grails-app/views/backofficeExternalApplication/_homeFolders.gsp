@@ -24,7 +24,7 @@
       <span>${message(code:'external.label.account')} ${homeFolder.responsible?.lastName}</span>
       <strong>(${homeFolder.externalId})</strong>
       <span class="tag-wrapper">
-        <g:capdematEnumToFlag var="${homeFolder.mappingState}" i18nKeyPrefix="external.mappingState" />
+        <g:libredematEnumToFlag var="${homeFolder.mappingState}" i18nKeyPrefix="external.mappingState" />
       </span>
       <div id="matchedHomeFolders_${homeFolder.id}"></div>
     </li>

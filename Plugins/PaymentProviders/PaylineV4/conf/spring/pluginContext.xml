@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="paylineV4PaymentProvider"
-    class="fr.capwebct.capdemat.plugins.paymentproviders.paylinev4.service.PaylineV4Service">
+    class="org.libredemat.plugins.paymentproviders.paylinev4.service.PaylineV4Service">
     <property name="paylineV4Client" ref="paylineV4Client" />
     <property name="returnUrl" value="${plugins.paymentproviders.paylinev4.return_url}" />
     <property name="cancelUrl" value="${plugins.paymentproviders.paylinev4.cancel_url}" />
@@ -25,7 +25,7 @@
   </bean>
 
   <bean id="paylineV4Client"
-    class="fr.capwebct.capdemat.plugins.paymentproviders.paylinev4.webservice.client.PaylineV4Client">
+    class="org.libredemat.plugins.paymentproviders.paylinev4.webservice.client.PaylineV4Client">
     <property name="paylineWebPaymentService" ref="paylineWebPaymentService" />
   </bean>
 

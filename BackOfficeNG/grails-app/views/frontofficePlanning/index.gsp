@@ -5,7 +5,7 @@
     <link href="${resource(dir:'css/frontoffice', file:'planning.css')}" rel='stylesheet' media='screen'>
     <script src="${resource(dir:'js/frontoffice', file:'planning.js')}"></script>
     <script>
-      zenexity.capdemat.fong.Planning.url = '${url}'
+      zenexity.libredemat.fong.Planning.url = '${url}'
     </script>
   </head>
   <body>

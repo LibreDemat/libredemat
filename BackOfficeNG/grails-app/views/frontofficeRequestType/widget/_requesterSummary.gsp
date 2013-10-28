@@ -1,7 +1,7 @@
   <dt><g:message code="homeFolder.adult.property.title" /></dt>
   <dd>
   <g:if test="${requester?.title}">
-    <g:capdematEnumToField var="${requester?.title}" i18nKeyPrefix="homeFolder.adult.title" />
+    <g:libredematEnumToField var="${requester?.title}" i18nKeyPrefix="homeFolder.adult.title" />
   </g:if>
   </dd>
 

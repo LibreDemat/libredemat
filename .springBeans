@@ -17,7 +17,7 @@
 	</configs>
 	<configSets>
 		<configSet>
-			<name><![CDATA[CapDemat]]></name>
+			<name><![CDATA[LibreDemat]]></name>
 			<allowBeanDefinitionOverriding>false</allowBeanDefinitionOverriding>
 			<incomplete>false</incomplete>
 			<configs>

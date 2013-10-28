@@ -64,7 +64,7 @@
               <g:each in="${requestExternalActionStatuses}">
                 <option value="${it}"
                   <g:if test="${filters['statusFilter'].equals(it.toString())}">selected="selected"</g:if>>
-                  <g:capdematEnumToText var="${it}" i18nKeyPrefix="externalservice.trace.status" />
+                  <g:libredematEnumToText var="${it}" i18nKeyPrefix="externalservice.trace.status" />
                 </option>
               </g:each>
             </select>

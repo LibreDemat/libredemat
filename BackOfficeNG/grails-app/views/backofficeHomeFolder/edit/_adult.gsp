@@ -5,9 +5,9 @@
       <dt class="required">${message(code:'homeFolder.adult.property.title')}</dt>
       <dd class="required">
         <select name="title">
-          <g:each var="title" in="${fr.cg95.cvq.business.users.TitleType.allTitleTypes}">
+          <g:each var="title" in="${org.libredemat.business.users.TitleType.allTitleTypes}">
             <option value="${title.name()}" ${title == adult.title ? 'selected="selected"' : ''}>
-              ${g.capdematEnumToText(var:title, i18nKeyPrefix:'homeFolder.adult.title')}
+              ${g.libredematEnumToText(var:title, i18nKeyPrefix:'homeFolder.adult.title')}
             </option>
           </g:each>
         </select>

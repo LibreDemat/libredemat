@@ -1,6 +1,6 @@
 <li class="payment">
     <p class="first-line">
-        <g:capdematEnumToFlag var="${record.paymentState}" i18nKeyPrefix="payment.state" />
+        <g:libredematEnumToFlag var="${record.paymentState}" i18nKeyPrefix="payment.state" />
         <a href="${createLink(action:'details',id:record.id)}">
             <span class="reference">
                 <g:message code="payment.property.payment" /> ${record.cvqReference}

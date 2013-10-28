@@ -34,17 +34,17 @@
       class="required validate-not-first ${flash.invalidFields?.contains('sex') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.child.property.sex.validationError')}">
       <option value="">${message(code:'message.select.defaultOption')}</option>
-      <g:each in="${fr.cg95.cvq.business.users.SexType.allSexTypes}">
+      <g:each in="${org.libredemat.business.users.SexType.allSexTypes}">
         <option value="${it.name()}"
           ${it == child.sex ? 'selected="selected"': ''}>
-          ${g.capdematEnumToText(var:it, i18nKeyPrefix:'homeFolder.child.property.sex')}
+          ${g.libredematEnumToText(var:it, i18nKeyPrefix:'homeFolder.child.property.sex')}
         </option>
       </g:each>
     </select>
 
     <label class="required">${message(code:'homeFolder.individual.property.birthDate')} *  <span class="help">${message(code:'homeFolder.individual.property.birthDate.help')}</span></label>
       <script type="text/javascript">
-        var zcf = zenexity.capdemat.fong;
+        var zcf = zenexity.libredemat.fong;
         zcf.i18n = {};
         zcf.i18n['child.expectedBirthDate'] = "${message(code:'homeFolder.individual.property.expectedBirthDate')} * <span class='help'>${message(code:'homeFolder.individual.property.birthDate.help')}</span>";
         zcf.i18n['child.birthDate'] = "${message(code:'homeFolder.individual.property.birthDate')} * <span class='help'>${message(code:'homeFolder.individual.property.birthDate.help')}</span>";

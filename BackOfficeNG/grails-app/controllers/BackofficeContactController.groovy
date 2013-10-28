@@ -1,16 +1,16 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.users.MeansOfContactEnum
-import fr.cg95.cvq.business.request.RequestActionType
-import fr.cg95.cvq.business.request.RequestFormType
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.users.IUserNotificationService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.business.authority.LocalAuthorityResource
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.users.MeansOfContactEnum
+import org.libredemat.business.request.RequestActionType
+import org.libredemat.business.request.RequestFormType
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.users.IUserNotificationService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.security.SecurityContext
+import org.libredemat.util.UserUtils
 
 import grails.converters.JSON
 
@@ -62,15 +62,15 @@ class BackofficeContactController {
             if (!MeansOfContactEnum.EMAIL.equals(it.type) || !user.email.equals(
                 SecurityContext.getCurrentConfigurationBean().getDefaultEmail())) {
             meansOfContacts.add(
-                CapdematUtils.adaptCapdematEnum(it.type, "meansOfContact"))
+                LibredematUtils.adaptLibredematEnum(it.type, "meansOfContact"))
             }
         }
         meansOfContacts.each() {
             it.i18nKey = message(code:it.i18nKey)
         }
         def defaultMeansOfContact = rqt ?
-            CapdematUtils.adaptCapdematEnum(rqt.meansOfContact?.type, "meansOfContact") :
-            CapdematUtils.adaptCapdematEnum(MeansOfContactEnum.EMAIL, "meansOfContact")
+            LibredematUtils.adaptLibredematEnum(rqt.meansOfContact?.type, "meansOfContact") :
+            LibredematUtils.adaptLibredematEnum(MeansOfContactEnum.EMAIL, "meansOfContact")
         def requestForms = []
         if (rqt) {
             requestTypeService.getRequestTypeForms(rqt.requestType.id,
@@ -80,12 +80,12 @@ class BackofficeContactController {
                 requestForms.add([
                     "id": it.id,
                     "shortLabel": it.shortLabel,
-                    "type": CapdematUtils.adaptCapdematEnum(it.type, "meansOfContact")
+                    "type": LibredematUtils.adaptLibredematEnum(it.type, "meansOfContact")
                 ])
             }
             rqt = [
                 "id" : rqt.id,
-                "state": CapdematUtils.adaptCapdematEnum(rqt.state, "request.state")
+                "state": LibredematUtils.adaptLibredematEnum(rqt.state, "request.state")
             ]
         }
         return [

@@ -4,9 +4,9 @@
     <g:each var="record" in="${records}">
       <li>
         <p class="first-line">
-          <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="user.state" />
+          <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="user.state" />
           <g:if test="${record.homeFolder}">
-            <a href="${createLink(action:'details',id:record.homeFolder.id)}${fr.cg95.cvq.business.users.UserState.ARCHIVED == record.state ? '?viewArchived' : ''}">
+            <a href="${createLink(action:'details',id:record.homeFolder.id)}${org.libredemat.business.users.UserState.ARCHIVED == record.state ? '?viewArchived' : ''}">
           </g:if>
           ${record.firstName} 
           <span class="${state?.orderBy == 'lastName' ? 'current-sort' : ''}">${record.lastName}</span>
@@ -44,7 +44,7 @@
             <span class="${state?.orderBy == 'lastModificationDate' ? 'current-sort' : ''}">
               <g:formatDate formatName="format.date" date="${record.lastModificationDate}" />
             </span>
-            <g:capdematEnumToFlag var="${record.homeFolder.state}" i18nKeyPrefix="user.state" />
+            <g:libredematEnumToFlag var="${record.homeFolder.state}" i18nKeyPrefix="user.state" />
           </p>
         </g:if>
       </li>

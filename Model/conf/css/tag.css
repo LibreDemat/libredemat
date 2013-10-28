@@ -1,1 +1,190 @@
-../../../BackOfficeNG/web-app/css/common/tag.css
+/* --------------------------------------------------------------
+
+    tag and flag description
+    TODO : Name tag by state / action ...
+    TODO : choice colors ...
+    
+    NOTE : bor's color : 
+      green=#64992C
+      orange=#ec7000
+      red=#EC7000
+
+-------------------------------------------------------------- */
+/*
+request state: pending, complete, uncomplete, validated, notified, closed, rejected, cancelled, archived
+document state: pending, validated, checked, refused, outdated
+data state: pending, valid, unvalid
+deposit type: pc, terminal, mailed_paper, brought_paper
+deposit origin: agent, ecitizen
+role: home_folder_responsible, clr_mother, clr_father, clr_tutor, tutor
+payment : initialized, validated, refused, cancelled
+invoice : paid, no_paid
+*/
+
+
+/* deposit type */
+.tag-p_c, .tag-terminal, .tag-mailed_paper, .tag-brought_paper,
+/* deposit origin */
+.tag-agent, .tag-e_citizen,
+/* request, document and data state */
+.tag-pending, .tag-complete, .tag-uncomplete, .tag-rectified, .tag-inprogress, .tag-extinprogress, .tag-validated, .tag-notified,
+.tag-closed, .tag-rejected, .tag-cancelled, .tag-archived,
+/* specific data state */
+.tag-valid, .tag-invalid,
+/* specific document state */
+.tag-checked, .tag-refused, .tag-outdated, .tag-not_provided,
+/* general flag */
+.tag-enable, .tag-disable,
+/* category profils */
+.tag-read_only, .tag-read_write, .tag-manager,
+/*  role */
+.tag-homefolderresponsible, .tag-clrmother, .tag-clrfather, .tag-clrtutor, .tag-tutor, .tag-foreigner,
+/*  payment */
+.tag-initialized,
+/* invoice */
+.tag-paid, .tag-nopaid,
+/*  request creation */
+.tag-required,
+/* external services traces */
+.tag-sent, .tag-inprogress, .tag-notsent, .tag-acknowledged, .tag-error, .tag-accepted, .tag-rejected, .tag-returned,
+.tag-external, 
+/* request note type */
+.tag-note, .tag-internal, .tag-public,
+/* request lock */
+.tag-free, .tag-lockacquired, .tag-locked,
+/* request action types */
+.tag-draftdeletenotification, .tag-creationnotification,
+.tag-qos, .tag-urgent, .tag-late,
+.tag-orangealertnotification, .tag-redalertnotification, .tag-creation, .tag-modification, .tag-modified,
+.tag-statechange, .tag-contact, .tag-contactcitizen, .tag-comment, .tag-move, .tag-waiting_notification,
+.tag-notified, .tag-notification_error,
+/* document (request creation) */
+.tag-new, .tag-pageaddition, .tag-pageedition, .tag-pagedeletion, .tag-merge,
+/* request admin actions */
+.tag-archivesdeleted, .tag-archivesdownloaded, .tag-passwordreset, .tag-requestsarchived, .tag-archivesmigrated,
+/* homefolder mapping */
+.tag-free, .tag-binded, .tag-ignored, 
+/* homefolder user */
+.tag-passwordreset, .tag-password_reset,
+/*  misc */
+.tag-draft { 
+  padding: 0 .2em;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  -moz-border-radius: .2em;
+  -webkit-border-radius: .2em;
+  font-size: .9em;
+/*  font-family: mono;*/
+/*  font-weight: bold;*/
+  color: #ffffff;
+}
+
+/* yellow */
+.tag-free,
+.tag-archivesdownloaded,
+.tag-pending,
+.tag-initialized,
+.tag-sent,
+.tag-statechange,
+.tag-rectified,
+.tag-waiting_notification,
+.tag-uncomplete    { background: #ffcc20; border-color:#ffaa20; color: #000;}
+
+/* green */
+.tag-paid,
+.tag-binded,
+.tag-requestsarchived,
+.tag-clrtutor,
+.tag-tutor,
+.tag-valid,
+.tag-validated,
+.tag-complete,
+.tag-notified,
+.tag-acknowledged,
+.tag-accepted,
+.tag-lockacquired,
+.tag-creation,
+.tag-notified,
+.tag-enable        { background: #20cc20; border-color:#20aa20; }
+
+/* red */
+.tag-nopaid,
+.tag-archivesdeleted,
+.tag-invalid,
+.tag-rejected,
+.tag-refused,
+.tag-outdated,
+.tag-error,
+.tag-rejected,
+.tag-locked,
+.tag-notification_error,
+.tag-redalertnotification, .tag-late,
+.tag-disable       { background: #cc2020; border-color:#aa2020; }
+
+/* negative red */
+.tag-draftdeletenotification,
+.tag-pagedeletion,
+.tag-not_provided  { background: #dedede; color: #cc2020; border-color: #aa2020; }
+
+/* blue */
+.tag-archivesmigrated,
+.tag-new,
+.tag-pageaddition,
+.tag-clrfather,
+.tag-checked,
+.tag-contact, .tag-contactcitizen, .tag-comment,
+.tag-returned,
+.tag-read_only     { background: #2020cc; border-color:#2020aa; }
+
+/* orange*/
+.tag-homefolderresponsible,
+.tag-read_write,
+.tag-modification, .tag-modified,
+.tag-pageedition,
+.tag-inprogress, .tag-extinprogress,
+.tag-merge, .tag-move,
+.tag-orangealertnotification, .tag-urgent,
+.tag-agent         { background: #ec7000; border-color:#da7000; }
+
+/* violet */
+.tag-qos,
+.tag-passwordreset, .tag-password_reset,
+.tag-required,
+.tag-e_citizen,
+.tag-creationnotification,
+.tag-manager       { background: #aa00ff; border-color:#aa00ff; }
+
+/* pink */
+.tag-external,
+.tag-clrmother    { background: #ff00aa; border-color:#ff0088; }
+
+/* gray */
+.tag-foreigner,
+.tag-closed,
+.tag-cancelled,
+.tag-archived,
+.tag-notsent,
+.tag-no_right      { background: #aaaaaa; border-color:#cccccc; color:#ffffff; }
+
+/* gray black */
+.tag-note,
+.tag-ignored,
+.tag-p_c,
+.tag-terminal,
+.tag-mailed_paper,
+.tag-brought_paper { background: #333333; border-color:#cccccc; color:#ffffff; }
+
+/* draft */
+.tag-draft { background: #13d6d6; border-color: #009999; color: #000;}
+
+.tag-public {
+  background-color : #eeeeee;
+  border-color : #0000ff;
+  color : #0000ff;
+}
+
+.tag-internal {
+  background-color : #eeeeee;
+  border-color : #ff0000;
+  color : #ff0000;
+}

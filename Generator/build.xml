@@ -108,7 +108,7 @@
 
   <target name="compile" depends="init, XMLBean">
     <javac optimize="on" debug="on" verbose="off" srcdir="${src.java.dir}"
-      includes="fr/cg95/cvq/generator/**" deprecation="on" destdir="${build.classes.dir}">
+      includes="org/libredemat/generator/**" deprecation="on" destdir="${build.classes.dir}">
       <classpath>
         <path refid="classpath.compile" />
         <fileset dir="${build.archives.dir}">
@@ -137,7 +137,7 @@
   <!-- depends on dist could be enough but we have to call deploy to test the generated data so ... -->
   <target name="generator" description="Code Generator In Action" depends="deploy">
 
-    <taskdef name="generator" classname="fr.cg95.cvq.generator.tool.GeneratorTask" 
+    <taskdef name="generator" classname="org.libredemat.generator.tool.GeneratorTask" 
       classpathref="classpath.generator">
     </taskdef>
 
@@ -165,7 +165,7 @@
   <!-- =================================================================== -->
 
   <target name="generator-test" description="Tests the parsing of an XML schema" depends="dist">
-    <java classname="fr.cg95.cvq.generator.CodeGenerator">
+    <java classname="org.libredemat.generator.CodeGenerator">
       <classpath>
         <path refid="classpath.compile" />
         <pathelement path="${build.classes.dir}" />
@@ -177,7 +177,7 @@
 
   <target name="xmlinstance-test" depends="XMLBean, dist"
     description="Test validation of an XML file against its schema">
-    <java classname="fr.cg95.cvq.generator.tool.XmlValidator" classpathref="classpath.generator"
+    <java classname="org.libredemat.generator.tool.XmlValidator" classpathref="classpath.generator"
       fork="true">
       <arg line="msrr.xml" />
       <arg line="src/xml/schemas/request/MusicSchoolRegistrationRequest.xsd" />

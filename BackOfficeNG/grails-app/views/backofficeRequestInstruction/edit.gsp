@@ -13,10 +13,10 @@
         <script type="text/javascript" src="${resource(dir:'js/common',file:'addressAutocomplete.js')}"></script>
     </g:if>
     <script type="text/javascript">
-      zenexity.capdemat.bong.requestId = '${rqt.id}';
-      zenexity.capdemat.bong.editableStates = ${editableStates} ; 
-      zenexity.capdemat.bong.agentCanWrite = '${agentCanWrite}';
-      zenexity.capdemat.bong.contactPanelUrl = "${createLink(controller : 'backofficeContact', action : 'panel')}";
+      zenexity.libredemat.bong.requestId = '${rqt.id}';
+      zenexity.libredemat.bong.editableStates = ${editableStates} ; 
+      zenexity.libredemat.bong.agentCanWrite = '${agentCanWrite}';
+      zenexity.libredemat.bong.contactPanelUrl = "${createLink(controller : 'backofficeContact', action : 'panel')}";
     </script>
     <link rel="stylesheet" href="${resource(dir:'css/backoffice/common/yui-skin',file:'container.css')}" ></link>
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'contact.css')}" />
@@ -27,7 +27,7 @@
     </g:if>
     <g:if test="${externalProviderServiceLabel != null}">
       <script type="text/javascript">
-        zenexity.capdemat.bong.request.External.label = '${externalProviderServiceLabel}';
+        zenexity.libredemat.bong.request.External.label = '${externalProviderServiceLabel}';
       </script>
     </g:if>
   </head>

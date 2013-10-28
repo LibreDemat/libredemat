@@ -9,7 +9,7 @@
             <select id="socialSecurityMemberShipKind" name="socialSecurityMemberShipKind" class="required condition-isSocialSecurityMemberShip-trigger  validate-not-first ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('socialSecurityMemberShipKind') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.socialSecurityMemberShipKind.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['INSURED','CLAIMANT','NO_MEMBER_SHIP']}">
-                <option value="${it}" ${it == rqt.socialSecurityMemberShipKind?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hcar.property.socialSecurityMemberShipKind" /></option>
+                <option value="${it}" ${it == rqt.socialSecurityMemberShipKind?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hcar.property.socialSecurityMemberShipKind" /></option>
               </g:each>
             </select>
             
@@ -63,7 +63,7 @@
             <select id="paymentAgencyBeneficiary" name="paymentAgencyBeneficiary" class="required condition-isPaymentAgencyBeneficiary-trigger  validate-not-first ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('paymentAgencyBeneficiary') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.paymentAgencyBeneficiary.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['C_A_F','M_S_A','OTHER','NO_MEMBER_SHIP']}">
-                <option value="${it}" ${it == rqt.paymentAgencyBeneficiary?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hcar.property.paymentAgencyBeneficiary" /></option>
+                <option value="${it}" ${it == rqt.paymentAgencyBeneficiary?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hcar.property.paymentAgencyBeneficiary" /></option>
               </g:each>
             </select>
             

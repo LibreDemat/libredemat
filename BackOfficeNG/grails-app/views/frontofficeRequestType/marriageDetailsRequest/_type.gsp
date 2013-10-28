@@ -7,7 +7,7 @@
               <g:each in="${['FULL_COPY','EXTRACT_WITH_RELATIONSHIP','EXTRACT_WITHOUT_RELATIONSHIP','MULTILINGUAL_EXTRACT']}">
               <li>
                 <input type="radio" id="format_${it}" class="required condition-isWithRelationship-trigger  validate-one-required" value="${it}" name="format" ${it == rqt.format.toString() ? 'checked="checked"': ''} title="<g:message code="mdr.property.format.validationError" />" />
-                <label for="format_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="mdr.property.format" /></label>
+                <label for="format_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="mdr.property.format" /></label>
               </li>
               </g:each>
             </ul>
@@ -28,7 +28,7 @@
             <select id="motive" name="motive" class="  validate-select ${rqt.stepStates['type'].invalidFields.contains('motive') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.motive.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['NOTARY_ACT','FRENCH_NATIONALITY_CERTIFICATE','MARITAL_REGIME_CHANGE','FRENCH_NATIONALITY_ACQUISITION_DECLARATION','DIVORCE_SEPARATION','PASSPORT','PENSION','OTHER']}">
-                <option value="${it}" ${it == rqt.motive?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="mdr.property.motive" /></option>
+                <option value="${it}" ${it == rqt.motive?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="mdr.property.motive" /></option>
               </g:each>
             </select>
             
@@ -47,7 +47,7 @@
             <select id="relationship" name="relationship" class="required condition-isWithRelationship-filled  validate-not-first ${rqt.stepStates['type'].invalidFields.contains('relationship') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.relationship.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['HUSBAND','WIFE']}">
-                <option value="${it}" ${it == rqt.relationship?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="mdr.property.relationship" /></option>
+                <option value="${it}" ${it == rqt.relationship?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="mdr.property.relationship" /></option>
               </g:each>
             </select>
             

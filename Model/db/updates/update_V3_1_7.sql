@@ -4,45 +4,45 @@ alter table request add column subject_table_name varchar(255);
 alter table request add column subject_id int8;
 
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Individual', 
+  set subject_table_name = 'org.libredemat.business.users.Individual', 
       subject_id = (select subject_id from music_school_registration_request where request.id = music_school_registration_request.id)
   where request.id in (select id from music_school_registration_request);
 
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Individual', 
+  set subject_table_name = 'org.libredemat.business.users.Individual', 
       subject_id = (select subject_id from library_registration_request where request.id = library_registration_request.id)
   where request.id in (select id from library_registration_request);
 
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Individual', 
+  set subject_table_name = 'org.libredemat.business.users.Individual', 
       subject_id = (select subject_id from electoral_roll_registration_request where request.id = electoral_roll_registration_request.id)
   where request.id in (select id from electoral_roll_registration_request);
 
 update request
-  set subject_table_name = 'fr.cg95.cvq.business.users.Adult'
+  set subject_table_name = 'org.libredemat.business.users.Adult'
   where subject_id in (select id from adult);
 
 update request
-  set subject_table_name = 'fr.cg95.cvq.business.users.Child'
+  set subject_table_name = 'org.libredemat.business.users.Child'
   where subject_id in (select id from child);
 
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Child', 
+  set subject_table_name = 'org.libredemat.business.users.Child', 
       subject_id = (select child_id from school_registration_request where request.id = school_registration_request.id)
   where request.id in (select id from school_registration_request);
 
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Child', 
+  set subject_table_name = 'org.libredemat.business.users.Child', 
       subject_id = (select child_id from school_canteen_registration_request where request.id = school_canteen_registration_request.id)
   where request.id in (select id from school_canteen_registration_request);
 
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Child',
+  set subject_table_name = 'org.libredemat.business.users.Child',
       subject_id = (select child_id from perischool_activity_registration_request where request.id = perischool_activity_registration_request.id)
   where request.id in (select id from perischool_activity_registration_request);
   
 update request 
-  set subject_table_name = 'fr.cg95.cvq.business.users.Child', 
+  set subject_table_name = 'org.libredemat.business.users.Child', 
       subject_id = (select child_id from recreation_activity_registration_request where request.id = recreation_activity_registration_request.id)
   where request.id in (select id from recreation_activity_registration_request);
 

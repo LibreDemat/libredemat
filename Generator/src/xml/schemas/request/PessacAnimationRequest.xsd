@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/par"
-  xmlns:par="http://www.cg95.fr/cvq/schema/par"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/par"
+  xmlns:par="http://www.libredemat.org/schema/par"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="PessacAnimationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'adhésion aux animations sportives et culturelles
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Adhésion aux animations sportives et culturelles
       </xs:documentation>
       <xs:appinfo>
@@ -44,10 +44,10 @@
           <xs:sequence>
             <xs:element name="TelephoneSujet" type="cvq:MobilePhoneType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Téléphone portable de l'adolescent
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Téléphone portable de l'adolescent
                 </xs:documentation>
                 <xs:appinfo>
@@ -62,10 +62,10 @@
             </xs:element>
             <xs:element name="EmailSujet" type="cvq:EmailType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Email de l'adolescent
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Email de l'adolescent
                 </xs:documentation>
                 <xs:appinfo>
@@ -80,10 +80,10 @@
             </xs:element>
             <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
                 <xs:appinfo>

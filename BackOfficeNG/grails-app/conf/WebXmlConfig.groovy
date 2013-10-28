@@ -52,7 +52,7 @@ webxml {
     servlet.mappings = ['soap-ws':'/service/soap/*']
 
     filter.add = true
-    filter.names = ['SoapOpenSessionInViewFilter':'fr.cg95.cvq.util.web.filter.CvqOpenSessionInViewFilter']
+    filter.names = ['SoapOpenSessionInViewFilter':'org.libredemat.util.web.filter.CvqOpenSessionInViewFilter']
     filter.initparams = ['SoapOpenSessionInViewFilter':['context':'backOffice']]
     filter.mappings = ['SoapOpenSessionInViewFilter':'/service/soap/*']
 }

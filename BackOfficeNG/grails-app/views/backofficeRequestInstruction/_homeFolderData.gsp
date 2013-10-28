@@ -22,7 +22,7 @@
     </g:else>
   </p>
   <g:if test="${!homeFolder.info.temporary}">
-    <p>${message(code:'property.state')} : <g:capdematEnumToFlag var="${homeFolder.info.state}" i18nKeyPrefix="user.state" /></p>
+    <p>${message(code:'property.state')} : <g:libredematEnumToFlag var="${homeFolder.info.state}" i18nKeyPrefix="user.state" /></p>
   </g:if>
   <p>${message(code:'property.address')} : <strong>${homeFolder.info.addressDetails}</strong></p>
 </div>
@@ -37,7 +37,7 @@
           <g:if test="${record.ownerRoles.homeFolder.size() > 0}">
             <dd>
               <g:each var="ownerRole" in="${record.ownerRoles.homeFolder}"> 
-                <g:capdematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
+                <g:libredematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
               </g:each>
             </dd>
           </g:if>
@@ -78,7 +78,7 @@
           <dt>${record.fullName}</dt>
           <dd>
             ${message(code:'homeFolder.child.property.sex')} 
-            <g:capdematEnumToText var="${record.sex}" i18nKeyPrefix="homeFolder.child.property.sex"/>
+            <g:libredematEnumToText var="${record.sex}" i18nKeyPrefix="homeFolder.child.property.sex"/>
           </dd>
           <dd>
             ${record.born ? message(code:'homeFolder.header.born') : message(code:'homeFolder.header.noBorn')}
@@ -101,7 +101,7 @@
                   <li>
                     ${roleOwner.fullName}
                     <g:each in="${roleOwner.getIndividualRoles(record.id)}">
-                      <g:capdematEnumToFlag var="${it.role}" i18nKeyPrefix="homeFolder.role" />
+                      <g:libredematEnumToFlag var="${it.role}" i18nKeyPrefix="homeFolder.role" />
                     </g:each>
                   </li>
                 </g:each>

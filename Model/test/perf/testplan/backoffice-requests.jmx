@@ -1092,7 +1092,7 @@
               <elementProp name="propertyType" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.name">propertyType</stringProp>
-                <stringProp name="Argument.value">{%22action%22:%22editField%22,%22validate%22:%22capdematEnum%22,%22javatype%22:%22fr.cg95.cvq.business.users.TitleType%22}</stringProp>
+                <stringProp name="Argument.value">{%22action%22:%22editField%22,%22validate%22:%22libredematEnum%22,%22javatype%22:%22org.libredemat.business.users.TitleType%22}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -1142,7 +1142,7 @@
               <elementProp name="title" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.name">title</stringProp>
-                <stringProp name="Argument.value">fr.cg95.cvq.business.users.TitleType_Madam</stringProp>
+                <stringProp name="Argument.value">org.libredemat.business.users.TitleType_Madam</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -2576,7 +2576,7 @@
               <bytes>true</bytes>
             </value>
           </objProp>
-          <stringProp name="filename">/home/vba/projects/capdemat/git/capdemat/Model/test/perf/report/backoffice-requests.jtl</stringProp>
+          <stringProp name="filename">/home/vba/projects/libredemat/git/libredemat/Model/test/perf/report/backoffice-requests.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>

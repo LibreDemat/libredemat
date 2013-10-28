@@ -2,12 +2,12 @@
   <dt>${message(code:'property.creationDate')} : </dt>
   <dd><g:formatDate formatName="format.date" date="${adult.creationDate}"/></dd>
   <dt>${message(code:'property.state')} : </dt>
-  <dd><g:capdematEnumToFlag var="${adult.state}" i18nKeyPrefix="user.state" /></dd>
+  <dd><g:libredematEnumToFlag var="${adult.state}" i18nKeyPrefix="user.state" /></dd>
   <g:if test="${!ownerRoles.homeFolder.isEmpty()}">
     <dt>${message(code:'homeFolder.adult.property.homeFolderRoles')} : </dt>
     <dd>
       <g:each var="ownerRole" in="${ownerRoles.homeFolder}">
-        <g:capdematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
+        <g:libredematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
       </g:each>
     </dd>
   </g:if>
@@ -16,7 +16,7 @@
     <dd>
       <g:each var="ownerRole" in="${ownerRoles.individual}">
         <p>
-          <g:capdematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
+          <g:libredematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
           ${ownerRole.subjectName}
         </p>
       </g:each>

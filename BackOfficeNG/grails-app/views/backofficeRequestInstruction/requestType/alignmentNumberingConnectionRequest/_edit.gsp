@@ -67,7 +67,7 @@
             
               
               <dl>
-                <dt class="required condition-isOwner-trigger">${message(code:'ancr.property.requesterQuality.label')}&nbsp;*&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-capdematEnum required-true i18n-ancr.property.requesterQuality javatype-fr.cg95.cvq.business.request.urbanism.AncrRequesterQualityType" ><g:capdematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="ancr.property.requesterQuality" /></dd>
+                <dt class="required condition-isOwner-trigger">${message(code:'ancr.property.requesterQuality.label')}&nbsp;*&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-libredematEnum required-true i18n-ancr.property.requesterQuality javatype-org.libredemat.business.request.urbanism.AncrRequesterQualityType" ><g:libredematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="ancr.property.requesterQuality" /></dd>
               </dl>
               
             

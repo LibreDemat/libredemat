@@ -85,7 +85,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'ddr.property.format.label')}&nbsp;*&nbsp;:</dt><dd id="format" class="action-editField validate-capdematEnum required-true i18n-ddr.property.format javatype-fr.cg95.cvq.business.request.civil.DeathCertificateFormatType" ><g:capdematEnumToField var="${rqt?.format}" i18nKeyPrefix="ddr.property.format" /></dd>
+                <dt class="required">${message(code:'ddr.property.format.label')}&nbsp;*&nbsp;:</dt><dd id="format" class="action-editField validate-libredematEnum required-true i18n-ddr.property.format javatype-org.libredemat.business.request.civil.DeathCertificateFormatType" ><g:libredematEnumToField var="${rqt?.format}" i18nKeyPrefix="ddr.property.format" /></dd>
               </dl>
               
             
@@ -97,7 +97,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'ddr.property.motive.label')}&nbsp;:</dt><dd id="motive" class="action-editField validate-capdematEnum i18n-ddr.property.motive javatype-fr.cg95.cvq.business.request.civil.DeathCertificateMotiveType" ><g:capdematEnumToField var="${rqt?.motive}" i18nKeyPrefix="ddr.property.motive" /></dd>
+                <dt class="">${message(code:'ddr.property.motive.label')}&nbsp;:</dt><dd id="motive" class="action-editField validate-libredematEnum i18n-ddr.property.motive javatype-org.libredemat.business.request.civil.DeathCertificateMotiveType" ><g:libredematEnumToField var="${rqt?.motive}" i18nKeyPrefix="ddr.property.motive" /></dd>
               </dl>
               
             

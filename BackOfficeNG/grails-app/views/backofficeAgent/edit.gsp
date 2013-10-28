@@ -9,7 +9,7 @@
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'agentEdit.js')}"></script>
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'agentCategories.js')}"></script>
   <script type="text/javascript">
-    zenexity.capdemat.bong.agentId = '${agent?.id}';
+    zenexity.libredemat.bong.agentId = '${agent?.id}';
   </script>
   </head>
   

@@ -2,9 +2,9 @@
 
   var yue = YAHOO.util.Event;
   var yud = YAHOO.util.Dom;
-  var zct = zenexity.capdemat.tools;
-  zct.namespace("zenexity.capdemat.bong.requestType");
-  var zcbrt = zenexity.capdemat.bong.requestType;
+  var zct = zenexity.libredemat.tools;
+  zct.namespace("zenexity.libredemat.bong.requestType");
+  var zcbrt = zenexity.libredemat.bong.requestType;
 
   zcbrt.list = function() {
 

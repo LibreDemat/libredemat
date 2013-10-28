@@ -59,7 +59,7 @@
 		<echo message="Created build and configuration files" />
 
 		<groovy>
-			def namespace = "fr/capwebct/capdemat/plugins/${properties.'plugin-type'.toLowerCase()}/${properties.'plugin-name'.toLowerCase()}/service"
+			def namespace = "org/libredemat/plugins/${properties.'plugin-type'.toLowerCase()}/${properties.'plugin-name'.toLowerCase()}/service"
 			def srcDir = "${properties.'plugin-base'}/src/java/${namespace}"
 			def testDir = "${properties.'plugin-base'}/test/java/${namespace}"
 			new File(srcDir).mkdirs()

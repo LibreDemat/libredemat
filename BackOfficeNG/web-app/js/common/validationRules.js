@@ -1,6 +1,6 @@
 (function() {
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   var yl = YAHOO.lang;
   var yud = YAHOO.util.Dom;
 

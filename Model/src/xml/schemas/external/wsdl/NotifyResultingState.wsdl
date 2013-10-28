@@ -2,15 +2,15 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/capdemat/rin"
-                  xmlns:tns="http://www.capwebct.fr/capdemat/rin"
+                  xmlns:schema="http://www.libredemat.org/rin"
+                  xmlns:tns="http://www.libredemat.org/rin"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/capdemat/rin">
+                  targetNamespace="http://www.libredemat.org/rin">
    <wsdl:types>
-      <xs:schema xmlns:rin="http://www.capwebct.fr/capdemat/rin"
+      <xs:schema xmlns:rin="http://www.libredemat.org/rin"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 xmlns:common="http://www.cg95.fr/cvq/schema/common"
-                 targetNamespace="http://www.capwebct.fr/capdemat/rin"
+                 xmlns:common="http://www.libredemat.org/schema/common"
+                 targetNamespace="http://www.libredemat.org/rin"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -70,7 +70,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="NotifiyResultingState">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/capdemat/rin/NotifiyResultingState"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/rin/NotifiyResultingState"/>
          <wsdl:input name="NotifiyResultingStateInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

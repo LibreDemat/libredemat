@@ -1,10 +1,10 @@
-import fr.cg95.cvq.business.document.Document
-import fr.cg95.cvq.business.document.DocumentState
-import fr.cg95.cvq.exception.CvqModelException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.document.IDocumentService
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.service.users.IHomeFolderDocumentService
+import org.libredemat.business.document.Document
+import org.libredemat.business.document.DocumentState
+import org.libredemat.exception.CvqModelException
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.document.IDocumentService
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.service.users.IHomeFolderDocumentService
 
 class FrontofficeHomeFolderDocumentController {
     IDocumentService documentService

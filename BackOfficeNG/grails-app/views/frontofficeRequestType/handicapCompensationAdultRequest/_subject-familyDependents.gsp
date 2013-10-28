@@ -68,7 +68,7 @@
             <select id="familyDependents.${collectionIndex}.familyDependentActualSituation" name="familyDependents[${collectionIndex}].familyDependentActualSituation" class="required  validate-not-first ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].familyDependentActualSituation') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.familyDependentActualSituation.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['SCHOOLING','LEARNING','MEDICO_SOCIAL']}">
-                <option value="${it}" ${it == currentCollectionItem?.familyDependentActualSituation?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hcar.property.familyDependentActualSituation" /></option>
+                <option value="${it}" ${it == currentCollectionItem?.familyDependentActualSituation?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hcar.property.familyDependentActualSituation" /></option>
               </g:each>
             </select>
             

@@ -1,16 +1,16 @@
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.document');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.document');
 
 (function(){
 
-  var zc = zenexity.capdemat;
-  var zcb = zenexity.capdemat.bong;
-  var zca = zenexity.capdemat.aspect;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
-  var zcbd = zenexity.capdemat.bong.document;
+  var zc = zenexity.libredemat;
+  var zcb = zenexity.libredemat.bong;
+  var zca = zenexity.libredemat.aspect;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
+  var zcbd = zenexity.libredemat.bong.document;
   
   // TODO remove
-  var zcbr = zenexity.capdemat.bong.request;
+  var zcbr = zenexity.libredemat.bong.request;
   
   var yw = YAHOO.widget;
   var yud = YAHOO.util.Dom;
@@ -215,8 +215,8 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.document');
           { head : 'Attention !',
             body : 'Souhaitez-vous réellement supprimer ce document associé à la demande ?' },
           function() {
-            var currentBaseUrl = zenexity.capdemat.baseUrl;
-            zenexity.capdemat.baseUrl = 
+            var currentBaseUrl = zenexity.libredemat.baseUrl;
+            zenexity.libredemat.baseUrl = 
                 zc['contextPath']
                 + '/backoffice/userDocumentInstruction';
 
@@ -228,12 +228,12 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.document');
                 zcb.document.Instruction.refreshList();
               }
             });
-            zenexity.capdemat.baseUrl = currentBaseUrl;
+            zenexity.libredemat.baseUrl = currentBaseUrl;
           }).show(e);
       },
       rotate : function(e) {
         var params = yue.getTarget(e).parentNode.id.split('_');
-        zenexity.capdemat.baseUrl = zc["contextPath"] + "/backoffice/userDocumentInstruction";
+        zenexity.libredemat.baseUrl = zc["contextPath"] + "/backoffice/userDocumentInstruction";
         zct.doAjaxCall("/rotate/" + params[1] + "?index=" + params[2] + "&trigonometric=" + params[3], null, function(o) {
           var json = ylj.parse(o.responseText);
           if (!json.pageNumber) json.pageNumber = zcbd.Instruction.tabView.get("activeIndex");

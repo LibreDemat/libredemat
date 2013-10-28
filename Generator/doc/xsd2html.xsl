@@ -119,12 +119,12 @@
   </xsl:template>
 
   <xsl:template match="xs:documentation">
-  	<xsl:if test="not(starts-with(@source,'http://www.cg95.fr/cvq/schema/translation'))">
+  	<xsl:if test="not(starts-with(@source,'http://www.libredemat.org/schema/translation'))">
       <p>
   		<xsl:if test="@xml:lang = 'fr'">FranÃ§ais </xsl:if>
   		<xsl:if test="@xml:lang = 'en'">Anglais </xsl:if>
-  		<xsl:if test="@source = 'http://www.cg95.fr/cvq/schema/shortdesc'">(description courte) : </xsl:if>
-  		<xsl:if test="@source = 'http://www.cg95.fr/cvq/schema/longdesc'">(description longue) : </xsl:if>
+  		<xsl:if test="@source = 'http://www.libredemat.org/schema/shortdesc'">(description courte) : </xsl:if>
+  		<xsl:if test="@source = 'http://www.libredemat.org/schema/longdesc'">(description longue) : </xsl:if>
       	<xsl:apply-templates/>
       </p>
     </xsl:if>

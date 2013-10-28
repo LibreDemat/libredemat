@@ -1,8 +1,8 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.fong.requesttype");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.fong.requesttype");
 
 (function() {
-  var zcfr = zenexity.capdemat.fong.requesttype;
-  var zcv = zenexity.capdemat.Validation;
+  var zcfr = zenexity.libredemat.fong.requesttype;
+  var zcv = zenexity.libredemat.Validation;
   var yue = YAHOO.util.Event;
 
   zcfr.StudyGrantRequest = function() {

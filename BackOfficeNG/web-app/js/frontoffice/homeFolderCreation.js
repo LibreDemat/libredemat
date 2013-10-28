@@ -1,6 +1,6 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.fong.homefolder");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.fong.homefolder");
 (function(){
-  var zcfh = zenexity.capdemat.fong.homefolder;
+  var zcfh = zenexity.libredemat.fong.homefolder;
   var yu = YAHOO.util;
   var yue = yu.Event;
   var yud = yu.Dom;

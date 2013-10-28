@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/ladrr" 
-  xmlns:ladrr="http://www.cg95.fr/cvq/schema/ladrr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/ladrr" 
+  xmlns:ladrr="http://www.libredemat.org/schema/ladrr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
     
   <xs:element name="LearningActivitiesDiscoveryRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
     	Demande de pré-inscription aux ateliers d'éveil
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
     	Pré-inscription aux ateliers d'éveil
       </xs:documentation>
       <xs:appinfo>
@@ -47,10 +47,10 @@
   <!--        STEP 0 : Sujet                                           -->
            <xs:element name="AtelierEveil" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Atelier éveil
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Choisissez le ou les ateliers d'éveil auquels vous souhaitez participer
                 </xs:documentation>
                 <xs:appinfo>
@@ -67,10 +67,10 @@
 
             <xs:element name="AtelierEveilPrecisionChoix" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Si vous avez un ordre de préférence, précisez votre choix 1 et choix 2
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Si vous avez un ordre de préférence, précisez votre choix 1 et choix 2
                 </xs:documentation>
                 <xs:appinfo>

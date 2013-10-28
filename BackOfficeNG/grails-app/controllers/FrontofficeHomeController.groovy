@@ -1,31 +1,31 @@
-import fr.cg95.cvq.authentication.IAuthenticationService
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
-import fr.cg95.cvq.business.request.DisplayGroup
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestActionType
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.request.RequestType
-import fr.cg95.cvq.business.users.Adult
-import fr.cg95.cvq.business.users.HomeFolder
-import fr.cg95.cvq.business.payment.Payment
-import fr.cg95.cvq.exception.CvqAuthenticationFailedException
-import fr.cg95.cvq.exception.CvqDisabledAccountException
-import fr.cg95.cvq.exception.CvqNotValidatedAccount;
-import fr.cg95.cvq.exception.CvqUnknownUserException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.security.annotation.ContextType
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.document.IDocumentService
-import fr.cg95.cvq.service.payment.IPaymentService
-import fr.cg95.cvq.service.request.IRequestNoteService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestActionService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.users.IUserWorkflowService
-import fr.cg95.cvq.service.users.IUserService
-import fr.cg95.cvq.util.Critere
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.authentication.IAuthenticationService
+import org.libredemat.business.authority.LocalAuthorityResource
+import org.libredemat.business.request.DisplayGroup
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestActionType
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.request.RequestType
+import org.libredemat.business.users.Adult
+import org.libredemat.business.users.HomeFolder
+import org.libredemat.business.payment.Payment
+import org.libredemat.exception.CvqAuthenticationFailedException
+import org.libredemat.exception.CvqDisabledAccountException
+import org.libredemat.exception.CvqNotValidatedAccount;
+import org.libredemat.exception.CvqUnknownUserException
+import org.libredemat.security.SecurityContext
+import org.libredemat.security.annotation.ContextType
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.document.IDocumentService
+import org.libredemat.service.payment.IPaymentService
+import org.libredemat.service.request.IRequestNoteService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestActionService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.users.IUserWorkflowService
+import org.libredemat.service.users.IUserService
+import org.libredemat.util.Critere
+import org.libredemat.util.UserUtils
 
 class FrontofficeHomeController {
 
@@ -219,7 +219,7 @@ class FrontofficeHomeController {
                 'endValidityDate' : doc.endValidityDate,
                 'state' : doc.state.toString(),
                 'subject' : UserUtils.getDisplayName(doc.individualId),
-                'title' : message(code:CapdematUtils.adaptDocumentTypeName(doc.documentType.name))
+                'title' : message(code:LibredematUtils.adaptDocumentTypeName(doc.documentType.name))
             ])
         }
 

@@ -4,9 +4,9 @@ import javax.servlet.http.HttpSessionListener
 import org.codehaus.groovy.grails.commons.ApplicationHolder
 import org.springframework.context.ApplicationContext
 
-import fr.cg95.cvq.security.SecurityContext;
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.request.reservation.ITicketBookingRequestService
+import org.libredemat.security.SecurityContext;
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.request.reservation.ITicketBookingRequestService
 
 public class TicketBookingSessionListener implements HttpSessionListener {
 

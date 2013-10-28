@@ -1,6 +1,6 @@
 <li>
   <p class="first-line">
-    <g:capdematEnumToFlag var="${trace.status}" i18nKeyPrefix="externalservice.trace.status" />
+    <g:libredematEnumToFlag var="${trace.status}" i18nKeyPrefix="externalservice.trace.status" />
     <g:message code="requestExternalAction.property.date" />
     <span class="${sortBy == 'date' ? 'current-sort' : ''}">
       <g:formatDate formatName="format.date" date="${trace.date}" /></span> - 
@@ -11,7 +11,7 @@
   </p>
 
   <p class="second-line">
-    <g:capdematEnumToFlag var="${trace.request.state}" i18nKeyPrefix="request.state" />
+    <g:libredematEnumToFlag var="${trace.request.state}" i18nKeyPrefix="request.state" />
     <g:if test="${trace.request.isViewable}">
       <a href="${createLink(controller:'backofficeRequestInstruction', action:'edit',id:trace.request.id)}">
     </g:if>

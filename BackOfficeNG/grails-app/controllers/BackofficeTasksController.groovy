@@ -1,11 +1,11 @@
 import java.util.Hashtable
 
-import fr.cg95.cvq.business.QoS
-import fr.cg95.cvq.business.users.Individual
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.QoS
+import org.libredemat.business.users.Individual
+import org.libredemat.business.request.Request
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.util.Critere
 
 import grails.converters.JSON
 

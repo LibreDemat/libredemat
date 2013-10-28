@@ -6,7 +6,7 @@
             <select id="choixAccompagnateur" name="choixAccompagnateur" class="required condition-estAutre-trigger  validate-not-first ${stepStates != null && stepStates['accompagnateur']?.invalidFields.contains('choixAccompagnateur') ? 'validation-failed' : ''}" title="<g:message code="ladrr.property.choixAccompagnateur.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['Mere','Pere','Autre']}">
-                <option value="fr.cg95.cvq.business.request.school.AccompagnateurType_${it}" ${it == rqt.choixAccompagnateur?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="ladrr.property.choixAccompagnateur" /></option>
+                <option value="org.libredemat.business.request.school.AccompagnateurType_${it}" ${it == rqt.choixAccompagnateur?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="ladrr.property.choixAccompagnateur" /></option>
               </g:each>
             </select>
             

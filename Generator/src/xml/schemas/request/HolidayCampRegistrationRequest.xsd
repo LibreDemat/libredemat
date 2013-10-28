@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/hcrr"
-  xmlns:hcrr="http://www.cg95.fr/cvq/schema/hcrr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/hcrr"
+  xmlns:hcrr="http://www.libredemat.org/schema/hcrr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="HolidayCampRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de pré-inscription aux séjours
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Pré-inscription aux séjours
       </xs:documentation>
       <xs:appinfo>
@@ -45,10 +45,10 @@
           <xs:sequence>
             <xs:element name="CentreSejours" type="hcrr:CentreSejoursType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Centre de séjours
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Centre de séjours
                 </xs:documentation>
                 <xs:appinfo>
@@ -63,10 +63,10 @@
             </xs:element>
             <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
                 <xs:appinfo>
@@ -89,10 +89,10 @@
     <xs:sequence>
       <xs:element name="IdCentreSejours" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Identifiant du centre de séjours
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Identifiant du centre de séjours
           </xs:documentation>
           <xs:appinfo>
@@ -107,10 +107,10 @@
       </xs:element>
       <xs:element name="LabelCentreSejours" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Label du centre de séjours
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Label du centre de séjours
           </xs:documentation>
           <xs:appinfo>

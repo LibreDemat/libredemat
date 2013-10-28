@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/snr"
-  xmlns:snr="http://www.cg95.fr/cvq/schema/snr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/snr"
+  xmlns:snr="http://www.libredemat.org/schema/snr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="SmsNotificationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'inscription à l'infolettre SMS
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         SMS notification request
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Inscription à l'infolettre SMS
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         SMS Notification
       </xs:documentation>
       <xs:appinfo>
@@ -53,16 +53,16 @@
           <xs:sequence>
             <xs:element name="MobilePhone" type="cvq:MobilePhoneType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Téléphone portable
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Téléphone portable
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Mobile phone
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Mobile Phone
                 </xs:documentation>
                 <xs:appinfo>
@@ -78,16 +78,16 @@
             </xs:element>          
             <xs:element name="Subscription" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Abonnement au service de notification par SMS
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Abonnement
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   SMS notification service subscription
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Subscription
                 </xs:documentation>
                 <xs:appinfo>
@@ -102,16 +102,16 @@
             </xs:element>
             <xs:element name="Interests" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Centres d'intérêt
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Centres d'intérêt
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Interests
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Interests
                 </xs:documentation>
                 <xs:appinfo>
@@ -127,16 +127,16 @@
             </xs:element>
             <xs:element name="CleverSmsContactId" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Identifiants de l'individu Clever SMS
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Id Clever SMS
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Clever SMS Contact business Identifier
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Clever SMS Id
                 </xs:documentation>
                 <xs:appinfo>

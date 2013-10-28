@@ -5,9 +5,9 @@
     <script type="text/javascript" src="${resource(dir:'js/common',file:'calendar.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'externalSearch.js')}"></script>
     <script type="text/javascript">
-    zenexity.capdemat.bong.external.Search.before = function() {
+    zenexity.libredemat.bong.external.Search.before = function() {
       if ('${searchType}' === 'invoice')
-        zenexity.capdemat.bong.Calendar("expirationDateBefore");
+        zenexity.libredemat.bong.Calendar("expirationDateBefore");
     }
     </script>
   </head>

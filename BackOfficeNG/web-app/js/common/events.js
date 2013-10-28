@@ -20,4 +20,4 @@
 
   return events
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.tools.events'))
+})(zenexity.libredemat.tools.namespace('zenexity.libredemat.tools.events'))

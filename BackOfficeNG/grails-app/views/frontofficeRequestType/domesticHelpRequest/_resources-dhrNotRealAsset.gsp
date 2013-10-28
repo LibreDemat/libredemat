@@ -17,7 +17,7 @@
               <g:each in="${['SHARE','GIFT','SALE']}">
               <li>
                 <input type="radio" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetType_${it}" class="required  validate-one-required" value="${it}" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetType" ${it == currentCollectionItem?.dhrNotRealAssetType.toString() ? 'checked="checked"': ''} title="<g:message code="dhr.property.dhrNotRealAssetType.validationError" />" />
-                <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetType_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" /></label>
+                <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetType_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" /></label>
               </li>
               </g:each>
             </ul>
@@ -29,7 +29,7 @@
               <g:each in="${['REAL_ESTATE','OTHER']}">
               <li>
                 <input type="radio" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetKind_${it}" class="required condition-isRealEstate-trigger  validate-one-required" value="${it}" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetKind" ${it == currentCollectionItem?.dhrNotRealAssetKind.toString() ? 'checked="checked"': ''} title="<g:message code="dhr.property.dhrNotRealAssetKind.validationError" />" />
-                <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetKind_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" /></label>
+                <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetKind_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" /></label>
               </li>
               </g:each>
             </ul>

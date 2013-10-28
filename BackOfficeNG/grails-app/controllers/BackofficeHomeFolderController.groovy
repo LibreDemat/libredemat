@@ -4,39 +4,39 @@ import java.io.IOException
 import java.util.ArrayList
 import java.util.Collections
 
-import fr.cg95.cvq.schema.ximport.HomeFolderImportDocument
-import fr.cg95.cvq.service.users.IHomeFolderDocumentService
-import fr.cg95.cvq.service.users.IUserService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.service.users.IUserWorkflowService
-import fr.cg95.cvq.service.users.IUserSecurityService
-import fr.cg95.cvq.service.users.IUserDeduplicationService
-import fr.cg95.cvq.util.Critere
-import fr.cg95.cvq.business.users.*
-import fr.cg95.cvq.business.QoS
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.payment.IPaymentService
-import fr.cg95.cvq.service.users.IMeansOfContactService
-import fr.cg95.cvq.service.users.external.IExternalHomeFolderService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.business.payment.Payment
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.security.PermissionException
-import fr.cg95.cvq.security.annotation.ContextPrivilege
+import org.libredemat.schema.ximport.HomeFolderImportDocument
+import org.libredemat.service.users.IHomeFolderDocumentService
+import org.libredemat.service.users.IUserService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.service.users.IUserWorkflowService
+import org.libredemat.service.users.IUserSecurityService
+import org.libredemat.service.users.IUserDeduplicationService
+import org.libredemat.util.Critere
+import org.libredemat.business.users.*
+import org.libredemat.business.QoS
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.payment.IPaymentService
+import org.libredemat.service.users.IMeansOfContactService
+import org.libredemat.service.users.external.IExternalHomeFolderService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.business.payment.Payment
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.security.PermissionException
+import org.libredemat.security.annotation.ContextPrivilege
 
-import fr.cg95.cvq.exception.CvqModelException
-import fr.cg95.cvq.exception.CvqValidationException
+import org.libredemat.exception.CvqModelException
+import org.libredemat.exception.CvqValidationException
 
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestState
+import org.libredemat.util.Critere
 
 import org.apache.xmlbeans.XmlError
 import org.apache.xmlbeans.XmlException
 import org.apache.xmlbeans.XmlOptions
 
-import fr.cg95.cvq.service.request.ICategoryService
+import org.libredemat.service.request.ICategoryService
 
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 import org.codehaus.groovy.grails.web.json.JSONArray
@@ -176,7 +176,7 @@ class BackofficeHomeFolderController {
 
         if(!SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url").isEmpty()
           && categoryService.hasWriteProfile(SecurityContext.getCurrentAgent())
-          && userSearchService.hasExternalCapdematId(result.homeFolderResponsible.id)) {
+          && userSearchService.hasExternalLibredematId(result.homeFolderResponsible.id)) {
             result.groups["Other"] = ['label': "Autre",requests:[['label':"Planning",'id':'booking']]]
         }
 
@@ -707,7 +707,7 @@ class BackofficeHomeFolderController {
         documentTypeService.getAllDocumentTypes().each{ d ->
             list.add([
                 'documentId' : d.id,
-                'name' : message(code:CapdematUtils.adaptDocumentTypeName(d.name)),
+                'name' : message(code:LibredematUtils.adaptDocumentTypeName(d.name)),
                 'bound' : wishedDocumentTypes.contains(d),
                 'class' : wishedDocumentTypes.contains(d) ? '' : 'notBelong'
             ])

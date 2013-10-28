@@ -1,13 +1,13 @@
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.request');
 
 (function() {
 
-  var zcbr = zenexity.capdemat.bong.request;
-  var zcb = zenexity.capdemat.bong;
-  var zca = zenexity.capdemat.aspect;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
-  var zcc = zenexity.capdemat.common;
+  var zcbr = zenexity.libredemat.bong.request;
+  var zcb = zenexity.libredemat.bong;
+  var zca = zenexity.libredemat.aspect;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
+  var zcc = zenexity.libredemat.common;
   var yud = YAHOO.util.Dom;
   var yuel = YAHOO.util.Element;
   var yue = YAHOO.util.Event;
@@ -207,7 +207,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
       var ddEl = yud.getAncestorByTagName(targetEl, 'dd');
       var propertyWrapperEl = yud.getFirstChild(ddEl);
 
-      if (isSubmit && yud.hasClass(ddEl, 'validate-capdematEnum')) {
+      if (isSubmit && yud.hasClass(ddEl, 'validate-libredematEnum')) {
         zct.each (yud.get(formEl.id.replace('_Form', '') + '_Field').options, function() {
             if (this.selected === true)
               propertyValue = this;
@@ -251,7 +251,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
       }
       else if (isSubmit && yud.hasClass(ddEl, 'validate-localReferentialData')) {
         zct.doAjaxCall(['/localReferentialData/',
-            '?requestId=', zenexity.capdemat.bong.requestId,
+            '?requestId=', zenexity.libredemat.bong.requestId,
             '&javaName=', formEl.id.replace('_Form','')].join(''), [], function(o){
           zct.html(propertyWrapperEl,o.responseText);
         });
@@ -345,7 +345,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
             var fields = yud.getChildren(propertyWrapperEl);
             propertyValue = ylj.stringify({"BIC" : fields[0].innerHTML, "IBAN" : fields[1].innerHTML});
           }
-          else if (jsonPropertyType['validate'] ===  'capdematEnum') {
+          else if (jsonPropertyType['validate'] ===  'libredematEnum') {
             propertyValue = propertyWrapperEl.className;
           }
           else if (jsonPropertyType['validate'] ===  'boolean' || jsonPropertyType['validate'] ===  'acceptance') {
@@ -362,7 +362,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
           }
 
           zct.doAjaxPostCall(
-            '/widget', 'id=' + zenexity.capdemat.bong.requestId
+            '/widget', 'id=' + zenexity.libredemat.bong.requestId
             + '&propertyType=' + ylj.stringify(jsonPropertyType)
             + '&propertyName=' + targetEl.id
             + '&propertyValue=' + propertyValue
@@ -449,14 +449,14 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
       init: function() {
           infoTabView = new yw.TabView();
           var historyTab = new yw.Tab({
-              label: 'Historique', dataSrc: zenexity.capdemat.baseUrl + '/history/' + zcb.requestId + "?rnd=" + new Date().valueOf(),
+              label: 'Historique', dataSrc: zenexity.libredemat.baseUrl + '/history/' + zcb.requestId + "?rnd=" + new Date().valueOf(),
               cacheData: true, active: true });
           infoTabView.addTab(historyTab);
           infoTabView.addTab( new yw.Tab({
-              label: 'Compte', dataSrc: zenexity.capdemat.baseUrl + '/homeFolder/' + zcb.requestId,
+              label: 'Compte', dataSrc: zenexity.libredemat.baseUrl + '/homeFolder/' + zcb.requestId,
               cacheData: true }));
           infoTabView.addTab( new yw.Tab({
-              label: 'Demandes', dataSrc: zenexity.capdemat.baseUrl + '/homeFolderRequests/' + zcb.requestId,
+              label: 'Demandes', dataSrc: zenexity.libredemat.baseUrl + '/homeFolderRequests/' + zcb.requestId,
               cacheData: true }));
 
           infoTabView.appendTo('requestInformation');
@@ -578,7 +578,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.request');
       },
       addTab : function(label, url, cacheData, active) {
         infoTabView.addTab( new yw.Tab({
-          label: label, dataSrc: zenexity.capdemat.baseUrl + url,
+          label: label, dataSrc: zenexity.libredemat.baseUrl + url,
           cacheData: cacheData, active: active }));
       }
     };

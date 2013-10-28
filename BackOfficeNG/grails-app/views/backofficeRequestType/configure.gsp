@@ -16,8 +16,8 @@
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestType' + org.apache.commons.lang3.StringUtils.capitalize(params.action) + '.js')}"></script>
     <script src="${resource(dir:'js/backoffice/ckeditor', file:'ckeditor.js')}"></script>
     <script type="text/javascript">
-      zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.requesttype');
-      zenexity.capdemat.bong.requesttype.currentId = '${requestType.id}';
+      zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
+      zenexity.libredemat.bong.requesttype.currentId = '${requestType.id}';
     </script>
   </head>
 

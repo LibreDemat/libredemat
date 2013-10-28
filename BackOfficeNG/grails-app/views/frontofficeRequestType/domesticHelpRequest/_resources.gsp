@@ -116,7 +116,7 @@
         
               <dd class="${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset[' + index + '].dhrNotRealAssetType') ? 'validation-failed' : ''}">
                 <g:if test="${it.dhrNotRealAssetType}">
-                  <g:capdematEnumToField var="${it.dhrNotRealAssetType}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" />
+                  <g:libredematEnumToField var="${it.dhrNotRealAssetType}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" />
                 </g:if>
               </dd>
               
@@ -125,7 +125,7 @@
         
               <dd class="${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset[' + index + '].dhrNotRealAssetKind') ? 'validation-failed' : ''}">
                 <g:if test="${it.dhrNotRealAssetKind}">
-                  <g:capdematEnumToField var="${it.dhrNotRealAssetKind}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" />
+                  <g:libredematEnumToField var="${it.dhrNotRealAssetKind}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" />
                 </g:if>
               </dd>
               

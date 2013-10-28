@@ -3,9 +3,9 @@
 
 <beans>
 
-  <bean id="exceptionHandlerAspect" class="fr.cg95.cvq.aspect.ExceptionHandlerAspect" />
+  <bean id="exceptionHandlerAspect" class="org.libredemat.aspect.ExceptionHandlerAspect" />
 
-  <bean id="jsmtpdMailService" class="fr.cg95.cvq.testtool.JsmtpdMailService"
+  <bean id="jsmtpdMailService" class="org.libredemat.testtool.JsmtpdMailService"
         init-method="init" destroy-method="destroy">
 	<property name="port" value="${mail.sender_port}" />
   </bean>

@@ -1,4 +1,4 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.homeFolder");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.bong.homeFolder");
 (function(){
   var ylj = YAHOO.lang.JSON;
   var yu = YAHOO.util;
@@ -6,9 +6,9 @@ zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.homeFolder");
   var yud = yu.Dom;
   var yus = yu.Selector;
   var yw = YAHOO.widget;
-  var zcb = zenexity.capdemat.bong;
+  var zcb = zenexity.libredemat.bong;
   var zcbh = zcb.homeFolder;
-  var zct = zenexity.capdemat.tools;
+  var zct = zenexity.libredemat.tools;
   zcbh.Import = function() {
     return {
       init: function() {

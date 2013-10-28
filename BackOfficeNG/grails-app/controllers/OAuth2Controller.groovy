@@ -1,13 +1,13 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type;
-import fr.cg95.cvq.exception.CvqAuthenticationFailedException
-import fr.cg95.cvq.exception.CvqDisabledAccountException
-import fr.cg95.cvq.exception.CvqUnknownUserException
-import fr.cg95.cvq.oauth2.IOAuth2Service
-import fr.cg95.cvq.oauth2.OAuth2Exception;
-import fr.cg95.cvq.oauth2.model.Token
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry;
-import fr.cg95.cvq.util.translation.ITranslationService;
+import org.libredemat.business.authority.LocalAuthorityResource.Type;
+import org.libredemat.exception.CvqAuthenticationFailedException
+import org.libredemat.exception.CvqDisabledAccountException
+import org.libredemat.exception.CvqUnknownUserException
+import org.libredemat.oauth2.IOAuth2Service
+import org.libredemat.oauth2.OAuth2Exception;
+import org.libredemat.oauth2.model.Token
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry;
+import org.libredemat.util.translation.ITranslationService;
 
 import grails.converters.JSON
 

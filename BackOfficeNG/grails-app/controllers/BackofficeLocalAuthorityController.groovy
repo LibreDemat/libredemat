@@ -1,7 +1,7 @@
-import fr.cg95.cvq.business.authority.LocalAuthority
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
+import org.libredemat.business.authority.LocalAuthority
+import org.libredemat.business.authority.LocalAuthorityResource
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry
 import grails.converters.JSON
 
 class BackofficeLocalAuthorityController {

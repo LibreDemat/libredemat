@@ -1,7 +1,7 @@
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.exception.CvqConcurrentModificationException
-import fr.cg95.cvq.security.PermissionException
-import fr.cg95.cvq.oauth2.OAuth2Exception
+import org.libredemat.exception.CvqException
+import org.libredemat.exception.CvqConcurrentModificationException
+import org.libredemat.security.PermissionException
+import org.libredemat.oauth2.OAuth2Exception
 
 class ExceptionUtils {
     

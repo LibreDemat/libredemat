@@ -36,11 +36,11 @@
               <dd><span>${subjectIsChild && !subject?.born ? message(code:'request.subject.childNoBorn', args:[subject?.getFullName()]) : subject?.fullName}</span></dd>
           
                 
-                  <dt class="required">${message(code:'rsr.property.subjectTitle.label')}&nbsp;*&nbsp;:</dt><dd id="subjectTitle" class="action-editField validate-capdematEnum required-true i18n-rsr.property.subjectTitle javatype-fr.cg95.cvq.business.users.TitleType" ><g:capdematEnumToField var="${rqt?.subjectTitle}" i18nKeyPrefix="rsr.property.subjectTitle" /></dd>
+                  <dt class="required">${message(code:'rsr.property.subjectTitle.label')}&nbsp;*&nbsp;:</dt><dd id="subjectTitle" class="action-editField validate-libredematEnum required-true i18n-rsr.property.subjectTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.subjectTitle}" i18nKeyPrefix="rsr.property.subjectTitle" /></dd>
                 
                   <dt class="required">${message(code:'rsr.property.subjectBirthDate.label')}&nbsp;*&nbsp;:</dt><dd id="subjectBirthDate" class="action-editField validate-date required-true i18n-rsr.property.subjectBirthDate" ><span><g:formatDate formatName="format.date" date="${rqt?.subjectBirthDate}"/></span></dd>
                 
-                  <dt class="required">${message(code:'rsr.property.subjectResideWith.label')}&nbsp;*&nbsp;:</dt><dd id="subjectResideWith" class="action-editField validate-capdematEnum required-true i18n-rsr.property.subjectResideWith javatype-fr.cg95.cvq.business.request.social.RsrSubjectResideWithType" ><g:capdematEnumToField var="${rqt?.subjectResideWith}" i18nKeyPrefix="rsr.property.subjectResideWith" /></dd>
+                  <dt class="required">${message(code:'rsr.property.subjectResideWith.label')}&nbsp;*&nbsp;:</dt><dd id="subjectResideWith" class="action-editField validate-libredematEnum required-true i18n-rsr.property.subjectResideWith javatype-org.libredemat.business.request.social.RsrSubjectResideWithType" ><g:libredematEnumToField var="${rqt?.subjectResideWith}" i18nKeyPrefix="rsr.property.subjectResideWith" /></dd>
                 
                   <dt class="required">${message(code:'rsr.property.subjectIsTaxable.label')}&nbsp;*&nbsp;:</dt><dd id="subjectIsTaxable" class="action-editField validate-boolean required-true i18n-rsr.property.subjectIsTaxable" ><span class="value-${rqt?.subjectIsTaxable}"><g:message code="${rqt?.subjectIsTaxable ? 'message.yes' : rqt?.subjectIsTaxable==null ? '' : 'message.no'}" /></span></dd>
                 
@@ -55,7 +55,7 @@
               <h3><g:message code="rsr.property.requestInformation.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required condition-isCoupleRequest-trigger">${message(code:'rsr.property.requestInformationRequestKind.label')}&nbsp;*&nbsp;:</dt><dd id="requestInformationRequestKind" class="action-editField validate-capdematEnum required-true i18n-rsr.property.requestInformationRequestKind javatype-fr.cg95.cvq.business.request.social.RsrRequestInformationRequestKindType" ><g:capdematEnumToField var="${rqt?.requestInformationRequestKind}" i18nKeyPrefix="rsr.property.requestInformationRequestKind" /></dd>
+                  <dt class="required condition-isCoupleRequest-trigger">${message(code:'rsr.property.requestInformationRequestKind.label')}&nbsp;*&nbsp;:</dt><dd id="requestInformationRequestKind" class="action-editField validate-libredematEnum required-true i18n-rsr.property.requestInformationRequestKind javatype-org.libredemat.business.request.social.RsrRequestInformationRequestKindType" ><g:libredematEnumToField var="${rqt?.requestInformationRequestKind}" i18nKeyPrefix="rsr.property.requestInformationRequestKind" /></dd>
                 
                   <dt class="required condition-isEmergency-trigger">${message(code:'rsr.property.requestInformationEmergency.label')}&nbsp;*&nbsp;:</dt><dd id="requestInformationEmergency" class="action-editField validate-boolean required-true i18n-rsr.property.requestInformationEmergency" ><span class="value-${rqt?.requestInformationEmergency}"><g:message code="${rqt?.requestInformationEmergency ? 'message.yes' : rqt?.requestInformationEmergency==null ? '' : 'message.no'}" /></span></dd>
                 
@@ -78,7 +78,7 @@
                 
                   <dt class="required">${message(code:'rsr.property.spouseFirstName.label')}&nbsp;*&nbsp;:</dt><dd id="spouseFirstName" class="action-editField validate-firstName required-true i18n-rsr.property.spouseFirstName maxLength-38" ><span>${rqt?.spouseFirstName}</span></dd>
                 
-                  <dt class="required">${message(code:'rsr.property.spouseTitle.label')}&nbsp;*&nbsp;:</dt><dd id="spouseTitle" class="action-editField validate-capdematEnum required-true i18n-rsr.property.spouseTitle javatype-fr.cg95.cvq.business.users.TitleType" ><g:capdematEnumToField var="${rqt?.spouseTitle}" i18nKeyPrefix="rsr.property.spouseTitle" /></dd>
+                  <dt class="required">${message(code:'rsr.property.spouseTitle.label')}&nbsp;*&nbsp;:</dt><dd id="spouseTitle" class="action-editField validate-libredematEnum required-true i18n-rsr.property.spouseTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.spouseTitle}" i18nKeyPrefix="rsr.property.spouseTitle" /></dd>
                 
                   <dt class="required">${message(code:'rsr.property.spouseBirthDate.label')}&nbsp;*&nbsp;:</dt><dd id="spouseBirthDate" class="action-editField validate-date required-true i18n-rsr.property.spouseBirthDate" ><span><g:formatDate formatName="format.date" date="${rqt?.spouseBirthDate}"/></span></dd>
                 
@@ -108,7 +108,7 @@
             
               
               <dl>
-                <dt class="required condition-isOtherContact-trigger">${message(code:'rsr.property.contactKind.label')}&nbsp;*&nbsp;:</dt><dd id="contactKind" class="action-editField validate-capdematEnum required-true i18n-rsr.property.contactKind javatype-fr.cg95.cvq.business.request.social.RsrContactKindType" ><g:capdematEnumToField var="${rqt?.contactKind}" i18nKeyPrefix="rsr.property.contactKind" /></dd>
+                <dt class="required condition-isOtherContact-trigger">${message(code:'rsr.property.contactKind.label')}&nbsp;*&nbsp;:</dt><dd id="contactKind" class="action-editField validate-libredematEnum required-true i18n-rsr.property.contactKind javatype-org.libredemat.business.request.social.RsrContactKindType" ><g:libredematEnumToField var="${rqt?.contactKind}" i18nKeyPrefix="rsr.property.contactKind" /></dd>
               </dl>
               
             

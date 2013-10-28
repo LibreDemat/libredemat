@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="dummy" classname="fr.cg95.cvq.generator.plugins.dummy.DummyPlugin">
+<plugin id="dummy" classname="org.libredemat.generator.plugins.dummy.DummyPlugin">
 
   <documentation>
     <!-- parent can be request, element, property or * -->
-    <!-- source is an URL like http://www.cg95.fr/cvq/schema/[source_type] -->
+    <!-- source is an URL like http://www.libredemat.org/schema/[source_type] -->
     <!-- where source_type can be longdesc, shortdesc or translation/enum -->
 
     <!-- for elements, we only want longdesc information -->
-    <element parent="element" source="http://www.cg95.fr/cvq/schema/longdesc"/>
+    <element parent="element" source="http://www.libredemat.org/schema/longdesc"/>
     <!-- for other elements, we want all information -->
     <element parent="*" source="*"/>
   </documentation>

@@ -26,7 +26,7 @@
             <dt><g:message code="document.property.state"/> :</dt>
             <dd>
               <g:if test="${doc.state}">
-                <g:capdematEnumToFlag var="${doc.state}" i18nKeyPrefix="document.state" />
+                <g:libredematEnumToFlag var="${doc.state}" i18nKeyPrefix="document.state" />
               </g:if>
             </dd>
             
@@ -45,7 +45,7 @@
             <dt><g:message code="document.property.depositType"/> :</dt>
             <dd>
               <g:if test="${doc.depositType}">
-                <g:capdematEnumToFlag var="${doc.depositType}" i18nKeyPrefix="document.depositType" />
+                <g:libredematEnumToFlag var="${doc.depositType}" i18nKeyPrefix="document.depositType" />
 			  </g:if>
 			</dd>
 			
@@ -53,7 +53,7 @@
             <dd>
               ${doc.depositor}
               <g:if test="${doc.depositType}">
-                <g:capdematEnumToFlag var="${doc.depositOrigin}" i18nKeyPrefix="document.depositOrigin" />
+                <g:libredematEnumToFlag var="${doc.depositOrigin}" i18nKeyPrefix="document.depositOrigin" />
               </g:if>
             </dd>
           </dl>

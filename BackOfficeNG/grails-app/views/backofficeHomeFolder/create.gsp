@@ -5,7 +5,7 @@
     <g:if test="${flash.addressesReferentialEnabled}">
       <link rel="stylesheet" type="text/css" href="${resource(dir:'css/common', file:'autocomplete.css')}" />
       <script type="text/javascript">
-        zenexity.capdemat.contextPath = "${request.contextPath}";
+        zenexity.libredemat.contextPath = "${request.contextPath}";
       </script>
       <script type="text/javascript" src="${resource(dir:'js/common',file:'addressAutocomplete.js')}"></script>
       <script type="text/javascript" src="${resource(dir:'js/common',file:'autocomplete.js')}"></script>
@@ -34,9 +34,9 @@
                     <dt class="required">${message(code:'homeFolder.adult.property.title')}</dt>
                     <dd class="required">
                       <select name="title">
-                        <g:each var="title" in="${fr.cg95.cvq.business.users.TitleType.allTitleTypes}">
+                        <g:each var="title" in="${org.libredemat.business.users.TitleType.allTitleTypes}">
                           <option value="${title.name()}">
-                            ${g.capdematEnumToText(var:title, i18nKeyPrefix:'homeFolder.adult.title')}
+                            ${g.libredematEnumToText(var:title, i18nKeyPrefix:'homeFolder.adult.title')}
                           </option>
                         </g:each>
                       </select>
@@ -44,9 +44,9 @@
                     <dt>${message(code:'homeFolder.adult.property.familyStatus')}</dt>
                     <dd>
                       <select name="familyStatus">
-                        <g:each var="familyStatus" in="${fr.cg95.cvq.business.users.FamilyStatusType.allFamilyStatusTypes}">
+                        <g:each var="familyStatus" in="${org.libredemat.business.users.FamilyStatusType.allFamilyStatusTypes}">
                           <option value="${familyStatus.name()}">
-                            ${g.capdematEnumToText(var:familyStatus, i18nKeyPrefix:'homeFolder.adult.familyStatus')}
+                            ${g.libredematEnumToText(var:familyStatus, i18nKeyPrefix:'homeFolder.adult.familyStatus')}
                           </option>
                         </g:each>
                       </select>

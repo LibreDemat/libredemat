@@ -19,119 +19,119 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 
     <property name="mappingResources">
       <list>
-        <value>fr/cg95/cvq/business/request/RequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestType.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/GlobalRequestTypeConfiguration.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestSeason.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/DisplayGroup.hbm.xml</value>
-        <value>fr/cg95/cvq/business/authority/LocalAuthority.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/HomeFolder.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/Individual.hbm.xml</value>
-        <value>fr/cg95/cvq/business/document/Document.hbm.xml</value>
-        <value>fr/cg95/cvq/business/document/DocumentBinary.hbm.xml</value>
-        <value>fr/cg95/cvq/business/document/DocumentType.hbm.xml</value>
-        <value>fr/cg95/cvq/business/authority/School.hbm.xml</value>
-        <value>fr/cg95/cvq/business/authority/RecreationCenter.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/Address.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/BankAccount.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/FrenchRIB.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/GlobalHomeFolderConfiguration.hbm.xml</value>
-        <value>fr/cg95/cvq/business/authority/Agent.hbm.xml</value>
-        <value>fr/cg95/cvq/business/document/DocumentAction.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestAction.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestAdminAction.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestLock.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestNote.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestForm.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/Category.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/LocalReferentialData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/Payment.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/PurchaseItem.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/ExternalDepositAccountItemDetail.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/ExternalInvoiceItemDetail.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/PerischoolActivityRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/StudyGrantRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/SchoolCanteenRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/RecreationActivityRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/SchoolRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/SchoolTransportRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/GlobalSchoolRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/PessacAnimationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/RenewalPerischoolActivitiesRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/LearningActivitiesDiscoveryRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/HomeEmergencyRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/DayCareCenterRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/LeisureCenterRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/HolidayCampRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/technical/TechnicalInterventionRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/RemoteSupportRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HandicapCompensationChildRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HandicapCompensationAdultRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/DomesticHelpRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/environment/BulkyWasteCollectionRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/environment/CompostableWasteCollectionRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/urbanism/AlignmentCertificateRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/urbanism/SewerConnectionRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/urbanism/AlignmentNumberingConnectionRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ecitizen/VoCardRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ecitizen/HomeFolderModificationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/localpolice/HolidaySecurityRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/civil/MarriageDetailsRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/civil/DeathDetailsRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/civil/BirthDetailsRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/election/ElectoralRollRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/election/StandardElectoralRollRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/military/MilitaryCensusRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/leisure/culture/LibraryRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/leisure/SmsNotificationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/leisure/music/MusicSchoolRegistrationRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/reservation/TicketBookingRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/PerischoolAuthorizedIndividual.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/PerischoolContactIndividual.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/RecreationAuthorizedIndividual.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/RecreationContactIndividual.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/school/TiersInformations.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/BafaGrantRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/SportsAssociationsGrantRequestData.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/DhrRealAsset.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/DhrNotRealAsset.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/DhrPreviousDwelling.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarAdditionalFee.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarCareService.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarFamilyAssistanceMember.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarFamilyDependent.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarHomeIntervenant.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarOtherFolder.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarOtherBenefit.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HcarProfessional.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrAdditionalFee.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrCareService.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrFamilyAssistanceMember.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrFamilyDependent.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrHomeIntervenant.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrOtherFolder.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrOtherBenefit.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/HccrProfessional.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/SagrMembreBureau.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/social/SagrActiviteAssociation.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/reservation/TbrTicket.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/MeansOfContact.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/external/RequestExternalAction.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/external/HomeFolderMapping.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/external/IndividualMapping.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/external/UserExternalAction.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/external/ExternalHomeFolder.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/external/ExternalIndividual.hbm.xml</value>
-        <value>fr/cg95/cvq/business/payment/external/ExternalApplication.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/RequestDocument.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/IndividualRole.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ticket/Entertainment.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ticket/Event.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ticket/PlaceCategory.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ticket/Fare.hbm.xml</value>
-        <value>fr/cg95/cvq/business/request/ticket/Subscriber.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/UserAction.hbm.xml</value>
-        <value>fr/cg95/cvq/business/users/UserSecurityRule.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestType.hbm.xml</value>
+        <value>org.libredemat/business/request/GlobalRequestTypeConfiguration.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestSeason.hbm.xml</value>
+        <value>org.libredemat/business/request/DisplayGroup.hbm.xml</value>
+        <value>org.libredemat/business/authority/LocalAuthority.hbm.xml</value>
+        <value>org.libredemat/business/users/HomeFolder.hbm.xml</value>
+        <value>org.libredemat/business/users/Individual.hbm.xml</value>
+        <value>org.libredemat/business/document/Document.hbm.xml</value>
+        <value>org.libredemat/business/document/DocumentBinary.hbm.xml</value>
+        <value>org.libredemat/business/document/DocumentType.hbm.xml</value>
+        <value>org.libredemat/business/authority/School.hbm.xml</value>
+        <value>org.libredemat/business/authority/RecreationCenter.hbm.xml</value>
+        <value>org.libredemat/business/users/Address.hbm.xml</value>
+        <value>org.libredemat/business/users/BankAccount.hbm.xml</value>
+        <value>org.libredemat/business/users/FrenchRIB.hbm.xml</value>
+        <value>org.libredemat/business/users/GlobalHomeFolderConfiguration.hbm.xml</value>
+        <value>org.libredemat/business/authority/Agent.hbm.xml</value>
+        <value>org.libredemat/business/document/DocumentAction.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestAction.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestAdminAction.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestLock.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestNote.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestForm.hbm.xml</value>
+        <value>org.libredemat/business/request/Category.hbm.xml</value>
+        <value>org.libredemat/business/request/LocalReferentialData.hbm.xml</value>
+        <value>org.libredemat/business/payment/Payment.hbm.xml</value>
+        <value>org.libredemat/business/payment/PurchaseItem.hbm.xml</value>
+        <value>org.libredemat/business/payment/ExternalDepositAccountItemDetail.hbm.xml</value>
+        <value>org.libredemat/business/payment/ExternalInvoiceItemDetail.hbm.xml</value>
+        <value>org.libredemat/business/request/school/PerischoolActivityRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/StudyGrantRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/SchoolCanteenRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/RecreationActivityRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/SchoolRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/SchoolTransportRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/GlobalSchoolRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/PessacAnimationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/RenewalPerischoolActivitiesRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/LearningActivitiesDiscoveryRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/HomeEmergencyRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/DayCareCenterRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/LeisureCenterRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/HolidayCampRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/technical/TechnicalInterventionRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/social/RemoteSupportRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HandicapCompensationChildRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HandicapCompensationAdultRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/social/DomesticHelpRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/environment/BulkyWasteCollectionRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/environment/CompostableWasteCollectionRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/urbanism/AlignmentCertificateRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/urbanism/SewerConnectionRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/urbanism/AlignmentNumberingConnectionRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/ecitizen/VoCardRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/ecitizen/HomeFolderModificationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/localpolice/HolidaySecurityRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/civil/MarriageDetailsRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/civil/DeathDetailsRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/civil/BirthDetailsRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/election/ElectoralRollRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/election/StandardElectoralRollRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/military/MilitaryCensusRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/leisure/culture/LibraryRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/leisure/SmsNotificationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/leisure/music/MusicSchoolRegistrationRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/reservation/TicketBookingRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/school/PerischoolAuthorizedIndividual.hbm.xml</value>
+        <value>org.libredemat/business/request/school/PerischoolContactIndividual.hbm.xml</value>
+        <value>org.libredemat/business/request/school/RecreationAuthorizedIndividual.hbm.xml</value>
+        <value>org.libredemat/business/request/school/RecreationContactIndividual.hbm.xml</value>
+        <value>org.libredemat/business/request/school/TiersInformations.hbm.xml</value>
+        <value>org.libredemat/business/request/social/BafaGrantRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/social/SportsAssociationsGrantRequestData.hbm.xml</value>
+        <value>org.libredemat/business/request/social/DhrRealAsset.hbm.xml</value>
+        <value>org.libredemat/business/request/social/DhrNotRealAsset.hbm.xml</value>
+        <value>org.libredemat/business/request/social/DhrPreviousDwelling.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarAdditionalFee.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarCareService.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarFamilyAssistanceMember.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarFamilyDependent.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarHomeIntervenant.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarOtherFolder.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarOtherBenefit.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HcarProfessional.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrAdditionalFee.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrCareService.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrFamilyAssistanceMember.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrFamilyDependent.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrHomeIntervenant.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrOtherFolder.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrOtherBenefit.hbm.xml</value>
+        <value>org.libredemat/business/request/social/HccrProfessional.hbm.xml</value>
+        <value>org.libredemat/business/request/social/SagrMembreBureau.hbm.xml</value>
+        <value>org.libredemat/business/request/social/SagrActiviteAssociation.hbm.xml</value>
+        <value>org.libredemat/business/request/reservation/TbrTicket.hbm.xml</value>
+        <value>org.libredemat/business/users/MeansOfContact.hbm.xml</value>
+        <value>org.libredemat/business/request/external/RequestExternalAction.hbm.xml</value>
+        <value>org.libredemat/business/users/external/HomeFolderMapping.hbm.xml</value>
+        <value>org.libredemat/business/users/external/IndividualMapping.hbm.xml</value>
+        <value>org.libredemat/business/users/external/UserExternalAction.hbm.xml</value>
+        <value>org.libredemat/business/payment/external/ExternalHomeFolder.hbm.xml</value>
+        <value>org.libredemat/business/payment/external/ExternalIndividual.hbm.xml</value>
+        <value>org.libredemat/business/payment/external/ExternalApplication.hbm.xml</value>
+        <value>org.libredemat/business/request/RequestDocument.hbm.xml</value>
+        <value>org.libredemat/business/users/IndividualRole.hbm.xml</value>
+        <value>org.libredemat/business/request/ticket/Entertainment.hbm.xml</value>
+        <value>org.libredemat/business/request/ticket/Event.hbm.xml</value>
+        <value>org.libredemat/business/request/ticket/PlaceCategory.hbm.xml</value>
+        <value>org.libredemat/business/request/ticket/Fare.hbm.xml</value>
+        <value>org.libredemat/business/request/ticket/Subscriber.hbm.xml</value>
+        <value>org.libredemat/business/users/UserAction.hbm.xml</value>
+        <value>org.libredemat/business/users/UserSecurityRule.hbm.xml</value>
       </list>
     </property>
 
@@ -165,7 +165,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   </bean>
 
   <bean id="localAuthorityRegistry"
-    class="fr.cg95.cvq.service.authority.impl.LocalAuthorityRegistry" init-method="init">
+    class="org.libredemat.service.authority.impl.LocalAuthorityRegistry" init-method="init">
     <property name="localAuthorityDAO" ref="localAuthorityDAO" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="referentialBase" value="${referential.properties.path}" />
@@ -178,8 +178,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
             <entry key="hibernate.format_sql" value="false"/>
             <entry key="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <entry key="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/template1"/>
-            <entry key="hibernate.connection.username" value="capdemat"/>
-            <entry key="hibernate.connection.password" value="capdematpass"/>
+            <entry key="hibernate.connection.username" value="libredemat"/>
+            <entry key="hibernate.connection.password" value="libredematpass"/>
             <entry key="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <entry key="acquireIncrement" value="3"/>
             <entry key="initialPoolSize" value="0"/>
@@ -208,12 +208,12 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ================================================================ -->
 
   <bean id="fakePaymentProviderService" 
-    class="fr.cg95.cvq.service.payment.impl.FakePaymentProviderService">
+    class="org.libredemat.service.payment.impl.FakePaymentProviderService">
     <property name="paymentUrl" value="${fake_payment.url}" />  
     <property name="callbackUrl" value="${fake_payment.callbackUrl}" />  
   </bean>
 
-  <bean id="fakeExternalService" parent="externalProviderServiceAdapter" class="fr.cg95.cvq.external.impl.FakeExternalService">
+  <bean id="fakeExternalService" parent="externalProviderServiceAdapter" class="org.libredemat.external.impl.FakeExternalService">
     <property name="label" value="Fake External Service" />
     <property name="paymentService" ref="paymentService" />
     <property name="xmlDirectory" value="external_service"/>
@@ -230,16 +230,16 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ================= XSARNET SERVICES DEFINITION ================== -->
   <!-- ================================================================ -->
   
-  <bean id="xsarnetExternalService" parent="externalProviderServiceAdapter" class="fr.cg95.cvq.external.impl.EntryPointExternalService">
+  <bean id="xsarnetExternalService" parent="externalProviderServiceAdapter" class="org.libredemat.external.impl.EntryPointExternalService">
     <property name="label" value="Xsarnet External Service" />
   </bean>
   
-  <bean id="fakePointExternalService" parent="externalProviderServiceAdapter" class="fr.cg95.cvq.external.impl.EntryPointExternalService">
+  <bean id="fakePointExternalService" parent="externalProviderServiceAdapter" class="org.libredemat.external.impl.EntryPointExternalService">
     <property name="label" value="Fake Point External Service" />
   </bean>
 
   <bean id="restExternalService" parent="externalProviderServiceAdapter"
-    class="fr.cg95.cvq.external.impl.RestExternalService">
+    class="org.libredemat.external.impl.RestExternalService">
     <property name="label" value="Generic Rest External Service" />
     <property name="requestExternalActionDAO" ref="requestExternalActionDAO" />
     <property name="urls">
@@ -265,7 +265,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   </bean>
 
   <bean id="soapExternalService" parent="externalProviderServiceAdapter"
-    class="fr.cg95.cvq.external.impl.SoapExternalService">
+    class="org.libredemat.external.impl.SoapExternalService">
     <property name="label" value="Generic Soap External Service" />
     <property name="soapExternalServiceClient" ref="soapExternalServiceClient" />
   </bean>
@@ -280,7 +280,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   </bean>
 
   <bean id="soapExternalServiceClient"
-    class="fr.cg95.cvq.external.impl.SoapExternalServiceClient">
+    class="org.libredemat.external.impl.SoapExternalServiceClient">
     <property name="webServiceTemplate" ref="soapExternalServiceTemplate" />
     <property name="urls">
       <map>
@@ -304,12 +304,12 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     </property>
   </bean>
 
-  <bean id="translationService" class="fr.cg95.cvq.util.translation.impl.TranslationService" />
+  <bean id="translationService" class="org.libredemat.util.translation.impl.TranslationService" />
 
   <bean id="translationServiceToUserUtilsInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.util.UserUtils.setTranslationService" />
+      value="org.libredemat.util.UserUtils.setTranslationService" />
     <property name="arguments">
       <list>
         <ref local="translationService" />

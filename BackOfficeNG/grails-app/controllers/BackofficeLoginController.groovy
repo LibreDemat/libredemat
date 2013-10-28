@@ -1,14 +1,14 @@
 import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
-import fr.cg95.cvq.authentication.IAuthenticationService
-import fr.cg95.cvq.exception.CvqAuthenticationFailedException
-import fr.cg95.cvq.exception.CvqDisabledAccountException
-import fr.cg95.cvq.exception.CvqUnknownUserException
-import fr.cg95.cvq.security.SecurityContext;
-import fr.cg95.cvq.security.annotation.ContextType;
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.util.web.filter.CASFilter
-import fr.cg95.cvq.exception.CvqObjectNotFoundException
-import fr.cg95.cvq.dao.authority.IAgentDAO
+import org.libredemat.authentication.IAuthenticationService
+import org.libredemat.exception.CvqAuthenticationFailedException
+import org.libredemat.exception.CvqDisabledAccountException
+import org.libredemat.exception.CvqUnknownUserException
+import org.libredemat.security.SecurityContext;
+import org.libredemat.security.annotation.ContextType;
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.util.web.filter.CASFilter
+import org.libredemat.exception.CvqObjectNotFoundException
+import org.libredemat.dao.authority.IAgentDAO
 
 class BackofficeLoginController {
 
@@ -53,7 +53,7 @@ class BackofficeLoginController {
             session.removeAttribute(CASFilter.CAS_FILTER_USER)
             session.removeAttribute(CASFilter.CAS_FILTER_RECEIPT)
         	if (CH.config.cas_mocking == "true")
-        		response.sendRedirect('/CapDemat/cas.gsp')
+        		response.sendRedirect('/LibreDemat/cas.gsp')
         	else
         		redirect(url:CH.config.cas_logout_url)
         } else if (authenticationService.getAuthenticationMethod() == "oauth2") {

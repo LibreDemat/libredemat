@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/capdemat"
-  xmlns:capdemat="http://www.capwebct.fr/capdemat"
+<xs:schema targetNamespace="http://www.libredemat.org"
+  xmlns:libredemat="http://www.libredemat.org"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
@@ -29,7 +29,7 @@
   <xs:element name="GetHomeFoldersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="HomeFolder"  type="capdemat:HomeFolderType" minOccurs="0" 
+        <xs:element name="HomeFolder"  type="libredemat:HomeFolderType" minOccurs="0" 
           maxOccurs="unbounded" />
       </xs:sequence>
     </xs:complexType>
@@ -39,7 +39,7 @@
     <xs:sequence>
       <xs:element name="Id" type="xs:long" />
       <xs:element name="Address" type="xs:string" />
-      <xs:element name="Individual" type="capdemat:IndividualType" maxOccurs="unbounded" />
+      <xs:element name="Individual" type="libredemat:IndividualType" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
   

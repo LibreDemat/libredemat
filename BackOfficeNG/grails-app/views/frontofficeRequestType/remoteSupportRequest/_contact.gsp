@@ -7,7 +7,7 @@
               <g:each in="${['REQUESTER','OTHER']}">
               <li>
                 <input type="radio" id="contactKind_${it}" class="required condition-isOtherContact-trigger  validate-one-required" value="${it}" name="contactKind" ${it == rqt.contactKind.toString() ? 'checked="checked"': ''} title="<g:message code="rsr.property.contactKind.validationError" />" />
-                <label for="contactKind_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="rsr.property.contactKind" /></label>
+                <label for="contactKind_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="rsr.property.contactKind" /></label>
               </li>
               </g:each>
             </ul>

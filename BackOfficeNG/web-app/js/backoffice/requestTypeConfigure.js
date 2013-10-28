@@ -1,19 +1,19 @@
 /**
  *  Main client-side module of request type conficguration
  *  
- *  @namespace zenexity.capdemat.bong.requesttype
+ *  @namespace zenexity.libredemat.bong.requesttype
  *  @author vba@zenexity.fr
  *
  **/
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.requesttype');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
 
 (function() {
   
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
-  var zcbrt = zenexity.capdemat.bong.requesttype;
-  var zcb = zenexity.capdemat.bong;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
+  var zcbrt = zenexity.libredemat.bong.requesttype;
+  var zcb = zenexity.libredemat.bong;
   
   var yue = YAHOO.util.Event;
   var yus = YAHOO.util.Selector;

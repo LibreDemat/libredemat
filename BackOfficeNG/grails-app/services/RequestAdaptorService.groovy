@@ -1,13 +1,13 @@
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IRequestDocumentService
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.business.request.RequestState
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestDocumentService
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.util.UserUtils
 
 import org.joda.time.DateTime;
 import org.joda.time.Minutes;
@@ -97,7 +97,7 @@ class RequestAdaptorService {
         return [
             'id':requestNote.id,
             'user':UserUtils.getUserDetails(requestNote.userId),
-            'type':CapdematUtils.adaptCapdematEnum(requestNote.type, "request.note.type"),
+            'type':LibredematUtils.adaptLibredematEnum(requestNote.type, "request.note.type"),
             'note':requestNote.note,
             'date':requestNote.date,
             'template' : 'requestNote'

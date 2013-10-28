@@ -4,16 +4,16 @@ import java.util.List
 import org.apache.commons.codec.binary.Base64
 import org.apache.commons.lang.StringUtils
 
-import fr.cg95.cvq.business.authority.Agent
-import fr.cg95.cvq.business.authority.RecreationCenter
-import fr.cg95.cvq.business.authority.School
-import fr.cg95.cvq.business.authority.SiteProfile
-import fr.cg95.cvq.business.authority.SiteRoles
-import fr.cg95.cvq.exception.CvqObjectNotFoundException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.authority.IRecreationCenterService
-import fr.cg95.cvq.service.authority.ISchoolService
+import org.libredemat.business.authority.Agent
+import org.libredemat.business.authority.RecreationCenter
+import org.libredemat.business.authority.School
+import org.libredemat.business.authority.SiteProfile
+import org.libredemat.business.authority.SiteRoles
+import org.libredemat.exception.CvqObjectNotFoundException
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.authority.IRecreationCenterService
+import org.libredemat.service.authority.ISchoolService
 
 import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
 
@@ -30,7 +30,7 @@ class ServiceProvisioningController {
     def beforeInterceptor = {
         def authorization = request.getHeader("Authorization")
         if (authorization == null) {
-            response.setHeader("WWW-Authenticate", "Basic realm=\"capdemat provisioning\"")
+            response.setHeader("WWW-Authenticate", "Basic realm=\"libredemat provisioning\"")
             render(text: "", status : 401)
             return false
         }

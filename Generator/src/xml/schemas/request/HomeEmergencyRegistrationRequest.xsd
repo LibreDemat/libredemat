@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/herr" 
-  xmlns:herr="http://www.cg95.fr/cvq/schema/herr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/herr" 
+  xmlns:herr="http://www.libredemat.org/schema/herr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
     
   <xs:element name="HomeEmergencyRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
     	Demande de pré-inscription à Innov-Accueil (accueil d'urgence)
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
     	Pré-inscription à Innov-Accueil (accueil d'urgence)
       </xs:documentation>
       <xs:appinfo>
@@ -46,10 +46,10 @@
           
             <xs:element name="DateDepart" type="xs:date">
             <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Date de début d'accueil souhaitée
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Date de début d'accueil souhaitée
                 </xs:documentation>
                 <xs:appinfo>
@@ -65,10 +65,10 @@
             
             <xs:element name="Duree">
             <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Durée d'accueil souhaitée
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Durée d'accueil souhaitée
                 </xs:documentation>
                 <xs:appinfo>
@@ -91,10 +91,10 @@
             
             <xs:element name="Telephone" type="cvq:PhoneType">
             <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Numéro de téléphone sur lequel vous souhaitez être contacté
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Numéro de téléphone sur lequel vous souhaitez être contacté
                 </xs:documentation>
                 <xs:appinfo>

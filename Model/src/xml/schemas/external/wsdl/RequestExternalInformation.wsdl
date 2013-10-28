@@ -2,14 +2,14 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/rei"
-                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/rei"
+                  xmlns:schema="http://www.libredemat.org/modules/payment/schema/rei"
+                  xmlns:tns="http://www.libredemat.org/modules/payment/schema/rei"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/rei">
+                  targetNamespace="http://www.libredemat.org/modules/payment/schema/rei">
    <wsdl:types>
-      <xs:schema xmlns:rei="http://www.capwebct.fr/modules/payment/schema/rei"
+      <xs:schema xmlns:rei="http://www.libredemat.org/modules/payment/schema/rei"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/rei"
+                 targetNamespace="http://www.libredemat.org/modules/payment/schema/rei"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -75,7 +75,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="getExternalInformation">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/rei/getExternalInformation"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/modules/payment/schema/rei/getExternalInformation"/>
          <wsdl:input name="getExternalInformationInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

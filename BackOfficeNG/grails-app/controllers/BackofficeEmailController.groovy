@@ -1,7 +1,7 @@
-import fr.cg95.cvq.business.request.RequestVariable
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.request.RequestVariable
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.business.authority.LocalAuthorityResource.Type
 
 import grails.converters.JSON
 
@@ -28,7 +28,7 @@ class BackofficeEmailController {
     def dir() {
         if (params.requestTypeId) {
             def requestType = requestTypeService.getRequestTypeById(Long.valueOf(params.requestTypeId))
-            def dir = CapdematUtils.requestTypeLabelAsDir(requestType.label)
+            def dir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
             return 'templates/mails/notification/' + dir
         } else {
             return 'templates/mails/notification'

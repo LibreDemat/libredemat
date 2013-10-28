@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="model" classname="fr.cg95.cvq.generator.plugins.model.ModelPlugin">
+<plugin id="model" classname="org.libredemat.generator.plugins.model.ModelPlugin">
   <appinfo>
     <element parent="property" node="model"/>
     <element parent="element" node="common,model"/>
@@ -7,6 +7,6 @@
   </appinfo>
   <configuration>
     <!-- define a base output dir for business objects -->
-    <output dir="./Model/src/java/fr/cg95/cvq" />
+    <output dir="./Model/src/java/org/libredemat" />
   </configuration>
 </plugin>

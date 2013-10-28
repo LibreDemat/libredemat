@@ -39,10 +39,10 @@
                 <dl class="${adult.id == flash.idToDelete ? 'delete' : adult.state}">
                   <dt>
                     ${g.tag(var:adult.state, i18n:'user.state')}
-                    ${g.capdematEnumToFlag(var:adult.title, i18nKeyPrefix:'homeFolder.adult.title')} ${adult.fullName}
+                    ${g.libredematEnumToFlag(var:adult.title, i18nKeyPrefix:'homeFolder.adult.title')} ${adult.fullName}
                   </dt>
                   <g:if test="${adult.homeFolderResponsible()}">
-                    <dd>${g.capdematEnumToFlag(var:adult.homeFolderResponsible(), i18nKeyPrefix:'homeFolder.role')}</dd>
+                    <dd>${g.libredematEnumToFlag(var:adult.homeFolderResponsible(), i18nKeyPrefix:'homeFolder.role')}</dd>
                   </g:if>
                   <g:if test="${adult.homePhone}">
                     <dd>${adult.homePhone}</dd>
@@ -87,7 +87,7 @@
                         <g:each var="roleOwner" in="${childResponsibles[child.id]}">
                           <li>
                             <g:each in="${roleOwner.getIndividualRoles(child.id)}">
-                              ${g.capdematEnumToFlag(var:it.role, i18nKeyPrefix:'homeFolder.role')}
+                              ${g.libredematEnumToFlag(var:it.role, i18nKeyPrefix:'homeFolder.role')}
                             </g:each>
                             ${roleOwner.fullName}
                           </li>
@@ -120,8 +120,8 @@
               <dt>
                 <img src="${resource(dir:'images/icons',file:'mime_' + (document.isPDF() ? 'pdf' : 'img') + '.png')}" />
               </dt>
-              <dd ${[fr.cg95.cvq.business.document.DocumentState.OUTDATED, fr.cg95.cvq.business.document.DocumentState.REFUSED].contains(document.state) ? 'class="warn"' : ''}>
-                <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+              <dd ${[org.libredemat.business.document.DocumentState.OUTDATED, org.libredemat.business.document.DocumentState.REFUSED].contains(document.state) ? 'class="warn"' : ''}>
+                <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
                 <g:if test="${document.ecitizenNote}">
                     <p>${message(code:'document.header.description')} : ${document.ecitizenNote}</p>
                 </g:if>
@@ -133,7 +133,7 @@
                   </g:if>
                 </p>
                 <p>
-                  <g:if test="${document.state == fr.cg95.cvq.business.document.DocumentState.DRAFT}">
+                  <g:if test="${document.state == org.libredemat.business.document.DocumentState.DRAFT}">
                     <a href="${createLink(controller:'frontofficeHomeFolderDocument', action:'edit', params:['documentTypeId':documentType.key, 'documentId':document.id])}">${message(code:'action.modify')}</a>&nbsp;
                     <a href="${createLink(controller:'frontofficeHomeFolderDocument', action:'delete', params:['documentId':document.id])}">${message(code:'action.delete')}</a>&nbsp;
                   </g:if>
@@ -144,7 +144,7 @@
                     ${message(code:'document.message.preview')}
                   </a>
                 </p>
-                <g:if test="${[fr.cg95.cvq.business.document.DocumentState.OUTDATED, fr.cg95.cvq.business.document.DocumentState.REFUSED].contains(document.state)}">
+                <g:if test="${[org.libredemat.business.document.DocumentState.OUTDATED, org.libredemat.business.document.DocumentState.REFUSED].contains(document.state)}">
                   <p class="warn">${message(code:'document.message.shouldDetach')}</p>
                 </g:if>
               </dd>

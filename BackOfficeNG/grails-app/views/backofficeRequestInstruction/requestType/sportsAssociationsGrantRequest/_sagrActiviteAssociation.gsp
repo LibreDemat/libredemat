@@ -17,8 +17,8 @@
       </dd>
     
       <dt class="required condition-estAutreSportPratique-trigger"><g:message code="sagr.property.sportPratique.label" /> * : </dt>
-      <dd id="sagrActiviteAssociation[${listSize - 1 - index}].sportPratique" class="action-editField validate-capdematEnum required-true i18n-sagr.property.sportPratique javatype-fr.cg95.cvq.business.request.social.SagrSportPratiqueType" >
-        <g:capdematEnumToField var="${it?.sportPratique}" i18nKeyPrefix="sagr.property.sportPratique" />
+      <dd id="sagrActiviteAssociation[${listSize - 1 - index}].sportPratique" class="action-editField validate-libredematEnum required-true i18n-sagr.property.sportPratique javatype-org.libredemat.business.request.social.SagrSportPratiqueType" >
+        <g:libredematEnumToField var="${it?.sportPratique}" i18nKeyPrefix="sagr.property.sportPratique" />
       </dd>
     
       <dt class="required condition-estAutreSportPratique-filled"><g:message code="sagr.property.sportPratiquePrecision.label" /> * : </dt>
@@ -27,8 +27,8 @@
       </dd>
     
       <dt class="required condition-estAutreFederationSportive-trigger"><g:message code="sagr.property.federationSportive.label" /> * : </dt>
-      <dd id="sagrActiviteAssociation[${listSize - 1 - index}].federationSportive" class="action-editField validate-capdematEnum required-true i18n-sagr.property.federationSportive javatype-fr.cg95.cvq.business.request.social.SagrFederationSportiveType" >
-        <g:capdematEnumToField var="${it?.federationSportive}" i18nKeyPrefix="sagr.property.federationSportive" />
+      <dd id="sagrActiviteAssociation[${listSize - 1 - index}].federationSportive" class="action-editField validate-libredematEnum required-true i18n-sagr.property.federationSportive javatype-org.libredemat.business.request.social.SagrFederationSportiveType" >
+        <g:libredematEnumToField var="${it?.federationSportive}" i18nKeyPrefix="sagr.property.federationSportive" />
       </dd>
     
       <dt class="required condition-estAutreFederationSportive-filled"><g:message code="sagr.property.federationSportivePrecision.label" /> * : </dt>

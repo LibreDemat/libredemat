@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/acr"
-  xmlns:acr="http://www.cg95.fr/cvq/schema/acr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/acr"
+  xmlns:acr="http://www.libredemat.org/schema/acr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="AlignmentCertificateRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de certificat d'alignement
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Alignment certificate request
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Certificat d'alignement
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Alignment Certificate
       </xs:documentation>
       <xs:appinfo>
@@ -67,11 +67,11 @@
             </xs:element>
             <xs:element name="OwnerLastName" type="cvq:LastNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom du propriétaire
                 </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Nom du propriétaire
                 </xs:documentation>
                 <xs:appinfo>
@@ -89,11 +89,11 @@
             </xs:element>
             <xs:element name="OwnerFirstNames" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prénom(s) du propriétaire
                 </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Prénom(s) du propriétaire
 		        </xs:documentation>
                 <xs:appinfo>
@@ -111,11 +111,11 @@
             </xs:element>
             <xs:element name="OwnerAddress" type="cvq:AddressType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Adresse du propriétaire
 		        </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Adresse du propriétaire
 		        </xs:documentation>
                 <xs:appinfo>
@@ -134,11 +134,11 @@
             </xs:element>
             <xs:element name="Section" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Section
 		        </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Section
                 </xs:documentation>
                 <xs:appinfo>
@@ -153,11 +153,11 @@
             </xs:element>
             <xs:element name="Number" type="xs:positiveInteger">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Numéro
                 </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Numéro
                 </xs:documentation>
                 <xs:appinfo>
@@ -172,11 +172,11 @@
             </xs:element>
             <xs:element name="Locality" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Lieu-dit
 		        </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Lieu-dit
 		        </xs:documentation>
                 <xs:appinfo>
@@ -191,11 +191,11 @@
             </xs:element>
             <xs:element name="TransportationRoute" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Voie de communication
 		        </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Voie de communication
 		        </xs:documentation>
                 <xs:appinfo>
@@ -216,13 +216,13 @@
 
   <xs:simpleType name="AcrRequesterQualityType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations relatives aux relations entre le demandeur et la propriété
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Agissant en qualité de
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Owner" value="Propriétaire" />
         <enum key="Tenant" value="Locataire" />
       </xs:documentation>

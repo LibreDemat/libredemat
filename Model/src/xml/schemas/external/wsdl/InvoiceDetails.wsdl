@@ -2,14 +2,14 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/inv"
-                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/inv"
+                  xmlns:schema="http://www.libredemat.org/modules/payment/schema/inv"
+                  xmlns:tns="http://www.libredemat.org/modules/payment/schema/inv"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/inv">
+                  targetNamespace="http://www.libredemat.org/modules/payment/schema/inv">
    <wsdl:types>
-      <xs:schema xmlns:inv="http://www.capwebct.fr/modules/payment/schema/inv"
+      <xs:schema xmlns:inv="http://www.libredemat.org/modules/payment/schema/inv"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/inv"
+                 targetNamespace="http://www.libredemat.org/modules/payment/schema/inv"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -124,7 +124,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="invoiceDetails">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/inv/invoiceDetails"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/modules/payment/schema/inv/invoiceDetails"/>
          <wsdl:input name="invoiceDetailsInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

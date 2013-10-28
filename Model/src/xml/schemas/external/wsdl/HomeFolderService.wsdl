@@ -2,14 +2,14 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/capdemat"
-                  xmlns:tns="http://www.capwebct.fr/capdemat"
+                  xmlns:schema="http://www.libredemat.org"
+                  xmlns:tns="http://www.libredemat.org"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/capdemat">
+                  targetNamespace="http://www.libredemat.org">
    <wsdl:types>
-      <xs:schema xmlns:capdemat="http://www.capwebct.fr/capdemat"
+      <xs:schema xmlns:libredemat="http://www.libredemat.org"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/capdemat"
+                 targetNamespace="http://www.libredemat.org"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -37,7 +37,7 @@
          <xs:element name="GetHomeFoldersResponse">
             <xs:complexType>
                <xs:sequence>
-                  <xs:element name="HomeFolder" type="capdemat:HomeFolderType" minOccurs="0"
+                  <xs:element name="HomeFolder" type="libredemat:HomeFolderType" minOccurs="0"
                               maxOccurs="unbounded"/>
                </xs:sequence>
             </xs:complexType>
@@ -47,7 +47,7 @@
             <xs:sequence>
                <xs:element name="Id" type="xs:long"/>
                <xs:element name="Address" type="xs:string"/>
-               <xs:element name="Individual" type="capdemat:IndividualType" maxOccurs="unbounded"/>
+               <xs:element name="Individual" type="libredemat:IndividualType" maxOccurs="unbounded"/>
             </xs:sequence>
          </xs:complexType>
   
@@ -78,7 +78,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="GetHomeFolders">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/capdemat/GetHomeFolders"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/GetHomeFolders"/>
          <wsdl:input name="GetHomeFoldersInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

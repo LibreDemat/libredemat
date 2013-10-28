@@ -56,7 +56,7 @@
               <h3><g:message code="dccrr.property.informationMere.label" /></h3>
               <dl class="required">
                 
-                  <dt class="condition-estAutreSituationActuelleMere-trigger">${message(code:'dccrr.property.situationActuelleMere.label')}&nbsp;:</dt><dd id="situationActuelleMere" class="action-editField validate-capdematEnum i18n-dccrr.property.situationActuelleMere javatype-fr.cg95.cvq.business.request.school.ChoixSituationActuelle" ><g:capdematEnumToField var="${rqt?.situationActuelleMere}" i18nKeyPrefix="dccrr.property.situationActuelleMere" /></dd>
+                  <dt class="condition-estAutreSituationActuelleMere-trigger">${message(code:'dccrr.property.situationActuelleMere.label')}&nbsp;:</dt><dd id="situationActuelleMere" class="action-editField validate-libredematEnum i18n-dccrr.property.situationActuelleMere javatype-org.libredemat.business.request.school.ChoixSituationActuelle" ><g:libredematEnumToField var="${rqt?.situationActuelleMere}" i18nKeyPrefix="dccrr.property.situationActuelleMere" /></dd>
                 
                   <dt class="required condition-estAutreSituationActuelleMere-filled">${message(code:'dccrr.property.precisionAutreSituationActuelleMere.label')}&nbsp;*&nbsp;:</dt><dd id="precisionAutreSituationActuelleMere" class="action-editField validate-string required-true i18n-dccrr.property.precisionAutreSituationActuelleMere" ><span>${rqt?.precisionAutreSituationActuelleMere}</span></dd>
                 
@@ -85,7 +85,7 @@
               <h3><g:message code="dccrr.property.informationPere.label" /></h3>
               <dl class="">
                 
-                  <dt class="condition-estAutreSituationActuellePere-trigger">${message(code:'dccrr.property.situationActuellePere.label')}&nbsp;:</dt><dd id="situationActuellePere" class="action-editField validate-capdematEnum i18n-dccrr.property.situationActuellePere javatype-fr.cg95.cvq.business.request.school.ChoixSituationActuelle" ><g:capdematEnumToField var="${rqt?.situationActuellePere}" i18nKeyPrefix="dccrr.property.situationActuellePere" /></dd>
+                  <dt class="condition-estAutreSituationActuellePere-trigger">${message(code:'dccrr.property.situationActuellePere.label')}&nbsp;:</dt><dd id="situationActuellePere" class="action-editField validate-libredematEnum i18n-dccrr.property.situationActuellePere javatype-org.libredemat.business.request.school.ChoixSituationActuelle" ><g:libredematEnumToField var="${rqt?.situationActuellePere}" i18nKeyPrefix="dccrr.property.situationActuellePere" /></dd>
                 
                   <dt class="required condition-estAutreSituationActuellePere-filled">${message(code:'dccrr.property.precisionAutreSituationActuellePere.label')}&nbsp;*&nbsp;:</dt><dd id="precisionAutreSituationActuellePere" class="action-editField validate-string required-true i18n-dccrr.property.precisionAutreSituationActuellePere" ><span>${rqt?.precisionAutreSituationActuellePere}</span></dd>
                 
@@ -137,13 +137,13 @@
             
               
               <dl>
-                <dt class="required condition-estIndifferent-filled">${message(code:'dccrr.property.modeAccueilChoixUn.label')}&nbsp;*&nbsp;:</dt><dd id="modeAccueilChoixUn" class="action-editField validate-capdematEnum required-true i18n-dccrr.property.modeAccueilChoixUn javatype-fr.cg95.cvq.business.request.school.ModeAccueilType" ><g:capdematEnumToField var="${rqt?.modeAccueilChoixUn}" i18nKeyPrefix="dccrr.property.modeAccueilChoixUn" /></dd>
+                <dt class="required condition-estIndifferent-filled">${message(code:'dccrr.property.modeAccueilChoixUn.label')}&nbsp;*&nbsp;:</dt><dd id="modeAccueilChoixUn" class="action-editField validate-libredematEnum required-true i18n-dccrr.property.modeAccueilChoixUn javatype-org.libredemat.business.request.school.ModeAccueilType" ><g:libredematEnumToField var="${rqt?.modeAccueilChoixUn}" i18nKeyPrefix="dccrr.property.modeAccueilChoixUn" /></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="condition-estIndifferent-filled">${message(code:'dccrr.property.modeAccueilChoixDeux.label')}&nbsp;:</dt><dd id="modeAccueilChoixDeux" class="action-editField validate-capdematEnum i18n-dccrr.property.modeAccueilChoixDeux javatype-fr.cg95.cvq.business.request.school.ModeAccueilType" ><g:capdematEnumToField var="${rqt?.modeAccueilChoixDeux}" i18nKeyPrefix="dccrr.property.modeAccueilChoixDeux" /></dd>
+                <dt class="condition-estIndifferent-filled">${message(code:'dccrr.property.modeAccueilChoixDeux.label')}&nbsp;:</dt><dd id="modeAccueilChoixDeux" class="action-editField validate-libredematEnum i18n-dccrr.property.modeAccueilChoixDeux javatype-org.libredemat.business.request.school.ModeAccueilType" ><g:libredematEnumToField var="${rqt?.modeAccueilChoixDeux}" i18nKeyPrefix="dccrr.property.modeAccueilChoixDeux" /></dd>
               </dl>
               
             
@@ -157,7 +157,7 @@
               <h3><g:message code="dccrr.property.datePlacementAccueilRegulier.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required condition-dateConnue-trigger">${message(code:'dccrr.property.choixTypeDatePlacementAccueilRegulier.label')}&nbsp;*&nbsp;:</dt><dd id="choixTypeDatePlacementAccueilRegulier" class="action-editField validate-capdematEnum required-true i18n-dccrr.property.choixTypeDatePlacementAccueilRegulier javatype-fr.cg95.cvq.business.request.school.ChoixDatePlacement" ><g:capdematEnumToField var="${rqt?.choixTypeDatePlacementAccueilRegulier}" i18nKeyPrefix="dccrr.property.choixTypeDatePlacementAccueilRegulier" /></dd>
+                  <dt class="required condition-dateConnue-trigger">${message(code:'dccrr.property.choixTypeDatePlacementAccueilRegulier.label')}&nbsp;*&nbsp;:</dt><dd id="choixTypeDatePlacementAccueilRegulier" class="action-editField validate-libredematEnum required-true i18n-dccrr.property.choixTypeDatePlacementAccueilRegulier javatype-org.libredemat.business.request.school.ChoixDatePlacement" ><g:libredematEnumToField var="${rqt?.choixTypeDatePlacementAccueilRegulier}" i18nKeyPrefix="dccrr.property.choixTypeDatePlacementAccueilRegulier" /></dd>
                 
                   <dt class="required condition-dateConnue-filled">${message(code:'dccrr.property.datePlacementDebut.label')}&nbsp;*&nbsp;:</dt><dd id="datePlacementDebut" class="action-editField validate-date required-true i18n-dccrr.property.datePlacementDebut" ><span><g:formatDate formatName="format.date" date="${rqt?.datePlacementDebut}"/></span></dd>
                 
@@ -172,7 +172,7 @@
             
               
               <dl>
-                <dt class="required condition-estHorairesAccueilRegulier-trigger condition-estHorairesAccueilIrregulier-trigger">${message(code:'dccrr.property.choixHorairesAccueil.label')}&nbsp;*&nbsp;:</dt><dd id="choixHorairesAccueil" class="action-editField validate-capdematEnum required-true i18n-dccrr.property.choixHorairesAccueil javatype-fr.cg95.cvq.business.request.school.ChoixHorairesAccueilType" ><g:capdematEnumToField var="${rqt?.choixHorairesAccueil}" i18nKeyPrefix="dccrr.property.choixHorairesAccueil" /></dd>
+                <dt class="required condition-estHorairesAccueilRegulier-trigger condition-estHorairesAccueilIrregulier-trigger">${message(code:'dccrr.property.choixHorairesAccueil.label')}&nbsp;*&nbsp;:</dt><dd id="choixHorairesAccueil" class="action-editField validate-libredematEnum required-true i18n-dccrr.property.choixHorairesAccueil javatype-org.libredemat.business.request.school.ChoixHorairesAccueilType" ><g:libredematEnumToField var="${rqt?.choixHorairesAccueil}" i18nKeyPrefix="dccrr.property.choixHorairesAccueil" /></dd>
               </dl>
               
             
@@ -287,7 +287,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'dccrr.property.choixTypeRendezVous.label')}&nbsp;*&nbsp;:</dt><dd id="choixTypeRendezVous" class="action-editField validate-capdematEnum required-true i18n-dccrr.property.choixTypeRendezVous javatype-fr.cg95.cvq.business.request.school.RendezVousType" ><g:capdematEnumToField var="${rqt?.choixTypeRendezVous}" i18nKeyPrefix="dccrr.property.choixTypeRendezVous" /></dd>
+                <dt class="required">${message(code:'dccrr.property.choixTypeRendezVous.label')}&nbsp;*&nbsp;:</dt><dd id="choixTypeRendezVous" class="action-editField validate-libredematEnum required-true i18n-dccrr.property.choixTypeRendezVous javatype-org.libredemat.business.request.school.RendezVousType" ><g:libredematEnumToField var="${rqt?.choixTypeRendezVous}" i18nKeyPrefix="dccrr.property.choixTypeRendezVous" /></dd>
               </dl>
               
             
@@ -299,7 +299,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'dccrr.property.plageHoraireContact.label')}&nbsp;*&nbsp;:</dt><dd id="plageHoraireContact" class="action-editField validate-capdematEnum required-true i18n-dccrr.property.plageHoraireContact javatype-fr.cg95.cvq.business.request.school.PlageHoraireContactType" ><g:capdematEnumToField var="${rqt?.plageHoraireContact}" i18nKeyPrefix="dccrr.property.plageHoraireContact" /></dd>
+                <dt class="required">${message(code:'dccrr.property.plageHoraireContact.label')}&nbsp;*&nbsp;:</dt><dd id="plageHoraireContact" class="action-editField validate-libredematEnum required-true i18n-dccrr.property.plageHoraireContact javatype-org.libredemat.business.request.school.PlageHoraireContactType" ><g:libredematEnumToField var="${rqt?.plageHoraireContact}" i18nKeyPrefix="dccrr.property.plageHoraireContact" /></dd>
               </dl>
               
             

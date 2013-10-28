@@ -6,7 +6,7 @@
             <select id="roleDemandeur" name="roleDemandeur" class="required condition-estPresident-trigger  validate-not-first ${rqt.stepStates['president'].invalidFields.contains('roleDemandeur') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.roleDemandeur.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['PRESIDENT','TRESORIER','SECRETAIRE']}">
-                <option value="${it}" ${it == rqt.roleDemandeur?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="sagr.property.roleDemandeur" /></option>
+                <option value="${it}" ${it == rqt.roleDemandeur?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="sagr.property.roleDemandeur" /></option>
               </g:each>
             </select>
             

@@ -3,7 +3,7 @@
   var yw  = YAHOO.widget
     , yu  = YAHOO.util
     , yue = yu.Event
-    , zc  = zenexity.capdemat
+    , zc  = zenexity.libredemat
 
   var parser = new UAParser()
     , blacklist = [ { name: 'IE', major: 8 }

@@ -4,7 +4,7 @@
     <meta name="layout" content="main" />
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'homeFolderSearch.js')}"></script>
     <script type="text/javascript">
-      zenexity.capdemat.bong.homeFolder.Search.agentCanWrite = ${agentCanWrite};
+      zenexity.libredemat.bong.homeFolder.Search.agentCanWrite = ${agentCanWrite};
     </script>
   </head>
   <body>

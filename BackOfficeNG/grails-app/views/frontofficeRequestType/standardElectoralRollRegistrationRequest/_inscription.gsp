@@ -7,14 +7,14 @@
               <g:message code="serrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
               <g:if test="${rqt.stepStates[currentStep].state != 'complete' && !rqt.requestType.getStepAccountCompletion()}">
-                <g:if test="${!fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_NONE.equals(subjectPolicy)}">
-                  <g:if test="${fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_ADULT.equals(subjectPolicy)}">
+                <g:if test="${!org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_NONE.equals(subjectPolicy)}">
+                  <g:if test="${org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_ADULT.equals(subjectPolicy)}">
                     <span>(<a id="addSubjectLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'adult', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addSubject" /></a>)</span>
                   </g:if>
-                  <g:elseif test="${fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_CHILD.equals(subjectPolicy)}">
+                  <g:elseif test="${org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_CHILD.equals(subjectPolicy)}">
                     <span>(<a id="addSubjectLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'child', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addSubject" /></a>)</span>
                   </g:elseif>
-                  <g:elseif test="${fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_INDIVIDUAL.equals(subjectPolicy)}">
+                  <g:elseif test="${org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_INDIVIDUAL.equals(subjectPolicy)}">
                     <span>(<a id="addAdultLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'adult', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addAdult" /></a>
                     <g:message code="message.or" />
                     <a id="addChildLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'child', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addChild" /></a>)</span>
@@ -70,7 +70,7 @@
               <g:each in="${['FEMININ','MASCULIN']}">
               <li>
                 <input type="radio" id="sexe_${it}" class="required condition-estFemme-trigger  validate-one-required" value="${it}" name="sexe" ${it == rqt.sexe.toString() ? 'checked="checked"': ''} title="<g:message code="serrr.property.sexe.validationError" />" />
-                <label for="sexe_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.sexe" /></label>
+                <label for="sexe_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.sexe" /></label>
               </li>
               </g:each>
             </ul>
@@ -142,7 +142,7 @@
             <select id="lieuNaissanceDepartement" name="lieuNaissanceDepartement" class="  validate-select ${rqt.stepStates['inscription'].invalidFields.contains('lieuNaissanceDepartement') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.lieuNaissanceDepartement.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['NONE','D_E_P01','D_E_P02','D_E_P03','D_E_P04','D_E_P05','D_E_P06','D_E_P07','D_E_P08','D_E_P09','D_E_P10','D_E_P11','D_E_P12','D_E_P13','D_E_P14','D_E_P15','D_E_P16','D_E_P17','D_E_P18','D_E_P19','D_E_P2_A','D_E_P2_B','D_E_P21','D_E_P22','D_E_P23','D_E_P24','D_E_P25','D_E_P26','D_E_P27','D_E_P28','D_E_P29','D_E_P30','D_E_P31','D_E_P32','D_E_P33','D_E_P34','D_E_P35','D_E_P36','D_E_P37','D_E_P38','D_E_P39','D_E_P40','D_E_P41','D_E_P42','D_E_P43','D_E_P44','D_E_P45','D_E_P46','D_E_P47','D_E_P48','D_E_P49','D_E_P50','D_E_P51','D_E_P52','D_E_P53','D_E_P54','D_E_P55','D_E_P56','D_E_P57','D_E_P58','D_E_P59','D_E_P60','D_E_P61','D_E_P62','D_E_P63','D_E_P64','D_E_P65','D_E_P66','D_E_P67','D_E_P68','D_E_P69','D_E_P70','D_E_P71','D_E_P72','D_E_P73','D_E_P74','D_E_P75','D_E_P76','D_E_P77','D_E_P78','D_E_P79','D_E_P80','D_E_P81','D_E_P82','D_E_P83','D_E_P84','D_E_P85','D_E_P86','D_E_P87','D_E_P88','D_E_P89','D_E_P90','D_E_P91','D_E_P92','D_E_P93','D_E_P94','D_E_P95','D_E_P971','D_E_P972','D_E_P973','D_E_P974']}">
-                <option value="${it}" ${it == rqt.lieuNaissanceDepartement?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.lieuNaissanceDepartement" /></option>
+                <option value="${it}" ${it == rqt.lieuNaissanceDepartement?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.lieuNaissanceDepartement" /></option>
               </g:each>
             </select>
             
@@ -152,7 +152,7 @@
             <select id="lieuNaissancePays" name="lieuNaissancePays" class="  validate-select ${rqt.stepStates['inscription'].invalidFields.contains('lieuNaissancePays') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.lieuNaissancePays.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['UNKNOWN','AF','ZA','AL','DZ','DE','AD','AO','AI','AQ','AG','AN','SA','AR','AM','AW','AU','AT','AZ','BJ','BS','BH','BD','BB','PW','BE','BZ','BM','BT','BY','MM','BO','BA','BW','BR','BN','BG','BF','BI','CI','KH','CM','CA','CV','CL','CN','CY','CO','KM','CG','KP','KR','CR','HR','CU','DK','DJ','DM','EG','AE','EC','ER','ES','EE','US','ET','FI','FR','GE','GA','GM','GH','GI','GR','GD','GL','GP','GU','GT','GN','GQ','GW','GY','GF','HT','HN','HK','HU','CK','FJ','MH','SB','IN','ID','IR','IQ','IE','IS','IL','IT','JM','JP','JO','KZ','KE','KG','KI','KW','LA','LS','LV','LB','LR','LY','LI','LT','LU','MG','MY','MW','MV','ML','MT','MA','MU','MR','MX','FM','MD','MC','MN','MZ','NP','NA','NR','NI','NE','NG','NU','NO','NZ','OM','UG','UZ','PE','PK','PA','PG','PY','NL','PH','PL','PT','QA','CF','CD','DO','CZ','RO','GB','RU','RW','SN','KN','SM','VA','VC','LC','SV','WS','ST','SC','SL','SG','SI','SK','SO','SD','LK','SE','CH','SR','SZ','SY','TW','TJ','TZ','TD','TH','TL','TG','TO','VT','TN','TM','TR','TV','UA','UY','VU','VE','VN','YE','ZM','ZW','MK']}">
-                <option value="${it}" ${it == rqt.lieuNaissancePays?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.lieuNaissancePays" /></option>
+                <option value="${it}" ${it == rqt.lieuNaissancePays?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.lieuNaissancePays" /></option>
               </g:each>
             </select>
             
@@ -167,7 +167,7 @@
               <g:each in="${['FRANCAISE','RESSORTISSANT_U_E']}">
               <li>
                 <input type="radio" id="nationalite_${it}" class="required condition-estUnionEuropenne-trigger  validate-one-required" value="${it}" name="nationalite" ${it == rqt.nationalite.toString() ? 'checked="checked"': ''} title="<g:message code="serrr.property.nationalite.validationError" />" />
-                <label for="nationalite_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.nationalite" /></label>
+                <label for="nationalite_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.nationalite" /></label>
               </li>
               </g:each>
             </ul>
@@ -183,7 +183,7 @@
             <select id="precisionNationalite" name="precisionNationalite" class="required condition-estUnionEuropenne-filled  validate-not-first ${rqt.stepStates['inscription'].invalidFields.contains('precisionNationalite') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.precisionNationalite.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['DE','AD','AT','BE','GB','BG','CY','DK','ES','EE','FI','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SI','SK','SE','CZ']}">
-                <option value="${it}" ${it == rqt.precisionNationalite?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.precisionNationalite" /></option>
+                <option value="${it}" ${it == rqt.precisionNationalite?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.precisionNationalite" /></option>
               </g:each>
             </select>
             
@@ -194,7 +194,7 @@
               <g:each in="${['ELECTION_MUNICIPALE','ELECTION_EUROPEENNE']}">
               <li>
                 <input type="radio" id="typeElection_${it}" class="required condition-estUnionEuropenne-filled condition-estElectionEuropenne-trigger  validate-one-required" value="${it}" name="typeElection" ${it == rqt.typeElection.toString() ? 'checked="checked"': ''} title="<g:message code="serrr.property.typeElection.validationError" />" />
-                <label for="typeElection_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.typeElection" /></label>
+                <label for="typeElection_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.typeElection" /></label>
               </li>
               </g:each>
             </ul>
@@ -205,7 +205,7 @@
             <select id="paysPrecedent" name="paysPrecedent" class="condition-estElectionEuropenne-filled  validate-select ${rqt.stepStates['inscription'].invalidFields.contains('paysPrecedent') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.paysPrecedent.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['UNKNOWN','AF','ZA','AL','DZ','DE','AD','AO','AI','AQ','AG','AN','SA','AR','AM','AW','AU','AT','AZ','BJ','BS','BH','BD','BB','PW','BE','BZ','BM','BT','BY','MM','BO','BA','BW','BR','BN','BG','BF','BI','CI','KH','CM','CA','CV','CL','CN','CY','CO','KM','CG','KP','KR','CR','HR','CU','DK','DJ','DM','EG','AE','EC','ER','ES','EE','US','ET','FI','FR','GE','GA','GM','GH','GI','GR','GD','GL','GP','GU','GT','GN','GQ','GW','GY','GF','HT','HN','HK','HU','CK','FJ','MH','SB','IN','ID','IR','IQ','IE','IS','IL','IT','JM','JP','JO','KZ','KE','KG','KI','KW','LA','LS','LV','LB','LR','LY','LI','LT','LU','MG','MY','MW','MV','ML','MT','MA','MU','MR','MX','FM','MD','MC','MN','MZ','NP','NA','NR','NI','NE','NG','NU','NO','NZ','OM','UG','UZ','PE','PK','PA','PG','PY','NL','PH','PL','PT','QA','CF','CD','DO','CZ','RO','GB','RU','RW','SN','KN','SM','VA','VC','LC','SV','WS','ST','SC','SL','SG','SI','SK','SO','SD','LK','SE','CH','SR','SZ','SY','TW','TJ','TZ','TD','TH','TL','TG','TO','VT','TN','TM','TR','TV','UA','UY','VU','VE','VN','YE','ZM','ZW','MK']}">
-                <option value="${it}" ${it == rqt.paysPrecedent?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="serrr.property.paysPrecedent" /></option>
+                <option value="${it}" ${it == rqt.paysPrecedent?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="serrr.property.paysPrecedent" /></option>
               </g:each>
             </select>
             

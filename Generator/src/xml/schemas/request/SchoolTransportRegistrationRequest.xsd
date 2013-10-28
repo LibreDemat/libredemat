@@ -1,19 +1,19 @@
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/strr"
-  xmlns:strr="http://www.cg95.fr/cvq/schema/strr" 
+<xs:schema targetNamespace="http://www.libredemat.org/schema/strr"
+  xmlns:strr="http://www.libredemat.org/schema/strr" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="SchoolTransportRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'inscription aux transports scolaires
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Inscription aux transports scolaires
       </xs:documentation>
       <xs:appinfo>
@@ -51,10 +51,10 @@
           <xs:sequence>
              <xs:element name="Ligne" type="strr:LigneType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Ligne de bus
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Ligne de bus
                 </xs:documentation>
                 <xs:appinfo>
@@ -69,10 +69,10 @@
             </xs:element>
             <xs:element name="Arret" type="strr:ArretType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Arrêt de montée et descente de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Arrêt de montée et descente de l'enfant
                 </xs:documentation>
                 <xs:appinfo>
@@ -87,10 +87,10 @@
             </xs:element>
             <xs:element name="EstMaternelleElementaireAutorisations" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Votre enfant est en école maternelle ou élémentaire
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Votre enfant est en école maternelle ou élémentaire
                 </xs:documentation>
                 <xs:appinfo>
@@ -108,10 +108,10 @@
             </xs:element>
             <xs:element name="Autorisation" type="strr:AutorisationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Vous autorisez
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Vous autorisez
                 </xs:documentation>
                 <xs:appinfo>
@@ -131,10 +131,10 @@
             </xs:element>
             <xs:element name="TiersAutorises" type="strr:TiersInformationsType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Personnes tiers autorisées à venir récupérer l'enfant à l'arrêt de bus
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Personnes tiers autorisées à venir récupérer l'enfant à l'arrêt de bus
                 </xs:documentation>
                 <xs:appinfo>
@@ -152,10 +152,10 @@
             </xs:element>
             <xs:element name="FrereOuSoeurAutorise" type="strr:FrereOuSoeurInformationsType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Frère ou soeur autorisé à prendre la garde de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Frère ou soeur autorisé à prendre la garde de l'enfant
                 </xs:documentation>
                 <xs:appinfo>
@@ -173,10 +173,10 @@
             </xs:element>
             <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   J'accepte et je m'engage à respecter le règlement
                 </xs:documentation>
                 <xs:appinfo>
@@ -197,13 +197,13 @@
 
   <xs:simpleType name="AutorisationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Autorisation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Autorisation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Seul" value="A rentrer seul à la maison (uniquement à partir du CE1)" />
         <enum key="AvecFrereSoeur" value="Son frère ou sa soeur scolarisé au CM1 ou CM2 à le prendre en charge" />
         <enum key="AvecTiers" value="Une ou plusieurs personnes à le récupérer à l'arrêt de bus" />
@@ -220,7 +220,7 @@
     <xs:sequence>
       <xs:element name="FrereOuSoeurNom" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -235,7 +235,7 @@
       </xs:element>
       <xs:element name="FrereOuSoeurPrenom" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
           <xs:appinfo>
@@ -250,7 +250,7 @@
       </xs:element>
       <xs:element name="FrereOuSoeurEcole" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Ecole
           </xs:documentation>
           <xs:appinfo>
@@ -265,7 +265,7 @@
       </xs:element>
       <xs:element name="FrereOuSoeurClasse" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Classe
           </xs:documentation>
           <xs:appinfo>
@@ -285,7 +285,7 @@
     <xs:sequence>
       <xs:element name="TiersNom" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -300,7 +300,7 @@
       </xs:element>
       <xs:element name="TiersPrenom" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
           <xs:appinfo>
@@ -315,7 +315,7 @@
       </xs:element>
       <xs:element name="TiersTelephone" type="cvq:PhoneType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Téléphone
           </xs:documentation>
           <xs:appinfo>
@@ -335,7 +335,7 @@
     <xs:sequence>
       <xs:element name="IdLigne" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Identifiant
           </xs:documentation>
           <xs:appinfo>
@@ -350,7 +350,7 @@
       </xs:element>
       <xs:element name="LabelLigne" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Label
           </xs:documentation>
           <xs:appinfo>
@@ -370,7 +370,7 @@
     <xs:sequence>
       <xs:element name="IdArret" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Identifiant
           </xs:documentation>
           <xs:appinfo>
@@ -385,7 +385,7 @@
       </xs:element>
       <xs:element name="LabelArret" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Label
           </xs:documentation>
           <xs:appinfo>

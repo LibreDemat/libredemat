@@ -7,13 +7,13 @@
  *
  **/
 
-zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.payment");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.bong.payment");
 
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zcb = zenexity.capdemat.bong;
-  var zcbp = zenexity.capdemat.bong.payment;
+  var zct = zenexity.libredemat.tools;
+  var zcb = zenexity.libredemat.bong;
+  var zcbp = zenexity.libredemat.bong.payment;
 
   var yue = YAHOO.util.Event;
   var yud = YAHOO.util.Dom;

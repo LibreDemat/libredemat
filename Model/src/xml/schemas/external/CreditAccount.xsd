@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/modules/payment/schema/ban"
-  xmlns:ban="http://www.capwebct.fr/modules/payment/schema/ban"
+<xs:schema targetNamespace="http://www.libredemat.org/modules/payment/schema/ban"
+  xmlns:ban="http://www.libredemat.org/modules/payment/schema/ban"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
@@ -96,7 +96,7 @@
     <xs:attribute name="cvq-ack" type="xs:string">
       <xs:annotation>
         <xs:documentation xml:lang="fr">Référence CapDémat du paiement</xs:documentation>
-        <xs:documentation xml:lang="en">CapDemat's reference of the payment</xs:documentation>
+        <xs:documentation xml:lang="en">LibreDemat's reference of the payment</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="payment-broker" type="xs:string">
@@ -111,13 +111,13 @@
     <xs:attribute name="id" type="xs:long">
       <xs:annotation>
         <xs:documentation xml:lang="fr">Identifiant CapDémat du foyer</xs:documentation>
-        <xs:documentation xml:lang="en">CapDemat identifier for the home folder</xs:documentation>
+        <xs:documentation xml:lang="en">LibreDemat identifier for the home folder</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="externalCapDematId" type="xs:string">
+    <xs:attribute name="externalLibreDematId" type="xs:string">
       <xs:annotation>
-        <xs:documentation xml:lang="fr">Identifiant CapDemat externe du foyer</xs:documentation>
-        <xs:documentation xml:lang="en">Home folder's external CapDemat identifier</xs:documentation>
+        <xs:documentation xml:lang="fr">Identifiant LibreDemat externe du foyer</xs:documentation>
+        <xs:documentation xml:lang="en">Home folder's external LibreDemat identifier</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="externalId" type="xs:string">

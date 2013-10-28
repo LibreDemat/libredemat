@@ -1,16 +1,16 @@
 
 /**
  * @description This file contains payment details client-module
- * @namespace zenexity.capdemat.bong.payment
+ * @namespace zenexity.libredemat.bong.payment
  * 
  * @author vsi@zenexity.fr
  */
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.payment');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.payment');
 
 (function(){
 
-  var zc = zenexity.capdemat;
+  var zc = zenexity.libredemat;
   var zcbh = zc.bong.payment;
   var zct = zc.tools;
 

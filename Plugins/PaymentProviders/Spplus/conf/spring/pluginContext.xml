@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="spplusPaymentProvider"
-    class="fr.capwebct.capdemat.plugins.paymentproviders.spplus.service.SpplusService"
+    class="org.libredemat.plugins.paymentproviders.spplus.service.SpplusService"
     init-method="init">
     <property name="label" value="Spplus"></property>
     <!-- Insert services you need here -->

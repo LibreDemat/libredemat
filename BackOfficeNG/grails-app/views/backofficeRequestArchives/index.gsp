@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'requestArchives.css')}" />
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestArchives.js')}"></script>
     <script type="text/javascript">
-      zenexity.capdemat.bong.request.Archives.content = {
+      zenexity.libredemat.bong.request.Archives.content = {
         head : "<g:message code='requestArchive.message.deleteConfirmation.head' />",
         body : "<g:message code='requestArchive.message.deleteConfirmation.body' />"
       };
-      zenexity.capdemat.bong.request.Archives.deleteErrorMessage =
+      zenexity.libredemat.bong.request.Archives.deleteErrorMessage =
         "<g:message code='requestArchive.error.notDeleted' />";
     </script>
   </head>

@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="cirilNetEnfanceExternalService" parent="externalProviderServiceAdapter"
-    class="fr.capwebct.capdemat.plugins.externalservices.cirilnetenfance.service.CirilNetEnfanceService">
+    class="org.libredemat.plugins.externalservices.cirilnetenfance.service.CirilNetEnfanceService">
     <property name="label" value="CirilNetEnfance" />
     <!-- Insert services you need here -->
     <property name="externalHomeFolderService">

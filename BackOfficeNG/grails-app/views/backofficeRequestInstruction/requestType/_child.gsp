@@ -32,8 +32,8 @@
     </dl>
     <dl>
       <dt><g:message code="homeFolder.child.property.sex" /> : </dt>
-      <dd id="individuals[${index}].sex" class="${action}-editField validate-capdematEnum javatype-fr.cg95.cvq.business.users.SexType">
-          <g:capdematEnumToField var="${child.sex}" i18nKeyPrefix="homeFolder.child.property.sex" />
+      <dd id="individuals[${index}].sex" class="${action}-editField validate-libredematEnum javatype-org.libredemat.business.users.SexType">
+          <g:libredematEnumToField var="${child.sex}" i18nKeyPrefix="homeFolder.child.property.sex" />
       </dd>
     
       <dt><g:message code="homeFolder.individual.property.birthDate" /> : </dt>
@@ -84,7 +84,7 @@
         <g:each var="individual" in="${childLegalResponsibles}">
           <li>
             <g:each in="${individual.getIndividualRoles(child.id)}">
-              <g:capdematEnumToFlag var="${it.role}" i18nKeyPrefix="homeFolder.role" />
+              <g:libredematEnumToFlag var="${it.role}" i18nKeyPrefix="homeFolder.role" />
             </g:each> 
             ${individual.firstName} ${individual.lastName}
           </li>

@@ -6,13 +6,13 @@
   </a>
   -
   <strong>
-    <g:if test="${record.state == fr.cg95.cvq.business.users.UserState.NEW}">
+    <g:if test="${record.state == org.libredemat.business.users.UserState.NEW}">
       <g:message code="tasks.individual.created" />
     </g:if>
-    <g:if test="${record.state == fr.cg95.cvq.business.users.UserState.MODIFIED}">
+    <g:if test="${record.state == org.libredemat.business.users.UserState.MODIFIED}">
       <g:message code="tasks.individual.modified" />
     </g:if>
-    <g:if test="${record.state == fr.cg95.cvq.business.users.UserState.INVALID}">
+    <g:if test="${record.state == org.libredemat.business.users.UserState.INVALID}">
       <g:message code="tasks.individual.invalid" />
     </g:if>
   </strong>

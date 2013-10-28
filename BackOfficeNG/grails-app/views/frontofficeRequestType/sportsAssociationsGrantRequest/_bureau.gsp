@@ -29,7 +29,7 @@
         
               <dd class="${rqt.stepStates['bureau'].invalidFields.contains('autreMembreBureau[' + index + '].roleMembre') ? 'validation-failed' : ''}">
                 <g:if test="${it.roleMembre}">
-                  <g:capdematEnumToField var="${it.roleMembre}" i18nKeyPrefix="sagr.property.roleMembre" />
+                  <g:libredematEnumToField var="${it.roleMembre}" i18nKeyPrefix="sagr.property.roleMembre" />
                 </g:if>
               </dd>
               

@@ -4,7 +4,7 @@ create table external_service_identifier_mapping (
     id int8 not null,
     external_service_label varchar(255),
     home_folder_id int8,
-    external_capdemat_id varchar(255),
+    external_libredemat_id varchar(255),
     external_id varchar(255),
     primary key (id)
 );
@@ -13,7 +13,7 @@ alter table external_service_identifier_mapping owner to cvq95;
 create table external_service_individual_mapping (
     mapping_id int8 not null,
     individual_id int8,
-    external_capdemat_id varchar(255),
+    external_libredemat_id varchar(255),
     external_id varchar(255)
 );
 alter table external_service_individual_mapping owner to cvq95;

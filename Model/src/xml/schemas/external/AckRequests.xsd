@@ -1,14 +1,14 @@
-<xs:schema targetNamespace="http://www.capwebct.fr/capdemat"
-  xmlns:capdemat="http://www.capwebct.fr/capdemat"
+<xs:schema targetNamespace="http://www.libredemat.org"
+  xmlns:libredemat="http://www.libredemat.org"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:common="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
   <xs:element name="AckRequestsRequest">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="AckElements" type="capdemat:AckRequestType" maxOccurs="unbounded" />
+        <xs:element name="AckElements" type="libredemat:AckRequestType" maxOccurs="unbounded" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

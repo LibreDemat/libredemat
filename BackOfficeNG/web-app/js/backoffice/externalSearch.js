@@ -1,4 +1,4 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.external");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.bong.external");
 (function(){
   var ylj = YAHOO.lang.JSON;
   var yu = YAHOO.util;
@@ -6,10 +6,10 @@ zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.external");
   var yud = yu.Dom;
   var yus = yu.Selector;
   var yw = YAHOO.widget;
-  var zcb = zenexity.capdemat.bong;
+  var zcb = zenexity.libredemat.bong;
   var zcbe = zcb.external;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   zcbe.Search = function() {
     return {
       before: function() {}, // extension point

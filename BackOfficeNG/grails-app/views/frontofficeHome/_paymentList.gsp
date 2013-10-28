@@ -8,7 +8,7 @@
 
           <div class="content">
             <span class="action_and_tag-state">
-              <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="payment.state" />
+              <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="payment.state" />
             </span>
             <a href="${createLink(controller:'frontofficePayment',action:'paymentDetails',id:record.id)}">
               ${formatNumber(number:record.amount / 100,formatName:'format.currency')}

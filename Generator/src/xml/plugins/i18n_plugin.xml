@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="i18n" classname="fr.cg95.cvq.generator.plugins.i18n.I18nPlugin">
+<plugin id="i18n" classname="org.libredemat.generator.plugins.i18n.I18nPlugin">
 
   <documentation>
-    <element parent="element" source="http://www.cg95.fr/cvq/schema/shortdesc" />
+    <element parent="element" source="http://www.libredemat.org/schema/shortdesc" />
     <element parent="*" source="*" />
   </documentation>
   
@@ -14,8 +14,8 @@
   
   <configuration>
     <properties
-      i18ntemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/i18n/i18n.properties.tpl"
-      i18ntmptemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/i18n/i18n.properties.tmp.tpl"
+      i18ntemplate="./Generator/src/java/org/libredemat/generator/plugins/i18n/i18n.properties.tpl"
+      i18ntmptemplate="./Generator/src/java/org/libredemat/generator/plugins/i18n/i18n.properties.tmp.tpl"
       outputdir="./BackOfficeNG/grails-app/i18n/" 
     />
   </configuration>

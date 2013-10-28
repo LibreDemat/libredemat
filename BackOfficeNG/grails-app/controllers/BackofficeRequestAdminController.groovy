@@ -1,6 +1,6 @@
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.security.SecurityContext;
-import fr.cg95.cvq.service.request.IRequestTypeService
+import org.libredemat.exception.CvqException
+import org.libredemat.security.SecurityContext;
+import org.libredemat.service.request.IRequestTypeService
 
 import grails.converters.JSON
 

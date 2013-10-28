@@ -5,4 +5,4 @@ créé le ${creationDate}, va expirer le ${expirationDate} et sera définitiveme
 
 --
 Cordialement,
-Équipe Capdemat
+Équipe Libredemat

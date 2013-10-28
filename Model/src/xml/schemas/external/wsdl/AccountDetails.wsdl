@@ -2,14 +2,14 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/acc"
-                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/acc"
+                  xmlns:schema="http://www.libredemat.org/modules/payment/schema/acc"
+                  xmlns:tns="http://www.libredemat.org/modules/payment/schema/acc"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/acc">
+                  targetNamespace="http://www.libredemat.org/modules/payment/schema/acc">
    <wsdl:types>
-      <xs:schema xmlns:acc="http://www.capwebct.fr/modules/payment/schema/acc"
+      <xs:schema xmlns:acc="http://www.libredemat.org/modules/payment/schema/acc"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/acc"
+                 targetNamespace="http://www.libredemat.org/modules/payment/schema/acc"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -114,7 +114,7 @@
                <xs:element name="cvq-ack" type="xs:string" minOccurs="0">
                   <xs:annotation>
                      <xs:documentation>
-            CapDemat's reference of the payment
+            LibreDemat's reference of the payment
           </xs:documentation>
                   </xs:annotation>
                </xs:element>
@@ -145,7 +145,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="accountDetails">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/acc/accountDetails"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/modules/payment/schema/acc/accountDetails"/>
          <wsdl:input name="accountDetailsInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

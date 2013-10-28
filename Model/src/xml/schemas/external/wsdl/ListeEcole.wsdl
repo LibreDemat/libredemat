@@ -2,14 +2,14 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/capdemat"
-                  xmlns:tns="http://www.capwebct.fr/capdemat"
+                  xmlns:schema="http://www.libredemat.org"
+                  xmlns:tns="http://www.libredemat.org"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/capdemat">
+                  targetNamespace="http://www.libredemat.org">
    <wsdl:types>
       <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 xmlns:cap="http://www.capwebct.fr/capdemat"
-                 targetNamespace="http://www.capwebct.fr/capdemat"
+                 xmlns:cap="http://www.libredemat.org"
+                 targetNamespace="http://www.libredemat.org"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
   

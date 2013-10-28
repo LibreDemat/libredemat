@@ -35,14 +35,14 @@
 })();
 
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong');
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zcc = zenexity.capdemat.common;
-  var zcv = zenexity.capdemat.Validation;
-  var zcb = zenexity.capdemat.bong;
-  var zca = zenexity.capdemat.aspect;
+  var zct = zenexity.libredemat.tools;
+  var zcc = zenexity.libredemat.common;
+  var zcv = zenexity.libredemat.Validation;
+  var zcb = zenexity.libredemat.bong;
+  var zca = zenexity.libredemat.aspect;
 
   var yl = YAHOO.lang;
   var yu = YAHOO.util;
@@ -75,12 +75,12 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong');
 
       init : function() {
         zca.advise(/.*/, new zca.Advice('before', function() {
-          zenexity.capdemat.baseUrl = zenexity.capdemat.baseUrl.replace('requestType','ticketBooking')
+          zenexity.libredemat.baseUrl = zenexity.libredemat.baseUrl.replace('requestType','ticketBooking')
         }), zcb.TicketBooking);
         zca.advise(/.*/, new zca.Advice('afterReturn', function() {
-          zenexity.capdemat.baseUrl = zenexity.capdemat.baseUrl.replace('ticketBooking','requestType')
+          zenexity.libredemat.baseUrl = zenexity.libredemat.baseUrl.replace('ticketBooking','requestType')
         }), zcb.TicketBooking);
-        zenexity.capdemat.baseUrl = zenexity.capdemat.baseUrl.replace('requestType','ticketBooking');
+        zenexity.libredemat.baseUrl = zenexity.libredemat.baseUrl.replace('requestType','ticketBooking');
         zct.doAjaxCall('/',[],function(o){
           zct.html(yud.get('requestTypeTicketBooking'),o.responseText);
           zcb.TicketBooking.clickEvent = new zct.Event(zcb.TicketBooking, zcb.TicketBooking.prepareEvent);
@@ -92,7 +92,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong');
           yue.on('defaultLogoForm','submit', zcb.TicketBooking.saveDefaultLogo);
           zcb.TicketBooking.initSubscribers('lastName', '0', '');
         });
-        zenexity.capdemat.baseUrl = zenexity.capdemat.baseUrl.replace('ticketBooking','requestType')
+        zenexity.libredemat.baseUrl = zenexity.libredemat.baseUrl.replace('ticketBooking','requestType')
         zcb.TicketBooking.confirmRemoveEntertainmentDialog = new zct.ConfirmationDialog(
           { head : 'Attention', body : 'Voulez-vous supprimer<br/>ce spectacle ?' },
           zcb.TicketBooking.removeEntertainment);

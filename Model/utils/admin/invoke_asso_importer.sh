@@ -9,5 +9,5 @@
 
 . ./set_classpath.sh $1 $2
 
-java -cp $CLASSPATH fr.capwebct.capdemat.plugins.externalservices.edemande.importer.AssoImporter $1 $2 $3
+java -cp $CLASSPATH org.libredemat.plugins.externalservices.edemande.importer.AssoImporter $1 $2 $3
 

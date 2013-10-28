@@ -4,7 +4,7 @@
     , yud     = yu.Dom
     , yue     = yu.Event
     , yus     = yu.Selector
-    , zc      = zenexity.capdemat
+    , zc      = zenexity.libredemat
     , zct     = zc.tools
 
   var Variables = {}
@@ -168,9 +168,9 @@
 
     CKEDITOR.plugins.add('variables', definition)
     CKEDITOR.replace( 'editor'
-                    , { customConfig: 'capdemat-config-foremails.js' }
+                    , { customConfig: 'libredemat-config-foremails.js' }
                     )
             .on('instanceReady', onready)
   }
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.ui.EmailEditor'))
+})(zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.ui.EmailEditor'))

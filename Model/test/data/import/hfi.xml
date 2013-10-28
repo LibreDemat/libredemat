@@ -1,4 +1,4 @@
-<HomeFolderImport xmlns="http://www.cg95.fr/cvq/schema/import" xmlns:com="http://www.cg95.fr/cvq/schema/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<HomeFolderImport xmlns="http://www.libredemat.org/schema/import" xmlns:com="http://www.libredemat.org/schema/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExternalServiceLabel>fakeExternalService</ExternalServiceLabel>
   <HomeFolder>
     <com:Id>0</com:Id>
@@ -26,7 +26,7 @@
       <com:Title>Mister</com:Title>
       <com:FamilyStatus>Single</com:FamilyStatus>
       <com:HomePhone>0111111111</com:HomePhone>
-      <com:Email>capdemat-dev@zenexity.com</com:Email>
+      <com:Email>libredemat-dev@zenexity.com</com:Email>
     </com:Individuals>
     <com:Individuals xsi:type="com:ChildType">
       <com:Id>0</com:Id>

@@ -1,11 +1,11 @@
 ;(function(request) {
-  var zct = zenexity.capdemat.tools
+  var zct = zenexity.libredemat.tools
     , yud = YAHOO.util.Dom
     , yus = YAHOO.util.Selector
 
   var initCamps = function() {
     var url = function() {
-      var prefix = zenexity.capdemat.contextPath + '/frontoffice/technocarte'
+      var prefix = zenexity.libredemat.contextPath + '/frontoffice/technocarte'
       return prefix
            + '/holidayCamps/?requestTypeLabel=Holiday Camp Registration'
            + '&requestId='
@@ -26,4 +26,4 @@
     }
   }
 
-}(zenexity.capdemat.tools.namespace('zenexity.capdemat.fong.requesttype.HolidayCampRegistrationRequest')))
+}(zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype.HolidayCampRegistrationRequest')))

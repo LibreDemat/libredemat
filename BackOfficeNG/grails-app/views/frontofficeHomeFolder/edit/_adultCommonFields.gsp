@@ -15,10 +15,10 @@
   <option value="">
     ${message(code:'message.select.defaultOption')}
   </option>
-  <g:each in="${fr.cg95.cvq.business.users.TitleType.allTitleTypes}">
+  <g:each in="${org.libredemat.business.users.TitleType.allTitleTypes}">
     <option value="${it.name()}"
         ${it == adult?.title ? 'selected="selected"' : ''}>
-      <g:capdematEnumToText var="${it}" i18nKeyPrefix="homeFolder.adult.title" />
+      <g:libredematEnumToText var="${it}" i18nKeyPrefix="homeFolder.adult.title" />
     </option>
   </g:each>
 </select>

@@ -1,6 +1,6 @@
-import fr.cg95.cvq.service.users.IUserSecurityService
-import fr.cg95.cvq.business.users.UserSecurityProfile
-import fr.cg95.cvq.business.users.UserSecurityRule
+import org.libredemat.service.users.IUserSecurityService
+import org.libredemat.business.users.UserSecurityProfile
+import org.libredemat.business.users.UserSecurityRule
 
 import grails.converters.JSON
 

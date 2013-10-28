@@ -1,18 +1,18 @@
-import fr.cg95.cvq.business.request.ticket.Entertainment
-import fr.cg95.cvq.business.request.ticket.PlaceCategory
-import fr.cg95.cvq.business.request.ticket.Fare
-import fr.cg95.cvq.business.request.ticket.Event
-import fr.cg95.cvq.business.request.ticket.Subscriber
-import fr.cg95.cvq.business.request.ticket.FareType
-import fr.cg95.cvq.service.request.ITicketBookingService
-import fr.cg95.cvq.service.request.ILocalReferentialService
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Version
+import org.libredemat.business.request.ticket.Entertainment
+import org.libredemat.business.request.ticket.PlaceCategory
+import org.libredemat.business.request.ticket.Fare
+import org.libredemat.business.request.ticket.Event
+import org.libredemat.business.request.ticket.Subscriber
+import org.libredemat.business.request.ticket.FareType
+import org.libredemat.service.request.ITicketBookingService
+import org.libredemat.service.request.ILocalReferentialService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.authority.LocalAuthorityResource.Version
 
-import fr.cg95.cvq.exception.CvqTicketBookingException
-import fr.cg95.cvq.util.DateUtils
-import fr.cg95.cvq.util.ImageUtils
+import org.libredemat.exception.CvqTicketBookingException
+import org.libredemat.util.DateUtils
+import org.libredemat.util.ImageUtils
 import org.joda.time.IllegalFieldValueException
 
 import grails.converters.JSON

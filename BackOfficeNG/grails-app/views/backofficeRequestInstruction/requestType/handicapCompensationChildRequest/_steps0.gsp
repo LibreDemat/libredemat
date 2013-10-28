@@ -27,7 +27,7 @@
           
               <dt class="required">${message(code:'hccr.property.subjectBirthCountry.label')}&nbsp;*&nbsp;:</dt><dd id="subjectBirthCountry" class="action-editField validate- required-true i18n-hccr.property.subjectBirthCountry maxLength-50" ><span>${rqt?.subjectBirthCountry}</span></dd>
           
-              <dt class="required condition-isLessThan18-filled">${message(code:'hccr.property.subjectParentalAuthorityHolder.label')}&nbsp;*&nbsp;:</dt><dd id="subjectParentalAuthorityHolder" class="action-editField validate-capdematEnum required-true i18n-hccr.property.subjectParentalAuthorityHolder javatype-fr.cg95.cvq.business.request.social.HccrSubjectParentalAuthorityHolderType" ><g:capdematEnumToField var="${rqt?.subjectParentalAuthorityHolder}" i18nKeyPrefix="hccr.property.subjectParentalAuthorityHolder" /></dd>
+              <dt class="required condition-isLessThan18-filled">${message(code:'hccr.property.subjectParentalAuthorityHolder.label')}&nbsp;*&nbsp;:</dt><dd id="subjectParentalAuthorityHolder" class="action-editField validate-libredematEnum required-true i18n-hccr.property.subjectParentalAuthorityHolder javatype-org.libredemat.business.request.social.HccrSubjectParentalAuthorityHolderType" ><g:libredematEnumToField var="${rqt?.subjectParentalAuthorityHolder}" i18nKeyPrefix="hccr.property.subjectParentalAuthorityHolder" /></dd>
           
         </dl>
         
@@ -91,7 +91,7 @@
           
               <dt class="required">${message(code:'hccr.property.referentFirstName.label')}&nbsp;*&nbsp;:</dt><dd id="referentFirstName" class="action-editField validate-firstName required-true i18n-hccr.property.referentFirstName maxLength-38" ><span>${rqt?.referentFirstName}</span></dd>
           
-              <dt class="required condition-isReferentMadam-trigger">${message(code:'hccr.property.referentTitle.label')}&nbsp;*&nbsp;:</dt><dd id="referentTitle" class="action-editField validate-capdematEnum required-true i18n-hccr.property.referentTitle javatype-fr.cg95.cvq.business.users.TitleType" ><g:capdematEnumToField var="${rqt?.referentTitle}" i18nKeyPrefix="hccr.property.referentTitle" /></dd>
+              <dt class="required condition-isReferentMadam-trigger">${message(code:'hccr.property.referentTitle.label')}&nbsp;*&nbsp;:</dt><dd id="referentTitle" class="action-editField validate-libredematEnum required-true i18n-hccr.property.referentTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.referentTitle}" i18nKeyPrefix="hccr.property.referentTitle" /></dd>
           
               <dt class="required condition-isReferentMadam-filled">${message(code:'hccr.property.referentMaidenName.label')}&nbsp;*&nbsp;:</dt><dd id="referentMaidenName" class="action-editField validate-lastName required-true i18n-hccr.property.referentMaidenName maxLength-38" ><span>${rqt?.referentMaidenName}</span></dd>
           
@@ -101,7 +101,7 @@
           
               <dt class="required">${message(code:'hccr.property.referentBirthCountry.label')}&nbsp;*&nbsp;:</dt><dd id="referentBirthCountry" class="action-editField validate- required-true i18n-hccr.property.referentBirthCountry maxLength-50" ><span>${rqt?.referentBirthCountry}</span></dd>
           
-              <dt class="required">${message(code:'hccr.property.referentFamilyStatus.label')}&nbsp;*&nbsp;:</dt><dd id="referentFamilyStatus" class="action-editField validate-capdematEnum required-true i18n-hccr.property.referentFamilyStatus javatype-fr.cg95.cvq.business.users.FamilyStatusType" ><g:capdematEnumToField var="${rqt?.referentFamilyStatus}" i18nKeyPrefix="hccr.property.referentFamilyStatus" /></dd>
+              <dt class="required">${message(code:'hccr.property.referentFamilyStatus.label')}&nbsp;*&nbsp;:</dt><dd id="referentFamilyStatus" class="action-editField validate-libredematEnum required-true i18n-hccr.property.referentFamilyStatus javatype-org.libredemat.business.users.FamilyStatusType" ><g:libredematEnumToField var="${rqt?.referentFamilyStatus}" i18nKeyPrefix="hccr.property.referentFamilyStatus" /></dd>
           
               <dt class="required condition-isReferentFamilyDependents-trigger">${message(code:'hccr.property.referentFamilyDependents.label')}&nbsp;*&nbsp;:</dt><dd id="referentFamilyDependents" class="action-editField validate-boolean required-true i18n-hccr.property.referentFamilyDependents" ><span class="value-${rqt?.referentFamilyDependents}"><g:message code="message.${rqt?.referentFamilyDependents ? 'yes' : 'no'}" /></span></dd>
           
@@ -137,13 +137,13 @@
         <h3><g:message code="hccr.property.dwelling.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isNotPlaceOfResidence-trigger">${message(code:'hccr.property.dwellingKind.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingKind" class="action-editField validate-capdematEnum required-true i18n-hccr.property.dwellingKind javatype-fr.cg95.cvq.business.request.social.HccrDwellingKindType" ><g:capdematEnumToField var="${rqt?.dwellingKind}" i18nKeyPrefix="hccr.property.dwellingKind" /></dd>
+              <dt class="required condition-isNotPlaceOfResidence-trigger">${message(code:'hccr.property.dwellingKind.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingKind" class="action-editField validate-libredematEnum required-true i18n-hccr.property.dwellingKind javatype-org.libredemat.business.request.social.HccrDwellingKindType" ><g:libredematEnumToField var="${rqt?.dwellingKind}" i18nKeyPrefix="hccr.property.dwellingKind" /></dd>
           
               <dt class="required condition-isNotPlaceOfResidence-filled">${message(code:'hccr.property.dwellingPrecision.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingPrecision" class="action-editField validate-textarea required-true i18n-hccr.property.dwellingPrecision rows-2 maxLength-120" ><span>${rqt?.dwellingPrecision}</span></dd>
           
               <dt class="required condition-isInEstablishmentReception-trigger">${message(code:'hccr.property.dwellingEstablishmentReception.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingEstablishmentReception" class="action-editField validate-boolean required-true i18n-hccr.property.dwellingEstablishmentReception" ><span class="value-${rqt?.dwellingEstablishmentReception}"><g:message code="message.${rqt?.dwellingEstablishmentReception ? 'yes' : 'no'}" /></span></dd>
           
-              <dt class="required condition-isInEstablishmentReception-filled">${message(code:'hccr.property.dwellingReceptionType.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingReceptionType" class="action-editField validate-capdematEnum required-true i18n-hccr.property.dwellingReceptionType javatype-fr.cg95.cvq.business.request.social.HccrDwellingReceptionKindType" ><g:capdematEnumToField var="${rqt?.dwellingReceptionType}" i18nKeyPrefix="hccr.property.dwellingReceptionType" /></dd>
+              <dt class="required condition-isInEstablishmentReception-filled">${message(code:'hccr.property.dwellingReceptionType.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingReceptionType" class="action-editField validate-libredematEnum required-true i18n-hccr.property.dwellingReceptionType javatype-org.libredemat.business.request.social.HccrDwellingReceptionKindType" ><g:libredematEnumToField var="${rqt?.dwellingReceptionType}" i18nKeyPrefix="hccr.property.dwellingReceptionType" /></dd>
           
               <dt class="required condition-isInEstablishmentReception-filled">${message(code:'hccr.property.dwellingReceptionNaming.label')}&nbsp;*&nbsp;:</dt><dd id="dwellingReceptionNaming" class="action-editField validate- required-true i18n-hccr.property.dwellingReceptionNaming maxLength-80" ><span>${rqt?.dwellingReceptionNaming}</span></dd>
           
@@ -187,7 +187,7 @@
         <h3><g:message code="hccr.property.socialSecurity.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isSocialSecurityMemberShip-trigger">${message(code:'hccr.property.socialSecurityMemberShipKind.label')}&nbsp;*&nbsp;:</dt><dd id="socialSecurityMemberShipKind" class="action-editField validate-capdematEnum required-true i18n-hccr.property.socialSecurityMemberShipKind javatype-fr.cg95.cvq.business.request.social.HccrSocialSecurityMemberShipKindType" ><g:capdematEnumToField var="${rqt?.socialSecurityMemberShipKind}" i18nKeyPrefix="hccr.property.socialSecurityMemberShipKind" /></dd>
+              <dt class="required condition-isSocialSecurityMemberShip-trigger">${message(code:'hccr.property.socialSecurityMemberShipKind.label')}&nbsp;*&nbsp;:</dt><dd id="socialSecurityMemberShipKind" class="action-editField validate-libredematEnum required-true i18n-hccr.property.socialSecurityMemberShipKind javatype-org.libredemat.business.request.social.HccrSocialSecurityMemberShipKindType" ><g:libredematEnumToField var="${rqt?.socialSecurityMemberShipKind}" i18nKeyPrefix="hccr.property.socialSecurityMemberShipKind" /></dd>
           
               <dt class="required condition-isSocialSecurityMemberShip-filled">${message(code:'hccr.property.socialSecurityNumber.label')}&nbsp;*&nbsp;:</dt><dd id="socialSecurityNumber" class="action-editField validate- required-true i18n-hccr.property.socialSecurityNumber" ><span>${rqt?.socialSecurityNumber}</span></dd>
           
@@ -208,7 +208,7 @@
         <h3><g:message code="hccr.property.paymentAgency.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isPaymentAgencyBeneficiary-trigger">${message(code:'hccr.property.paymentAgencyBeneficiary.label')}&nbsp;*&nbsp;:</dt><dd id="paymentAgencyBeneficiary" class="action-editField validate-capdematEnum required-true i18n-hccr.property.paymentAgencyBeneficiary javatype-fr.cg95.cvq.business.request.social.HccrPaymentAgencyBeneficiaryType" ><g:capdematEnumToField var="${rqt?.paymentAgencyBeneficiary}" i18nKeyPrefix="hccr.property.paymentAgencyBeneficiary" /></dd>
+              <dt class="required condition-isPaymentAgencyBeneficiary-trigger">${message(code:'hccr.property.paymentAgencyBeneficiary.label')}&nbsp;*&nbsp;:</dt><dd id="paymentAgencyBeneficiary" class="action-editField validate-libredematEnum required-true i18n-hccr.property.paymentAgencyBeneficiary javatype-org.libredemat.business.request.social.HccrPaymentAgencyBeneficiaryType" ><g:libredematEnumToField var="${rqt?.paymentAgencyBeneficiary}" i18nKeyPrefix="hccr.property.paymentAgencyBeneficiary" /></dd>
           
               <dt class="required condition-isPaymentAgencyBeneficiary-filled">${message(code:'hccr.property.paymentAgencyBeneficiaryNumber.label')}&nbsp;*&nbsp;:</dt><dd id="paymentAgencyBeneficiaryNumber" class="action-editField validate- required-true i18n-hccr.property.paymentAgencyBeneficiaryNumber maxLength-20" ><span>${rqt?.paymentAgencyBeneficiaryNumber}</span></dd>
           
@@ -250,13 +250,13 @@
           
               <dt class="required condition-isSentToSchool-trigger">${message(code:'hccr.property.schoolingSendToSchool.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingSendToSchool" class="action-editField validate-boolean required-true i18n-hccr.property.schoolingSendToSchool" ><span class="value-${rqt?.schoolingSendToSchool}"><g:message code="message.${rqt?.schoolingSendToSchool ? 'yes' : 'no'}" /></span></dd>
           
-              <dt class="required condition-isSentToSchool-filled">${message(code:'hccr.property.schoolingAttendedGrade.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingAttendedGrade" class="action-editField validate-capdematEnum required-true i18n-hccr.property.schoolingAttendedGrade javatype-fr.cg95.cvq.business.users.SectionType maxLength-32" ><g:capdematEnumToField var="${rqt?.schoolingAttendedGrade}" i18nKeyPrefix="hccr.property.schoolingAttendedGrade" /></dd>
+              <dt class="required condition-isSentToSchool-filled">${message(code:'hccr.property.schoolingAttendedGrade.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingAttendedGrade" class="action-editField validate-libredematEnum required-true i18n-hccr.property.schoolingAttendedGrade javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.schoolingAttendedGrade}" i18nKeyPrefix="hccr.property.schoolingAttendedGrade" /></dd>
           
               <dt class="required condition-isSpecializedGrade-trigger">${message(code:'hccr.property.schoolingSpecializedGrade.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingSpecializedGrade" class="action-editField validate-boolean required-true i18n-hccr.property.schoolingSpecializedGrade" ><span class="value-${rqt?.schoolingSpecializedGrade}"><g:message code="message.${rqt?.schoolingSpecializedGrade ? 'yes' : 'no'}" /></span></dd>
           
               <dt class="required condition-isSpecializedGrade-filled">${message(code:'hccr.property.schoolingSpecializedGradeDetails.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingSpecializedGradeDetails" class="action-editField validate- required-true i18n-hccr.property.schoolingSpecializedGradeDetails maxLength-30" ><span>${rqt?.schoolingSpecializedGradeDetails}</span></dd>
           
-              <dt class="required condition-isPartTimeSchooling-trigger">${message(code:'hccr.property.schoolingSchoolingKind.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingSchoolingKind" class="action-editField validate-capdematEnum required-true i18n-hccr.property.schoolingSchoolingKind javatype-fr.cg95.cvq.business.request.social.HccrSchoolingKindType" ><g:capdematEnumToField var="${rqt?.schoolingSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingSchoolingKind" /></dd>
+              <dt class="required condition-isPartTimeSchooling-trigger">${message(code:'hccr.property.schoolingSchoolingKind.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingSchoolingKind" class="action-editField validate-libredematEnum required-true i18n-hccr.property.schoolingSchoolingKind javatype-org.libredemat.business.request.social.HccrSchoolingKindType" ><g:libredematEnumToField var="${rqt?.schoolingSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingSchoolingKind" /></dd>
           
               <dt class="required condition-isPartTimeSchooling-filled">${message(code:'hccr.property.schoolingTime.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingTime" class="action-editField validate- required-true i18n-hccr.property.schoolingTime" ><span>${rqt?.schoolingTime}</span></dd>
           
@@ -264,7 +264,7 @@
           
               <dt class="required">${message(code:'hccr.property.schoolingPersonalizedSchoolingPlan.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingPersonalizedSchoolingPlan" class="action-editField validate-boolean required-true i18n-hccr.property.schoolingPersonalizedSchoolingPlan" ><span class="value-${rqt?.schoolingPersonalizedSchoolingPlan}"><g:message code="message.${rqt?.schoolingPersonalizedSchoolingPlan ? 'yes' : 'no'}" /></span></dd>
           
-              <dt class="required condition-isAccompaniedHomeSchooling-trigger">${message(code:'hccr.property.schoolingHomeSchoolingKind.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingHomeSchoolingKind" class="action-editField validate-capdematEnum required-true i18n-hccr.property.schoolingHomeSchoolingKind javatype-fr.cg95.cvq.business.request.social.HccrHomeSchoolingKindType" ><g:capdematEnumToField var="${rqt?.schoolingHomeSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingHomeSchoolingKind" /></dd>
+              <dt class="required condition-isAccompaniedHomeSchooling-trigger">${message(code:'hccr.property.schoolingHomeSchoolingKind.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingHomeSchoolingKind" class="action-editField validate-libredematEnum required-true i18n-hccr.property.schoolingHomeSchoolingKind javatype-org.libredemat.business.request.social.HccrHomeSchoolingKindType" ><g:libredematEnumToField var="${rqt?.schoolingHomeSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingHomeSchoolingKind" /></dd>
           
               <dt class="required condition-isAccompaniedHomeSchooling-filled">${message(code:'hccr.property.schoolingHomeSchoolingAccompanistLastName.label')}&nbsp;*&nbsp;:</dt><dd id="schoolingHomeSchoolingAccompanistLastName" class="action-editField validate-lastName required-true i18n-hccr.property.schoolingHomeSchoolingAccompanistLastName maxLength-38" ><span>${rqt?.schoolingHomeSchoolingAccompanistLastName}</span></dd>
           
@@ -323,11 +323,11 @@
         <h3><g:message code="hccr.property.professionalStatus.label" /></h3>
         <dl class="required">
           
-              <dt class="required condition-isEmployed-trigger condition-isUnemployed-trigger">${message(code:'hccr.property.professionalStatusKind.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusKind" class="action-editField validate-capdematEnum required-true i18n-hccr.property.professionalStatusKind javatype-fr.cg95.cvq.business.request.social.HccrProfessionalStatusKindType" ><g:capdematEnumToField var="${rqt?.professionalStatusKind}" i18nKeyPrefix="hccr.property.professionalStatusKind" /></dd>
+              <dt class="required condition-isEmployed-trigger condition-isUnemployed-trigger">${message(code:'hccr.property.professionalStatusKind.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusKind" class="action-editField validate-libredematEnum required-true i18n-hccr.property.professionalStatusKind javatype-org.libredemat.business.request.social.HccrProfessionalStatusKindType" ><g:libredematEnumToField var="${rqt?.professionalStatusKind}" i18nKeyPrefix="hccr.property.professionalStatusKind" /></dd>
           
               <dt class="required">${message(code:'hccr.property.professionalStatusDate.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusDate" class="action-editField validate-date required-true i18n-hccr.property.professionalStatusDate" ><span><g:formatDate formatName="format.date" date="${rqt?.professionalStatusDate}"/></span></dd>
           
-              <dt class="required condition-isEmployed-filled">${message(code:'hccr.property.professionalStatusEnvironment.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusEnvironment" class="action-editField validate-capdematEnum required-true i18n-hccr.property.professionalStatusEnvironment javatype-fr.cg95.cvq.business.request.social.HccrProfessionalStatusEnvironmentType" ><g:capdematEnumToField var="${rqt?.professionalStatusEnvironment}" i18nKeyPrefix="hccr.property.professionalStatusEnvironment" /></dd>
+              <dt class="required condition-isEmployed-filled">${message(code:'hccr.property.professionalStatusEnvironment.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusEnvironment" class="action-editField validate-libredematEnum required-true i18n-hccr.property.professionalStatusEnvironment javatype-org.libredemat.business.request.social.HccrProfessionalStatusEnvironmentType" ><g:libredematEnumToField var="${rqt?.professionalStatusEnvironment}" i18nKeyPrefix="hccr.property.professionalStatusEnvironment" /></dd>
           
               <dt class="required condition-isEmployed-filled">${message(code:'hccr.property.professionalStatusProfession.label')}&nbsp;*&nbsp;:</dt><dd id="professionalStatusProfession" class="action-editField validate- required-true i18n-hccr.property.professionalStatusProfession maxLength-60" ><span>${rqt?.professionalStatusProfession}</span></dd>
           

@@ -1,4 +1,4 @@
-import fr.cg95.cvq.security.SecurityContext
+import org.libredemat.security.SecurityContext
 import grails.converters.JSON
 
 public class SystemController {

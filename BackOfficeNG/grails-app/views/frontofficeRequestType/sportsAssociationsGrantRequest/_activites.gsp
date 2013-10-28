@@ -29,7 +29,7 @@
         
               <dd class="${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation[' + index + '].sportPratique') ? 'validation-failed' : ''}">
                 <g:if test="${it.sportPratique}">
-                  <g:capdematEnumToField var="${it.sportPratique}" i18nKeyPrefix="sagr.property.sportPratique" />
+                  <g:libredematEnumToField var="${it.sportPratique}" i18nKeyPrefix="sagr.property.sportPratique" />
                 </g:if>
               </dd>
               
@@ -41,7 +41,7 @@
         
               <dd class="${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation[' + index + '].federationSportive') ? 'validation-failed' : ''}">
                 <g:if test="${it.federationSportive}">
-                  <g:capdematEnumToField var="${it.federationSportive}" i18nKeyPrefix="sagr.property.federationSportive" />
+                  <g:libredematEnumToField var="${it.federationSportive}" i18nKeyPrefix="sagr.property.federationSportive" />
                 </g:if>
               </dd>
               

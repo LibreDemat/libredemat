@@ -1,6 +1,6 @@
 <li class="request">
   <p class="first-line">
-    <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="request.state" />
+    <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="request.state" />
     <g:if test="${record.isViewable}">
       <a href="${createLink(controller:'backofficeRequestInstruction', action:'edit',id:record.id)}">
     </g:if>

@@ -1,12 +1,12 @@
 import java.io.File;
 
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
+import org.libredemat.business.authority.LocalAuthorityResource
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.service.authority.ILocalAuthorityRegistry
 import org.apache.commons.codec.binary.Base64
 import org.apache.commons.lang.StringUtils
-import fr.cg95.cvq.security.PermissionException
-import fr.cg95.cvq.security.SecurityContext
+import org.libredemat.security.PermissionException
+import org.libredemat.security.SecurityContext
 
 /**
  * Used to access local authorities specific resources, eg images.
@@ -78,7 +78,7 @@ class LocalAuthorityResourceController {
     def rule = {
         File pdfFile =
             localAuthorityRegistry.getLocalAuthorityResourceFile(Type.PDF,
-                CapdematUtils.requestTypeLabelAsDir(params.requestTypeLabel)
+                LibredematUtils.requestTypeLabelAsDir(params.requestTypeLabel)
                 + "/"  + params.filename, false)
         if (pdfFile.exists()) {
             renderResponse(pdfFile, params.filename, "application/pdf")
@@ -99,13 +99,13 @@ class LocalAuthorityResourceController {
      * * filename not provided :
      * curl --verbose --request PUT --header "Content-Type: text/html" \
      *      --data-binary @template.html \
-     *      http://localhost:8080/CapDemat/service/templates/ \
+     *      http://localhost:8080/LibreDemat/service/templates/ \
      *      -u login:password
      *
      * * filename provided :
      * curl --verbose --request PUT --header "Content-Type: text/html" \
      *      --data-binary @template.html \
-     *      http://localhost:8080/CapDemat/service/templates/mytemplate
+     *      http://localhost:8080/LibreDemat/service/templates/mytemplate
      *      -u login:password
      */
     def template = {

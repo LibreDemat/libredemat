@@ -109,7 +109,7 @@
             
               
               <dl>
-                <dt class="required condition-estPresident-trigger">${message(code:'sagr.property.roleDemandeur.label')}&nbsp;*&nbsp;:</dt><dd id="roleDemandeur" class="action-editField validate-capdematEnum required-true i18n-sagr.property.roleDemandeur javatype-fr.cg95.cvq.business.request.social.SagrRoleAssociationType" ><g:capdematEnumToField var="${rqt?.roleDemandeur}" i18nKeyPrefix="sagr.property.roleDemandeur" /></dd>
+                <dt class="required condition-estPresident-trigger">${message(code:'sagr.property.roleDemandeur.label')}&nbsp;*&nbsp;:</dt><dd id="roleDemandeur" class="action-editField validate-libredematEnum required-true i18n-sagr.property.roleDemandeur javatype-org.libredemat.business.request.social.SagrRoleAssociationType" ><g:libredematEnumToField var="${rqt?.roleDemandeur}" i18nKeyPrefix="sagr.property.roleDemandeur" /></dd>
               </dl>
               
             

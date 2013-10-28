@@ -3,14 +3,14 @@
   var yue = YAHOO.util.Event;
   var yud = YAHOO.util.Dom;
   var yus = YAHOO.util.Selector;
-  var zct = zenexity.capdemat.tools;
-  zct.namespace("zenexity.capdemat.bong.payment");
-  var zcb = zenexity.capdemat.bong;
-  var zcbp = zenexity.capdemat.bong.payment;
+  var zct = zenexity.libredemat.tools;
+  zct.namespace("zenexity.libredemat.bong.payment");
+  var zcb = zenexity.libredemat.bong;
+  var zcbp = zenexity.libredemat.bong.payment;
 
   zcbp.search = function() {
 
-    var zcc = zenexity.capdemat.common;
+    var zcc = zenexity.libredemat.common;
 
     var displayPaginator = function() {
       var myPaginator = new YAHOO.widget.Paginator({

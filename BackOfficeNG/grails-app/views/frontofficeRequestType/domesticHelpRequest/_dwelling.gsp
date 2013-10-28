@@ -40,7 +40,7 @@
             <select id="dhrCurrentDwellingKind" name="dhrCurrentDwellingKind" class="required condition-isCurrentDwellingPlaceOfResidence-trigger  validate-not-first ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingKind') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrCurrentDwellingKind.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['PLACE_OF_RESIDENCE','RETIREMENT_HOME','OTHER']}">
-                <option value="${it}" ${it == rqt.dhrCurrentDwellingKind?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingKind" /></option>
+                <option value="${it}" ${it == rqt.dhrCurrentDwellingKind?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingKind" /></option>
               </g:each>
             </select>
             
@@ -91,7 +91,7 @@
               <g:each in="${['OWNER','TENANT']}">
               <li>
                 <input type="radio" id="dhrCurrentDwellingStatus_${it}" class="required condition-isCurrentDwellingPlaceOfResidence-filled  validate-one-required" value="${it}" name="dhrCurrentDwellingStatus" ${it == rqt.dhrCurrentDwellingStatus.toString() ? 'checked="checked"': ''} title="<g:message code="dhr.property.dhrCurrentDwellingStatus.validationError" />" />
-                <label for="dhrCurrentDwellingStatus_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingStatus" /></label>
+                <label for="dhrCurrentDwellingStatus_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingStatus" /></label>
               </li>
               </g:each>
             </ul>
@@ -155,7 +155,7 @@
         
               <dd class="${rqt.stepStates['dwelling'].invalidFields.contains('dhrPreviousDwelling[' + index + '].dhrPreviousDwellingKind') ? 'validation-failed' : ''}">
                 <g:if test="${it.dhrPreviousDwellingKind}">
-                  <g:capdematEnumToField var="${it.dhrPreviousDwellingKind}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" />
+                  <g:libredematEnumToField var="${it.dhrPreviousDwellingKind}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" />
                 </g:if>
               </dd>
               
@@ -164,7 +164,7 @@
         
               <dd class="${rqt.stepStates['dwelling'].invalidFields.contains('dhrPreviousDwelling[' + index + '].dhrPreviousDwellingStatus') ? 'validation-failed' : ''}">
                 <g:if test="${it.dhrPreviousDwellingStatus}">
-                  <g:capdematEnumToField var="${it.dhrPreviousDwellingStatus}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" />
+                  <g:libredematEnumToField var="${it.dhrPreviousDwellingStatus}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" />
                 </g:if>
               </dd>
               

@@ -1,9 +1,9 @@
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
 
 (function(){
 
-  var zc = zenexity.capdemat;
+  var zc = zenexity.libredemat;
   var zca = zc.aspect;
   var zcb = zc.bong;
   var zcc = zc.common;
@@ -223,7 +223,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
               return;
             } else {
               var json = ylj.parse(o.responseText);
-              window.location = zenexity.capdemat.baseUrl + '/details/' + json.id;
+              window.location = zenexity.libredemat.baseUrl + '/details/' + json.id;
               isCreateUserAccount = false;
             }
           });
@@ -310,7 +310,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       },
       
       refreshHomeFolderState : function() {
-          zct.doAjaxCall('/currentHomeFolderState/'+zenexity.capdemat.bong.homeFolder.Details.homeFolderId, null, function(o) {
+          zct.doAjaxCall('/currentHomeFolderState/'+zenexity.libredemat.bong.homeFolder.Details.homeFolderId, null, function(o) {
             var state = document.getElementById('homeFolderState');
             var parentNode=state.parentNode;
             parentNode.innerHTML = o.responseText;
@@ -318,7 +318,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       },
 
       refreshPasswordReset: function() {
-        zct.doAjaxCall('/currentResetPasswordBox/'+zenexity.capdemat.bong.homeFolder.Details.homeFolderId, null, function(o) {
+        zct.doAjaxCall('/currentResetPasswordBox/'+zenexity.libredemat.bong.homeFolder.Details.homeFolderId, null, function(o) {
           var box = document.getElementById('reset-pwd-outer');
           box.innerHTML = o.responseText;
           zcbh.Details.attachResetPwdEvent();
@@ -344,7 +344,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
       },
 
       resetPassword : function(e, se) {
-        var homeFolderId = zenexity.capdemat.bong.homeFolder.Details.homeFolderId;
+        var homeFolderId = zenexity.libredemat.bong.homeFolder.Details.homeFolderId;
         zct.doAjaxCall('/resetPassword/' + homeFolderId, null, function(o) {
           var body = yud.get("reset-pwd-body")
           var json = ylj.parse(o.responseText);

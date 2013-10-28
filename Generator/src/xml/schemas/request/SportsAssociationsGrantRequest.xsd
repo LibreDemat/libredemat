@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/sagr"
-  xmlns:sagr="http://www.cg95.fr/cvq/schema/sagr" 
+<xs:schema targetNamespace="http://www.libredemat.org/schema/sagr"
+  xmlns:sagr="http://www.libredemat.org/schema/sagr" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="SportsAssociationsGrantRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de subvention pour les associations sportives civiles
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Subvention pour les associations sportives civiles
       </xs:documentation>
       <xs:appinfo>
@@ -60,10 +60,10 @@
           
             <xs:element name="NomAssociation" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom
                 </xs:documentation>
                 <xs:appinfo>
@@ -79,10 +79,10 @@
 
             <xs:element name="SiegeSocialAssociation" type="cvq:AddressType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Siège social
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Siège social
                 </xs:documentation>
                 <xs:appinfo>
@@ -99,10 +99,10 @@
 
             <xs:element name="NumerosAssociation" type="sagr:SagrNumerosAssociationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Numéros d'enregistrement
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Numéros d'enregistrement
                 </xs:documentation>
                 <xs:appinfo>
@@ -118,10 +118,10 @@
 
             <xs:element name="ContactsAssociation" type="sagr:SagrContactsAssociationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Contacts de l'association
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Contacts de l'association
                 </xs:documentation>
                 <xs:appinfo>
@@ -137,10 +137,10 @@
 
             <xs:element name="RoleDemandeur" type="sagr:SagrRoleAssociationType" default="President">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Quel est votre rôle dans l'association ?
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Quel est votre rôle dans l'association ?
                 </xs:documentation>
                 <xs:appinfo>
@@ -159,10 +159,10 @@
 
             <xs:element name="PrecisionPresident" type="sagr:SagrPrecisionPresidentType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations concernant le Président
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Informations concernant le Président
                 </xs:documentation>
                 <xs:appinfo>
@@ -181,10 +181,10 @@
 
             <xs:element name="AutreMembreBureau" type="sagr:SagrMembreBureauType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Autres membres du bureau
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autres membres du bureau
                 </xs:documentation>
                 <xs:appinfo>
@@ -200,10 +200,10 @@
 
             <xs:element name="SagrActiviteAssociation" type="sagr:SagrActiviteAssociationType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Sport pratiqué dans l'association
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Sport pratiqué dans l'association
                 </xs:documentation>
                 <xs:appinfo>
@@ -219,7 +219,7 @@
 
             <xs:element name="SubventionSolliciteConseilGeneral" type="xs:decimal" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                     Montant total de la subvention sollicitée auprès du Conseil Général
                   </xs:documentation>
                   <xs:appinfo>
@@ -249,10 +249,10 @@
 
             <xs:element name="CompteBancaire" type="cvq:BankAccountType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Compte bancaire de l'association
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Compte bancaire de l'association
                 </xs:documentation>
                 <xs:appinfo>
@@ -269,10 +269,10 @@
 
             <xs:element name="NumeroEnregistrementAssociation" type="xs:string">
                <xs:annotation>
-                 <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                    Numéro d'enregistrement au CONSEIL GÉNÉRAL
                  </xs:documentation>
-                 <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                    Numéro d'enregistrement au CONSEIL GÉNÉRAL
                  </xs:documentation>
                  <xs:appinfo>
@@ -287,10 +287,10 @@
 
            <xs:element name="IdentifiantEDemandeAssociation" type="xs:string" minOccurs="0">
                <xs:annotation>
-                 <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                    Identifiant EDemande de l'association
                  </xs:documentation>
-                 <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                    Identifiant EDemande de l'association
                  </xs:documentation>
                  <xs:appinfo>
@@ -304,10 +304,10 @@
 
            <xs:element name="MontantSubvention" type="xs:decimal">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Montant total de la subvention allouée
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Montant total de la subvention allouée
                 </xs:documentation>
                 <xs:appinfo>
@@ -327,7 +327,7 @@
 
   <xs:simpleType name="SagrRoleAssociationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="President" value="Président(e)" />
         <enum key="Tresorier" value="Trésorier(ière)" />
         <enum key="Secretaire" value="Secrétaire" />
@@ -342,7 +342,7 @@
 
   <xs:simpleType name="SagrRoleAutreMembreAssociationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Tresorier" value="Trésorier(ière)" />
         <enum key="Secretaire" value="Secrétaire" />
       </xs:documentation>
@@ -355,7 +355,7 @@
 
   <xs:simpleType name="SagrSportPratiqueType">
     <xs:annotation>
-        <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+        <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
             <enum key="Aeromodelisme" value="Aeromodelisme" />
             <enum key="Aerostation" value="Aerostation" />
             <enum key="Aikido" value="Aikido" />
@@ -512,7 +512,7 @@
 
   <xs:simpleType name="SagrFederationSportiveType">
     <xs:annotation>
-        <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+        <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
             <enum key="Aeromodelisme" value="Aeromodelisme" />
             <enum key="Aerostation" value="Aerostation" />
             <enum key="Athletisme" value="Athletisme" />
@@ -670,10 +670,10 @@
 
        <xs:element name="NumeroSiretAssociation">
          <xs:annotation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Numéro de SIRET
            </xs:documentation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Numéro de SIRET
            </xs:documentation>
            <xs:appinfo>
@@ -696,10 +696,10 @@
 
        <xs:element name="NumeroEnregistrementPrefectureAssociation">
          <xs:annotation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Numéro d'enregistrement en PRÉFECTURE
            </xs:documentation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Numéro d'enregistrement en PRÉFECTURE
            </xs:documentation>
            <xs:appinfo>
@@ -726,10 +726,10 @@
     <xs:sequence>
         <xs:element name="EstAdresseCorrespondantPrincipal" type="xs:boolean" default="true">
           <xs:annotation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
               Votre adresse est-elle celle du correspondant principal ?
             </xs:documentation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
               Votre adresse est-elle celle du correspondant principal ?
             </xs:documentation>
             <xs:appinfo>
@@ -748,10 +748,10 @@
 
         <xs:element name="NomCompletCorrespondantPrincipal" type="xs:string">
           <xs:annotation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
               Nom et prénom du correspondant principal
             </xs:documentation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
               Nom et prénom du correspondant principal
             </xs:documentation>
             <xs:appinfo>
@@ -770,10 +770,10 @@
 
         <xs:element name="AdresseCorrespondantPrincipal" type="cvq:AddressType">
           <xs:annotation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
               Adresse du correspondant principal
             </xs:documentation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
               Adresse du correspondant principal
             </xs:documentation>
             <xs:appinfo>
@@ -793,10 +793,10 @@
 
         <xs:element name="EmailClubOuCorrespondant" type="cvq:EmailType" minOccurs="0">
           <xs:annotation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
               Email du club ou du correspondant
             </xs:documentation>
-            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
               Email du club ou du correspondant
             </xs:documentation>
             <xs:appinfo>
@@ -816,7 +816,7 @@
     <xs:sequence>
       <xs:element name="NomPresident" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -831,7 +831,7 @@
       </xs:element>
       <xs:element name="PrenomPresident" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
           <xs:appinfo>
@@ -846,7 +846,7 @@
       </xs:element>
       <xs:element name="TelephonePresident" type="cvq:PhoneType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Téléphone fixe ou portable
           </xs:documentation>
           <xs:appinfo>
@@ -861,10 +861,10 @@
       </xs:element>
       <xs:element name="EmailPresident" type="cvq:EmailType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Email
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Email
           </xs:documentation>
           <xs:appinfo>
@@ -884,7 +884,7 @@
     <xs:sequence>
       <xs:element name="RoleMembre" type="sagr:SagrRoleAutreMembreAssociationType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Fonction occupée
           </xs:documentation>
           <xs:appinfo>
@@ -899,7 +899,7 @@
       </xs:element>
       <xs:element name="NomMembre" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
           <xs:appinfo>
@@ -914,7 +914,7 @@
       </xs:element>
       <xs:element name="PrenomMembre" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
           <xs:appinfo>
@@ -929,7 +929,7 @@
       </xs:element>
       <xs:element name="TelephoneMembre" type="cvq:PhoneType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Téléphone fixe ou portable
           </xs:documentation>
           <xs:appinfo>
@@ -944,10 +944,10 @@
       </xs:element>
       <xs:element name="EmailMembre" type="cvq:EmailType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Email
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Email
           </xs:documentation>
           <xs:appinfo>
@@ -967,10 +967,10 @@
     <xs:sequence>
       <xs:element name="IdentifiantEDemandeActivite" type="xs:string" minOccurs="0">
          <xs:annotation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Identifiant EDemande de l'activité
            </xs:documentation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Identifiant EDemande de l'activité
            </xs:documentation>
            <xs:appinfo>
@@ -983,7 +983,7 @@
       </xs:element>
       <xs:element name="SportPratique" type="sagr:SagrSportPratiqueType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Sport pratiqué
           </xs:documentation>
           <xs:appinfo>
@@ -1001,7 +1001,7 @@
       </xs:element>
       <xs:element name="SportPratiquePrecision" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Précisez
           </xs:documentation>
           <xs:appinfo>
@@ -1019,7 +1019,7 @@
       </xs:element>
       <xs:element name="FederationSportive" type="sagr:SagrFederationSportiveType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Fédération sportive
           </xs:documentation>
           <xs:appinfo>
@@ -1037,7 +1037,7 @@
       </xs:element>
       <xs:element name="FederationSportivePrecision" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Précisez
           </xs:documentation>
           <xs:appinfo>
@@ -1055,7 +1055,7 @@
       </xs:element>
       <xs:element name="NumeroAffiliationActivite" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Numéro d'affiliation
           </xs:documentation>
           <xs:appinfo>
@@ -1070,7 +1070,7 @@
       </xs:element>
       <xs:element name="NombreLicencieMineurActivite" type="xs:long">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre de licenciés pour l'année précédente de moins de 18 ans
           </xs:documentation>
           <xs:appinfo>
@@ -1085,7 +1085,7 @@
       </xs:element>
       <xs:element name="NombreLicencieMajeurActivite" type="xs:long">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre de licenciés pour l'année précédente de 18 ans et plus
           </xs:documentation>
           <xs:appinfo>
@@ -1100,7 +1100,7 @@
       </xs:element>
       <xs:element name="TotalLicencieActivite" type="xs:long" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Total de licenciés pour l'année précédente
           </xs:documentation>
           <xs:appinfo>
@@ -1114,7 +1114,7 @@
       </xs:element>
       <xs:element name="SommeSolliciteeActivite" type="xs:decimal">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Somme sollicitée
           </xs:documentation>
           <xs:appinfo>
@@ -1129,7 +1129,7 @@
       </xs:element>
       <xs:element name="SommeAlloueeActivite" type="xs:decimal" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Somme allouée
           </xs:documentation>
           <xs:appinfo>
@@ -1148,7 +1148,7 @@
     <xs:sequence>
       <xs:element name="BudgetSaisonEcouleeRecette" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Budget réalisé de la saison écoulée – Recettes
           </xs:documentation>
           <xs:appinfo>
@@ -1163,7 +1163,7 @@
       </xs:element>
       <xs:element name="BudgetSaisonEcouleeDepenses" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Budget réalisé de la saison écoulée – Dépenses
           </xs:documentation>
           <xs:appinfo>
@@ -1178,7 +1178,7 @@
       </xs:element>
       <xs:element name="NombreLicencieMoinsDixHuitSaisonEcoulee" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
            Nombre de licenciés de moins de 18 ans pour la saison écoulée
           </xs:documentation>
           <xs:appinfo>
@@ -1193,7 +1193,7 @@
       </xs:element>
      <xs:element name="NombreLicenciePlusDixHuitSaisonEcoulee" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre de licenciés de plus de 18 ans pour la saison écoulée
           </xs:documentation>
           <xs:appinfo>
@@ -1208,7 +1208,7 @@
       </xs:element>
       <xs:element name="CommuneAnneeN" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Subvention de la commune pour l'année en cours
           </xs:documentation>
           <xs:appinfo>
@@ -1223,7 +1223,7 @@
       </xs:element>
       <xs:element name="CommuneAnneeNPlusUn" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Subvention de la commune pour l'année prochaine
           </xs:documentation>
           <xs:appinfo>

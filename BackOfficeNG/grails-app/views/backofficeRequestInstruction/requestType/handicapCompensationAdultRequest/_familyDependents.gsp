@@ -27,8 +27,8 @@
       </dd>
     
       <dt class="required"><g:message code="hcar.property.familyDependentActualSituation.label" /> * : </dt>
-      <dd id="familyDependents[${listSize - 1 - index}].familyDependentActualSituation" class="action-editField validate-capdematEnum required-true i18n-hcar.property.familyDependentActualSituation javatype-fr.cg95.cvq.business.request.social.HcarFamilyDependentActualSituationType" >
-        <g:capdematEnumToField var="${it?.familyDependentActualSituation}" i18nKeyPrefix="hcar.property.familyDependentActualSituation" />
+      <dd id="familyDependents[${listSize - 1 - index}].familyDependentActualSituation" class="action-editField validate-libredematEnum required-true i18n-hcar.property.familyDependentActualSituation javatype-org.libredemat.business.request.social.HcarFamilyDependentActualSituationType" >
+        <g:libredematEnumToField var="${it?.familyDependentActualSituation}" i18nKeyPrefix="hcar.property.familyDependentActualSituation" />
       </dd>
     
   </dl>

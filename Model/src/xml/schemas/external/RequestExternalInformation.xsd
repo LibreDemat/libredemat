@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/modules/payment/schema/rei"
-  xmlns:rei="http://www.capwebct.fr/modules/payment/schema/rei"
+<xs:schema targetNamespace="http://www.libredemat.org/modules/payment/schema/rei"
+  xmlns:rei="http://www.libredemat.org/modules/payment/schema/rei"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">

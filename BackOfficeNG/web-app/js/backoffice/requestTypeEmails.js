@@ -2,7 +2,7 @@
   // Namepaces
   var yu      = YAHOO.util
     , yue     = yu.Event
-    , zcb     = zenexity.capdemat.bong
+    , zcb     = zenexity.libredemat.bong
     , zcbrt   = zcb.requesttype
 
   yue.onDOMReady(function() {

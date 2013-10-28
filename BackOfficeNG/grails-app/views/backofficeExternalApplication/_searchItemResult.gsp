@@ -1,7 +1,7 @@
 <g:if test="${searchType == 'invoice'}">
     <li class="invoice">
       <p class="first-line">
-        <g:capdematEnumToFlag var="${record.item.isPaid ? 'valid' : 'pending'}" i18nKeyPrefix="invoice.state" />
+        <g:libredematEnumToFlag var="${record.item.isPaid ? 'valid' : 'pending'}" i18nKeyPrefix="invoice.state" />
         <span class="reference">
           <g:message code="external.searchResult.property.invoice" /> ${record.item.externalItemId}
           <g:message code="external.searchResult.property.invoice.issueAt" /> <g:formatDate formatName="format.date" date="${record.item.issueDate}" />

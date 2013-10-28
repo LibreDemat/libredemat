@@ -1,8 +1,8 @@
 import java.util.HashMap
 import java.util.Map
 
-import fr.cg95.cvq.service.payment.IPaymentService
-import fr.cg95.cvq.security.SecurityContext
+import org.libredemat.service.payment.IPaymentService
+import org.libredemat.security.SecurityContext
 
 class ServiceSpplusController {
 

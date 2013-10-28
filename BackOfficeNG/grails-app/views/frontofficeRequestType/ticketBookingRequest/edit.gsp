@@ -20,7 +20,7 @@
       <script type="text/javascript" src="${resource(dir:customJS.dir,file:customJS.file)}"></script>
     </g:if>
     <script type="text/javascript">
-        zenexity.capdemat.contextPath = "${request.contextPath}";
+        zenexity.libredemat.contextPath = "${request.contextPath}";
     </script>
   </head>
   <body>

@@ -1,10 +1,10 @@
-import fr.cg95.cvq.business.users.Adult
-import fr.cg95.cvq.business.users.Individual
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.external.IRequestExternalService
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.business.users.Adult
+import org.libredemat.business.users.Individual
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.external.IRequestExternalService
+import org.libredemat.business.request.Request
+import org.libredemat.security.SecurityContext
+import org.libredemat.util.UserUtils
 
 import java.text.DateFormatSymbols
 

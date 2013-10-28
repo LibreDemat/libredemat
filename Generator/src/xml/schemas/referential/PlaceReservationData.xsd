@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/referential"
-  xmlns:ref="http://www.cg95.fr/cvq/schema/referential" 
+<xs:schema targetNamespace="http://www.libredemat.org/schema/referential"
+  xmlns:ref="http://www.libredemat.org/schema/referential" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">

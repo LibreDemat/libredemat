@@ -1,16 +1,16 @@
 /**
  *  Provides request document type client-side helper
  *  
- *  @namespace - zenexity.capdemat.bong.requesttype
+ *  @namespace - zenexity.libredemat.bong.requesttype
  *  @author vba@zenexity.fr
  *
  **/
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.requesttype');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
 
 (function(){
-  var zct = zenexity.capdemat.tools;
-  var zcbrt = zenexity.capdemat.bong.requesttype;
+  var zct = zenexity.libredemat.tools;
+  var zcbrt = zenexity.libredemat.bong.requesttype;
   
   var yu = YAHOO.util;
   var yud = yu.Dom;

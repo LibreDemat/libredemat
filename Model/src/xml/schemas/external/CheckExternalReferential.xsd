@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/modules/payment/schema/cer"
-  xmlns:cer="http://www.capwebct.fr/modules/payment/schema/cer"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+<xs:schema targetNamespace="http://www.libredemat.org/modules/payment/schema/cer"
+  xmlns:cer="http://www.libredemat.org/modules/payment/schema/cer"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
-    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/common/CVQCommonElements.xsd" />
+  <xs:import namespace="http://www.libredemat.org/schema/common"
+    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/common/CVQCommonElements.xsd" />
 
   <xs:element name="checkExternalReferentialRequest">
     <xs:complexType>

@@ -1,9 +1,9 @@
-import fr.cg95.cvq.business.users.RoleType
-import fr.cg95.cvq.business.users.UserAction
-import fr.cg95.cvq.business.users.UserState
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.util.UserUtils
-import fr.cg95.cvq.util.translation.ITranslationService
+import org.libredemat.business.users.RoleType
+import org.libredemat.business.users.UserAction
+import org.libredemat.business.users.UserState
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.util.UserUtils
+import org.libredemat.util.translation.ITranslationService
 
 import grails.converters.JSON
 
@@ -57,7 +57,7 @@ class HomeFolderAdaptorService {
     public prepareAction(action) {
         if (!action) return null
         def result = [
-            "type" : CapdematUtils.adaptCapdematEnum(action.type, "userAction.type"),
+            "type" : LibredematUtils.adaptLibredematEnum(action.type, "userAction.type"),
             "date" : action.date,
             "note" : action.note
         ]
@@ -65,10 +65,10 @@ class HomeFolderAdaptorService {
             JSON.parse(action.data).each {
                 switch (it.key) {
                     case "state" :
-                        result.state = CapdematUtils.adaptCapdematEnum(it.value, "user.state")
+                        result.state = LibredematUtils.adaptLibredematEnum(it.value, "user.state")
                         break
                     case "quality" :
-                        result.state = CapdematUtils.adaptCapdematEnum(it.value, "qoS.quality")
+                        result.state = LibredematUtils.adaptLibredematEnum(it.value, "qoS.quality")
                         break
                     case "user" : 
                         result.user = it.value

@@ -8,7 +8,7 @@
   var yus = YAHOO.util.Selector
     , yue = YAHOO.util.Event
     , yud = YAHOO.util.Dom
-    , zct = zenexity.capdemat.tools
+    , zct = zenexity.libredemat.tools
 
   var changed = function(div) {
     var yearInput = yus.query('.year', div, true)
@@ -43,4 +43,4 @@
 
   yue.onDOMReady(date.init)
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.tools.ui.date'))
+})(zenexity.libredemat.tools.namespace('zenexity.libredemat.tools.ui.date'))

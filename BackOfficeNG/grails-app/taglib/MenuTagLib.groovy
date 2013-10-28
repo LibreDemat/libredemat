@@ -1,5 +1,5 @@
 import org.apache.commons.lang.StringUtils
-import fr.cg95.cvq.util.logging.impl.Log
+import org.libredemat.util.logging.impl.Log
 
 class MenuTagLib {
     def static namespace = "menu"

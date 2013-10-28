@@ -2,14 +2,14 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/capdemat"
-                  xmlns:tns="http://www.capwebct.fr/capdemat"
+                  xmlns:schema="http://www.libredemat.org"
+                  xmlns:tns="http://www.libredemat.org"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/capdemat">
+                  targetNamespace="http://www.libredemat.org">
    <wsdl:types>
-      <xs:schema xmlns:capdemat="http://www.capwebct.fr/capdemat"
+      <xs:schema xmlns:libredemat="http://www.libredemat.org"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/capdemat"
+                 targetNamespace="http://www.libredemat.org"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -21,9 +21,9 @@
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
-                  <xs:element name="OriginHomeFolderExternalCapDematId" type="xs:string"/>
-                  <xs:element name="TargetHomeFolderExternalCapDematId" type="xs:string"/>
-                  <xs:element name="MergedIndividual" type="capdemat:MergedIndividualType"
+                  <xs:element name="OriginHomeFolderExternalLibreDematId" type="xs:string"/>
+                  <xs:element name="TargetHomeFolderExternalLibreDematId" type="xs:string"/>
+                  <xs:element name="MergedIndividual" type="libredemat:MergedIndividualType"
                               maxOccurs="unbounded"/>
                </xs:sequence>
             </xs:complexType>
@@ -31,8 +31,8 @@
   
          <xs:complexType name="MergedIndividualType">
             <xs:sequence>
-               <xs:element name="OriginIndividualExternalCapDematId" type="xs:string"/>
-               <xs:element name="TargetIndividualExternalCapDematId" type="xs:string"/>
+               <xs:element name="OriginIndividualExternalLibreDematId" type="xs:string"/>
+               <xs:element name="TargetIndividualExternalLibreDematId" type="xs:string"/>
             </xs:sequence>
          </xs:complexType>
 
@@ -49,7 +49,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="homeFolderMerge">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/capdemat/homeFolderMerge"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/homeFolderMerge"/>
          <wsdl:input name="homeFolderMergeInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

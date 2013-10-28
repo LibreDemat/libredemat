@@ -1,5 +1,5 @@
-import fr.cg95.cvq.business.authority.SiteProfile;
-import fr.cg95.cvq.service.authority.IAgentService
+import org.libredemat.business.authority.SiteProfile;
+import org.libredemat.service.authority.IAgentService
 
 import grails.converters.JSON
 

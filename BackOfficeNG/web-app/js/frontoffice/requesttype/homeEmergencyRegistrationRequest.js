@@ -1,9 +1,9 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.fong.requesttype");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.fong.requesttype");
 
 (function() {
-  var zcf = zenexity.capdemat.fong;
-  var zcfr = zenexity.capdemat.fong.requesttype;
-  var zcv = zenexity.capdemat.Validation;
+  var zcf = zenexity.libredemat.fong;
+  var zcfr = zenexity.libredemat.fong.requesttype;
+  var zcv = zenexity.libredemat.Validation;
   var yue = YAHOO.util.Event;
 
   zcfr.HomeEmergencyRegistrationRequest = function() {

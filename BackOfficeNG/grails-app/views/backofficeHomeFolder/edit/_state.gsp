@@ -4,7 +4,7 @@
     <select name="state">
       <g:each var="state" in="${states}">
         <option value="${state}" ${state == user.state ? 'selected="selected"' : ''}>
-          ${g.capdematEnumToText(var:state, i18nKeyPrefix:'user.state')}
+          ${g.libredematEnumToText(var:state, i18nKeyPrefix:'user.state')}
         </option>
       </g:each>
     </select>

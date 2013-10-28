@@ -1,5 +1,5 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Version
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.authority.LocalAuthorityResource.Version
 
 class LayoutTagLib {
     def localAuthorityRegistry

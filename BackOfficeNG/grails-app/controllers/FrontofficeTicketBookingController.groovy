@@ -1,20 +1,20 @@
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.payment.InternalInvoiceItem
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.payment.InternalInvoiceItem
 
-import fr.cg95.cvq.security.SecurityContext
+import org.libredemat.security.SecurityContext
 
-import fr.cg95.cvq.exception.CvqModelException
-import fr.cg95.cvq.exception.CvqTicketBookingException
+import org.libredemat.exception.CvqModelException
+import org.libredemat.exception.CvqTicketBookingException
 
-import fr.cg95.cvq.service.request.reservation.ITicketBookingRequestService
-import fr.cg95.cvq.service.request.ITicketBookingService
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.business.request.ticket.Event
-import fr.cg95.cvq.util.Critere
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
+import org.libredemat.service.request.reservation.ITicketBookingRequestService
+import org.libredemat.service.request.ITicketBookingService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.business.request.ticket.Event
+import org.libredemat.util.Critere
+import org.libredemat.business.authority.LocalAuthorityResource
 
 class FrontofficeTicketBookingController {
 

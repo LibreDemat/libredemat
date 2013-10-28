@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/bwcr"
-  xmlns:bwcr="http://www.cg95.fr/cvq/schema/bwcr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/bwcr"
+  xmlns:bwcr="http://www.libredemat.org/schema/bwcr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="BulkyWasteCollectionRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'enlèvement des déchets encombrants
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Request to collect bulky waste
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Enlèvement des déchets encombrants
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Bulky waste collection
       </xs:documentation>
       <xs:appinfo>
@@ -47,17 +47,17 @@
             <xs:element name="BulkyWasteType" type="cvq:LocalReferentialDataType"
               maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Type d'encombrants à enlever
 	            </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Kind of waste to be collected
 	            </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Type d'encombrants
                 </xs:documentation>
                 <xs:documentation xml:lang="en"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Kind of waste
                 </xs:documentation>
                 <xs:appinfo>
@@ -73,17 +73,17 @@
             </xs:element>
             <xs:element name="OtherWaste" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Autre type d'encombrants à spécifier
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Other kind of waste to be described
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autre, préciser
                 </xs:documentation>
                 <xs:documentation xml:lang="en"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Other, specify
                 </xs:documentation>
                 <xs:appinfo>
@@ -98,16 +98,16 @@
             </xs:element>
             <xs:element name="CollectionAddress" type="cvq:AddressType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Adresse de collecte des encombrants, si différente de l'adresse du demandeur
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Collection address, if different from requesters address
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Adresse de collecte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Collection address
                 </xs:documentation>
                 <xs:appinfo>

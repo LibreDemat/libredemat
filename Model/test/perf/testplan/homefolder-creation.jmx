@@ -71,7 +71,7 @@
             </value>
             <name>saveConfig</name>
           </objProp>
-          <stringProp name="filename">/home/bor/zenexity/capdemat.lab/svn/capdemat/trunk/homefolder-creation.jtl</stringProp>
+          <stringProp name="filename">/home/bor/zenexity/libredemat.lab/svn/libredemat/trunk/homefolder-creation.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
@@ -1903,7 +1903,7 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.name">loginAnswer</stringProp>
-                <stringProp name="Argument.value">capdemat</stringProp>
+                <stringProp name="Argument.value">libredemat</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>

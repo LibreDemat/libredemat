@@ -166,7 +166,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'scrr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-capdematEnum required-true i18n-scrr.property.section javatype-fr.cg95.cvq.business.users.SectionType maxLength-32" ><g:capdematEnumToField var="${rqt?.section}" i18nKeyPrefix="scrr.property.section" /></dd>
+                <dt class="required">${message(code:'scrr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-libredematEnum required-true i18n-scrr.property.section javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.section}" i18nKeyPrefix="scrr.property.section" /></dd>
               </dl>
               
             

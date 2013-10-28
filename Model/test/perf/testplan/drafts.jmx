@@ -217,14 +217,14 @@
               </elementProp>
               <elementProp name="dhrRequesterNationality" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">fr.cg95.cvq.business.users.NationalityType_French</stringProp>
+                <stringProp name="Argument.value">org.libredemat.business.users.NationalityType_French</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">dhrRequesterNationality</stringProp>
               </elementProp>
               <elementProp name="dhrPrincipalPensionPlan" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">fr.cg95.cvq.business.request.social.DhrPrincipalPensionPlanType_CNAV</stringProp>
+                <stringProp name="Argument.value">org.libredemat.business.request.social.DhrPrincipalPensionPlanType_CNAV</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">dhrPrincipalPensionPlan</stringProp>
@@ -412,14 +412,14 @@
               </elementProp>
               <elementProp name="dhrRequesterNationality" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">fr.cg95.cvq.business.users.NationalityType_French</stringProp>
+                <stringProp name="Argument.value">org.libredemat.business.users.NationalityType_French</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">dhrRequesterNationality</stringProp>
               </elementProp>
               <elementProp name="dhrPrincipalPensionPlan" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">fr.cg95.cvq.business.request.social.DhrPrincipalPensionPlanType_CNAV</stringProp>
+                <stringProp name="Argument.value">org.libredemat.business.request.social.DhrPrincipalPensionPlanType_CNAV</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">dhrPrincipalPensionPlan</stringProp>

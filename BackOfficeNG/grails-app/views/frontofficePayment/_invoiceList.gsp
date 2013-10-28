@@ -10,7 +10,7 @@
       <g:each var="record" in="${invoices.all}">
         <li>
             <g:if test="${record.isPaid}">
-                <g:capdematEnumToFlag var="paid" i18nKeyPrefix="payment.invoice.state" />
+                <g:libredematEnumToFlag var="paid" i18nKeyPrefix="payment.invoice.state" />
             </g:if>
             <h3>
               <g:message code="payment.header.invoice" />

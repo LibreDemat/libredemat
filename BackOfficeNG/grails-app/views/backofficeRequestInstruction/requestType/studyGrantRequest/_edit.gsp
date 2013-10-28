@@ -217,7 +217,7 @@
                 
                   <dt class="required">${message(code:'sgr.property.alevelsDate.label')}&nbsp;*&nbsp;:</dt><dd id="alevelsDate" class="action-editField validate-regex required-true i18n-sgr.property.alevelsDate maxLength-4" regex="^\d{2,4}$"><span>${rqt?.alevelsDate}</span></dd>
                 
-                  <dt class="required">${message(code:'sgr.property.alevels.label')}&nbsp;*&nbsp;:</dt><dd id="alevels" class="action-editField validate-capdematEnum required-true i18n-sgr.property.alevels javatype-fr.cg95.cvq.business.request.school.ALevelsType" ><g:capdematEnumToField var="${rqt?.alevels}" i18nKeyPrefix="sgr.property.alevels" /></dd>
+                  <dt class="required">${message(code:'sgr.property.alevels.label')}&nbsp;*&nbsp;:</dt><dd id="alevels" class="action-editField validate-libredematEnum required-true i18n-sgr.property.alevels javatype-org.libredemat.business.request.school.ALevelsType" ><g:libredematEnumToField var="${rqt?.alevels}" i18nKeyPrefix="sgr.property.alevels" /></dd>
                 
               </dl>
               
@@ -232,11 +232,11 @@
               <h3><g:message code="sgr.property.currentStudiesInformations.label" /></h3>
               <dl class="">
                 
-                  <dt class="required condition-isInOtherStudies-trigger">${message(code:'sgr.property.currentStudiesDiploma.label')}&nbsp;*&nbsp;:</dt><dd id="currentStudiesDiploma" class="action-editField validate-capdematEnum required-true i18n-sgr.property.currentStudiesDiploma javatype-fr.cg95.cvq.business.request.school.CurrentStudiesType" ><g:capdematEnumToField var="${rqt?.currentStudiesDiploma}" i18nKeyPrefix="sgr.property.currentStudiesDiploma" /></dd>
+                  <dt class="required condition-isInOtherStudies-trigger">${message(code:'sgr.property.currentStudiesDiploma.label')}&nbsp;*&nbsp;:</dt><dd id="currentStudiesDiploma" class="action-editField validate-libredematEnum required-true i18n-sgr.property.currentStudiesDiploma javatype-org.libredemat.business.request.school.CurrentStudiesType" ><g:libredematEnumToField var="${rqt?.currentStudiesDiploma}" i18nKeyPrefix="sgr.property.currentStudiesDiploma" /></dd>
                 
                   <dt class="required condition-isInOtherStudies-filled">${message(code:'sgr.property.otherStudiesLabel.label')}&nbsp;*&nbsp;:</dt><dd id="otherStudiesLabel" class="action-editField validate-string required-true i18n-sgr.property.otherStudiesLabel" ><span>${rqt?.otherStudiesLabel}</span></dd>
                 
-                  <dt class="required">${message(code:'sgr.property.currentStudiesLevel.label')}&nbsp;*&nbsp;:</dt><dd id="currentStudiesLevel" class="action-editField validate-capdematEnum required-true i18n-sgr.property.currentStudiesLevel javatype-fr.cg95.cvq.business.request.school.CurrentStudiesLevelType" ><g:capdematEnumToField var="${rqt?.currentStudiesLevel}" i18nKeyPrefix="sgr.property.currentStudiesLevel" /></dd>
+                  <dt class="required">${message(code:'sgr.property.currentStudiesLevel.label')}&nbsp;*&nbsp;:</dt><dd id="currentStudiesLevel" class="action-editField validate-libredematEnum required-true i18n-sgr.property.currentStudiesLevel javatype-org.libredemat.business.request.school.CurrentStudiesLevelType" ><g:libredematEnumToField var="${rqt?.currentStudiesLevel}" i18nKeyPrefix="sgr.property.currentStudiesLevel" /></dd>
                 
                   <dt class="required">${message(code:'sgr.property.sandwichCourses.label')}&nbsp;*&nbsp;:</dt><dd id="sandwichCourses" class="action-editField validate-boolean required-true i18n-sgr.property.sandwichCourses" ><span class="value-${rqt?.sandwichCourses}"><g:message code="${rqt?.sandwichCourses ? 'message.yes' : rqt?.sandwichCourses==null ? '' : 'message.no'}" /></span></dd>
                 
@@ -248,7 +248,7 @@
                 
                   <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipSchoolName.label')}&nbsp;*&nbsp;:</dt><dd id="abroadInternshipSchoolName" class="action-editField validate-string required-true i18n-sgr.property.abroadInternshipSchoolName" ><span>${rqt?.abroadInternshipSchoolName}</span></dd>
                 
-                  <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipSchoolCountry.label')}&nbsp;*&nbsp;:</dt><dd id="abroadInternshipSchoolCountry" class="action-editField validate-capdematEnum required-true i18n-sgr.property.abroadInternshipSchoolCountry javatype-fr.cg95.cvq.business.users.CountryType" ><g:capdematEnumToField var="${rqt?.abroadInternshipSchoolCountry}" i18nKeyPrefix="sgr.property.abroadInternshipSchoolCountry" /></dd>
+                  <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipSchoolCountry.label')}&nbsp;*&nbsp;:</dt><dd id="abroadInternshipSchoolCountry" class="action-editField validate-libredematEnum required-true i18n-sgr.property.abroadInternshipSchoolCountry javatype-org.libredemat.business.users.CountryType" ><g:libredematEnumToField var="${rqt?.abroadInternshipSchoolCountry}" i18nKeyPrefix="sgr.property.abroadInternshipSchoolCountry" /></dd>
                 
               </dl>
               
@@ -280,7 +280,7 @@
             
               
               <dl>
-                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'sgr.property.accountHolderTitle.label')}&nbsp;*&nbsp;:</dt><dd id="accountHolderTitle" class="action-editField validate-capdematEnum required-true i18n-sgr.property.accountHolderTitle javatype-fr.cg95.cvq.business.users.TitleType" ><g:capdematEnumToField var="${rqt?.accountHolderTitle}" i18nKeyPrefix="sgr.property.accountHolderTitle" /></dd>
+                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'sgr.property.accountHolderTitle.label')}&nbsp;*&nbsp;:</dt><dd id="accountHolderTitle" class="action-editField validate-libredematEnum required-true i18n-sgr.property.accountHolderTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.accountHolderTitle}" i18nKeyPrefix="sgr.property.accountHolderTitle" /></dd>
               </dl>
               
             
@@ -339,7 +339,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'sgr.property.distance.label')}&nbsp;*&nbsp;:</dt><dd id="distance" class="action-editField validate-capdematEnum required-true i18n-sgr.property.distance javatype-fr.cg95.cvq.business.request.school.DistanceType" ><g:capdematEnumToField var="${rqt?.distance}" i18nKeyPrefix="sgr.property.distance" /></dd>
+                <dt class="required">${message(code:'sgr.property.distance.label')}&nbsp;*&nbsp;:</dt><dd id="distance" class="action-editField validate-libredematEnum required-true i18n-sgr.property.distance javatype-org.libredemat.business.request.school.DistanceType" ><g:libredematEnumToField var="${rqt?.distance}" i18nKeyPrefix="sgr.property.distance" /></dd>
               </dl>
               
             

@@ -1,10 +1,10 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.fong.");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.fong.");
 
 (function() {
-  var zcf = zenexity.capdemat.fong
+  var zcf = zenexity.libredemat.fong
   var zcfr = zcf.requesttype;
-  var zcv = zenexity.capdemat.Validation;
-  var zct = zenexity.capdemat.tools;
+  var zcv = zenexity.libredemat.Validation;
+  var zct = zenexity.libredemat.tools;
   var yue = YAHOO.util.Event;
   var yud = YAHOO.util.Dom;
   var yus = YAHOO.util.Selector;

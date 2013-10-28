@@ -1,7 +1,7 @@
 (function() {
-  var zcb = zenexity.capdemat.bong;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
+  var zcb = zenexity.libredemat.bong;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
   var yus = YAHOO.util.Selector;
@@ -28,7 +28,7 @@
       var formEl = yud.getLastChild(ddEl);
       if (yud.hasClass(ddEl,'data-localReferentialData'))
         return formEl[ddEl.id + "[0].name"].value || '';
-      if (yud.hasClass(ddEl,'validate-capdematEnum'))
+      if (yud.hasClass(ddEl,'validate-libredematEnum'))
         return formEl[ddEl.id].value || '';
       else if (yud.hasClass(ddEl,'validate-boolean')) {
         var value;
@@ -49,7 +49,7 @@
     var triggerValue = function (ddEl) {
       if (yud.hasClass(ddEl,'data-localReferentialData'))
         return yud.getFirstChild(ddEl).className.split(':')[1];
-      if (yud.hasClass(ddEl,'validate-capdematEnum'))
+      if (yud.hasClass(ddEl,'validate-libredematEnum'))
         return yud.getFirstChild(ddEl).className.split(' ')[0];
       else if (yud.hasClass(ddEl,'validate-boolean'))
         return yud.getFirstChild(ddEl).className.split('-')[1];

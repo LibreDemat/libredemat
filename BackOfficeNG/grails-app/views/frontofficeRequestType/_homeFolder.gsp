@@ -31,7 +31,7 @@
           <!-- Home folder responsible -->
             <dl class="${homeFolderResponsible.state} ">
               <dt>
-                ${g.capdematEnumToFlag(var:homeFolderResponsible.title, i18nKeyPrefix:'homeFolder.adult.title')} ${homeFolderResponsible.fullName}
+                ${g.libredematEnumToFlag(var:homeFolderResponsible.title, i18nKeyPrefix:'homeFolder.adult.title')} ${homeFolderResponsible.fullName}
               </dt>
               <dd>
                 <span class="tag-homefolderresponsible tag-state">${message(code:'homeFolder.role.homeFolderResponsible')}</span>
@@ -49,10 +49,10 @@
 
           <!-- Adults valid without home folder responsible -->
           <g:each in="${homeFolderResponsible.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (homeFolderResponsible.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl class="${individual.state}">
                 <dt>
-                  ${g.capdematEnumToFlag(var:individual.title, i18nKeyPrefix:'homeFolder.adult.title')} ${individual.fullName}
+                  ${g.libredematEnumToFlag(var:individual.title, i18nKeyPrefix:'homeFolder.adult.title')} ${individual.fullName}
                 </dt>
                 <g:if test="${individual.homePhone}">
                   <dd>${individual.homePhone}</dd>
@@ -74,7 +74,7 @@
             ${message(code:'homeFolder.property.children')}
           </h3>
           <g:each in="${homeFolderResponsible.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -90,15 +90,15 @@
                 </dd>
 
                 <dd>
-                  ${g.capdematEnumToText(var:individual.getSex(), i18nKeyPrefix:'homeFolder.child.property.sex')}
+                  ${g.libredematEnumToText(var:individual.getSex(), i18nKeyPrefix:'homeFolder.child.property.sex')}
                 </dd>
 
                 <g:each in="${homeFolderResponsible.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="indiv_2">
-                  <g:if test="${indiv_2.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+                  <g:if test="${indiv_2.getClass() == org.libredemat.business.users.Adult.class}">
                     <g:each in="${indiv_2.getIndividualRoles()}" var="indRole">
                       <g:if test="${((indRole.getRole().getLegacyLabel().equals('ClrMother') || indRole.getRole().getLegacyLabel().equals('ClrFather') || indRole.getRole().getLegacyLabel().equals('ClrTutor') || indRole.getRole().getLegacyLabel().equals('Tutor')) && indRole.getIndividualId() == individual.getId())}">
                         <dd>
-                          <g:capdematEnumToFlag var="${indRole.getRole()}" i18nKeyPrefix="homeFolder.role" />
+                          <g:libredematEnumToFlag var="${indRole.getRole()}" i18nKeyPrefix="homeFolder.role" />
                           ${indiv_2.fullName}
                         </dd>
                       </g:if>

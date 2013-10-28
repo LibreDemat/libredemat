@@ -5,15 +5,15 @@
  * @author jsb@zenexity.fr
  */
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.localauthority');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.localauthority');
 
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zcc = zenexity.capdemat.common;
-  var zcv = zenexity.capdemat.Validation;
-  var zcb = zenexity.capdemat.bong;
-  var zcbl = zenexity.capdemat.bong.localauthority;
+  var zct = zenexity.libredemat.tools;
+  var zcc = zenexity.libredemat.common;
+  var zcv = zenexity.libredemat.Validation;
+  var zcb = zenexity.libredemat.bong;
+  var zcbl = zenexity.libredemat.bong.localauthority;
 
   var yl = YAHOO.lang;
   var yu = YAHOO.util;

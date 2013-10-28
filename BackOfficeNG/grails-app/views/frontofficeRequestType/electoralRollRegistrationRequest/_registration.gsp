@@ -7,14 +7,14 @@
               <g:message code="errr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
               <g:if test="${rqt.stepStates[currentStep].state != 'complete' && !rqt.requestType.getStepAccountCompletion()}">
-                <g:if test="${!fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_NONE.equals(subjectPolicy)}">
-                  <g:if test="${fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_ADULT.equals(subjectPolicy)}">
+                <g:if test="${!org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_NONE.equals(subjectPolicy)}">
+                  <g:if test="${org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_ADULT.equals(subjectPolicy)}">
                     <span>(<a id="addSubjectLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'adult', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addSubject" /></a>)</span>
                   </g:if>
-                  <g:elseif test="${fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_CHILD.equals(subjectPolicy)}">
+                  <g:elseif test="${org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_CHILD.equals(subjectPolicy)}">
                     <span>(<a id="addSubjectLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'child', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addSubject" /></a>)</span>
                   </g:elseif>
-                  <g:elseif test="${fr.cg95.cvq.service.request.IRequestWorkflowService.SUBJECT_POLICY_INDIVIDUAL.equals(subjectPolicy)}">
+                  <g:elseif test="${org.libredemat.service.request.IRequestWorkflowService.SUBJECT_POLICY_INDIVIDUAL.equals(subjectPolicy)}">
                     <span>(<a id="addAdultLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'adult', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addAdult" /></a>
                     <g:message code="message.or" />
                     <a id="addChildLink" href="${createLink(controller : 'frontofficeRequest', action : 'individual', params : ['type' : 'child', 'requestId' : rqt.id])}"><g:message code="homeFolder.action.addChild" /></a>)</span>
@@ -37,7 +37,7 @@
             <select id="subjectNationality" name="subjectNationality" class="required  validate-not-first ${rqt.stepStates['registration'].invalidFields.contains('subjectNationality') ? 'validation-failed' : ''}" title="<g:message code="errr.property.subjectNationality.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['FRENCH','EUROPEAN_UNION','OUTSIDE_EUROPEAN_UNION']}">
-                <option value="${it}" ${it == rqt.subjectNationality?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="errr.property.subjectNationality" /></option>
+                <option value="${it}" ${it == rqt.subjectNationality?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="errr.property.subjectNationality" /></option>
               </g:each>
             </select>
             
@@ -50,7 +50,7 @@
               <g:each in="${['NEW_CITY_RESIDENT','DIRECT_CITY_CONTRIBUTION','CIVIL_SERVANT_OBLIGATORY_RESIDENT','FUTURE_AUTHORIZED_CITIZEN']}">
               <li>
                 <input type="radio" id="motive_${it}" class="required condition-isDirect-trigger  validate-one-required" value="${it}" name="motive" ${it == rqt.motive.toString() ? 'checked="checked"': ''} title="<g:message code="errr.property.motive.validationError" />" />
-                <label for="motive_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="errr.property.motive" /></label>
+                <label for="motive_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="errr.property.motive" /></label>
               </li>
               </g:each>
             </ul>

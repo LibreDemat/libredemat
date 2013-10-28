@@ -1,39 +1,39 @@
 import java.util.Collections;
 
-import fr.cg95.cvq.business.request.external.RequestExternalAction
-import fr.cg95.cvq.business.document.ContentType
-import fr.cg95.cvq.business.request.DataState
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestAction
-import fr.cg95.cvq.business.request.RequestActionType
-import fr.cg95.cvq.business.request.RequestNoteType
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.users.Child;
-import fr.cg95.cvq.business.users.Individual;
-import fr.cg95.cvq.business.users.RoleType
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.exception.CvqModelException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.authority.IRecreationCenterService
-import fr.cg95.cvq.service.authority.ISchoolService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IConditionService
-import fr.cg95.cvq.service.request.ILocalReferentialService
-import fr.cg95.cvq.service.users.IMeansOfContactService
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestNoteService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.service.request.IRequestActionService
-import fr.cg95.cvq.service.request.external.IRequestExternalService
-import fr.cg95.cvq.service.request.external.IRequestExternalActionService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.util.Critere
-import fr.cg95.cvq.util.UserUtils
-import fr.cg95.cvq.util.UserUtils.UserDetails
+import org.libredemat.business.request.external.RequestExternalAction
+import org.libredemat.business.document.ContentType
+import org.libredemat.business.request.DataState
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestAction
+import org.libredemat.business.request.RequestActionType
+import org.libredemat.business.request.RequestNoteType
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.users.Child;
+import org.libredemat.business.users.Individual;
+import org.libredemat.business.users.RoleType
+import org.libredemat.exception.CvqException
+import org.libredemat.exception.CvqModelException
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.authority.IRecreationCenterService
+import org.libredemat.service.authority.ISchoolService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IConditionService
+import org.libredemat.service.request.ILocalReferentialService
+import org.libredemat.service.users.IMeansOfContactService
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestNoteService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.service.request.IRequestActionService
+import org.libredemat.service.request.external.IRequestExternalService
+import org.libredemat.service.request.external.IRequestExternalActionService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.util.Critere
+import org.libredemat.util.UserUtils
+import org.libredemat.util.UserUtils.UserDetails
 
 import grails.converters.JSON
 
@@ -101,8 +101,8 @@ class BackofficeRequestInstructionController {
             def traces = requestExternalActionService.getTraces(criteriaSet,
                     RequestExternalAction.SEARCH_BY_DATE, "desc", 1, 0)
             if (!traces.isEmpty()) {
-                lastTraceStatus = CapdematUtils
-                        .adaptCapdematEnum(traces.get(0).status, "externalservice.trace.status")
+                lastTraceStatus = LibredematUtils
+                        .adaptLibredematEnum(traces.get(0).status, "externalservice.trace.status")
                 if (traces.get(0).name) { // poor hack : mettre l'externalServiceLabel correct dans le cas de multiples services externes
                     externalProviderServiceLabel = traces.get(0).name
                 }
@@ -150,11 +150,11 @@ class BackofficeRequestInstructionController {
             "editableStates": (editableStates as JSON).toString(),
             "agentCanWrite": categoryService.hasWriteProfileOnCategory(SecurityContext.currentAgent, 
                 rqt.requestType.category.id),
-            "requestState": CapdematUtils.adaptCapdematEnum(rqt.state, "request.state"),
+            "requestState": LibredematUtils.adaptLibredematEnum(rqt.state, "request.state"),
             "lastActionNote" : lastActionNote,
-            "requestDataState": CapdematUtils.adaptCapdematEnum(rqt.dataState, "request.dataState"),
+            "requestDataState": LibredematUtils.adaptLibredematEnum(rqt.dataState, "request.dataState"),
             "requestLabel": translationService.translateRequestTypeLabel(rqt.requestType.label).encodeAsHTML(),
-            "requestTypeTemplate": CapdematUtils.requestTypeLabelAsDir(rqt.requestType.label),
+            "requestTypeTemplate": LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label),
             "externalProviderServiceLabel" : externalProviderServiceLabel,
             "externalTemplateName" : externalTemplateName,
             "lastTraceStatus" : lastTraceStatus,
@@ -208,7 +208,7 @@ class BackofficeRequestInstructionController {
     * --------------------------------------------------------------------- */
 
     def widget = {
-        def widgets = ['date','time','address','bankAccount','frenchRIB','capdematEnum','boolean','textarea','localReferentialData','school','recreationCenter']
+        def widgets = ['date','time','address','bankAccount','frenchRIB','libredematEnum','boolean','textarea','localReferentialData','school','recreationCenter']
         
         def propertyTypes = JSON.parse(params.propertyType)
         def propertyType = propertyTypes.validate
@@ -229,7 +229,7 @@ class BackofficeRequestInstructionController {
         if (["address", "bankAccount", "frenchRIB"].contains(propertyType)) {
             propertyValue = JSON.parse(params.propertyValue)
         } 
-        else if (propertyType == "capdematEnum") {
+        else if (propertyType == "libredematEnum") {
             def propertyJavaType = propertyTypes.javatype.tokenize(".")
             def allPropertyValue = Class.forName(propertyTypes.javatype).values()
             model["allPropertyValue"] = allPropertyValue
@@ -241,7 +241,7 @@ class BackofficeRequestInstructionController {
                 
             propertyValue = [ "enumString": propertyValueTokens[0],
                               "i18nKeyPrefix": propertyValueTokens[1] ]
-            // will contain the fully qualified class name of the "CapDemat enum" class
+            // will contain the fully qualified class name of the "LibreDemat enum" class
             model["propertyValueType"] = propertyTypes.javatype
         }
         else if (propertyType == "localReferentialData") {
@@ -312,7 +312,7 @@ class BackofficeRequestInstructionController {
             bind(rqt)
         }
         requestWorkflowService.modify(rqt)
-//        log.debug("Binder custum editor PersistentStringEnum = " + getBinder(rqt).propertyEditorRegistry.findCustomEditor(fr.cg95.cvq.dao.hibernate.PersistentStringEnum.class, null))
+//        log.debug("Binder custum editor PersistentStringEnum = " + getBinder(rqt).propertyEditorRegistry.findCustomEditor(org.libredemat.dao.hibernate.PersistentStringEnum.class, null))
         render ([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
     }
     
@@ -345,7 +345,7 @@ class BackofficeRequestInstructionController {
             getterMethod.invoke(cRequest, null).add(listElem)
         }
         render (template:'/backofficeRequestInstruction/requestType/'
-                          + CapdematUtils.requestTypeLabelAsDir(cRequest.requestType.label) 
+                          + LibredematUtils.requestTypeLabelAsDir(cRequest.requestType.label) 
                           +'/' + listElemTokens[0]
                ,model: ['rqt': cRequest])
     }
@@ -394,7 +394,7 @@ class BackofficeRequestInstructionController {
         }
 
         def states = []
-        transitionStates.each { states.add(CapdematUtils.adaptCapdematEnum(it, stateTypeI18nKey)) }
+        transitionStates.each { states.add(LibredematUtils.adaptLibredematEnum(it, stateTypeI18nKey)) }
 
         render( template: "possibleTransitionStates",
                 model: ["states": states, "stateType": stateType, "id": params.id])
@@ -493,13 +493,13 @@ class BackofficeRequestInstructionController {
                 return
             def resultingState = null
             if (it.type.equals(RequestActionType.STATE_CHANGE)) {
-                resultingState = CapdematUtils.adaptCapdematEnum(it.resultingState, "request.state")
+                resultingState = LibredematUtils.adaptLibredematEnum(it.resultingState, "request.state")
             }
             def requestAction = [
                 'id':it.id,
                 "requestId" : id,
                 "user" : UserUtils.getUserDetails(it.agentId),
-                "type" : CapdematUtils.adaptCapdematEnum(it.type, "requestAction.type"),
+                "type" : LibredematUtils.adaptLibredematEnum(it.type, "requestAction.type"),
                 'note':it.note,
                 "message" : it.message,
                 'date':it.date,
@@ -531,7 +531,7 @@ class BackofficeRequestInstructionController {
             actions.add([
                 "date" : it.date,
                 "label" : it.name,
-                "status" : CapdematUtils.adaptCapdematEnum(it.status, "externalservice.trace.status"),
+                "status" : LibredematUtils.adaptLibredematEnum(it.status, "externalservice.trace.status"),
                 "message" : it.message,
                 "complementaryData" : it.complementaryData,
                 "template" : "requestExternalAction",
@@ -572,7 +572,7 @@ class BackofficeRequestInstructionController {
                 params.id, Critere.EQUALS))
             criteriaSet.add(new Critere(RequestExternalAction.SEARCH_BY_NAME,
                 params.label, Critere.EQUALS))
-            def lastTraceStatus = CapdematUtils.adaptCapdematEnum(
+            def lastTraceStatus = LibredematUtils.adaptLibredematEnum(
                 requestExternalActionService.getTraces(criteriaSet,
                 RequestExternalAction.SEARCH_BY_DATE, "desc", 1, 0).get(0).status, "externalservice.trace.status")
             render(template : "/backofficeRequestInstruction/external/" + params.label + "/externalStatus",

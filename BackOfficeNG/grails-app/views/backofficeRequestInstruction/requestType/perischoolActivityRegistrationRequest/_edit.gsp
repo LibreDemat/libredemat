@@ -213,7 +213,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'parr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-capdematEnum required-true i18n-parr.property.section javatype-fr.cg95.cvq.business.users.SectionType maxLength-32" ><g:capdematEnumToField var="${rqt?.section}" i18nKeyPrefix="parr.property.section" /></dd>
+                <dt class="required">${message(code:'parr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-libredematEnum required-true i18n-parr.property.section javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.section}" i18nKeyPrefix="parr.property.section" /></dd>
               </dl>
               
             

@@ -1,13 +1,13 @@
 import com.google.gson.JsonObject
 
-import fr.cg95.cvq.business.users.Child
-import fr.cg95.cvq.business.users.SexType
-import fr.cg95.cvq.business.users.TitleType
-import fr.cg95.cvq.service.users.IUserService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.service.users.IUserWorkflowService
-import fr.cg95.cvq.util.translation.ITranslationService
-import fr.cg95.cvq.exception.CvqValidationException
+import org.libredemat.business.users.Child
+import org.libredemat.business.users.SexType
+import org.libredemat.business.users.TitleType
+import org.libredemat.service.users.IUserService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.service.users.IUserWorkflowService
+import org.libredemat.util.translation.ITranslationService
+import org.libredemat.exception.CvqValidationException
 
 class IndividualAdaptorService {
 

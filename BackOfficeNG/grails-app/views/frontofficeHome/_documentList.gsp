@@ -4,7 +4,7 @@
     <ul>
       <g:each var="record" in="${dashBoard.documents.records}">
         <li>
-          <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details',id:record.id)}">
             ${record.title}
             <g:message code="searchResult.id" />

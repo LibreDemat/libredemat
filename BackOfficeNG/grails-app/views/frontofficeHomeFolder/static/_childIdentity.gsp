@@ -3,7 +3,7 @@
 </a>
 <dl>
   <dt><g:message code="homeFolder.child.property.sex" /> : </dt>
-  <dd><g:capdematEnumToText var="${child.sex}" i18nKeyPrefix="homeFolder.child.property.sex"/></dd>
+  <dd><g:libredematEnumToText var="${child.sex}" i18nKeyPrefix="homeFolder.child.property.sex"/></dd>
   <dt><g:message code="homeFolder.individual.property.lastName" /> : </dt>
   <dd>${child.lastName}</dd>
   <dt><g:message code="homeFolder.individual.property.firstName" /> : </dt>

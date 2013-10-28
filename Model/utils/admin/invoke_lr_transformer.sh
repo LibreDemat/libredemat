@@ -10,9 +10,9 @@ done
 
 . ./set_classpath.sh $1 blainville
 
-CLASSPATH="$CLASSPATH:./CapDemat-OldLocalReferentialSchemas-4.3.jar"
+CLASSPATH="$CLASSPATH:./LibreDemat-OldLocalReferentialSchemas-4.3.jar"
 
-java -cp $CLASSPATH fr.cg95.cvq.util.admin.LocalReferentialTransformer
+java -cp $CLASSPATH org.libredemat.util.admin.LocalReferentialTransformer
 
 # Hack to deal with multiple runs of the migration script on a given local ref file
 for lr in $(find $CAPDEMAT_ASSETS -name "local_referential_*.xml"); do

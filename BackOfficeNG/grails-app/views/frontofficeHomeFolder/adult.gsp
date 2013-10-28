@@ -7,7 +7,7 @@
     <g:if test="${flash.addressesReferentialEnabled}">
       <link rel="stylesheet" type="text/css" href="${resource(dir:'css/common', file:'autocomplete.css')}" />
       <script type="text/javascript">
-        zenexity.capdemat.contextPath = "${request.contextPath}";
+        zenexity.libredemat.contextPath = "${request.contextPath}";
       </script>
       <script type="text/javascript" src="${resource(dir:'js/common',file:'addressAutocomplete.js')}"></script>
       <script type="text/javascript" src="${resource(dir:'js/common',file:'autocomplete.js')}"></script>

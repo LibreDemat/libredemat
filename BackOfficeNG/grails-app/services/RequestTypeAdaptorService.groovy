@@ -1,20 +1,20 @@
-import fr.cg95.cvq.business.users.HomeFolder
-import fr.cg95.cvq.business.request.DisplayGroup
-import fr.cg95.cvq.business.request.RequestType
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.exception.CvqModelException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.ILocalReferentialService
-import fr.cg95.cvq.service.request.IRequestService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.request.IRequestServiceRegistry
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IDisplayGroupService
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.users.HomeFolder
+import org.libredemat.business.request.DisplayGroup
+import org.libredemat.business.request.RequestType
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.request.Request
+import org.libredemat.exception.CvqException
+import org.libredemat.exception.CvqModelException
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.ILocalReferentialService
+import org.libredemat.service.request.IRequestService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.request.IRequestServiceRegistry
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IDisplayGroupService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.util.Critere
 
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
@@ -141,7 +141,7 @@ public class RequestTypeAdaptorService {
     public Map getCustomJS(requestTypeLabel) {
         def customJS = [
             dir : "js/frontoffice/requesttype",
-            file : CapdematUtils.requestTypeLabelAsDir(requestTypeLabel) + ".js"
+            file : LibredematUtils.requestTypeLabelAsDir(requestTypeLabel) + ".js"
         ]
         if (ServletContextHolder.servletContext.getResource(["", customJS.dir, customJS.file].join('/')) != null)
             return customJS
@@ -157,7 +157,7 @@ public class RequestTypeAdaptorService {
     }
 
     public Map requestTypeResources(requestTypeLabel) {
-        def requestTypeLabelAsDir = CapdematUtils.requestTypeLabelAsDir(requestTypeLabel)
+        def requestTypeLabelAsDir = LibredematUtils.requestTypeLabelAsDir(requestTypeLabel)
         return [
             'lrTypes': getLocalReferentialTypes(requestTypeLabel),
             'requestTypeLabel': requestTypeLabel,

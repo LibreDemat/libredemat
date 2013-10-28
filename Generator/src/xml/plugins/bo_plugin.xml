@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="bo" classname="fr.cg95.cvq.generator.plugins.bo.BoPlugin">
+<plugin id="bo" classname="org.libredemat.generator.plugins.bo.BoPlugin">
 
   <documentation>
-    <element parent="element" source="http://www.cg95.fr/cvq/schema/shortdesc" />
+    <element parent="element" source="http://www.libredemat.org/schema/shortdesc" />
     <element parent="*" source="*" />
   </documentation>
   
@@ -15,9 +15,9 @@
   <configuration>
     <properties
       outputdir="./BackOfficeNG/grails-app/views/backofficeRequestInstruction/requestType/"
-      edittemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/bo/edit.gsp.tpl"
-      stepstemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/bo/steps.gsp.tpl"
-      collectiontemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/bo/collection.gsp.tpl"
+      edittemplate="./Generator/src/java/org/libredemat/generator/plugins/bo/edit.gsp.tpl"
+      stepstemplate="./Generator/src/java/org/libredemat/generator/plugins/bo/steps.gsp.tpl"
+      collectiontemplate="./Generator/src/java/org/libredemat/generator/plugins/bo/collection.gsp.tpl"
     />
   </configuration>
   

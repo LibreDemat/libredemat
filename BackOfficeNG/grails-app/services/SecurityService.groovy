@@ -1,5 +1,5 @@
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.security.annotation.ContextType
+import org.libredemat.security.SecurityContext
+import org.libredemat.security.annotation.ContextType
 
 public class SecurityService {
 

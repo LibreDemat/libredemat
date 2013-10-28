@@ -27,7 +27,7 @@
           <g:if test="${action.responsible.deleted}">
             <dt style="text-decoration : line-through">
               <g:each var="type" in="${action.responsible.deleted}">
-                <g:capdematEnumToFlag var="${type}" i18nKeyPrefix="homeFolder.role" />
+                <g:libredematEnumToFlag var="${type}" i18nKeyPrefix="homeFolder.role" />
               </g:each>
             </dt>
             <dd style="text-decoration : line-through">
@@ -37,7 +37,7 @@
           <g:else>
             <dt>
               <g:each var="type" in="${action.responsible.types}">
-                <g:capdematEnumToFlag var="${type}" i18nKeyPrefix="homeFolder.role" />
+                <g:libredematEnumToFlag var="${type}" i18nKeyPrefix="homeFolder.role" />
               </g:each>
             </dt>
             <dd>
@@ -60,7 +60,7 @@
         </g:if>
         <g:if test="${action.contact}">
           <dt>${message(code : "contact.property.meansOfContact")}</dt>
-          <dd><g:capdematEnumToText var="${action.contact.meansOfContact}" i18nKeyPrefix="meansOfContact" /></dd>
+          <dd><g:libredematEnumToText var="${action.contact.meansOfContact}" i18nKeyPrefix="meansOfContact" /></dd>
           <g:if test="${action.contact.recipient}">
             <dt>${message(code : "contact.property.recipient")}</dt>
             <dd>${action.contact.recipient}</dd>

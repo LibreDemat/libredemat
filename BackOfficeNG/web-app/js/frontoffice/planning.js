@@ -11,4 +11,4 @@
 
   yue.on(window, 'message', planning.resize)
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.fong.Planning'))
+})(zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.Planning'))

@@ -7,8 +7,8 @@
   </g:if>
   <g:else>  
     <dt><g:message code="homeFolder.adult.property.title" /> : </dt> 
-    <dd id="_requester.title" class="action-editField validate-capdematEnum javatype-fr.cg95.cvq.business.users.TitleType">
-        <g:capdematEnumToField var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" />
+    <dd id="_requester.title" class="action-editField validate-libredematEnum javatype-org.libredemat.business.users.TitleType">
+        <g:libredematEnumToField var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" />
     </dd>
 
     <dt><g:message code="homeFolder.individual.property.lastName" /> : </dt>

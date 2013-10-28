@@ -17,13 +17,13 @@
       </dd>
     
       <dt class="required condition-isPreviousDwellingPlaceOfResidence-trigger"><g:message code="dhr.property.dhrPreviousDwellingKind.label" /> * : </dt>
-      <dd id="dhrPreviousDwelling[${listSize - 1 - index}].dhrPreviousDwellingKind" class="action-editField validate-capdematEnum required-true i18n-dhr.property.dhrPreviousDwellingKind javatype-fr.cg95.cvq.business.request.social.DhrDwellingKindType" >
-        <g:capdematEnumToField var="${it?.dhrPreviousDwellingKind}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" />
+      <dd id="dhrPreviousDwelling[${listSize - 1 - index}].dhrPreviousDwellingKind" class="action-editField validate-libredematEnum required-true i18n-dhr.property.dhrPreviousDwellingKind javatype-org.libredemat.business.request.social.DhrDwellingKindType" >
+        <g:libredematEnumToField var="${it?.dhrPreviousDwellingKind}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" />
       </dd>
     
       <dt class="required condition-isPreviousDwellingPlaceOfResidence-filled"><g:message code="dhr.property.dhrPreviousDwellingStatus.label" /> * : </dt>
-      <dd id="dhrPreviousDwelling[${listSize - 1 - index}].dhrPreviousDwellingStatus" class="action-editField validate-capdematEnum required-true i18n-dhr.property.dhrPreviousDwellingStatus javatype-fr.cg95.cvq.business.request.social.DhrDwellingStatusType" >
-        <g:capdematEnumToField var="${it?.dhrPreviousDwellingStatus}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" />
+      <dd id="dhrPreviousDwelling[${listSize - 1 - index}].dhrPreviousDwellingStatus" class="action-editField validate-libredematEnum required-true i18n-dhr.property.dhrPreviousDwellingStatus javatype-org.libredemat.business.request.social.DhrDwellingStatusType" >
+        <g:libredematEnumToField var="${it?.dhrPreviousDwellingStatus}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" />
       </dd>
     
       <dt class="required"><g:message code="dhr.property.dhrPreviousDwellingArrivalDate.label" /> * : </dt>

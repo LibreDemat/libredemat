@@ -1,5 +1,5 @@
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.oauth2.InsufficientScopeException
+import org.libredemat.security.SecurityContext
+import org.libredemat.oauth2.InsufficientScopeException
 
 import grails.converters.JSON
 

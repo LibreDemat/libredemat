@@ -18,9 +18,9 @@
           ${roleOwner.adult.fullName}
       </label>
       <g:if test="${roleOwner.adult.id == currentRoleOwnerId}">
-        <g:each var="role" in="${fr.cg95.cvq.business.users.RoleType.childRoleTypes}">
+        <g:each var="role" in="${org.libredemat.business.users.RoleType.childRoleTypes}">
           <input type="radio" name="roleType" value="${role}" ${roleOwner.roles.contains(role) ? 'checked="checked"' : ''} />
-          ${g.capdematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role')}
+          ${g.libredematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role')}
         </g:each>
         <input type="hidden" name="roleOwnerId" value="${roleOwner.adult.id}">
         <input type="hidden" name="fragment" value="responsibles" />
@@ -30,7 +30,7 @@
       <g:else>
         <g:if test="${roleOwner.roles}">
           <g:each var="role" in="${roleOwner.roles}">
-            ${g.capdematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role')}
+            ${g.libredematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role')}
           </g:each>
         </g:if>
         <g:else>

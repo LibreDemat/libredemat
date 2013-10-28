@@ -1,13 +1,13 @@
-import fr.cg95.cvq.authentication.IAuthenticationService
+import org.libredemat.authentication.IAuthenticationService
 
-import fr.cg95.cvq.business.authority.Agent
-import fr.cg95.cvq.business.authority.RecreationCenter
-import fr.cg95.cvq.business.authority.School
-import fr.cg95.cvq.business.authority.SiteProfile
+import org.libredemat.business.authority.Agent
+import org.libredemat.business.authority.RecreationCenter
+import org.libredemat.business.authority.School
+import org.libredemat.business.authority.SiteProfile
 
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.authority.IRecreationCenterService
-import fr.cg95.cvq.service.authority.ISchoolService
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.authority.IRecreationCenterService
+import org.libredemat.service.authority.ISchoolService
 
 import grails.converters.JSON
 import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH

@@ -1,11 +1,11 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.request");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.bong.request");
 
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zcb = zenexity.capdemat.bong;
-  var zcbr = zenexity.capdemat.bong.request;
-  var zcv = zenexity.capdemat.Validation;
+  var zct = zenexity.libredemat.tools;
+  var zcb = zenexity.libredemat.bong;
+  var zcbr = zenexity.libredemat.bong.request;
+  var zcv = zenexity.libredemat.Validation;
 
   var yue = YAHOO.util.Event;
   var yud = YAHOO.util.Dom;
@@ -26,7 +26,7 @@ zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.request");
         tabView = new yw.TabView();
         tabView.addTab(new yw.Tab({
           label : "Historique",
-          dataSrc : zenexity.capdemat.baseUrl + "/history",
+          dataSrc : zenexity.libredemat.baseUrl + "/history",
           cacheData: true, active: true
         }));
         tabView.appendTo("archivesHistory");
@@ -56,7 +56,7 @@ zenexity.capdemat.tools.namespace("zenexity.capdemat.bong.request");
           new zct.ConfirmationDialog(zcbr.Archives.content, function() {
             var target = yue.getTarget(e);
             var action = form.action;
-            form.action = zenexity.capdemat.baseUrl + "/deleteArchives";
+            form.action = zenexity.libredemat.baseUrl + "/deleteArchives";
             zct.doAjaxFormSubmitCall(form.getAttribute("id"), null, function(o) {
               var response = ylj.parse(o.responseText);
               zct.each(YAHOO.util.Selector.query("input[type=checkbox]:checked"), function(i, el) {

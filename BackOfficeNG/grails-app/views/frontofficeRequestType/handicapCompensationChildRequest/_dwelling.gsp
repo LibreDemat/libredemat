@@ -9,7 +9,7 @@
             <select id="dwellingKind" name="dwellingKind" class="required condition-isNotPlaceOfResidence-trigger  validate-not-first ${rqt.stepStates['dwelling'].invalidFields.contains('dwellingKind') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.dwellingKind.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['PLACE_OF_RESIDENCE','THIRD_PARTY_PLACE_OF_RESIDENCE','OTHER']}">
-                <option value="${it}" ${it == rqt.dwellingKind?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hccr.property.dwellingKind" /></option>
+                <option value="${it}" ${it == rqt.dwellingKind?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hccr.property.dwellingKind" /></option>
               </g:each>
             </select>
             
@@ -36,7 +36,7 @@
             <select id="dwellingReceptionType" name="dwellingReceptionType" class="required condition-isInEstablishmentReception-filled  validate-not-first ${rqt.stepStates['dwelling'].invalidFields.contains('dwellingReceptionType') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.dwellingReceptionType.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['INTERNSHIP','CLERKSHIP']}">
-                <option value="${it}" ${it == rqt.dwellingReceptionType?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hccr.property.dwellingReceptionType" /></option>
+                <option value="${it}" ${it == rqt.dwellingReceptionType?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hccr.property.dwellingReceptionType" /></option>
               </g:each>
             </select>
             

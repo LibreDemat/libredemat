@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/sgr"
-  xmlns:sgr="http://www.cg95.fr/cvq/schema/sgr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/sgr"
+  xmlns:sgr="http://www.libredemat.org/schema/sgr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
     
   <xs:element name="StudyGrantRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de bourse Mobil'Etudes
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Study grant request
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Bourse Mobil'Etudes
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Study grant request
       </xs:documentation>
       <xs:appinfo>
@@ -83,16 +83,16 @@
             </xs:element>
             <xs:element name="TaxHouseholdLastName" type="cvq:LastNameType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Last name
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Last name
                 </xs:documentation>
                 <xs:appinfo>
@@ -108,16 +108,16 @@
             </xs:element>
             <xs:element name="TaxHouseholdFirstName" type="cvq:FirstNameType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prénom
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   First name
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Prénom
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   First name
                 </xs:documentation>
                 <xs:appinfo>
@@ -133,16 +133,16 @@
             </xs:element>
             <xs:element name="TaxHouseholdCity" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Commune
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   City
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Commune
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   City
                 </xs:documentation>
                 <xs:appinfo>
@@ -161,16 +161,16 @@
             </xs:element>
             <xs:element name="TaxHouseholdCityPrecision" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Précisez la commune
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Specify city
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Précisez la commune
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Specify city
                 </xs:documentation>
                 <xs:appinfo>
@@ -189,16 +189,16 @@
             </xs:element>
             <xs:element name="TaxHouseholdIncome" type="xs:double">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Revenu brut global pour l'année 2009 et inférieur à 32 000 euros
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Global gross income for 2009 and less than 32,000 euros
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Revenu brut global pour l'année 2009 et inférieur à 32 000 euros
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Global gross income for 2009 and less than 32,000 euros
                 </xs:documentation>
                 <xs:appinfo>
@@ -215,16 +215,16 @@
             </xs:element>
             <xs:element name="HasCROUSHelp" type="xs:boolean">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   CROUS
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   CROUS
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   CROUS
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   CROUS
                 </xs:documentation>
                 <xs:appinfo>
@@ -239,16 +239,16 @@
             </xs:element>
             <xs:element name="HasRegionalCouncilHelp" type="xs:boolean">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Conseil Régional
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Regional Council
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Conseil Régional
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Regional Council
                 </xs:documentation>
                 <xs:appinfo>
@@ -263,16 +263,16 @@
             </xs:element>
             <xs:element name="HasEuropeHelp" type="xs:boolean">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Europe
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Europe
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Europe
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Europe
                 </xs:documentation>
                 <xs:appinfo>
@@ -287,16 +287,16 @@
             </xs:element>
             <xs:element name="HasOtherHelp" type="xs:boolean">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Autres (Établissement...)
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Others (School...)
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autres (Établissement ...)
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Others (School...)
                 </xs:documentation>
                 <xs:appinfo>
@@ -347,16 +347,16 @@
             </xs:element>
             <xs:element name="Distance" type="sgr:DistanceType" default="undetermined">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Lieu d'études ou de stage situé à
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Distance between home and school or internship
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Lieu d'études ou de stage situé à
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Distance between home and school or internship
                 </xs:documentation>
                 <xs:appinfo>
@@ -370,16 +370,16 @@
             </xs:element>
             <xs:element name="IsSubjectAccountHolder" type="xs:boolean" default="true">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Etes-vous titulaire du compte ?
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Are you Account holder ?
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Etes-vous titulaire du compte ?
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Are you Account holder ?
                 </xs:documentation>
                 <xs:appinfo>
@@ -397,16 +397,16 @@
             </xs:element>
             <xs:element name="AccountHolderTitle" type="cvq:TitleType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Civilité du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Account holder title
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Civilité du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Account holder title
                 </xs:documentation>
                 <xs:appinfo>
@@ -425,16 +425,16 @@
             </xs:element>
             <xs:element name="AccountHolderLastName" type="cvq:LastNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Account holder lastname
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Account holder lastname
                 </xs:documentation>
                 <xs:appinfo>
@@ -453,16 +453,16 @@
             </xs:element>
             <xs:element name="AccountHolderFirstName" type="cvq:FirstNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prénom du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Account holder firstname
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Prénom du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Account holder firstname
                 </xs:documentation>
                 <xs:appinfo>
@@ -481,16 +481,16 @@
             </xs:element>
             <xs:element name="AccountHolderBirthDate" type="xs:date" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Date de naissance du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Account holder birth date
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Date de naissance du titulaire du compte
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Account holder birth date
                 </xs:documentation>
                 <xs:appinfo>
@@ -508,16 +508,16 @@
             </xs:element>
             <xs:element name="AccountHolderEdemandeId" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Identifiant du titulaire du compte dans Grand Angle
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Identifiant du titulaire du compte dans Grand Angle
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Account holder ID in Grand Angle
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Account holder ID in Grand Angle
                 </xs:documentation>
                 <xs:appinfo>
@@ -543,16 +543,16 @@
             </xs:element>
             <xs:element name="EdemandeId" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Identifiant de la demande dans Grand Angle
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Identifiant de la demande dans Grand Angle
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Request ID in Grand Angle
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Request ID in Grand Angle
                 </xs:documentation>
                 <xs:appinfo>
@@ -571,13 +571,13 @@
   
   <xs:simpleType name="DistanceType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="undetermined" value="La distance entre votre lieu de résidence et votre lieu d'études ou de stage n'a pas pu être déterminée. L'agent qui traitera votre demande pourra être amené à vous demander de préciser les informations nécessaires avant de traiter votre dossier." />
         <enum key="lessThan30kms" value="Moins de 30 kms du domicile" />
         <enum key="between30and250kms" value="Entre 30 et 250 kms du domicile" />
         <enum key="moreThan250kmsAndAbroad" value="Plus de 250 kms du domicile et à l'international" />
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="undetermined" value="The distance bewteen home and school or internship could not be determined. The agent who will process your request may ask you required information." />
         <enum key="lessThan30kms" value="Less than 30 kms from home" />
         <enum key="between30and250kms" value="Between 30 and 250 kms from home" />
@@ -594,7 +594,7 @@
   
   <xs:simpleType name="ALevelsType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="es" value="Économique et social (ES)" />
         <enum key="l" value="Littéraire (L)" />
         <enum key="s" value="Scientifique (S)" />
@@ -607,7 +607,7 @@
         <enum key="h" value="Hôtellerie" />
         <enum key="p" value="Professionnel" />
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="es" value="Economics and social sciences (ES)" />
         <enum key="l" value="Literature (L)" />
         <enum key="s" value="Sciences (S)" />
@@ -638,7 +638,7 @@
   
   <xs:simpleType name="CurrentStudiesType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="licence" value="Licence" />
         <enum key="licencePro" value="Licence Pro" />
         <enum key="master" value="Master" />
@@ -646,7 +646,7 @@
         <enum key="dut" value="DUT" />
         <enum key="otherStudies" value="Autre" />
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="licence" value="Licence" />
         <enum key="licencePro" value="Licence Pro" />
         <enum key="master" value="Master" />
@@ -667,12 +667,12 @@
   
   <xs:simpleType name="CurrentStudiesLevelType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="firstYear" value="1ère année" />
         <enum key="secondYear" value="2ème année" />
         <enum key="thirdYear" value="3ème année" />
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="firstYear" value="1st year" />
         <enum key="secondYear" value="2nd year" />
         <enum key="thirdYear" value="3rd year" />
@@ -687,32 +687,32 @@
   
   <xs:complexType name="SubjectInformationsType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations concernant l'étudiant
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Information about student
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Informations concernant l'étudiant
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Information about student
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="SubjectBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Date of birth
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Date of birth
           </xs:documentation>
           <xs:appinfo>
@@ -728,16 +728,16 @@
       </xs:element>
       <xs:element name="SubjectFirstRequest" type="xs:boolean" default="true">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Première demande
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             First request
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Première demande
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             First request
           </xs:documentation>
           <xs:appinfo>
@@ -755,32 +755,32 @@
   
   <xs:complexType name="ALevelsInformationsType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Baccalauréat
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         A Levels
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Baccalauréat
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         A Levels
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="AlevelsDate">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Année d'obtention du baccalauréat
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             A Levels obtaining year
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Année d'obtention du baccalauréat
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             A Levels obtaining year
           </xs:documentation>
           <xs:appinfo>
@@ -801,16 +801,16 @@
       </xs:element>
       <xs:element name="Alevels" type="sgr:ALevelsType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Type de baccalauréat
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             A Levels type
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Type de baccalauréat
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             A Levels type
           </xs:documentation>
           <xs:appinfo>
@@ -828,32 +828,32 @@
   
   <xs:complexType name="CurrentStudiesInformationsType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Études supérieures
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Higher education
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Études supérieures
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Higher education
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="CurrentStudiesDiploma" type="sgr:CurrentStudiesType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Diplôme préparé
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Prepared diploma
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Diplôme préparé
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Prepared diploma
           </xs:documentation>
           <xs:appinfo>
@@ -871,16 +871,16 @@
       </xs:element>
       <xs:element name="OtherStudiesLabel" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Précisez
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Specify
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Précisez
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Specify
           </xs:documentation>
           <xs:appinfo>
@@ -898,16 +898,16 @@
       </xs:element>
       <xs:element name="CurrentStudiesLevel" type="sgr:CurrentStudiesLevelType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Niveau
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Level
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Niveau
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Level
           </xs:documentation>
           <xs:appinfo>
@@ -922,16 +922,16 @@
       </xs:element>
       <xs:element name="SandwichCourses" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Études en alternance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Sandwich courses
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Études en alternance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Sandwich courses
           </xs:documentation>
           <xs:appinfo>
@@ -946,16 +946,16 @@
       </xs:element>
       <xs:element name="AbroadInternship" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Stage à l'étranger
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Abroad internship
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Stage à l'étranger
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Abroad internship
           </xs:documentation>
           <xs:appinfo>
@@ -973,16 +973,16 @@
       </xs:element>
       <xs:element name="AbroadInternshipStartDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de début
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Start date
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de début
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Start date
           </xs:documentation>
           <xs:appinfo>
@@ -1000,16 +1000,16 @@
       </xs:element>
       <xs:element name="AbroadInternshipEndDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Date de fin
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             End date
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de fin
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             End date
           </xs:documentation>
           <xs:appinfo>
@@ -1027,16 +1027,16 @@
       </xs:element>
       <xs:element name="AbroadInternshipSchoolName" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'établissement d'accueil
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Reception school name
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'établissement d'accueil
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Reception school name
           </xs:documentation>
           <xs:appinfo>
@@ -1054,16 +1054,16 @@
       </xs:element>
       <xs:element name="AbroadInternshipSchoolCountry" type="cvq:CountryType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pays
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Country
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pays
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Country
           </xs:documentation>
           <xs:appinfo>
@@ -1085,32 +1085,32 @@
   
   <xs:complexType name="SgrCurrentSchoolType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Établissement scolaire
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Current school
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Établissement scolaire
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Current school
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="CurrentSchoolName" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nom de l'établissement
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             School name
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'établissement
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             School name
           </xs:documentation>
           <xs:appinfo>
@@ -1129,16 +1129,16 @@
       </xs:element>
       <xs:element name="CurrentSchoolNamePrecision" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Précisez le nom
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Specify school name
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Précisez le nom
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Specify school name
           </xs:documentation>
           <xs:appinfo>
@@ -1156,10 +1156,10 @@
       </xs:element>
       <xs:element name="CurrentSchoolAddress" type="cvq:AddressType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Adresse de l'établissement
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             School address
           </xs:documentation>
           <xs:appinfo>

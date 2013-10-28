@@ -111,7 +111,7 @@
             <select id="professionalStatusKind" name="professionalStatusKind" class="required condition-isEmployed-trigger condition-isUnemployed-trigger  validate-not-first ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusKind') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.professionalStatusKind.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['EMPLOYEE','UNEMPLOYED','JOBLESS','STUDENT','RETIRED']}">
-                <option value="${it}" ${it == rqt.professionalStatusKind?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hcar.property.professionalStatusKind" /></option>
+                <option value="${it}" ${it == rqt.professionalStatusKind?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hcar.property.professionalStatusKind" /></option>
               </g:each>
             </select>
             
@@ -161,7 +161,7 @@
             <select id="professionalStatusEnvironment" name="professionalStatusEnvironment" class="required condition-isEmployed-filled  validate-not-first ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusEnvironment') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.professionalStatusEnvironment.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['ORDINARY','ADAPTED','PROTECTED']}">
-                <option value="${it}" ${it == rqt.professionalStatusEnvironment?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="hcar.property.professionalStatusEnvironment" /></option>
+                <option value="${it}" ${it == rqt.professionalStatusEnvironment?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="hcar.property.professionalStatusEnvironment" /></option>
               </g:each>
             </select>
             

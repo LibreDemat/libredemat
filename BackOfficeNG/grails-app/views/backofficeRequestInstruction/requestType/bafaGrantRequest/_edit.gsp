@@ -168,7 +168,7 @@
             
               
               <dl>
-                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'bgr.property.accountHolderTitle.label')}&nbsp;*&nbsp;:</dt><dd id="accountHolderTitle" class="action-editField validate-capdematEnum required-true i18n-bgr.property.accountHolderTitle javatype-fr.cg95.cvq.business.users.TitleType" ><g:capdematEnumToField var="${rqt?.accountHolderTitle}" i18nKeyPrefix="bgr.property.accountHolderTitle" /></dd>
+                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'bgr.property.accountHolderTitle.label')}&nbsp;*&nbsp;:</dt><dd id="accountHolderTitle" class="action-editField validate-libredematEnum required-true i18n-bgr.property.accountHolderTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.accountHolderTitle}" i18nKeyPrefix="bgr.property.accountHolderTitle" /></dd>
               </dl>
               
             

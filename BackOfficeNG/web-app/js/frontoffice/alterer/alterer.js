@@ -5,7 +5,7 @@
  */
 ;(function(alterer) {
 
-  var zct  = zenexity.capdemat.tools
+  var zct  = zenexity.libredemat.tools
     , zcte = zct.events
     , zctu = zct.ui
     , ylj  = YAHOO.lang.JSON
@@ -150,4 +150,4 @@
     })
   }
 
-})(zenexity.capdemat.tools.namespace('zenexity.capdemat.tools.alterer'))
+})(zenexity.libredemat.tools.namespace('zenexity.libredemat.tools.alterer'))

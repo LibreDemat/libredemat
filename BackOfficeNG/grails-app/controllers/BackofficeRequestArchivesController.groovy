@@ -1,9 +1,9 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.request.IRequestActionService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.request.IRequestActionService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.util.UserUtils
 
 import grails.converters.JSON
 
@@ -87,7 +87,7 @@ class BackofficeRequestArchivesController {
         actions.each {
             history << [
                 "admin" : UserUtils.getDisplayName(it.adminId),
-                "type" : CapdematUtils.adaptCapdematEnum(it.type, "requestAdminAction.type"),
+                "type" : LibredematUtils.adaptLibredematEnum(it.type, "requestAdminAction.type"),
                 "date" : it.date,
                 "complementaryData" : it.complementaryData
             ]

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LocalReferential xmlns="http://www.cg95.fr/cvq/schema/referential">
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
     <data name="entertainmentCategories">
         <label>Catégories de spectacles</label>
     </data>

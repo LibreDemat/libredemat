@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -92,7 +92,7 @@
         <dt><g:message code="mcr.property.childTitle.label" /></dt>
           <dd>
             <g:if test="${rqt.childTitle}">
-              <g:capdematEnumToField var="${rqt.childTitle}" i18nKeyPrefix="mcr.property.childTitle" />
+              <g:libredematEnumToField var="${rqt.childTitle}" i18nKeyPrefix="mcr.property.childTitle" />
             </g:if>
           </dd>
           
@@ -112,7 +112,7 @@
         <dt><g:message code="mcr.property.childBirthCountry.label" /></dt>
           <dd>
             <g:if test="${rqt.childBirthCountry}">
-              <g:capdematEnumToField var="${rqt.childBirthCountry}" i18nKeyPrefix="mcr.property.childBirthCountry" />
+              <g:libredematEnumToField var="${rqt.childBirthCountry}" i18nKeyPrefix="mcr.property.childBirthCountry" />
             </g:if>
           </dd>
           
@@ -125,7 +125,7 @@
         <dt><g:message code="mcr.property.childResidenceCountry.label" /></dt>
           <dd>
             <g:if test="${rqt.childResidenceCountry}">
-              <g:capdematEnumToField var="${rqt.childResidenceCountry}" i18nKeyPrefix="mcr.property.childResidenceCountry" />
+              <g:libredematEnumToField var="${rqt.childResidenceCountry}" i18nKeyPrefix="mcr.property.childResidenceCountry" />
             </g:if>
           </dd>
           
@@ -152,7 +152,7 @@
         <dt><g:message code="mcr.property.childCountry.label" /></dt>
           <dd>
             <g:if test="${rqt.childCountry}">
-              <g:capdematEnumToField var="${rqt.childCountry}" i18nKeyPrefix="mcr.property.childCountry" />
+              <g:libredematEnumToField var="${rqt.childCountry}" i18nKeyPrefix="mcr.property.childCountry" />
             </g:if>
           </dd>
           
@@ -165,7 +165,7 @@
         <dt><g:message code="mcr.property.childOtherCountry.label" /></dt>
           <dd>
             <g:if test="${rqt.childOtherCountry}">
-              <g:capdematEnumToField var="${rqt.childOtherCountry}" i18nKeyPrefix="mcr.property.childOtherCountry" />
+              <g:libredematEnumToField var="${rqt.childOtherCountry}" i18nKeyPrefix="mcr.property.childOtherCountry" />
             </g:if>
           </dd>
           
@@ -207,7 +207,7 @@
           <dt><g:message code="mcr.property.fatherBirthDepartment.label" /></dt>
           <dd>
             <g:if test="${rqt.fatherBirthDepartment}">
-              <g:capdematEnumToField var="${rqt.fatherBirthDepartment}" i18nKeyPrefix="mcr.property.fatherBirthDepartment" />
+              <g:libredematEnumToField var="${rqt.fatherBirthDepartment}" i18nKeyPrefix="mcr.property.fatherBirthDepartment" />
             </g:if>
           </dd>
           
@@ -216,7 +216,7 @@
           <dt><g:message code="mcr.property.fatherBirthCountry.label" /></dt>
           <dd>
             <g:if test="${rqt.fatherBirthCountry}">
-              <g:capdematEnumToField var="${rqt.fatherBirthCountry}" i18nKeyPrefix="mcr.property.fatherBirthCountry" />
+              <g:libredematEnumToField var="${rqt.fatherBirthCountry}" i18nKeyPrefix="mcr.property.fatherBirthCountry" />
             </g:if>
           </dd>
           
@@ -225,7 +225,7 @@
           <dt><g:message code="mcr.property.fatherNationality.label" /></dt>
           <dd>
             <g:if test="${rqt.fatherNationality}">
-              <g:capdematEnumToField var="${rqt.fatherNationality}" i18nKeyPrefix="mcr.property.fatherNationality" />
+              <g:libredematEnumToField var="${rqt.fatherNationality}" i18nKeyPrefix="mcr.property.fatherNationality" />
             </g:if>
           </dd>
           
@@ -255,7 +255,7 @@
           <dt><g:message code="mcr.property.motherBirthDepartment.label" /></dt>
           <dd>
             <g:if test="${rqt.motherBirthDepartment}">
-              <g:capdematEnumToField var="${rqt.motherBirthDepartment}" i18nKeyPrefix="mcr.property.motherBirthDepartment" />
+              <g:libredematEnumToField var="${rqt.motherBirthDepartment}" i18nKeyPrefix="mcr.property.motherBirthDepartment" />
             </g:if>
           </dd>
           
@@ -264,7 +264,7 @@
           <dt><g:message code="mcr.property.motherBirthCountry.label" /></dt>
           <dd>
             <g:if test="${rqt.motherBirthCountry}">
-              <g:capdematEnumToField var="${rqt.motherBirthCountry}" i18nKeyPrefix="mcr.property.motherBirthCountry" />
+              <g:libredematEnumToField var="${rqt.motherBirthCountry}" i18nKeyPrefix="mcr.property.motherBirthCountry" />
             </g:if>
           </dd>
           
@@ -273,7 +273,7 @@
           <dt><g:message code="mcr.property.motherNationality.label" /></dt>
           <dd>
             <g:if test="${rqt.motherNationality}">
-              <g:capdematEnumToField var="${rqt.motherNationality}" i18nKeyPrefix="mcr.property.motherNationality" />
+              <g:libredematEnumToField var="${rqt.motherNationality}" i18nKeyPrefix="mcr.property.motherNationality" />
             </g:if>
           </dd>
           
@@ -298,7 +298,7 @@
           <dt><g:message code="mcr.property.childStatus.label" /></dt>
           <dd>
             <g:if test="${rqt.childStatus}">
-              <g:capdematEnumToField var="${rqt.childStatus}" i18nKeyPrefix="mcr.property.childStatus" />
+              <g:libredematEnumToField var="${rqt.childStatus}" i18nKeyPrefix="mcr.property.childStatus" />
             </g:if>
           </dd>
           
@@ -323,7 +323,7 @@
           <dt><g:message code="mcr.property.prefectPupilDepartment.label" /></dt>
           <dd>
             <g:if test="${rqt.prefectPupilDepartment}">
-              <g:capdematEnumToField var="${rqt.prefectPupilDepartment}" i18nKeyPrefix="mcr.property.prefectPupilDepartment" />
+              <g:libredematEnumToField var="${rqt.prefectPupilDepartment}" i18nKeyPrefix="mcr.property.prefectPupilDepartment" />
             </g:if>
           </dd>
           
@@ -339,7 +339,7 @@
           <dt><g:message code="mcr.property.childSituation.label" /></dt>
           <dd>
             <g:if test="${rqt.childSituation}">
-              <g:capdematEnumToField var="${rqt.childSituation}" i18nKeyPrefix="mcr.property.childSituation" />
+              <g:libredematEnumToField var="${rqt.childSituation}" i18nKeyPrefix="mcr.property.childSituation" />
             </g:if>
           </dd>
           
@@ -348,7 +348,7 @@
           <dt><g:message code="mcr.property.childDiploma.label" /></dt>
           <dd>
             <g:if test="${rqt.childDiploma}">
-              <g:capdematEnumToField var="${rqt.childDiploma}" i18nKeyPrefix="mcr.property.childDiploma" />
+              <g:libredematEnumToField var="${rqt.childDiploma}" i18nKeyPrefix="mcr.property.childDiploma" />
             </g:if>
           </dd>
           
@@ -412,7 +412,7 @@
           <g:if test="${document.endValidityDate}">${message(code:'document.header.expireOn')} ${formatDate(date:document.endValidityDate,formatName:'format.date')}</g:if>
         </dt>
         <dd>
-          <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details', id:document.id)}" target="blank" title="${message(code:'document.message.preview.longdesc')}">${message(code:'document.message.preview')}</a>
         </dd>
         </g:each>

@@ -1,13 +1,13 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestServiceRegistry
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.authority.LocalAuthorityResource
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestState
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestServiceRegistry
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.util.Critere
 import java.util.regex.Pattern
 
 class FrontofficeRequestTypeController {
@@ -47,7 +47,7 @@ class FrontofficeRequestTypeController {
         def intro = localAuthorityRegistry.getFileContent(
             localAuthorityRegistry.getLocalAuthorityResourceFile(
                 LocalAuthorityResource.Type.HTML,
-                "request/" + CapdematUtils.requestTypeLabelAsDir(label) + "/introduction",
+                "request/" + LibredematUtils.requestTypeLabelAsDir(label) + "/introduction",
                 false))
         def lastRequests = requestWorkflowService.getRenewableRequests(label)
         def seasons = requestTypeService.isOfRegistrationKind(requestType.id) ?

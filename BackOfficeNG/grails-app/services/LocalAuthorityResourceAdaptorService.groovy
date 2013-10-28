@@ -1,4 +1,4 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
+import org.libredemat.business.authority.LocalAuthorityResource
 
 public class LocalAuthorityResourceAdaptorService {
 

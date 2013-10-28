@@ -2,15 +2,15 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/ca"
-                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/ca"
+                  xmlns:schema="http://www.libredemat.org/modules/payment/schema/ca"
+                  xmlns:tns="http://www.libredemat.org/modules/payment/schema/ca"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/ca">
+                  targetNamespace="http://www.libredemat.org/modules/payment/schema/ca">
    <wsdl:types>
-      <xs:schema xmlns:ca="http://www.capwebct.fr/modules/payment/schema/ca"
-                 xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+      <xs:schema xmlns:ca="http://www.libredemat.org/modules/payment/schema/ca"
+                 xmlns:cvq="http://www.libredemat.org/schema/common"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/ca"
+                 targetNamespace="http://www.libredemat.org/modules/payment/schema/ca"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
@@ -60,7 +60,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="CheckAvailability">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/ca/CheckAvailability"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/modules/payment/schema/ca/CheckAvailability"/>
          <wsdl:input name="CheckAvailabilityInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

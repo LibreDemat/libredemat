@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" />
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'displayGroupEdit.js')}"></script>
   <script type="text/javascript">
-    zenexity.capdemat.bong.DisplayGroupEdit.displayGroupId = '${displayGroup?.id}';
-    zenexity.capdemat.bong.DisplayGroupEdit.editMode = '${editMode}';
-    zenexity.capdemat.bong.DisplayGroupEdit.ressourceBaseUrl = '${createLink(controller:'localAuthorityResource', action:'resource',  params:[type:'DISPLAY_GROUP_IMAGE',filename:''])}'
+    zenexity.libredemat.bong.DisplayGroupEdit.displayGroupId = '${displayGroup?.id}';
+    zenexity.libredemat.bong.DisplayGroupEdit.editMode = '${editMode}';
+    zenexity.libredemat.bong.DisplayGroupEdit.ressourceBaseUrl = '${createLink(controller:'localAuthorityResource', action:'resource',  params:[type:'DISPLAY_GROUP_IMAGE',filename:''])}'
   </script>
   </head>
 

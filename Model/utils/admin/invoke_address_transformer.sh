@@ -11,8 +11,8 @@
 
 . set_classpath.sh $1 valdoise
 
-#java -Dhttp.proxyHost=172.16.249.4 -Dhttp.proxyPort=8080 -cp $CLASSPATH  fr.cg95.cvq.util.admin.AddressTransformer $1 $2
-java -cp $CLASSPATH  fr.cg95.cvq.util.admin.AddressTransformer $1
+#java -Dhttp.proxyHost=172.16.249.4 -Dhttp.proxyPort=8080 -cp $CLASSPATH  org.libredemat.util.admin.AddressTransformer $1 $2
+java -cp $CLASSPATH  org.libredemat.util.admin.AddressTransformer $1
 
 
 

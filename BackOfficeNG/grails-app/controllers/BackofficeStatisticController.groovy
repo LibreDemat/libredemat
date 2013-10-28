@@ -1,8 +1,8 @@
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IRequestStatisticsService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.util.Critere
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestStatisticsService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.util.Critere
 
 import grails.converters.JSON
 
@@ -157,7 +157,7 @@ class BackofficeStatisticController {
             requestStatisticsService.getStateStats(startDate, endDate, requestTypeId, categoryId)
         results.each { requestState,count ->
 			if (count.intValue() > 0) {
-			    def stateI18nKey = CapdematUtils.adaptCapdematEnum(requestState,'request.state').i18nKey
+			    def stateI18nKey = LibredematUtils.adaptLibredematEnum(requestState,'request.state').i18nKey
                 def label =
                     new StringBuffer(message(code:stateI18nKey)).append(' (').append(count).append(')')
         		textLabels.add(label)
@@ -278,8 +278,8 @@ class BackofficeStatisticController {
         [message(code : "statistics.header." + params.currentStatisticType),
          categoryId != null ? categoryService.getById(categoryId).name : null,
          requestTypeId != null ? translationService.translateRequestTypeLabel(requestTypeService.getRequestTypeById(requestTypeId).label) : null,
-         startDate != null ? message(code : "statistics.filename.start.date") + fr.cg95.cvq.util.DateUtils.format(startDate) : null,
-         endDate != null ? message(code : "statistics.filename.end.date") + fr.cg95.cvq.util.DateUtils.format(endDate) : null].each {
+         startDate != null ? message(code : "statistics.filename.start.date") + org.libredemat.util.DateUtils.format(startDate) : null,
+         endDate != null ? message(code : "statistics.filename.end.date") + org.libredemat.util.DateUtils.format(endDate) : null].each {
             if (it != null) {
                 filenameParts.add(it)
             }
@@ -345,12 +345,12 @@ class BackofficeStatisticController {
                                 //    line[2] = line[1]
                                 //}
                                 if (i > 0) {
-                                    data[data.size() - 1][2] = new SimpleDateFormat(format).format(fr.cg95.cvq.util.DateUtils.getShiftedDate(date, shiftUnit, -1))
+                                    data[data.size() - 1][2] = new SimpleDateFormat(format).format(org.libredemat.util.DateUtils.getShiftedDate(date, shiftUnit, -1))
                                 }
                                 line[3] = count.toString()
                                 data.add(line)
                                 if (i > 0) {
-                                    data[data.size() - 2][2] = new SimpleDateFormat(format).format(fr.cg95.cvq.util.DateUtils.getShiftedDate(date, shiftUnit, -1))
+                                    data[data.size() - 2][2] = new SimpleDateFormat(format).format(org.libredemat.util.DateUtils.getShiftedDate(date, shiftUnit, -1))
                                 }
                             }
                         }
@@ -362,7 +362,7 @@ class BackofficeStatisticController {
                     def valuesLine = new String[stats.size()]
                     def index = 0
                     stats.entrySet().each {
-                        statesLine[index] = message(code : CapdematUtils.adaptCapdematEnum(it.key, 'request.state').i18nKey)
+                        statesLine[index] = message(code : LibredematUtils.adaptLibredematEnum(it.key, 'request.state').i18nKey)
                         valuesLine[index] = it.value.toString()
                         index++
                     }

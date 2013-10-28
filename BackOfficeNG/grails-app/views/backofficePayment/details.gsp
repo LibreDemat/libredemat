@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="${resource(dir:'css/backoffice/common/yui-skin/',file:'container.css')}" />
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'payment.css')}" />
     <script type="text/javascript">
-      zenexity.capdemat.bong.payment.id = '${payment.id}';
+      zenexity.libredemat.bong.payment.id = '${payment.id}';
     </script>
   </head>
   <body>

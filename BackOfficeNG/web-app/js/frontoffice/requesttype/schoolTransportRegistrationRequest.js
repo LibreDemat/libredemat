@@ -1,11 +1,11 @@
 ;(function(request) {
-  var zct = zenexity.capdemat.tools
+  var zct = zenexity.libredemat.tools
     , yud = YAHOO.util.Dom
     , yue = YAHOO.util.Event
     , yus = YAHOO.util.Selector
 
   var initTransports = function() {
-    var prefix = zenexity.capdemat.contextPath + '/frontoffice/technocarte'
+    var prefix = zenexity.libredemat.contextPath + '/frontoffice/technocarte'
 
     var linesURL = function() {
       return prefix
@@ -88,4 +88,4 @@
     }
   }
 
-}(zenexity.capdemat.tools.namespace('zenexity.capdemat.fong.requesttype.SchoolTransportRegistrationRequest')))
+}(zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype.SchoolTransportRegistrationRequest')))

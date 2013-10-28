@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/mcr"
-  xmlns:mcr="http://www.cg95.fr/cvq/schema/mcr" 
+<xs:schema targetNamespace="http://www.libredemat.org/schema/mcr"
+  xmlns:mcr="http://www.libredemat.org/schema/mcr" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
+  <xs:import namespace="http://www.libredemat.org/schema/common"
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="MilitaryCensusRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande de recensement militaire
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         Military census request
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Recensement militaire
       </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         Military census
       </xs:documentation>
       <xs:appinfo>
@@ -60,13 +60,13 @@
 
             <xs:element name="ChildTitle" type="cvq:TitleType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   La civilité de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Civilité
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child civility
                 </xs:documentation>
                 <xs:appinfo>
@@ -83,13 +83,13 @@
 
             <xs:element name="MaidenName" type="cvq:LastNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Le nom d'usage éventuel de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom d'usage
                 </xs:documentation>
-               <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+               <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child maiden name
                 </xs:documentation>
                 <xs:appinfo>
@@ -106,13 +106,13 @@
 
             <xs:element name="ChildBirthCountry" type="cvq:CountryType" default="fr">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Le pays de naissance de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Pays de naissance
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child birth country
                 </xs:documentation>
                 <xs:appinfo>
@@ -130,16 +130,16 @@
             <xs:element name="ChildResidenceCountry" type="cvq:CountryType" default="fr"
               minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Le pays de résidence de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Pays de résidence
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child residence country
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Residence country
                 </xs:documentation>
                 <xs:appinfo>
@@ -156,16 +156,16 @@
 
             <xs:element name="ChildPhone" type="cvq:PhoneType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Le numéro de téléphone de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Téléphone
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child phone number
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child phone number
                 </xs:documentation>
                 <xs:appinfo>
@@ -181,13 +181,13 @@
 
             <xs:element name="ChildMail" type="cvq:EmailType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Le courriel de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Courriel
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child e-mail
                 </xs:documentation>
                 <xs:appinfo>
@@ -203,16 +203,16 @@
 
             <xs:element name="ChildCountry" type="cvq:FullNationalityType" default="fr">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   La nationalité de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nationalité
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child nationality
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Nationality
                 </xs:documentation>
                 <xs:appinfo>
@@ -229,16 +229,16 @@
 
             <xs:element name="ChildOtherCountry" type="cvq:FullNationalityType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   La deuxième nationalité de l'enfant
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Deuxième nationalité
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The child second nationality
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Second nationality
                 </xs:documentation>
                 <xs:appinfo>
@@ -255,16 +255,16 @@
 
             <xs:element name="ChildConvention" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Convention Internationale
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Convention internationale
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   International Convention
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   International Convention
                 </xs:documentation>
                 <xs:appinfo>
@@ -291,10 +291,10 @@
 
             <xs:element name="FatherInformation" type="mcr:MilitaryFatherInformationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations sur le père
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Le père
                 </xs:documentation>
                 <xs:appinfo>
@@ -310,10 +310,10 @@
 
             <xs:element name="MotherInformation" type="mcr:MilitaryMotherInformationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations sur la mère
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   La mère
                 </xs:documentation>
                 <xs:appinfo>
@@ -329,10 +329,10 @@
 
             <xs:element name="FamilySituationInformation" type="mcr:FamilySituationInformationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations sur la situation familiale
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Situation familiale
                 </xs:documentation>
                 <xs:appinfo>
@@ -348,10 +348,10 @@
 
             <xs:element name="ProfessionalSituationInformation" type="mcr:ProfessionalSituationInformationType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations sur la situation professionnelle
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Situation professionnelle
                 </xs:documentation>
                 <xs:appinfo>
@@ -367,16 +367,16 @@
 
             <xs:element name="JapdExemption" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Demande d'exemption à la JDC
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Exemption JDC
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   JDC exemption request
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   JDC exemption
                 </xs:documentation>
                 <xs:appinfo>
@@ -392,16 +392,16 @@
 
             <xs:element name="HighlyInfirm" type="xs:boolean" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Grand Infirme
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Grand Infirme
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Highly Infirm
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Highly Infirm
                 </xs:documentation>
                 <xs:appinfo>
@@ -417,16 +417,16 @@
 
             <xs:element name="AffectionOrDisease" type="xs:boolean" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Affection ou maladie
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Affection ou maladie
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Affection or disease
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Affection or disease
                 </xs:documentation>
                 <xs:appinfo>
@@ -448,13 +448,13 @@
 
   <xs:simpleType name="ChildDiplomaType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Diplôme de l'enfant
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Diplôme
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="BAC" value="BAC" />
         <enum key="BEP" value="BEP" />
         <enum key="BEPC" value="BEPC" />
@@ -487,13 +487,13 @@
 
   <xs:simpleType name="ChildSituationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Situation de l'enfant
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Situation
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="College" value="Lycéen(ne)" />
         <enum key="Highschool" value="Collégien(ne)" />
         <enum key="Student" value="Etudiant(e)" />
@@ -518,16 +518,16 @@
     <xs:sequence>
       <xs:element name="FatherLastName" type="cvq:LastNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le nom du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
              The father last name
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
              Father last name
           </xs:documentation>
           <xs:appinfo>
@@ -543,16 +543,16 @@
 
       <xs:element name="FatherFirstName" type="cvq:FirstNameType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le prénom du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The father first name
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Father first name
           </xs:documentation>
           <xs:appinfo>
@@ -567,16 +567,16 @@
       </xs:element>
       <xs:element name="FatherBirthDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             La date de naissance du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The father birthdate
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Father birthdate
           </xs:documentation>
           <xs:appinfo>
@@ -591,16 +591,16 @@
       </xs:element>
       <xs:element name="FatherBirthCity" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Ville de naissance du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Ville de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Father Birth City
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Father Birth City
           </xs:documentation>
           <xs:appinfo>
@@ -615,16 +615,16 @@
       </xs:element>
       <xs:element name="FatherBirthDepartment" type="cvq:InseeDepartementCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département de naissance du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Father Birth Departement
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Birth Department
           </xs:documentation>
           <xs:appinfo>
@@ -640,16 +640,16 @@
       </xs:element>
       <xs:element name="FatherBirthCountry" type="cvq:CountryType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pays de naissance du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pays de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Father Birth Country
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Birth Country
           </xs:documentation>
           <xs:appinfo>
@@ -665,16 +665,16 @@
       </xs:element>
       <xs:element name="FatherNationality" type="cvq:FullNationalityType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nationalité du père
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nationalité
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Father nationality
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Father nationality
           </xs:documentation>
           <xs:appinfo>
@@ -695,16 +695,16 @@
     <xs:sequence>
       <xs:element name="MotherLastName" type="cvq:LastNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le nom de naissance de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The mother last name
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother last name
           </xs:documentation>
           <xs:appinfo>
@@ -719,16 +719,16 @@
       </xs:element>
       <xs:element name="MotherFirstName" type="cvq:FirstNameType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le prénom de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Prénom
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The mother first name
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother first name
           </xs:documentation>
           <xs:appinfo>
@@ -743,16 +743,16 @@
       </xs:element>
       <xs:element name="MotherBirthDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             La date de naissance de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Date de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The mother birthdate
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother birthdate
           </xs:documentation>
           <xs:appinfo>
@@ -767,16 +767,16 @@
       </xs:element>
       <xs:element name="MotherBirthCity" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Ville de naissance de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Ville de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Mother Birth City
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother Birth City
           </xs:documentation>
           <xs:appinfo>
@@ -791,16 +791,16 @@
       </xs:element>
       <xs:element name="MotherBirthDepartment" type="cvq:InseeDepartementCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Département de naissance de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Département de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Mother birth department
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother birth department
           </xs:documentation>
           <xs:appinfo>
@@ -816,16 +816,16 @@
       </xs:element>
       <xs:element name="MotherBirthCountry" type="cvq:CountryType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pays de naissance de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pays de naissance
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Mother Birth Country
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother Birth Country
           </xs:documentation>
           <xs:appinfo>
@@ -841,16 +841,16 @@
       </xs:element>
       <xs:element name="MotherNationality" type="cvq:FullNationalityType" default="fr">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Nationalité de la mère
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nationalité
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Mother nationality
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Mother nationality
           </xs:documentation>
           <xs:appinfo>
@@ -871,16 +871,16 @@
     <xs:sequence>
       <xs:element name="AliveChildren" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le nombre de frères et soeurs vivants
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre de frères et soeurs vivants
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The number of alive brothers and sisters
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Number of alive brothers and sisters
           </xs:documentation>
           <xs:appinfo>
@@ -895,16 +895,16 @@
       </xs:element>
       <xs:element name="ChildStatus" type="cvq:FamilyStatusType" default="Other">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             La situation familiale de l'enfant
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Situation familiale
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The child family status
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Family status
           </xs:documentation>
           <xs:appinfo>
@@ -920,16 +920,16 @@
       </xs:element>
       <xs:element name="ChildrenInCharge" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Le nombre d'enfants à charge
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nombre d'enfants à charge
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The number of dependent children
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Number of dependent children
           </xs:documentation>
           <xs:appinfo>
@@ -944,16 +944,16 @@
       </xs:element>
       <xs:element name="OtherSituation" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Autre situation
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Autre situation
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Other situation
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Other situation
           </xs:documentation>
           <xs:appinfo>
@@ -968,13 +968,13 @@
       </xs:element>
       <xs:element name="StatePupil" type="xs:boolean" default="false">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pupille de l'état
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pupille de l'état
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             State pupil
           </xs:documentation>
           <xs:appinfo>
@@ -989,10 +989,10 @@
       </xs:element>
       <xs:element name="PrefectPupil" type="xs:boolean" default="false">
         <xs:annotation>
-         <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+         <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pupille du préfet
           </xs:documentation>
-         <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+         <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pupille du préfet
           </xs:documentation>
           <xs:appinfo>
@@ -1010,10 +1010,10 @@
       </xs:element>
       <xs:element name="PrefectPupilDepartment" type="cvq:InseeDepartementCodeType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pupille du préfet du département
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Pupille du préfet du département
           </xs:documentation>
           <xs:appinfo>
@@ -1037,16 +1037,16 @@
     <xs:sequence>
       <xs:element name="ChildSituation" type="mcr:ChildSituationType" >
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             La situation scolaire ou professionnelle de l'enfant
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Situation scolaire ou professionnelle
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             The child scholar or professionnal situation
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Scholar or professionnal situation
           </xs:documentation>
           <xs:appinfo>
@@ -1062,16 +1062,16 @@
 
       <xs:element name="ChildDiploma" type="mcr:ChildDiplomaType">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Diplôme de l'enfant
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Diplôme
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Child Diploma
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Diploma
           </xs:documentation>
           <xs:appinfo>
@@ -1087,16 +1087,16 @@
 
       <xs:element name="ChildSpeciality" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Spécialité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Spécialité
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Speciality
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Speciality
           </xs:documentation>
           <xs:appinfo>
@@ -1112,16 +1112,16 @@
 
       <xs:element name="ChildProfession" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Profession
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Profession
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
             Profession
           </xs:documentation>
-          <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
             Profession
           </xs:documentation>
           <xs:appinfo>

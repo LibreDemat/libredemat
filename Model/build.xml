@@ -39,7 +39,7 @@ clean-tests
                 <include name="**/*.jar" />
                 <!-- do not include our own production -->
                 <exclude name="**/${application.name}-${module.name}-${application.version}.jar" />
-                <exclude name="fr.cg95/plugins/${application.name}*.jar" />
+                <exclude name="org.libredemat/plugins/${application.name}*.jar" />
             </fileset>
 
             <fileset dir="${basedir}/${lib.dir}">
@@ -89,7 +89,7 @@ clean-tests
             <pathelement path="${basedir}/${src.xml.hibernate.dir}" />
             <pathelement path="${basedir}/test/conf/spring" />
             <pathelement path="${basedir}/test/assets/dummy" />
-            <fileset dir="${libraries.dir}/fr.cg95/plugins">
+            <fileset dir="${libraries.dir}/org.libredemat/plugins">
                 <include name="**/*.jar" />
             </fileset>
             <!-- need c3p0 configuration file on the classpath -->
@@ -222,7 +222,7 @@ clean-tests
     <target name="schemaexport" depends="compile-sources">
         <taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="classpath.compile" />
         <hibernatetool destdir="${db.dir}">
-            <jpaconfiguration persistenceunit="capdematPersistenceUnit" />
+            <jpaconfiguration persistenceunit="libredematPersistenceUnit" />
             <classpath>
                 <path location="${basedir}/${build.classes.dir}" />
             </classpath>

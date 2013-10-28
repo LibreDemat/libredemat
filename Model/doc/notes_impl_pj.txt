@@ -134,7 +134,7 @@ Evolutions Workflow (dans IDocumentService) :
 	  
 Conséquence : les PJs n'utilisent plus la classe ActorState pour
 définir leur état. A la place, elles utilisent leur propre classe
-DocumentState (toujours dans fr.cg95.cvq.business.users).
+DocumentState (toujours dans org.libredemat.business.users).
 
 Questions et TODO :
 ===================

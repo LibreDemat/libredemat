@@ -1,17 +1,17 @@
 
 /**
  * @description This file contains homefolder search client-module
- * @namespace zenexity.capdemat.bong.homeFolder
+ * @namespace zenexity.libredemat.bong.homeFolder
  * 
  * @author vba@zenexity.fr
  */
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
 
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zcbh = zenexity.capdemat.bong.homeFolder;
+  var zct = zenexity.libredemat.tools;
+  var zcbh = zenexity.libredemat.bong.homeFolder;
   
   var yl = YAHOO.lang;
   var yu = YAHOO.util;
@@ -88,14 +88,14 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
           zcbh.Search.pageState[el.name] = zct.val(el);
       },
       /**
-       * @see zenexity.capdemat.bong.homeFolder.Search.processValue
+       * @see zenexity.libredemat.bong.homeFolder.Search.processValue
        */
       processRadio: function(el) {
         if(el.checked) zcbh.Search.pageState[el.name] = zct.val(el);
         return true;
       },
       /**
-       * @see zenexity.capdemat.bong.homeFolder.Search.processValue
+       * @see zenexity.libredemat.bong.homeFolder.Search.processValue
        */
       processCheckbox: function(el) {
         if(el.checked) zcbh.Search.pageState[el.name] = zct.val(el);

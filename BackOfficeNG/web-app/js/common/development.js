@@ -1,8 +1,8 @@
 (function() {
 
-  var zctc = zenexity.capdemat.tools.cascade;
-  var zct = zenexity.capdemat.tools;
-  var zcc = zenexity.capdemat.common;
+  var zctc = zenexity.libredemat.tools.cascade;
+  var zct = zenexity.libredemat.tools;
+  var zcc = zenexity.libredemat.common;
   var yus = YAHOO.util.Selector;
   var yue = YAHOO.util.Event;
   var yuc = YAHOO.util.Connect;

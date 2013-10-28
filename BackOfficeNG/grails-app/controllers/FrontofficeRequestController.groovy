@@ -1,36 +1,36 @@
-import fr.cg95.cvq.business.authority.LocalAuthorityResource
-import fr.cg95.cvq.business.users.Child;
-import fr.cg95.cvq.business.users.MeansOfContactEnum
-import fr.cg95.cvq.business.users.RoleType
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestNoteType
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.business.users.Adult
-import fr.cg95.cvq.business.users.Child
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.exception.CvqValidationException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.request.IAutofillService
-import fr.cg95.cvq.service.request.IConditionService
-import fr.cg95.cvq.service.users.IMeansOfContactService
-import fr.cg95.cvq.service.request.IRequestActionService
-import fr.cg95.cvq.service.request.external.IRequestExternalService
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestNoteService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.service.request.IRequestServiceRegistry
-import fr.cg95.cvq.service.users.IUserService
-import fr.cg95.cvq.service.users.IUserSearchService
-import fr.cg95.cvq.service.users.IUserWorkflowService
-import fr.cg95.cvq.util.Critere
-import fr.cg95.cvq.util.UserUtils
-import fr.cg95.cvq.util.translation.ITranslationService
-import fr.cg95.cvq.service.payment.IRequestPaymentService
-import fr.cg95.cvq.service.payment.IPaymentService
+import org.libredemat.business.authority.LocalAuthorityResource
+import org.libredemat.business.users.Child;
+import org.libredemat.business.users.MeansOfContactEnum
+import org.libredemat.business.users.RoleType
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestNoteType
+import org.libredemat.business.request.RequestState
+import org.libredemat.business.users.Adult
+import org.libredemat.business.users.Child
+import org.libredemat.exception.CvqException
+import org.libredemat.exception.CvqValidationException
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.request.IAutofillService
+import org.libredemat.service.request.IConditionService
+import org.libredemat.service.users.IMeansOfContactService
+import org.libredemat.service.request.IRequestActionService
+import org.libredemat.service.request.external.IRequestExternalService
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestNoteService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.service.request.IRequestServiceRegistry
+import org.libredemat.service.users.IUserService
+import org.libredemat.service.users.IUserSearchService
+import org.libredemat.service.users.IUserWorkflowService
+import org.libredemat.util.Critere
+import org.libredemat.util.UserUtils
+import org.libredemat.util.translation.ITranslationService
+import org.libredemat.service.payment.IRequestPaymentService
+import org.libredemat.service.payment.IPaymentService
 
 import grails.converters.JSON
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
@@ -211,7 +211,7 @@ class FrontofficeRequestController {
                     session.doRollback = true
             }
         }
-        def requestTypeLabelAsDir = CapdematUtils.requestTypeLabelAsDir(rqt.requestType.label)
+        def requestTypeLabelAsDir = LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label)
         def viewPath = "/frontofficeRequestType/${requestTypeLabelAsDir}/edit"
         def nextWebflowStep = webflowNextStep(rqt, params.currentStep)
 
@@ -345,7 +345,7 @@ class FrontofficeRequestController {
             // hack : WTF is an unknown sex ?
             individual.sex = null
         }
-        def requestTypeLabelAsDir = CapdematUtils.requestTypeLabelAsDir(rqt.requestType.label)
+        def requestTypeLabelAsDir = LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label)
         def viewPath = "/frontofficeRequestType/${requestTypeLabelAsDir}/edit"
         def model = [
             "rqt" : rqt,
@@ -492,7 +492,7 @@ class FrontofficeRequestController {
                 'externalInformations' : requestExternalService.loadExternalInformations(rqt),
                 "documentsByTypes" : documentAdaptorService.getDocumentsByType(rqt),
                 "lrTypes" : requestTypeAdaptorService.getLocalReferentialTypes(rqt.requestType.label),
-                'validationTemplateDirectory':CapdematUtils.requestTypeLabelAsDir(rqt.requestType.label)
+                'validationTemplateDirectory':LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label)
         ]
     }
 

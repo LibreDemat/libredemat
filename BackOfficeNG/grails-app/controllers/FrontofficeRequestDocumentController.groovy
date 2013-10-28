@@ -1,14 +1,14 @@
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestDocumentService
-import fr.cg95.cvq.service.request.IRequestWorkflowService
-import fr.cg95.cvq.business.document.DocumentState
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.service.document.IDocumentService
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.business.document.Document
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.exception.CvqModelException
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestDocumentService
+import org.libredemat.service.request.IRequestWorkflowService
+import org.libredemat.business.document.DocumentState
+import org.libredemat.business.request.RequestState
+import org.libredemat.service.document.IDocumentService
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.business.document.Document
+import org.libredemat.security.SecurityContext
+import org.libredemat.exception.CvqModelException
 
 class FrontofficeRequestDocumentController {
 

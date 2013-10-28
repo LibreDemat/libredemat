@@ -1,13 +1,13 @@
-import fr.cg95.cvq.business.document.Document
-import fr.cg95.cvq.business.document.ContentType
-import fr.cg95.cvq.business.document.DocumentState
-import fr.cg95.cvq.business.document.DocumentBinary
-import fr.cg95.cvq.business.users.Adult
-import fr.cg95.cvq.business.users.Individual
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.document.IDocumentService
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.business.document.Document
+import org.libredemat.business.document.ContentType
+import org.libredemat.business.document.DocumentState
+import org.libredemat.business.document.DocumentBinary
+import org.libredemat.business.users.Adult
+import org.libredemat.business.users.Individual
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.document.IDocumentService
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.util.UserUtils
 
 import java.util.Hashtable
 import javax.servlet.http.HttpServletResponse
@@ -51,7 +51,7 @@ class FrontofficeDocumentController {
         result.doc = [
             "id": document.id,
             "name": document.documentType,
-            "title" : message(code: CapdematUtils.adaptDocumentTypeName(document.documentType.name)),
+            "title" : message(code: LibredematUtils.adaptDocumentTypeName(document.documentType.name)),
             "state": document.state,
             "depositType": document.depositType,
             "depositOrigin": document.depositOrigin,
@@ -144,7 +144,7 @@ class FrontofficeDocumentController {
                 'depositType' : it.depositType,
                 'depositOrigin' : it.depositOrigin,
                 'depositor' : UserUtils.getDisplayName(it.depositId),
-                'title' : message(code: CapdematUtils.adaptDocumentTypeName(it.documentType.name))
+                'title' : message(code: LibredematUtils.adaptDocumentTypeName(it.documentType.name))
             ]);
         }
         
@@ -159,7 +159,7 @@ class FrontofficeDocumentController {
         this.documentTypeService.allDocumentTypes.each{
             result.add([
                 id: it.id,
-                name: message(code:CapdematUtils.adaptDocumentTypeName(it.name))
+                name: message(code:LibredematUtils.adaptDocumentTypeName(it.name))
             ])
         }
         return result.sort {it.name}

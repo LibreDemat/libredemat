@@ -20,7 +20,7 @@
             <select id="modeAccueilChoixUn" name="modeAccueilChoixUn" class="required condition-estIndifferent-filled  validate-not-first ${rqt.stepStates['accueil'].invalidFields.contains('modeAccueilChoixUn') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.modeAccueilChoixUn.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['COLLECTIF','FAMILIAL']}">
-                <option value="${it}" ${it == rqt.modeAccueilChoixUn?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.modeAccueilChoixUn" /></option>
+                <option value="${it}" ${it == rqt.modeAccueilChoixUn?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.modeAccueilChoixUn" /></option>
               </g:each>
             </select>
             
@@ -32,7 +32,7 @@
             <select id="modeAccueilChoixDeux" name="modeAccueilChoixDeux" class="condition-estIndifferent-filled  validate-select ${rqt.stepStates['accueil'].invalidFields.contains('modeAccueilChoixDeux') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.modeAccueilChoixDeux.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['COLLECTIF','FAMILIAL']}">
-                <option value="${it}" ${it == rqt.modeAccueilChoixDeux?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.modeAccueilChoixDeux" /></option>
+                <option value="${it}" ${it == rqt.modeAccueilChoixDeux?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.modeAccueilChoixDeux" /></option>
               </g:each>
             </select>
             
@@ -55,7 +55,7 @@
             <select id="choixTypeDatePlacementAccueilRegulier" name="choixTypeDatePlacementAccueilRegulier" class="required condition-dateConnue-trigger  validate-not-first ${rqt.stepStates['accueil'].invalidFields.contains('choixTypeDatePlacementAccueilRegulier') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.choixTypeDatePlacementAccueilRegulier.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['CONNUE','POSSIBLE']}">
-                <option value="${it}" ${it == rqt.choixTypeDatePlacementAccueilRegulier?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.choixTypeDatePlacementAccueilRegulier" /></option>
+                <option value="${it}" ${it == rqt.choixTypeDatePlacementAccueilRegulier?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.choixTypeDatePlacementAccueilRegulier" /></option>
               </g:each>
             </select>
             
@@ -109,7 +109,7 @@
             <select id="choixHorairesAccueil" name="choixHorairesAccueil" class="required condition-estHorairesAccueilRegulier-trigger condition-estHorairesAccueilIrregulier-trigger  validate-not-first ${rqt.stepStates['accueil'].invalidFields.contains('choixHorairesAccueil') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.choixHorairesAccueil.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['INDIFFERENT','REGULIER','IRREGULIER']}">
-                <option value="${it}" ${it == rqt.choixHorairesAccueil?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.choixHorairesAccueil" /></option>
+                <option value="${it}" ${it == rqt.choixHorairesAccueil?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.choixHorairesAccueil" /></option>
               </g:each>
             </select>
             

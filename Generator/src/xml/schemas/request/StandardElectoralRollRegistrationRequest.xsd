@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/serrr" 
-  xmlns:serrr="http://www.cg95.fr/cvq/schema/serrr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/serrr" 
+  xmlns:serrr="http://www.libredemat.org/schema/serrr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="StandardElectoralRollRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'inscription sur les listes électorales
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Inscription sur les listes électorales
       </xs:documentation>
       <xs:appinfo>
@@ -58,10 +58,10 @@
           <xs:sequence>
             <xs:element name="NomNaissance" type="cvq:LastNameType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom de naissance
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom de naissance
                 </xs:documentation>
                 <xs:appinfo>
@@ -76,10 +76,10 @@
             </xs:element>
             <xs:element name="Prenom" type="cvq:FirstNameType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prénom
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Prénom
                 </xs:documentation>
                 <xs:appinfo>
@@ -95,10 +95,10 @@
             </xs:element>
             <xs:element name="DeuxiemePrenom" type="cvq:FirstNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Deuxième prénom
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Deuxième prénom
                 </xs:documentation>
                 <xs:appinfo>
@@ -114,10 +114,10 @@
             </xs:element>
             <xs:element name="TroisiemePrenom" type="cvq:FirstNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Troisième prénom
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Troisième prénom
                 </xs:documentation>
                 <xs:appinfo>
@@ -133,10 +133,10 @@
             </xs:element>
             <xs:element name="Sexe" type="serrr:SerrrSexeType" default="Masculin">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Sexe
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Sexe
                 </xs:documentation>
                 <xs:appinfo>
@@ -156,10 +156,10 @@
             </xs:element>
             <xs:element name="NomMarital" type="cvq:LastNameType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nom marital
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom marital
                 </xs:documentation>
                 <xs:appinfo>
@@ -177,10 +177,10 @@
             </xs:element>
             <xs:element name="DateNaissance" type="xs:date">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Date de naissance
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Date de naissance
                 </xs:documentation>
                 <xs:appinfo>
@@ -196,10 +196,10 @@
             </xs:element>
             <xs:element name="LieuNaissance" type="serrr:SerrrLieuNaissanceType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Lieu de naissance
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Lieu de naissance
                 </xs:documentation>
                 <xs:appinfo>
@@ -215,10 +215,10 @@
 
             <xs:element name="Nationalite" type="serrr:SerrrNationaliteType" default="Francaise">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Nationalité de la personne à inscrire
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nationalité
                 </xs:documentation>
                 <xs:appinfo>
@@ -239,10 +239,10 @@
 
             <xs:element name="FieldsetEstUnionEuropeenne" type="serrr:SerrrFieldsetEstUnionEuropeenneType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   
                 </xs:documentation>
                 <xs:appinfo>
@@ -261,10 +261,10 @@
 
             <xs:element name="Situation" type="serrr:SerrrSituationType" default="PremiereInscription">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Cocher la case correspondant à votre situation
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Cocher la case correspondant à votre situation
                 </xs:documentation>
                 <xs:appinfo>
@@ -284,10 +284,10 @@
             </xs:element>
             <xs:element name="PrecedentLieuInscription" type="serrr:SerrrPrecedentLieuInscriptionType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Précédent lieu d'inscription
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Précédent lieu d'inscription
                 </xs:documentation>
                 <xs:appinfo>
@@ -305,10 +305,10 @@
             </xs:element>
             <xs:element name="AmbassadeOuPosteConsulaire" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Ambassade ou poste consulaire
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Ambassade ou poste consulaire
                 </xs:documentation>
                 <xs:appinfo>
@@ -323,10 +323,10 @@
             </xs:element>
             <xs:element name="PaysRadiation" type="cvq:CountryType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Pays
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Pays
                 </xs:documentation>
                 <xs:appinfo>
@@ -343,10 +343,10 @@
 
             <xs:element name="TypeInscription" type="serrr:SerrrTypeInscriptionType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Inscription
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Inscription
                 </xs:documentation>
                 <xs:appinfo>
@@ -367,7 +367,7 @@
 
   <xs:simpleType name="SerrrSexeType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Feminin" value="Féminin"/>
         <enum key="Masculin" value="Masculin"/>
       </xs:documentation>
@@ -380,7 +380,7 @@
 
   <xs:simpleType name="SerrrNationaliteType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Francaise" value="Française"/>
         <enum key="RessortissantUE" value="Ressortissant de l'UE"/>
       </xs:documentation>
@@ -393,7 +393,7 @@
 
   <xs:simpleType name="SerrrTypeElectionType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="ElectionMunicipale" value="Elections municipales"/>
         <enum key="ElectionEuropeenne" value="Elections européennes"/>
       </xs:documentation>
@@ -406,7 +406,7 @@
 
   <xs:simpleType name="SerrrTypeInscriptionType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="Volontaire" value="Inscription volontaire"/>
         <enum key="DecisionJudiciaire" value="Inscription par décision judiciaire"/>
         <enum key="Office" value="Inscription d'office"/>
@@ -421,13 +421,13 @@
 
   <xs:simpleType name="SerrrSituationType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Informations relatives à la raison de la demande d'inscription sur les listes électorales 
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Raison de la demande
       </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="PremiereInscription" value="Première inscription sur les listes électorales d'une commune française"/>
         <enum key="DemenagementMemeCommune" value="Inscription en cas de déménagement à l'intérieur d'une même commune française ou d'un même arrondissement pour Paris, Lyon et Marseille"/>
         <enum key="ChangementCommune" value="Inscription en cas de changement de commune d'inscription ou en cas de changement d'arrondissement pour Paris, Lyon et Marseille"/>
@@ -444,10 +444,10 @@
     <xs:sequence>
       <xs:element name="PrecisionNationalite" type="serrr:SerrrPrecisionNationaliteType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Précisez votre nationalité
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Précisez votre nationalité
                 </xs:documentation>
                 <xs:appinfo>
@@ -466,10 +466,10 @@
 
             <xs:element name="TypeElection" type="serrr:SerrrTypeElectionType" default="ElectionMunicipale">
               <xs:annotation>
-               <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+               <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                  Type d'élection
                </xs:documentation>
-              <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+              <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Type d'élection
               </xs:documentation>
              <xs:appinfo>
@@ -491,11 +491,11 @@
 
           <xs:element name="PaysPrecedent" type="cvq:CountryType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Pays
           </xs:documentation>
           <xs:documentation xml:lang="fr"
-            source="http://www.cg95.fr/cvq/schema/shortdesc">
+            source="http://www.libredemat.org/schema/shortdesc">
             Pays
           </xs:documentation>
           <xs:appinfo>
@@ -514,10 +514,10 @@
       </xs:element>
       <xs:element name="SubdivisionAdministrativePrecedente" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Subdivision administrative
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Subdivision administrative
           </xs:documentation>
           <xs:appinfo>
@@ -535,10 +535,10 @@
       </xs:element>
       <xs:element name="CommuneOuLocalitePrecedente" type="cvq:CityType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
             Commune ou Localité
           </xs:documentation>
-          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Commune ou Localité
           </xs:documentation>
           <xs:appinfo>
@@ -561,10 +561,10 @@
     <xs:sequence>
       <xs:element name="PaysRadiation" type="cvq:CountryType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Pays
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Pays
                 </xs:documentation>
                 <xs:appinfo>
@@ -580,10 +580,10 @@
             </xs:element>
             <xs:element name="AmbassadeOuPosteConsulaire" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Ambassade ou poste consulaire
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Ambassade ou poste consulaire
                 </xs:documentation>
                 <xs:appinfo>
@@ -603,10 +603,10 @@
     <xs:sequence>
       <xs:element name="VilleNaissanceCodePostal" type="cvq:CityType">
          <xs:annotation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Ville du lieu de naissance
            </xs:documentation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Ville
            </xs:documentation>
            <xs:appinfo>
@@ -621,10 +621,10 @@
        </xs:element>
       <xs:element name="LieuNaissanceDepartement" type="cvq:InseeDepartementCodeType" minOccurs="0">
          <xs:annotation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Département du lieu de naissance
            </xs:documentation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Département
            </xs:documentation>
            <xs:appinfo>
@@ -640,10 +640,10 @@
        </xs:element>
       <xs:element name="LieuNaissancePays" type="cvq:CountryType" minOccurs="0">
          <xs:annotation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
              Pays du lieu de naissance
            </xs:documentation>
-           <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
              Pays
            </xs:documentation>
            <xs:appinfo>
@@ -664,10 +664,10 @@
     <xs:sequence>
       <xs:element name="AncienneCommune" type="cvq:CityType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Commune
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Commune
                 </xs:documentation>
                 <xs:appinfo>
@@ -682,10 +682,10 @@
             </xs:element>
             <xs:element name="DepartementAncienneCommune" type="cvq:InseeDepartementCodeType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Département
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Département
                 </xs:documentation>
                 <xs:appinfo>
@@ -704,7 +704,7 @@
 
   <xs:simpleType name="SerrrPrecisionNationaliteType">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
         <enum key="de" value="Allemand(e)" />
         <enum key="ad" value="Andorran(e)" />
         <enum key="at" value="Autrichien(ne)" />

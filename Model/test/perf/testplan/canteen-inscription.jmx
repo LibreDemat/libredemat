@@ -129,7 +129,7 @@
             </value>
             <name>saveConfig</name>
           </objProp>
-          <stringProp name="filename">/home/rdj/zen-workspace/lab-capdemat/trunk/Model/test/perf/report/canteen-inscription.jtl</stringProp>
+          <stringProp name="filename">/home/rdj/zen-workspace/lab-libredemat/trunk/Model/test/perf/report/canteen-inscription.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
@@ -1193,7 +1193,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
           <stringProp name="HTTPSampler.mimetype">image/jpeg</stringProp>
-          <stringProp name="HTTPSampler.FILE_NAME">/home/rdj/zen-workspace/lab-capdemat/trunk/Model/test/perf/resource/pj-capdemat.jpg</stringProp>
+          <stringProp name="HTTPSampler.FILE_NAME">/home/rdj/zen-workspace/lab-libredemat/trunk/Model/test/perf/resource/pj-libredemat.jpg</stringProp>
           <stringProp name="HTTPSampler.FILE_FIELD">uploadedFile</stringProp>
           <stringProp name="HTTPSampler.monitor">false</stringProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>

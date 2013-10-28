@@ -1,24 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.users.Adult
-import fr.cg95.cvq.business.payment.ExternalAccountItem
-import fr.cg95.cvq.business.payment.ExternalInvoiceItem
-import fr.cg95.cvq.business.payment.ExternalInvoiceItemDetail
-import fr.cg95.cvq.business.payment.ExternalDepositAccountItem
-import fr.cg95.cvq.business.payment.ExternalDepositAccountItemDetail
-import fr.cg95.cvq.business.payment.ExternalTicketingContractItem
-import fr.cg95.cvq.business.users.Individual
-import fr.cg95.cvq.business.payment.PurchaseItem
-import fr.cg95.cvq.business.payment.PaymentMode
-import fr.cg95.cvq.business.payment.Payment
-import fr.cg95.cvq.business.payment.PaymentState
-import fr.cg95.cvq.service.payment.IPaymentService
-import fr.cg95.cvq.service.payment.external.IPaymentExternalService
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.users.Adult
+import org.libredemat.business.payment.ExternalAccountItem
+import org.libredemat.business.payment.ExternalInvoiceItem
+import org.libredemat.business.payment.ExternalInvoiceItemDetail
+import org.libredemat.business.payment.ExternalDepositAccountItem
+import org.libredemat.business.payment.ExternalDepositAccountItemDetail
+import org.libredemat.business.payment.ExternalTicketingContractItem
+import org.libredemat.business.users.Individual
+import org.libredemat.business.payment.PurchaseItem
+import org.libredemat.business.payment.PaymentMode
+import org.libredemat.business.payment.Payment
+import org.libredemat.business.payment.PaymentState
+import org.libredemat.service.payment.IPaymentService
+import org.libredemat.service.payment.external.IPaymentExternalService
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.util.Critere
 
 import org.apache.commons.lang.StringUtils
 

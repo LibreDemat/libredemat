@@ -1,8 +1,8 @@
 (function(){
-  var zcb = zenexity.capdemat.bong;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zcb = zenexity.libredemat.bong;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   var yud = YAHOO.util.Dom;
   var yu = YAHOO.util;
   var yue = YAHOO.util.Event;
@@ -89,7 +89,7 @@
         zct.doAjaxFormSubmitCall('displayGroupForm',[],function(o){
           var json = ylj.parse(o.responseText);
           if (json.status === 'success' && zcb.DisplayGroupEdit.editMode === 'create')
-            window.location = zenexity.capdemat.baseUrl + '/edit/' + json.id;
+            window.location = zenexity.libredemat.baseUrl + '/edit/' + json.id;
           else {
             yud.get('logoForm').name.value = json.displayGroupName;
             zct.Notifier.processMessage(json.status, json.message, null, target);

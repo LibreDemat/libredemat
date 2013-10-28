@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="pdf" classname="fr.cg95.cvq.generator.plugins.pdf.PdfPlugin">
+<plugin id="pdf" classname="org.libredemat.generator.plugins.pdf.PdfPlugin">
 
   <documentation>
-    <element parent="element" source="http://www.cg95.fr/cvq/schema/shortdesc" />
+    <element parent="element" source="http://www.libredemat.org/schema/shortdesc" />
     <element parent="*" source="*" />
   </documentation>
 
@@ -15,7 +15,7 @@
   <configuration>
     <properties
       outputdir="./Model/conf/html/certificate_template"
-      pdftemplate="./Generator/src/java/fr/cg95/cvq/generator/plugins/pdf/pdf.html.tpl"
+      pdftemplate="./Generator/src/java/org/libredemat/generator/plugins/pdf/pdf.html.tpl"
     />
   </configuration>
 

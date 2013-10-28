@@ -1,14 +1,14 @@
 /**
  * Custom RTE module based on YUI SimpleEditor.
  *
- * @namespace zenexity.capdemat.bong
+ * @namespace zenexity.libredemat.bong
  * @author jsb@zenexity.fr
  *
  **/
-zenexity.capdemat.tools.namespace("zenexity.capdemat.bong");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.bong");
 (function() {
-  var zcb = zenexity.capdemat.bong;
-  var zct = zenexity.capdemat.tools;
+  var zcb = zenexity.libredemat.bong;
+  var zct = zenexity.libredemat.tools;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
   var ylj = YAHOO.lang.JSON;
@@ -18,7 +18,7 @@ zenexity.capdemat.tools.namespace("zenexity.capdemat.bong");
    *   with {label}Form ID, and the form must have a {label}Button input
    *   of submit type.
    * @method Editor
-   * @namespace zenexity.capdemat.bong
+   * @namespace zenexity.libredemat.bong
    * @param label {String} The id of the input to handle
    * @param options {Object} Used as options passed to YUI editor if present;
    *   you should clone zcb.Editor.options and customize it.

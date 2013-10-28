@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/modules/payment/schema/acc"
-  xmlns:acc="http://www.capwebct.fr/modules/payment/schema/acc"
+<xs:schema targetNamespace="http://www.libredemat.org/modules/payment/schema/acc"
+  xmlns:acc="http://www.libredemat.org/modules/payment/schema/acc"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
@@ -105,7 +105,7 @@
       <xs:element name="cvq-ack" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
-            CapDemat's reference of the payment
+            LibreDemat's reference of the payment
           </xs:documentation>
         </xs:annotation>
       </xs:element>

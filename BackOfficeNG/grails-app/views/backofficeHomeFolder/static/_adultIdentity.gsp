@@ -1,7 +1,7 @@
 <dt class="required">${message(code:'homeFolder.adult.property.title')}</dt>
-<dd class="required">${g.capdematEnumToText(var:individual.title, i18nKeyPrefix:'homeFolder.adult.title')}</dd>
+<dd class="required">${g.libredematEnumToText(var:individual.title, i18nKeyPrefix:'homeFolder.adult.title')}</dd>
 <dt>${message(code:'homeFolder.adult.property.familyStatus')}</dt>
-<dd>${g.capdematEnumToText(var:individual.familyStatus, i18nKeyPrefix:'homeFolder.adult.familyStatus')}</dd>
+<dd>${g.libredematEnumToText(var:individual.familyStatus, i18nKeyPrefix:'homeFolder.adult.familyStatus')}</dd>
 <dt class="required">${message(code:'homeFolder.individual.property.lastName')}</dt>
 <dd class="required">${individual.lastName}</dd>
 <dt>${message(code:'homeFolder.adult.property.maidenName')}</dt>

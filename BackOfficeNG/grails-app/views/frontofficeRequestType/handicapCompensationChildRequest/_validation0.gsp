@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -101,7 +101,7 @@
           <dt><g:message code="hccr.property.subjectParentalAuthorityHolder.label" /></dt>
           <dd>
             <g:if test="${rqt.subjectParentalAuthorityHolder}">
-              <g:capdematEnumToField var="${rqt.subjectParentalAuthorityHolder}" i18nKeyPrefix="hccr.property.subjectParentalAuthorityHolder" />
+              <g:libredematEnumToField var="${rqt.subjectParentalAuthorityHolder}" i18nKeyPrefix="hccr.property.subjectParentalAuthorityHolder" />
             </g:if>
           </dd>
           
@@ -184,7 +184,7 @@
           <dt><g:message code="hccr.property.referentTitle.label" /></dt>
           <dd>
             <g:if test="${rqt.referentTitle}">
-              <g:capdematEnumToField var="${rqt.referentTitle}" i18nKeyPrefix="hccr.property.referentTitle" />
+              <g:libredematEnumToField var="${rqt.referentTitle}" i18nKeyPrefix="hccr.property.referentTitle" />
             </g:if>
           </dd>
           
@@ -207,7 +207,7 @@
           <dt><g:message code="hccr.property.referentFamilyStatus.label" /></dt>
           <dd>
             <g:if test="${rqt.referentFamilyStatus}">
-              <g:capdematEnumToField var="${rqt.referentFamilyStatus}" i18nKeyPrefix="hccr.property.referentFamilyStatus" />
+              <g:libredematEnumToField var="${rqt.referentFamilyStatus}" i18nKeyPrefix="hccr.property.referentFamilyStatus" />
             </g:if>
           </dd>
           
@@ -240,7 +240,7 @@
           <dt><g:message code="hccr.property.referentFamilyDependentActualSituation.label" /></dt>
           <dd>
             <g:if test="${it.referentFamilyDependentActualSituation}">
-              <g:capdematEnumToField var="${it.referentFamilyDependentActualSituation}" i18nKeyPrefix="hccr.property.referentFamilyDependentActualSituation" />
+              <g:libredematEnumToField var="${it.referentFamilyDependentActualSituation}" i18nKeyPrefix="hccr.property.referentFamilyDependentActualSituation" />
             </g:if>
           </dd>
           
@@ -263,7 +263,7 @@
           <dt><g:message code="hccr.property.dwellingKind.label" /></dt>
           <dd>
             <g:if test="${rqt.dwellingKind}">
-              <g:capdematEnumToField var="${rqt.dwellingKind}" i18nKeyPrefix="hccr.property.dwellingKind" />
+              <g:libredematEnumToField var="${rqt.dwellingKind}" i18nKeyPrefix="hccr.property.dwellingKind" />
             </g:if>
           </dd>
           
@@ -280,7 +280,7 @@
           <dt><g:message code="hccr.property.dwellingReceptionType.label" /></dt>
           <dd>
             <g:if test="${rqt.dwellingReceptionType}">
-              <g:capdematEnumToField var="${rqt.dwellingReceptionType}" i18nKeyPrefix="hccr.property.dwellingReceptionType" />
+              <g:libredematEnumToField var="${rqt.dwellingReceptionType}" i18nKeyPrefix="hccr.property.dwellingReceptionType" />
             </g:if>
           </dd>
           
@@ -341,7 +341,7 @@
           <dt><g:message code="hccr.property.socialSecurityMemberShipKind.label" /></dt>
           <dd>
             <g:if test="${rqt.socialSecurityMemberShipKind}">
-              <g:capdematEnumToField var="${rqt.socialSecurityMemberShipKind}" i18nKeyPrefix="hccr.property.socialSecurityMemberShipKind" />
+              <g:libredematEnumToField var="${rqt.socialSecurityMemberShipKind}" i18nKeyPrefix="hccr.property.socialSecurityMemberShipKind" />
             </g:if>
           </dd>
           
@@ -377,7 +377,7 @@
           <dt><g:message code="hccr.property.paymentAgencyBeneficiary.label" /></dt>
           <dd>
             <g:if test="${rqt.paymentAgencyBeneficiary}">
-              <g:capdematEnumToField var="${rqt.paymentAgencyBeneficiary}" i18nKeyPrefix="hccr.property.paymentAgencyBeneficiary" />
+              <g:libredematEnumToField var="${rqt.paymentAgencyBeneficiary}" i18nKeyPrefix="hccr.property.paymentAgencyBeneficiary" />
             </g:if>
           </dd>
           
@@ -446,7 +446,7 @@
           <dt><g:message code="hccr.property.schoolingAttendedGrade.label" /></dt>
           <dd>
             <g:if test="${rqt.schoolingAttendedGrade}">
-              <g:capdematEnumToField var="${rqt.schoolingAttendedGrade}" i18nKeyPrefix="hccr.property.schoolingAttendedGrade" />
+              <g:libredematEnumToField var="${rqt.schoolingAttendedGrade}" i18nKeyPrefix="hccr.property.schoolingAttendedGrade" />
             </g:if>
           </dd>
           
@@ -463,7 +463,7 @@
           <dt><g:message code="hccr.property.schoolingSchoolingKind.label" /></dt>
           <dd>
             <g:if test="${rqt.schoolingSchoolingKind}">
-              <g:capdematEnumToField var="${rqt.schoolingSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingSchoolingKind" />
+              <g:libredematEnumToField var="${rqt.schoolingSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingSchoolingKind" />
             </g:if>
           </dd>
           
@@ -485,7 +485,7 @@
           <dt><g:message code="hccr.property.schoolingHomeSchoolingKind.label" /></dt>
           <dd>
             <g:if test="${rqt.schoolingHomeSchoolingKind}">
-              <g:capdematEnumToField var="${rqt.schoolingHomeSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingHomeSchoolingKind" />
+              <g:libredematEnumToField var="${rqt.schoolingHomeSchoolingKind}" i18nKeyPrefix="hccr.property.schoolingHomeSchoolingKind" />
             </g:if>
           </dd>
           
@@ -588,7 +588,7 @@
           <dt><g:message code="hccr.property.professionalStatusKind.label" /></dt>
           <dd>
             <g:if test="${rqt.professionalStatusKind}">
-              <g:capdematEnumToField var="${rqt.professionalStatusKind}" i18nKeyPrefix="hccr.property.professionalStatusKind" />
+              <g:libredematEnumToField var="${rqt.professionalStatusKind}" i18nKeyPrefix="hccr.property.professionalStatusKind" />
             </g:if>
           </dd>
           
@@ -602,7 +602,7 @@
           <dt><g:message code="hccr.property.professionalStatusEnvironment.label" /></dt>
           <dd>
             <g:if test="${rqt.professionalStatusEnvironment}">
-              <g:capdematEnumToField var="${rqt.professionalStatusEnvironment}" i18nKeyPrefix="hccr.property.professionalStatusEnvironment" />
+              <g:libredematEnumToField var="${rqt.professionalStatusEnvironment}" i18nKeyPrefix="hccr.property.professionalStatusEnvironment" />
             </g:if>
           </dd>
           

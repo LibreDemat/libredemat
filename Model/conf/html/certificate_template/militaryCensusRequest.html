@@ -3,10 +3,10 @@
 <%
 
   import org.apache.commons.lang.StringUtils
-  import fr.cg95.cvq.util.EnumTool
+  import org.libredemat.util.EnumTool
   import java.text.NumberFormat
-  import fr.cg95.cvq.business.users.RoleType
-  import fr.cg95.cvq.business.users.IndividualRole
+  import org.libredemat.business.users.RoleType
+  import org.libredemat.business.users.IndividualRole
 
   def esc(s) { return org.apache.commons.lang3.StringEscapeUtils.escapeXml(s) }
   def localReferentialWidget(rqt, javaName, lrEntries, depth) {
@@ -437,13 +437,13 @@
 
             <% firstChild = true %>
 
-            <% responsibleId = requester.getHomeFolder().getIndividuals().findAll{ it.getHomeFolderRoles(requester.getHomeFolder().getId()).findAll{ it.getRole() == fr.cg95.cvq.business.users.RoleType.HOME_FOLDER_RESPONSIBLE }.size() > 0 }.get(0).getId()  %>
+            <% responsibleId = requester.getHomeFolder().getIndividuals().findAll{ it.getHomeFolderRoles(requester.getHomeFolder().getId()).findAll{ it.getRole() == org.libredemat.business.users.RoleType.HOME_FOLDER_RESPONSIBLE }.size() > 0 }.get(0).getId()  %>
 
-            <% list = requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals("Archived") || it.getState().name.equals("Invalid"))}.sort{a,b -> a.getClass() == fr.cg95.cvq.business.users.Adult.class ? (a.getId() == responsibleId ? -1 : 0) : 1 }  %>
+            <% list = requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals("Archived") || it.getState().name.equals("Invalid"))}.sort{a,b -> a.getClass() == org.libredemat.business.users.Adult.class ? (a.getId() == responsibleId ? -1 : 0) : 1 }  %>
 
             <% list.each { individual -> %>
 
-              <% if (individual.getClass() == fr.cg95.cvq.business.users.Adult.class) { %>
+              <% if (individual.getClass() == org.libredemat.business.users.Adult.class) { %>
 
                 <% if (individual.getId() == responsibleId) { %>
                   <h3>${i18n.translate('homeFolder.property.responsible')}</h3>
@@ -497,7 +497,7 @@
               <% } %>
 
 
-              <% if (individual.getClass() == fr.cg95.cvq.business.users.Child.class) { %>
+              <% if (individual.getClass() == org.libredemat.business.users.Child.class) { %>
 
                 <% if (firstChild){ %>
                   <h3>${i18n.translate('homeFolder.property.children')}</h3>
@@ -531,7 +531,7 @@
                 <div class="response">
 
                 <% requester.getHomeFolder().getIndividuals().each { indiv_2 ->  %>
-                  <% if (indiv_2.getClass() == fr.cg95.cvq.business.users.Adult.class) { %>
+                  <% if (indiv_2.getClass() == org.libredemat.business.users.Adult.class) { %>
                     <% indiv_2.getIndividualRoles().each{ indRole -> %>
                       <% if((indRole.getRole().getLegacyLabel().equals("ClrMother") || indRole.getRole().getLegacyLabel().equals("ClrFather") || indRole.getRole().getLegacyLabel().equals("ClrTutor") || indRole.getRole().getLegacyLabel().equals("Tutor")) && indRole.getIndividualId() == individual.getId()){ %>
 

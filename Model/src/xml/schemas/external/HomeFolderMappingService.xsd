@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/capdemat"
-  xmlns:capdemat="http://www.capwebct.fr/capdemat"
+<xs:schema targetNamespace="http://www.libredemat.org"
+  xmlns:libredemat="http://www.libredemat.org"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
@@ -15,8 +15,8 @@
             </xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="HomeFolderMapping" type="capdemat:HomeFolderMappingType"/>
-        <xs:element name="IndividualMapping" type="capdemat:IndividualMappingType" minOccurs="0" 
+        <xs:element name="HomeFolderMapping" type="libredemat:HomeFolderMappingType"/>
+        <xs:element name="IndividualMapping" type="libredemat:IndividualMappingType" minOccurs="0" 
           maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
@@ -24,14 +24,14 @@
 
   <xs:complexType name="HomeFolderMappingType">
     <xs:sequence>
-      <xs:element name="ExternalCapDematId" type="xs:string" />
+      <xs:element name="ExternalLibreDematId" type="xs:string" />
       <xs:element name="ExternalId" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="IndividualMappingType">
     <xs:sequence>
-      <xs:element name="ExternalCapDematId" type="xs:string" />
+      <xs:element name="ExternalLibreDematId" type="xs:string" />
       <xs:element name="ExternalId" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

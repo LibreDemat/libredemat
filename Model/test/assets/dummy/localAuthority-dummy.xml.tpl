@@ -4,16 +4,16 @@
 <beans>
 
   <bean id="configurationBean_dummy"
-    class="fr.cg95.cvq.service.authority.LocalAuthorityConfigurationBean" init-method="init">
+    class="org.libredemat.service.authority.LocalAuthorityConfigurationBean" init-method="init">
     <property name="name" value="dummy" />
         <property name="jpaConfigurations">
         <props>
           <% if (databaseType == 'pgsql') { %>
           <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
           <prop key="hibernate.connection.driver_class">org.postgresql.Driver</prop>
-          <prop key="hibernate.connection.url">jdbc:postgresql://localhost:5432/capdemat_dummy</prop>
-          <prop key="hibernate.connection.username">capdemat</prop>
-          <prop key="hibernate.connection.password">capdematpass</prop>
+          <prop key="hibernate.connection.url">jdbc:postgresql://localhost:5432/libredemat_dummy</prop>
+          <prop key="hibernate.connection.username">libredemat</prop>
+          <prop key="hibernate.connection.password">libredematpass</prop>
             <prop key="initialPoolSize">0</prop>
             <prop key="minPoolSize">0</prop>
             <prop key="maxPoolSize">24</prop>
@@ -36,7 +36,7 @@
           <key>
             <ref bean="fakePaymentProviderService" />
           </key>
-          <bean class="fr.cg95.cvq.service.payment.PaymentServiceBean">
+          <bean class="org.libredemat.service.payment.PaymentServiceBean">
             <property name="broker" value="Régie de la ville de Dummy"></property>
             <property name="requestTypes">
               <list>

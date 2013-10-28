@@ -1,7 +1,7 @@
 import org.apache.commons.lang.StringUtils
 
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.payment.IPaymentService
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.payment.IPaymentService
 
 class ServicePaylineV4Controller {
 

@@ -1,12 +1,12 @@
-<xs:schema targetNamespace="http://www.capwebct.fr/capdemat"
-  xmlns:capdemat="http://www.capwebct.fr/capdemat"
+<xs:schema targetNamespace="http://www.libredemat.org"
+  xmlns:libredemat="http://www.libredemat.org"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://www.cg95.fr/cvq/schema/common" 
+  xmlns:common="http://www.libredemat.org/schema/common" 
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
-    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/common/CVQCommonElements.xsd" />
+  <xs:import namespace="http://www.libredemat.org/schema/common"
+    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/common/CVQCommonElements.xsd" />
 
   <xs:element name="GetRequestsRequest">
     <xs:complexType>

@@ -1,14 +1,14 @@
 /**
- * Contains common client-side functions of capdemat project
+ * Contains common client-side functions of libredemat project
  *
- * @namespace zenexity.capdemat.common
+ * @namespace zenexity.libredemat.common
  *
  **/
 
 (function() {
 
-  var zct = zenexity.capdemat.tools;
-  var zcc = zenexity.capdemat.common;
+  var zct = zenexity.libredemat.tools;
+  var zcc = zenexity.libredemat.common;
   var yus = YAHOO.util.Selector;
   var yue = YAHOO.util.Event;
   var yuc = YAHOO.util.Connect;
@@ -95,7 +95,7 @@
 
   zcc.setMenu = function() {
     zcc.switchSelectedItemDisplay(
-      zenexity.capdemat.bong.currentMenu + 'MenuItem',
+      zenexity.libredemat.bong.currentMenu + 'MenuItem',
       'selected-menu-entry');
   };
   

@@ -1,11 +1,11 @@
 ;(function(request) {
-  var zct = zenexity.capdemat.tools
+  var zct = zenexity.libredemat.tools
     , yud = YAHOO.util.Dom
     , yus = YAHOO.util.Selector
 
   var initCenters = function() {
     var url = function() {
-      var prefix = zenexity.capdemat.contextPath + '/frontoffice/technocarte'
+      var prefix = zenexity.libredemat.contextPath + '/frontoffice/technocarte'
       return prefix
            + '/leisureCenters/?requestTypeLabel=Leisure Center Registration'
            + '&requestId='
@@ -17,7 +17,7 @@
   }
 
   var initTransports = function() {
-    var prefix = zenexity.capdemat.contextPath + '/frontoffice/technocarte'
+    var prefix = zenexity.libredemat.contextPath + '/frontoffice/technocarte'
 
     var linesURL = function() {
       return prefix
@@ -51,4 +51,4 @@
     }
   }
 
-}(zenexity.capdemat.tools.namespace('zenexity.capdemat.fong.requesttype.LeisureCenterRegistrationRequest')))
+}(zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype.LeisureCenterRegistrationRequest')))

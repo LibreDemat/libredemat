@@ -4,4 +4,4 @@
 
 . ./set_classpath.sh "$1" "$2"
 
-java -cp $CLASSPATH fr.cg95.cvq.util.admin.FrenchRIBToIBAN "$3"
+java -cp $CLASSPATH org.libredemat.util.admin.FrenchRIBToIBAN "$3"

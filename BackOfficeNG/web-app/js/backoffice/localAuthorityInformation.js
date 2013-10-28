@@ -1,7 +1,7 @@
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.localauthority');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.localauthority');
 (function(){
-  var zcb = zenexity.capdemat.bong;
-  var zcbl = zenexity.capdemat.bong.localauthority;
+  var zcb = zenexity.libredemat.bong;
+  var zcbl = zenexity.libredemat.bong.localauthority;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
   zcbl.Information = function() {

@@ -1,7 +1,7 @@
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.security.SecurityContext
+import org.libredemat.business.request.RequestState
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.security.SecurityContext
 
 public class EmailNotificationAdaptorService {
 

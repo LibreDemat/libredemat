@@ -1,6 +1,6 @@
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.security.annotation.ContextType
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.security.SecurityContext
+import org.libredemat.security.annotation.ContextType
  
 class FrontofficePlanningController {
     def localAuthorityRegistry

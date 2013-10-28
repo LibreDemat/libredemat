@@ -15,7 +15,7 @@
       </label>
         <g:if test="${roleOwner.roles}">
           <g:each var="role" in="${roleOwner.roles}">
-            ${g.capdematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role')}
+            ${g.libredematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role')}
           </g:each>
         </g:if>
         <g:else>

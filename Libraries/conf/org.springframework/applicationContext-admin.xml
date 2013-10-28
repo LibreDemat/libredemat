@@ -11,7 +11,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- *******************************************************************  -->
 
   <bean id="requestInstructionDurationCheckerJob" 
-    class="fr.cg95.cvq.service.request.job.RequestInstructionDurationCheckerJob">
+    class="org.libredemat.service.request.job.RequestInstructionDurationCheckerJob">
     <property name="localAuthorityRegistry"><ref bean="localAuthorityRegistry"/></property>
     <property name="requestActionService"><ref bean="requestActionService"/></property>
     <property name="requestWorkflowService"><ref bean="requestWorkflowService"/></property>
@@ -50,7 +50,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- *******************************************************************  -->
 
   <bean id="userInstructionDurationCheckerJob"
-    class="fr.cg95.cvq.service.users.job.UserInstructionDurationCheckerJob">
+    class="org.libredemat.service.users.job.UserInstructionDurationCheckerJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="mailService" ref="mailService" />
     <property name="individualDAO" ref="individualDAO" />
@@ -75,7 +75,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- *******************************************************************  -->
 
   <bean id="requestCreationNotificationJob" 
-    class="fr.cg95.cvq.service.request.job.RequestCreationNotificationJob">
+    class="org.libredemat.service.request.job.RequestCreationNotificationJob">
     <property name="localAuthorityRegistry"><ref bean="localAuthorityRegistry"/></property>
     <property name="requestActionService"><ref bean="requestActionService"/></property>
     <property name="mailService"><ref bean="mailService"/></property>
@@ -112,7 +112,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ***************** Requests Seasons Job Configuration **************  -->
   <!-- *******************************************************************  -->
 
-  <bean id="requestSeasonsJob" class="fr.cg95.cvq.service.request.job.RequestSeasonsJob">
+  <bean id="requestSeasonsJob" class="org.libredemat.service.request.job.RequestSeasonsJob">
     <property name="localAuthorityRegistry"><ref bean="localAuthorityRegistry"/></property>
     <property name="requestTypeService"><ref bean="requestTypeService"/></property>
     <property name="requestWorkflowService"><ref bean="requestWorkflowService"/></property>
@@ -150,7 +150,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ******************************************************************** -->
   
   <bean id="draftManagementJob"
-    class="fr.cg95.cvq.service.request.job.DraftManagementJob">
+    class="org.libredemat.service.request.job.DraftManagementJob">
     <property name="requestActionService" ref="requestActionService" />
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="translationService" ref="translationService" />
@@ -231,7 +231,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- *******************************************************************  -->
 
   <bean id="paymentInitializationCheckerJob"
-    class="fr.cg95.cvq.service.payment.job.PaymentInitializationDateCheckerJob">
+    class="org.libredemat.service.payment.job.PaymentInitializationDateCheckerJob">
     <property name="localAuthorityRegistry"><ref bean="localAuthorityRegistry"/></property>
     <property name="mailService"><ref bean="mailService"/></property>
     <property name="paymentDAO"><ref bean="paymentDAO"/></property>
@@ -265,7 +265,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ******** Obsolete RequestLocks cleaning job configuration *********  -->
   <!-- *******************************************************************  -->
 
-  <bean id="requestLocksCleaningJob" class="fr.cg95.cvq.service.request.job.RequestLocksCleaningJob">
+  <bean id="requestLocksCleaningJob" class="org.libredemat.service.request.job.RequestLocksCleaningJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
     <property name="requestLockService" ref="requestLockService" />
    </bean>
@@ -287,7 +287,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ************** Request archiving job configuration ****************  -->
   <!-- *******************************************************************  -->
 
-  <bean id="requestArchivingJob" class="fr.cg95.cvq.service.request.job.RequestArchivingJob">
+  <bean id="requestArchivingJob" class="org.libredemat.service.request.job.RequestArchivingJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
     <property name="requestExternalActionService" ref="requestExternalActionService" />
     <property name="requestDAO" ref="requestDAO" />
@@ -323,7 +323,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="cronExpression" value="0 0 3 * * ?" />
   </bean>
 
-  <bean id="paymentNotificationJob" class="fr.cg95.cvq.service.payment.job.PaymentNotifyToExternalServicesJob">
+  <bean id="paymentNotificationJob" class="org.libredemat.service.payment.job.PaymentNotifyToExternalServicesJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
     <property name="paymentDAO" ref="paymentDAO" />
     <property name="externalService" ref="externalService" />
@@ -359,7 +359,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="cronExpression" value="0 0 1 * * ?" />
   </bean>
 
-  <bean id="userNotificationJob" class="fr.cg95.cvq.service.users.job.UserNotificationJob">
+  <bean id="userNotificationJob" class="org.libredemat.service.users.job.UserNotificationJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
     <property name="genericDAO" ref="genericDAO" />
     <property name="homeFolderDAO" ref="homeFolderDAO" />
@@ -385,7 +385,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <!-- ******************************************************************** -->
 
   <bean id="userPendingManagementJob"
-    class="fr.cg95.cvq.service.users.job.UserPendingManagementJob">
+    class="org.libredemat.service.users.job.UserPendingManagementJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="translationService" ref="translationService" />
     <property name="mailService" ref="mailService"/>

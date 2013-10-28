@@ -3,210 +3,210 @@
   <!-- Use the "namespace" element to map a namespace to the Java package
        name that should be generated. -->
       
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/common">
-    <xb:package>fr.cg95.cvq.xml.common</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/common">
+    <xb:package>org.libredemat.xml.common</xb:package>
   </xb:namespace>
 
-  <xb:namespace uri="http://www.cg95.fr/cvq/certicate">
-    <xb:package>fr.cg95.cvq.xml.certificate</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/certicate">
+    <xb:package>org.libredemat.xml.certificate</xb:package>
   </xb:namespace>
 
   <!-- **************** REQUESTS NAMESPACES DECLARATIONS ******************** -->
 
   <!-- Vo Card Request -->  
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/vcr">
-    <xb:package>fr.cg95.cvq.xml.request.ecitizen</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/vcr">
+    <xb:package>org.libredemat.xml.request.ecitizen</xb:package>
   </xb:namespace>
 
   <!-- Home Folder Modification Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/hfmr">
-    <xb:package>fr.cg95.cvq.xml.request.ecitizen</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/hfmr">
+    <xb:package>org.libredemat.xml.request.ecitizen</xb:package>
   </xb:namespace>
 
   <!-- School Canteen Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/scrr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/scrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- School Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/srr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/srr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- School Transport Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/strr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/strr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Global School Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/gsrr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/gsrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
 
   <!-- Renewal Perischool Activities Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/rpar">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/rpar">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Leisure Center Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/lcrr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/lcrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Holiday Camp Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/hcrr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/hcrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Pessac Animation Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/par">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/par">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Perischool Activity Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/parr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/parr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Recreation Activity Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/rarr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/rarr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
   
   <!-- Learning Activities Discovery Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/ladrr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/ladrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
   
   <!-- Home Emergency Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/herr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/herr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
   
   <!-- Day Care Center Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/dccrr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/dccrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Birth Details Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/bdr">
-    <xb:package>fr.cg95.cvq.xml.request.civil</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/bdr">
+    <xb:package>org.libredemat.xml.request.civil</xb:package>
   </xb:namespace>
 
   <!-- Death Details Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/ddr">
-    <xb:package>fr.cg95.cvq.xml.request.civil</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/ddr">
+    <xb:package>org.libredemat.xml.request.civil</xb:package>
   </xb:namespace>
 
   <!-- Marriage Details Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/mdr">
-    <xb:package>fr.cg95.cvq.xml.request.civil</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/mdr">
+    <xb:package>org.libredemat.xml.request.civil</xb:package>
   </xb:namespace>
 
   <!-- Electoral Roll Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/errr">
-    <xb:package>fr.cg95.cvq.xml.request.election</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/errr">
+    <xb:package>org.libredemat.xml.request.election</xb:package>
   </xb:namespace>
 
   <!-- Standard Electoral Roll Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/serrr">
-    <xb:package>fr.cg95.cvq.xml.request.election</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/serrr">
+    <xb:package>org.libredemat.xml.request.election</xb:package>
   </xb:namespace>
 
   <!-- Library Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/lrr">
-    <xb:package>fr.cg95.cvq.xml.request.leisure.culture</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/lrr">
+    <xb:package>org.libredemat.xml.request.leisure.culture</xb:package>
   </xb:namespace>
 
   <!-- Music School Registration Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/msrr">
-    <xb:package>fr.cg95.cvq.xml.request.leisure.music</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/msrr">
+    <xb:package>org.libredemat.xml.request.leisure.music</xb:package>
   </xb:namespace>
 
   <!-- Alignment Certificate Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/acr">
-    <xb:package>fr.cg95.cvq.xml.request.urbanism</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/acr">
+    <xb:package>org.libredemat.xml.request.urbanism</xb:package>
   </xb:namespace>
 
   <!-- Alignment Numbering Connection Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/ancr">
-    <xb:package>fr.cg95.cvq.xml.request.urbanism</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/ancr">
+    <xb:package>org.libredemat.xml.request.urbanism</xb:package>
   </xb:namespace>
 
   <!-- Sewer Connection Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/scr">
-    <xb:package>fr.cg95.cvq.xml.request.urbanism</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/scr">
+    <xb:package>org.libredemat.xml.request.urbanism</xb:package>
   </xb:namespace>
 
   <!-- Remote Support Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/rsr">
-    <xb:package>fr.cg95.cvq.xml.request.social</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/rsr">
+    <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>
  
   <!-- Domestic Help Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/dhr">
-    <xb:package>fr.cg95.cvq.xml.request.social</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/dhr">
+    <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>
 
   <!-- Handicap Compensation Adult Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/hcar">
-    <xb:package>fr.cg95.cvq.xml.request.social</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/hcar">
+    <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>
   
   <!-- Handicap Compensation Child Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/hccr">
-    <xb:package>fr.cg95.cvq.xml.request.social</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/hccr">
+    <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>  
 
     <!-- Military Census Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/mcr">
-    <xb:package>fr.cg95.cvq.xml.request.military</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/mcr">
+    <xb:package>org.libredemat.xml.request.military</xb:package>
   </xb:namespace>
   
   <!-- Holiday Security Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/hsr">
-  	<xb:package>fr.cg95.cvq.xml.request.localpolice</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/hsr">
+  	<xb:package>org.libredemat.xml.request.localpolice</xb:package>
   </xb:namespace>
 
   <!-- Technical Intervention Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/tir">
-  	<xb:package>fr.cg95.cvq.xml.request.technical</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/tir">
+  	<xb:package>org.libredemat.xml.request.technical</xb:package>
   </xb:namespace>
 
   <!-- Sms Notification Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/snr">
-    <xb:package>fr.cg95.cvq.xml.request.leisure</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/snr">
+    <xb:package>org.libredemat.xml.request.leisure</xb:package>
   </xb:namespace>
 
   <!-- Bulky Waste Collection Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/bwcr">
-    <xb:package>fr.cg95.cvq.xml.request.environment</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/bwcr">
+    <xb:package>org.libredemat.xml.request.environment</xb:package>
   </xb:namespace>
 
   <!-- Compostable Waste Collection Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/cwcr">
-    <xb:package>fr.cg95.cvq.xml.request.environment</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/cwcr">
+    <xb:package>org.libredemat.xml.request.environment</xb:package>
   </xb:namespace>
 
   <!-- Study Grant Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/sgr">
-    <xb:package>fr.cg95.cvq.xml.request.school</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/sgr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
   <!-- Ticket Office Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/tbr">
-    <xb:package>fr.cg95.cvq.xml.request.reservation</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/tbr">
+    <xb:package>org.libredemat.xml.request.reservation</xb:package>
   </xb:namespace>
 
   <!-- Bafa Grant Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/bgr">
-    <xb:package>fr.cg95.cvq.xml.request.social</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/bgr">
+    <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>
 
   <!-- Sports Associations Grant Request -->
-  <xb:namespace uri="http://www.cg95.fr/cvq/schema/sagr">
-    <xb:package>fr.cg95.cvq.xml.request.social</xb:package>
+  <xb:namespace uri="http://www.libredemat.org/schema/sagr">
+    <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>
 
 </xb:config>

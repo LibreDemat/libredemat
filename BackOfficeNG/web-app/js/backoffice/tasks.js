@@ -1,6 +1,6 @@
 (function(){
-  var zct = zenexity.capdemat.tools;
-  var zcb = zenexity.capdemat.bong;
+  var zct = zenexity.libredemat.tools;
+  var zcb = zenexity.libredemat.bong;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
 

@@ -1,6 +1,6 @@
 import grails.converters.*
 import java.util.*
-import fr.cg95.cvq.security.*
+import org.libredemat.security.*
 import org.codehaus.groovy.grails.commons.*
 
 class ServiceAutocompleteController {

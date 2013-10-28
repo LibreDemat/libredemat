@@ -1,10 +1,10 @@
 import java.util.HashMap
 import java.util.Map
 
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.external.IRequestExternalService
-import fr.cg95.cvq.service.request.school.external.IScholarBusinessProviderService
-import fr.cg95.cvq.service.users.IUserSearchService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.external.IRequestExternalService
+import org.libredemat.service.request.school.external.IScholarBusinessProviderService
+import org.libredemat.service.users.IUserSearchService
 import grails.converters.JSON
 
 class FrontofficeTechnocarteController {

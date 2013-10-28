@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="${createLinkTo(dir:'css/backoffice',file:'configuration.css')}" />
     <script type="text/javascript" src="${createLinkTo(dir:'js/backoffice',file:'referential.js')}"></script>
     <script type="text/javascript">
-      zenexity.capdemat.bong.Referential.type = "${type}";
+      zenexity.libredemat.bong.Referential.type = "${type}";
     </script>
   </head>
   <body>

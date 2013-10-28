@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="systemPayPaymentProvider"
-    class="fr.capwebct.capdemat.plugins.paymentproviders.systempay.service.SystemPayService"
+    class="org.libredemat.plugins.paymentproviders.systempay.service.SystemPayService"
     init-method="init">
     <property name="label" value="SystemPay"></property>
     <!-- Insert services you need here -->

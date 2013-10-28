@@ -5,10 +5,10 @@
       class="required validate-not-first ${invalidFields?.contains('title') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.adult.property.title.validationError')}">
     <option value="">${message(code:'message.select.defaultOption')}</option>
-    <g:each in="${fr.cg95.cvq.business.users.TitleType.allTitleTypes}">
+    <g:each in="${org.libredemat.business.users.TitleType.allTitleTypes}">
       <option value="${it.name()}"
           ${it == adult.title ? 'selected="selected"' : ''}>
-        <g:capdematEnumToText var="${it}" i18nKeyPrefix="homeFolder.adult.title" />
+        <g:libredematEnumToText var="${it}" i18nKeyPrefix="homeFolder.adult.title" />
       </option>
     </g:each>
   </select>
@@ -16,10 +16,10 @@
   <label for="familyStatus">${message(code:'homeFolder.adult.property.familyStatus')}</label>
   <select id="familyStatus" name="familyStatus">
     <option value="">${message(code:'message.select.defaultOption')}</option>
-    <g:each in="${fr.cg95.cvq.business.users.FamilyStatusType.allFamilyStatusTypes}">
+    <g:each in="${org.libredemat.business.users.FamilyStatusType.allFamilyStatusTypes}">
       <option value="${it.name()}"
           ${it == adult.familyStatus ? 'selected="selected"' : ''}>
-        <g:capdematEnumToText var="${it}" i18nKeyPrefix="homeFolder.adult.familyStatus" />
+        <g:libredematEnumToText var="${it}" i18nKeyPrefix="homeFolder.adult.familyStatus" />
       </option>
     </g:each>
   </select>

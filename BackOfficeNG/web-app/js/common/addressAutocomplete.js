@@ -1,10 +1,10 @@
-zenexity.capdemat.tools.namespace("zenexity.capdemat.common");
+zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
 
 (function() {
 
-  var zc = zenexity.capdemat;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
+  var zc = zenexity.libredemat;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
   var yue = YAHOO.util.Event;
   var yus = YAHOO.util.Selector;
   var yuc = YAHOO.util.Connect;

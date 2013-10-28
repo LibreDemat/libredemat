@@ -1,25 +1,25 @@
-import fr.cg95.cvq.exception.CvqModelException;
+import org.libredemat.exception.CvqModelException;
 
 import grails.converters.JSON
-import fr.cg95.cvq.business.document.Document
-import fr.cg95.cvq.business.document.ContentType
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.service.document.IDocumentService
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.service.request.IRequestDocumentService
-import fr.cg95.cvq.service.request.IRequestLockService
-import fr.cg95.cvq.service.request.IRequestSearchService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.business.document.DocumentBinary
-import fr.cg95.cvq.business.document.DocumentState
-import fr.cg95.cvq.business.document.DepositOrigin
-import fr.cg95.cvq.business.document.DepositType
-import fr.cg95.cvq.business.document.DocumentType
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestDocument
-import fr.cg95.cvq.business.document.DocumentAction
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.business.authority.Agent
+import org.libredemat.business.document.Document
+import org.libredemat.business.document.ContentType
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.service.document.IDocumentService
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestDocumentService
+import org.libredemat.service.request.IRequestLockService
+import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.business.document.DocumentBinary
+import org.libredemat.business.document.DocumentState
+import org.libredemat.business.document.DepositOrigin
+import org.libredemat.business.document.DepositType
+import org.libredemat.business.document.DocumentType
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestDocument
+import org.libredemat.business.document.DocumentAction
+import org.libredemat.security.SecurityContext
+import org.libredemat.business.authority.Agent
 
 import javax.servlet.http.HttpServletResponse
 
@@ -75,10 +75,10 @@ class BackofficeDocumentInstructionController {
                 "id": document.id,
                 "actions": actions,
                 "editable": documentService.getEditableStates().contains(document.state) && agentCanWrite,
-                "state": CapdematUtils.adaptCapdematEnum(document.state, "document.state"),
-                "name": message(code:CapdematUtils.adaptDocumentTypeName(document.documentType.name)),
-                "depositType": CapdematUtils.adaptCapdematEnum(document.depositType, "document.depositType"),
-                "depositOrigin": CapdematUtils.adaptCapdematEnum(document.depositOrigin, "document.depositOrigin"),
+                "state": LibredematUtils.adaptLibredematEnum(document.state, "document.state"),
+                "name": message(code:LibredematUtils.adaptDocumentTypeName(document.documentType.name)),
+                "depositType": LibredematUtils.adaptLibredematEnum(document.depositType, "document.depositType"),
+                "depositOrigin": LibredematUtils.adaptLibredematEnum(document.depositOrigin, "document.depositOrigin"),
                 "endValidityDate": document.endValidityDate,
                 "ecitizenNote": document.ecitizenNote,
                 "agentNote": document.agentNote,
@@ -181,7 +181,7 @@ class BackofficeDocumentInstructionController {
         def states = documentService.getPossibleTransitions(DocumentState.forString(document.state.toString()))
         
         result.states = []
-        for (String s : states) result.states.add(CapdematUtils.adaptCapdematEnum(s, "document.state"))
+        for (String s : states) result.states.add(LibredematUtils.adaptLibredematEnum(s, "document.state"))
         
         result.endValidityDate = document.endValidityDate
         result.stateType = document.documentType.name
@@ -202,17 +202,17 @@ class BackofficeDocumentInstructionController {
             documents.add([
                 "id": d.id,
                 "documentTypeId": d.documentType.id,
-                "name": message(code: CapdematUtils.adaptDocumentTypeName(d.documentType.name)),
+                "name": message(code: LibredematUtils.adaptDocumentTypeName(d.documentType.name)),
                 "endValidityDate": d.endValidityDate,
                 "pageNumber": d.datas.size(),
-                "state": CapdematUtils.adaptCapdematEnum(d.state, "document.state")
+                "state": LibredematUtils.adaptLibredematEnum(d.state, "document.state")
             ])
         }
         
         for (DocumentType t : requestTypeService.getAllowedDocuments(request.requestType.id)) {
             if (!types.contains(t.id)) documents.add([
                 "id": 0,"documentTypeId": t.id,
-                "name": message(code: CapdematUtils.adaptDocumentTypeName(t.name)),
+                "name": message(code: LibredematUtils.adaptDocumentTypeName(t.name)),
                 "state": ["cssClass": "tag-not_provided", "i18nKey": "document.state.notProvided"]
             ])
         }

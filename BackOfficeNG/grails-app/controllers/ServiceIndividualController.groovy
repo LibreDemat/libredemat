@@ -1,10 +1,10 @@
-import fr.cg95.cvq.business.users.external.IndividualMapping;
-import fr.cg95.cvq.security.SecurityContext;
-import fr.cg95.cvq.service.users.IUserSearchService;
-import fr.cg95.cvq.service.users.external.IExternalHomeFolderService;
-import fr.cg95.cvq.oauth2.InsufficientScopeException;
-import fr.cg95.cvq.exception.CvqObjectNotFoundException
-import fr.cg95.cvq.service.authority.IAgentService
+import org.libredemat.business.users.external.IndividualMapping;
+import org.libredemat.security.SecurityContext;
+import org.libredemat.service.users.IUserSearchService;
+import org.libredemat.service.users.external.IExternalHomeFolderService;
+import org.libredemat.oauth2.InsufficientScopeException;
+import org.libredemat.exception.CvqObjectNotFoundException
+import org.libredemat.service.authority.IAgentService
 
 import grails.converters.JSON
 
@@ -46,11 +46,11 @@ class ServiceIndividualController {
         def individualMapping = externalHomeFolderService.
                 getIndividualMapping(user, SecurityContext.getCurrentExternalService())
         if (individualMapping != null) {
-            user.setExternalCapDematId(individualMapping.getExternalCapDematId())
+            user.setExternalLibreDematId(individualMapping.getExternalLibreDematId())
             user.setExternalId(individualMapping.getExternalId())
         }
 
-        def result = [externalCapdematId:user.externalCapDematId, externalId:user.externalId,
+        def result = [externalLibredematId:user.externalLibreDematId, externalId:user.externalId,
                email: user.email, firstname: user.firstName, lastname: user.lastName]
 
         if(token.scope.contains("homefolderId")) {

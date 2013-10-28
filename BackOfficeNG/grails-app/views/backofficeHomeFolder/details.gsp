@@ -5,7 +5,7 @@
     <g:if test="${flash.addressesReferentialEnabled}">
       <link rel="stylesheet" type="text/css" href="${resource(dir:'css/common', file:'autocomplete.css')}" />
       <script type="text/javascript">
-        zenexity.capdemat.contextPath = "${request.contextPath}";
+        zenexity.libredemat.contextPath = "${request.contextPath}";
       </script>
       <script type="text/javascript" src="${resource(dir:'js/common',file:'addressAutocomplete.js')}"></script>
       <script type="text/javascript" src="${resource(dir:'js/common',file:'autocomplete.js')}"></script>
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'document.css')}" />
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'contact.css')}" />
     <script type="text/javascript">
-      zenexity.capdemat.bong.homeFolder.Details.homeFolderId = ${params.id};
-      zenexity.capdemat.bong.contactPanelUrl = "${createLink(controller : 'backofficeContact', action : 'panel')}";
-      zenexity.capdemat.bong.homeFolder.Details.agentCanWrite = ${agentCanWrite};
+      zenexity.libredemat.bong.homeFolder.Details.homeFolderId = ${params.id};
+      zenexity.libredemat.bong.contactPanelUrl = "${createLink(controller : 'backofficeContact', action : 'panel')}";
+      zenexity.libredemat.bong.homeFolder.Details.agentCanWrite = ${agentCanWrite};
     </script>
   </head>
   <body>

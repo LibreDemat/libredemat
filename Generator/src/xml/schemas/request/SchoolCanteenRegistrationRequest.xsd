@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.cg95.fr/cvq/schema/scrr" 
-  xmlns:scrr="http://www.cg95.fr/cvq/schema/scrr"
+<xs:schema targetNamespace="http://www.libredemat.org/schema/scrr" 
+  xmlns:scrr="http://www.libredemat.org/schema/scrr"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
+  xmlns:cvq="http://www.libredemat.org/schema/common"
   elementFormDefault="qualified" attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://www.cg95.fr/cvq/schema/common" 
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
     schemaLocation="../common/CVQCommonElements.xsd" />
 
   <xs:element name="SchoolCanteenRegistrationRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
         Demande d'inscription au restaurant scolaire</xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
         School canteen registration request</xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
         Inscription au restaurant scolaire</xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
         School canteen registration</xs:documentation>
       <xs:appinfo>
         <model namespace="school" />
@@ -50,7 +50,7 @@
           <xs:sequence>
             <xs:element name="UrgencyPhone" type="cvq:PhoneType">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Téléphone en cas d'urgence
                 </xs:documentation>
                 <xs:appinfo>
@@ -65,9 +65,9 @@
             </xs:element>
             <xs:element name="School" type="cvq:SchoolType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   L'école dans laquelle est inscrit l'enfant</xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   The school in which the child is registered</xs:documentation>
                 <xs:appinfo>
                   <model namespace="authority" />
@@ -92,10 +92,10 @@
             </xs:element>
             <xs:element name="FoodDiet" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations relatives au régime alimentaire de l'enfant
 		        </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Régime alimentaire
 		        </xs:documentation>
                 <xs:appinfo>
@@ -112,11 +112,11 @@
             <xs:element name="CanteenAttendingDays" type="cvq:LocalReferentialDataType"
               maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Informations relatives aux jours de présence de l'enfant au restaurant scolaire
 		        </xs:documentation>
                 <xs:documentation xml:lang="fr"
-                  source="http://www.cg95.fr/cvq/schema/shortdesc">
+                  source="http://www.libredemat.org/schema/shortdesc">
                   Jours de présence
 		        </xs:documentation>
                 <xs:appinfo>
@@ -132,7 +132,7 @@
             </xs:element>
             <xs:element name="FoodAllergy" type="xs:boolean" default="false">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Allergie
                 </xs:documentation>
                 <xs:appinfo>
@@ -150,16 +150,16 @@
             </xs:element>
             <xs:element name="WhichFoodAllergy" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Précisez la nature de l’allergie
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
                   Precise which food allergy
                 </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Précisez
                 </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
                   Precise
                 </xs:documentation>
                 <xs:appinfo>
@@ -177,7 +177,7 @@
             </xs:element>
             <xs:element name="DoctorName" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Nom du médecin traitant
 		        </xs:documentation>
                 <xs:appinfo>
@@ -192,7 +192,7 @@
             </xs:element>
             <xs:element name="DoctorPhone" type="cvq:PhoneType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Téléphone du médecin traitant
 		        </xs:documentation>
                 <xs:appinfo>
@@ -207,7 +207,7 @@
             </xs:element>
             <xs:element name="HospitalizationPermission" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Autorisation d'hospitalisation de l'enfant
 		        </xs:documentation>
                 <xs:appinfo>
@@ -222,7 +222,7 @@
 	        </xs:element>
 	        <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false" minOccurs="0">
 	          <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
                   Acceptation du règlement intérieur
 		        </xs:documentation>
 		        <xs:appinfo>

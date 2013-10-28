@@ -95,7 +95,7 @@
             
               
               <dl>
-                <dt class="required condition-estMaternelleElementaire-filled condition-autoriseTiers-trigger condition-autoriseFrereOuSoeur-trigger">${message(code:'strr.property.autorisation.label')}&nbsp;*&nbsp;:</dt><dd id="autorisation" class="action-editField validate-capdematEnum required-true i18n-strr.property.autorisation javatype-fr.cg95.cvq.business.request.school.AutorisationType" ><g:capdematEnumToField var="${rqt?.autorisation}" i18nKeyPrefix="strr.property.autorisation" /></dd>
+                <dt class="required condition-estMaternelleElementaire-filled condition-autoriseTiers-trigger condition-autoriseFrereOuSoeur-trigger">${message(code:'strr.property.autorisation.label')}&nbsp;*&nbsp;:</dt><dd id="autorisation" class="action-editField validate-libredematEnum required-true i18n-strr.property.autorisation javatype-org.libredemat.business.request.school.AutorisationType" ><g:libredematEnumToField var="${rqt?.autorisation}" i18nKeyPrefix="strr.property.autorisation" /></dd>
               </dl>
               
             

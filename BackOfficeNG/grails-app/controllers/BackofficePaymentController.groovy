@@ -1,20 +1,20 @@
 import org.apache.commons.lang.StringUtils;
 
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.payment.ExternalAccountItem;
-import fr.cg95.cvq.business.payment.ExternalDepositAccountItem;
-import fr.cg95.cvq.business.payment.ExternalInvoiceItem;
-import fr.cg95.cvq.business.payment.ExternalTicketingContractItem;
-import fr.cg95.cvq.business.payment.InternalInvoiceItem;
-import fr.cg95.cvq.business.payment.Payment
-import fr.cg95.cvq.business.payment.PaymentState
-import fr.cg95.cvq.business.payment.PaymentMode
-import fr.cg95.cvq.business.payment.PurchaseItem
-import fr.cg95.cvq.service.payment.IPaymentService
-import fr.cg95.cvq.service.payment.PaymentUtils;
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.util.Critere
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.payment.ExternalAccountItem;
+import org.libredemat.business.payment.ExternalDepositAccountItem;
+import org.libredemat.business.payment.ExternalInvoiceItem;
+import org.libredemat.business.payment.ExternalTicketingContractItem;
+import org.libredemat.business.payment.InternalInvoiceItem;
+import org.libredemat.business.payment.Payment
+import org.libredemat.business.payment.PaymentState
+import org.libredemat.business.payment.PaymentMode
+import org.libredemat.business.payment.PurchaseItem
+import org.libredemat.service.payment.IPaymentService
+import org.libredemat.service.payment.PaymentUtils;
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.util.Critere
 
 import grails.converters.JSON
 
@@ -104,8 +104,8 @@ class BackofficePaymentController {
     }
 
     def details = {
-        fr.cg95.cvq.business.payment.PurchaseItem.metaClass.type = {
-            return StringUtils.removeStartIgnoreCase(delegate.getClass().toString(), "class fr.cg95.cvq.business.payment.")
+        org.libredemat.business.payment.PurchaseItem.metaClass.type = {
+            return StringUtils.removeStartIgnoreCase(delegate.getClass().toString(), "class org.libredemat.business.payment.")
         }
         Payment payment = this.paymentService.getById(Long.parseLong(params.id))
         // hack to lazy load

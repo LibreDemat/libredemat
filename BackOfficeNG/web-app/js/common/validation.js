@@ -1,6 +1,6 @@
 (function() {
-  var zc = zenexity.capdemat;
-  var zct = zenexity.capdemat.tools;
+  var zc = zenexity.libredemat;
+  var zct = zenexity.libredemat.tools;
   var yud = YAHOO.util.Dom;
   var yus = YAHOO.util.Selector;
   var yl = YAHOO.lang;
@@ -229,7 +229,7 @@
     'not-first': new me.rule('func', function(f){ return f.selectedIndex > 0; }),
     'not-empty': new me.rule('func', function(f){ return (f.selectedIndex > 0 && f.value.length > 0); }),
     'regex': new me.rule('func', function(f){ return f.regex.test(f.value); }),
-    /* ex capdemat specific rules */
+    /* ex libredemat specific rules */
     'string': new me.rule('func', function(f){ return true; }),
     'token': new me.rule('func', function(f){ return true; }),
     'positiveInteger': new me.rule('func',function(f){ return (!isNaN(f.value) || !f.value.match(/\D/)); } ),

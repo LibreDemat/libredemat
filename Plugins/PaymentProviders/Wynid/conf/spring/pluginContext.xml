@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="wynidPaymentProvider"
-    class="fr.capwebct.capdemat.plugins.paymentproviders.wynid.service.WynidService"
+    class="org.libredemat.plugins.paymentproviders.wynid.service.WynidService"
     init-method="init">
     <property name="label" value="Wynid"></property>
     <!-- Insert services you need here -->

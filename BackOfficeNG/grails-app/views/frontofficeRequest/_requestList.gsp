@@ -2,7 +2,7 @@
     <g:each var="record" in="${requests.records}">
       <li>
         <p>
-          <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="request.state" />
+          <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="request.state" />
           <g:if test="${record.state == 'Draft'}">
             <span class="tag-state">
               <a href="${createLink(action:'deleteDraft',controller:'frontofficeRequest',id:record.id)}">

@@ -1,8 +1,8 @@
-zenexity.capdemat.tools.namespace('zenexity.capdemat.request.category');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.request.category');
 (function() {
-  var zcrc = zenexity.capdemat.request.category;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
+  var zcrc = zenexity.libredemat.request.category;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
   var yu = YAHOO.util;
   var yud = yu.Dom;
   var yue = yu.Event;

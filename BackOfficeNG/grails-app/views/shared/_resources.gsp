@@ -61,8 +61,8 @@
 <script type="text/javascript" src="${resource(dir:'js/common',file:'validationRules.js')}"></script>
 
 <script type="text/javascript">
-  zenexity.capdemat.tools.namespace('zenexity.capdemat.bong');
-  zenexity.capdemat.bong.currentMenu = "${session['currentMenu']}";
-  zenexity.capdemat.baseUrl = '<g:baseUrl controller="${webRequest.controllerName}" />';
-  zenexity.capdemat.contextPath = '${request.contextPath}';
+  zenexity.libredemat.tools.namespace('zenexity.libredemat.bong');
+  zenexity.libredemat.bong.currentMenu = "${session['currentMenu']}";
+  zenexity.libredemat.baseUrl = '<g:baseUrl controller="${webRequest.controllerName}" />';
+  zenexity.libredemat.contextPath = '${request.contextPath}';
 </script>

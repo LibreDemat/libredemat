@@ -11,7 +11,7 @@
               <g:if test="${record.isEditable}">
                 <a href="${createLink(action:'edit',controller:'frontofficeRequest',id:record.id)}"><g:message code="action.modify"/></a>
               </g:if>
-              <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="request.state" />
+              <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="request.state" />
             </span>
             <g:if test="${record.state != 'Archived'}">
               <a href="${createLink(controller:'frontofficeRequest',action:'summary',id:record.id)}">

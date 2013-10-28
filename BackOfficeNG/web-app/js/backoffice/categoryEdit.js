@@ -1,9 +1,9 @@
-zenexity.capdemat.bong.categoryEdit = function() {
+zenexity.libredemat.bong.categoryEdit = function() {
   
-  var zcb = zenexity.capdemat.bong;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zcb = zenexity.libredemat.bong;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
   var yus = YAHOO.util.Selector;
@@ -37,7 +37,7 @@ zenexity.capdemat.bong.categoryEdit = function() {
         var response = ylj.parse(o.responseText);
         if (response.status === "ok") {
           if (editMode === "create")
-            window.location = zenexity.capdemat.baseUrl + "/edit/" + response.id ;
+            window.location = zenexity.libredemat.baseUrl + "/edit/" + response.id ;
           else {
             // Is message useful
             zct.Notifier.processMessage('success',response.success_msg, null, target);
@@ -108,5 +108,5 @@ zenexity.capdemat.bong.categoryEdit = function() {
 
 }();
 
-YAHOO.util.Event.onDOMReady(zenexity.capdemat.bong.categoryEdit.init);
+YAHOO.util.Event.onDOMReady(zenexity.libredemat.bong.categoryEdit.init);
 

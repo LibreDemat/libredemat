@@ -11,7 +11,7 @@
 
 . set_classpath.sh $1 valdoise
 
-java -cp $CLASSPATH  fr.cg95.cvq.util.admin.MeansOfContactTransformer $1
+java -cp $CLASSPATH  org.libredemat.util.admin.MeansOfContactTransformer $1
 
 
 

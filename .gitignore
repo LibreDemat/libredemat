@@ -1,5 +1,5 @@
-Libraries/fr.cg95/model
-Libraries/fr.cg95/plugins
+Libraries/org.libredemat/model
+Libraries/org.libredemat/plugins
 Libraries/conf/deployments/local.properties
 *~
 .DS_Store

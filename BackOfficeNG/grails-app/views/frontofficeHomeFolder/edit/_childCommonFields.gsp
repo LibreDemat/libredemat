@@ -33,16 +33,16 @@
   class="required validate-not-first ${invalidFields?.contains('sex') ? 'validation-failed' : ''}"
   title="<g:message code="homeFolder.child.property.sex.validationError" />">
   <option value=""><g:message code="message.select.defaultOption" /></option>
-  <g:each in="${fr.cg95.cvq.business.users.SexType.allSexTypes}">
+  <g:each in="${org.libredemat.business.users.SexType.allSexTypes}">
     <option value="${it.name()}"
       ${it == child.sex ? 'selected="selected"': ''}>
-      <g:capdematEnumToText var="${it}" i18nKeyPrefix="homeFolder.child.property.sex" />
+      <g:libredematEnumToText var="${it}" i18nKeyPrefix="homeFolder.child.property.sex" />
     </option>
   </g:each>
 </select>
 <label class="required"><g:message code="homeFolder.individual.property.birthDate" /> * <span class="help"><g:message code="homeFolder.individual.property.birthDate.help" /></span></label>
 <script type="text/javascript">
-  var zcf = zenexity.capdemat.fong;
+  var zcf = zenexity.libredemat.fong;
   zcf.i18n = {};
   zcf.i18n['child.expectedBirthDate'] = '<g:message code="homeFolder.individual.property.expectedBirthDate" /> * <span class="help"><g:message code="homeFolder.individual.property.birthDate.help" /></span>';
   zcf.i18n['child.birthDate'] = '<g:message code="homeFolder.individual.property.birthDate" /> * <span class="help"><g:message code="homeFolder.individual.property.birthDate.help" />';
@@ -92,9 +92,9 @@
     ${adult.fullName + message(code:'homeFolder.role.message.anotherAdultIs', args:['']) }
     <select name="roles.${adults.indexOf(adult)}.type" style="width: auto; display: inline; margin-bottom: .5em;">
       <option value="">${message(code:'homeFolder.role.message.none')}</option>
-      <g:each var="roleType" in="${fr.cg95.cvq.business.users.RoleType.childRoleTypes}">
+      <g:each var="roleType" in="${org.libredemat.business.users.RoleType.childRoleTypes}">
         <option value="${roleType}" ${roles?.(adults.indexOf(adult) + ".type").equals(roleType.toString()) ? 'selected="selected"' : ''}>
-          ${g.capdematEnumToText(var:roleType, i18nKeyPrefix:'homeFolder.role.withParticle')}
+          ${g.libredematEnumToText(var:roleType, i18nKeyPrefix:'homeFolder.role.withParticle')}
         </option>
       </g:each>
     </select>

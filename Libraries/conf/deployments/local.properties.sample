@@ -1,5 +1,5 @@
 # Sample file for a local development platform.
-# Make a local copy of it, adapt it to what you need and have, then point to it 
+# Make a local copy of it, adapt it to what you need and have, then point to it
 # in file build.properties at the root of the project.
 
 deploy_properties_file = /WEB-INF/local.properties
@@ -14,10 +14,10 @@ cas_url_pattern = /*
 
 authentication.method = builtin
 
-referential.properties.path=/home/bor/capdemat/Model/conf/
-assets.properties.path=/home/bor/capdemat/Assets/
+referential.properties.path=/home/bor/libredemat/Model/conf/
+assets.properties.path=/home/bor/libredemat/Assets/
 assets.included_authorities=blainville
-data.properties.path=/home/bor/capdemat/Model/test/data/
+data.properties.path=/home/bor/libredemat/Model/test/data/
 
 mail.sender_host=127.0.0.1
 mail.admin_address=root@localhost
@@ -26,8 +26,8 @@ mail.sender_port=25
 agent.administrator_group=CVQ_ADMINISTRATORS
 agent.contributor_group=CVQ_CONTRIBUTORS
 
-fake_payment.url=/CapDemat/service/fakePayment
-fake_payment.callbackUrl=/CapDemat/frontoffice/payment/status
+fake_payment.url=/LibreDemat/service/fakePayment
+fake_payment.callbackUrl=/LibreDemat/frontoffice/payment/status
 
 addresses_referential_url = http://localhost:9000
 

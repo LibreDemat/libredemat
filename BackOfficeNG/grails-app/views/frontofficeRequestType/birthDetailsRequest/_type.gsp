@@ -7,7 +7,7 @@
               <g:each in="${['FULL_COPY','EXTRACT_WITH_RELATIONSHIP','EXTRACT_WITHOUT_RELATIONSHIP','MULTILINGUAL_EXTRACT']}">
               <li>
                 <input type="radio" id="format_${it}" class="required condition-isWithRelationship-trigger  validate-one-required" value="${it}" name="format" ${it == rqt.format.toString() ? 'checked="checked"': ''} title="<g:message code="bdr.property.format.validationError" />" />
-                <label for="format_${it}"><g:capdematEnumToText var="${it}" i18nKeyPrefix="bdr.property.format" /></label>
+                <label for="format_${it}"><g:libredematEnumToText var="${it}" i18nKeyPrefix="bdr.property.format" /></label>
               </li>
               </g:each>
             </ul>
@@ -66,7 +66,7 @@
             <select id="motive" name="motive" class="required  validate-not-first ${rqt.stepStates['type'].invalidFields.contains('motive') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.motive.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['NOTARY_ACT','NATIONAL_IDENTITY_CARD','FRENCH_NATIONALITY_CERTIFICATE','MARRIAGE','PACS','PASSPORT','PENSION','LEGAL_PROCEEDINGS','OTHER']}">
-                <option value="${it}" ${it == rqt.motive?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="bdr.property.motive" /></option>
+                <option value="${it}" ${it == rqt.motive?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="bdr.property.motive" /></option>
               </g:each>
             </select>
             

@@ -1,8 +1,8 @@
 (function(){
-  var zcb = zenexity.capdemat.bong;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zcb = zenexity.libredemat.bong;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   var yud = YAHOO.util.Dom;
   var yus = YAHOO.util.Selector;
   var ylj = YAHOO.lang.JSON;

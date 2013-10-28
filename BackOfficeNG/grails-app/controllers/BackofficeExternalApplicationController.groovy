@@ -1,14 +1,14 @@
-import fr.cg95.cvq.service.users.external.IExternalHomeFolderService
-import fr.cg95.cvq.service.payment.IPaymentService
-import fr.cg95.cvq.service.payment.external.IExternalApplicationService
-import fr.cg95.cvq.business.payment.ExternalInvoiceItem
-import fr.cg95.cvq.external.IExternalProviderService
-import fr.cg95.cvq.business.payment.external.ExternalApplication
-import fr.cg95.cvq.business.users.external.HomeFolderMapping
-import fr.cg95.cvq.business.users.external.MappingState
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.util.Critere
+import org.libredemat.service.users.external.IExternalHomeFolderService
+import org.libredemat.service.payment.IPaymentService
+import org.libredemat.service.payment.external.IExternalApplicationService
+import org.libredemat.business.payment.ExternalInvoiceItem
+import org.libredemat.external.IExternalProviderService
+import org.libredemat.business.payment.external.ExternalApplication
+import org.libredemat.business.users.external.HomeFolderMapping
+import org.libredemat.business.users.external.MappingState
+import org.libredemat.exception.CvqException
+import org.libredemat.security.SecurityContext
+import org.libredemat.util.Critere
 
 import grails.converters.JSON
 
@@ -132,7 +132,7 @@ class BackofficeExternalApplicationController {
     }
 
     def matchHomeFolders = {
-        fr.cg95.cvq.business.users.Adult.metaClass.rank = { homeFolder ->
+        org.libredemat.business.users.Adult.metaClass.rank = { homeFolder ->
             def rank = 0
             rank += delegate.firstName == homeFolder.responsible.firstName ? 1 : 0
             rank += delegate.lastName == homeFolder.responsible.lastName ? 1 : 0
@@ -162,7 +162,7 @@ class BackofficeExternalApplicationController {
         }
         render (new JSON(['status': 'success',
             'message': message(code:'external.message.bindHomeFolderSucceed'),
-            'mappingState': capdematEnumToFlag(var:eh.mappingState, i18nKeyPrefix:'external.mappingState')
+            'mappingState': libredematEnumToFlag(var:eh.mappingState, i18nKeyPrefix:'external.mappingState')
         ]).toString())
     }
 
@@ -174,7 +174,7 @@ class BackofficeExternalApplicationController {
         externalApplicationService.modifyHomeFolder(eh)
         render (new JSON(['status': 'success',
             'message': message(code:'external.message.freeHomeFolderSucceed'),
-            'mappingState': capdematEnumToFlag(var:eh.mappingState, i18nKeyPrefix:'external.mappingState')
+            'mappingState': libredematEnumToFlag(var:eh.mappingState, i18nKeyPrefix:'external.mappingState')
         ]).toString())
     }
 
@@ -184,7 +184,7 @@ class BackofficeExternalApplicationController {
         externalApplicationService.modifyHomeFolder(eh)
         render (new JSON(['status': 'success',
             'message': message(code:'external.message.ignoredHomeFolderSucceed'),
-            'mappingState': capdematEnumToFlag(var:eh.mappingState, i18nKeyPrefix:'external.mappingState')
+            'mappingState': libredematEnumToFlag(var:eh.mappingState, i18nKeyPrefix:'external.mappingState')
         ]).toString())
     }
 

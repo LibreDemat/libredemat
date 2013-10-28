@@ -21,9 +21,9 @@
 
 <script type="text/javascript" src="${resource(dir:'js/common', file:'tools.js')}"></script>
 <script type="text/javascript">
-  zenexity.capdemat.tools.namespace('zenexity.capdemat.fong')
-  zenexity.capdemat.baseUrl = '<g:createLink controller="${webRequest.controllerName}"/>'
-  zenexity.capdemat.messages = { browser_alert_title: '${message(code:"browser.alert.title")}'
+  zenexity.libredemat.tools.namespace('zenexity.libredemat.fong')
+  zenexity.libredemat.baseUrl = '<g:createLink controller="${webRequest.controllerName}"/>'
+  zenexity.libredemat.messages = { browser_alert_title: '${message(code:"browser.alert.title")}'
                                , browser_alert_content: '${message(code:"browser.alert.content")}'
                                }
 </script>

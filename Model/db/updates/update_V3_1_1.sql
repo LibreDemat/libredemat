@@ -25,5 +25,5 @@ alter table document add column certified bool;
 update document set certified = false;
 
 -- resolv a bug due to a class renaming
-update history_entry set clazz = 'fr.cg95.cvq.business.users.Address' where clazz = 'fr.cg95.cvq.business.users.Adress';
+update history_entry set clazz = 'org.libredemat.business.users.Address' where clazz = 'org.libredemat.business.users.Adress';
 

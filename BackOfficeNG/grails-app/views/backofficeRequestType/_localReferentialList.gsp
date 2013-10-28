@@ -8,7 +8,7 @@
           <option value="true" ${lrType.isMultiple() ? 'selected="selected"' : ''}>${message(code:'localReferential.label.checkBoxTreeWidget')}</option>
         </g:if>
         <g:else>
-          <option value="${lrType.isMultiple() ? 'true' : 'false'}" selected="selected">${message(code:'localReferential.label.notConfigurableInCapDemat')}</option>
+          <option value="${lrType.isMultiple() ? 'true' : 'false'}" selected="selected">${message(code:'localReferential.label.notConfigurableInLibreDemat')}</option>
         </g:else>
       </select>
       <g:if test="${lrType.getManager() != 'CapDémat'}">

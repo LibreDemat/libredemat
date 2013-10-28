@@ -1,18 +1,18 @@
 <h3>
-  <g:capdematEnumToText var="${adult.title}" i18nKeyPrefix="homeFolder.adult.title" /> 
+  <g:libredematEnumToText var="${adult.title}" i18nKeyPrefix="homeFolder.adult.title" /> 
   ${adult.firstName} ${adult.lastName}
 </h3>
 <div class="yui-g">
   <div class="yui-u first">
     <dl>
       <dt><g:message code="homeFolder.adult.property.title" /> : </dt> 
-      <dd id="individuals[${index}].title" class="${action}-editField validate-capdematEnum javatype-fr.cg95.cvq.business.users.TitleType">
-          <g:capdematEnumToField var="${adult.title}" i18nKeyPrefix="homeFolder.adult.title" />
+      <dd id="individuals[${index}].title" class="${action}-editField validate-libredematEnum javatype-org.libredemat.business.users.TitleType">
+          <g:libredematEnumToField var="${adult.title}" i18nKeyPrefix="homeFolder.adult.title" />
       </dd>
       
       <dt><g:message code="homeFolder.adult.property.familyStatus" /> : </dt>
-      <dd id="individuals[${index}].familyStatus" class="${action}-editField validate-capdematEnum javatype-fr.cg95.cvq.business.users.FamilyStatusType">
-        <g:capdematEnumToField var="${adult.familyStatus}" i18nKeyPrefix="homeFolder.adult.familyStatus" />
+      <dd id="individuals[${index}].familyStatus" class="${action}-editField validate-libredematEnum javatype-org.libredemat.business.users.FamilyStatusType">
+        <g:libredematEnumToField var="${adult.familyStatus}" i18nKeyPrefix="homeFolder.adult.familyStatus" />
       </dd>
 
       <dt><g:message code="homeFolder.individual.property.lastName" /> : </dt>

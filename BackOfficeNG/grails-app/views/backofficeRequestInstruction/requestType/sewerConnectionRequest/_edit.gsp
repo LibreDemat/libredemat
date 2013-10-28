@@ -26,7 +26,7 @@
             
               
               <dl>
-                <dt class="required condition-isTenant-trigger">${message(code:'scr.property.requesterQuality.label')}&nbsp;*&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-capdematEnum required-true i18n-scr.property.requesterQuality javatype-fr.cg95.cvq.business.request.urbanism.ScrRequesterQualityType" ><g:capdematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="scr.property.requesterQuality" /></dd>
+                <dt class="required condition-isTenant-trigger">${message(code:'scr.property.requesterQuality.label')}&nbsp;*&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-libredematEnum required-true i18n-scr.property.requesterQuality javatype-org.libredemat.business.request.urbanism.ScrRequesterQualityType" ><g:libredematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="scr.property.requesterQuality" /></dd>
               </dl>
               
             

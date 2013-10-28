@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="CapDemat Global Builder" default="release">
+<project name="LibreDemat Global Builder" default="release">
 
   <target name="init">
     <!-- global properties file -->
@@ -212,11 +212,11 @@
     description="Deploy BO config files" depends="init">
   <ant dir="${libraries.dir}" target="bong-runtime-libs" />
       <copy file="${deploy.properties_dir}/${deploy.properties_file}"
-            tofile="BackOfficeNG/grails-app/conf/CapDemat-config.properties"
+            tofile="BackOfficeNG/grails-app/conf/LibreDemat-config.properties"
             overwrite="true" />
       <!-- Hack coz Grails need two launches before seeing the previous one -->
       <copy file="${deploy.properties_dir}/${deploy.properties_file}"
-            tofile="BackOfficeNG/CapDemat-config.properties"
+            tofile="BackOfficeNG/LibreDemat-config.properties"
             overwrite="true" />
       <copy file="${deploy.properties_dir}/log4j.properties.dev"
             tofile="BackOfficeNG/grails-app/conf/log4j.properties"

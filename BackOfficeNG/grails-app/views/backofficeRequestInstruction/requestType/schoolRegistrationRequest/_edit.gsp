@@ -42,7 +42,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'srr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-capdematEnum required-true i18n-srr.property.section javatype-fr.cg95.cvq.business.users.SectionType maxLength-32" ><g:capdematEnumToField var="${rqt?.section}" i18nKeyPrefix="srr.property.section" /></dd>
+                <dt class="required">${message(code:'srr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-libredematEnum required-true i18n-srr.property.section javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.section}" i18nKeyPrefix="srr.property.section" /></dd>
               </dl>
               
             
@@ -66,7 +66,7 @@
                 
                   <dt class="">${message(code:'srr.property.currentSchoolAddress.label')}&nbsp;:</dt><dd id="currentSchoolAddress" class="action-editField validate-string i18n-srr.property.currentSchoolAddress" ><span>${rqt?.currentSchoolAddress}</span></dd>
                 
-                  <dt class="">${message(code:'srr.property.currentSection.label')}&nbsp;:</dt><dd id="currentSection" class="action-editField validate-capdematEnum i18n-srr.property.currentSection javatype-fr.cg95.cvq.business.users.SectionType maxLength-32" ><g:capdematEnumToField var="${rqt?.currentSection}" i18nKeyPrefix="srr.property.currentSection" /></dd>
+                  <dt class="">${message(code:'srr.property.currentSection.label')}&nbsp;:</dt><dd id="currentSection" class="action-editField validate-libredematEnum i18n-srr.property.currentSection javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.currentSection}" i18nKeyPrefix="srr.property.currentSection" /></dd>
                 
               </dl>
               

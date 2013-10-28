@@ -1,9 +1,9 @@
-zenexity.capdemat.tools.namespace('zenexity.capdemat.aspect');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.aspect');
 
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zca = zenexity.capdemat.aspect;
+  var zct = zenexity.libredemat.tools;
+  var zca = zenexity.libredemat.aspect;
   
   zca._stack = [];
   
@@ -21,7 +21,7 @@ zenexity.capdemat.tools.namespace('zenexity.capdemat.aspect');
 
   /**
    * @description Attachs AOP-style advices to a method. Can be used with classes(must idicate scope) and with local functions(no scope needed).
-   * @namespace zenexity.capdemat.aspect
+   * @namespace zenexity.libredemat.aspect
    * @method advise
    * 
    * @param method {Array|RegExp|Function|String} Method/List of methods to be advised, in case of RegExp all methods of obj matching the regular expression are advised

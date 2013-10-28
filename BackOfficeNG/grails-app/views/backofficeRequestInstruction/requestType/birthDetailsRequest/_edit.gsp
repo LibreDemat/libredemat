@@ -30,7 +30,7 @@
             
               
               <dl>
-                <dt class="required condition-isOtherRequesterQuality-trigger">${message(code:'bdr.property.requesterQuality.label')}&nbsp;*&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-capdematEnum required-true i18n-bdr.property.requesterQuality javatype-fr.cg95.cvq.business.request.civil.BirthRequesterQualityType" ><g:capdematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="bdr.property.requesterQuality" /></dd>
+                <dt class="required condition-isOtherRequesterQuality-trigger">${message(code:'bdr.property.requesterQuality.label')}&nbsp;*&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-libredematEnum required-true i18n-bdr.property.requesterQuality javatype-org.libredemat.business.request.civil.BirthRequesterQualityType" ><g:libredematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="bdr.property.requesterQuality" /></dd>
               </dl>
               
             
@@ -103,7 +103,7 @@
             
               
               <dl>
-                <dt class="required condition-isWithRelationship-trigger">${message(code:'bdr.property.format.label')}&nbsp;*&nbsp;:</dt><dd id="format" class="action-editField validate-capdematEnum required-true i18n-bdr.property.format javatype-fr.cg95.cvq.business.request.civil.BirthCertificateFormatType" ><g:capdematEnumToField var="${rqt?.format}" i18nKeyPrefix="bdr.property.format" /></dd>
+                <dt class="required condition-isWithRelationship-trigger">${message(code:'bdr.property.format.label')}&nbsp;*&nbsp;:</dt><dd id="format" class="action-editField validate-libredematEnum required-true i18n-bdr.property.format javatype-org.libredemat.business.request.civil.BirthCertificateFormatType" ><g:libredematEnumToField var="${rqt?.format}" i18nKeyPrefix="bdr.property.format" /></dd>
               </dl>
               
             
@@ -143,7 +143,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'bdr.property.motive.label')}&nbsp;*&nbsp;:</dt><dd id="motive" class="action-editField validate-capdematEnum required-true i18n-bdr.property.motive javatype-fr.cg95.cvq.business.request.civil.BirthCertificateMotiveType" ><g:capdematEnumToField var="${rqt?.motive}" i18nKeyPrefix="bdr.property.motive" /></dd>
+                <dt class="required">${message(code:'bdr.property.motive.label')}&nbsp;*&nbsp;:</dt><dd id="motive" class="action-editField validate-libredematEnum required-true i18n-bdr.property.motive javatype-org.libredemat.business.request.civil.BirthCertificateMotiveType" ><g:libredematEnumToField var="${rqt?.motive}" i18nKeyPrefix="bdr.property.motive" /></dd>
               </dl>
               
             

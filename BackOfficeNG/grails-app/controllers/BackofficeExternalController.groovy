@@ -1,10 +1,10 @@
-import fr.cg95.cvq.service.request.external.IRequestExternalActionService
-import fr.cg95.cvq.business.request.external.RequestExternalAction
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.request.RequestState
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.external.IRequestExternalService
-import fr.cg95.cvq.util.Critere
+import org.libredemat.service.request.external.IRequestExternalActionService
+import org.libredemat.business.request.external.RequestExternalAction
+import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestState
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.external.IRequestExternalService
+import org.libredemat.util.Critere
 
 import grails.converters.JSON
 import net.sf.oval.constraint.EmailCheck

@@ -1,17 +1,17 @@
 /**
  * @description Client-side module for statistics features
  *
- * @namespace zenexity.capdemat.bong.statistics
+ * @namespace zenexity.libredemat.bong.statistics
  * @author bor@zenexity.fr
  */
 
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.statistics');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.statistics');
 
 (function(){
 
-  var zct = zenexity.capdemat.tools;
-  var zcb = zenexity.capdemat.bong;
-  var zcbs = zenexity.capdemat.bong.statistics;
+  var zct = zenexity.libredemat.tools;
+  var zcb = zenexity.libredemat.bong;
+  var zcbs = zenexity.libredemat.bong.statistics;
   
   var yu = YAHOO.util;
   var yud = yu.Dom;

@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -98,7 +98,7 @@
           <dt><g:message code="dhr.property.dhrRequesterNationality.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrRequesterNationality}">
-              <g:capdematEnumToField var="${rqt.dhrRequesterNationality}" i18nKeyPrefix="dhr.property.dhrRequesterNationality" />
+              <g:libredematEnumToField var="${rqt.dhrRequesterNationality}" i18nKeyPrefix="dhr.property.dhrRequesterNationality" />
             </g:if>
           </dd>
           
@@ -124,7 +124,7 @@
           <dt><g:message code="dhr.property.dhrPrincipalPensionPlan.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrPrincipalPensionPlan}">
-              <g:capdematEnumToField var="${rqt.dhrPrincipalPensionPlan}" i18nKeyPrefix="dhr.property.dhrPrincipalPensionPlan" />
+              <g:libredematEnumToField var="${rqt.dhrPrincipalPensionPlan}" i18nKeyPrefix="dhr.property.dhrPrincipalPensionPlan" />
             </g:if>
           </dd>
           
@@ -151,7 +151,7 @@
           <dt><g:message code="dhr.property.dhrGuardianMeasure.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrGuardianMeasure}">
-              <g:capdematEnumToField var="${rqt.dhrGuardianMeasure}" i18nKeyPrefix="dhr.property.dhrGuardianMeasure" />
+              <g:libredematEnumToField var="${rqt.dhrGuardianMeasure}" i18nKeyPrefix="dhr.property.dhrGuardianMeasure" />
             </g:if>
           </dd>
           
@@ -228,7 +228,7 @@
           <dt><g:message code="dhr.property.dhrRequestKind.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrRequestKind}">
-              <g:capdematEnumToField var="${rqt.dhrRequestKind}" i18nKeyPrefix="dhr.property.dhrRequestKind" />
+              <g:libredematEnumToField var="${rqt.dhrRequestKind}" i18nKeyPrefix="dhr.property.dhrRequestKind" />
             </g:if>
           </dd>
           
@@ -237,7 +237,7 @@
           <dt><g:message code="dhr.property.dhrSpouseTitle.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrSpouseTitle}">
-              <g:capdematEnumToField var="${rqt.dhrSpouseTitle}" i18nKeyPrefix="dhr.property.dhrSpouseTitle" />
+              <g:libredematEnumToField var="${rqt.dhrSpouseTitle}" i18nKeyPrefix="dhr.property.dhrSpouseTitle" />
             </g:if>
           </dd>
           
@@ -246,7 +246,7 @@
           <dt><g:message code="dhr.property.dhrSpouseFamilyStatus.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrSpouseFamilyStatus}">
-              <g:capdematEnumToField var="${rqt.dhrSpouseFamilyStatus}" i18nKeyPrefix="dhr.property.dhrSpouseFamilyStatus" />
+              <g:libredematEnumToField var="${rqt.dhrSpouseFamilyStatus}" i18nKeyPrefix="dhr.property.dhrSpouseFamilyStatus" />
             </g:if>
           </dd>
           
@@ -272,7 +272,7 @@
           <dt><g:message code="dhr.property.dhrSpouseNationality.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrSpouseNationality}">
-              <g:capdematEnumToField var="${rqt.dhrSpouseNationality}" i18nKeyPrefix="dhr.property.dhrSpouseNationality" />
+              <g:libredematEnumToField var="${rqt.dhrSpouseNationality}" i18nKeyPrefix="dhr.property.dhrSpouseNationality" />
             </g:if>
           </dd>
           
@@ -303,7 +303,7 @@
           <dt><g:message code="dhr.property.dhrSpousePrincipalPensionPlan.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrSpousePrincipalPensionPlan}">
-              <g:capdematEnumToField var="${rqt.dhrSpousePrincipalPensionPlan}" i18nKeyPrefix="dhr.property.dhrSpousePrincipalPensionPlan" />
+              <g:libredematEnumToField var="${rqt.dhrSpousePrincipalPensionPlan}" i18nKeyPrefix="dhr.property.dhrSpousePrincipalPensionPlan" />
             </g:if>
           </dd>
           
@@ -390,7 +390,7 @@
           <dt><g:message code="dhr.property.dhrCurrentDwellingKind.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrCurrentDwellingKind}">
-              <g:capdematEnumToField var="${rqt.dhrCurrentDwellingKind}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingKind" />
+              <g:libredematEnumToField var="${rqt.dhrCurrentDwellingKind}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingKind" />
             </g:if>
           </dd>
           
@@ -404,7 +404,7 @@
           <dt><g:message code="dhr.property.dhrCurrentDwellingStatus.label" /></dt>
           <dd>
             <g:if test="${rqt.dhrCurrentDwellingStatus}">
-              <g:capdematEnumToField var="${rqt.dhrCurrentDwellingStatus}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingStatus" />
+              <g:libredematEnumToField var="${rqt.dhrCurrentDwellingStatus}" i18nKeyPrefix="dhr.property.dhrCurrentDwellingStatus" />
             </g:if>
           </dd>
           
@@ -441,7 +441,7 @@
           <dt><g:message code="dhr.property.dhrPreviousDwellingKind.label" /></dt>
           <dd>
             <g:if test="${it.dhrPreviousDwellingKind}">
-              <g:capdematEnumToField var="${it.dhrPreviousDwellingKind}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" />
+              <g:libredematEnumToField var="${it.dhrPreviousDwellingKind}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingKind" />
             </g:if>
           </dd>
           
@@ -450,7 +450,7 @@
           <dt><g:message code="dhr.property.dhrPreviousDwellingStatus.label" /></dt>
           <dd>
             <g:if test="${it.dhrPreviousDwellingStatus}">
-              <g:capdematEnumToField var="${it.dhrPreviousDwellingStatus}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" />
+              <g:libredematEnumToField var="${it.dhrPreviousDwellingStatus}" i18nKeyPrefix="dhr.property.dhrPreviousDwellingStatus" />
             </g:if>
           </dd>
           
@@ -538,7 +538,7 @@
           <dt><g:message code="dhr.property.dhrNotRealAssetType.label" /></dt>
           <dd>
             <g:if test="${it.dhrNotRealAssetType}">
-              <g:capdematEnumToField var="${it.dhrNotRealAssetType}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" />
+              <g:libredematEnumToField var="${it.dhrNotRealAssetType}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" />
             </g:if>
           </dd>
           
@@ -547,7 +547,7 @@
           <dt><g:message code="dhr.property.dhrNotRealAssetKind.label" /></dt>
           <dd>
             <g:if test="${it.dhrNotRealAssetKind}">
-              <g:capdematEnumToField var="${it.dhrNotRealAssetKind}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" />
+              <g:libredematEnumToField var="${it.dhrNotRealAssetKind}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" />
             </g:if>
           </dd>
           
@@ -657,7 +657,7 @@
           <g:if test="${document.endValidityDate}">${message(code:'document.header.expireOn')} ${formatDate(date:document.endValidityDate,formatName:'format.date')}</g:if>
         </dt>
         <dd>
-          <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details', id:document.id)}" target="blank" title="${message(code:'document.message.preview.longdesc')}">${message(code:'document.message.preview')}</a>
         </dd>
         </g:each>

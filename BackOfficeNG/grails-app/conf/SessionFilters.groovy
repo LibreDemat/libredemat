@@ -8,23 +8,23 @@ import edu.yale.its.tp.cas.client.CASReceipt
 import edu.yale.its.tp.cas.client.ProxyTicketValidator
 import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
 
-import fr.cg95.cvq.authentication.IAuthenticationService
-import fr.cg95.cvq.business.authority.LocalAuthority
-import fr.cg95.cvq.dao.jpa.JpaUtil
-import fr.cg95.cvq.exception.CvqException
-import fr.cg95.cvq.exception.CvqObjectNotFoundException
-import fr.cg95.cvq.oauth2.IOAuth2Service
-import fr.cg95.cvq.oauth2.OAuth2Exception
-import fr.cg95.cvq.oauth2.model.AccessToken
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.security.annotation.ContextType
-import fr.cg95.cvq.service.authority.IAgentService
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.service.authority.LocalAuthorityConfigurationBean
-import fr.cg95.cvq.service.request.ICategoryService
-import fr.cg95.cvq.util.web.filter.CASFilter
+import org.libredemat.authentication.IAuthenticationService
+import org.libredemat.business.authority.LocalAuthority
+import org.libredemat.dao.jpa.JpaUtil
+import org.libredemat.exception.CvqException
+import org.libredemat.exception.CvqObjectNotFoundException
+import org.libredemat.oauth2.IOAuth2Service
+import org.libredemat.oauth2.OAuth2Exception
+import org.libredemat.oauth2.model.AccessToken
+import org.libredemat.security.SecurityContext
+import org.libredemat.security.annotation.ContextType
+import org.libredemat.service.authority.IAgentService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.authority.LocalAuthorityConfigurationBean
+import org.libredemat.service.request.ICategoryService
+import org.libredemat.util.web.filter.CASFilter
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
-import fr.cg95.cvq.service.users.IUserSearchService
+import org.libredemat.service.users.IUserSearchService
 
 class SessionFilters {
 
@@ -186,10 +186,9 @@ class SessionFilters {
                         SecurityContext.setProxyAgent(session.currentUser)
                         session.proxyAgent = SecurityContext.proxyAgent
                     } else {
-                        SecurityContext.setProxyAgent(null)
+                        SecurityContext.resetProxyAgent()
                         session.proxyAgent = null
                     }
-
                     if ((point.controller == controllerName && point.action != actionName) || 
                         (point.controller != controllerName)) {
                         if(point.action) redirect(controller: point.controller, action: point.action,params : ["callback" : callbackURI])
@@ -199,7 +198,7 @@ class SessionFilters {
                     } else if (session.currentEcitizenId) {
                         SecurityContext.setCurrentEcitizen(session.currentEcitizenId)
                         session.setAttribute("currentCredentialBean", SecurityContext.currentCredentialBean)
-                        if(session.additionalTabs.contains("Planning") && !userSearchService.hasExternalCapdematId(session.currentEcitizenId))
+                        if(session.additionalTabs.contains("Planning") && !userSearchService.hasExternalLibredematId(session.currentEcitizenId))
                             session.additionalTabs.remove("Planning")
                     }
                 } catch (CvqObjectNotFoundException ce) {
@@ -244,7 +243,7 @@ class SessionFilters {
 
                 if (CH.config.cas_mocking == 'true') {
             		if (session.getAttribute(CASFilter.CAS_FILTER_USER) == null) {
-            			response.sendRedirect('/CapDemat/cas.gsp')
+            			response.sendRedirect('/LibreDemat/cas.gsp')
                         flash.redirect = true
             			return false
             		} else {

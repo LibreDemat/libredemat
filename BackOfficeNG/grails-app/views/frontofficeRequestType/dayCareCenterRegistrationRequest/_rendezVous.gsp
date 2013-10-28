@@ -6,7 +6,7 @@
             <select id="choixTypeRendezVous" name="choixTypeRendezVous" class="required  validate-not-first ${rqt.stepStates['rendezVous'].invalidFields.contains('choixTypeRendezVous') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.choixTypeRendezVous.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['PHYSIQUE','TELEPHONIQUE']}">
-                <option value="${it}" ${it == rqt.choixTypeRendezVous?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.choixTypeRendezVous" /></option>
+                <option value="${it}" ${it == rqt.choixTypeRendezVous?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.choixTypeRendezVous" /></option>
               </g:each>
             </select>
             
@@ -26,7 +26,7 @@
             <select id="plageHoraireContact" name="plageHoraireContact" class="required  validate-not-first ${rqt.stepStates['rendezVous'].invalidFields.contains('plageHoraireContact') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.plageHoraireContact.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['MATIN','APREM','SOIR','INDIFFERENT']}">
-                <option value="${it}" ${it == rqt.plageHoraireContact?.toString() ? 'selected="selected"': ''}><g:capdematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.plageHoraireContact" /></option>
+                <option value="${it}" ${it == rqt.plageHoraireContact?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="dccrr.property.plageHoraireContact" /></option>
               </g:each>
             </select>
             

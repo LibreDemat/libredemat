@@ -1,9 +1,9 @@
-import fr.cg95.cvq.business.request.DisplayGroup
-import fr.cg95.cvq.service.request.IDisplayGroupService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.authority.ILocalAuthorityRegistry
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Type
-import fr.cg95.cvq.business.authority.LocalAuthorityResource.Version
+import org.libredemat.business.request.DisplayGroup
+import org.libredemat.service.request.IDisplayGroupService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.authority.LocalAuthorityResource.Version
 
 import grails.converters.JSON
 
@@ -27,14 +27,14 @@ class BackofficeDisplayGroupController {
         displayGroups.each { dg ->
             requestTypesByDisplayGroup[dg.id] = []
         	  dg.requestTypes?.each { rt ->
-        	      requestTypesByDisplayGroup[dg.id].add(CapdematUtils.adaptRequestType(translationService, rt))
+        	      requestTypesByDisplayGroup[dg.id].add(LibredematUtils.adaptRequestType(translationService, rt))
         	  }
         	  requestTypesByDisplayGroup[dg.id] = requestTypesByDisplayGroup[dg.id].sort {it.label}
         }
         def orphanRequestTypes = []
         requestTypeService.getAllRequestTypes().each {
             if (it.displayGroup == null)
-                orphanRequestTypes.add(CapdematUtils.adaptRequestType(translationService,it))
+                orphanRequestTypes.add(LibredematUtils.adaptRequestType(translationService,it))
         }
 
         return ['subMenuEntries':subMenuEntries,
@@ -49,7 +49,7 @@ class BackofficeDisplayGroupController {
         def displayGroups = displayGroupService.getAll()
         def requestTypes = []
         displayGroup.requestTypes.each { 
-            requestTypes.add(CapdematUtils.adaptRequestType(translationService,it))
+            requestTypes.add(LibredematUtils.adaptRequestType(translationService,it))
         }
         requestTypes = requestTypes.sort{ it.label.toLowerCase() }
 
@@ -121,11 +121,11 @@ class BackofficeDisplayGroupController {
         
         if ((request.post && params.scope == null) || params.scope == 'all') {
             requestTypeService.getAllRequestTypes().each{
-                requestTypes.add(CapdematUtils.adaptRequestType(translationService,it)) 
+                requestTypes.add(LibredematUtils.adaptRequestType(translationService,it)) 
             }
         } else if (params.scope == 'bounded') {
             displayGroupService.getById(Long.valueOf(params.id)).requestTypes.each {
-                requestTypes.add(CapdematUtils.adaptRequestType(translationService,it))
+                requestTypes.add(LibredematUtils.adaptRequestType(translationService,it))
             }
         }
 

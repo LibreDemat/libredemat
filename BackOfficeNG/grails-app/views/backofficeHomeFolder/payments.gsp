@@ -2,7 +2,7 @@
   <ul>
     <g:each var="record" in="${payments}">
       <li>
-        <g:capdematEnumToFlag var="${record.state}" i18nKeyPrefix="payment.state"/>
+        <g:libredematEnumToFlag var="${record.state}" i18nKeyPrefix="payment.state"/>
         <p>
           <g:message code="payment.property.payment"/>
           <g:if test="${record.bankReference}">

@@ -13,7 +13,7 @@
       <img src="${resource(dir:'images/icons',file:'mime_' + (document.isPDF() ? 'pdf' : 'img') + '.png')}" />
     </dt>
     <dd>
-      <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+      <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
       <g:if test="${document.ecitizenNote}">
         <p>${message(code:'document.header.description')} : ${document.ecitizenNote}</p>
       </g:if>
@@ -25,7 +25,7 @@
         </g:if>
       </p>
       <p>
-        <g:if test="${document.state == fr.cg95.cvq.business.document.DocumentState.DRAFT}">
+        <g:if test="${document.state == org.libredemat.business.document.DocumentState.DRAFT}">
           <a href="${createLink(controller:'frontofficeRequestDocument', action:'edit', params:['requestId':rqt.id, 'documentTypeId':documentType.key, 'documentId':document.id])}">${message(code:'action.modify')}</a>&nbsp;
           <a href="${createLink(controller:'frontofficeRequestDocument', action:'delete', params:['requestId':rqt.id, 'documentId':document.id])}">${message(code:'action.delete')}</a>&nbsp;
         </g:if>

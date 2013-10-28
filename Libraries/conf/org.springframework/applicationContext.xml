@@ -12,35 +12,35 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 
   <task:annotation-driven/>
 
-  <bean id="loggingAspect" class="fr.cg95.cvq.util.development.LoggingAspect" />
-  <bean id="contextAspect" class="fr.cg95.cvq.security.aspect.ContextAspect" />
+  <bean id="loggingAspect" class="org.libredemat.util.development.LoggingAspect" />
+  <bean id="contextAspect" class="org.libredemat.security.aspect.ContextAspect" />
   <bean id="hibernateExceptionTranslatorAspect" 
-    class="fr.cg95.cvq.dao.hibernate.HibernateExceptionTranslatorAspect" />
+    class="org.libredemat.dao.hibernate.HibernateExceptionTranslatorAspect" />
   <bean id="requestCompositionEnforcingAspect"
-    class="fr.cg95.cvq.dao.request.RequestCompositionEnforcingAspect" />
+    class="org.libredemat.dao.request.RequestCompositionEnforcingAspect" />
 
   <!-- ======================================================= -->
   <!-- ========== GENERAL SERVICES DEFINITION ================ -->  
   <!-- ======================================================= -->
  
-  <bean id="log" class="fr.cg95.cvq.util.logging.impl.Log">
+  <bean id="log" class="org.libredemat.util.logging.impl.Log">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
   </bean>
 
   <bean id="authenticationService" 
-    class="fr.cg95.cvq.authentication.impl.AuthenticationService">
+    class="org.libredemat.authentication.impl.AuthenticationService">
     <property name="adultDAO" ref="adultDAO"/>
     <property name="individualDAO" ref="individualDAO" />
     <property name="agentDAO" ref="agentDAO"/>
     <property name="defaultAuthenticationMethod" value="${authentication.method}" />
   </bean>
 
-  <bean id="oauth2Service" class="fr.cg95.cvq.oauth2.impl.OAuth2Service">
+  <bean id="oauth2Service" class="org.libredemat.oauth2.impl.OAuth2Service">
     <property name="agentDAO" ref="agentDAO"/>
     <property name="adultDAO" ref="adultDAO"/>
   </bean>
 
-  <bean id="mailService" class="fr.cg95.cvq.util.mail.impl.MailService">
+  <bean id="mailService" class="org.libredemat.util.mail.impl.MailService">
     <property name="mailSender">
       <ref bean="mailSender"/>
     </property>
@@ -49,7 +49,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
 <!-- 
-  <bean id="smsService" class="fr.cg95.cvq.util.sms.impl.SmsService">
+  <bean id="smsService" class="org.libredemat.util.sms.impl.SmsService">
     <property name="endportpath" value="${plugins.externalservices.clever.endportpath}"/> 
     <property name="username" value="${plugins.externalservices.clever.username}"/> 
     <property name="password" value="${plugins.externalservices.clever.password}"/>
@@ -57,9 +57,9 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 -->
 
-  <bean id="fakeSmsService" class="fr.cg95.cvq.util.sms.impl.FakeSmsService" />
+  <bean id="fakeSmsService" class="org.libredemat.util.sms.impl.FakeSmsService" />
   
-  <bean id="requestPdfService" class="fr.cg95.cvq.service.request.impl.RequestPdfService">
+  <bean id="requestPdfService" class="org.libredemat.service.request.impl.RequestPdfService">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
     <property name="translationService" ref="translationService"/>
     <property name="userSearchService" ref="userSearchService"/>
@@ -70,7 +70,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="documentService" ref="documentService"/>
   </bean>
 
-  <bean id="securityContext" class="fr.cg95.cvq.security.SecurityContext">
+  <bean id="securityContext" class="org.libredemat.security.SecurityContext">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="agentService" ref="agentService" />
     <property name="userSearchService" ref="userSearchService" />
@@ -78,19 +78,19 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="agentGroups" value="${agent.contributor_group}" />
   </bean>
   
-  <bean id="externalService" class="fr.cg95.cvq.external.impl.ExternalService" />
+  <bean id="externalService" class="org.libredemat.external.impl.ExternalService" />
 
   <!-- *******************************************************************  -->
   <!-- ******************** AUTHORITY SERVICES ***************************  -->
   <!-- *******************************************************************  -->
 
   <bean id="localAuthoritiesLoader"
-    class="fr.cg95.cvq.service.authority.LocalAuthoritiesLoader"
+    class="org.libredemat.service.authority.LocalAuthoritiesLoader"
     init-method="init" depends-on="securityContext">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry"/>
   </bean>
 
-  <bean id="agentService" class="fr.cg95.cvq.service.authority.impl.AgentService">
+  <bean id="agentService" class="org.libredemat.service.authority.impl.AgentService">
     <property name="agentDAO" ref="agentDAO"/>
     <property name="authenticationService">
       <ref bean="authenticationService"/>
@@ -102,7 +102,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="agentServiceToUserUtilsInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.util.UserUtils.setAgentService" />
+      value="org.libredemat.util.UserUtils.setAgentService" />
     <property name="arguments">
       <list>
         <ref local="agentService" />
@@ -110,19 +110,19 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     </property>
   </bean>
 
-  <bean id="schoolService" class="fr.cg95.cvq.service.authority.impl.SchoolService">
+  <bean id="schoolService" class="org.libredemat.service.authority.impl.SchoolService">
     <property name="DAO" ref="schoolDAO"/>
   </bean>
 
   <bean id="recreationCenterService" 
-    class="fr.cg95.cvq.service.authority.impl.RecreationCenterService">
+    class="org.libredemat.service.authority.impl.RecreationCenterService">
     <property name="DAO" ref="recreationCenterDAO"/>
   </bean>
 
   <!-- ******************** REQUEST SERVICES **********************  -->
   
   <bean id="requestContextCheckAspect" 
-    class="fr.cg95.cvq.service.request.aspect.RequestContextCheckAspect">
+    class="org.libredemat.service.request.aspect.RequestContextCheckAspect">
     <property name="requestDAO" ref="requestDAO" />  
     <property name="requestTypeDAO" ref="requestTypeDAO" />
     <property name="categoryDAO" ref="categoryDAO" />
@@ -131,18 +131,18 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="requestFilterAspect"
-    class="fr.cg95.cvq.service.request.aspect.RequestFilterAspect">
+    class="org.libredemat.service.request.aspect.RequestFilterAspect">
     <property name="categoryService" ref="categoryService" />
   </bean>
 
   <bean id="localReferentialService"
-    class="fr.cg95.cvq.service.request.impl.LocalReferentialService">
+    class="org.libredemat.service.request.impl.LocalReferentialService">
     <property name="localReferentialDAO" ref="localReferentialDAO" />
   </bean>
   <bean id="localReferentialServiceToLocalReferentialCheckInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.service.request.LocalReferentialCheck.setLocalReferentialService" />
+      value="org.libredemat.service.request.LocalReferentialCheck.setLocalReferentialService" />
     <property name="arguments">
       <list>
         <ref local="localReferentialService" />
@@ -150,7 +150,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     </property>
   </bean>
   
-  <bean id="categoryService" class="fr.cg95.cvq.service.request.impl.CategoryService">
+  <bean id="categoryService" class="org.libredemat.service.request.impl.CategoryService">
     <property name="categoryDAO" ref="categoryDAO"/>
     <property name="requestTypeDAO" ref="requestTypeDAO"/>
     <property name="agentService" ref="agentService" />
@@ -158,7 +158,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
   </bean>
 
-  <bean id="requestService" class="fr.cg95.cvq.service.request.impl.RequestService"
+  <bean id="requestService" class="org.libredemat.service.request.impl.RequestService"
     abstract="true" init-method="init">
     <property name="genericDAO" ref="genericDAO" />
     <property name="requestTypeService" ref="requestTypeService" />
@@ -166,14 +166,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="archiveDocuments" value="false"/>
   </bean>
   
-  <bean id="requestServiceRegistry" class="fr.cg95.cvq.service.request.impl.RequestServiceRegistry">
+  <bean id="requestServiceRegistry" class="org.libredemat.service.request.impl.RequestServiceRegistry">
     <property name="requestDAO" ref="requestDAO"/>
   </bean>
 
   <bean id="requestServiceRegistryToSubjectIdCheckInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.service.request.SubjectIdCheck.setRequestServiceRegistry" />
+      value="org.libredemat.service.request.SubjectIdCheck.setRequestServiceRegistry" />
     <property name="arguments">
       <list>
         <ref local="requestServiceRegistry" />
@@ -181,7 +181,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     </property>
   </bean>
 
-  <bean id="requestWorkflowService" class="fr.cg95.cvq.service.request.impl.RequestWorkflowService">
+  <bean id="requestWorkflowService" class="org.libredemat.service.request.impl.RequestWorkflowService">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="requestDAO" ref="requestDAO" />
     <property name="requestActionService" ref="requestActionService" />
@@ -199,7 +199,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="requestWorkflowServiceToSubjectIdCheckInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.service.request.SubjectIdCheck.setRequestWorkflowService" />
+      value="org.libredemat.service.request.SubjectIdCheck.setRequestWorkflowService" />
     <property name="arguments">
       <list>
         <ref local="requestWorkflowService" />
@@ -207,15 +207,15 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     </property>
   </bean>
 
-  <bean id="autofillService" class="fr.cg95.cvq.service.request.impl.AutofillService">
+  <bean id="autofillService" class="org.libredemat.service.request.impl.AutofillService">
     <property name="userSearchService" ref="userSearchService"/>
   </bean>
 
-  <bean id="conditionService" class="fr.cg95.cvq.service.request.impl.ConditionService">
+  <bean id="conditionService" class="org.libredemat.service.request.impl.ConditionService">
     <property name="requestServiceRegistry" ref="requestServiceRegistry"/>
   </bean>
 
-  <bean id="requestTypeService" class="fr.cg95.cvq.service.request.impl.RequestTypeService"
+  <bean id="requestTypeService" class="org.libredemat.service.request.impl.RequestTypeService"
     init-method="init">
     <property name="genericDAO" ref="genericDAO"/>
     <property name="requestTypeDAO" ref="requestTypeDAO"/>
@@ -228,13 +228,13 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="authenticationService" ref="authenticationService" />
   </bean>
 
-  <bean id="requestActionService" class="fr.cg95.cvq.service.request.impl.RequestActionService">
+  <bean id="requestActionService" class="org.libredemat.service.request.impl.RequestActionService">
     <property name="requestDAO" ref="requestDAO"/>
     <property name="requestActionDAO" ref="requestActionDAO"/>
   </bean>
 
   <bean id="requestNotificationService"
-    class="fr.cg95.cvq.service.request.impl.RequestNotificationService">
+    class="org.libredemat.service.request.impl.RequestNotificationService">
     <property name="requestDAO" ref="requestDAO" />
     <property name="mailService" ref="mailService" />
     <property name="userSearchService" ref="userSearchService"/>
@@ -245,14 +245,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="requestTypeService" ref="requestTypeService" />
   </bean>
 
-  <bean id="requestStatisticsService" class="fr.cg95.cvq.service.request.impl.RequestStatisticsService">
+  <bean id="requestStatisticsService" class="org.libredemat.service.request.impl.RequestStatisticsService">
     <property name="requestStatisticsDAO" ref="requestStatisticsDAO"/>
     <property name="categoryService" ref="categoryService" />
     <property name="requestWorkflowService" ref="requestWorkflowService" />
     <property name="requestTypeService" ref="requestTypeService" />
   </bean>
 
-  <bean id="requestExternalService" class="fr.cg95.cvq.service.request.external.impl.RequestExternalService"
+  <bean id="requestExternalService" class="org.libredemat.service.request.external.impl.RequestExternalService"
     parent="externalService">
     <property name="requestDAO" ref="requestDAO" />
     <property name="userSearchService" ref="userSearchService" />
@@ -266,21 +266,21 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="requestTypeService" ref="requestTypeService" />
   </bean>
 
-  <bean id="requestExternalActionService" class="fr.cg95.cvq.service.request.external.impl.RequestExternalActionService">
+  <bean id="requestExternalActionService" class="org.libredemat.service.request.external.impl.RequestExternalActionService">
     <property name="requestExternalActionDAO" ref="requestExternalActionDAO" />
   </bean>
 
-  <bean id="requestExportService" class="fr.cg95.cvq.service.request.impl.RequestExportService">
+  <bean id="requestExportService" class="org.libredemat.service.request.impl.RequestExportService">
     <property name="userSearchService" ref="userSearchService" />
   </bean>
   
-  <bean id="requestSearchService" class="fr.cg95.cvq.service.request.impl.RequestSearchService">
+  <bean id="requestSearchService" class="org.libredemat.service.request.impl.RequestSearchService">
     <property name="requestDAO" ref="requestDAO" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
   </bean>
 
-  <bean id="requestDocumentService" class="fr.cg95.cvq.service.request.impl.RequestDocumentService">
+  <bean id="requestDocumentService" class="org.libredemat.service.request.impl.RequestDocumentService">
     <property name="documentService" ref="documentService" />
     <property name="requestExternalService" ref="requestExternalService" />
     <property name="requestExternalActionService" ref="requestExternalActionService" />
@@ -291,25 +291,25 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="requestDAO" ref="requestDAO" />
   </bean>
   
-  <bean id="requestLockService" class="fr.cg95.cvq.service.request.impl.RequestLockService">
+  <bean id="requestLockService" class="org.libredemat.service.request.impl.RequestLockService">
     <property name="requestDAO" ref="requestDAO" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="requestTypeService" ref="requestTypeService" />
   </bean>
   
-  <bean id="requestNoteService" class="fr.cg95.cvq.service.request.impl.RequestNoteService">
+  <bean id="requestNoteService" class="org.libredemat.service.request.impl.RequestNoteService">
     <property name="requestDAO" ref="requestDAO" />
     <property name="requestNoteDAO" ref="requestNoteDAO" />
     <property name="agentService" ref="agentService" />
   </bean>
   
-  <bean id="requestPaymentsListener" class="fr.cg95.cvq.service.request.impl.RequestPaymentsListener">
+  <bean id="requestPaymentsListener" class="org.libredemat.service.request.impl.RequestPaymentsListener">
     <property name="requestDAO" ref="requestDAO" />
     <property name="requestServiceRegistry" ref="requestServiceRegistry" />
     <property name="requestWorkflowService" ref="requestWorkflowService" />
   </bean>
 
-   <bean id="ticketBookingService" class="fr.cg95.cvq.service.request.impl.TicketBookingService">
+   <bean id="ticketBookingService" class="org.libredemat.service.request.impl.TicketBookingService">
     <property name="ticketBookingDAO" ref="ticketBookingDAO" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="localReferentialService" ref="localReferentialService" />
@@ -320,13 +320,13 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <!-- *************************************************************************  -->
 
   <bean id="documentContextCheckAspect" 
-    class="fr.cg95.cvq.service.document.aspect.DocumentContextCheckAspect">
+    class="org.libredemat.service.document.aspect.DocumentContextCheckAspect">
     <property name="documentDAO" ref="documentDAO" />
     <property name="homeFolderDAO" ref="homeFolderDAO" />
     <property name="individualDAO" ref="individualDAO" />
   </bean>
 
-  <bean id="documentService" class="fr.cg95.cvq.service.document.impl.DocumentService">
+  <bean id="documentService" class="org.libredemat.service.document.impl.DocumentService">
     <property name="documentDAO" ref="documentDAO"/>
     <property name="documentTypeDAO" ref="documentTypeDAO"/>
     <property name="userSearchService" ref="userSearchService"/>
@@ -336,10 +336,10 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="maxDataSize" value="${document.upload.maxSize}" />
   </bean>
 
-  <bean id="documentTypeService" class="fr.cg95.cvq.service.document.impl.DocumentTypeService">
+  <bean id="documentTypeService" class="org.libredemat.service.document.impl.DocumentTypeService">
     <property name="documentTypeDAO" ref="documentTypeDAO"/>
     <property name="documentBootstrapper">
-      <bean class="fr.cg95.cvq.service.document.impl.DocumentBootstrapper">
+      <bean class="org.libredemat.service.document.impl.DocumentBootstrapper">
         <property name="documentTypeDAO" ref="documentTypeDAO" />
       </bean>
     </property>
@@ -354,24 +354,24 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <!-- *******************************************************************  -->
 
   <bean id="usersContextCheckAspect" 
-    class="fr.cg95.cvq.service.users.aspect.UsersContextAspect">
+    class="org.libredemat.service.users.aspect.UsersContextAspect">
     <property name="homeFolderDAO" ref="homeFolderDAO"/>
     <property name="individualDAO" ref="individualDAO"/>
     <property name="genericDAO" ref="genericDAO" />
   </bean>
 
-  <bean id="userSecurityService" class="fr.cg95.cvq.service.users.impl.UserSecurityService">
+  <bean id="userSecurityService" class="org.libredemat.service.users.impl.UserSecurityService">
     <property name="genericDAO" ref="genericDAO" />
     <property name="agentService" ref="agentService" />
   </bean>
 
-  <bean id="userService" class="fr.cg95.cvq.service.users.impl.UserService">
+  <bean id="userService" class="org.libredemat.service.users.impl.UserService">
     <property name="userSearchService" ref="userSearchService" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="adultDAO" ref="adultDAO" />
   </bean>
 
-  <bean id="userNotificationService" class="fr.cg95.cvq.service.users.impl.UserNotificationService">
+  <bean id="userNotificationService" class="org.libredemat.service.users.impl.UserNotificationService">
     <property name="userSearchService" ref="userSearchService"/>
     <property name="meansOfContactService" ref="meansOfContactService"/>
     <property name="mailService" ref="mailService"/>
@@ -382,7 +382,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="genericDAO" ref="genericDAO" />
   </bean>
 
-  <bean id="userWorkflowService" class="fr.cg95.cvq.service.users.impl.UserWorkflowService">
+  <bean id="userWorkflowService" class="org.libredemat.service.users.impl.UserWorkflowService">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="authenticationService" ref="authenticationService" />
     <property name="mailService" ref="mailService" />
@@ -395,7 +395,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="genericDAO" ref="genericDAO" />
   </bean>
 
-  <bean id="userSearchService" class="fr.cg95.cvq.service.users.impl.UserSearchService">
+  <bean id="userSearchService" class="org.libredemat.service.users.impl.UserSearchService">
     <property name="individualDAO" ref="individualDAO"/>
     <property name="adultDAO" ref="adultDAO" />
     <property name="childDAO" ref="childDAO" />
@@ -403,7 +403,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
   </bean>
 
-  <bean id="userDeduplicationService" class="fr.cg95.cvq.service.users.impl.UserDeduplicationService">
+  <bean id="userDeduplicationService" class="org.libredemat.service.users.impl.UserDeduplicationService">
     <property name="adultDAO" ref="adultDAO" />
     <property name="childDAO" ref="childDAO" />
     <property name="homeFolderDAO" ref="homeFolderDAO" />
@@ -415,7 +415,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="userSearchServiceToHasLegalResponsiblesCheckInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.service.users.HasLegalResponsiblesCheck.setUserSearchService" />
+      value="org.libredemat.service.users.HasLegalResponsiblesCheck.setUserSearchService" />
     <property name="arguments">
       <list>
         <ref local="userSearchService" />
@@ -426,7 +426,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="userSearchServiceToUserUtilsInjector"
     class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="staticMethod"
-      value="fr.cg95.cvq.util.UserUtils.setUserSearchService" />
+      value="org.libredemat.util.UserUtils.setUserSearchService" />
     <property name="arguments">
       <list>
         <ref local="userSearchService" />
@@ -434,15 +434,15 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     </property>
   </bean>
 
-  <bean id="meansOfContactService" class="fr.cg95.cvq.service.users.impl.MeansOfContactService">
+  <bean id="meansOfContactService" class="org.libredemat.service.users.impl.MeansOfContactService">
     <property name="meansOfContactDAO" ref="meansOfContactDAO" />
   </bean>
   
-  <bean id="externalHomeFolderService" class="fr.cg95.cvq.service.users.external.impl.ExternalHomeFolderService">
+  <bean id="externalHomeFolderService" class="org.libredemat.service.users.external.impl.ExternalHomeFolderService">
     <property name="genericDAO" ref="genericDAO" />
   </bean>
 
-  <bean id="homeFolderDocumentService" class="fr.cg95.cvq.service.users.impl.HomeFolderDocumentService">
+  <bean id="homeFolderDocumentService" class="org.libredemat.service.users.impl.HomeFolderDocumentService">
     <property name="homeFolderDAO" ref="homeFolderDAO" />
     <property name="documentDAO" ref="documentDAO" />
     <property name="genericDAO" ref="genericDAO" />
@@ -452,7 +452,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <!-- ********************** INSTANCE REQUESTS SERVICES ***********************  -->
 
   <bean id="schoolRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.SchoolRegistrationRequestService" 
+    class="org.libredemat.service.request.school.impl.SchoolRegistrationRequestService" 
     parent="requestService">
     <property name="label" value="School Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -462,7 +462,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="schoolTransportRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.SchoolTransportRegistrationRequestService" 
+    class="org.libredemat.service.request.school.impl.SchoolTransportRegistrationRequestService" 
     parent="requestService">
     <property name="label" value="School Transport Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -472,7 +472,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="globalSchoolRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.GlobalSchoolRegistrationRequestService" 
+    class="org.libredemat.service.request.school.impl.GlobalSchoolRegistrationRequestService" 
     parent="requestService">
     <property name="localReferentialFilename" value="local_referential_gsrr"/>
     <property name="label" value="Global School Registration"/>
@@ -483,7 +483,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="renewalPerischoolActivitiesRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.RenewalPerischoolActivitiesRequestService" 
+    class="org.libredemat.service.request.school.impl.RenewalPerischoolActivitiesRequestService" 
     parent="requestService">
     <property name="label" value="Renewal Perischool Activities"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -493,7 +493,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="leisureCenterRegistrationRequestService"
-    class="fr.cg95.cvq.service.request.school.impl.LeisureCenterRegistrationRequestService"
+    class="org.libredemat.service.request.school.impl.LeisureCenterRegistrationRequestService"
     parent="requestService">
     <property name="localReferentialFilename" value="local_referential_lcrr"/>
     <property name="label" value="Leisure Center Registration"/>
@@ -504,7 +504,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="holidayCampRegistrationRequestService"
-    class="fr.cg95.cvq.service.request.school.impl.HolidayCampRegistrationRequestService"
+    class="org.libredemat.service.request.school.impl.HolidayCampRegistrationRequestService"
     parent="requestService">
     <property name="label" value="Holiday Camp Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -515,7 +515,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="pessacAnimationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.PessacAnimationRequestService" 
+    class="org.libredemat.service.request.school.impl.PessacAnimationRequestService" 
     parent="requestService">
     <property name="label" value="Pessac Animation"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -525,7 +525,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="perischoolActivityRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.PerischoolActivityRegistrationRequestService" 
+    class="org.libredemat.service.request.school.impl.PerischoolActivityRegistrationRequestService" 
     parent="requestService">
     <property name="localReferentialFilename" value="local_referential_parr"/>
     <property name="label" value="Perischool Activity Registration"/>
@@ -536,7 +536,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="recreationActivityRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.RecreationActivityRegistrationRequestService" 
+    class="org.libredemat.service.request.school.impl.RecreationActivityRegistrationRequestService" 
     parent="requestService">
     <property name="localReferentialFilename" value="local_referential_rarr"/>
     <property name="label" value="Recreation Activity Registration"/>
@@ -547,7 +547,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="schoolCanteenRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.SchoolCanteenRegistrationRequestService" 
+    class="org.libredemat.service.request.school.impl.SchoolCanteenRegistrationRequestService" 
     parent="requestService">
     <!-- Service specific -->
     <property name="localReferentialFilename" value="local_referential_scrr"/>
@@ -559,7 +559,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="studyGrantRequestService"
-    class="fr.cg95.cvq.service.request.school.impl.StudyGrantRequestService"
+    class="org.libredemat.service.request.school.impl.StudyGrantRequestService"
     parent="requestService">
     <!-- Service specific -->
     <property name="label" value="Study Grant"/>
@@ -579,7 +579,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="sportsAssociationsGrantRequestService"
-    class="fr.cg95.cvq.service.request.social.impl.SportsAssociationsGrantRequestService"
+    class="org.libredemat.service.request.social.impl.SportsAssociationsGrantRequestService"
     parent="requestService">
     <!-- Service specific -->
     <property name="label" value="Sports Associations Grant"/>
@@ -589,7 +589,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="learningActivitiesDiscoveryRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.LearningActivitiesDiscoveryRegistrationRequestService"
+    class="org.libredemat.service.request.school.impl.LearningActivitiesDiscoveryRegistrationRequestService"
     parent="requestService">
     <property name="label" value="Learning Activities Discovery Registration"/>
     <property name="localReferentialFilename" value="local_referential_ladrr"/>
@@ -600,7 +600,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="homeEmergencyRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.HomeEmergencyRegistrationRequestService"
+    class="org.libredemat.service.request.school.impl.HomeEmergencyRegistrationRequestService"
     parent="requestService">
     <property name="label" value="Home Emergency Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -611,7 +611,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="dayCareCenterRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.school.impl.DayCareCenterRegistrationRequestService"
+    class="org.libredemat.service.request.school.impl.DayCareCenterRegistrationRequestService"
     parent="requestService">
     <property name="label" value="Day Care Center Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -622,7 +622,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="bafaGrantRequestService"
-    class="fr.cg95.cvq.service.request.social.impl.BafaGrantRequestService"
+    class="org.libredemat.service.request.social.impl.BafaGrantRequestService"
     parent="requestService">
     <!-- Service specific -->
     <property name="label" value="Bafa Grant"/>
@@ -632,7 +632,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
  <bean id="birthDetailsRequestService" 
-    class="fr.cg95.cvq.service.request.civil.impl.BirthDetailsRequestService" 
+    class="org.libredemat.service.request.civil.impl.BirthDetailsRequestService" 
     parent="requestService">
     <property name="supportUnregisteredCreation" value="true" />
     <property name="label" value="Birth Details"/>
@@ -640,7 +640,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
  </bean>
   
   <bean id="marriageDetailsRequestService" 
-    class="fr.cg95.cvq.service.request.civil.impl.MarriageDetailsRequestService" 
+    class="org.libredemat.service.request.civil.impl.MarriageDetailsRequestService" 
     parent="requestService">
     <property name="supportUnregisteredCreation" value="true" />
     <property name="label" value="Marriage Details" />
@@ -648,7 +648,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="deathDetailsRequestService" 
-    class="fr.cg95.cvq.service.request.civil.impl.DeathDetailsRequestService" 
+    class="org.libredemat.service.request.civil.impl.DeathDetailsRequestService" 
     parent="requestService">
     <property name="supportUnregisteredCreation" value="true" />
     <property name="label" value="Death Details" />
@@ -656,7 +656,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
    </bean>
 
   <bean id="electoralRollRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.election.impl.ElectoralRollRegistrationRequestService" 
+    class="org.libredemat.service.request.election.impl.ElectoralRollRegistrationRequestService" 
     parent="requestService">
     <property name="label" value="Electoral Roll Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
@@ -666,7 +666,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="standardElectoralRollRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.election.impl.StandardElectoralRollRegistrationRequestService" 
+    class="org.libredemat.service.request.election.impl.StandardElectoralRollRegistrationRequestService" 
     parent="requestService">
     <property name="label" value="Standard Electoral Roll Registration"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
@@ -676,7 +676,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="alignmentCertificateRequestService" 
-    class="fr.cg95.cvq.service.request.urbanism.impl.AlignmentCertificateRequestService" 
+    class="org.libredemat.service.request.urbanism.impl.AlignmentCertificateRequestService" 
     parent="requestService">
     <property name="supportUnregisteredCreation" value="true"/>
     <property name="label" value="Alignment Certificate"/>
@@ -684,14 +684,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="alignmentNumberingConnectionRequestService"
-    class="fr.cg95.cvq.service.request.urbanism.impl.AlignmentNumberingConnectionRequestService"
+    class="org.libredemat.service.request.urbanism.impl.AlignmentNumberingConnectionRequestService"
     parent="requestService">
     <property name="label" value="Alignment Numbering Connection"/>
     <property name="defaultDisplayGroup" value="urbanism" />
   </bean>
 
   <bean id="sewerConnectionRequestService" 
-    class="fr.cg95.cvq.service.request.urbanism.impl.SewerConnectionRequestService" 
+    class="org.libredemat.service.request.urbanism.impl.SewerConnectionRequestService" 
     parent="requestService">
     <property name="supportUnregisteredCreation" value="true"/>
     <property name="label" value="Sewer Connection"/>
@@ -699,7 +699,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="libraryRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.leisure.culture.impl.LibraryRegistrationRequestService" 
+    class="org.libredemat.service.request.leisure.culture.impl.LibraryRegistrationRequestService" 
     parent="requestService">
     <property name="localReferentialFilename" value="local_referential_lrr"/>
     <property name="label" value="Library Registration"/>
@@ -710,7 +710,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="musicSchoolRegistrationRequestService" 
-    class="fr.cg95.cvq.service.request.leisure.music.impl.MusicSchoolRegistrationRequestService" 
+    class="org.libredemat.service.request.leisure.music.impl.MusicSchoolRegistrationRequestService" 
     parent="requestService">
     <property name="localReferentialFilename" value="local_referential_msrr"/>
     <property name="label" value="Music School Registration"/>
@@ -721,7 +721,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="ticketBookingRequestService"
-    class="fr.cg95.cvq.service.request.reservation.impl.TicketBookingRequestService"
+    class="org.libredemat.service.request.reservation.impl.TicketBookingRequestService"
     parent="requestService">
     <property name="label" value="Ticket Booking"/>
     <property name="localReferentialFilename" value="local_referential_tbr"/>
@@ -733,7 +733,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="remoteSupportRequestService" 
-    class="fr.cg95.cvq.service.request.social.impl.RemoteSupportRequestService" 
+    class="org.libredemat.service.request.social.impl.RemoteSupportRequestService" 
     parent="requestService">
     <property name="label" value="Remote Support"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
@@ -741,7 +741,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="domesticHelpRequestService" 
-    class="fr.cg95.cvq.service.request.social.impl.DomesticHelpRequestService" 
+    class="org.libredemat.service.request.social.impl.DomesticHelpRequestService" 
     parent="requestService">
     <property name="label" value="Domestic Help"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
@@ -749,7 +749,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="handicapCompensationAdultRequestService" 
-    class="fr.cg95.cvq.service.request.social.impl.HandicapCompensationAdultRequestService" 
+    class="org.libredemat.service.request.social.impl.HandicapCompensationAdultRequestService" 
     parent="requestService">
     <property name="label" value="Handicap Compensation Adult"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
@@ -757,7 +757,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
   <bean id="handicapCompensationChildRequestService" 
-    class="fr.cg95.cvq.service.request.social.impl.HandicapCompensationChildRequestService" 
+    class="org.libredemat.service.request.social.impl.HandicapCompensationChildRequestService" 
     parent="requestService">
     <property name="label" value="Handicap Compensation Child"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -765,7 +765,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>  
 
   <bean id="militaryCensusRequestService" 
-    class="fr.cg95.cvq.service.request.military.impl.MilitaryCensusRequestService" 
+    class="org.libredemat.service.request.military.impl.MilitaryCensusRequestService" 
     parent="requestService">
     <property name="label" value="Military Census"/>
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
@@ -773,7 +773,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
   
    <bean id="smsNotificationRequestService" 
-    class="fr.cg95.cvq.service.request.leisure.impl.SmsNotificationRequestService" 
+    class="org.libredemat.service.request.leisure.impl.SmsNotificationRequestService" 
     parent="requestService">
     <property name="label" value="Sms Notification"/>
     <property name="localReferentialFilename" value="local_referential_snr"/>
@@ -782,7 +782,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="bulkyWasteCollectionRequestService" 
-    class="fr.cg95.cvq.service.request.environment.impl.BulkyWasteCollectionRequestService" 
+    class="org.libredemat.service.request.environment.impl.BulkyWasteCollectionRequestService" 
     parent="requestService">
     <property name="label" value="Bulky Waste Collection"/>
     <property name="localReferentialFilename" value="local_referential_bwcr"/>
@@ -790,7 +790,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="compostableWasteCollectionRequestService" 
-    class="fr.cg95.cvq.service.request.environment.impl.CompostableWasteCollectionRequestService" 
+    class="org.libredemat.service.request.environment.impl.CompostableWasteCollectionRequestService" 
     parent="requestService">
     <property name="label" value="Compostable Waste Collection"/>
     <property name="localReferentialFilename" value="local_referential_cwcr"/>
@@ -798,7 +798,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="holidaySecurityRequestService"
-    class="fr.cg95.cvq.service.request.localpolice.impl.HolidaySecurityRequestService"
+    class="org.libredemat.service.request.localpolice.impl.HolidaySecurityRequestService"
     parent="requestService">
     <property name="label" value="Holiday Security" />
     <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
@@ -806,14 +806,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   </bean>
 
   <bean id="technicalInterventionRequestService"
-    class="fr.cg95.cvq.service.request.technical.impl.TechnicalInterventionRequestService"
+    class="org.libredemat.service.request.technical.impl.TechnicalInterventionRequestService"
     parent="requestService">
     <property name="label" value="Technical Intervention" />
     <property name="localReferentialFilename" value="local_referential_tir"/>
     <property name="defaultDisplayGroup" value="technical" />
   </bean>
 
-  <bean id="displayGroupService" class="fr.cg95.cvq.service.request.impl.DisplayGroupService">
+  <bean id="displayGroupService" class="org.libredemat.service.request.impl.DisplayGroupService">
     <property name="genericDAO" ref="genericDAO" />
     <property name="requestTypeDAO" ref="requestTypeDAO" />
     <property name="requestServiceRegistry" ref="requestServiceRegistry" />
@@ -824,14 +824,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <!-- *******************************************************************  -->
 
   <bean id="paymentFilterAspect"
-    class="fr.cg95.cvq.service.payment.aspect.PaymentFilterAspect" />
+    class="org.libredemat.service.payment.aspect.PaymentFilterAspect" />
 
   <bean id="paymentContextCheckAspect" 
-    class="fr.cg95.cvq.service.payment.aspect.PaymentContextAspect">
+    class="org.libredemat.service.payment.aspect.PaymentContextAspect">
     <property name="paymentDAO" ref="paymentDAO" />
   </bean>
 
-  <bean id="paymentService" class="fr.cg95.cvq.service.payment.impl.PaymentService">
+  <bean id="paymentService" class="org.libredemat.service.payment.impl.PaymentService">
     <property name="genericDAO" ref="genericDAO" />
     <property name="paymentDAO" ref="paymentDAO" />
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
@@ -844,17 +844,17 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 
   <bean id="externalApplicationProviderService"
     parent="externalProviderServiceAdapter"
-    class="fr.cg95.cvq.service.payment.external.ExternalApplicationProviderService">
+    class="org.libredemat.service.payment.external.ExternalApplicationProviderService">
     <property name="paymentService" ref="paymentService" />
   </bean>
 
-  <bean id="paymentExternalService" class="fr.cg95.cvq.service.payment.external.impl.PaymentExternalService"
+  <bean id="paymentExternalService" class="org.libredemat.service.payment.external.impl.PaymentExternalService"
       parent="externalService">
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
     <property name="paymentDAO" ref="paymentDAO" />
   </bean>
 
-  <bean id="externalApplicationService" class="fr.cg95.cvq.service.payment.external.impl.ExternalApplicationService">
+  <bean id="externalApplicationService" class="org.libredemat.service.payment.external.impl.ExternalApplicationService">
     <property name="adultDAO" ref="adultDAO" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
@@ -864,53 +864,53 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <!-- =================== DAO DEFINITION ==================== -->  
   <!-- ======================================================= -->
 
-  <bean id="genericDAO" class="fr.cg95.cvq.dao.jpa.GenericDAO" />
+  <bean id="genericDAO" class="org.libredemat.dao.jpa.GenericDAO" />
 
-  <bean id="requestDAO" class="fr.cg95.cvq.dao.request.hibernate.RequestDAO" >
+  <bean id="requestDAO" class="org.libredemat.dao.request.hibernate.RequestDAO" >
       <property name="genericDAO" ref="genericDAO" />
   </bean>
 
-  <bean id="requestStatisticsDAO" class="fr.cg95.cvq.dao.request.hibernate.RequestStatisticsDAO" />
+  <bean id="requestStatisticsDAO" class="org.libredemat.dao.request.hibernate.RequestStatisticsDAO" />
 
-  <bean id="requestTypeDAO" class="fr.cg95.cvq.dao.request.hibernate.RequestTypeDAO" />
+  <bean id="requestTypeDAO" class="org.libredemat.dao.request.hibernate.RequestTypeDAO" />
 
-  <bean id="requestFormDAO" class="fr.cg95.cvq.dao.request.hibernate.RequestFormDAO" />
+  <bean id="requestFormDAO" class="org.libredemat.dao.request.hibernate.RequestFormDAO" />
 
-  <bean id="documentTypeDAO" class="fr.cg95.cvq.dao.document.hibernate.DocumentTypeDAO" />
+  <bean id="documentTypeDAO" class="org.libredemat.dao.document.hibernate.DocumentTypeDAO" />
 
-  <bean id="requestActionDAO" class="fr.cg95.cvq.dao.request.hibernate.RequestActionDAO" />
+  <bean id="requestActionDAO" class="org.libredemat.dao.request.hibernate.RequestActionDAO" />
 
-  <bean id="requestNoteDAO" class="fr.cg95.cvq.dao.request.hibernate.RequestNoteDAO" />
+  <bean id="requestNoteDAO" class="org.libredemat.dao.request.hibernate.RequestNoteDAO" />
 
-  <bean id="localAuthorityDAO" class="fr.cg95.cvq.dao.authority.hibernate.LocalAuthorityDAO" />
+  <bean id="localAuthorityDAO" class="org.libredemat.dao.authority.hibernate.LocalAuthorityDAO" />
 
-  <bean id="categoryDAO" class="fr.cg95.cvq.dao.request.hibernate.CategoryDAO" />
+  <bean id="categoryDAO" class="org.libredemat.dao.request.hibernate.CategoryDAO" />
 
-  <bean id="agentDAO" class="fr.cg95.cvq.dao.authority.hibernate.AgentDAO" />
+  <bean id="agentDAO" class="org.libredemat.dao.authority.hibernate.AgentDAO" />
 
-  <bean id="schoolDAO" class="fr.cg95.cvq.dao.authority.hibernate.SchoolDAO" />
+  <bean id="schoolDAO" class="org.libredemat.dao.authority.hibernate.SchoolDAO" />
 
-  <bean id="recreationCenterDAO" class="fr.cg95.cvq.dao.authority.hibernate.RecreationCenterDAO" />
+  <bean id="recreationCenterDAO" class="org.libredemat.dao.authority.hibernate.RecreationCenterDAO" />
 
-  <bean id="individualDAO" class="fr.cg95.cvq.dao.users.hibernate.IndividualDAO" />
+  <bean id="individualDAO" class="org.libredemat.dao.users.hibernate.IndividualDAO" />
 
-  <bean id="adultDAO" class="fr.cg95.cvq.dao.users.hibernate.AdultDAO" parent="individualDAO"/>
+  <bean id="adultDAO" class="org.libredemat.dao.users.hibernate.AdultDAO" parent="individualDAO"/>
 
-  <bean id="childDAO" class="fr.cg95.cvq.dao.users.hibernate.ChildDAO" parent="individualDAO"/>
+  <bean id="childDAO" class="org.libredemat.dao.users.hibernate.ChildDAO" parent="individualDAO"/>
 
-  <bean id="homeFolderDAO" class="fr.cg95.cvq.dao.users.hibernate.HomeFolderDAO" />
+  <bean id="homeFolderDAO" class="org.libredemat.dao.users.hibernate.HomeFolderDAO" />
 
-  <bean id="documentDAO" class="fr.cg95.cvq.dao.document.hibernate.DocumentDAO" />
+  <bean id="documentDAO" class="org.libredemat.dao.document.hibernate.DocumentDAO" />
 
-  <bean id="paymentDAO" class="fr.cg95.cvq.dao.payment.hibernate.PaymentDAO" />
+  <bean id="paymentDAO" class="org.libredemat.dao.payment.hibernate.PaymentDAO" />
 
-  <bean id="meansOfContactDAO" class="fr.cg95.cvq.dao.users.hibernate.MeansOfContactDAO" />
+  <bean id="meansOfContactDAO" class="org.libredemat.dao.users.hibernate.MeansOfContactDAO" />
 
-  <bean id="requestExternalActionDAO" class="fr.cg95.cvq.dao.request.external.hibernate.RequestExternalActionDAO"  />
+  <bean id="requestExternalActionDAO" class="org.libredemat.dao.request.external.hibernate.RequestExternalActionDAO"  />
   
-  <bean id="ticketBookingDAO" class="fr.cg95.cvq.dao.request.hibernate.TicketBookingDAO" />
+  <bean id="ticketBookingDAO" class="org.libredemat.dao.request.hibernate.TicketBookingDAO" />
   
-  <bean id="localReferentialDAO" class="fr.cg95.cvq.dao.request.xml.LocalReferentialDAO">
+  <bean id="localReferentialDAO" class="org.libredemat.dao.request.xml.LocalReferentialDAO">
       <property name="requestServiceRegistry" ref="requestServiceRegistry" />
       <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
       <property name="translationService" ref="translationService" />

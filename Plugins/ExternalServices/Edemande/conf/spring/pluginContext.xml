@@ -4,7 +4,7 @@
 <beans>
 
   <bean id="edemandeExternalService" parent="externalProviderServiceAdapter"
-    class="fr.capwebct.capdemat.plugins.externalservices.edemande.service.EdemandeService">
+    class="org.libredemat.plugins.externalservices.edemande.service.EdemandeService">
     <property name="label" value="Edemande" />
     <property name="edemandeClient" ref="edemandeClient" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
@@ -17,7 +17,7 @@
     <property name="userSearchService" ref="userSearchService" />
     <property name="genericDAO" ref="genericDAO" />
     <property name="uploader">
-      <bean class="fr.capwebct.capdemat.plugins.externalservices.edemande.service.EdemandeUploader">
+      <bean class="org.libredemat.plugins.externalservices.edemande.service.EdemandeUploader">
         <constructor-arg index="0" value="${plugins.externalservices.edemande.ssh.username}"/>
         <constructor-arg index="1" value="${plugins.externalservices.edemande.ssh.hostname}"/>
         <constructor-arg index="2" value="${plugins.externalservices.edemande.ssh.port}"/>
@@ -68,7 +68,7 @@
   </bean>
 
   <bean id="edemandeClient"
-    class="fr.capwebct.capdemat.plugins.externalservices.edemande.webservice.client.EdemandeClient">
+    class="org.libredemat.plugins.externalservices.edemande.webservice.client.EdemandeClient">
     <property name="edemandeConnexionService" ref="edemandeConnexionService" />
     <property name="edemandeFormulaireService" ref="edemandeFormulaireService" />
     <property name="edemandeSuiviDemandeService" ref="edemandeSuiviDemandeService" />

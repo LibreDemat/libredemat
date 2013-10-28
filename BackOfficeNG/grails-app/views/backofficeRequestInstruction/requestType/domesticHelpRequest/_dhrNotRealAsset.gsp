@@ -12,13 +12,13 @@
   <dl class="required">
     
       <dt class="required"><g:message code="dhr.property.dhrNotRealAssetType.label" /> * : </dt>
-      <dd id="dhrNotRealAsset[${listSize - 1 - index}].dhrNotRealAssetType" class="action-editField validate-capdematEnum required-true i18n-dhr.property.dhrNotRealAssetType javatype-fr.cg95.cvq.business.request.social.DhrAssetTypeType" >
-        <g:capdematEnumToField var="${it?.dhrNotRealAssetType}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" />
+      <dd id="dhrNotRealAsset[${listSize - 1 - index}].dhrNotRealAssetType" class="action-editField validate-libredematEnum required-true i18n-dhr.property.dhrNotRealAssetType javatype-org.libredemat.business.request.social.DhrAssetTypeType" >
+        <g:libredematEnumToField var="${it?.dhrNotRealAssetType}" i18nKeyPrefix="dhr.property.dhrNotRealAssetType" />
       </dd>
     
       <dt class="required condition-isRealEstate-trigger"><g:message code="dhr.property.dhrNotRealAssetKind.label" /> * : </dt>
-      <dd id="dhrNotRealAsset[${listSize - 1 - index}].dhrNotRealAssetKind" class="action-editField validate-capdematEnum required-true i18n-dhr.property.dhrNotRealAssetKind javatype-fr.cg95.cvq.business.request.social.DhrAssetKindType" >
-        <g:capdematEnumToField var="${it?.dhrNotRealAssetKind}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" />
+      <dd id="dhrNotRealAsset[${listSize - 1 - index}].dhrNotRealAssetKind" class="action-editField validate-libredematEnum required-true i18n-dhr.property.dhrNotRealAssetKind javatype-org.libredemat.business.request.social.DhrAssetKindType" >
+        <g:libredematEnumToField var="${it?.dhrNotRealAssetKind}" i18nKeyPrefix="dhr.property.dhrNotRealAssetKind" />
       </dd>
     
       <dt class="required condition-isRealEstate-filled"><g:message code="dhr.property.dhrNotRealAssetAddress.label" /> * : </dt>

@@ -7,14 +7,14 @@
   <!-- ************ Edemande communication Job Configuration *************  -->
   <!-- *******************************************************************  -->
 
-  <bean class="fr.cg95.cvq.platform.PluginBeanFactoryPostProcessor">
+  <bean class="org.libredemat.platform.PluginBeanFactoryPostProcessor">
     <property name="extensionBeanName" value="quartzScheduler" />
     <property name="propertyName" value="triggers" />
     <property name="pluginBeanName" value="edemandeCommunicationTrigger" />
   </bean>
 
   <bean id="edemandeCommunicationJob"
-    class="fr.capwebct.capdemat.plugins.externalservices.edemande.job.EdemandeCommunicationJob">
+    class="org.libredemat.plugins.externalservices.edemande.job.EdemandeCommunicationJob">
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="edemandeService" ref="edemandeExternalService" />
     <property name="requestExternalService" ref="requestExternalService" />

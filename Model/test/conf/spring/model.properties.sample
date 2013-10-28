@@ -10,10 +10,10 @@ cas_url_pattern = /*
 
 authentication.method = cas
 
-referential.properties.path=/home/capdemat/Conf/
-assets.properties.path=/home/capdemat/Assets/
+referential.properties.path=/home/libredemat/Conf/
+assets.properties.path=/home/libredemat/Assets/
 assets.included_authorities=enghienlesbains,saintleulaforet,jouylemoutier,zendematct
-data.properties.path=/home/capdemat/Assets/zendematct/test/data/
+data.properties.path=/home/libredemat/Assets/zendematct/test/data/
 
 mail.sender_host=127.0.0.1
 mail.sender_port=2500
@@ -22,8 +22,8 @@ mail.admin_address=root@localhost
 agent.administrator_group=CVQ_ADMINISTRATORS
 agent.contributor_group=CVQ_CONTRIBUTORS
 
-fake_payment.url=/CapDemat/service/fakePayment
-fake_payment.callbackUrl=/CapDemat/frontoffice/payment/status
+fake_payment.url=/LibreDemat/service/fakePayment
+fake_payment.callbackUrl=/LibreDemat/frontoffice/payment/status
 
 provisioning.authorizeAlreadyCreated=true
 provisioning.secret=changeme

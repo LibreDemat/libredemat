@@ -2,35 +2,35 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:schema="http://www.capwebct.fr/modules/payment/schema/sre"
-                  xmlns:tns="http://www.capwebct.fr/modules/payment/schema/sre"
+                  xmlns:schema="http://www.libredemat.org/modules/payment/schema/sre"
+                  xmlns:tns="http://www.libredemat.org/modules/payment/schema/sre"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/modules/payment/schema/sre">
+                  targetNamespace="http://www.libredemat.org/modules/payment/schema/sre">
    <wsdl:types>
-      <xs:schema xmlns:sre="http://www.capwebct.fr/modules/payment/schema/sre"
-                 xmlns:cvq="http://www.cg95.fr/cvq/schema/common"
-                 xmlns:srr="http://www.cg95.fr/cvq/schema/srr"
-                 xmlns:scrr="http://www.cg95.fr/cvq/schema/scrr"
-                 xmlns:parr="http://www.cg95.fr/cvq/schema/parr"
-                 xmlns:rarr="http://www.cg95.fr/cvq/schema/rarr"
-                 xmlns:bdr="http://www.cg95.fr/cvq/schema/bdr"
+      <xs:schema xmlns:sre="http://www.libredemat.org/modules/payment/schema/sre"
+                 xmlns:cvq="http://www.libredemat.org/schema/common"
+                 xmlns:srr="http://www.libredemat.org/schema/srr"
+                 xmlns:scrr="http://www.libredemat.org/schema/scrr"
+                 xmlns:parr="http://www.libredemat.org/schema/parr"
+                 xmlns:rarr="http://www.libredemat.org/schema/rarr"
+                 xmlns:bdr="http://www.libredemat.org/schema/bdr"
                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 targetNamespace="http://www.capwebct.fr/modules/payment/schema/sre"
+                 targetNamespace="http://www.libredemat.org/modules/payment/schema/sre"
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
-         <xs:import namespace="http://www.cg95.fr/cvq/schema/common"
-                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/common/CVQCommonElements.xsd"/>
-         <xs:import namespace="http://www.cg95.fr/cvq/schema/srr"
-                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/request/SchoolRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.cg95.fr/cvq/schema/scrr"
-                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/request/SchoolCanteenRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.cg95.fr/cvq/schema/parr"
-                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/request/PerischoolActivityRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.cg95.fr/cvq/schema/rarr"
-                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/request/RecreationActivityRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.cg95.fr/cvq/schema/bdr"
-                    schemaLocation="http://people.zenexity.fr/~bor/capdemat/latest/request/BirthDetailsRequest.xsd"/>
+         <xs:import namespace="http://www.libredemat.org/schema/common"
+                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/common/CVQCommonElements.xsd"/>
+         <xs:import namespace="http://www.libredemat.org/schema/srr"
+                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/SchoolRegistrationRequest.xsd"/>
+         <xs:import namespace="http://www.libredemat.org/schema/scrr"
+                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/SchoolCanteenRegistrationRequest.xsd"/>
+         <xs:import namespace="http://www.libredemat.org/schema/parr"
+                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/PerischoolActivityRegistrationRequest.xsd"/>
+         <xs:import namespace="http://www.libredemat.org/schema/rarr"
+                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/RecreationActivityRegistrationRequest.xsd"/>
+         <xs:import namespace="http://www.libredemat.org/schema/bdr"
+                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/BirthDetailsRequest.xsd"/>
 
          <xs:element name="SendRequestRequest">
             <xs:complexType>
@@ -65,7 +65,7 @@
    <wsdl:binding name="Binding" type="tns:PortType">
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
       <wsdl:operation name="Send">
-         <wsdlsoap:operation soapAction="http://www.capwebct.fr/modules/payment/schema/sre/Send"/>
+         <wsdlsoap:operation soapAction="http://www.libredemat.org/modules/payment/schema/sre/Send"/>
          <wsdl:input name="SendInput">
             <wsdlsoap:body use="literal"/>
          </wsdl:input>

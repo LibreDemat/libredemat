@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="CapDemat - Performance Test Builder" default="all">
+<project name="LibreDemat - Performance Test Builder" default="all">
   <description>
     To run a test and create the output report: ant -Dtest=script To run a test only: ant
     -Dtest=script run To run report on existing test output ant -Dtest=script report Additional

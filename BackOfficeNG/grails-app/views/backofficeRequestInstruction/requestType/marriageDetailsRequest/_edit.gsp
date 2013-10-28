@@ -30,7 +30,7 @@
             
               
               <dl>
-                <dt class="condition-isOtherRequesterQuality-trigger">${message(code:'mdr.property.requesterQuality.label')}&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-capdematEnum i18n-mdr.property.requesterQuality javatype-fr.cg95.cvq.business.request.civil.MarriageRequesterQualityType" ><g:capdematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="mdr.property.requesterQuality" /></dd>
+                <dt class="condition-isOtherRequesterQuality-trigger">${message(code:'mdr.property.requesterQuality.label')}&nbsp;:</dt><dd id="requesterQuality" class="action-editField validate-libredematEnum i18n-mdr.property.requesterQuality javatype-org.libredemat.business.request.civil.MarriageRequesterQualityType" ><g:libredematEnumToField var="${rqt?.requesterQuality}" i18nKeyPrefix="mdr.property.requesterQuality" /></dd>
               </dl>
               
             
@@ -102,7 +102,7 @@
             
               
               <dl>
-                <dt class="required condition-isWithRelationship-trigger">${message(code:'mdr.property.format.label')}&nbsp;*&nbsp;:</dt><dd id="format" class="action-editField validate-capdematEnum required-true i18n-mdr.property.format javatype-fr.cg95.cvq.business.request.civil.MarriageCertificateFormatType" ><g:capdematEnumToField var="${rqt?.format}" i18nKeyPrefix="mdr.property.format" /></dd>
+                <dt class="required condition-isWithRelationship-trigger">${message(code:'mdr.property.format.label')}&nbsp;*&nbsp;:</dt><dd id="format" class="action-editField validate-libredematEnum required-true i18n-mdr.property.format javatype-org.libredemat.business.request.civil.MarriageCertificateFormatType" ><g:libredematEnumToField var="${rqt?.format}" i18nKeyPrefix="mdr.property.format" /></dd>
               </dl>
               
             
@@ -114,7 +114,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'mdr.property.motive.label')}&nbsp;:</dt><dd id="motive" class="action-editField validate-capdematEnum i18n-mdr.property.motive javatype-fr.cg95.cvq.business.request.civil.MarriageCertificateMotiveType" ><g:capdematEnumToField var="${rqt?.motive}" i18nKeyPrefix="mdr.property.motive" /></dd>
+                <dt class="">${message(code:'mdr.property.motive.label')}&nbsp;:</dt><dd id="motive" class="action-editField validate-libredematEnum i18n-mdr.property.motive javatype-org.libredemat.business.request.civil.MarriageCertificateMotiveType" ><g:libredematEnumToField var="${rqt?.motive}" i18nKeyPrefix="mdr.property.motive" /></dd>
               </dl>
               
             
@@ -126,7 +126,7 @@
             
               
               <dl>
-                <dt class="required condition-isWithRelationship-filled">${message(code:'mdr.property.relationship.label')}&nbsp;*&nbsp;:</dt><dd id="relationship" class="action-editField validate-capdematEnum required-true i18n-mdr.property.relationship javatype-fr.cg95.cvq.business.request.civil.MarriageRelationshipType" ><g:capdematEnumToField var="${rqt?.relationship}" i18nKeyPrefix="mdr.property.relationship" /></dd>
+                <dt class="required condition-isWithRelationship-filled">${message(code:'mdr.property.relationship.label')}&nbsp;*&nbsp;:</dt><dd id="relationship" class="action-editField validate-libredematEnum required-true i18n-mdr.property.relationship javatype-org.libredemat.business.request.civil.MarriageRelationshipType" ><g:libredematEnumToField var="${rqt?.relationship}" i18nKeyPrefix="mdr.property.relationship" /></dd>
               </dl>
               
             

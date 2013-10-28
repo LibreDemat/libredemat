@@ -30,10 +30,10 @@
   <dd>
     <select name="sex">
       <option value="">${message(code:'message.select.defaultOption')}</option>
-      <g:each in="${fr.cg95.cvq.business.users.SexType.allSexTypes}">
+      <g:each in="${org.libredemat.business.users.SexType.allSexTypes}">
         <option value="${it.name()}"
           ${it == individual.sex ? 'selected="selected"': ''}>
-          ${g.capdematEnumToText(var:it, i18nKeyPrefix:'homeFolder.child.property.sex')}
+          ${g.libredematEnumToText(var:it, i18nKeyPrefix:'homeFolder.child.property.sex')}
         </option>
       </g:each>
     </select>

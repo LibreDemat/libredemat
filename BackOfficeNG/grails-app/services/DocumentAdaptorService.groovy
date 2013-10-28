@@ -1,21 +1,21 @@
-import fr.cg95.cvq.business.document.DocumentState;
+import org.libredemat.business.document.DocumentState;
 
-import fr.cg95.cvq.service.users.IHomeFolderDocumentService;
+import org.libredemat.service.users.IHomeFolderDocumentService;
 
-import fr.cg95.cvq.exception.CvqModelException;
+import org.libredemat.exception.CvqModelException;
 
-import fr.cg95.cvq.business.request.Request
-import fr.cg95.cvq.business.document.Document
-import fr.cg95.cvq.business.document.ContentType
-import fr.cg95.cvq.business.document.DocumentAction;
-import fr.cg95.cvq.business.document.DocumentBinary
-import fr.cg95.cvq.business.document.DocumentType
-import fr.cg95.cvq.security.SecurityContext
-import fr.cg95.cvq.service.request.IRequestDocumentService
-import fr.cg95.cvq.service.request.IRequestTypeService
-import fr.cg95.cvq.service.document.IDocumentService
-import fr.cg95.cvq.service.document.IDocumentTypeService
-import fr.cg95.cvq.util.UserUtils
+import org.libredemat.business.request.Request
+import org.libredemat.business.document.Document
+import org.libredemat.business.document.ContentType
+import org.libredemat.business.document.DocumentAction;
+import org.libredemat.business.document.DocumentBinary
+import org.libredemat.business.document.DocumentType
+import org.libredemat.security.SecurityContext
+import org.libredemat.service.request.IRequestDocumentService
+import org.libredemat.service.request.IRequestTypeService
+import org.libredemat.service.document.IDocumentService
+import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.util.UserUtils
 
 public class DocumentAdaptorService {
 
@@ -38,7 +38,7 @@ public class DocumentAdaptorService {
         documentTypes.each {
             def docType = [
                 'id':it.id,
-                'name': messageSource.getMessage(CapdematUtils.adaptDocumentTypeName(it.name),null,SecurityContext.currentLocale),
+                'name': messageSource.getMessage(LibredematUtils.adaptDocumentTypeName(it.name),null,SecurityContext.currentLocale),
             ]
             result.add(docType)
         }
@@ -53,8 +53,8 @@ public class DocumentAdaptorService {
         documentTypes.each {
             def docType = [
                 'id':it.id,
-                'key': CapdematUtils.adaptDocumentTypeName(it.name),
-                'name': messageSource.getMessage(CapdematUtils.adaptDocumentTypeName(it.name),null,SecurityContext.currentLocale),
+                'key': LibredematUtils.adaptDocumentTypeName(it.name),
+                'name': messageSource.getMessage(LibredematUtils.adaptDocumentTypeName(it.name),null,SecurityContext.currentLocale),
                 'associated': requestDocumentService.getAssociatedDocumentsByType(rqt.id, it.id),
                 'provided': SecurityContext.currentEcitizen ? requestDocumentService.getProvidedNotAssociatedDocumentsByType(rqt.id, it.id) : []
             ]
@@ -93,12 +93,12 @@ public class DocumentAdaptorService {
     def adaptDocumentAction(DocumentAction action) {
         def resultingState = null
         if (DocumentAction.Type.STATE_CHANGE.equals(action.type))
-            resultingState = CapdematUtils.adaptCapdematEnum(action.resultingState, "document.state")
+            resultingState = LibredematUtils.adaptLibredematEnum(action.resultingState, "document.state")
         return [
             'id': action.id,
             'note': action.note,
             'date': action.date,
-            'type' : CapdematUtils.adaptCapdematEnum(action.type, "documentAction.type"),
+            'type' : LibredematUtils.adaptLibredematEnum(action.type, "documentAction.type"),
             'username' : UserUtils.getDisplayName(action.userId),
             'resultingState': resultingState
         ]
@@ -106,7 +106,7 @@ public class DocumentAdaptorService {
 
     def adaptDocumentType(Long id) {
         def docType = documentTypeService.getDocumentTypeById(id)
-        return ['id':docType.id, 'i18nKey':CapdematUtils.adaptDocumentTypeName(docType.name)]
+        return ['id':docType.id, 'i18nKey':LibredematUtils.adaptDocumentTypeName(docType.name)]
     }
 
     /**
@@ -138,8 +138,8 @@ public class DocumentAdaptorService {
             def documents = homeFolderDocumentsForType(homeFolderId, it.id)
             def type = [
                 'id':it.id,
-                'key': CapdematUtils.adaptDocumentTypeName(it.name),
-                'name': messageSource.getMessage(CapdematUtils.adaptDocumentTypeName(it.name),null,SecurityContext.currentLocale),
+                'key': LibredematUtils.adaptDocumentTypeName(it.name),
+                'name': messageSource.getMessage(LibredematUtils.adaptDocumentTypeName(it.name),null,SecurityContext.currentLocale),
                 'linked': documents.linked,
                 'linkedAndInvalid': documents.linked.findAll { [DocumentState.OUTDATED, DocumentState.REFUSED].contains(it.state) },
                 'available': documents.available

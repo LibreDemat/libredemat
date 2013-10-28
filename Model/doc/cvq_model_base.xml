@@ -31,7 +31,7 @@
 						<referentPath xmi.value='::MagicDraw Profile'/>
 					</XMI.extension>
 				</UML:Package>
-				<UML:Package xmi.id='_8620266_1094496302160_781723_3' name='fr.cg95.cvq.business.users'>
+				<UML:Package xmi.id='_8620266_1094496302160_781723_3' name='org.libredemat.business.users'>
 					<UML:Namespace.ownedElement>
 						<UML:Class xmi.id='_8620266_1094496328044_357103_23' name='Address'/>
 						<UML:Class xmi.id='_8620266_1096193074941_97398_0' name='HomeFolder'/>
@@ -146,7 +146,7 @@
 						</UML:Stereotype>
 					</UML:ModelElement.stereotype>
 				</UML:Abstraction>
-				<UML:Package xmi.id='_8620266_1096311172897_89378_20' name='fr.cg95.cvq.xml'>
+				<UML:Package xmi.id='_8620266_1096311172897_89378_20' name='org.libredemat.xml'>
 					<UML:Namespace.ownedElement>
 						<UML:Class xmi.id='_8620266_1096311354555_504889_131' name='RequestData'>
 							<UML:Classifier.feature>

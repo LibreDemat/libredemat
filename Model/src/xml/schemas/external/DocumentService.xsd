@@ -1,5 +1,5 @@
-<xs:schema targetNamespace="http://www.capwebct.fr/capdemat"
-  xmlns:capdemat="http://www.capwebct.fr/capdemat"
+<xs:schema targetNamespace="http://www.libredemat.org"
+  xmlns:libredemat="http://www.libredemat.org"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified" 
   attributeFormDefault="unqualified">
@@ -23,7 +23,7 @@
       <xs:sequence>
         <xs:choice>
           <xs:element name="Error" type="xs:string" />
-          <xs:element name="Document" type="capdemat:DocumentType" maxOccurs="unbounded">
+          <xs:element name="Document" type="libredemat:DocumentType" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>
                 The informations for all documents from the request.

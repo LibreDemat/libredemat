@@ -1,7 +1,7 @@
 (function(){
-  var zcb = zenexity.capdemat.bong;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
+  var zcb = zenexity.libredemat.bong;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
   var yus = YAHOO.util.Selector;

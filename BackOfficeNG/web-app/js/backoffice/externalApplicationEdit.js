@@ -1,8 +1,8 @@
 (function(){
-  var zcb = zenexity.capdemat.bong;
-  var zcc = zenexity.capdemat.common;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zcb = zenexity.libredemat.bong;
+  var zcc = zenexity.libredemat.common;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   var yud = YAHOO.util.Dom;
   var yu = YAHOO.util;
   var yue = YAHOO.util.Event;
@@ -61,10 +61,10 @@
           var json = ylj.parse(o.responseText);
           if (json.status === 'success') {
               if (zcb.externalApplicationEdit.editMode === 'create')
-                  window.location = zenexity.capdemat.baseUrl + '/editApplication/' + json.id;
+                  window.location = zenexity.libredemat.baseUrl + '/editApplication/' + json.id;
               else {
                   zct.Notifier.processMessage(json.status, json.message, null, target);
-                  window.location = zenexity.capdemat.baseUrl + '/editApplication/' + json.id;
+                  window.location = zenexity.libredemat.baseUrl + '/editApplication/' + json.id;
               }
           } else {
               zct.Notifier.processMessage('modelError',json.message);

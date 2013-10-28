@@ -1,9 +1,9 @@
-zenexity.capdemat.tools.namespace('zenexity.capdemat.bong.homeFolder');
+zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
 (function() {
-  var zcbhf = zenexity.capdemat.bong.homeFolder;
+  var zcbhf = zenexity.libredemat.bong.homeFolder;
   var yw = YAHOO.widget;
-  var zct = zenexity.capdemat.tools;
-  var zcv = zenexity.capdemat.Validation;
+  var zct = zenexity.libredemat.tools;
+  var zcv = zenexity.libredemat.Validation;
   var yud = YAHOO.util.Dom;
   var yue = YAHOO.util.Event;
   var ylj = YAHOO.lang.JSON;

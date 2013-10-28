@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.capwebct.fr/modules/payment/schema/fam"
-  xmlns:fam="http://www.capwebct.fr/modules/payment/schema/fam"
+<xs:schema targetNamespace="http://www.libredemat.org/modules/payment/schema/fam"
+  xmlns:fam="http://www.libredemat.org/modules/payment/schema/fam"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
@@ -18,14 +18,14 @@
         <xs:element name="HomeFolderId" type="xs:long">
           <xs:annotation>
             <xs:documentation>
-              The CapDemat identifier of the home folder for whom the accounts are requested
+              The LibreDemat identifier of the home folder for whom the accounts are requested
             </xs:documentation>
           </xs:annotation>        
         </xs:element>
-        <xs:element name="ExternalCapDematId" type="xs:string">
+        <xs:element name="ExternalLibreDematId" type="xs:string">
           <xs:annotation>
             <xs:documentation>
-              The external CapDemat identifier of the home folder for whom the accounts are requested
+              The external LibreDemat identifier of the home folder for whom the accounts are requested
             </xs:documentation>
           </xs:annotation>
         </xs:element>
@@ -238,14 +238,14 @@
     <xs:attribute name="capwebct-individual-id" type="xs:long">
       <xs:annotation>
         <xs:documentation>
-          The individual identifier used by CapDemat
+          The individual identifier used by LibreDemat
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="capwebct-external-individual-id" type="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The external individual identifier used by CapDemat
+          The external individual identifier used by LibreDemat
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>

@@ -4,23 +4,23 @@ alter table history_entry add column object_id bigint;
 update history_entry 
 set object_id = (select adress_id from adress_history 
 				 where adress_history.history_id = history_entry.id) 
-where clazz = 'fr.cg95.cvq.business.users.Address';
+where clazz = 'org.libredemat.business.users.Address';
 
 update history_entry 
 set object_id = (select individual_id from individual_history 
  				 where individual_history.history_id = history_entry.id) 
-where clazz = 'fr.cg95.cvq.business.users.Adult'
-or clazz = 'fr.cg95.cvq.business.users.Child';
+where clazz = 'org.libredemat.business.users.Adult'
+or clazz = 'org.libredemat.business.users.Child';
  
 update history_entry 
 set object_id = (select child_legal_responsible_id from child_legal_responsible_history 
 				 where child_legal_responsible_history.history_id = history_entry.id) 
-where clazz = 'fr.cg95.cvq.business.users.ChildLegalResponsible';
+where clazz = 'org.libredemat.business.users.ChildLegalResponsible';
 
 update history_entry 
 set object_id = (select home_folder_id from home_folder_history 
 				 where home_folder_history.history_id = history_entry.id) 
-where clazz = 'fr.cg95.cvq.business.users.HomeFolder';
+where clazz = 'org.libredemat.business.users.HomeFolder';
 
 alter table child_legal_responsible_history drop constraint FKF3B138624541108D;
 alter table child_legal_responsible_history drop constraint FKF3B13862744A54A6;

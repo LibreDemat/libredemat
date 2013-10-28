@@ -4,4 +4,4 @@
 
 . ./set_classpath.sh "$1"
 
-java -Xms256m -Xmx512m -cp $CLASSPATH  fr.cg95.cvq.util.admin.DuplicatesRemoveArchivedReference "$1"
+java -Xms256m -Xmx512m -cp $CLASSPATH  org.libredemat.util.admin.DuplicatesRemoveArchivedReference "$1"

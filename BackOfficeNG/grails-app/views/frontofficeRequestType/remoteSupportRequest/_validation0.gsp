@@ -7,7 +7,7 @@
 
     
             <dl>
-              <dt><g:capdematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
+              <dt><g:libredematEnumToFlag var="${requester.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${requester.fullName}</dt>
               <dd>
                 <ul>
                   <li>
@@ -30,9 +30,9 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid')) && (requester.getId() != it.getId()) }}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Adult.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Adult.class}">
               <dl>
-                <dt><g:capdematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
+                <dt><g:libredematEnumToFlag var="${individual.title}" i18nKeyPrefix="homeFolder.adult.title" /> ${individual.fullName}</dt>
                 <dd>
                   <ul>
                     <g:if test="${individual.homePhone}">
@@ -54,7 +54,7 @@
 
     
           <g:each in="${requester.getHomeFolder().getIndividuals().findAll{ !(it.getState().name.equals('Archived') || it.getState().name.equals('Invalid'))}}" var="individual">
-            <g:if test="${individual.getClass() == fr.cg95.cvq.business.users.Child.class}">
+            <g:if test="${individual.getClass() == org.libredemat.business.users.Child.class}">
               <dl class="${individual.state}">
                 <dt>
                   <g:if test="${individual.born}">${individual.fullName}</g:if>
@@ -90,7 +90,7 @@
           <dt><g:message code="rsr.property.subjectTitle.label" /></dt>
           <dd>
             <g:if test="${rqt.subjectTitle}">
-              <g:capdematEnumToField var="${rqt.subjectTitle}" i18nKeyPrefix="rsr.property.subjectTitle" />
+              <g:libredematEnumToField var="${rqt.subjectTitle}" i18nKeyPrefix="rsr.property.subjectTitle" />
             </g:if>
           </dd>
           
@@ -104,7 +104,7 @@
           <dt><g:message code="rsr.property.subjectResideWith.label" /></dt>
           <dd>
             <g:if test="${rqt.subjectResideWith}">
-              <g:capdematEnumToField var="${rqt.subjectResideWith}" i18nKeyPrefix="rsr.property.subjectResideWith" />
+              <g:libredematEnumToField var="${rqt.subjectResideWith}" i18nKeyPrefix="rsr.property.subjectResideWith" />
             </g:if>
           </dd>
           
@@ -135,7 +135,7 @@
           <dt><g:message code="rsr.property.requestInformationRequestKind.label" /></dt>
           <dd>
             <g:if test="${rqt.requestInformationRequestKind}">
-              <g:capdematEnumToField var="${rqt.requestInformationRequestKind}" i18nKeyPrefix="rsr.property.requestInformationRequestKind" />
+              <g:libredematEnumToField var="${rqt.requestInformationRequestKind}" i18nKeyPrefix="rsr.property.requestInformationRequestKind" />
             </g:if>
           </dd>
           
@@ -165,7 +165,7 @@
           <dt><g:message code="rsr.property.spouseTitle.label" /></dt>
           <dd>
             <g:if test="${rqt.spouseTitle}">
-              <g:capdematEnumToField var="${rqt.spouseTitle}" i18nKeyPrefix="rsr.property.spouseTitle" />
+              <g:libredematEnumToField var="${rqt.spouseTitle}" i18nKeyPrefix="rsr.property.spouseTitle" />
             </g:if>
           </dd>
           
@@ -195,7 +195,7 @@
         <dt><g:message code="rsr.property.contactKind.label" /></dt>
           <dd>
             <g:if test="${rqt.contactKind}">
-              <g:capdematEnumToField var="${rqt.contactKind}" i18nKeyPrefix="rsr.property.contactKind" />
+              <g:libredematEnumToField var="${rqt.contactKind}" i18nKeyPrefix="rsr.property.contactKind" />
             </g:if>
           </dd>
           
@@ -267,7 +267,7 @@
           <g:if test="${document.endValidityDate}">${message(code:'document.header.expireOn')} ${formatDate(date:document.endValidityDate,formatName:'format.date')}</g:if>
         </dt>
         <dd>
-          <g:capdematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
+          <g:libredematEnumToFlag var="${document.state}" i18nKeyPrefix="document.state" />
           <a href="${createLink(controller:'frontofficeDocument',action:'details', id:document.id)}" target="blank" title="${message(code:'document.message.preview.longdesc')}">${message(code:'document.message.preview')}</a>
         </dd>
         </g:each>
