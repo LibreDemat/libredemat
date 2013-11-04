@@ -1,6 +1,6 @@
 <div id="menu">
   <a href="${createLink(controller:'frontofficeHome')}"
-    class="${menu.current(elem:'home')}" accesskey="1">
+    class="${menu.current(elem:'home')}">
     <span>
       <g:message code="menu.home" />
     </span>

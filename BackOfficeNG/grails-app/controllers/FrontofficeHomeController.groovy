@@ -186,14 +186,6 @@ class FrontofficeHomeController {
         }
     }
 
-    def accessibilityPolicy = {
-        File file = localAuthorityRegistry.getLocalAuthorityResourceFile(
-            LocalAuthorityResource.ACCESSIBILITY_POLICY_FO.id)
-        def accessibilityPolicy = ''
-        if (file.exists()) accessibilityPolicy = file.text
-        return ['accessibilityPolicy':accessibilityPolicy]
-    }
-
     def browsers = { }
 
     def protected preparePayments(payments) {
