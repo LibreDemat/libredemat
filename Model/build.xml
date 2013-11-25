@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - Model" default="dist" basedir="./">
+<project name="LibreDémat - Model" default="dist" basedir="./">
 
-    <description>Ant build file for the CapDémat - Model project.</description>
+    <description>Ant build file for the LibreDémat - Model project.</description>
 
 <!--
 init
@@ -363,7 +363,7 @@ clean-tests
     </target>
 
     <target name="apidoc" description="Builds the project's code documentation HTML pages" depends="init">
-        <javadoc destdir="${doc.javadoc.dir}" author="true" version="true" private="true" use="true" windowtitle="CapDémat Model API" classpathref="classpath.compile">
+        <javadoc destdir="${doc.javadoc.dir}" author="true" version="true" private="true" use="true" windowtitle="LibreDémat Model API" classpathref="classpath.compile">
 
             <!--      additionalparam="${javadoc.proxy.params}"-->
 

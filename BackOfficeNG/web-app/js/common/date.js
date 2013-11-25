@@ -1,5 +1,5 @@
 /**
- * For date widgets a la CapDémat (<select day> <select month> <input text year>).
+ * For date widgets à la LibreDémat (<select day> <select month> <input text year>).
  * Adapt the day <select> depending on the month and year.
  * E.g.: 30 days in april and 31 in may.
  */

@@ -13,7 +13,7 @@ public class TicketBookingSessionListener implements HttpSessionListener {
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
     }
 
-    // TODO: Very dirty implementation to conform to CapDémat callBack constraint
+    // TODO: Very dirty implementation to conform to LibreDémat callBack constraint
     public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
 
         ApplicationContext ctx = (ApplicationContext) ApplicationHolder.getApplication().getMainContext()

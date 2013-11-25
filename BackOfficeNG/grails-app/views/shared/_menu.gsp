@@ -1,4 +1,4 @@
-<h1><a class="logo">CapDémat</a></h1>
+<h1><a class="logo">LibreDémat</a></h1>
 <div id="userInfo">
   <g:if test="${session.currentCredentialBean}">
     <span style="font-weight:bold;">${session.currentUser}</span>

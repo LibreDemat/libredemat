@@ -100,7 +100,7 @@ public class UserInstructionDurationCheckerJob {
             }
             try {
                 mailService.send(null, la.getAdminEmail(), null,
-                    "[CapDémat] Alerte traitement comptes", body.toString());
+                    "[LibreDémat] Alerte traitement comptes", body.toString());
                 notified = true;
             } catch (CvqException e) {
                 logger.error("checkLocalAuthRequestsInstructionDelay() got an error while "

@@ -76,7 +76,7 @@ public class RequestCreationNotificationJob {
                     mailService.send(null, category.getPrimaryEmail(), 
                             category.getEmails() == null ? null : (String[]) category
                             .getEmails().toArray(new String[category.getEmails().size()]),
-                            "[CapDémat] Alerte nouveaux téléservices", body.toString());
+                            "[LibreDémat] Alerte nouveaux téléservices", body.toString());
                 } catch (CvqException e) {
                     logger.error("notifyLocalAuthRequestsCreation() got an error while sending email alert "
                             + e.getMessage());

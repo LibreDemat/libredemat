@@ -180,7 +180,7 @@ public class RequestInstructionDurationCheckerJob {
                     mailService.send(null, category.getPrimaryEmail(),
                             category.getEmails() == null ? 
                                     null : category.getEmails().toArray(new String[category.getEmails().size()]), 
-                                    "[CapDémat] Alerte traitement téléservices",
+                                    "[LibreDémat] Alerte traitement téléservices",
                                     body.toString());
                 } catch (CvqException e) {
                     logger.error("checkLocalAuthRequestsInstructionDelay() got an error while "

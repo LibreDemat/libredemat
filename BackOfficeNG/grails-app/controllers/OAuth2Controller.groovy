@@ -74,7 +74,7 @@ class OAuth2Controller {
 
 
     /**
-     * Logout in chain from CapDémat, from Swarm and from Booker (if needed).
+     * Logout in chain from LibreDémat, from Swarm and from Booker (if needed).
      */
     def logout = {
         def lacbname = SecurityContext.getCurrentConfigurationBean().getName()

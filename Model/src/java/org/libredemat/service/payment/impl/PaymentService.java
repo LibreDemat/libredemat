@@ -362,11 +362,11 @@ public final class PaymentService implements IPaymentService,
     public File exportPayments(List<Long> paymentsIds) throws CvqException {
         List<Payment> payments = paymentDAO.findByIds(paymentsIds);
         String[] header = new String[15];
-        header[0] = "Identifiant CapDémat";
+        header[0] = "Identifiant LibreDémat";
         header[1] = "Référence bancaire";
         header[2] = "Régie de paiement";
         header[3] = "Date de validation";
-        header[4] = "Identifiant compte CapDémat";
+        header[4] = "Identifiant compte LibreDémat";
         header[5] = "Nom du payeur";
         header[6] = "Prénom du payeur";
         header[7] = "Montant total";

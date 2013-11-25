@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - Plugins" default="generate-plugin" basedir="./">
+<project name="LibreDémat - Plugins" default="generate-plugin" basedir="./">
 
-	<description>Ant build file for the CapDémat - Plugins project.</description>
+	<description>Ant build file for the LibreDémat - Plugins project.</description>
 
 	<target name="generate-plugin">
 		<input addproperty="plugin-type" message="Enter plugin type : " 
