@@ -1,0 +1,8 @@
+Bonjour,
+
+L'identifiant suivant vous a été assigné pour accéder aux téléservices :
+
+	${login}
+
+Cordialement,
+L'équipe ${city}.

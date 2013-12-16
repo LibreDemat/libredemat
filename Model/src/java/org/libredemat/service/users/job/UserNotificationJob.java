@@ -99,7 +99,7 @@ public class UserNotificationJob {
                 SecurityContext.isFrontOfficeContext()?
                         "homeFolder.adult.notification.resetPassword.subject":
                          "homeFolder.adult.notification.bo.resetPassword.subject",
-                loadEmailBodyFromAssets(SecurityContext.isFrontOfficeContext()?"ResetPassword":"BoResetPassword", variables));
+                loadEmailBodyFromAssets(SecurityContext.isFrontOfficeContext() ? "ResetPassword" : "BoResetPassword", variables));
     }
 
     private void sendLoginAssignedEmail(Adult adult, JsonObject json) throws CvqException {
@@ -178,7 +178,7 @@ public class UserNotificationJob {
      * @return
      */
     private String loadEmailBodyFromAssets(String nomFichier, HashMap<String, String> variables) {
-        String template = localAuthorityRegistry.getBufferedLocalAuthorityResource(Type.TXT, nomFichier, false);
+        String template = localAuthorityRegistry.getBufferedLocalAuthorityResource(Type.TXT, nomFichier, true);
         if (template == null) return null;
 
         for(Entry<String, String> variable : variables.entrySet()) {
