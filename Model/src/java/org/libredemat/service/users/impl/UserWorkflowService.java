@@ -274,13 +274,21 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     private Long add(HomeFolder homeFolder, Individual individual) throws CvqModelException, CvqInvalidTransitionException {
-        homeFolder.getIndividuals().add(individual);
-        individual.setHomeFolder(homeFolder);
-        if (SecurityContext.isFrontOfficeContext() && SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired()) {
+
+        boolean accountMustBeValidated = homeFolder.getIndividuals().isEmpty() && // only for HF creation
+                SecurityContext.isFrontOfficeContext() &&
+                SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired();
+        if (accountMustBeValidated) {
             individual.setState(UserState.PENDING);
+        } else if (SecurityContext.isFrontOfficeContext()) {
+            individual.setState(UserState.NEW);
         } else {
             individual.setState(UserState.VALID);
         }
+
+        homeFolder.getIndividuals().add(individual);
+        individual.setHomeFolder(homeFolder);
+
         individual.setCreationDate(new Date());
         individual.setQoS(SecurityContext.isFrontOfficeContext() ? QoS.GOOD : null);
         individual.setLastModificationDate(new Date());
