@@ -80,6 +80,20 @@ public class HolidayCampRegistrationRequestData implements Serializable {
 
   
     
+      @NotNull(
+        
+        
+        profiles = {"reglements"},
+        message = "acceptationReglementInterieur"
+      )
+    
+      @AssertTrue(
+        
+        
+        profiles = {"reglements"},
+        message = "acceptationReglementInterieur"
+      )
+    
     private Boolean acceptationReglementInterieur;
 
     public void setAcceptationReglementInterieur(final Boolean acceptationReglementInterieur) {
