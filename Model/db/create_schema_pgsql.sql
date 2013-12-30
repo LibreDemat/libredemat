@@ -98,9 +98,6 @@
     alter table domestic_help_request 
         drop constraint FK3C00811254BECE1B;
 
-    alter table electoral_roll_registration_request 
-        drop constraint FK456255296DE86034;
-
     alter table external_application_broker 
         drop constraint FK839CD69CFC2C6659;
 
@@ -525,8 +522,6 @@
     drop table document_type cascade;
 
     drop table domestic_help_request cascade;
-
-    drop table electoral_roll_registration_request cascade;
 
     drop table external_application cascade;
 
@@ -1169,18 +1164,6 @@
         dhr_guardian_address_id int8,
         dhr_referent_address_id int8,
         dhr_spouse_address_id int8,
-        primary key (id)
-    );
-
-    create table electoral_roll_registration_request (
-        id int8 not null,
-        electoral_number int8,
-        motive varchar(255),
-        polling_school_name varchar(255),
-        polling_station int8,
-        subject_nationality varchar(32),
-        subject_old_city varchar(5),
-        subject_address_outside_city_id int8,
         primary key (id)
     );
 
@@ -2935,11 +2918,6 @@
     alter table domestic_help_request 
         add constraint FK3C00811254BECE1B 
         foreign key (dhr_current_dwelling_address_id) 
-        references address;
-
-    alter table electoral_roll_registration_request 
-        add constraint FK456255296DE86034 
-        foreign key (subject_address_outside_city_id) 
         references address;
 
     alter table external_application_broker 

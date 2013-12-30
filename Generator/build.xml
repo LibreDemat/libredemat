@@ -42,7 +42,6 @@
       <include name="DayCareCenterRegistrationRequest.xsd" />
       <include name="DeathDetailsRequest.xsd" />
       <include name="DomesticHelpRequest.xsd" />
-      <include name="ElectoralRollRegistrationRequest.xsd" />
       <include name="GlobalSchoolRegistrationRequest.xsd" />
       <include name="HandicapCompensationAdultRequest.xsd" />
       <include name="HandicapCompensationChildRequest.xsd" />   
