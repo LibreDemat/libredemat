@@ -104,11 +104,6 @@
     <xb:package>org.libredemat.xml.request.civil</xb:package>
   </xb:namespace>
 
-  <!-- Electoral Roll Registration Request -->
-  <xb:namespace uri="http://www.libredemat.org/schema/errr">
-    <xb:package>org.libredemat.xml.request.election</xb:package>
-  </xb:namespace>
-
   <!-- Standard Electoral Roll Registration Request -->
   <xb:namespace uri="http://www.libredemat.org/schema/serrr">
     <xb:package>org.libredemat.xml.request.election</xb:package>

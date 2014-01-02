@@ -9,7 +9,6 @@ from org.libredemat.service.users import DocumentServiceTest
 from org.libredemat.service.users import RequestServiceTest
 from org.libredemat.service.users import HomeFolderModificationRequestServiceTest
 from org.libredemat.service.ecitizen import VoCardRequestServiceTest
-from org.libredemat.service.election import ElectoralRollRegistrationRequestServiceTest
 from org.libredemat.external import FakeExternalServiceTest
 
 class TestRunner:
@@ -21,7 +20,6 @@ class TestRunner:
 
     # Creates a Test Suite.
     	suite = TestSuite(VoCardRequestServiceTest().getClass());
-    	suite.addTestSuite(ElectoralRollRegistrationRequestServiceTest().getClass());
     	suite.addTestSuite(RequestServiceTest().getClass());
     	suite.addTestSuite(DocumentServiceTest().getClass());
     	suite.addTestSuite(FakeExternalServiceTest().getClass());
