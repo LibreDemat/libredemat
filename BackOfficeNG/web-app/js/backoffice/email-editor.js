@@ -148,8 +148,7 @@
       return { css: [ config.contentsCss, CKEDITOR.skin.path() + 'editor.css' ] }
     }
 
-    definition = { lang: [ 'fr' ]
-                 , requires: [ 'richcombo' ]
+    definition = { requires: [ 'richcombo' ]
                  , init: function(editor) {
                      editor.ui.addRichCombo( 'Variables'
                                            , { label: 'Champs prédéfinis'
