@@ -28,6 +28,7 @@ import org.libredemat.business.request.RequestEvent.COMP_DATA;
 import org.libredemat.business.users.Address;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Individual;
+import org.libredemat.business.users.MeansOfContact;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.exception.CvqException;
 import org.libredemat.security.SecurityContext;
@@ -39,6 +40,7 @@ import org.libredemat.service.request.job.RequestArchivingJob;
 import org.libredemat.service.request.job.RequestArchivingJob.Result;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.util.DateUtils;
+import org.libredemat.util.EnumTool;
 import org.libredemat.util.UserUtils;
 import org.libredemat.util.mail.IMailService;
 import org.libredemat.util.translation.ITranslationService;
@@ -84,7 +86,7 @@ public class RequestNotificationService implements ApplicationListener<LibreDema
     public String evaluate(String content,
                            boolean html,
                            Long requestId,
-                           String moc,
+                           MeansOfContact moc,
                            String observations) {
         // Objects used to do the template model
         Request request = requestSearchService.getById(Long.valueOf(requestId), false);
@@ -112,7 +114,7 @@ public class RequestNotificationService implements ApplicationListener<LibreDema
         model.put(RequestVariable.DATE.toString(), DateUtils.format(new Date()));
         model.put(RequestVariable.LAST_AGENT_NAME.toString(), UserUtils.getDisplayName(request.getLastInterveningUserId()));
         model.put(RequestVariable.LAST_AGENT_EMAIL.toString(), (agent != null) ? agent.getEmail() : "");
-        model.put(RequestVariable.MOC.toString(), (moc != null && !moc.isEmpty()) ? translationService.translate("meansOfContact." + StringUtils.uncapitalize(moc)) : "");
+        model.put(RequestVariable.MOC.toString(), (moc != null) ? translationService.translate("meansOfContact." + EnumTool.toLowerCamelCase(moc.getType().toString())) : "");
         model.put(RequestVariable.RQ_ID.toString(), request.getId().toString());
         model.put(RequestVariable.RQ_CAT.toString(), request.getRequestType().getCategory().getName());
         model.put(RequestVariable.RQ_CAT_EMAIL.toString(), request.getRequestType().getCategory().getPrimaryEmail());
@@ -173,7 +175,7 @@ public class RequestNotificationService implements ApplicationListener<LibreDema
 
         String content = localAuthorityRegistry.getFileContent(email);
 
-        return evaluate(content, true, request.getId(), "", "");
+        return evaluate(content, true, request.getId(), request.getMeansOfContact(), "");
     }
 
     private void notifyStateChanged(Long requestId, final byte[] pdfData)
