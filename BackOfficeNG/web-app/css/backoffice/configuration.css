@@ -452,9 +452,6 @@ select { display: block; }
 .cke_combo__variables .cke_combo_text {
   width: 115px;
 }
-.cke_combo__variables .cke_combo_button {
-  margin-right: 0;
-}
 .cke_combopanel__variables {
   width:  183px !important;
   height: 400px !important;
