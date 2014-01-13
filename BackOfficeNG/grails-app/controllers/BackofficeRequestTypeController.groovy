@@ -554,7 +554,7 @@ class BackofficeRequestTypeController {
     }
 
     /* Texts & helps related actions
-     * ------------------------------------------------------------------------------------------ */
+     * --------------------------------------------------------------------- */
 
     def texts = {
         def id = Long.valueOf(params.id)
@@ -566,6 +566,9 @@ class BackofficeRequestTypeController {
 
         def steps = ['introduction':message(code:'requestType.configuration.texts.intro')]
         steps = keys.inject(steps, { map, step ->
+            if (step == 'homeFolder' || step == 'validation') {
+              return map
+            }
             def code = acronym + '.step.' + step + '.label'
             map[step] = message(code:'requestType.configuration.texts.help') \
                       + ' ' \
