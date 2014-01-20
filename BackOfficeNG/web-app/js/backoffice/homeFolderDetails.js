@@ -311,9 +311,8 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
       
       refreshHomeFolderState : function() {
           zct.doAjaxCall('/currentHomeFolderState/'+zenexity.libredemat.bong.homeFolder.Details.homeFolderId, null, function(o) {
-            var state = document.getElementById('homeFolderState');
-            var parentNode=state.parentNode;
-            parentNode.innerHTML = o.responseText;
+            var body = yud.getAncestorByClassName('homeFolderState', 'body')
+            body.innerHTML = o.responseText
           });
       },
 
