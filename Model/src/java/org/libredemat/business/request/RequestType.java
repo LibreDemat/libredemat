@@ -213,6 +213,9 @@ public class RequestType implements Serializable {
     }
 
     public void setSupportUnregisteredCreation(Boolean supportUnregisteredCreation) {
+        if (supportUnregisteredCreation) {
+            this.stepAccountCompletion = false;
+        }
         this.supportUnregisteredCreation = supportUnregisteredCreation;
     }
 

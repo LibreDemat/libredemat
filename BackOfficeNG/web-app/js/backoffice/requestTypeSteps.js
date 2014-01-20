@@ -1,32 +1,39 @@
-zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
-(function(){
-  var zct = zenexity.libredemat.tools;
-  var zcc = zenexity.libredemat.common;
-  var zcv = zenexity.libredemat.Validation;
-  var zcbrt = zenexity.libredemat.bong.requesttype;
-  var yl = YAHOO.lang;
-  var yu = YAHOO.util;
-  var yud = YAHOO.util.Dom;
-  var yue = YAHOO.util.Event;
-  var yus = YAHOO.util.Selector;
-  var ylj = YAHOO.lang.JSON;
-  zcbrt.Steps = function() {
+;(function(requesttype) {
+  var zl    = zenexity.libredemat
+    , zlt   = zl.tools
+    , zlc   = zl.common
+    , zlv   = zl.Validation
+    , zlbrt = zl.bong.requesttype
+    , yl    = YAHOO.lang
+    , yu    = YAHOO.util
+    , yud   = yu.Dom
+    , yue   = yu.Event
+    , yus   = yu.Selector
+    , ylj   = yl.JSON
+
+  zlbrt.Steps = function() {
     return {
       init: function() {
-        zcbrt.Conf.saveRequestTypeSteps = zcbrt.Steps.save;
-      },
-      save : function(e) {
-        var form = yud.get('requestTypeStepsForm');
-        var error = yud.get('dialogRequestTypeStepsFormError');
-        if(zcv.check(form,error)) {
-          var target = yue.getTarget(e);
-          zct.doAjaxFormSubmitCall(form.getAttributeNode("id").value,[],function(o){
-            var json = ylj.parse(o.responseText);
-            zct.Notifier.processMessage('success',json.success_msg, null, target);
-          });
+        zlbrt.Conf.saveRequestTypeSteps = zlbrt.Steps.save
+      }
+    , save : function(e) {
+        var form  = yud.get('requestTypeStepsForm')
+          , error = yud.get('dialogRequestTypeStepsFormError')
+
+        if (zlv.check(form, error)) {
+          var target = yue.getTarget(e)
+          zlt.doAjaxFormSubmitCall( form.getAttributeNode('id').value
+                                  , []
+                                  , function(o) {
+            var json = ylj.parse(o.responseText)
+            zlt.Notifier.processMessage(json.status, json.msg, null, target)
+          })
         }
+
       }
     }
-  }();
-  YAHOO.util.Event.onDOMReady(zcbrt.Steps.init);
-}());
+  }()
+
+  yue.onDOMReady(zlbrt.Steps.init)
+
+}(zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype')))

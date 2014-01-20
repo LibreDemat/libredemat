@@ -360,20 +360,31 @@ class BackofficeRequestTypeController {
 
     def steps = {
         def id = Long.valueOf(params.id)
-        render(
-            view : "configure",
-            model : ["id" : params.id].plus(getCommonModel(requestTypeService.getRequestTypeById(Long.valueOf(id))))
-        )
+        def requestType = requestTypeService.getRequestTypeById(id)
+        def requestService = requestServiceRegistry.getRequestService(requestType.label)
+
+        render( view: 'configure'
+              , model: [ 'id': params.id
+                       , 'supportUnregisteredCreation': requestService.supportUnregisteredCreation()
+                       ].plus(getCommonModel(requestTypeService.getRequestTypeById(id)))
+              )
     }
+
     def saveSteps = {
+        def requestType = requestTypeService.getRequestTypeById(Long.valueOf(params.id))
+        def requestService = requestServiceRegistry.getRequestService(requestType.label)
+        def active = params.stepAccountCompletion.equals("active")
 
-        def steps = requestTypeService.getRequestTypeById(Long.valueOf(params.id))
-
-        steps.setStepAccountCompletion(params.stepAccountCompletion.equals("active"))
-
-        requestTypeService.modifyRequestType(steps)
-
-        render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+        if (requestService.supportUnregisteredCreation() && active) {
+            render( [ status: 'error'
+                    , msg: message(code: 'requestType.configuration.steps.supportUnregisteredCreationError')
+                    ] as JSON
+                  )
+        } else {
+            requestType.setStepAccountCompletion(active)
+            requestTypeService.modifyRequestType(requestType)
+            render([status: 'success', msg: message(code: 'message.updateDone')] as JSON)
+        }
     }
 
     def requestProperty = {
