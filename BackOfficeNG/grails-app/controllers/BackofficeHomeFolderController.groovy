@@ -608,6 +608,16 @@ class BackofficeHomeFolderController {
         criteria.setComparatif(Critere.EQUALS)
         criteria.setValue(false)
         criterias.add(criteria)
+
+        if (!UserState.ARCHIVED.toString().equals(state['homeFolderState']) &&
+            !state['userState']) {
+          Critere notArchived = new Critere()
+          notArchived.setAttribut(Individual.SEARCH_BY_USER_STATE)
+          notArchived.setComparatif(Critere.NEQUALS)
+          notArchived.setValue(UserState.ARCHIVED.toString())
+          criterias.add(notArchived)
+        }
+
         return criterias
     }
     
