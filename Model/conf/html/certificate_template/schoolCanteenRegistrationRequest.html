@@ -48,7 +48,7 @@
   </div>
   <h1>${esc(i18n.translate('scrr.label'))}
   <% if (rqt.requestSeason) { %>
-    <br /><small>${rqt.requestSeason.label} (${rqt.requestSeason.effectStart.toString(i18n.translate('format.date'))} - 
+    <br /><small>${esc(rqt.requestSeason.label)} (${rqt.requestSeason.effectStart.toString(i18n.translate('format.date'))} -
                  ${rqt.requestSeason.effectEnd.toString(i18n.translate('format.date'))})</small>
   <% } %>
   </h1>
