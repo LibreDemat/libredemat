@@ -345,7 +345,7 @@ ${endGT()}
   </div>
   <h1>\${esc(i18n.translate('${requestPdf.acronym}.label'))}
   ${toGT('if (rqt.requestSeason) {')}
-    <br /><small>\${rqt.requestSeason.label} (\${rqt.requestSeason.effectStart.toString(i18n.translate('format.date'))} - 
+    <br /><small>\${esc(rqt.requestSeason.label)} (\${rqt.requestSeason.effectStart.toString(i18n.translate('format.date'))} -
                  \${rqt.requestSeason.effectEnd.toString(i18n.translate('format.date'))})</small>
   ${toGT('}')}
   </h1>
