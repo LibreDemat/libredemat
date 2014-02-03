@@ -409,7 +409,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         individualDAO.update(adult);
 
         // Add Modification trace
-        UserAction action = new UserAction(UserAction.Type.MODIFICATION, adult.getHomeFolder().getId());
+        UserAction action = new UserAction(UserAction.Type.MODIFICATION, adult.getHomeFolder().getId(), new JsonObject(), adult.getId());
         action.setNote(translationService.translate("requestAdminAction.type.passwordReset"));
         action = (UserAction) genericDAO.create(action);
         adult.getHomeFolder().getActions().add(action);
@@ -764,9 +764,12 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     @Override
     public void launchResetPasswordProcess(Adult adult) {
+        // From FO, the user (not logged) must be the transcriber of the trace/notification
+        boolean forceAdultMustBeTranscriberOfTrace = SecurityContext.isFrontOfficeContext();
+
         userService.prepareResetPassword(adult);
         userNotificationService.sendNotification(adult, NotificationType.RESET_PASSWORD,
-                translationService.translate("homeFolder.notification.note.resetPassword"));
+                translationService.translate("homeFolder.notification.note.resetPassword"), forceAdultMustBeTranscriberOfTrace);
     }
 
     @Override

@@ -17,5 +17,7 @@ public interface IUserNotificationService {
     void notifyBySms(String to, String body)
         throws CvqException;
 
+    void sendNotification(Adult adult, NotificationType type, String note, boolean adultMustBeTranscriberOfTrace);
+
     void sendNotification(Adult adult, NotificationType type, String note);
 }

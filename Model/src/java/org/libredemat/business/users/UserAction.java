@@ -71,10 +71,18 @@ public class UserAction {
     }
 
     public UserAction(Type type, Long targetId, JsonObject payload) {
+        this(type, targetId, payload, null);
+    }
+
+    public UserAction(Type type, Long targetId, JsonObject payload, Long originUserId) {
+        System.out.println("UserAction("+type+", "+targetId+", "+originUserId+", "+payload+")");
         this.date = new Date();
         this.type = type;
-        this.userId = SecurityContext.getCurrentUserId();
-        if (this.userId == null) this.userId = -1l;
+
+        // Retrieve transcriber of the trace from the originUserId parameter in priority, or get current logged user
+        if (originUserId != null) this.userId = originUserId;
+        else if (SecurityContext.getCurrentUserId() != null) this.userId = SecurityContext.getCurrentUserId();
+        else this.userId = -1l;
 
         JsonObject user = new JsonObject();
         user.addProperty("id", userId);

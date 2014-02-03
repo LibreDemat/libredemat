@@ -129,13 +129,21 @@ public class UserNotificationService implements IUserNotificationService, Applic
 
     @Override
     public void sendNotification(Adult adult, NotificationType type, String note) {
+        this.sendNotification(adult, type, note, false);
+    }
+
+    @Override
+    public void sendNotification(Adult adult, NotificationType type, String note, boolean adultMustBeTranscriberOfTrace) {
         JsonObject data = new JsonObject();
         data.addProperty("login", adult.getLogin());
-        data.addProperty("email", adult.getEmail());
+        data.addProperty("courriel", adult.getEmail());
         data.addProperty("action", type.toString());
-        UserAction action = new UserAction(UserAction.Type.WAITING_NOTIFICATION, adult.getId(), data);
+
+        Long customTranscriber = (adultMustBeTranscriberOfTrace) ? adult.getId() : null;
+        UserAction action = new UserAction(UserAction.Type.WAITING_NOTIFICATION, adult.getId(), data, customTranscriber);
         action.setNote(note);
         adult.getHomeFolder().getActions().add(action);
+        
         genericDAO.update(adult.getHomeFolder());
     }
 

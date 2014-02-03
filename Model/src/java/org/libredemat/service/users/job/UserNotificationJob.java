@@ -95,7 +95,7 @@ public class UserNotificationJob {
         variables.put("link", UserUtils.getUrlResetPassword(adult));
 
         sendNotificationMail(
-                json.get("email").getAsString(),
+                json.get("courriel").getAsString(),
                 SecurityContext.isFrontOfficeContext()?
                         "homeFolder.adult.notification.resetPassword.subject":
                          "homeFolder.adult.notification.bo.resetPassword.subject",
@@ -104,7 +104,7 @@ public class UserNotificationJob {
 
     private void sendLoginAssignedEmail(Adult adult, JsonObject json) throws CvqException {
         sendNotificationMail(
-                json.get("email").getAsString(),
+                json.get("courriel").getAsString(),
                 "homeFolder.adult.notification.loginAssigned.subject",
                 loadEmailBodyFromAssets("LoginAssigned", getGenericVariables(adult)));
     }
@@ -126,7 +126,7 @@ public class UserNotificationJob {
         variables.put("link", urlValidation);
 
         sendNotificationMail(
-                json.get("email").getAsString(),
+                json.get("courriel").getAsString(),
                 "homeFolder.adult.notification.newAccount.subject",
                 loadEmailBodyFromAssets("NewAccountFO", variables));
     }
@@ -136,7 +136,7 @@ public class UserNotificationJob {
         variables.put("link", UserUtils.getUrlResetPassword(adult));
 
         sendNotificationMail(
-                json.get("email").getAsString(),
+                json.get("courriel").getAsString(),
                 "homeFolder.adult.notification.newAccount.bo.subject",
                 loadEmailBodyFromAssets("NewAccountBO", variables));
     }
