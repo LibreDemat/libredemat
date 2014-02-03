@@ -218,7 +218,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         HomeFolder homeFolder = new HomeFolder();
         homeFolder.setAddress(adult.getAddress());
         homeFolder.setEnabled(true);
-        homeFolder.setState(SecurityContext.isFrontOfficeContext() ? UserState.NEW : UserState.VALID);
+        homeFolder.setState(isCitizenContext() ? UserState.NEW : UserState.VALID);
         homeFolder.setTemporary(temporary);
         homeFolderDAO.create(homeFolder);
         if (SecurityContext.isFrontOfficeContext()) {
@@ -231,7 +231,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         UserAction action = new UserAction(UserAction.Type.CREATION, homeFolder.getId());
         action = (UserAction) genericDAO.create(action);
         homeFolder.getActions().add(action);
-        if (SecurityContext.isFrontOfficeContext()) {
+        if (isCitizenContext()) {
             // FIXME attribute all previous actions to the newly created responsible which had no ID
             Gson gson = new Gson();
             for (UserAction tempAction : homeFolder.getActions()) {
@@ -280,7 +280,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired();
         if (accountMustBeValidated) {
             individual.setState(UserState.PENDING);
-        } else if (SecurityContext.isFrontOfficeContext()) {
+        } else if (isCitizenContext()) {
             individual.setState(UserState.NEW);
         } else {
             individual.setState(UserState.VALID);
@@ -297,7 +297,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         UserAction action = new UserAction(UserAction.Type.CREATION, id);
         action = (UserAction) genericDAO.create(action);
         individual.getHomeFolder().getActions().add(action);
-        if (SecurityContext.isFrontOfficeContext()
+        if (isCitizenContext()
             && !UserState.NEW.equals(individual.getHomeFolder().getState())
             && !UserState.MODIFIED.equals(individual.getHomeFolder().getState())) {
             changeState(homeFolder, UserState.MODIFIED);
@@ -310,7 +310,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     @Override
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
     public void modify(HomeFolder homeFolder) {
-        if (SecurityContext.isFrontOfficeContext() && !UserState.NEW.equals(homeFolder.getState())) {
+        if (isCitizenContext() && !UserState.NEW.equals(homeFolder.getState())) {
             homeFolder.setState(UserState.MODIFIED);
         }
         homeFolderDAO.update(homeFolder);
@@ -469,7 +469,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
             newRole.setHomeFolderId(target.getId());
             owner.getIndividualRoles().add(newRole);
         }
-        if (SecurityContext.isFrontOfficeContext() && !UserState.NEW.equals(target.getState())) {
+        if (isCitizenContext() && !UserState.NEW.equals(target.getState())) {
             target.setState(UserState.MODIFIED);
         }
         JsonObject payload = new JsonObject();
@@ -530,7 +530,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
             newRole.setIndividualId(target.getId());
             owner.getIndividualRoles().add(newRole);
         }
-        if (SecurityContext.isFrontOfficeContext()) {
+        if (isCitizenContext()) {
             if (!UserState.NEW.equals(target.getState())) {
                 target.setState(UserState.MODIFIED);
                 target.setLastModificationDate(new Date());
@@ -987,6 +987,10 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         } catch (CvqException e) {
             logger.error("importHomeFolders : could not notify result", e);
         }
+    }
+
+    private boolean isCitizenContext() {
+        return SecurityContext.isFrontOfficeContext() && SecurityContext.getProxyAgent() == null;
     }
 
     @Override
