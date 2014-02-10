@@ -1,6 +1,13 @@
-<a href="${createLink(action:'adult', params:['id':adult.id, 'fragment':'address'])}#address" class="modify">
-  ${message(code:'action.modify')}
-</a>
+<g:if test="${adult.isHomeFolderResponsible()}">
+  <a href="${createLink(action:'adult', params:['id':adult.id, 'fragment':'address'])}#address" class="modify">
+    ${message(code:'action.modify')}
+  </a>
+</g:if>
+
+<g:if test="${!adult.isHomeFolderResponsible()}">
+   <p>L'adresse ne peut être modifiée que depuis la fiche du responsable du compte.</p>
+</g:if>
+
 <dl>
   <dt>${message(code:'homeFolder.individual.property.address')} : </dt>
   <dd>

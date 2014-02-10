@@ -37,6 +37,7 @@
     class="required validate-firstName ${invalidFields?.contains('firstName') ? 'validation-failed' : ''}"
     title="${message(code:'homeFolder.individual.property.firstName.validationError')}" />
 
+<g:if test="${adult == null || adult.isHomeFolderResponsible()}">
 <label class="required">${message(code:'homeFolder.individual.property.address')} *</label>
 <div id="adultAddress" class="address required ${invalidFields?.contains('address') ? 'validation-failed' : ''}">
   <label for="adultAddress_additionalDeliveryInformation">${message(code:'address.property.additionalDeliveryInformation')}</label>
@@ -67,6 +68,8 @@
   <input type="hidden" id="adultAddress_streetRivoliCode" name="address.streetRivoliCode" value="${adult?.address?.streetRivoliCode}" />
   <input type="hidden" id="adultAddress_cityInseeCode" name="address.cityInseeCode" value="${adult?.address?.cityInseeCode}" />
 </div>
+</g:if>
+
 <label for="email" class="required">
   ${message(code:'homeFolder.adult.property.email')} *
   <span>

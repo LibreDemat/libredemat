@@ -213,10 +213,6 @@ class BackofficeHomeFolderController {
             adult =  new Adult()
             template = 'adult'
             flash.homeFolderId = params.homeFolderId
-            if (request.get) {
-                def responsible = userSearchService.getHomeFolderResponsible(Long.valueOf(params.homeFolderId))
-                adult.address = responsible.address
-            }
         } else {
             adult = userSearchService.getAdultById(Long.valueOf(params.id))
             template = params.template ? params.template : 'adult'
@@ -226,14 +222,15 @@ class BackofficeHomeFolderController {
             mode = 'static'
             DataBindingUtils.initBind(adult, params)
             bind(adult)
+            def homefolder = userSearchService.getHomeFolderById(Long.valueOf(params.homeFolderId))
+            adult.address = homefolder.address
             def invalidFields = userService.validate(adult)
             if (!invalidFields.isEmpty()) {
                 session.doRollback = true
                 render (['invalidFields': invalidFields] as JSON)
                 return false
             }
-            userWorkflowService.add(
-                userSearchService.getHomeFolderById(Long.valueOf(params.homeFolderId)), adult, false)
+            userWorkflowService.add(homefolder, adult, false)
             render (['status': 'success', 'type':'adult', 'id': adult.id] as JSON)
             return false
         }

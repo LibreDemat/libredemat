@@ -13,10 +13,12 @@
   <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} individual-identity required collapse">
     <g:render template="static/adultIdentity" model="['individual':adult]" />
   </dl>
+  
   <h3>${message(code:'homeFolder.individual.header.address')}</h3>
-  <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} adult-address collapse">
+  <dl class="adult-address collapse">
     <g:render template="static/address" model="['user':adult]" />
   </dl>
+
   <h3>${message(code:'homeFolder.individual.header.contact')}</h3>
   <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} adult-contact collapse">
     <g:render template="static/contact" model="['adult':adult]" />

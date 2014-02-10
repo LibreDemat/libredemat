@@ -488,4 +488,11 @@ public abstract class Individual implements Serializable {
     public void setDuplicateData(String duplicateData) {
         this.duplicateData = duplicateData;
     }
+
+    public boolean isHomeFolderResponsible() {
+        for (IndividualRole role: getIndividualRoles()) {
+            if (RoleType.HOME_FOLDER_RESPONSIBLE.equals(role.getRole())) return true;
+        }
+        return false;
+    }
 }

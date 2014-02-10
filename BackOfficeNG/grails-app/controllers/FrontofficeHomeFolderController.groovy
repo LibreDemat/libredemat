@@ -310,7 +310,7 @@ class FrontofficeHomeFolderController {
             individual = new Adult()
             // hack : WTF is an unknown title ?
             individual.title = null
-            individual.address = currentEcitizen.address.clone()
+            individual.address = currentEcitizen.address
         }
         if (request.post) {
             try {
