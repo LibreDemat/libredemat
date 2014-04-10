@@ -325,21 +325,29 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
             throw new CvqException("No adult object provided");
         else if (individual.getId() == null)
             throw new CvqException("Cannot modify a transient individual");
-        if (SecurityContext.isFrontOfficeContext()) {
-            if (!UserState.NEW.equals(individual.getState())) {
-                individual.setState(UserState.MODIFIED);
-                individual.setLastModificationDate(new Date());
-                individual.setQoS(QoS.GOOD);
-            }
-            if (!UserState.NEW.equals(individual.getHomeFolder().getState()))
-                individual.getHomeFolder().setState(UserState.MODIFIED);
-        }
+
         JsonObject payload = new JsonObject();
         payload.add("atom", atom);
         UserAction action = new UserAction(UserAction.Type.MODIFICATION, individual.getId(), payload);
         action = (UserAction) genericDAO.create(action);
+
+        String type = atom.get("name").getAsString();
+
+        // Do not update individual state on connection modifications (edit questions)
+        if (!"connexion".equals(type)) {
+            if (SecurityContext.isFrontOfficeContext()) {
+                if (!UserState.NEW.equals(individual.getState())) {
+                    individual.setState(UserState.MODIFIED);
+                    individual.setLastModificationDate(new Date());
+                    individual.setQoS(QoS.GOOD);
+                }
+                if (!UserState.NEW.equals(individual.getHomeFolder().getState()))
+                    individual.getHomeFolder().setState(UserState.MODIFIED);
+            }            
+        }
+
         // FIXME hack for specific business when changing a user's first or last name
-        if ("identity".equals(atom.get("name").getAsString())) {
+        if ("identity".equals(type)) {
             JsonObject fields = atom.get("fields").getAsJsonObject();
             if (fields.has("firstName") || fields.has("lastName")) {
                 String firstName = fields.has("firstName") ?
