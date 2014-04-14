@@ -54,6 +54,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
     <property name="mailService" ref="mailService" />
     <property name="individualDAO" ref="individualDAO" />
+    <property name="homeFolderDAO" ref="homeFolderDAO" />
     <property name="requestTypeService" ref="requestTypeService" />
   </bean>
 
@@ -438,6 +439,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
       <set>
         <ref bean="requestCreationNotificationTrigger" />
         <ref bean="requestInstructionDurationCheckerTrigger" />
+        <ref bean="userInstructionDurationCheckerTrigger" />
         <ref bean="documentValidityCheckerTrigger" />
         <ref bean="requestSeasonsTrigger" />
         <ref bean="draftManagementRemoverJobTrigger"/>
