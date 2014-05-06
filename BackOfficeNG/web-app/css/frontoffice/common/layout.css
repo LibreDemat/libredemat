@@ -65,6 +65,8 @@ h2 span { display: block; line-height: 1.5em; font-size: .5em; }
 /* footer
 --------------------------------------------------------------*/
 #ft { padding: .5em; text-align: right; }
+#ft a.logo { float: left; }
+#ft a.logo img { height: 35px; margin-right: 1em; }
 
 
 /* misc
