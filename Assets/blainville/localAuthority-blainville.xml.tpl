@@ -13,7 +13,7 @@
       </map>
     </property>
     <property name="defaultServerName" value="localhost"/>
-    <property name="defaultEmail" value="sansmail@blainville.fr"/>
+    <property name="defaultEmail" value="capdemat-dev@zenexity.com"/>
     <property name="autotransition" value="true"/>
     <property name="authenticationMethod" value="builtin"/> <!-- builtin,cas -->
     <property name="authenticationMethodFront" value="builtin"/> <!-- builtin,oauth2-->
@@ -79,6 +79,8 @@
                 </entry>
               </map>
             </property>
+            <property name="login" value="fakeExternalService"/>
+            <property name="password" value="abcd"/>
           </bean>
         </entry>
         <entry>
@@ -92,7 +94,8 @@
                 <value>School Canteen Registration</value>
               </list>
             </property>
-           <property name="password" value="abcd"/>
+            <property name="login" value="fakePointExternalService"/>
+            <property name="password" value="abcd"/>
           </bean>
         </entry>
         <entry>
@@ -105,8 +108,8 @@
                 <value>Compostable Waste Collection</value>
               </list>
             </property>
-           <property name="login" value="BlainVilleRest"/>
-           <property name="password" value="abcd"/>
+            <property name="login" value="BlainVilleRest"/>
+            <property name="password" value="abcd"/>
           </bean>
         </entry>
         <entry>
@@ -121,6 +124,8 @@
                 <value>Recreation Activity Registration</value>
               </list>
             </property>
+            <property name="login" value="externalApplicationProviderService"/>
+            <property name="password" value="abcd"/>
           </bean>
         </entry>
       </map>
@@ -130,8 +135,8 @@
         <entry>
           <key><value>NotCommitPaymentAlert</value></key>
           <map>
-            <entry key="mailSendTo" value="libredemat-dev@zenexity.fr"/>
-            <entry key="mailSubject" value="[CapDémat] Alerte Paiement"/>
+            <entry key="mailSendTo" value="capdemat-dev@zenexity.fr"/>
+            <entry key="mailSubject" value="[LibreDémat] Alerte Paiement"/>
             <entry key="mailData" value="NotCommitedPaymentsAlert"/>
           </map>
         </entry>
@@ -142,7 +147,7 @@
         <entry>
           <key><value>CommitPaymentConfirmation</value></key>
           <map>
-            <entry key="mailSubject" value="[CapDémat] Confirmation de paiement"/>
+            <entry key="mailSubject" value="[LibreDémat] Confirmation de paiement"/>
             <entry key="mailData" value="CommitPaymentNotification"/>
           </map>
         </entry>
@@ -173,4 +178,3 @@
   </bean>
 
 </beans>
-

@@ -1,76 +1,75 @@
 /* --------------------------------------------------------
- * 
+ *
  *        Blainville
  *
- *        orange: #ff812b
- *        gray:   #b6aca5
+ *        red:  #E74440
+ *        grey: #3F3F3F
  *
  * ----------------------------------------------------- */
 
-/* Uncomment these lines to invert the logo and the login bar.
+/* Uncomment these lines to invert the logo and the login bar. */
 #hd:before {
   content: url(../../localAuthorityResource/resource/logoFo)
 }
 #hd ~ h1 {
   display: none;
 }
-*/
 
 /* global layout
  * ----------------------------------------------------- */
- 
+
 html { background: #fff; }
-#bd  { background-color: #b6aca5; }
+#bd  { background-color: #153238; }
 
 
 /* menus
  * ----------------------------------------------------- */
 
-#menu a, #menu a span                 { background-color: #ff812b; }
-#menu a:hover, #menu a:hover span     { color: #fff; background-color: #b6aca5; }
-#menu a.current, #menu a.current span { color: #fff; background-color: #b6aca5; }
-#menu a.disable ,#menu a.disable span { background-color: #b6aca5 !important; }
+#menu a, #menu a span                 { background-color: #4EC9EA; }
+#menu a:hover, #menu a:hover span     { color: #fff; background-color: #153238; }
+#menu a.current, #menu a.current span { color: #fff; background-color: #153238; }
+#menu a.disable ,#menu a.disable span { background-color: #153238 !important; }
 
-#hd .top a.menu       { color: #fff; background-color: #ff812b; }
-#hd .top a.menu:hover { color: #444; background-color: #b6aca5; }
+#hd .top a.menu       { color: #fff; background-color: #4EC9EA; }
+#hd .top a.menu:hover { color: #444; background-color: #153238; }
 #hd .top form input[type=text],
-#hd .top form input[type=password] { border: 1px solid #ff812b !important; }
+#hd .top form input[type=password] { border: 1px solid #4EC9EA !important; }
 
 
 /* boxes
  * ----------------------------------------------------- */
 
-.box h2, .box h3 { color: #ff812b !important; }
+.box h2, .box h3 { color: #4EC9EA !important; }
 
-.list-box               { border-color: #ff812b; }
-.list-box h2            { color: #ff812b; border-color: #ff812b; }
-.list-box h3            { color: #ff812b; }
-.list-box p.paginator a, 
-.list-box p.see-all a { color: #ff812b; }
+.list-box               { border-color: #4EC9EA; }
+.list-box h2            { color: #4EC9EA; border-color: #4EC9EA; }
+.list-box h3            { color: #4EC9EA; }
+.list-box p.paginator a,
+.list-box p.see-all a { color: #4EC9EA; }
 .list-box p.see-all a:hover,
 .list-box p.paginator a:hover,
-.list-box p.paginator span.currentStep { color: #ffffff; background: #ff812b; }
+.list-box p.paginator span.currentStep { color: #ffffff; background: #4EC9EA; }
 
-.list-box.creation a:hover { background: #ff812b !important; }
-.list-box.creation img { background: #ff812b !important; }
+.list-box.creation a:hover { background: #4EC9EA !important; }
+.list-box.creation img { background: #4EC9EA !important; }
 
-.group-box h3      { background-color: #ff812b; color: #fff !important; }
-.group-box a:hover { background: #ff812b; }
+.group-box h3      { background-color: #4EC9EA; color: #fff !important; }
+.group-box a:hover { background: #4EC9EA; }
 
-.summary-box.created { border-color: #ff812b; }
-.summary-box h2      { color: #ff812b; border-color: #ff812b; }
-.summary-box h3      { border-bottom-color:  #ff812b !important; }
-.summary-box dl      { border-bottom-color: #ff812b !important; }
+.summary-box.created { border-color: #4EC9EA; }
+.summary-box h2      { color: #4EC9EA; border-color: #4EC9EA; }
+.summary-box h3      { border-bottom-color: #4EC9EA !important; }
+.summary-box dl      { border-bottom-color: #4EC9EA !important; }
 .summary-box dl dt,
-.summary-box dl dd   { border-top-color: #ff812b !important; }
+.summary-box dl dd   { border-top-color: #4EC9EA !important; }
 
-.main-box         { border-color: #ff812b; }
-.main-box h2      { color: #ff812b; border-color: #ff812b; }
-.main-box a:hover { color: #ffffff !important; background: #ff812b !important; }
+.main-box         { border-color: #4EC9EA; }
+.main-box h2      { color: #4EC9EA; border-color: #4EC9EA; }
+.main-box a:hover { color: #ffffff !important; background: #4EC9EA !important; }
 
-.narrow-box h3           { color: #fff; background: #ff812b; }
+.narrow-box h3           { color: #fff; background: #4EC9EA; }
 .narrow-box .body        { background: #FFFFFF; }
-.narrow-box .body select { border-top-color: #ff812b; }
+.narrow-box .body select { border-top-color: #4EC9EA; }
 
 
 /* forms
@@ -79,45 +78,44 @@ html { background: #fff; }
 form input[type="text"],
 form input[type="password"],
 form select,
-form textarea { border-top-color: #ff812b !important; }
+form textarea { border-top-color: #4EC9EA !important; }
 
 
 /* family account
 /* ----------------------------------------------------- */
 
-.individual form .address { border-color: #ff812b !important; }
+.individual form .address { border-color: #4EC9EA !important; }
 
 
 /* request creation
  * ----------------------------------------------------- */
 
-#request div.help h3 { border-bottom-color: #ff812b !important; }
+#request div.help h3 { border-bottom-color: #4EC9EA !important; }
 
-#request h3       { border-bottom-color:  #ff812b !important; }
-#request legend   { color: #ff812b !important; }
-#request .address { border-color: #ff812b !important; }
+#request h3       { border-bottom-color:  #4EC9EA !important; }
+#request legend   { color: #4EC9EA !important; }
+#request .address { border-color: #4EC9EA !important; }
 
 #request form ul.dataTree,
 #request form fieldset,
-#request form div .captcha img { border-color: #ff812b !important; }
+#request form div .captcha img { border-color: #4EC9EA !important; }
 
 #request form div input[type="text"],
 #request form div input[type="password"],
 #request form div select,
-#request form div textarea { border-top-color: #ff812b !important; }
+#request form div textarea { border-top-color: #4EC9EA !important; }
 
 
 /* document and activities
  * ----------------------------------------------------- */
- 
-#docs h4 { color: #ff812b !important; }
 
-.data-detail .yui-g { border-color: #ff812b !important; }
-.data-detail dl     { border-color: #ff812b !important; }
+#docs h4 { color: #4EC9EA !important; }
+
+.data-detail .yui-g { border-color: #4EC9EA !important; }
+.data-detail dl     { border-color: #4EC9EA !important; }
 .data-detail dd,
-.data-detail dt     { border-color: #ff812b !important; }
+.data-detail dt     { border-color: #4EC9EA !important; }
 
 table.activity-calendar,
 table.activity-calendar th,
-table.activity-calendar td { border-color: #ff812b !important; }
-
+table.activity-calendar td { border-color: #4EC9EA !important; }
