@@ -69,7 +69,7 @@
       <div class="nobox">
         <h3><g:message code="requestType.header.switchRequestType" /></h3>
         <div class="body">
-          <form action="${createLink(action : 'forms')}" method="get">
+          <form action="${createLink(action : 'requestProperty')}" method="get">
             <select name="id" id="requestTypeId">
               <g:each in="${requestTypes}">
                 <option value="${it.id}" ${it.id == requestType?.id ? 'selected' : ''}>${it.label}</option>
