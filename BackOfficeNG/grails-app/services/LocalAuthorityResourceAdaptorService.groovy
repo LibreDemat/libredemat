@@ -25,7 +25,6 @@ public class LocalAuthorityResourceAdaptorService {
             localAuthorityResources.faqFo.template = "linkBox"
             localAuthorityResources.helpBo.template = "linkBox"
             localAuthorityResources.helpFo.template = "linkBox"
-            localAuthorityResources.legal.template = "linkBox"
             localAuthorityResources.use.template = "linkBox"
         }
         return localAuthorityResources

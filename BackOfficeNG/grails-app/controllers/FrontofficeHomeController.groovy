@@ -186,7 +186,18 @@ class FrontofficeHomeController {
         }
     }
 
-    def browsers = { }
+    def browsers = {}
+
+    def legal = {
+        File legal = localAuthorityRegistry.getLocalAuthorityResourceFile(
+            LocalAuthorityResource.LEGAL.id)
+
+        if (legal && legal.exists() && !legal.text.isEmpty()) {
+          return ['legal': legal.text]
+        } else {
+          return [:]
+        }
+    }
 
     def protected preparePayments(payments) {
         payments.all.each {

@@ -31,12 +31,10 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.localauthority');
         yue.on(yud.get('faqFoBox'),'click',zcbl.PDF.clickEv.dispatch,zcbl.PDF.clickEv,true);
         yue.on(yud.get('helpBoBox'),'click',zcbl.PDF.clickEv.dispatch,zcbl.PDF.clickEv,true);
         yue.on(yud.get('helpFoBox'),'click',zcbl.PDF.clickEv.dispatch,zcbl.PDF.clickEv,true);
-        yue.on(yud.get('legalBox'),'click',zcbl.PDF.clickEv.dispatch,zcbl.PDF.clickEv,true);
         yue.on(yud.get('useBox'),'click',zcbl.PDF.clickEv.dispatch,zcbl.PDF.clickEv,true);
         zcbl.PDF.loadBox("faqFo");
         zcbl.PDF.loadBox("helpBo");
         zcbl.PDF.loadBox("helpFo");
-        zcbl.PDF.loadBox("legal");
         zcbl.PDF.loadBox("use");
       },
       /**

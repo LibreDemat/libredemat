@@ -3,5 +3,5 @@
   <a class="logo" href="http://europa.eu"><img src="${resource(dir:'images', file:'eu.jpg')}" alt="Projet cofinancé par l’Union Européenne (FEDER)"/></a>
   <span>${message(code:'message.libredemat')} ${grailsApplication.metadata['app.version']}</span>
   | <a href="${createLink(controller:'frontofficeHome', action:'browsers')}">${message(code:'home.header.browsers')}</a>
-  | <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'legal')}" target="blank">${message(code:'message.legalInformation')}</a>
+  | <a href="${createLink(controller:'frontofficeHome', action:'legal')}">${message(code:'message.legalInformation')}</a>
 </div>

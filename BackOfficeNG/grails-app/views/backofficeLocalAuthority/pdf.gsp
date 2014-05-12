@@ -14,7 +14,6 @@
         <div id="faqFoBox" class="mainbox mainbox-yellow"></div>
         <div id="helpBoBox" class="mainbox mainbox-yellow"></div>
         <div id="helpFoBox" class="mainbox mainbox-yellow"></div>
-        <div id="legalBox" class="mainbox mainbox-yellow"></div>
         <div id="useBox" class="mainbox mainbox-yellow"></div>
       </div>
     </div>

@@ -62,7 +62,7 @@ public class LocalAuthorityResource {
     public static final LocalAuthorityResource FAQ_FO = new LocalAuthorityResource("faqFo", "faqFo", Type.PDF, true);
     public static final LocalAuthorityResource HELP_BO = new LocalAuthorityResource("helpBo", "helpBo", Type.PDF, true);
     public static final LocalAuthorityResource HELP_FO = new LocalAuthorityResource("helpFo", "helpFo", Type.PDF, true);
-    public static final LocalAuthorityResource LEGAL = new LocalAuthorityResource("legal", "legal", Type.PDF, false);
+    public static final LocalAuthorityResource LEGAL = new LocalAuthorityResource("legal", "legal", Type.HTML, true);
     public static final LocalAuthorityResource USE = new LocalAuthorityResource("use", "use", Type.PDF, false);
     public static final LocalAuthorityResource INFORMATION_MESSAGE_FO = new LocalAuthorityResource("informationFo", "informationFo", Type.HTML, false);
     public static final LocalAuthorityResource INFORMATION_MESSAGE_FO_UNAUTHENTICATED = new LocalAuthorityResource("informationFoUnauthenticated", "informationFoUnauthenticated", Type.HTML, false);
