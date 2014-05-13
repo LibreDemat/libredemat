@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - CirilNetEnfance Plugin" default="dist" basedir=".">
+<project name="LibreDémat - CirilNetEnfance Plugin" default="dist" basedir=".">
 
   <description>Ant build file for the CirilNetEnfance plugin project.</description>
 

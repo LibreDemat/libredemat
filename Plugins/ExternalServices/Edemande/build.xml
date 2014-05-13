@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - Edemande Plugin" default="dist" basedir=".">
+<project name="LibreDémat - Edemande Plugin" default="dist" basedir=".">
 
   <description>Ant build file for the Edemande plugin project.</description>
 

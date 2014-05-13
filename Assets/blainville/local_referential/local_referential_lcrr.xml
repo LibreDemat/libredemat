@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LocalReferential xmlns="http://www.libredemat.org/schema/referential">
-    <data name="MotifsDerogationCentreLoisirs" allowMultipleChoices="false" manager="CapDémat">
+    <data name="MotifsDerogationCentreLoisirs" allowMultipleChoices="false" manager="LibreDémat">
         <label>Motifs</label>
         <entries>
             <entry key="Grands-parents-habitant-a--Montpellier">
@@ -17,7 +17,7 @@
             </entry>
         </entries>
     </data>
-    <data name="ModeAccueil" allowMultipleChoices="false" manager="CapDémat">
+    <data name="ModeAccueil" allowMultipleChoices="false" manager="LibreDémat">
         <label>Mode d'accueil</label>
         <entries>
             <entry key="Matin">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LocalReferential xmlns="http://www.libredemat.org/schema/referential">
-    <data name="CurrentSchoolName" allowMultipleChoices="false" manager="CapDémat">
+    <data name="CurrentSchoolName" allowMultipleChoices="false" manager="LibreDémat">
         <label>Nom de l'établissement</label>
         <entries>
             <entry key="PANTHEON-SORBONNE-PARIS-1">
@@ -30,7 +30,7 @@
             </entry>
         </entries>
     </data>
-    <data name="TaxHouseholdCity" allowMultipleChoices="false" manager="CapDémat">
+    <data name="TaxHouseholdCity" allowMultipleChoices="false" manager="LibreDémat">
         <label>Commune</label>
         <entries>
             <entry key="325">

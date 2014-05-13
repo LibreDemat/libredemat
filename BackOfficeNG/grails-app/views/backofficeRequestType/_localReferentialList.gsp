@@ -2,8 +2,8 @@
   <div id="lrtDataName_${lrType.name}" class="mainbox mainbox-yellow">
     <h2>${lrType.label}</h2>
     <form id="widgetForm_${lrType.name}" action="${createLink(action:'saveLocalReferentialType', id: requestTypeId)}" method="post" style="padding-top: 0;">
-      <select id="saveWidget_${lrType.name}" name="allowMultipleChoices" ${lrType.getManager() != "CapDémat" ? 'disabled="disabled"' : ''} style="display: inline; margin-right: 10px;">
-        <g:if test="${lrType.getManager() == 'CapDémat'}">
+      <select id="saveWidget_${lrType.name}" name="allowMultipleChoices" ${lrType.getManager() != "LibreDémat" ? 'disabled="disabled"' : ''} style="display: inline; margin-right: 10px;">
+        <g:if test="${lrType.getManager() == 'LibreDémat'}">
           <option value="false" ${lrType.isMultiple() ? '' : 'selected="selected"'}>${message(code:'localReferential.label.dropDownListWidget')}</option>
           <option value="true" ${lrType.isMultiple() ? 'selected="selected"' : ''}>${message(code:'localReferential.label.checkBoxTreeWidget')}</option>
         </g:if>
@@ -11,12 +11,12 @@
           <option value="${lrType.isMultiple() ? 'true' : 'false'}" selected="selected">${message(code:'localReferential.label.notConfigurableInLibreDemat')}</option>
         </g:else>
       </select>
-      <g:if test="${lrType.getManager() != 'CapDémat'}">
+      <g:if test="${lrType.getManager() != 'LibreDémat'}">
         ${message(code:'localReferential.label.configureFrom')} ${lrType.getManager()}.
       </g:if>
       <input type="hidden" name="lrtDataName" value="${lrType.name}" />
     </form>
-    <g:if test="${lrType.getManager() == 'CapDémat'}">
+    <g:if test="${lrType.getManager() == 'LibreDémat'}">
       <div class="createConfigurationItem">
         <a id="addEntry_${lrType.name}">${message(code:'localReferential.label.addEntry')}</a>
       </div>
@@ -28,7 +28,7 @@
     <div id="formContainer_${lrType.name}" class="newItem"></div>
     <div id="lrtEntriesContainer_${lrType.name}">
     <g:render template="localReferentialEntries"
-              model="['lrEntries': lrType.entries, 'areReadOnly': lrType.getManager() != 'CapDémat', 'parentEntry': lrType.name, 'depth': 0]" />
+              model="['lrEntries': lrType.entries, 'areReadOnly': lrType.getManager() != 'LibreDémat', 'parentEntry': lrType.name, 'depth': 0]" />
     </div>
   </div>
 </g:each>

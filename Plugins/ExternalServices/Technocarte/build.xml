@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - Technocarte Plugin" default="dist" basedir=".">
+<project name="LibreDémat - Technocarte Plugin" default="dist" basedir=".">
 
   <description>Ant build file for the Technocarte plugin project.</description>
 

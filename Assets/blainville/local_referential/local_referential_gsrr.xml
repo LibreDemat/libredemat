@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LocalReferential xmlns="http://www.libredemat.org/schema/referential">
-    <data name="MotifsDerogationEcole" allowMultipleChoices="true" manager="CapDémat">
+    <data name="MotifsDerogationEcole" allowMultipleChoices="true" manager="LibreDémat">
         <label>Le ou les motif(s) de votre demande de dérogation</label>
         <entries>
             <entry key="Rassemblement-de-fratrie">

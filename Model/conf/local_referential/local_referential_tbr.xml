@@ -6,7 +6,7 @@
     <data name="placeCategories">
         <label>Catégories de places</label>
     </data>
-    <data name="rateTypes" allowMultipleChoices="false" manager="CapDémat">
+    <data name="rateTypes" allowMultipleChoices="false" manager="LibreDémat">
         <label>Type de tarif</label>
         <entries>
             <entry key="Plein">

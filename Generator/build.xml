@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - Generator" default="generator" basedir="./">
+<project name="LibreDémat - Generator" default="generator" basedir="./">
 
-  <description>Ant build file for the CapDémat - Generator project.</description>
+  <description>Ant build file for the LibreDémat - Generator project.</description>
 
   <target name="init">
     <!-- generator specific properties -->
@@ -205,7 +205,7 @@
     depends="init, XMLBean">
 
     <javadoc destdir="${basedir}/${doc.javadoc.dir}" author="true" version="true" private="true" 
-      use="true" windowtitle="CapDémat Generator and XML Schemas API"
+      use="true" windowtitle="LibreDémat Generator and XML Schemas API"
       classpathref="classpath.compile" additionalparam="${javadoc.proxy.params}">
 
       <!-- The links the generated code doc should use -->

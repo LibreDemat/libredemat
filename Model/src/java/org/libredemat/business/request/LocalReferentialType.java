@@ -52,9 +52,9 @@ public class LocalReferentialType {
     }
 
     /**
-     * Who manages this local referential type. Can be "CapDémat" or an external service label.
+     * Who manages this local referential type. Can be "LibreDémat" or an external service label.
      */
-    private String manager = "CapDémat";
+    private String manager = "LibreDémat";
 
     public final String getManager() {
         return manager;

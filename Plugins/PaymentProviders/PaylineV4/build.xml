@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CapDémat - PaylineV4 Plugin" default="dist" basedir=".">
+<project name="LibreDémat - PaylineV4 Plugin" default="dist" basedir=".">
 
   <description>Ant build file for the PaylineV4 plugin project.</description>
 

@@ -14,4 +14,4 @@ Date d'intitialisation: ${initializationDate}
 </loop>
 
 Cordialement
-Capdémat
+Libredémat

@@ -445,7 +445,7 @@ class BackofficeRequestTypeController {
     def localReferentialType = {
         def lrType = localReferentialService.getLocalReferentialType(requestTypeService.getRequestTypeById(Long.valueOf(params.id)).label, params.dataName)
         render(template:"localReferentialEntries", 
-               model:['lrEntries': lrType.entries, 'areReadOnly': lrType.getManager() != "CapDémat", 'parentEntry': lrType.name,
+               model:['lrEntries': lrType.entries, 'areReadOnly': lrType.getManager() != "LibreDémat", 'parentEntry': lrType.name,
                        'isMultiple': lrType.isMultiple(), 'depth': 0])
     }
     
