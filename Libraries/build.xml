@@ -27,7 +27,7 @@
     </fileset>
 
     <target name="clean" depends="init">
-        <delete>
+        <delete quiet="true">
             <fileset refid="libredemat-core-libs"/>
             <fileset refid="libredemat-plugins" />
         </delete>
