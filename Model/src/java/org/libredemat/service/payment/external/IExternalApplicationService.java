@@ -16,7 +16,7 @@ import org.libredemat.exception.CvqObjectNotFoundException;
 
 public interface IExternalApplicationService {
 
-    final static String EXTERNAL_APPLICATION_LABEL = "CAPDEMAT";
+    final static String EXTERNAL_APPLICATION_LABEL = "LIBREDEMAT";
 
     ExternalApplication getExternalApplicationById(final Long id) throws CvqObjectNotFoundException;
 

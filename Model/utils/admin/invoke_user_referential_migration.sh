@@ -4,10 +4,10 @@
 
 . ./set_classpath.sh "$1" "$2"
 
-if [ -n "$CAPDEMAT_I18N_PATH" ]; then
-  CLASSPATH="$CLASSPATH:$CAPDEMAT_I18N_PATH"
+if [ -n "$LIBREDEMAT_I18N_PATH" ]; then
+  CLASSPATH="$CLASSPATH:$LIBREDEMAT_I18N_PATH"
 else
-  echo "Environment variable CAPDEMAT_I18N_PATH must be set !";
+  echo "Environment variable LIBREDEMAT_I18N_PATH must be set !";
   exit;
 fi
 
