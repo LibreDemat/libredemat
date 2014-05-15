@@ -21,13 +21,14 @@ class BackofficeDocumentTypeController {
     IDocumentTypeService documentTypeService
     ILocalAuthorityRegistry localAuthorityRegistry
 
-    def static subMenuEntries = BackofficeRequestAdminController.subMenuEntries
+    def static subMenuEntries = BackofficeReferentialController.subMenuEntries
 
-    def beforeInterceptor = { session["currentMenu"] = "requestAdmin" }
+    def beforeInterceptor = { session["currentMenu"] = "referential" }
 
     def list = {
         return [
-            "subMenuEntries" : subMenuEntries
+            "subMenuEntries" : subMenuEntries,
+            "type" : "document"
         ]
     }
 

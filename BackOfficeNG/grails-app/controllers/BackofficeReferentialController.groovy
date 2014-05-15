@@ -23,12 +23,15 @@ class BackofficeReferentialController {
         session["currentMenu"] = "referential"
     }
 
-    def afterInterceptor = { model ->
-        model["subMenuEntries"] = [
+    def static subMenuEntries = [
             "referential.agents",
             "referential.schools",
-            "referential.recreationCenters"
+            "referential.recreationCenters",
+            "documentType.list"
         ]
+
+    def afterInterceptor = { model ->
+        model["subMenuEntries"] = BackofficeReferentialController.subMenuEntries
     }
 	
     def index = {

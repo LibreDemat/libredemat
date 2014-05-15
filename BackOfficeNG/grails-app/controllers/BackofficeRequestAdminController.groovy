@@ -16,8 +16,7 @@ class BackofficeRequestAdminController {
         "category.list",
         'displayGroup.list',
         'requestArchives.index',
-        'requestAdmin.emails',
-        "documentType.list"
+        'requestAdmin.emails'
     ]
 
     def beforeInterceptor = { 

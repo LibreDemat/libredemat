@@ -46,7 +46,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
       loadNewDocumentTypeForm : function() {
         zct.doAjaxCall('/createForm/','',function(o){
           yud.get('newDocumentTypeFormContainer').innerHTML = o.responseText;
-          yud.get('validityDurationType_').onchange = zcbrt.DocumentTypes.validityDurationTypeChange;
+          yue.on('validityDurationType_', 'change', zcbrt.DocumentTypes.validityDurationTypeChange);
         });
       },
       loadTypes : function() {
@@ -58,7 +58,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
         var id = (yue.getTarget(e).id||'_').split('_')[1];
         zct.doAjaxCall('/editForm?id=' + id,[],function(o){
           yud.get('editDocumentTypeFormContainer_'+id).innerHTML = o.responseText;
-          yud.get('validityDurationType_'+id).onchange = zcbrt.DocumentTypes.validityDurationTypeChange;
+          yue.on('validityDurationType_'+id, 'change', zcbrt.DocumentTypes.validityDurationTypeChange);
           zcbrt.DocumentTypes.validityDurationTypeChange(id);
         });
       },
