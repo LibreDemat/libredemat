@@ -15,7 +15,7 @@
         <textarea id="editor"></textarea>
         <div class="cf">
           <input type="button" id="save" value="${message(code:'action.save')}"/>
-          <input type="button" id="disable"<g:if test="${!states[0].enabled}"> disabled</g:if> value="${message(code:'requestType.configuration.emails.action.disable')}"/>
+          <input type="button" id="disable"<g:if test="${!states[0].enabled || states[0].code.toUpperCase().endsWith('PENDING')}"> disabled</g:if> value="${message(code:'requestType.configuration.emails.action.disable')}"/>
         </div>
       </form>
     </div>

@@ -85,7 +85,7 @@
   me.sync.button = function(option) {
     var button = yud.get('disable')
 
-    if (yud.hasClass(option, 'mail-enabled')) {
+    if (yud.hasClass(option, 'mail-enabled') && option.id != "request.state.pending") {
       button.removeAttribute('disabled')
     } else {
       button.setAttribute('disabled', '')

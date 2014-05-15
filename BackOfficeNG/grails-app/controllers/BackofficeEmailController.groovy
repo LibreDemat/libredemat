@@ -78,7 +78,7 @@ class BackofficeEmailController {
                  , enabled: true
                  , texts: texts
                  ] as JSON)
-        } else {
+        } else if (state != 'PENDING') {
           localAuthorityRegistry.removeLocalAuthorityResource(
               Type.HTML,
               dir() + '/' + state)
@@ -90,6 +90,8 @@ class BackofficeEmailController {
                  , enabled: false
                  , texts: texts
                  ] as JSON)
+        } else {
+          render([ id: params.state, enabled: true ] as JSON)
         }
     }
 
