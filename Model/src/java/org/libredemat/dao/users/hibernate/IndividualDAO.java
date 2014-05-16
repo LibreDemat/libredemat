@@ -305,7 +305,7 @@ public class IndividualDAO extends JpaTemplate<Individual,Long> implements IIndi
     @Override
     public List<Individual> searchTasks(Date date) {
         return HibernateUtil.getSession()
-            .createQuery("from Individual i where i.state in (:new, :modified, :invalid) and (i.lastModificationDate is null or i.lastModificationDate <= :limitDate) and homeFolder != null order by i.lastModificationDate")
+            .createQuery("from Individual i where i.state in (:new, :modified, :invalid) and (i.lastModificationDate is null or i.lastModificationDate <= :limitDate) and homeFolder != null and homeFolder.temporary = false order by i.lastModificationDate")
             .setString("new", UserState.NEW.name())
             .setString("modified", UserState.MODIFIED.name())
             .setString("invalid", UserState.INVALID.name())
