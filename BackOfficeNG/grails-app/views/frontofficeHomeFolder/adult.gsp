@@ -29,7 +29,7 @@
           ${message(code:'homeFolder.header.createAdult')}
         </g:else>
       </h2>
-      <div class="main ${invalidFields && !invalidFields.isEmpty() ? 'Invalid' : 'Modified'}">
+      <div class="main ${invalidFields && !invalidFields.isEmpty() ? 'Invalid' : adult.state}">
         <g:if test="${adult.id != null}">
           <h3 id="general">${message(code:'homeFolder.individual.header.general')}</h3>
           <g:render template="${adult.fragmentMode('general')}" />
