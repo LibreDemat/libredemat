@@ -557,10 +557,13 @@ class BackofficeRequestTypeController {
         def requestType = requestTypeService.getRequestTypeById(id)
         def dir = LibredematUtils.requestTypeLabelAsDir(requestType.label)
         def states = emailNotificationAdaptorService.states('templates/mails/notification/' + dir)
+        def platformStates = [:]
+        for(n in emailNotificationAdaptorService.states('templates/mails/notification'))
+          platformStates[n.code] = n
 
         render(
             view:'configure',
-            model:['states':states].plus(getCommonModel(requestType))
+            model:['states':states, 'platformStates':platformStates].plus(getCommonModel(requestType))
         )
     }
 

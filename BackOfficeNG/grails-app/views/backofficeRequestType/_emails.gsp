@@ -3,10 +3,12 @@
     <div id="emails">
       <form class="state-form">
         <p class="field">
-          <label for="state">${message(code:'requestType.configuration.emails.which.state')}&nbsp;:</label>
+          <label for="state">${message(code:'requestType.configuration.emails.which.state')}&nbsp;:
+            <span>&nbsp;${message(code:'requestType.configuration.emails.platformConfiguration.help')}</span>
+          </label>
           <select id="state">
           <g:each in="${states}">
-            <option id="${it.code}" value="${it.code}"<g:if test="${it.enabled}"> class="mail-enabled"</g:if>>${it.label}<g:if test="${it.enabled}"> (${message(code:'requestType.configuration.emails.enabled')})</g:if></option>
+            <option id="${it.code}" value="${it.code}"<g:if test="${it.enabled}"> class="mail-enabled"</g:if>>${it.label}<g:if test="${it.enabled}"> (${message(code:'requestType.configuration.emails.enabled')})</g:if><g:if test="${platformStates[it.code].enabled}"> * </g:if></option>
           </g:each>
           </select>
         </p>
