@@ -164,7 +164,7 @@ class FrontofficeHomeFolderController {
 
                 def authMethod = SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront()
 
-                if (SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired()) {
+                if (SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired() && !params.boolean("temporary")) {
                     render(view: "registerConfirmation", model: model)
                 }
                 else 
@@ -285,7 +285,7 @@ class FrontofficeHomeFolderController {
         if (flash.invalidFields.isEmpty()) {
             session["registerCallback"] = params.callback;
             userWorkflowService.create(adult, model.temporary && params.boolean('temporary'), params.callback)
-            if (!SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired()) {
+            if (!SecurityContext.getCurrentConfigurationBean().isAccountValidationRequired() || params.boolean("temporary")) {
                 securityService.setEcitizenSessionInformation(adult, session)
             }
         }
