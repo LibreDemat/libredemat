@@ -79,17 +79,25 @@
       yud.addClass(option, 'mail-enabled')
       option.innerHTML = response.texts.option
     }
-    me.sync.button(option)
+    me.sync.button(option, response)
   }
 
-  me.sync.button = function(option) {
+  me.sync.button = function(option, response) {
     var button = yud.get('disable')
+    var response = response || {}
 
-    if (yud.hasClass(option, 'mail-enabled') && option.id != "request.state.pending") {
+    if (yud.hasClass(option, 'mail-enabled') && me.sync.canBeDisbaled(option, response)) {
       button.removeAttribute('disabled')
     } else {
       button.setAttribute('disabled', '')
     }
+  }
+
+  me.sync.canBeDisbaled = function(option, response) {
+    if(typeof response.canBeDisabled == 'undefined')
+      return (option.id != 'request.state.pending' || yud.get('isAdmin').value == "false")
+    else
+      return response.canBeDisabled
   }
 
   Variables.grouped = []

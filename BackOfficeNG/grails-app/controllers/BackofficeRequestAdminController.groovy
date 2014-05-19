@@ -47,6 +47,6 @@ class BackofficeRequestAdminController {
     def emails = {
         def states = emailNotificationAdaptorService.states('templates/mails/notification')
 
-        return [ 'states':states, 'subMenuEntries':subMenuEntries ]
+        return [ 'states':states, 'platformStates':[:], 'subMenuEntries':subMenuEntries ]
     }
 }

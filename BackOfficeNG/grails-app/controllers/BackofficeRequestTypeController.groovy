@@ -563,7 +563,10 @@ class BackofficeRequestTypeController {
 
         render(
             view:'configure',
-            model:['states':states, 'platformStates':platformStates].plus(getCommonModel(requestType))
+            model:[
+              'states':states,
+              'platformStates':platformStates,
+            ].plus(getCommonModel(requestType))
         )
     }
 

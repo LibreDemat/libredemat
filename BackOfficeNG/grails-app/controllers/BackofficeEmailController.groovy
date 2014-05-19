@@ -2,6 +2,7 @@ import org.libredemat.business.request.RequestVariable
 import org.libredemat.service.authority.ILocalAuthorityRegistry
 import org.libredemat.service.request.IRequestTypeService
 import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.security.SecurityContext
 
 import grails.converters.JSON
 
@@ -10,6 +11,7 @@ class BackofficeEmailController {
     IRequestTypeService requestTypeService
     ILocalAuthorityRegistry localAuthorityRegistry
 
+    def emailNotificationAdaptorService
     def beforeInterceptor = [action:this.&check, only:['email', 'saveEmail']]
 
     def check() {
@@ -74,24 +76,34 @@ class BackofficeEmailController {
           texts = [ option:message(code:params.state) + ' (' + message(code:'requestType.configuration.emails.enabled') + ')'
                   , notif:message(code:'requestType.configuration.emails.notify.enabled', args:[message(code:params.state)])
                   ]
+
           render([ id: params.state
                  , enabled: true
+                 , canBeDisabled: !(state == 'PENDING' && session.currentCredentialBean.hasSiteAdminRole())
                  , texts: texts
                  ] as JSON)
-        } else if (state != 'PENDING') {
+
+        } else if (!(state == 'PENDING' && session.currentCredentialBean.hasSiteAdminRole())) {
+
           localAuthorityRegistry.removeLocalAuthorityResource(
               Type.HTML,
               dir() + '/' + state)
 
-          texts = [ option:message(code:params.state)
+          def platformActivated = emailNotificationAdaptorService.states('templates/mails/notification').findAll { it.code == params.state && it.enabled }.size() > 0
+
+          def txtOpt = message(code:params.state)
+          if(platformActivated) txtOpt += ' (' + message(code:'requestType.configuration.emails.platformConfigurationEnabled') + ')'
+
+          texts = [ option: txtOpt
                   , notif:message(code:'requestType.configuration.emails.notify.disabled', args:[message(code:params.state)])
                   ]
           render([ id: params.state
                  , enabled: false
+                 , canBeDisabled: false
                  , texts: texts
                  ] as JSON)
         } else {
-          render([ id: params.state, enabled: true ] as JSON)
+          render([ id: params.state, canBeDisabled: false, enabled: true ] as JSON)
         }
     }
 
