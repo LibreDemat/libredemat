@@ -77,6 +77,10 @@
                   <key><value>sendHomeFolderCreation</value></key>
                   <value>true</value>
                 </entry>
+                <entry>
+                  <key><value>returnError</value></key>
+                  <value>false</value>
+                </entry>
               </map>
             </property>
             <property name="login" value="fakeExternalService"/>

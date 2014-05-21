@@ -75,6 +75,8 @@ public class FakeExternalService extends ExternalProviderServiceAdapter implemen
     private String invoiceDetailsFile;
 
     public final String sendRequest(XmlObject requestXml) throws CvqException {
+        if(mustThrowError()) throw new CvqException("FakeExternalService FakeError");
+
         return UUID.randomUUID().toString();
     }
 
@@ -82,6 +84,8 @@ public class FakeExternalService extends ExternalProviderServiceAdapter implemen
             final String cvqReference, final String bankReference, final Long homeFolderId, 
             String externalHomeFolderId, String externalId, final Date validationDate)
         throws CvqException {
+
+        if(mustThrowError()) throw new CvqException("FakeExternalService FakeError");
 
         logger.debug("creditHomeFolderAccounts() Gonna credit home folder " + homeFolderId);
         logger.debug("creditHomeFolderAccounts() for transaction " + cvqReference + " / "
@@ -420,5 +424,14 @@ public class FakeExternalService extends ExternalProviderServiceAdapter implemen
         result.put("0002", "Camargues");
 
         return result;
+    }
+
+    private boolean mustThrowError() {
+        Object defaultReturnType = SecurityContext.getCurrentConfigurationBean()
+                .getExternalServiceConfigurationBean()
+                .getBeanForExternalService("Fake External Service")
+                .getProperty("returnError");
+
+        return (defaultReturnType != null && defaultReturnType.toString().equalsIgnoreCase("true"));
     }
 }
