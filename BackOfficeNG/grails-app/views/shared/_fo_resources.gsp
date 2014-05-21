@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="${resource(dir:'images', file:'favicon.ico')}">
+<link rel="shortcut icon" type="image/png" href="${resource(dir:'images', file:'favicon.png')}?v=1">
 <link rel="stylesheet" type="text/css" href="${resource(dir:'css/frontoffice', file:'reset.css')}">
 <!-- YUI -->
 <link rel="stylesheet" type="text/css" href="${resource(dir:'css/frontoffice/yui', file:'fonts-and-grids.css')}">
