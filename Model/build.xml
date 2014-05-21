@@ -13,16 +13,12 @@ compile-external-schemas -> init
 dist -> compile-sources
 prepare-configfiles -> init
 admin-package -> prepare-configfiles, schemaexport
-deploy -> compile-external-schemas, dist, compile-tests
+deploy -> compile-external-schemas, dist
 schemaexport -> compile-sources
 load-hibernate-properties-file
 hsql-write-delay-config -> load-hibernate-properties-file
-compile-tests -> compile-sources
-run-tests -> prepare-configfiles, compile-tests
-clean-tests
 
 ## various quality
-## documentation
 -->
 
     <target name="init">
@@ -31,7 +27,6 @@ clean-tests
 
         <mkdir dir="${basedir}/${build.classes.dir}" />
         <mkdir dir="${basedir}/${build.archives.dir}" />
-        <mkdir dir="${basedir}/${build.test.dir}" />
 
         <!-- Paths -->
         <path id="classpath.compile">
@@ -46,57 +41,6 @@ clean-tests
                 <include name="**/soap.jar" />
                 <include name="**/activation.jar" />
                 <include name="**/mail.jar" />
-            </fileset>
-        </path>
-
-        <path id="classpath.compile.test">
-            <path refid="classpath.compile" />
-
-            <fileset dir="${basedir}/${lib.dir}">
-                <include name="**/org.springframework.test-*.jar" />
-                <include name="**/junit-4.7.jar" />
-                <include name="**/jsmtpd-core-*.jar" />
-                <include name="**/jmock-*.jar" />
-                <include name="**/hamcrest-*.jar" />
-                <include name="**/aspectjtools-1.7.3.jar" />
-                <include name="**/soap.jar" />
-            </fileset>
-
-            <pathelement path="${basedir}/${build.classes.dir}" />
-
-            <fileset dir="${basedir}/${lib.dir}/cobertura">
-                <include name="cobertura.jar" />
-                <include name="asm-tree-2.2.1.jar" />
-            </fileset>
-
-            <pathelement path="${basedir}/generated" />
-
-            <pathelement path="${basedir}/${src.resources.dir}" />
-        </path>
-
-        <path id="classpath.run.test">
-            <!-- put log4j.properties in the first place to be sure it overrides -->
-            <!-- any brother hidden in a third party jar -->
-            <pathelement path="${basedir}/test/conf/log4j" />
-            <path refid="classpath.compile.test" />
-            <fileset dir="${basedir}/${lib.dir}">
-                <include name="**/mina-core-*.jar" />
-                <include name="**/slf4j-api-*.jar" />
-                <include name="**/slf4j-log4j12-*.jar" />
-            </fileset>
-            <pathelement path="${basedir}/${build.test.dir}" />
-            <pathelement path="${conf.dir}/spring" />
-            <pathelement path="${basedir}/${src.xml.hibernate.dir}" />
-            <pathelement path="${basedir}/test/conf/spring" />
-            <pathelement path="${basedir}/test/assets/dummy" />
-            <fileset dir="${libraries.dir}/org.libredemat/plugins">
-                <include name="**/*.jar" />
-            </fileset>
-            <!-- need c3p0 configuration file on the classpath -->
-            <fileset dir="${libraries.dir}/org.hibernate" file="c3p0.properties" />
-            <!-- libraries required for load testing -->
-            <fileset dir="${basedir}/${lib.dir}/java.net">
-                <include name="**/*.jar" />
             </fileset>
         </path>
 
@@ -117,8 +61,6 @@ clean-tests
         <delete dir="${conf.dir.spring}" />
         <delete dir="${conf.dir.log4j}" />
         <delete dir="${basedir}/utils/lib" />
-        <antcall target="clean-tests" />
-        <antcall target="clean-documentation" />
     </target>
 
     <target name="process-resources" depends="init">
@@ -132,7 +74,6 @@ clean-tests
     <target name="compile" depends="process-resources">
         <antcall target="compile-external-schemas" />
         <antcall target="compile-sources" />
-        <antcall target="compile-tests" />
     </target>
 
     <target name="compile-sources" depends="compile-external-schemas, process-resources">
@@ -183,8 +124,7 @@ clean-tests
         <copy file="${libraries.springconf.dir}/applicationContext.xml" todir="${conf.dir.spring}" overwrite="true" />
         <copy file="${libraries.springconf.dir}/applicationContext-deployment.xml" todir="${conf.dir.spring}" overwrite="true" />
         <copy file="${libraries.springconf.dir}/applicationContext-admin.xml" todir="${conf.dir.spring}" overwrite="true" />
-        <!-- not present if running unit tests so don't fail on error -->
-        <copy file="${libraries.deployments.dir}/${deploy.properties_file}" todir="${conf.dir.spring}" failonerror="false" />
+        <copy file="${libraries.deployments.dir}/${deploy.properties_file}" todir="${conf.dir.spring}" failonerror="true" />
     </target>
 
     <!-- a special zip file containing setup and referential data -->
@@ -211,7 +151,7 @@ clean-tests
     </target>
 
     <!-- copy Model production to the common lib repository -->
-    <target name="deploy" depends="compile-external-schemas, dist, compile-tests">
+    <target name="deploy" depends="compile-external-schemas, dist">
         <copy todir="${deploy.model.dir}" file="${basedir}/${build.archives.dir}/${application.name}-${module.name}-${application.version}.jar" />
     </target>
 
@@ -230,224 +170,5 @@ clean-tests
         </hibernatetool>
         <echo file="${db.dir}/create_schema_pgsql.sql" append="true" message="CREATE SEQUENCE systempay_trans_id_seq MINVALUE 0 MAXVALUE 899999 INCREMENT 1 CYCLE;" />
     </target>
-
-    <!-- =================================================================== -->
-    <!--                     Tests                                           -->
-    <!-- =================================================================== -->
-
-    <target name="compile-tests" depends="compile-sources">
-        <mkdir dir="${basedir}/${build.test.dir}" />
-        <taskdef classpathref="classpath.compile.test" resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties" />
-        <iajc destdir="${basedir}/${build.test.dir}" srcdir="${basedir}/${test.java.dir}" fork="true" source="1.5" classpathRef="classpath.compile.test" />
-    </target>
-
-    <!--
-    <target name="dist-tests" depends="compile-tests" 
-        description="Build the Model test jar for inclusion by other modules of the application">
-        <jar compress="on" jarfile="${basedir}/lib/${application.name}-${module.name}-Test-${application.version}.jar" 
-        	manifest="${basedir}/${src.java.dir}/META-INF/manifest.mf">
-            <fileset dir="${basedir}/${build.test.dir}">
-                <include name="**/**" />
-            </fileset>
-        </jar>
-    </target>
-    -->
-
-    <target name="run-tests" depends="prepare-configfiles, compile-tests">
-
-        <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy" classpath="../Libraries/groovy/groovy-all-1.6.7.jar" />
-
-        <groovy>
-		  	def dialect
-		  	switch (properties.'database.type') {
-		  		case 'pgsql' : dialect = 'org.hibernate.dialect.PostgreSQLDialect'  ; break
-			}
-		  	def engine = new groovy.text.SimpleTemplateEngine()
-			
-		  	def templateFile = new File('Model/test/assets/dummy/localAuthority-dummy.xml.tpl')
-		  	def resultFile = new File('Model/test/assets/dummy/localAuthority-dummy.xml')
-		  	def template = engine.createTemplate(templateFile)
-		  	def binding = [
-		  	    databaseType: properties.'database.type',
-		  	    dialect : dialect
-		  	]
-		  	resultFile.write(template.make(binding).toString())
-		</groovy>
-        <echo message="Configured CT configuration file for DB : ${database.type}" />
-
-        <junit fork="yes" forkmode="once" printsummary="true" timeout="3000000" haltonfailure="${junit.haltonfailure}" haltonerror="${junit.haltonerror}" filtertrace="${junit.filtertrace}" showoutput="true">
-
-            <classpath refid="classpath.run.test" />
-            <jvmarg line="-Xms256m -Xmx768m -XX:MaxPermSize=512m" />
-            <sysproperty key="net.sourceforge.cobertura.datafile" file="${basedir}/${doc.cobertura.dir}/cobertura.ser" />
-            <sysproperty key="test.resource.dir" value="${test.resource.dir}" />
-            <sysproperty key="test.data.dir" value="${test.data.dir}" />
-            <formatter type="plain" usefile="false" />
-
-            <batchtest>
-                <fileset dir="${basedir}/${build.test.dir}">
-                    <include name="**/*Test.class" />
-                    <!-- requires mail sending infrastructure -->
-                    <exclude name="**/MailServiceTest.class" />
-                    <!-- requires an application which answers on corresponding URLs (for example, business-application-mock) -->
-                    <exclude name="**/RestExternalServiceTest.class" />
-                </fileset>
-                <!-- Plugins unit tests -->
-                <!--
-      	        <fileset dir="${basedir}/../Plugins/ExternalServices/Edemande/build/test">
-      		      <include name="**/*Test.class" />
-      	        </fileset>
-      	        -->
-            </batchtest>
-        </junit>
-    </target>
-
-    <target name="clean-tests">
-        <delete>
-            <fileset dir="${test.assets.dir}">
-                <include name="local_authorities_list.txt" />
-                <include name="dummy/localAuthority-dummy.xml" />
-            </fileset>
-        </delete>
-    </target>
-
-    <!-- =================================================================== -->
-    <!--                 Quality targets                       -->
-    <!-- =================================================================== -->
-
-    <target name="run-grinder" depends="prepare-configfiles, compile-tests, schemaexport">
-        <java classname="net.grinder.Grinder" classpathref="classpath.run.test" fork="true" dir="${basedir}/..">
-            <arg value="Model/test/perf/grinder.properties" />
-        </java>
-    </target>
-
-    <!-- depends on compiletests to be sure to instrument the classes that will be tested -->
-    <target name="run-coverage-report" depends="clean, compile-tests">
-
-        <taskdef classpathref="classpath.compile.test" resource="tasks.properties" />
-
-        <delete dir="${doc.cobertura.dir}" />
-        <mkdir dir="${doc.cobertura.dir}" />
-
-        <cobertura-instrument datafile="${basedir}/${doc.cobertura.dir}/cobertura.ser">
-            <fileset dir="${basedir}/${build.classes.dir}">
-                <include name="**/dao/**/*.class" />
-            </fileset>
-        </cobertura-instrument>
-
-        <antcall target="run-tests" />
-
-        <echo message="Generating Cobertura coverage report" />
-        <cobertura-report format="html" destdir="${basedir}/${doc.cobertura.dir}" srcdir="${basedir}/${src.java.dir}" datafile="${basedir}/${doc.cobertura.dir}/cobertura.ser" />
-
-    </target>
-
-    <!-- =================================================================== -->
-    <!--                 Various documentation targets                       -->
-    <!-- =================================================================== -->
-
-    <target name="documentation">
-        <antcall target="apidoc" />
-        <antcall target="beandoc" />
-        <antcall target="xsddoc" />
-    </target>
-
-    <target name="clean-documentation">
-        <antcall target="clean-apidoc" />
-        <antcall target="clean-beandoc" />
-        <antcall target="clean-xsddoc" />
-    </target>
-
-    <target name="clean-apidoc">
-        <delete dir="${doc.javadoc.dir}" />
-    </target>
-
-    <target name="apidoc" description="Builds the project's code documentation HTML pages" depends="init">
-        <javadoc destdir="${doc.javadoc.dir}" author="true" version="true" private="true" use="true" windowtitle="LibreDémat Model API" classpathref="classpath.compile">
-
-            <!--      additionalparam="${javadoc.proxy.params}"-->
-
-            <!-- The links the generated code doc should use -->
-            <link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
-            <link href="http://www.springframework.org/docs/api/" />
-            <link href="http://xml.apache.org/xerces-j/apiDocs/" />
-
-            <packageset dir="${basedir}/${src.java.dir}" defaultexcludes="yes">
-                <include name="**" />
-            </packageset>
-
-            <doctitle>
-                <![CDATA[<h1>${application.name}-${module.name}</h1>]]></doctitle>
-        <bottom>
-            <![CDATA[<i>Zenexity, 2004-2011.</i>]]></bottom>
-    <tag name="todo" scope="all" description="TODO :" />
-    <tag name="fixme" scope="all" description="FIXME :" />
-</javadoc>
-
-</target>
-
-<target name="clean-beandoc">
-<delete dir="${doc.beandoc.dir}" />
-</target>
-
-<target name="beandoc" depends="prepare-configfiles">
-
-<delete dir="${doc.beandoc.dir}" />
-<mkdir dir="${doc.beandoc.dir}" />
-
-<path id="classpath.beandoc">
-    <!-- needs to include the beandoc runtime dependencies -->
-    <fileset dir="${basedir}/${lib.dir}/org.springframework">
-        <include name="**/*.jar" />
-    </fileset>
-    <fileset dir="${libraries.dir}/org.springframework">
-        <include name="**/*.jar" />
-    </fileset>
-    <fileset dir="${libraries.dir}/org.apache/common">
-        <include name="**/*.jar" />
-    </fileset>
-</path>
-
-<taskdef name="beandoc" classname="org.springframework.beandoc.client.AntTask">
-    <classpath refid="classpath.beandoc" />
-</taskdef>
-
-<beandoc outputDir="${doc.beandoc.dir}" beandocProps="${doc.dir}/beandoc.properties">
-    <fileset dir="${conf.dir.spring}">
-        <include name="applicationContext.xml" />
-        <include name="applicationContext-admin.xml" />
-        <include name="applicationContext-deployment.xml" />
-    </fileset>
-    <fileset dir="${basedir}/test/conf/spring">
-        <include name="applicationContext-test.xml" />
-    </fileset>
-    <fileset dir="${basedir}/test/assets/dummy">
-        <include name="localAuthority-dummy.xml" />
-    </fileset>
-</beandoc>
-</target>
-
-<target name="clean-xsddoc">
-<delete dir="${basedir}/${doc.xsddoc.dir}" />
-</target>
-
-<!-- FIXME : There are Xalan classpath issues with JDK 1.5 / Use JDK 1.4 instead -->
-<target name="xsddoc" description="Builds an HTML representation of XSD files" depends="init">
-
-    <path id="classpath.xsddoc">
-        <path refid="classpath.compile" />
-        <pathelement location="${libraries.dir}/net.sf/xframe/xsddoc.jar" />
-    </path>
-    
-    <taskdef name="xsddoc" classname="net.sf.xframe.xsddoc.Task" classpathref="classpath.xsddoc">
-    </taskdef>
-    
-    <mkdir dir="${basedir}/${doc.xsddoc.dir}" />
-    <xsddoc out="${basedir}/${doc.xsddoc.dir}" doctitle="Documentation schÃ©mas XML" verbose="true">
-        <fileset dir="${src.xml.schemas.external.dir}">
-            <include name="InvoiceDetails.xsd" />
-        </fileset>
-    </xsddoc>
-</target>
 
 </project>

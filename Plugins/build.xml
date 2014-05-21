@@ -61,31 +61,12 @@
 		<groovy>
 			def namespace = "org/libredemat/plugins/${properties.'plugin-type'.toLowerCase()}/${properties.'plugin-name'.toLowerCase()}/service"
 			def srcDir = "${properties.'plugin-base'}/src/java/${namespace}"
-			def testDir = "${properties.'plugin-base'}/test/java/${namespace}"
 			new File(srcDir).mkdirs()
-			new File(testDir).mkdirs()
 		</groovy>
-		<touch file="${plugin-base}/test/java/.keep" />
 		<mkdir dir="${plugin-base}/src/java/META-INF" />
 		<copy file="${basedir}/manifest.mf.tpl" tofile="${plugin-base}/src/java/META-INF/manifest.mf" />
 
 		<echo message="Created directory structure" />
-
-		<!--
-		<taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" 
-			classpathref="classpath.svntask" />
-
-		<path id="classpath.svntask">
-			<fileset dir="../Libraries/org.tigris">
-				<include name="**/*.jar" />
-			</fileset>
-		</path>
-
-		<svn>
-			<add dir="${plugin-base}" recurse="true"/>
-		</svn>
-		<echo message="Added new plugin to subversion" />
-		-->
 
 	</target>
 

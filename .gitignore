@@ -4,3 +4,4 @@ Libraries/conf/deployments/local.properties
 *~
 .DS_Store
 build/
+**/.ant_targets

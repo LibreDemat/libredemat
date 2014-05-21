@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="LibreDemat Global Builder" default="release">
+<project name="LibreDemat Global Builder" default="prepare-webapp-fobo">
 
   <target name="init">
     <!-- global properties file -->
@@ -98,10 +98,6 @@
     <ant dir="${model.dir}" target="compile" />
   </target>
 
-  <target name="compile-model-tests" depends="init">
-    <ant dir="${model.dir}" target="compile-tests" />
-  </target>
-	  
   <!-- ================================================================================= -->
   <!-- ====================== SLQ SCHEMA / HIBERNATE TARGETS =========================== -->
   <!-- ================================================================================= -->
@@ -247,41 +243,6 @@
 
   <target name="build-admin-package" depends="init">
     <ant dir="${model.dir}" target="admin-package" />
-  </target>
-
-  <!-- ================================================================================= -->
-  <!-- ============================= UNIT TESTS TARGETS ================================ -->
-  <!-- ================================================================================= -->
-
-  <target name="run-model-unit-tests" depends="init">
-    <property name="deploy.properties_dir" value="${model.dir}/test/conf/spring"/>
-    <property name="deploy.properties_file" value="model.properties"/>
-    <ant dir="${model.dir}" target="run-tests" />
-  </target>
-
-  <target name="run-model-coverage-report" depends="init">
-    <ant dir="${model.dir}" target="run-coverage-report" />
-  </target>
-
-  <target name="run-model-load-tests" depends="init">
-    <ant dir="${model.dir}" target="run-grinder" />
-  </target>
-
-  <!-- ================================================================================= -->
-  <!-- ============================ DOCUMENTATION TARGETS ============================ -->
-  <!-- ================================================================================= -->
-
-  <target name="documentation" depends="init">
-    <ant dir="${generator.dir}" target="documentation" />
-    <ant dir="${model.dir}" target="documentation" />
-  </target>
-
-  <target name="documentation-model" depends="init">
-    <ant dir="${model.dir}" target="documentation" />
-  </target>
-
-  <target name="documentation-generator" depends="init">
-    <ant dir="${generator.dir}" target="documentation" />
   </target>
 
 </project>

@@ -1,4 +1,4 @@
-<project name="backofficeng" default="test">
+<project name="backofficeng" default="war">
 
     <condition property="grails" value="grails.bat">
         <os family="windows"/>
@@ -32,16 +32,7 @@
                 <move file="target/${app.name}-${app.version}.war"
                     tofile="${release.dir}/${app.name}-${application.version}-${application.revision}.war"/>
     </target>
-	
-	<!-- ================================= 
-          target: test              
-         ================================= -->
-    <target name="test" description="--> Run a Grails applications unit tests">
-		<exec executable="${grails}" failonerror="true">
-			<arg value="test-app"/>
-		</exec>                               
-    </target>
-	
+
 	<!-- ================================= 
           target: deploy              
          ================================= -->
