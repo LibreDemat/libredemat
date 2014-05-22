@@ -19,18 +19,18 @@
                  elementFormDefault="qualified"
                  attributeFormDefault="unqualified">
 
-         <xs:import namespace="http://www.libredemat.org/schema/common"
-                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/common/CVQCommonElements.xsd"/>
-         <xs:import namespace="http://www.libredemat.org/schema/srr"
-                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/SchoolRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.libredemat.org/schema/scrr"
-                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/SchoolCanteenRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.libredemat.org/schema/parr"
-                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/PerischoolActivityRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.libredemat.org/schema/rarr"
-                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/RecreationActivityRegistrationRequest.xsd"/>
-         <xs:import namespace="http://www.libredemat.org/schema/bdr"
-                    schemaLocation="http://people.zenexity.fr/~bor/libredemat/latest/request/BirthDetailsRequest.xsd"/>
+          <xs:import namespace="http://www.libredemat.org/schema/common"
+            schemaLocation="http://static.mairie24.fr/latest/schemas/common/CVQCommonElements.xsd" />
+          <xs:import namespace="http://www.libredemat.org/schema/srr"
+            schemaLocation="http://static.mairie24.fr/latest/schemas/request/SchoolRegistrationRequest.xsd" />
+          <xs:import namespace="http://www.libredemat.org/schema/scrr"
+            schemaLocation="http://static.mairie24.fr/latest/schemas/request/SchoolCanteenRegistrationRequest.xsd" />
+          <xs:import namespace="http://www.libredemat.org/schema/parr"
+            schemaLocation="http://static.mairie24.fr/latest/schemas/request/PerischoolActivityRegistrationRequest.xsd" />
+          <xs:import namespace="http://www.libredemat.org/schema/rarr"
+            schemaLocation="http://static.mairie24.fr/latest/schemas/request/RecreationActivityRegistrationRequest.xsd" />
+          <xs:import namespace="http://www.libredemat.org/schema/bdr"
+            schemaLocation="http://static.mairie24.fr/latest/schemas/request/BirthDetailsRequest.xsd" />
 
          <xs:element name="SendRequestRequest">
             <xs:complexType>
