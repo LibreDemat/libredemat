@@ -164,6 +164,7 @@ public class OAuth2Service implements IOAuth2Service {
 
         if (logger.isDebugEnabled()) {
             logger.debug("Token response status : " + response.getStatus());
+            logger.debug(response.getString());
         }
 
         if (response.getStatus() == 200) {
