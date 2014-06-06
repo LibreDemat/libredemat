@@ -209,13 +209,33 @@ class FrontofficeHomeFolderController {
 
         Adult adult = userService.activateAccount(params.login, params.key)
         if (adult != null) {
-            securityService.setEcitizenSessionInformation(adult, session)
+            def authMethod = SecurityContext.getCurrentConfigurationBean().getAuthenticationMethodFront()
+            def model = [ 'callback' : callback() ]
 
-            if (params.callback) {
-                redirect(url: params.callback+"?validation=success")
-            } else {
-                flash.successMessage = message("code": "homeFolder.action.confirmation.validationSuccess")
-                redirect(action: 'index')
+            if(authMethod.equals("builtin")) {
+                securityService.setEcitizenSessionInformation(adult, session)
+                if(params.callback)
+                {
+                    redirect(url: params.callback+"?validation=success")
+                        return
+                }
+                else
+                {
+                    flash.successMessage = message("code": "homeFolder.action.confirmation.validationSuccess")
+                    redirect(
+                            controller : model.callback.controller,
+                            action : model.callback.action,
+                            params : model.callback.params)
+                        return
+                }
+            } else if (authMethod.equals("oauth2")) {
+                def logincallback = params.callback ?: createLink( controller:model.callback.controller
+                        , action:model.callback.action
+                        , params:model.callback.params).toString()
+                    redirect( controller:'OAuth2'
+                            , action:'askLogin'
+                            , params:['callback':logincallback])
+                    return
             }
         } else {
             render(view: '/system/error', model:["i18nKey":"homeFolder.action.confirmation.error"])
