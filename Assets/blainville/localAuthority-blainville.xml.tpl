@@ -13,7 +13,7 @@
       </map>
     </property>
     <property name="defaultServerName" value="localhost"/>
-    <property name="defaultEmail" value="capdemat-dev@zenexity.com"/>
+    <property name="defaultEmail" value="libredemat-dev@zengularity.com"/>
     <property name="autotransition" value="true"/>
     <property name="authenticationMethod" value="builtin"/> <!-- builtin,cas -->
     <property name="authenticationMethodFront" value="builtin"/> <!-- builtin,oauth2-->
@@ -41,7 +41,7 @@
             <ref bean="fakePaymentProviderService" />
           </key>
           <bean class="org.libredemat.service.payment.PaymentServiceBean">
-            <property name="broker" value="Régie démo de Blainville"></property>
+            <property name="broker" value="Régie démo de LibreDémat"></property>
             <property name="friendlyLabel" value="Services autres que restauration scolaire"></property>
             <property name="requestTypes">
               <list>
@@ -139,7 +139,7 @@
         <entry>
           <key><value>NotCommitPaymentAlert</value></key>
           <map>
-            <entry key="mailSendTo" value="capdemat-dev@zenexity.fr"/>
+            <entry key="mailSendTo" value="libredemat-dev@zengularity.com"/>
             <entry key="mailSubject" value="[LibreDémat] Alerte Paiement"/>
             <entry key="mailData" value="NotCommitedPaymentsAlert"/>
           </map>

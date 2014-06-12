@@ -1,8 +1,7 @@
 Bonjour,
 
-L'identifiant suivant vous a été assigné pour accéder aux téléservices :
-
-	${login}
+L'identifiant suivant vous a été assigné pour accéder à votre espace en ligne : ${login}.
 
 Cordialement,
+
 L'équipe ${city}.

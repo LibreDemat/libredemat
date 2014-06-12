@@ -1,8 +1,7 @@
 Bonjour,
 
-Nous vous informons que votre brouillon de demande de type ${requestType} (No ${requestId}), 
-créé le ${creationDate}, va expirer le ${expirationDate} et sera définitivement supprimé.
+Nous vous informons que votre brouillon de demande de type ${requestType} (n° ${requestId}), créé le ${creationDate}, va expirer le ${expirationDate} et sera définitivement supprimé.
 
---
 Cordialement,
-Équipe Libredemat
+
+L'équipe LibreDémat.

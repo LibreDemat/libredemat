@@ -6,7 +6,8 @@ Nous vous invitons à suivre le lien ci-dessous pour valider votre compte. Vous 
 
 http://localhost:8080/LibreDemat/${lien}
 
-À défaut, votre compte va expirer le ${expirationDate} et sera définitivement supprimé.
+À défaut, votre compte va expirer le ${expirationDate} et sera alors définitivement supprimé.
 
 Cordialement,
-L'équipe Libredemat
+
+L'équipe LibreDémat.

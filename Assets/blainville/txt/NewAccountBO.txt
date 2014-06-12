@@ -1,10 +1,9 @@
 Bonjour,
 
-L'identifiant suivant vous a été assigné pour accéder aux téléservices :
+L'identifiant suivant vous a été assigné pour accéder à votre espace en ligne : ${login}.
 
-	${login}
-
-Vous devez au préalable définir votre mot de passe en vous rendant à l'adresse : http://localhost:8080/LibreDemat/${link}
+Vous devez au préalable définir votre mot de passe en vous rendant à l'adresse : http://localhost:8080/LibreDemat/${link}.
 
 Cordialement,
+
 L'équipe ${city}.
