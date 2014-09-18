@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ho="http://www.capwebct.fr/capdemat/homonymy"
+	xmlns:cvq="http://www.cg95.fr/cvq/schema/common"  
+	targetNamespace="http://www.capwebct.fr/capdemat/homonymy"
+	elementFormDefault="qualified">
+	
+  <!--  Request -->		
+  <xs:element name="HomonymyRequest">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="ExternalIndividual" type="ho:ExternalIndividualType" maxOccurs="unbounded"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+	
+  <!--  Response --> 
+  <xs:element name="HomonymyResponse">
+	<xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="CapdematHomonym" type="ho:CapdematHomonymType" maxOccurs="unbounded"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  
+  <!--  -->
+  <xs:complexType name="ExternalIndividualType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr">
+        Information caractérisant un individu provenant d'une application externe pour lequel il faut chercher des homonymes
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ExternalId" type="xs:string">
+      	<xs:annotation>
+      		<xs:documentation xml:lang="fr">
+      			Numero identifiant l'individu dans l'application externe. Permet de relier chaque individu externe avec ses homonymes Capdemat.
+      		</xs:documentation>
+      	</xs:annotation>
+      </xs:element>
+      <xs:element name="FirstName" type="xs:string"/>
+      <xs:element name="LastName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType> 
+  
+  <xs:complexType name="CapdematHomonymType">
+  	<xs:annotation>
+      <xs:documentation xml:lang="fr">
+        Liste d'individus homonymes pour une personne externe
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+    	<xs:element name="ExternalId" type="xs:string">
+	      	<xs:annotation>
+	      		<xs:documentation xml:lang="fr">
+	      			Numero identifiant la personne externe
+	      		</xs:documentation>
+	      	</xs:annotation>
+      	</xs:element>    	
+		<xs:element name="HomonymIndividual" type="ho:HomonymIndividualType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="HomonymIndividualType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr">
+        
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="HomeFolderId" type="xs:string" minOccurs="1" />
+	  <xs:element name="IndividualId" type="xs:string" minOccurs="1" />
+	  <xs:element name="FirstName" type="xs:string" minOccurs="0" />
+	  <xs:element name="LastName" type="xs:string" minOccurs="0" />
+	  <xs:element name="Email" type="xs:string" minOccurs="0" />
+	  <xs:element name="HomePhone" type="xs:string" minOccurs="0" />
+	  <xs:element name="OfficePhone" type="xs:string" minOccurs="0" />
+	  <xs:element name="MobilePhone" type="xs:string" minOccurs="0" />
+	  <xs:element name="StreetNumber" type="xs:string" minOccurs="0" />
+	  <xs:element name="StreetName" type="xs:string" minOccurs="0" />
+	  <xs:element name="PostalCode" type="xs:string" minOccurs="0" />
+	  <xs:element name="City" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

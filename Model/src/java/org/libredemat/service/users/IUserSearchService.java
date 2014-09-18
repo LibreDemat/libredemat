@@ -74,4 +74,6 @@ public interface IUserSearchService extends IAutofillTriggerService {
     List<Individual> getExternalIndividuals(@IsUser Long homeFolderId);
 
     Boolean hasExternalLibredematId(@IsUser Long uId);
+
+    List<Individual> getIndividualsByFirstnameAndLastname(String firstname, String lastname);
 }

@@ -12,6 +12,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.type.Type;
+import org.hibernate.criterion.Restrictions;
 import org.libredemat.business.QoS;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.RoleType;
@@ -311,5 +312,19 @@ public class IndividualDAO extends JpaTemplate<Individual,Long> implements IIndi
             .setString("invalid", UserState.INVALID.name())
             .setTimestamp("limitDate", date)
             .list();
+    }
+
+    // Inexine Hack Frederic Fabre
+    @Override
+    public List<Individual> listIndividualsByFirstnameAndLastname(String firstname, String lastname)
+    {
+        logger.debug("listIndividualsByFirstnameAndLastName() :");
+        logger.debug("firstname : " + firstname);
+        logger.debug("lastname : " + lastname);
+        Criteria criteria = HibernateUtil.getSession().createCriteria(Individual.class);
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return criteria.add(
+                Restrictions.and(Restrictions.eq("firstName", firstname).ignoreCase(),
+                        Restrictions.eq("lastName", lastname).ignoreCase())).list();
     }
 }

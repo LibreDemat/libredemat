@@ -43,8 +43,13 @@
     <property name="requestDocumentService" ref="requestDocumentService" />
   </bean>
 
+  <bean id="homonymyEndpoint" class="org.libredemat.external.endpoint.HomonymyEndpoint">
+      <constructor-arg ref="xmlBeanMarshaller" />
+      <property name="userSearchService" ref="userSearchService" />
+  </bean>
+
   <bean id="homeFolderSynchronisationEndpoint"
-      class="fr.cg95.cvq.external.endpoint.HomeFolderSynchronisationEndpoint">
+      class="org.libredemat.external.endpoint.HomeFolderSynchronisationEndpoint">
     <constructor-arg ref="xmlBeanMarshaller" />
     <property name="userSearchService" ref="userSearchService" />
     <property name="userWorkflowService" ref="userWorkflowService" />
@@ -61,6 +66,7 @@
             <prop key="{http://www.libredemat.org}GetDocumentListRequest">documentListServiceEndpoint</prop>
             <prop key="{http://www.libredemat.org}GetDocumentRequest">documentServiceEndpoint</prop>
             <prop key="{http://www.libredemat.org}HomeFolderSynchronisationRequest">homeFolderSynchronisationEndpoint</prop>
+            <prop key="{http://www.libredemat.org}HomonymyRequest">homonymyEndpoint</prop>
         </props>
     </property>
     <property name="interceptors">
@@ -119,6 +125,17 @@
     </property>
     <property name="portTypeName" value="SendRequestService" />
     <property name="locationUri" value="/service/soap/" />
+  </bean>
+
+  <bean id="homonymy"
+          class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+      <property name="schema">
+          <bean class="org.springframework.xml.xsd.SimpleXsdSchema">
+              <property name="xsd" value="classpath:Homonymy.xsd" />
+          </bean>
+      </property>
+      <property name="portTypeName" value="PortType" />
+      <property name="locationUri" value="/service/soap/" />
   </bean>
 
   <bean id="homeFolderSynchronisation"

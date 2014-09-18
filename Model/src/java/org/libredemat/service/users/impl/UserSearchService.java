@@ -26,7 +26,7 @@ import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.external.IExternalHomeFolderService;
 import org.libredemat.util.Critere;
 
-
+import org.apache.commons.lang.StringUtils;
 
 public class UserSearchService implements IUserSearchService {
 
@@ -236,5 +236,16 @@ public class UserSearchService implements IUserSearchService {
 
     public void setChildDAO(IChildDAO childDAO) {
         this.childDAO = childDAO;
+    }
+
+    @Override
+    public List<Individual> getIndividualsByFirstnameAndLastname(String firstname, String lastname)
+    {
+        List<Individual> individuals = new ArrayList<Individual>();
+        if (StringUtils.isNotBlank(lastname) && StringUtils.isNotBlank(firstname))
+        {
+            individuals = this.individualDAO.listIndividualsByFirstnameAndLastname(firstname, lastname);
+        }
+        return individuals;
     }
 }

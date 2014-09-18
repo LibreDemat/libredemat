@@ -93,4 +93,7 @@ public interface IIndividualDAO extends IJpaTemplate<Individual,Long>{
      * {@link UserState Invalid} whose the last modification date is past the maximum delay.
      */
     List<Individual> searchTasks(Date date);
+
+
+    List<Individual> listIndividualsByFirstnameAndLastname(String firstname, String lastname);
 }
