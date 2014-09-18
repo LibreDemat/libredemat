@@ -440,6 +440,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   
   <bean id="externalHomeFolderService" class="org.libredemat.service.users.external.impl.ExternalHomeFolderService">
     <property name="genericDAO" ref="genericDAO" />
+    <property name="homeFolderDAO" ref="homeFolderDAO" />
+    <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO" />
   </bean>
 
   <bean id="homeFolderDocumentService" class="org.libredemat.service.users.impl.HomeFolderDocumentService">
@@ -899,6 +901,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="requestExternalActionDAO" class="org.libredemat.dao.request.external.hibernate.RequestExternalActionDAO"  />
   
   <bean id="ticketBookingDAO" class="org.libredemat.dao.request.hibernate.TicketBookingDAO" />
+
+  <bean id="homeFolderMappingDAO" class="org.libredemat.dao.users.hibernate.HomeFolderMappingDAO" />
   
   <bean id="localReferentialDAO" class="org.libredemat.dao.request.xml.LocalReferentialDAO">
       <property name="requestServiceRegistry" ref="requestServiceRegistry" />

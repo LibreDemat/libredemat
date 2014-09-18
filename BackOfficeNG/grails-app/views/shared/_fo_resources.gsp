@@ -8,6 +8,8 @@
 <link rel="stylesheet" type="text/css" href="${resource(dir:'css/frontoffice/common', file:'layout.css')}">
 <link rel="stylesheet" type="text/css" href="${resource(dir:'css/frontoffice/common', file:'box.css')}">
 <link rel="stylesheet" type="text/css" href="${createLink(controller:'localAuthorityResource', action: 'resource', id:'cssFo')}">
+<!-- Calendar CSS -->
+<link rel="stylesheet" type="text/css" href="${resource(dir:'css/backoffice/yui/calendar',file:'calendar.css')}" />
 
 <!-- YUI -->
 <script src="${resource(dir:'js/yui/yahoo-dom-event', file: 'yahoo-dom-event.js')}"></script>
@@ -18,6 +20,7 @@
 <script src="${resource(dir:'js/yui/selector', file:'selector-min.js')}"></script>
 <script src="${resource(dir:'js/yui/json', file:'json-min.js')}"></script>
 <script src="${resource(dir:'js/yui/tabview', file:'tabview-min.js')}"></script>
+<script type="text/javascript" src="${resource(dir:'js/yui/calendar',file:'calendar-min.js')}"></script>
 
 <script type="text/javascript" src="${resource(dir:'js/common', file:'tools.js')}"></script>
 <script type="text/javascript">

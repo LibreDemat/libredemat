@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
+	xmlns:hfs="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" 
+  	attributeFormDefault="unqualified">
+  
+	<!-- Request -->
+	<xs:element name="HomeFolderSynchronisationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HomeFolder" type="hfs:HomeFolderType"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Response -->
+	<xs:element name="HomeFolderSynchronisationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseCode" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="ResponseDetail" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="login" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="HomeFolderMapping" type="hfs:HomeFolderMappingType" minOccurs="0" maxOccurs="1" nillable="false" />
+				<xs:element name="IndividualMapping" type="hfs:IndividualMappingType" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- <HomeFolder> -->
+	<xs:complexType name="HomeFolderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr">
+				Compte à synchroniser
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="HomeFolderCapdematId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr">
+						identifiant du compte dans Capdemat, s'il est connu par l'application externe
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HomeFolderExternalId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr">
+						Identifiant du compte dans l'application externe
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Individual" type="hfs:SubjectType"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- <Individual> -->
+	<xs:complexType name="SubjectType">
+	    <xs:choice>
+	      <xs:element name="Adult" type="hfs:AdultType" />
+	      <xs:element name="Child" type="hfs:ChildType" />
+	    </xs:choice>
+	</xs:complexType>
+	
+	<!-- Individual -->
+	<xs:complexType name="IndividualType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr">
+				Individu
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IndividualCapdematId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr">
+						Numero identifiant l'individu dans Capdemat
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndividualExternalId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr">
+						Numero identifiant l'individu dans l'application externe
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FirstName" type="hfs:FirstNameType" />
+		    <xs:element name="FirstName2" type="hfs:FirstNameType" minOccurs="0" />
+		    <xs:element name="FirstName3" type="hfs:FirstNameType" minOccurs="0" />			
+			<xs:element name="LastName" type="hfs:LastNameType" />
+			<xs:element name="BirthDate" type="xs:date" minOccurs="0" />
+			<xs:element name="BirthPlace" type="hfs:BirthPlaceType" minOccurs="0" />
+			<xs:element name="CreationDate" type="xs:date" minOccurs="0" />
+			<xs:element name="Role" type="hfs:IndividualRoleType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- <Adult> -->
+	<xs:complexType name="AdultType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr">
+				Individu adulte
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="hfs:IndividualType">
+				<xs:sequence>
+					<xs:element name="Address" type="hfs:AddressType"
+						maxOccurs="1" />
+					<xs:element name="Title" type="hfs:TitleType" />
+					<xs:element name="MaidenName" type="hfs:LastNameType"
+						minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/longdesc">
+								Nom de jeune fille
+							</xs:documentation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/shortdesc">
+								Nom de jeune fille
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FamilyStatus" type="hfs:FamilyStatusType"
+						default="OTHER" />
+					<xs:element name="HomePhone" type="hfs:PhoneType">
+						<xs:annotation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/longdesc">
+								Téléphone du domicile de l'adulte
+							</xs:documentation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/shortdesc">
+								Téléphone domicile
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OfficePhone" type="hfs:PhoneType"
+						minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/longdesc">
+								Téléphone professionnel de l'adulte
+							</xs:documentation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/shortdesc">
+								Téléphone professionnel
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MobilePhone" type="hfs:MobilePhoneType"
+						minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/longdesc">
+								Téléphone portable de l'adulte
+							</xs:documentation>
+							<xs:documentation xml:lang="fr"
+								source="http://www.cg95.fr/cvq/schema/shortdesc">
+								Téléphone portable
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Email" type="hfs:EmailType" />
+					<xs:element name="Cfbn" type="xs:string"
+						minOccurs="0" />
+					<xs:element name="Profession" type="xs:string"
+						minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- <Child> -->
+	<xs:complexType name="ChildType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr">
+				Individu enfant
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="hfs:IndividualType">
+				<xs:sequence>
+					<xs:element name="Born" type="xs:boolean" />
+					<xs:element name="Sex" type="hfs:SexType" minOccurs="0" />
+					<xs:element name="ChildInformationSheet" type="hfs:ChildInformationSheetType" minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+		
+	<!-- <Address> -->
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element name="AdditionalDeliveryInformation" type="hfs:AddressBloc38Type" minOccurs="0" />
+			<xs:element name="AdditionalGeographicalInformation" type="hfs:AddressBloc38Type" minOccurs="0" />
+			<xs:element name="StreetNumber" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="5" />
+						<xs:pattern value="[0-9A-Z]{1,5}" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StreetName" type="hfs:AddressBloc32UpperType" />
+			<xs:element name="PostalCode" type="hfs:PostalCodeType" />
+			<xs:element name="City" type="hfs:AddressBloc32UpperType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Fiche de renseignement et de santé de l'enfant -->
+	<xs:complexType name="ChildInformationSheetType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Fiche de renseignement et de sécurité enfant
+			</xs:documentation>
+			<xs:documentation xml:lang="en"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Child information sheet
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Fiche de renseignement et de sécurité enfant
+			</xs:documentation>
+			<xs:documentation xml:lang="en"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Child information sheet
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- -->
+			<xs:element name="Id" type="xs:long" />
+			<xs:element name="TelephonePortable" type="hfs:MobilePhoneType"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Téléphone portable de l'enfant
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Téléphone portable de l'enfant
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmailEnfant" type="hfs:EmailType"
+				minOccurs="0" />
+			<xs:element name="NomOrganismeAssurance" type="xs:string" />
+			<xs:element name="NumeroOrganismeAssurance" type="xs:string" />
+			<xs:element name="NomMedecinTraitant" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="TelephoneMedecinTraitant" type="hfs:PhoneType"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Téléphone du médecin traitant
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Téléphone du médecin traitant
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Allergie" type="xs:string" minOccurs="0" />
+			<xs:element name="Diets" type="hfs:DietType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="VaccinBcg" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VaccinDtPolio" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VaccinInjectionSerum" type="xs:date"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VaccinRor" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VaccinTetracoqPentacoq" type="xs:date"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RecommandationParent" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="DifficulteSante" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="ProjetAccueilIndividualise" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="AuthorisationDroitImage" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="AuthorisationRentrerSeul" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="AutorisationHospitalisation" type="xs:boolean"
+				minOccurs="0" />	
+			<xs:element name="AutorisationMaquillage" type="xs:boolean"
+				minOccurs="0" />	
+			<xs:element name="AutorisationTransporterTransportCommun" type="xs:boolean"
+				minOccurs="0" />	
+			<xs:element name="AutorisationTransporterVehiculeMunicipal" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="VaccinAutre" type="xs:string"
+				minOccurs="0" />						
+		</xs:sequence>
+	</xs:complexType>
+	  
+  <xs:complexType name="DietType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+        Régime alimentaire
+      </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="Type" type="hfs:DietEnumType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="DietEnumType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+        Régimes alimentaires
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+        Régimes alimentaires
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+        <enum key="SANS_PORC" value="Sans porc" />
+        <enum key="SANS_POISS" value="Sans poisson" />
+        <enum key="PAI" value="PAI" />
+        <enum key="ALLERGIE" value="Sans allergène" />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SANS_PORC" />
+      <xs:enumeration value="SANS_POISS" />
+      <xs:enumeration value="PAI" />
+      <xs:enumeration value="ALLERGIE" />
+    </xs:restriction>
+  </xs:simpleType>
+    	  
+	<!-- **************************************************************************************** -->
+	<xs:simpleType name="AddressBloc38Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr">
+				Zone d'informations
+				(Adresse postale) de 38 caratères
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="38" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AddressBloc32UpperType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Zone d'informations (Adresse postale) de 32 caratères
+			</xs:documentation>
+			<xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Address information bloc (32 characters)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Zone d'informations (Adresse postale) de 32 caratères
+			</xs:documentation>
+			<xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Address information bloc (32 char)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[ A-Z0-9]{1,32}"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Postal code -->
+	<xs:simpleType name="PostalCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Code postal selon norme de la poste
+			</xs:documentation>
+			<xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Postal code as defined by mail office
+			</xs:documentation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Code postal
+			</xs:documentation>
+			<xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Postal code
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5" />
+			<xs:pattern value="[0-9]{5}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Title -->
+	<xs:simpleType name="TitleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Civilité de l'individu
+			</xs:documentation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Civilité
+			</xs:documentation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+				<enum key="Mister" value="Monsieur" />
+				<enum key="Madam" value="Madame" />
+				<enum key="Miss" value="Mademoiselle" />
+				<enum key="Agency" value="Organisme" />
+				<enum key="Unknown" value="Inconnue" />
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Mister" />
+			<xs:enumeration value="Madam" />
+			<xs:enumeration value="Miss" />
+			<xs:enumeration value="Agency" />
+			<xs:enumeration value="Unknown" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- LastName -->
+	<xs:simpleType name="LastNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Type des éléments de nom Etat Civil (ORIGINE ADAE)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Nom
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="38" />
+			<xs:pattern value="[\p{Lu} .\-']*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Firstname -->
+	<xs:simpleType name="FirstNameType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Prénom d'un individu (ORIGINE ADAE)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Prénom
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="38" />
+			<xs:pattern value="[A-Z]?.*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- FamilyStatus -->
+	<xs:simpleType name="FamilyStatusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Situation familiale de l'individu
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Situation familiale
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/translation/enum">
+				<enum key="MARRIED" value="Marié(e)" />
+				<enum key="SINGLE" value="Célibataire" />
+				<enum key="DIVORCED" value="Divorcé(e)" />
+				<enum key="WIDOW" value="Veuf(ve)" />
+				<enum key="COMMON_LAW_MARRIAGE" value="Concubinage" />
+				<enum key="SEPARATED" value="Séparé(e)" />
+				<enum key="PACS" value="PACS" />
+				<enum key="OTHER" value="Autre" />
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MARRIED" />
+			<xs:enumeration value="SINGLE" />
+			<xs:enumeration value="DIVORCED" />
+			<xs:enumeration value="WIDOW" />
+			<xs:enumeration value="COMMON_LAW_MARRIAGE" />
+			<xs:enumeration value="SEPARATED" />
+			<xs:enumeration value="PACS" />
+			<xs:enumeration value="OTHER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Phone -->
+	<xs:simpleType name="PhoneType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Numéro de Téléphone (Syntaxe: 10 chiffres)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Téléphone
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+			<xs:pattern value="0[1-9]{1}\d{8}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Mobile phone -->
+	<xs:simpleType name="MobilePhoneType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Numéro de Téléphone mobile (Syntaxe: 10 chiffres)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Téléphone mobile
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+			<xs:pattern value="0[67]{1}\d{8}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Email -->
+	<xs:simpleType name="EmailType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Courriel (Syntaxe: au moins un caractère avant le @ obligatoire, - ou .
+				après le @, nom de
+				domaine d'au moins un caractère et extension de deux caractères, attention
+				un changement de
+				casse vers des majuscules est nécessaire)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Courriel
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern
+				value="[a-zA-Z0-9._%\-]+@[a-zA-Z0-9._%\-]+\.[a-zA-Z0-9._%\-]{2,4}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Sex -->
+	<xs:simpleType name="SexType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Sexe de l'individu
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Sexe
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/translation/enum">
+				<enum key="Male" value="Masculin" />
+				<enum key="Female" value="Féminin" />
+				<enum key="Unknown" value="Inconnu" />
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Male" />
+			<xs:enumeration value="Female" />
+			<xs:enumeration value="Unknown" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- IndividualRole -->
+	<xs:complexType name="IndividualRoleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Rôle d'un individu
+			</xs:documentation>
+			<xs:documentation xml:lang="en"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Individual role
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Rôle d'un individu
+			</xs:documentation>
+			<xs:documentation xml:lang="en"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Individual role
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IndividualExternalId" type="xs:long" minOccurs="0" />
+			<xs:element name="IndividualName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Full name of the target individual (last name and first name,
+						separated by a space)
+					</xs:documentation>
+					<xs:documentation xml:lang="en"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Le nom complet de l'individu cible (nom et prénom, séparés par un
+						espace)
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="77" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HomeFolderExternalId" type="xs:long" minOccurs="0" />
+			<xs:element name="RoleName" type="hfs:RoleType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Role -->
+	<xs:simpleType name="RoleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Rôle
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Rôle
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/translation/enum">
+				<enum key="HOME_FOLDER_RESPONSIBLE" value="Responsable de compte" />
+				<enum key="CLR_MOTHER" value="Responsable légal / Mère" />
+				<enum key="CLR_FATHER" value="Responsable légal / Père" />
+				<enum key="CLR_TUTOR" value="Responsable légal / Tuteur" />
+				<enum key="TUTOR" value="Tuteur" />
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HOME_FOLDER_RESPONSIBLE" />
+			<xs:enumeration value="CLR_MOTHER" />
+			<xs:enumeration value="CLR_FATHER" />
+			<xs:enumeration value="CLR_TUTOR" />
+			<xs:enumeration value="TUTOR" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- BirthPlace -->
+	<xs:complexType name="BirthPlaceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Lieu de naissance d'un individu: Département, Commune et Code Postal
+				(ORIGINE ADAE)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="City" type="hfs:CityType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Ville de naissance d'un individu
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Ville
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PostalCode" type="hfs:PostalCodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/longdesc">
+						Code postal de la ville de naissance d'un individu
+					</xs:documentation>
+					<xs:documentation xml:lang="fr"
+						source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Code postal
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- City -->
+	<xs:simpleType name="CityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Ville (selon la norme de la poste)
+			</xs:documentation>
+			<xs:documentation xml:lang="en"
+				source="http://www.cg95.fr/cvq/schema/longdesc">
+				Locality name (as defined by mail office)
+			</xs:documentation>
+			<xs:documentation xml:lang="fr"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Ville
+			</xs:documentation>
+			<xs:documentation xml:lang="en"
+				source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Locality name
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- -->
+	<xs:complexType name="IndividualMappingType">
+		<xs:sequence>
+			<xs:element name="CapDematId" type="xs:long" minOccurs="1" maxOccurs="1" />
+			<xs:element name="ExternalId" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- -->
+	<xs:complexType name="HomeFolderMappingType">
+		<xs:sequence>
+			<xs:element name="CapDematId" type="xs:long" minOccurs="1" maxOccurs="1" />
+			<xs:element name="ExternalId" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false" />
+		</xs:sequence>
+	</xs:complexType>
+                   
+</xs:schema>

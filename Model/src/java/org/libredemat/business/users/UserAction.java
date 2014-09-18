@@ -35,7 +35,8 @@ public class UserAction {
         INTERNAL_NOTE("InternalNote"),
         WAITING_NOTIFICATION("WaitingNotification"),
         NOTIFICATION_ERROR("NotificationError"),
-        NOTIFIED("Notified");
+        NOTIFIED("Notified"),
+        SERVICE_EXTERNE("ServiceExterne");
 
         private String name;
         private Type(String type) { this.name = type; }
@@ -96,6 +97,25 @@ public class UserAction {
         payload.add("target", user);
         data = new Gson().toJson(payload);
     }
+
+    public UserAction(Type type, Long targetId, Long userId)
+    {
+        date = new Date();
+        this.type = type;
+        this.userId = userId;
+        JsonObject payload = new JsonObject();
+        JsonObject user = new JsonObject();
+        user.addProperty("id", userId);
+        user.addProperty("name", UserUtils.getDisplayName(userId));
+        payload.add("user", user);
+        this.targetId = targetId;
+        user = new JsonObject();
+        user.addProperty("id", targetId);
+        user.addProperty("name", UserUtils.getDisplayName(targetId));
+        payload.add("target", user);
+        data = new Gson().toJson(payload);
+    }
+
 
     public Long getId() {
         return id;

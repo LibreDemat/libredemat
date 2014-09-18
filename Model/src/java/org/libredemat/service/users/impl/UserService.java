@@ -15,6 +15,7 @@ import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.IndividualRole;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.UserState;
+import org.libredemat.business.users.ChildInformationSheet;
 import org.libredemat.dao.jpa.IGenericDAO;
 import org.libredemat.dao.users.IAdultDAO;
 import org.libredemat.security.SecurityContext;
@@ -85,6 +86,40 @@ public class UserService implements IUserService {
             ValidationUtils.collectInvalidFields(violation, invalidFields, "", "");
         }
         return invalidFields.get("") != null ? invalidFields.get("") : Collections.<String>emptyList();
+    }
+
+    @Override
+    public List<String> validate(ChildInformationSheet childInformationSheet, boolean informationSheetRequired)
+        throws ClassNotFoundException, IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException {
+        
+    Map<String, List<String>> invalidFields = new LinkedHashMap<String, List<String>>();
+    
+    Validator validatorPattern = new Validator();
+        validatorPattern.disableAllProfiles();
+        // Pattern à vérifier dans tous les cas
+        validatorPattern.enableProfile("pattern"); 
+        for (ConstraintViolation violation : validatorPattern.validate(childInformationSheet)) {
+            ValidationUtils.collectInvalidFields(violation, invalidFields, "", "");
+        }
+        
+        if (informationSheetRequired) {
+            // Pattern à vérifier seulement si la fiche de renseignement est obligatoire
+            Validator validatorInformationSheetRequired = new Validator();
+            validatorInformationSheetRequired.disableAllProfiles();
+            validatorInformationSheetRequired.enableProfile("informationSheetRequired");
+            for (ConstraintViolation violation : validatorInformationSheetRequired.validate(childInformationSheet)) {
+                ValidationUtils.collectInvalidFields(violation, invalidFields, "", "");
+            }
+        }
+        
+        List<String> result = new ArrayList<String>();
+        for (String profile : new String[] {"", "informationSheetRequired", "pattern"}) {
+            if (invalidFields.get(profile) != null) {
+                result.addAll(invalidFields.get(profile));
+            }
+        }
+        return result;
     }
 
     public void setUserSearchService(IUserSearchService userSearchService) {

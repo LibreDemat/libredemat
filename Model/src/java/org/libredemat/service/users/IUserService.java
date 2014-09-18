@@ -7,6 +7,7 @@ import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.GlobalHomeFolderConfiguration;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.RoleType;
+import org.libredemat.business.users.ChildInformationSheet;
 import org.libredemat.security.annotation.IsUser;
 
 
@@ -81,4 +82,19 @@ public interface IUserService {
      * @return
      */
     public GlobalHomeFolderConfiguration getGlobalHomeFolderConfiguration();
+
+
+
+    /**
+     *
+     * @param childInformationSheet
+     * @return
+     * @throws ClassNotFoundException
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     * @throws NoSuchMethodException 
+     *
+     */
+    List<String> validate(ChildInformationSheet childInformationSheet, boolean informationSheetRequired) throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, NoSuchMethodException;
+
 }

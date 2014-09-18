@@ -1740,6 +1740,50 @@
     </xs:restriction>
   </xs:simpleType>
   
+    <xs:simpleType name="DietEnumType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                Régimes alimentaires
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                Régimes alimentaires
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
+                <enum key="SANS_PORC" value="" />
+                <enum key="SANS_VIANDE" value="" />
+                <enum key="PRATIQUE_AUTRE" value="" />
+                <enum key="SANS_SUCRE" value="" />
+                <enum key="SANS_OEUFS" value="" />
+                <enum key="SANS_LAIT" value="" />
+                <enum key="SANS_ARACHIDE" value="" />
+                <enum key="SANS_GLUTEN" value="" />
+                <enum key="SANS_COQUE" value="" />
+                <enum key="SANS_POISSON" value="" />
+                <enum key="ALLERGIE_AUTRE" value="" />
+                <enum key="SANS_POISS" value="" />
+                <enum key="PAI" value="" />
+                <enum key="ALLERGIE" value="" />
+                <enum key="ALLERGIE_LEGUMINEUX" value="" />
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SANS_PORC" />         
+            <xs:enumeration value="SANS_VIANDE" />       
+            <xs:enumeration value="PRATIQUE_AUTRE" />    
+            <xs:enumeration value="SANS_SUCRE" />        
+            <xs:enumeration value="SANS_OEUFS" />        
+            <xs:enumeration value="SANS_LAIT" />         
+            <xs:enumeration value="SANS_ARACHIDE" />     
+            <xs:enumeration value="SANS_GLUTEN" />       
+            <xs:enumeration value="SANS_COQUE" />        
+            <xs:enumeration value="SANS_POISSON" />      
+            <xs:enumeration value="ALLERGIE_AUTRE" />    
+            <xs:enumeration value="SANS_POISS" />        
+            <xs:enumeration value="PAI" />               
+            <xs:enumeration value="ALLERGIE" />          
+            <xs:enumeration value="ALLERGIE_LEGUMINEUX" />
+        </xs:restriction>
+    </xs:simpleType>
   <xs:simpleType name="MeansOfContactEnumType">
     <xs:annotation>
       <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
@@ -1805,6 +1849,16 @@
       </xs:sequence>
   </xs:complexType>
 
+    <xs:complexType name="DietType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                Régimes alimentaires
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Type" type="cvq:DietEnumType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
   <xs:complexType name="IndividualType" abstract="true">
     <xs:annotation>
       <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
@@ -1921,10 +1975,154 @@
         <xs:sequence>
           <xs:element name="Born" type="xs:boolean" />
           <xs:element name="Sex" type="cvq:SexType" minOccurs="0" />
+          <xs:element name="ChildInformationSheet" type="cvq:ChildInformationSheetType" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+
+  <!-- Fiche de renseignement et de santé de l'enfant -->
+  <xs:complexType name="ChildInformationSheetType">
+      <xs:annotation>
+          <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/longdesc">
+              Fiche de renseignement et de sécurité enfant
+          </xs:documentation>
+          <xs:documentation xml:lang="en"
+                  source="http://www.libredemat.org/schema/longdesc">
+              Child information sheet
+          </xs:documentation>
+          <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+              Fiche de renseignement et de sécurité enfant
+          </xs:documentation>
+          <xs:documentation xml:lang="en"
+                  source="http://www.libredemat.org/schema/shortdesc">
+              Child information sheet
+          </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+          <!-- -->
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="TelephonePortable" type="cvq:MobilePhoneType"
+                  minOccurs="0">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Téléphone portable de l'enfant
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Téléphone portable de l'enfant
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="EmailEnfant" type="cvq:EmailType"
+                  minOccurs="0" />
+          <xs:element name="NomOrganismeAssurance" type="xs:string" />
+          <xs:element name="NumeroOrganismeAssurance" type="xs:string" />
+          <xs:element name="NomMedecinTraitant" type="xs:string"
+                  minOccurs="0" />
+          <xs:element name="TelephoneMedecinTraitant" type="cvq:PhoneType"
+                  minOccurs="0">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Téléphone du médecin traitant
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Téléphone du médecin traitant
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="Allergie" type="xs:string" minOccurs="0" />
+          <xs:element name="Diets" type="cvq:DietType" minOccurs="0" maxOccurs="1" />
+          <xs:element name="VaccinBcg" type="xs:date" minOccurs="0">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Date du vaccin
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Date du vaccin
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="VaccinDtPolio" type="xs:date">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Date du vaccin
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Date du vaccin
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="VaccinInjectionSerum" type="xs:date"
+                  minOccurs="0">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Date du vaccin
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Date du vaccin
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="VaccinRor" type="xs:date" minOccurs="0">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Date du vaccin
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Date du vaccin
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="VaccinTetracoqPentacoq" type="xs:date"
+                  minOccurs="0">
+              <xs:annotation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/longdesc">
+                      Date du vaccin
+                  </xs:documentation>
+                  <xs:documentation xml:lang="fr"
+                          source="http://www.libredemat.org/schema/shortdesc">
+                      Date du vaccin
+                  </xs:documentation>
+              </xs:annotation>
+          </xs:element>
+          <xs:element name="VaccinAutre" type="xs:string" minOccurs="0" />
+          <xs:element name="RecommandationParent" type="xs:string"
+                  minOccurs="0" />
+          <xs:element name="DifficulteSante" type="xs:string"
+                  minOccurs="0" />
+          <xs:element name="ProjetAccueilIndividualise" type="xs:boolean"
+                  minOccurs="0" />
+          <xs:element name="AutorisationDroitImage" type="xs:boolean"
+                  minOccurs="0" />
+          <xs:element name="AutorisationMaquillage" type="xs:boolean"
+                  minOccurs="0" />
+          <xs:element name="AutorisationRentrerSeul" type="xs:boolean"
+                  minOccurs="0" />                
+          <xs:element name="AutorisationTransporterVehiculeMunicipal"
+                  type="xs:boolean" minOccurs="0" />
+          <xs:element name="AutorisationTransporterTransportCommun"
+                  type="xs:boolean" minOccurs="0" />
+          <xs:element name="AutorisationHospitalisation" type="xs:boolean"
+                  minOccurs="0" />
+      </xs:sequence>
+  </xs:complexType>
+
+
 
   <xs:complexType name="IndividualRoleType">
     <xs:annotation>

@@ -65,6 +65,12 @@ public class LocalAuthorityResource {
     public static final LocalAuthorityResource LEGAL = new LocalAuthorityResource("legal", "legal", Type.HTML, true);
     public static final LocalAuthorityResource USE = new LocalAuthorityResource("use", "use", Type.PDF, false);
     public static final LocalAuthorityResource INFORMATION_MESSAGE_FO = new LocalAuthorityResource("informationFo", "informationFo", Type.HTML, false);
+    //
+    // hack inexine Faure Sébastien to reservation information box
+    public static final LocalAuthorityResource INFORMATION_MESSAGE_RESERVATION_FO = new LocalAuthorityResource("informationReservationFo", "informationReservationFo", Type.HTML, false);
+    public static final LocalAuthorityResource INFORMATION_MESSAGE_YCRR_FO = new LocalAuthorityResource("informationYcrrFo", "informationYcrrFo", Type.HTML, false);
+    public static final LocalAuthorityResource INFORMATION_MESSAGE_INFORMATION_SHEET_FO = new LocalAuthorityResource("informationSheetFo", "informationSheetFo", Type.HTML, true);
+
     public static final LocalAuthorityResource INFORMATION_MESSAGE_FO_UNAUTHENTICATED = new LocalAuthorityResource("informationFoUnauthenticated", "informationFoUnauthenticated", Type.HTML, false);
 
     private String id;

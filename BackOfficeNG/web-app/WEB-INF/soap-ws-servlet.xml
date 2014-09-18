@@ -42,6 +42,14 @@
     <constructor-arg ref="xmlBeanMarshaller" />
     <property name="requestDocumentService" ref="requestDocumentService" />
   </bean>
+
+  <bean id="homeFolderSynchronisationEndpoint"
+      class="fr.cg95.cvq.external.endpoint.HomeFolderSynchronisationEndpoint">
+    <constructor-arg ref="xmlBeanMarshaller" />
+    <property name="userSearchService" ref="userSearchService" />
+    <property name="userWorkflowService" ref="userWorkflowService" />
+    <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+  </bean>
   
   <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">
     <property name="mappings">
@@ -52,6 +60,7 @@
             <prop key="{http://www.libredemat.org}homeFolderMappingServiceRequest">homeFolderMappingServiceEndpoint</prop>
             <prop key="{http://www.libredemat.org}GetDocumentListRequest">documentListServiceEndpoint</prop>
             <prop key="{http://www.libredemat.org}GetDocumentRequest">documentServiceEndpoint</prop>
+            <prop key="{http://www.libredemat.org}HomeFolderSynchronisationRequest">homeFolderSynchronisationEndpoint</prop>
         </props>
     </property>
     <property name="interceptors">
@@ -111,5 +120,17 @@
     <property name="portTypeName" value="SendRequestService" />
     <property name="locationUri" value="/service/soap/" />
   </bean>
+
+  <bean id="homeFolderSynchronisation"
+      class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+    <property name="schema">
+      <bean class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="classpath:HomeFolderSynchronisation.xsd" />
+      </bean>
+    </property>
+    <property name="portTypeName" value="HomeFolderSynchronisation" />
+    <property name="locationUri" value="/service/soap/" />
+  </bean>
+
 
 </beans>

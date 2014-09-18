@@ -4,6 +4,7 @@ import org.libredemat.authentication.IAuthenticationService
 import org.libredemat.business.request.Request
 import org.libredemat.business.request.RequestState
 import org.libredemat.business.users.*
+import org.libredemat.business.authority.LocalAuthorityResource
 import org.libredemat.exception.CvqAuthenticationFailedException
 import org.libredemat.exception.CvqBadPasswordException
 import org.libredemat.exception.CvqValidationException
@@ -14,6 +15,7 @@ import org.libredemat.service.users.IUserService
 import org.libredemat.service.users.IUserSearchService
 import org.libredemat.service.users.IUserWorkflowService
 import org.libredemat.service.request.IRequestSearchService
+import org.libredemat.service.authority.ILocalAuthorityRegistry
 import org.libredemat.util.Critere
 import org.libredemat.exception.CvqModelException
 import com.octo.captcha.service.CaptchaServiceException
@@ -31,6 +33,7 @@ class FrontofficeHomeFolderController {
     IUserSearchService userSearchService
     IUserWorkflowService userWorkflowService
     IRequestSearchService requestSearchService
+    ILocalAuthorityRegistry localAuthorityRegistry
 
     def homeFolderAdaptorService
     def individualAdaptorService
@@ -355,6 +358,8 @@ class FrontofficeHomeFolderController {
             def template = '/adult' + StringUtils.firstCase(name,'Upper')
             return (name == params.fragment  ? 'edit' : 'static') + template
         }
+        // hack inexine
+        if (params.warningMessage != null) model['warningMessage'] = params.warningMessage
         model['adult'] = individual
         if (individual.id) {
             model['ownerRoles'] = homeFolderAdaptorService.prepareOwnerRoles(individual)
@@ -376,6 +381,23 @@ class FrontofficeHomeFolderController {
         if (request.post) {
             try {
                 def creation = false
+                if (params.fragment == 'informationSheet') {
+                    // Fiche de renseignement enfant
+                    if (((Child)individual).childInformationSheet == null) {
+                        addChildInformationSheet((Child)individual, new ChildInformationSheet())
+                    }
+                     // Régimes alimentaires
+                    def dietSet = new LinkedHashSet<Diet>()
+                    def dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()         
+                    for (String diet : dietsListKey)
+                    {
+                        if (params.getAt(diet) != null)
+                        {
+                            dietSet.add(new Diet(diet));
+                        }
+                    }
+                    params.diets = dietSet;
+                }
                 if (individual.id && params.roleOwnerId) {
                     if (!params.roleType)
                         throw new CvqValidationException(['legalResponsibles'])
@@ -388,6 +410,25 @@ class FrontofficeHomeFolderController {
                 } else {
                     creation = true
                     addChild(individual)
+                }
+                if (params.fragment == 'informationSheet') {
+                    // Fiche de renseignement enfant
+                    // Vérification de la fiche de renseignement enfant
+                    // On ne vérifie les annotations NotNull que si la fiche est paramétrée à obligatoire dans l'asset
+                    // Dans tous les cas, on vérifie les autres types d'annotations
+                    // (utilisation de profil)
+                    def invalidFieldsChildInformationSheet = userService.validate(((Child)individual).childInformationSheet,
+                        SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired())
+                    if (!invalidFieldsChildInformationSheet.isEmpty()) {
+                        throw new CvqValidationException(invalidFieldsChildInformationSheet)
+                    }
+                    else {
+                        // La fiche de renseignement a été validée correctement
+                        // Cette date permet de savoir que le formulaire a été validé correctement
+                        // On peut effacer périodiquement cette date pour tous les comptes pour obliger les citoyens à revalider
+                        // leur fiche de renseignements
+                        ((Child)individual).childInformationSheet.validationDate = new Date()
+                    }
                 }
                 redirect(action : 'child', params : ['id' : individual.id, 'creation' : creation])
                 return false
@@ -410,6 +451,30 @@ class FrontofficeHomeFolderController {
         } else {
             model['adults'] = userSearchService.getAdults(currentEcitizen.homeFolder.id)
         }
+
+        // Fred Fabre - Inexine Hack : Fiche de renseignement et de sécurité enfant
+        File infoFile = localAuthorityRegistry.getLocalAuthorityResourceFile(
+            LocalAuthorityResource.INFORMATION_MESSAGE_INFORMATION_SHEET_FO.id)
+
+        if (infoFile != null && infoFile.exists() && !infoFile.text.isEmpty()) {
+            model['informationSheetFo'] = infoFile.text
+        }
+
+        if (SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired()) {
+            model['informationSheetRequired'] = 'required'
+        }
+        else {
+            model['informationSheetRequired'] = ''
+        }
+        model['informationSheetDisplayed'] = SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
+
+        def dietsList = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration()
+        def dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()
+        def dietsListLibelle = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().values()
+        model['dietsList'] = dietsList
+        model['dietsListKey'] = dietsListKey
+        model['dietsListLibelle'] = dietsListLibelle
+
         // if creation failed, set id to null to force switch in edition mode in views
         // id is set to null lastly because JPA does not like tampered ids
         if (failedCreation) individual.id = null
@@ -453,6 +518,14 @@ class FrontofficeHomeFolderController {
             throw new CvqValidationException(invalidFields)
     }
 
+    private addChildInformationSheet(child, childInformationSheet) throws CvqValidationException {
+        bind(childInformationSheet)
+        userWorkflowService.addChildInformationSheet(child, childInformationSheet)
+        def invalidFields = userService.validate(childInformationSheet,
+            SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired())
+        if (!invalidFields.isEmpty())
+            throw new CvqValidationException(invalidFields)
+    }
     // FIXME :
     private historize(fragment, individual, boolean validate = true) throws CvqValidationException {
         def fields, dto
@@ -461,6 +534,45 @@ class FrontofficeHomeFolderController {
             fields = individual instanceof Adult ?
                 ["title", "familyStatus", "lastName", "maidenName", "firstName", "firstName2", "firstName3", "profession", "cfbn"] :
                 ["born", "lastName", "firstName", "firstName2", "firstName3", "sex", "birthDate", "birthPostalCode", "birthCity", "birthCountry"]
+
+        // Fred Fabre - Inexine Hack : Fiche de renseignement et de sécurité enfant
+        if (fragment == 'informationSheet') {
+            dto = new ChildInformationSheet()
+            fields = [
+                "telephonePortable",
+                "emailEnfant",
+                "nomOrganismeAssurance",
+                "numeroOrganismeAssurance",
+                "nomMedecinTraitant",
+                "telephoneMedecinTraitant",
+                "allergie",
+                "vaccinBcg",
+                "vaccinDtPolio",
+                "vaccinInjectionSerum",
+                "vaccinRor",
+                "vaccinTetracoqPentacoq",
+                "vaccinAutre",
+                "recommandationParent",
+                "difficulteSante",
+                "projetAccueilIndividualise",
+                "autorisationDroitImage",
+                "autorisationMaquillage",
+                "autorisationTransporterVehiculeMunicipal",
+                "autorisationTransporterTransportCommun",
+                "autorisationHospitalisation",
+                "autorisationRentrerSeul",
+                "diets",
+                "personneAutoriseNom1",
+                "personneAutoriseNom2",
+                "personneAutoriseNom3",
+                "personneAutorisePrenom1",
+                "personneAutorisePrenom2",
+                "personneAutorisePrenom3",
+                "personneAutoriseTelephone1",
+                "personneAutoriseTelephone2",
+                "personneAutoriseTelephone3"
+            ]
+        }
         }
         if (fragment == 'contact') {
             dto = new Adult()
@@ -475,6 +587,19 @@ class FrontofficeHomeFolderController {
             fields = ["additionalDeliveryInformation", "additionalGeographicalInformation", "city", "cityInseeCode", "countryName", "placeNameOrService", "postalCode", "streetMatriculation", "streetName", "streetNumber", "streetRivoliCode"]
         }
         bind(dto)
+        def bean
+        if (fragment == 'address')
+        {
+            bean = individual.address
+        }
+        else if (fragment == 'informationSheet')
+        {
+            bean = individual.childInformationSheet
+        }
+        else
+        {
+            bean = individual
+        }
         individualAdaptorService.historize(individual,
             (fragment == 'address' ? individual.address : individual), dto, fragment, fields, validate)
     }

@@ -171,6 +171,7 @@ class BackofficeHomeFolderController {
         result.homeMappings = externalHomeFolderService.getHomeFolderMappings(Long.valueOf(params.id))
 
         result.agentCanWrite = agentCanWrite
+        result.informationSheetDisplayed = SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
 
         result.groups = requestTypeAdaptorService.getActiveRequestTypeByDisplayGroup(homeFolder)
 

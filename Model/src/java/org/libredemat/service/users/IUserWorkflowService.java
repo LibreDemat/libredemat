@@ -9,6 +9,9 @@ import org.libredemat.business.users.HomeFolder;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.UserState;
+import org.libredemat.business.users.UserAction;
+import org.libredemat.business.users.UserAction.Type;
+import org.libredemat.business.users.ChildInformationSheet;
 import org.libredemat.exception.CvqBadPasswordException;
 import org.libredemat.exception.CvqException;
 import org.libredemat.exception.CvqInvalidTransitionException;
@@ -97,4 +100,12 @@ public interface IUserWorkflowService {
     void validateHomeFolder(@IsUser HomeFolder homeFolder)
         throws CvqModelException, CvqInvalidTransitionException;
     
+    void historize(HomeFolder homeFolder, Type type, Long targetId, JsonObject payload);
+
+    void historize(Adult adult, Type type, String note);
+
+    HomeFolder createOnly(Adult adult) throws CvqException;
+
+    public Long addChildInformationSheet(Child child, ChildInformationSheet childInformationSheet)
+        throws CvqModelException, CvqInvalidTransitionException;
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.libredemat.business.payment.external.ExternalApplication;
 import org.libredemat.business.payment.external.ExternalHomeFolder;
+import org.libredemat.business.users.HomeFolder;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.external.HomeFolderMapping;
 import org.libredemat.business.users.external.IndividualMapping;
@@ -63,6 +64,29 @@ public interface IExternalHomeFolderService {
     void deleteIndividualMapping(HomeFolderMapping homeFolderMapping, @IsUser Long individualId);
 
     IndividualMapping getIndividualMapping(@IsUser Individual individual, String externalServiceLabel);
+
+    /**
+     * Search for homefolder by its home folder external id
+     * If we find more than one HomeFolder, we keep the first found.
+     * More than one HomeFolder is not possible
+     * 
+     * @author Inexine : Frederic Fabre
+     * Hack Inexine
+     * 
+     * @param homeFolderExternalId Homefolder external Id 
+     * @param externalServiceLabel External service label (cf HomeFolderMapping table)
+     * @return homefolder
+     */
+    // Inexine Hack Frederic Fabre
+    public HomeFolder getHomeFolderByHomeFolderExternalId(String externalServiceLabel, String homeFolderExternalId);
+    
+    // Inexine Hack Sébastien Faure 
+    IndividualMapping getIndividualMappingByExternalId(String externalId, String externalServiceLabel, Long homeFolderId);
+
+    // inexine @author pit@tor
+    public void deleteIndividualMapping(IndividualMapping individualMapping);
+
+    IndividualMapping getIndividualMapping(Long individualId, Long homeFolderId, String externalServiceLabel);
 
     IndividualMapping getIndividualMapping(String externalLibreDematId);
 

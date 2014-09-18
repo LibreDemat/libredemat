@@ -18,6 +18,9 @@
     <property name="authenticationMethod" value="builtin"/> <!-- builtin,cas -->
     <property name="authenticationMethodFront" value="builtin"/> <!-- builtin,oauth2-->
     <property name="accountValidationRequired" value="true" />
+    <property name="viewDocumentInPanelInBO" value="false" />
+    <property name="informationSheetDisplayed" value="true" />
+    <property name="informationSheetRequired" value="false" />
     <property name="jpaConfigurations">
         <props>
             <prop key="hibernate.show_sql">false</prop>
@@ -179,6 +182,16 @@
         <property name="cssNameBack" value="cssBackLoginOauth" />
       </bean>
     </property>
+    <property name="dietsEnumeration">
+        <map>
+            <entry key="SANS_PORC" value="Sans porc" />
+            <entry key="SANS_POISS" value="Sans poisson" />
+            <entry key="PAI" value="PAI" />
+            <entry key="ALLERGIE" value="Sans allergène" />
+        </map>
+    </property>
+
+
   </bean>
 
 </beans>

@@ -41,6 +41,9 @@
     alter table child 
         drop constraint FK5A3F51CA73DAE4B;
 
+    alter table child 
+        drop constraint FK5A3F51C1A5D42C9;
+
     alter table compostable_waste_collection_request 
         drop constraint FKAFF7287798B9D644;
 
@@ -73,6 +76,9 @@
 
     alter table dhr_real_asset 
         drop constraint FK6AA7D980BB85E2F1;
+
+    alter table diet 
+        drop constraint FK2F0BF41A5D42C9;
 
     alter table document 
         drop constraint FK335CD11BAEACE1F3;
@@ -497,6 +503,8 @@
 
     drop table child cascade;
 
+    drop table child_information_sheet cascade;
+
     drop table compostable_waste_collection_request cascade;
 
     drop table compostable_waste_collection_request_compostable_waste_type cascade;
@@ -510,6 +518,8 @@
     drop table dhr_previous_dwelling cascade;
 
     drop table dhr_real_asset cascade;
+
+    drop table diet cascade;
 
     drop table display_group cascade;
 
@@ -921,6 +931,44 @@
         born bool,
         sex varchar(255),
         id int8 not null,
+        child_information_sheet_id int8,
+        primary key (id)
+    );
+
+    create table child_information_sheet (
+        id int8 not null,
+        allergie varchar(255),
+        autorisation_droit_image bool,
+        autorisation_hospitalisation bool,
+        autorisation_maquillage bool,
+        autorisation_rentrer_seul bool,
+        autorisation_transporter_transport_commun bool,
+        autorisation_transporter_vehicule_municipal bool,
+        difficulte_sante varchar(255),
+        email_enfant varchar(50),
+        nom_medecin_traitant varchar(255),
+        nom_organisme_assurance varchar(255),
+        numero_organisme_assurance varchar(255),
+        personne_autorise_nom1 varchar(255),
+        personne_autorise_nom2 varchar(255),
+        personne_autorise_nom3 varchar(255),
+        personne_autorise_prenom1 varchar(255),
+        personne_autorise_prenom2 varchar(255),
+        personne_autorise_prenom3 varchar(255),
+        personne_autorise_telephone1 varchar(32),
+        personne_autorise_telephone2 varchar(32),
+        personne_autorise_telephone3 varchar(32),
+        pathologie_enfant bool,
+        recommandation_parent varchar(255),
+        telephone_medecin_traitant varchar(32),
+        telephone_portable varchar(32),
+        vaccin_autre varchar(255),
+        vaccin_bcg timestamp,
+        vaccin_dt_polio timestamp,
+        vaccin_injection_serum timestamp,
+        vaccin_ror timestamp,
+        vaccin_tetracoq_pentacoq timestamp,
+        date_validation timestamp,
         primary key (id)
     );
 
@@ -1052,6 +1100,13 @@
         dhr_real_asset_address_id int8,
         domestic_help_request_id int8,
         dhr_real_asset_index int4,
+        primary key (id)
+    );
+
+    create table diet (
+        id int8 not null,
+        diet_type varchar(255),
+        child_information_sheet_id int8,
         primary key (id)
     );
 
@@ -2825,6 +2880,11 @@
         foreign key (id) 
         references individual;
 
+    alter table child 
+        add constraint FK5A3F51C1A5D42C9 
+        foreign key (child_information_sheet_id) 
+        references child_information_sheet;
+
     alter table compostable_waste_collection_request 
         add constraint FKAFF7287798B9D644 
         foreign key (collection_address_id) 
@@ -2879,6 +2939,11 @@
         add constraint FK6AA7D980BB85E2F1 
         foreign key (domestic_help_request_id) 
         references domestic_help_request;
+
+    alter table diet 
+        add constraint FK2F0BF41A5D42C9 
+        foreign key (child_information_sheet_id) 
+        references child_information_sheet;
 
     alter table document 
         add constraint FK335CD11BAEACE1F3 

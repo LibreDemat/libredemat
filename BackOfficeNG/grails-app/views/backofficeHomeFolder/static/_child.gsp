@@ -26,4 +26,17 @@
       </dl>
     </g:each>
   </g:each>
+  <!-- Pour rajouter la modification de la fiche de renseignement : -->
+  <!-- rajouter child-childInformationSheet  -->
+  <!-- et -->
+  <!-- ${child?.state?.toString() != 'Archived' ? 'edit' : ''} -->
+  <!-- dans la class du <dl> -->
+  <!-- : -->
+  <!-- <dl class="${child?.state?.toString() != 'Archived' ? 'edit' : ''} child-childInformationSheet collapse"> -->
+  <g:if test="${informationSheetDisplayed}" >
+	  <h3>${message(code:'homeFolder.individual.header.informationSheet')}</h3>
+	  <dl class="${child?.state?.toString() != 'Archived' ? 'edit' : ''} child-childInformationSheet collapse">
+	    <g:render template="static/childInformationSheet" model="['child':child]" />
+	  </dl>
+  </g:if>
 </div>

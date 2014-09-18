@@ -36,6 +36,8 @@ import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.UserEvent;
 import org.libredemat.business.users.UserState;
 import org.libredemat.business.users.UserWorkflow;
+import org.libredemat.business.users.UserAction;
+import org.libredemat.business.users.ChildInformationSheet;
 import org.libredemat.business.users.external.HomeFolderMapping;
 import org.libredemat.business.users.external.IndividualMapping;
 import org.libredemat.dao.hibernate.HibernateUtil;
@@ -1051,6 +1053,94 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     public void setGenericDAO(IGenericDAO genericDAO) {
         this.genericDAO = genericDAO;
+    }
+
+    @Override
+    @Context(types =
+            { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
+    public void historize(Adult adult, UserAction.Type type, String note)
+    {
+        Long userId = -1L;
+        if (SecurityContext.isFrontOfficeContext()) userId = SecurityContext.getCurrentUserId();
+        else if (SecurityContext.getCurrentAgent() != null) userId = SecurityContext.getCurrentAgent().getId();
+        UserAction action = new UserAction(type, adult.getId(), userId);
+        action = (UserAction) genericDAO.create(action);
+        if (note != null) action.setNote(note);
+        adult.getHomeFolder().getActions().add(action);
+        homeFolderDAO.update(adult.getHomeFolder());
+    }
+
+    @Override
+    public void historize(HomeFolder homeFolder, UserAction.Type type, Long targetId, JsonObject payload)
+    {
+        if (payload == null) payload = new JsonObject();
+        UserAction action = new UserAction(type, targetId, payload);
+        applicationEventPublisher.publishEvent(new UserEvent(this, action));
+    }
+
+    @Override
+    @Context(types =
+            { ContextType.UNAUTH_ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
+    public HomeFolder createOnly(Adult adult) throws CvqException
+    {
+        HomeFolder homeFolder = new HomeFolder();
+        homeFolder.setAddress(adult.getAddress());
+        homeFolder.setEnabled(Boolean.TRUE);
+        homeFolder.setState(SecurityContext.isFrontOfficeContext() ? UserState.NEW : UserState.VALID);
+        homeFolder.setTemporary(false);
+        homeFolderDAO.create(homeFolder);
+        add(homeFolder, adult, true);
+        UserAction action = new UserAction(UserAction.Type.CREATION, homeFolder.getId());
+        action = (UserAction) genericDAO.create(action);
+        homeFolder.getActions().add(action);
+        linkWithoutPublish(adult, homeFolder, Collections.singleton(RoleType.HOME_FOLDER_RESPONSIBLE));
+        logger.debug("create() successfully created home folder from export external : " + homeFolder.getId());
+        homeFolderDAO.update(homeFolder);
+        return homeFolder;
+    }
+
+    private void linkWithoutPublish(Individual owner, HomeFolder target, Collection<RoleType> types)
+    {
+        Set<RoleType> missing = new HashSet<RoleType>(types);
+        for (IndividualRole role : owner.getHomeFolderRoles(target.getId()))
+        {
+            if (types.contains(role.getRole())) missing.remove(role.getRole());
+            else owner.getIndividualRoles().remove(role);
+        }
+        for (RoleType type : missing)
+        {
+            IndividualRole newRole = new IndividualRole();
+            newRole.setRole(type);
+            newRole.setHomeFolderId(target.getId());
+            owner.getIndividualRoles().add(newRole);
+        }
+        if (SecurityContext.isFrontOfficeContext() && !UserState.NEW.equals(target.getState()))
+        {
+            target.setState(UserState.MODIFIED);
+        }
+        JsonObject payload = new JsonObject();
+        JsonObject jsonResponsible = new JsonObject();
+        JsonArray jsonTypes = new JsonArray();
+        for (RoleType type : types)
+            jsonTypes.add(new JsonPrimitive(type.toString()));
+        jsonResponsible.add("types", jsonTypes);
+        jsonResponsible.addProperty("id", owner.getId());
+        jsonResponsible.addProperty("name", UserUtils.getDisplayName(owner.getId()));
+        payload.add("responsible", jsonResponsible);
+        UserAction action = new UserAction(UserAction.Type.MODIFICATION, target.getId(), payload);
+        action = (UserAction) genericDAO.create(action);
+        owner.getHomeFolder().getActions().add(action);
+        homeFolderDAO.update(owner.getHomeFolder());
+    }
+
+    @Override
+    public Long addChildInformationSheet(Child child, ChildInformationSheet childInformationSheet)
+            throws CvqModelException, CvqInvalidTransitionException {
+        child.setChildInformationSheet(childInformationSheet);
+        this.genericDAO.update(childInformationSheet);
+        this.individualDAO.update(child);
+        this.homeFolderDAO.update(child.getHomeFolder());
+        return childInformationSheet.getId();
     }
 
 }

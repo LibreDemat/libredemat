@@ -50,7 +50,11 @@ public final class LocalAuthorityConfigurationBean {
     private Properties jpaConfigurations;
     private EntityManagerFactory entityManagerFactory;
     private OAuth2ConfigurationBean oauth2ConfigurationBean;
+    private Map<String, String> dietsEnumeration;
 
+    private boolean informationSheetRequired = false;
+    private boolean informationSheetDisplayed = true;
+    private boolean viewDocumentInPanelInBO = true;
     private boolean autotransition = false;
 
     public LocalAuthorityConfigurationBean() {
@@ -328,6 +332,61 @@ public final class LocalAuthorityConfigurationBean {
             return "";
         }
     }
+    /**
+     * @return the informationSheetRequired
+     */
+    public boolean isInformationSheetRequired()
+    {
+        if (!isInformationSheetDisplayed()) return false;
+        return informationSheetRequired;
+    }
+
+    /**
+     * @param informationSheetRequired
+     *            the informationSheetRequired to set
+     */
+    public void setInformationSheetRequired(boolean informationSheetRequired)
+    {
+        this.informationSheetRequired = informationSheetRequired;
+    }
+
+    /**
+     * @return the dietsEnumeration
+     */
+    public Map<String, String> getDietsEnumeration()
+    {
+        return dietsEnumeration;
+    }
+
+    /**
+     * @param dietsEnumeration
+     *            the dietsEnumeration to set
+     */
+    public void setDietsEnumeration(Map<String, String> dietsEnumeration)
+    {
+        this.dietsEnumeration = dietsEnumeration;
+    }
+
+    public void setViewDocumentInPanelInBO(boolean viewDocumentInPanelInBO)
+    {
+        this.viewDocumentInPanelInBO = viewDocumentInPanelInBO;
+    }
+
+    public boolean isViewDocumentInPanelInBO()
+    {
+        return viewDocumentInPanelInBO;
+    }
+
+    public void setInformationSheetDisplayed(boolean informationSheetDisplayed)
+    {
+        this.informationSheetDisplayed = informationSheetDisplayed;
+    }
+
+    public boolean isInformationSheetDisplayed()
+    {
+        return informationSheetDisplayed;
+    }
+
     public void setExternalApplicationProperties(Map<String, String> externalApplicationProperties) {
         this.externalApplicationProperties = externalApplicationProperties;
     }

@@ -13,6 +13,8 @@
     <meta name="layout" content="fo_main" />
     <link rel="stylesheet" type="text/css" href="\${resource(dir:'css/frontoffice', file:'request.css')}" />
     <link rel="stylesheet" type="text/css" href="\${resource(dir:'css/frontoffice', file:'document.css')}" />
+    <link rel="stylesheet" type="text/css" href="\${resource(dir:'css/frontoffice/yui/calendar', file:'calendar.css')}" />
+    
     <g:if test="\${flash.addressesReferentialEnabled}">
         <link rel="stylesheet" type="text/css" href="\${resource(dir:'css/common', file:'autocomplete.css')}" />
     </g:if>
@@ -20,6 +22,8 @@
     <script type="text/javascript" src="\${resource(dir:'js/frontoffice',file:'requestCreation.js')}"></script>
     <script type="text/javascript" src="\${resource(dir:'js/frontoffice',file:'condition.js')}"></script>
     <script type="text/javascript" src="\${resource(dir:'js/frontoffice',file:'autofill.js')}"></script>
+    <script type="text/javascript" src="\${resource(dir:'js/common',file:'calendar_fo.js')}"></script>
+    
     <g:if test="\${flash.addressesReferentialEnabled}">
         <script type="text/javascript" src="\${resource(dir:'js/common',file:'addressAutocomplete.js')}"></script>
         <script type="text/javascript" src="\${resource(dir:'js/common',file:'autocomplete.js')}"></script>
