@@ -13,7 +13,7 @@ class BackofficeUserSecurityController {
     }
 
     def defaultAction = "index"
-    def subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders"]
+    def subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders", "homeFolder.childInformationSheetDateInitialisation"]
 
     def index = {
         return [

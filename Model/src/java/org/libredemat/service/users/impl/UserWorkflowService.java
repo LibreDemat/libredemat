@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -1005,6 +1006,24 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     private boolean isCitizenContext() {
         return SecurityContext.isFrontOfficeContext() && SecurityContext.getProxyAgent() == null;
     }
+	@Override
+	public int childInformationSheetDateInitialisation()
+	{
+		try
+		{
+			StringBuffer stringBuffer = new StringBuffer();
+			stringBuffer.append("update ChildInformationSheet as childInformationSheet ");
+			stringBuffer.append("set childInformationSheet.validationDate = :validationDate");
+			Query query = JpaUtil.getEntityManager().createQuery(stringBuffer.toString());
+			query.setParameter("validationDate", null);
+			return query.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			UserWorkflowService.logger.error(e.getMessage());
+		}
+		return 0;
+	}
 
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {

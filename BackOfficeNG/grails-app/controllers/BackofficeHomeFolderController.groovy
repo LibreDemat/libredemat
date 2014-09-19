@@ -71,7 +71,7 @@ class BackofficeHomeFolderController {
     def beforeInterceptor = {
         session["currentMenu"] = "users"
         if (SecurityContext.currentCredentialBean.hasSiteAdminRole()) {
-            subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders"]
+            subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders", "homeFolder.childInformationSheetDateInitialisation"]
         } else {
             if (userSecurityService.can(SecurityContext.getCurrentAgent(), ContextPrivilege.MANAGE))
                 subMenuEntries = ["homeFolder.search", "homeFolder.configure", "homeFolder.create"]
@@ -380,8 +380,7 @@ class BackofficeHomeFolderController {
         render(template : mode + "/contact", model : ["adult" : adult])
     }
 
-    def childInformationSheet =
-    {
+    def childInformationSheet = {
       def child = userSearchService.getChildById(params.long("id"))
         def mode = request.get ? params.mode : "static"
         if (request.post) {

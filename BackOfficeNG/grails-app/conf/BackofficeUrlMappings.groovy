@@ -23,6 +23,7 @@ class BackofficeUrlMappings {
     "/backoffice/homeFolder/adult/$id/address" (controller : "backofficeHomeFolder", action : "address")
     "/backoffice/homeFolder/adult/$id/contact" (controller : "backofficeHomeFolder", action : "contact")
     "/backoffice/homeFolder/child/$id/responsibles" (controller : "backofficeHomeFolder", action : "responsibles")
+    "/backoffice/homeFolder/child/$id/childInformationSheet" (controller : "backofficeHomeFolder", action : "childInformationSheet")
     "/backoffice/homeFolder/$action?/$id?" (controller : "backofficeHomeFolder" )
     "/backoffice/displayGroup/$action?/$id?" (controller : "backofficeDisplayGroup" )
     "/backoffice/agent/$action?/$id?" (controller : "backofficeAgent" )

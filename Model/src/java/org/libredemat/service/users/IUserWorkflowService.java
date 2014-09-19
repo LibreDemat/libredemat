@@ -108,4 +108,11 @@ public interface IUserWorkflowService {
 
     public Long addChildInformationSheet(Child child, ChildInformationSheet childInformationSheet)
         throws CvqModelException, CvqInvalidTransitionException;
+
+	/**
+	 * Réinitialise la date de validation de l'ensemble des fiches de renseignement et de sécurité enfant de l'asset
+	 * 
+	 * @return nombre de fiches réinitialisées
+	 */
+	public int childInformationSheetDateInitialisation();
 }
