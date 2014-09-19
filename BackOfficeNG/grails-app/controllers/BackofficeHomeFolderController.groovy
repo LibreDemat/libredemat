@@ -380,6 +380,86 @@ class BackofficeHomeFolderController {
         render(template : mode + "/contact", model : ["adult" : adult])
     }
 
+    def childInformationSheet =
+    {
+      def child = userSearchService.getChildById(params.long("id"))
+        def mode = request.get ? params.mode : "static"
+        if (request.post) {
+          try {
+            // Fiche de renseignement enfant
+            if (child.childInformationSheet == null) 
+            {
+              addChildInformationSheet(child, new ChildInformationSheet())
+            }
+            // Régimes alimentaires
+            def dietSet = new LinkedHashSet<Diet>()
+              def dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()		 
+              for (String diet : dietsListKey)
+              {
+                if (params.getAt(diet) != null)
+                {
+                  dietSet.add(new Diet(diet));
+                }
+              }
+            params.diets = dietSet;
+
+            def temp = new ChildInformationSheet()
+              def fields = ["telephonePortable", "emailEnfant", "nomOrganismeAssurance", "numeroOrganismeAssurance",
+                  "nomMedecinTraitant", "telephoneMedecinTraitant", "allergie", "vaccinBcg", "vaccinDtPolio",
+                  "vaccinInjectionSerum", "vaccinRor", "vaccinTetracoqPentacoq", "vaccinAutre",
+                  "recommandationParent", "difficulteSante", "projetAccueilIndividualise", "autorisationDroitImage",
+                  "autorisationMaquillage", "autorisationTransporterVehiculeMunicipal",
+                  "autorisationTransporterTransportCommun", "autorisationHospitalisation", 
+                  "autorisationRentrerSeul", "diets", 
+                  "personneAutoriseNom1", "personneAutoriseNom2", "personneAutoriseNom3", 
+                  "personneAutorisePrenom1", "personneAutorisePrenom2", "personneAutorisePrenom3", 
+                  "personneAutoriseTelephone1", "personneAutoriseTelephone2", "personneAutoriseTelephone3"]
+
+                    bind(temp)
+
+                    individualAdaptorService.historize(
+                        child, child.childInformationSheet, temp, "childInformationSheet", fields)
+
+                    // Fiche de renseignement enfant
+                    // Vérification de la fiche de renseignement enfant
+                    // On ne vérifie les annotations NotNull que si la fiche est paramétrée à obligatoire dans l'asset
+                    // Dans tous les cas, on vérifie les autres types d'annotations
+                    // (utilisation de profil)
+                    def invalidFieldsChildInformationSheet = userService.validate(child.childInformationSheet,
+                        SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired())
+                    if (!invalidFieldsChildInformationSheet.isEmpty()) {
+                      throw new CvqValidationException(invalidFieldsChildInformationSheet)
+                    }
+                    else {
+                      // La fiche de renseignement a été validée correctement
+                      // Cette date permet de savoir que le formulaire a été validé correctement
+                      // On peut effacer périodiquement cette date pour tous les comptes pour obliger les citoyens à revalider
+                      // leur fiche de renseignements
+                      child.childInformationSheet.validationDate = new Date()
+                    }
+
+          } 
+          catch (CvqValidationException e) {
+            session.doRollback = true
+              render (['invalidFields': e.invalidFields] as JSON)
+              return false
+          }
+        }
+      // Filtrage des régimes alimentaires
+      def dietsList = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration()
+        def dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()
+        def dietsListLibelle = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().values()
+
+        render(template : mode + "/childInformationSheet", model : ["child" : child, "dietsList" : dietsList, "dietsListKey" : dietsListKey, "dietsListLibelle" : dietsListLibelle])
+    }
+    private addChildInformationSheet(child, childInformationSheet) throws CvqValidationException {
+      bind(childInformationSheet)
+        userWorkflowService.addChildInformationSheet(child, childInformationSheet)
+        def invalidFields = userService.validate(childInformationSheet,
+            SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired())
+        if (!invalidFields.isEmpty())
+          throw new CvqValidationException(invalidFields)
+    }
     def identity = {
         def individual = userSearchService.getById(params.long("id"))
         def mode = request.get ? params.mode : "static"
@@ -572,6 +652,36 @@ class BackofficeHomeFolderController {
             return false
         }
     }
+        def childInformationSheetDateInitialisation = {
+        	if (request.get) 
+			{
+        	    render(view : "childInformationSheetDateInitialisation", model : [
+        			"subMenuEntries" : subMenuEntries,
+        			"isInformationSheetDisplayed" : SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
+        		    ])
+        	    return false
+        	} 
+			else if (request.post) 
+			{
+				try 
+				{
+				    userWorkflowService.childInformationSheetDateInitialisation()
+				    render (new JSON([status : "ok", success_msg :
+					message(code : "homeFolder.childInformationSheetDateInitialisation.message.performed",
+					args : [
+						SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
+					])]).toString())
+				}
+				catch (Exception e) 
+				{
+				    logger.error e.getMessage()
+				    render (new JSON([status : "error",
+					error_msg : message(code : "homeFolder.childInformationSheetDateInitialisation.error.initialisation")]).toString())
+				    	return false
+				}
+        		return false
+        	}
+        }
 
     protected List doSearch(state) {
         return userSearchService.get(prepareCriterias(state), prepareSort(state), defaultMax,
