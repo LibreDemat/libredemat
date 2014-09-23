@@ -84,6 +84,67 @@ Parameter definitions '''
                 }
             }
 
+            if (config.servlet?.add) {
+
+                def servletNode = xml."servlet"
+                config.servlet.names.each{ name, clazz ->
+                    def snode = {
+                        'servlet' {
+                            'servlet-name'(name)
+                            'servlet-class'(clazz)
+                            config.servlet.initparams[name].each { key, value ->
+                            'init-param' {
+                                'param-name'(key)
+                                'param-value'(value)
+                            }
+                        }
+                        }
+                    }
+                    servletNode[servletNode.size() - 1] + snode
+                }
+
+                def servletMappingNode = xml."servlet-mapping"
+                config.servlet.mappings.each{ name, url ->
+                    def snode = {
+                        'servlet-mapping' {
+                            'servlet-name'(name)
+                            'url-pattern'(url)
+                        }
+                    }
+                    servletMappingNode[servletMappingNode.size() - 1] + snode
+                }
+            }
+
+            if (config.filter?.add) {
+
+                def filterNode = xml."filter"
+                config.filter.names.each{ name, clazz ->
+                    def fnode = {
+                        'filter' {
+                            'filter-name'(name)
+                            'filter-class'(clazz)
+                            config.filter.initparams[name].each { key, value ->
+                                'init-param' {
+                                    'param-name'(key)
+                                    'param-value'(value)
+                                }
+                            }
+                        }
+                    }
+                    filterNode[filterNode.size() - 1] + fnode
+                }
+
+                def filterMappingNode = xml."filter-mapping"
+                config.filter.mappings.each{ name, url ->
+                    def fnode = {
+                        'filter-mapping' {
+                            'filter-name'(name)
+                            'url-pattern'(url)
+                        }
+                    }
+                    filterMappingNode[filterMappingNode.size() - 1] + fnode
+                }
+            }
 
             // add possibility for context params. As with the other features, the generated result is a bit thin,
             // it could contain the descriptions field too, a context.xml also would be a good idea...  (bs)
