@@ -10,12 +10,13 @@ import org.apache.xmlbeans.XmlObject;
 import org.springframework.oxm.Marshaller;
 import org.springframework.ws.server.endpoint.AbstractMarshallingPayloadEndpoint;
 
-import fr.capwebct.capdemat.homonymy.CapdematHomonymType;
-import fr.capwebct.capdemat.homonymy.HomonymIndividualType;
-import fr.capwebct.capdemat.homonymy.HomonymyRequestDocument;
-import fr.capwebct.capdemat.homonymy.HomonymyRequestDocument.HomonymyRequest;
-import fr.capwebct.capdemat.homonymy.HomonymyResponseDocument;
-import fr.capwebct.capdemat.homonymy.HomonymyResponseDocument.HomonymyResponse;
+import org.libredemat.homonymy.CapdematHomonymType;
+import org.libredemat.homonymy.ExternalIndividualType;
+import org.libredemat.homonymy.HomonymIndividualType;
+import org.libredemat.homonymy.HomonymyRequestDocument;
+import org.libredemat.homonymy.HomonymyRequestDocument.HomonymyRequest;
+import org.libredemat.homonymy.HomonymyResponseDocument;
+import org.libredemat.homonymy.HomonymyResponseDocument.HomonymyResponse;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Individual;
 import org.libredemat.service.users.IUserSearchService;
@@ -57,23 +58,23 @@ public class HomonymyEndpoint extends AbstractMarshallingPayloadEndpoint {
         HomonymyResponseDocument homonymyResponseDocument = HomonymyResponseDocument.Factory.newInstance();
         // <HomonymyResponse>
         HomonymyResponse homonymyResponse = homonymyResponseDocument.addNewHomonymyResponse();
-        XmlObject[] xmlExternalIndividuals = homonymyRequest.selectPath("./ExternalIndividual");  
+        ExternalIndividualType[] xmlExternalIndividuals = homonymyRequest.getExternalIndividualArray();//selectPath("./ExternalIndividual");  
         
         // For each external individuals send by external appplication
-        for (XmlObject xmlExternalIndividual : xmlExternalIndividuals) {
-            XmlCursor monCursorExternalId = xmlExternalIndividual.newCursor();
-            XmlCursor monCursorFirstName = xmlExternalIndividual.newCursor();
-            XmlCursor monCursorLastName = xmlExternalIndividual.newCursor();
+        for (ExternalIndividualType externalIndividual : xmlExternalIndividuals) {
+            //XmlCursor monCursorExternalId = xmlExternalIndividual.newCursor();
+            //XmlCursor monCursorFirstName = xmlExternalIndividual.newCursor();
+            //XmlCursor monCursorLastName = xmlExternalIndividual.newCursor();
             
-            monCursorExternalId.toChild("ExternalId");
-            String externalId = monCursorExternalId.getTextValue();
+            //monCursorExternalId.toChild("ExternalId");
+            String externalId = externalIndividual.getExternalId();//monCursorExternalId.getTextValue();
             
-            monCursorFirstName.toChild("FirstName");
-            String firstName = monCursorFirstName.getTextValue();
+            //monCursorFirstName.toChild("FirstName");
+            String firstName = externalIndividual.getFirstName();
             
-            monCursorLastName.toChild("LastName");
-            String lastName = monCursorLastName.getTextValue();
-            
+            //monCursorLastName.toChild("LastName");
+            String lastName = externalIndividual.getLastName();
+
             // <CapdematHomonym>
             CapdematHomonymType capdematHomonym = homonymyResponse.addNewCapdematHomonym();
             // <ExternalId>

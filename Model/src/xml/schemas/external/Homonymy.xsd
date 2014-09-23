@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:ho="http://www.capwebct.fr/capdemat/homonymy"
-	xmlns:cvq="http://www.cg95.fr/cvq/schema/common"  
-	targetNamespace="http://www.capwebct.fr/capdemat/homonymy"
+    xmlns:ho="http://www.libredemat.org/homonymy"
+    targetNamespace="http://www.libredemat.org/homonymy"
 	elementFormDefault="qualified">
 	
   <!--  Request -->		
