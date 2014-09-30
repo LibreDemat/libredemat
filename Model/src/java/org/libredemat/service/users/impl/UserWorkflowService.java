@@ -259,7 +259,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public Long add(HomeFolder homeFolder, Adult adult, boolean assignLogin)
         throws CvqException {
         if (assignLogin) {
@@ -311,7 +311,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public void modify(HomeFolder homeFolder) {
         if (isCitizenContext() && !UserState.NEW.equals(homeFolder.getState())) {
             homeFolder.setState(UserState.MODIFIED);
@@ -728,7 +728,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public void delete(Individual individual) {
         HomeFolder homeFolder = individual.getHomeFolder();
         for (Individual responsible : homeFolder.getIndividuals()) {
@@ -1099,7 +1099,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     @Override
     @Context(types =
-            { ContextType.UNAUTH_ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
+            { ContextType.UNAUTH_ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public HomeFolder createOnly(Adult adult) throws CvqException
     {
         HomeFolder homeFolder = new HomeFolder();

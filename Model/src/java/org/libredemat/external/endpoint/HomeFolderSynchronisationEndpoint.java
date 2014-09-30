@@ -11,18 +11,25 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.xmlbeans.XmlCursor;
 import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.springframework.oxm.Marshaller;
 import org.springframework.ws.server.endpoint.AbstractMarshallingPayloadEndpoint;
-import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderMappingType;
-import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument;
-import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument.HomeFolderSynchronisationRequest;
-import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument;
-import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument.HomeFolderSynchronisationResponse;
-import fr.capwebct.capdemat.homeFolderSynchronisation.IndividualMappingType;
+import org.libredemat.homeFolderSynchronisation.AdultType;
+import org.libredemat.homeFolderSynchronisation.ChildInformationSheetType;
+import org.libredemat.homeFolderSynchronisation.ChildType;
+import org.libredemat.homeFolderSynchronisation.HomeFolderMappingType;
+import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument;
+import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument.HomeFolderSynchronisationRequest;
+import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument;
+import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument.HomeFolderSynchronisationResponse;
+import org.libredemat.homeFolderSynchronisation.HomeFolderType;
+import org.libredemat.homeFolderSynchronisation.IndividualMappingType;
+import org.libredemat.homeFolderSynchronisation.IndividualRoleType;
+import org.libredemat.homeFolderSynchronisation.SubjectType;
 import org.libredemat.business.users.Address;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
@@ -71,6 +78,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		super(marshaller);
 	}
 
+    String xqNamespace = "declare namespace hom='http://www.libredemat.org/homeFolderSynchronisation';";
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -91,7 +100,10 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		// Request
 		HomeFolderSynchronisationRequest homeFolderSynchronisationRequest = ((HomeFolderSynchronisationRequestDocument) request)
 				.getHomeFolderSynchronisationRequest();
-		XmlObject[] xmlHomeFolders = homeFolderSynchronisationRequest.selectPath("./HomeFolder");
+		HomeFolderType[] homeFolderTypes = homeFolderSynchronisationRequest.getHomeFolderArray();
+		
+
+		XmlObject[] xmlHomeFolders = homeFolderSynchronisationRequest.selectPath(xqNamespace+"./hom:HomeFolder");
 		// Response
 		HomeFolderSynchronisationResponseDocument homeFolderSynchronisationResponseDocument = HomeFolderSynchronisationResponseDocument.Factory
 				.newInstance();
@@ -101,20 +113,12 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		// Look into homefolders
 		try
 		{
-			for (XmlObject xmlHomeFolder : xmlHomeFolders)
+			for (HomeFolderType homeFolderType : homeFolderTypes)
 			{
-				XmlCursor homeFolderCapdematIdCursor = xmlHomeFolder.newCursor();
-				if (homeFolderCapdematIdCursor.toChild("HomeFolderCapdematId"))
-				{
-					homeFolderCapdematId = homeFolderCapdematIdCursor.getTextValue();
-				}
-				homeFolderCapdematIdCursor.dispose();
-				XmlCursor homeFolderExternalIdCursor = xmlHomeFolder.newCursor();
-				if (homeFolderExternalIdCursor.toChild("HomeFolderExternalId"))
-				{
-					homeFolderExternalId = homeFolderExternalIdCursor.getTextValue();
-				}
-				homeFolderExternalIdCursor.dispose();
+				homeFolderCapdematId = homeFolderType.getHomeFolderCapdematId();
+
+				homeFolderExternalId = homeFolderType.getHomeFolderExternalId();
+
 				// Search for if the homefolder already exists : 2 ways
 				if (StringUtils.isNotBlank(homeFolderCapdematId))
 				{
@@ -131,7 +135,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 					}
 				}
 				// Individuals list send by ws
-				List<Individual> individuals = populateHomeFolderIndividuals(xmlHomeFolder);
+				List<Individual> individuals = populateHomeFolderIndividuals(homeFolderType);
 				if (homefolderFound != null)
 				{
 					if ((!homefolderFound.getState().equals(UserState.MODIFIED))
@@ -141,8 +145,9 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 						// historize la synchronisation externe
 						userWorkflowService.historize(homefolderFound, UserAction.Type.SERVICE_EXTERNE,
 								homefolderFound.getId(), null);
+
 						// HomeFolder modification
-						populateFoundHomeFolder(xmlHomeFolder, homefolderFound);
+						populateFoundHomeFolder(homeFolderType, homefolderFound);
 						this.deleteIndividualsFromHomeFolder(individuals, homefolderFound);
 						// Create individual roles again
 						this.upDateIndividualRole(individuals, homefolderFound);
@@ -257,43 +262,33 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 * @param xmlHomeFolder
 	 * @return List<Individual> Populated individuals
 	 */
-	private List<Individual> populateHomeFolderIndividuals(XmlObject xmlHomeFolder) throws CvqException
+	private List<Individual> populateHomeFolderIndividuals(HomeFolderType homeFolder) throws CvqException
 	{
-		logger.debug("HomeFolder creation : " + xmlHomeFolder);
+		logger.debug("HomeFolder creation : " + homeFolder);
 		// Individuals list returned
 		List<Individual> individuals = new ArrayList<Individual>();
-		if (xmlHomeFolder != null)
+		if (homeFolder != null)
 		{
 			List<Adult> adults = new ArrayList<Adult>();
 			List<Child> children = new ArrayList<Child>();
-			XmlObject[] xmlIndividuals = xmlHomeFolder.selectPath("./Individual");
+			
+			
+			XmlObject[] xmlIndividuals = homeFolder.selectPath("./Individual");
 			// Look into individuals from the homefolder
-			for (XmlObject xmlIndividual : xmlIndividuals)
+			for (SubjectType individual : homeFolder.getIndividualArray())
 			{
-				XmlCursor adultChildCursor = xmlIndividual.newCursor();
-				if (adultChildCursor.toChild("Adult"))
+				if (individual.isSetAdult())
 				{
 					Adult adult = new Adult();
-					XmlObject[] xmlAdults = xmlIndividual.selectPath("./Adult");
-					// Look into adults from the <individual> (according to the
-					// xsd file, we only have 1 adult in individual)
-					for (XmlObject xmlAdult : xmlAdults)
-					{
-						adults.add(this.populateAdult(adult, xmlAdult));
-						adult.setIndividualRoles(this.populateIndividualRoles(xmlAdult));
-					}
+					adults.add(this.populateAdult(adult, individual.getAdult()));
+					adult.setIndividualRoles(this.populateIndividualRoles(individual));
 				}
-				else if (adultChildCursor.toChild("Child"))
+				else if (individual.isSetChild())
 				{
 					Child child = new Child();
-					XmlObject[] xmlChilds = xmlIndividual.selectPath("./Child");
-					for (XmlObject xmlChild : xmlChilds)
-					{
-						children.add(this.populateChild(child, xmlChild));
-						child.setIndividualRoles(this.populateIndividualRoles(xmlChild));
-					}
+					children.add(this.populateChild(child, individual.getChild()));
+					child.setIndividualRoles(this.populateIndividualRoles(individual));
 				}
-				adultChildCursor.dispose();
 			}
 			if (children != null)
 			{
@@ -315,7 +310,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 *            HomeFolder to modify
 	 * @return List<Individual> Individuals created
 	 */
-	private List<Individual> populateFoundHomeFolder(XmlObject xmlHomeFolder, HomeFolder homeFolder)
+	private List<Individual> populateFoundHomeFolder(HomeFolderType xmlHomeFolder, HomeFolder homeFolder)
 			throws CvqException
 	{
 		logger.debug("HomeFolder modification : " + xmlHomeFolder);
@@ -323,146 +318,134 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		List<Individual> individuals = new ArrayList<Individual>();
 		if (xmlHomeFolder != null && homeFolder != null)
 		{
-			XmlObject[] xmlIndividuals = xmlHomeFolder.selectPath("./Individual");
+			//XmlObject[] xmlIndividuals = xmlHomeFolder.selectPath(xqNamespace+"./hom:Individual");
 			// Look into individuals from the homefolder
-			for (XmlObject xmlIndividual : xmlIndividuals)
+			for (SubjectType xmlIndividual : xmlHomeFolder.getIndividualArray())
 			{
-				XmlCursor adultChildCursor = xmlIndividual.newCursor();
-				if (adultChildCursor.toChild("Adult"))
+				if (xmlIndividual.isSetAdult())
 				{
-					XmlObject[] xmlAdults = xmlIndividual.selectPath("./Adult");
-					// Look into adults from the <individual> (according to the
-					// xsd file, we only have 1 adult in individual)
-					for (XmlObject xmlAdult : xmlAdults)
+					Adult adult = null;
+					AdultType xmlAdult = xmlIndividual.getAdult();
+					String individualCapdematId = xmlAdult.getIndividualCapdematId();
+					// Search for the adult in the HomeFolder by its
+					// individualCapdematId
+					if (StringUtils.isNotBlank(individualCapdematId))
 					{
-						Adult adult = null;
-						String individualCapdematId = this.getXmlTagTextValue(xmlAdult, "IndividualCapdematId");
-						// Search for the adult in the HomeFolder by its
-						// individualCapdematId
-						if (StringUtils.isNotBlank(individualCapdematId))
+						Long id = Long.parseLong(individualCapdematId);
+						if (id != null)
 						{
-							Long id = Long.parseLong(individualCapdematId);
-							if (id != null)
-							{
-								// Adult to modify
-								adult = this.userSearchService.getAdultById(id);
-							}
+							// Adult to modify
+							adult = this.userSearchService.getAdultById(id);
 						}
-						// Search for the adult in the HomeFolder by its
-						// IndividualExternalId
-						else
+					}
+					// Search for the adult in the HomeFolder by its
+					// IndividualExternalId
+					else
+					{
+						String individualExternalId = xmlAdult.getIndividualExternalId();
+						if (StringUtils.isNotBlank(individualExternalId))
 						{
-							String individualExternalId = this.getXmlTagTextValue(xmlAdult, "IndividualExternalId");
-							if (StringUtils.isNotBlank(individualExternalId))
+							HomeFolderMapping homeFolderMappingCirilNetEnfance = this.externalHomeFolderService
+									.getHomeFolderMapping("CirilNetEnfance", homeFolder.getId());
+							for (IndividualMapping individualMapping : homeFolderMappingCirilNetEnfance.getIndividualsMappings())
 							{
-								HomeFolderMapping homeFolderMappingCirilNetEnfance = this.externalHomeFolderService
-										.getHomeFolderMapping("CirilNetEnfance", homeFolder.getId());
-								for (IndividualMapping individualMapping : homeFolderMappingCirilNetEnfance
-										.getIndividualsMappings())
+								if (adult == null && individualExternalId.equals(individualMapping.getExternalId()))
 								{
-									if (adult == null && individualExternalId.equals(individualMapping.getExternalId()))
-									{
-										adult = (Adult) this.userSearchService.getAdultById(individualMapping
-												.getIndividualId());
-									}
+									adult = (Adult) this.userSearchService.getAdultById(individualMapping.getIndividualId());
 								}
 							}
 						}
-						// cas particulier ni IndividualCapdematId côté CNE, ni
-						// IndividualExternalId côté CapDemat
-						if (adult == null || adult.getId() == null)
-						{
-							adult = ultimateAdultMatchWithHomeFolder(xmlAdult, homeFolder);
-						}
-						else
-						{
-							this.populateAdult(adult, xmlAdult);
-						}
-						if (adult == null || adult.getId() == null)
-						{
-							adult = new Adult();
-							this.populateAdult(adult, xmlAdult);
-							// Adult to create
-							//individualsCreated.add(adult);
-							try
-							{
-								this.userWorkflowService.add(homeFolder, adult, true);
-							}
-							catch (CvqException e)
-							{
-								logger.fatal(e.getMessage());
-							}
-						}
-						individuals.add(adult);
 					}
-				}
-				else if (adultChildCursor.toChild("Child"))
-				{
-					XmlObject[] xmlChilds = xmlIndividual.selectPath("./Child");
-					for (XmlObject xmlChild : xmlChilds)
+					// cas particulier ni IndividualCapdematId côté CNE, ni
+					// IndividualExternalId côté CapDemat
+					if (adult == null || adult.getId() == null)
 					{
-						Child child = null;
-						String individualCapdematId = this.getXmlTagTextValue(xmlChild, "IndividualCapdematId");
-						// Search for the child in the HomeFolder by its
-						// individualCapdematId
-						if (individualCapdematId != null)
+						adult = ultimateAdultMatchWithHomeFolder(xmlAdult, homeFolder);
+					}
+					else
+					{
+						this.populateAdult(adult, xmlAdult);
+					}
+					if (adult == null || adult.getId() == null)
+					{
+						adult = new Adult();
+						this.populateAdult(adult, xmlAdult);
+						// Adult to create
+						//individualsCreated.add(adult);
+						try
 						{
-							Long id = Long.parseLong(individualCapdematId);
-							if (id != null)
-							{
-								// Child to modify
-								child = this.userSearchService.getChildById(id);
-							}
+							this.userWorkflowService.add(homeFolder, adult, true);
 						}
-						// Search for the adult in the HomeFolder by its
-						// IndividualExternalId
-						else
+						catch (CvqException e)
 						{
-							String individualExternalId = this.getXmlTagTextValue(xmlChild, "IndividualExternalId");
-							if (StringUtils.isNotBlank(individualExternalId))
+							logger.fatal(e.getMessage());
+						}
+					}
+					individuals.add(adult);
+				}
+				else if (xmlIndividual.isSetChild())
+				{
+				    ChildType xmlChild = xmlIndividual.getChild();
+					Child child = null;
+					String individualCapdematId = xmlChild.getIndividualCapdematId();
+					// Search for the child in the HomeFolder by its
+					// individualCapdematId
+					if (individualCapdematId != null)
+					{
+						Long id = Long.parseLong(individualCapdematId);
+						if (id != null)
+						{
+							// Child to modify
+							child = this.userSearchService.getChildById(id);
+						}
+					}
+					// Search for the adult in the HomeFolder by its
+					// IndividualExternalId
+					else
+					{
+						String individualExternalId = xmlChild.getIndividualExternalId();
+						if (StringUtils.isNotBlank(individualExternalId))
+						{
+							HomeFolderMapping homeFolderMappingCirilNetEnfance = this.externalHomeFolderService
+									.getHomeFolderMapping("CirilNetEnfance", homeFolder.getId());
+							for (IndividualMapping individualMapping : homeFolderMappingCirilNetEnfance
+									.getIndividualsMappings())
 							{
-								HomeFolderMapping homeFolderMappingCirilNetEnfance = this.externalHomeFolderService
-										.getHomeFolderMapping("CirilNetEnfance", homeFolder.getId());
-								for (IndividualMapping individualMapping : homeFolderMappingCirilNetEnfance
-										.getIndividualsMappings())
+								if (child == null && individualExternalId.equals(individualMapping.getExternalId()))
 								{
-									if (child == null && individualExternalId.equals(individualMapping.getExternalId()))
-									{
-										child = (Child) this.userSearchService.getChildById(individualMapping
-												.getIndividualId());
-									}
+									child = (Child) this.userSearchService.getChildById(individualMapping
+											.getIndividualId());
 								}
 							}
 						}
-						// cas particulier ni IndividualCapdematId côté CNE, ni
-						// IndividualExternalId côté CapDemat
-						if (child == null || child.getId() == null)
-						{
-							child = ultimateChildMatchWithHomeFolder(xmlChild, homeFolder);
-						}
-						else
-						{
-							this.populateChild(child, xmlChild);
-						}
-						if (child == null || child.getId() == null)
-						{
-							child = new Child();
-							this.populateChild(child, xmlChild);
-							// Child to create
-							//individualsCreated.add(child);
-							try
-							{
-								this.userWorkflowService.add(homeFolder, child);
-							}
-							catch (CvqException e)
-							{
-								logger.fatal(e.getMessage());
-							}
-						}
-						individuals.add(child);
 					}
+					// cas particulier ni IndividualCapdematId côté CNE, ni
+					// IndividualExternalId côté CapDemat
+					if (child == null || child.getId() == null)
+					{
+						child = ultimateChildMatchWithHomeFolder(xmlChild, homeFolder);
+					}
+					else
+					{
+						this.populateChild(child, xmlChild);
+					}
+					if (child == null || child.getId() == null)
+					{
+						child = new Child();
+						this.populateChild(child, xmlChild);
+						// Child to create
+						//individualsCreated.add(child);
+						try
+						{
+							this.userWorkflowService.add(homeFolder, child);
+						}
+						catch (CvqException e)
+						{
+							logger.fatal(e.getMessage());
+						}
+					}
+					individuals.add(child);
 				}
-				adultChildCursor.dispose();
 			}
 		}
 		return individuals;
@@ -571,48 +554,63 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 *            information to populate
 	 * @return adult
 	 */
-	private Adult populateAdult(Adult adult, XmlObject xmlAdult) throws CvqException
+	private Adult populateAdult(Adult adult, AdultType xmlAdult) throws CvqException
 	{
 		if (xmlAdult != null)
 		{
-			adult = (Adult) this.populateIndividual(adult, xmlAdult);
-			adult.setTitle(TitleType.forString(StringUtils.upperCase(this.getXmlTagTextValue(xmlAdult, "Title"))));
-			String maidenName = this.getXmlTagTextValue(xmlAdult, "MaidenName");
+			adult.setLastName(xmlAdult.getLastName());
+			adult.setFirstName(xmlAdult.getFirstName());
+			adult.setFirstName2(xmlAdult.getFirstName2());
+			adult.setFirstName3(xmlAdult.getFirstName3());
+			adult.setCreationDate(xmlAdult.getCreationDate().getTime());
+			adult.setBirthDate(xmlAdult.getBirthDate().getTime());
+			adult.setBirthCity(xmlAdult.getBirthPlace().getCity());
+			adult.setBirthPostalCode(xmlAdult.getBirthPlace().getPostalCode());
+			
+			
+			
+			adult.setTitle(TitleType.forString(StringUtils.upperCase(xmlAdult.getTitle().toString())));
+			
+			String maidenName = xmlAdult.getMaidenName();
 			if (maidenName != null && maidenName.trim().equals("")) maidenName = null;
 			adult.setMaidenName(maidenName);
-			adult.setFamilyStatus(FamilyStatusType.forString(StringUtils.upperCase(this.getXmlTagTextValue(xmlAdult,
-					"FamilyStatus"))));
-			String homePhone = this.getXmlTagTextValue(xmlAdult, "HomePhone");
+			
+			adult.setFamilyStatus(FamilyStatusType.forString(StringUtils.upperCase(xmlAdult.getFamilyStatus().toString())));
+			String homePhone = xmlAdult.getHomePhone();
 			if (homePhone != null && homePhone.trim().equals("")) homePhone = null;
 			if (homePhone != null && !homePhone.matches("^0[1-9][0-9]{8}$")) throw new CvqException(
 					"Le format du téléphone personnel ne correspond pas au format attendu : 0[1-9][0-9]{8}");
 			adult.setHomePhone(homePhone);
-			String officePhone = this.getXmlTagTextValue(xmlAdult, "OfficePhone");
+			
+			String officePhone = xmlAdult.getOfficePhone();
 			if (officePhone != null && officePhone.trim().equals("")) officePhone = null;
 			if (officePhone != null && !officePhone.matches("^0[1-9][0-9]{8}$")) throw new CvqException(
 					"Le format du téléphone de bureau ne correspond pas au format attendu : 0[1-9][0-9]{8}");
 			adult.setOfficePhone(officePhone);
-			String mobilePhone = this.getXmlTagTextValue(xmlAdult, "MobilePhone");
+			
+			String mobilePhone = xmlAdult.getMobilePhone();
 			if (mobilePhone != null && mobilePhone.trim().equals("")) mobilePhone = null;
 			if (mobilePhone != null && !mobilePhone.matches("^0[67][0-9]{8}$")) throw new CvqException(
 					"Le format du téléphone mobile ne correspond pas au format attendu : 0[67][0-9]{8}");
 			adult.setMobilePhone(mobilePhone);
-			String email = this.getXmlTagTextValue(xmlAdult, "Email");
+			
+			String email = xmlAdult.getEmail();
 			if (email != null && email.trim().equals("")) email = null;
 			if (email != null && !email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) throw new CvqException(
 					"Le format du mail ne correspond pas au format attendu : ^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$");
 			adult.setEmail(email);
 			
-			String cfbn = this.getXmlTagTextValue(xmlAdult, "Cfbn");
+			String cfbn = xmlAdult.getCfbn();
 			if (cfbn != null && cfbn.trim().equals("")) cfbn = null;
 			if (cfbn != null && !cfbn.matches("^[0-9A-Za-z-_. ]{0,20}$")) throw new CvqException(
 					"Le format du numéro allocataire CAF ne correspond pas au format attendu : ^[0-9A-Za-z-_. ]{0,20}$");
 			adult.setCfbn(cfbn);
 			
-			String profession = this.getXmlTagTextValue(xmlAdult, "Profession");
+			String profession = xmlAdult.getProfession();
 			if (profession != null && profession.trim().equals("")) profession = null;
 			adult.setProfession(profession);
-			adult.setExternalId(this.getXmlTagTextValue(xmlAdult, "IndividualExternalId"));
+			adult.setExternalId(xmlAdult.getIndividualExternalId());
+			
 			// Default password, don't modify it
 			// TODO : Enable to personnalized it
 			if (StringUtils.isBlank(adult.getPassword()))
@@ -627,13 +625,15 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 			{
 				adult.setQuestion("Quel est votre loisir préféré ?");
 			}
-			XmlCursor xmlCursor = xmlAdult.newCursor();
-			if (xmlCursor.toChild("Address"))
-			{
-				Address address = adult.getAddress();
-				adult.setAddress(this.populateAdress(address, xmlCursor.getObject()));
-			}
-			xmlCursor.dispose();
+
+			Address address = new Address();
+			address.setAdditionalDeliveryInformation(xmlAdult.getAddress().getAdditionalDeliveryInformation());
+			address.setAdditionalGeographicalInformation(xmlAdult.getAddress().getAdditionalGeographicalInformation());
+			address.setStreetNumber(xmlAdult.getAddress().getStreetNumber());
+			address.setStreetName(xmlAdult.getAddress().getStreetName());
+			address.setPostalCode(xmlAdult.getAddress().getPostalCode());
+			address.setCity(xmlAdult.getAddress().getCity());
+			adult.setAddress(address);
 		}
 		return adult;
 	}
@@ -647,94 +647,32 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 *            information to populate
 	 * @return child
 	 */
-	private Child populateChild(Child child, XmlObject xmlChild)
+	private Child populateChild(Child child, ChildType xmlChild)
 	{
 		if (xmlChild != null)
 		{
-			try
+            child.setLastName(xmlChild.getLastName());
+            child.setFirstName(xmlChild.getFirstName());
+            child.setFirstName2(xmlChild.getFirstName2());
+            child.setFirstName3(xmlChild.getFirstName3());
+            child.setCreationDate(xmlChild.getCreationDate().getTime());
+            child.setBirthDate(xmlChild.getBirthDate().getTime());
+            child.setBirthCity(xmlChild.getBirthPlace().getCity());
+            child.setBirthPostalCode(xmlChild.getBirthPlace().getPostalCode());
+			
+			child.setBorn(xmlChild.getBorn());
+			child.setSex(SexType.forString(xmlChild.getSex().toString()));
+			child.setExternalId(xmlChild.getIndividualExternalId());
+
+			if (xmlChild.getChildInformationSheet() != null)
 			{
-				child = (Child) this.populateIndividual(child, xmlChild);
-				String born = this.getXmlTagTextValue(xmlChild, "Born");
-				child.setBorn("true".equals(born));
-				child.setSex(SexType.forString(this.getXmlTagTextValue(xmlChild, "Sex")));
-				child.setExternalId(this.getXmlTagTextValue(xmlChild, "IndividualExternalId"));
-				XmlCursor xmlCursor = xmlChild.newCursor();
-				if (xmlCursor.toChild("ChildInformationSheet"))
-				{
-					ChildInformationSheet childInformationSheet = child.getChildInformationSheet();
-					child.setChildInformationSheet(this.populateChildInformationSheet(childInformationSheet,
-							xmlCursor.getObject()));
-				}
-				xmlCursor.dispose();
-			}
-			catch (Exception e)
-			{
-				logger.fatal(e.getMessage());
+				ChildInformationSheet childInformationSheet = child.getChildInformationSheet();
+				child.setChildInformationSheet(this.populateChildInformationSheet(childInformationSheet, xmlChild.getChildInformationSheet()));
 			}
 		}
 		return child;
 	}
 
-	/**
-	 * Populate an individual object with xml information
-	 * 
-	 * @param individual
-	 *            object which has to be populated
-	 * @param xmlIndividual
-	 *            information to populate
-	 * @return individual populated
-	 */
-	private Individual populateIndividual(Individual individual, XmlObject xmlIndividual)
-	{
-		if (xmlIndividual != null)
-		{
-			try
-			{
-				String valeur = null;
-				individual.setExternalId(this.getXmlTagTextValue(xmlIndividual, "IndividualExternalId"));
-				individual.setFirstName(this.getXmlTagTextValue(xmlIndividual, "FirstName"));
-				individual.setLastName(this.getXmlTagTextValue(xmlIndividual, "LastName"));
-				valeur = this.getXmlTagTextValue(xmlIndividual, "FirstName2");
-				if (StringUtils.isNotBlank(valeur))
-				{
-					individual.setFirstName2(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlIndividual, "FirstName3");
-				if (StringUtils.isNotBlank(valeur))
-				{
-					individual.setFirstName3(valeur);
-				}
-				individual.setCreationDate(this.getXmlTagTextValue(xmlIndividual, "CreationDate"));
-				// Birth date
-				Date birthDate = null;
-				try
-				{
-					String date = this.getXmlTagTextValue(xmlIndividual, "BirthDate");
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					if (StringUtils.isNotBlank(date))
-					{
-						birthDate = (Date) formatter.parse(date);
-					}
-				}
-				catch (ParseException e)
-				{
-					logger.error("Error with child birthdate : " + e.getMessage());
-				}
-				individual.setBirthDate(birthDate);
-				XmlCursor birthPlaceXmlCursor = xmlIndividual.newCursor();
-				if (birthPlaceXmlCursor.toChild("BirthPlace"))
-				{
-					this.populateBirthPlace(individual, birthPlaceXmlCursor.getObject());
-				}
-				birthPlaceXmlCursor.dispose();
-			}
-			catch (Exception e)
-			{
-				logger.fatal(e.getMessage());
-			}
-		}
-		return individual;
-	}
 
 	/**
 	 * Populate individual roles
@@ -742,16 +680,20 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 * @param xmlIndividual
 	 * @return individualRoles updated
 	 */
-	private Set<IndividualRole> populateIndividualRoles(XmlObject xmlIndividual)
+	private Set<IndividualRole> populateIndividualRoles(SubjectType xmlIndividual)
 	{
 		Set<IndividualRole> individualRoles = new HashSet<IndividualRole>();
 		if (xmlIndividual != null)
 		{
-			XmlObject[] xmlRoles = xmlIndividual.selectPath("./Role");
-			for (XmlObject individualRoleXmlObject : xmlRoles)
+		    IndividualRoleType[] roles = (xmlIndividual.isSetAdult() ? xmlIndividual.getAdult() : xmlIndividual.getChild()).getRoleArray();
+			for (IndividualRoleType individualRoleXmlObject : roles)
 			{
 				IndividualRole individualRole = new IndividualRole();
-				individualRoles.add(this.populateIndividualRole(individualRole, individualRoleXmlObject));
+                individualRole.setIndividualName(individualRoleXmlObject.getIndividualName());
+                individualRole.setIndividualId(individualRoleXmlObject.getIndividualExternalId());
+                individualRole.setRole(RoleType.valueOf(StringUtils.upperCase(individualRoleXmlObject.getRoleName().toString())));
+
+				individualRoles.add(individualRole);
 			}
 		}
 		return individualRoles;
@@ -802,256 +744,57 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 * 
 	 */
 	private ChildInformationSheet populateChildInformationSheet(ChildInformationSheet childInformationSheet,
-			XmlObject xmlChildInformationSheet)
+	        ChildInformationSheetType xmlChildInformationSheet)
 	{
-		if (xmlChildInformationSheet != null)
+		if (childInformationSheet == null)
 		{
-			try
+			childInformationSheet = new ChildInformationSheet();
+		}
+		
+		if (xmlChildInformationSheet.getDiets() != null)
+		{
+			HashSet<Diet> dietSet = new HashSet<Diet>();
+			for (org.libredemat.homeFolderSynchronisation.DietEnumType.Enum xmlDiet : xmlChildInformationSheet.getDiets().getTypeArray())
 			{
-				if (childInformationSheet == null)
-				{
-					childInformationSheet = new ChildInformationSheet();
-				}
-				// Régimes alimentaires
-				XmlCursor dietsXmlCursor = xmlChildInformationSheet.newCursor();
-				if (dietsXmlCursor.toChild("Diets"))
-				{
-					HashSet<Diet> dietSet = new HashSet<Diet>();
-					XmlObject[] xmlDiets = dietsXmlCursor.getObject().selectPath("./Type");
-					for (XmlObject xmlDiet : xmlDiets)
-					{
-						String valeur;
-						XmlOptions opts = new XmlOptions();
-						valeur = xmlDiet.xmlText(opts);
-						if (valeur != null)
-						{
-							valeur = valeur.trim();
-							valeur = valeur.replaceAll("<xml-fragment>", "");
-							valeur = valeur.replaceAll("</xml-fragment>", "");
-							if (DietEnum.valueOf(valeur) != null)
-							{
-								Diet diet = new Diet();
-								diet.setType(DietEnum.valueOf(valeur));
-								dietSet.add(diet);
-							}
-						}
-					}
-					if (!dietSet.isEmpty())
-					{
-						childInformationSheet.setDiets(dietSet);
-					}
-					else
-					{
-						childInformationSheet.setDiets(null);
-					}
-				}
-				dietsXmlCursor.dispose();
-				String valeur = null;
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "Allergie");
-				if (valeur != null)
-				{
-					childInformationSheet.setAllergie(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "AutorisationDroitImage");
-				if (valeur != null)
-				{
-					childInformationSheet.setAutorisationDroitImage("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "AutorisationHospitalisation");
-				if (valeur != null)
-				{
-					childInformationSheet.setAutorisationHospitalisation("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "AutorisationMaquillage");
-				if (valeur != null)
-				{
-					childInformationSheet.setAutorisationMaquillage("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "AutorisationRentrerSeul");
-				if (valeur != null)
-				{
-					childInformationSheet.setAutorisationRentrerSeul("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "AutorisationTransporterTransportCommun");
-				if (valeur != null)
-				{
-					childInformationSheet.setAutorisationTransporterTransportCommun("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "AutorisationTransporterVehiculeMunicipal");
-				if (valeur != null)
-				{
-					childInformationSheet.setAutorisationTransporterVehiculeMunicipal("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "DifficulteSante");
-				if (valeur != null)
-				{
-					childInformationSheet.setDifficulteSante(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "EmailEnfant");
-				if (valeur != null)
-				{
-					childInformationSheet.setEmailEnfant(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "NomMedecinTraitant");
-				if (valeur != null)
-				{
-					childInformationSheet.setNomMedecinTraitant(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "NomOrganismeAssurance");
-				if (valeur != null)
-				{
-					childInformationSheet.setNomOrganismeAssurance(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "NumeroOrganismeAssurance");
-				if (valeur != null)
-				{
-					childInformationSheet.setNumeroOrganismeAssurance(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "ProjetAccueilIndividualise");
-				if (valeur != null)
-				{
-					childInformationSheet.setProjetAccueilIndividualise("true".equals(valeur));
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "RecommandationParent");
-				if (valeur != null)
-				{
-					childInformationSheet.setRecommandationParent(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "TelephoneMedecinTraitant");
-				if (valeur != null)
-				{
-					childInformationSheet.setTelephoneMedecinTraitant(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "TelephonePortable");
-				if (valeur != null)
-				{
-					childInformationSheet.setTelephonePortable(valeur);
-				}
-				valeur = this.getXmlTagTextValue(xmlChildInformationSheet, "VaccinAutre");
-				if (valeur != null)
-				{
-					childInformationSheet.setVaccinAutre(valeur);
-				}
-				// VaccinBcg
-				Date dateVaccin = null;
-				try
-				{
-					String date = this.getXmlTagTextValue(xmlChildInformationSheet, "VaccinBcg");
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					if (StringUtils.isNotBlank(date))
-					{
-						dateVaccin = (Date) formatter.parse(date);
-					}
-					childInformationSheet.setVaccinBcg(dateVaccin);
-					dateVaccin = null;
-				}
-				catch (ParseException e)
-				{
-					logger.error("Error with VaccinBcg : " + e.getMessage());
-				}
-				// VaccinDtPolio
-				try
-				{
-					String date = this.getXmlTagTextValue(xmlChildInformationSheet, "VaccinDtPolio");
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					if (StringUtils.isNotBlank(date))
-					{
-						dateVaccin = (Date) formatter.parse(date);
-					}
-					childInformationSheet.setVaccinDtPolio(dateVaccin);
-					dateVaccin = null;
-				}
-				catch (ParseException e)
-				{
-					logger.error("Error with VaccinDtPolio : " + e.getMessage());
-				}
-				// VaccinInjectionSerum
-				try
-				{
-					String date = this.getXmlTagTextValue(xmlChildInformationSheet, "VaccinInjectionSerum");
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					if (StringUtils.isNotBlank(date))
-					{
-						dateVaccin = (Date) formatter.parse(date);
-					}
-					childInformationSheet.setVaccinInjectionSerum(dateVaccin);
-					dateVaccin = null;
-				}
-				catch (ParseException e)
-				{
-					logger.error("Error with VaccinInjectionSerum : " + e.getMessage());
-				}
-				// VaccinRor
-				try
-				{
-					String date = this.getXmlTagTextValue(xmlChildInformationSheet, "VaccinRor");
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					if (StringUtils.isNotBlank(date))
-					{
-						dateVaccin = (Date) formatter.parse(date);
-					}
-					childInformationSheet.setVaccinRor(dateVaccin);
-					dateVaccin = null;
-				}
-				catch (ParseException e)
-				{
-					logger.error("Error with VaccinRor : " + e.getMessage());
-				}
-				// VaccinTetracoqPentacoq
-				try
-				{
-					String date = this.getXmlTagTextValue(xmlChildInformationSheet, "VaccinTetracoqPentacoq");
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					if (StringUtils.isNotBlank(date))
-					{
-						dateVaccin = (Date) formatter.parse(date);
-					}
-					childInformationSheet.setVaccinTetracoqPentacoq(dateVaccin);
-					dateVaccin = null;
-				}
-				catch (ParseException e)
-				{
-					logger.error("Error with VaccinTetracoqPentacoq : " + e.getMessage());
-				}
+				if (DietEnum.valueOf(xmlDiet.toString()) != null)
+					dietSet.add(new Diet(DietEnum.valueOf(xmlDiet.toString())));
 			}
-			catch (Exception e)
+			if (!dietSet.isEmpty())
 			{
-				logger.fatal(e.getMessage());
+				childInformationSheet.setDiets(dietSet);
+			}
+			else
+			{
+				childInformationSheet.setDiets(null);
 			}
 		}
-		return childInformationSheet;
-	}
 
-	/**
-	 * Populate individual role
-	 * 
-	 * @param individualRole
-	 *            to populate
-	 * @param xmlIndividualRole
-	 *            information to populate
-	 * @return individual roles populated
-	 */
-	private IndividualRole populateIndividualRole(IndividualRole individualRole, XmlObject xmlIndividualRole)
-	{
-		try
-		{
-			if (xmlIndividualRole != null)
-			{
-				String individualId = this.getXmlTagTextValue(xmlIndividualRole, "IndividualExternalId");
-				if (individualId != null)
-				{
-					individualRole.setIndividualId(Long.valueOf(individualId));
-				}
-				individualRole.setIndividualName(this.getXmlTagTextValue(xmlIndividualRole, "IndividualName"));
-				individualRole.setRole(RoleType.valueOf(StringUtils.upperCase(this.getXmlTagTextValue(
-						xmlIndividualRole, "RoleName"))));
-			}
-		}
-		catch (Exception e)
-		{
-			logger.fatal(e.getMessage());
-		}
-		return individualRole;
+		childInformationSheet.setAllergie(xmlChildInformationSheet.getAllergie());
+		childInformationSheet.setAutorisationDroitImage(xmlChildInformationSheet.getAuthorisationDroitImage());
+		childInformationSheet.setAutorisationHospitalisation(xmlChildInformationSheet.getAutorisationHospitalisation());
+		
+		childInformationSheet.setAutorisationMaquillage(xmlChildInformationSheet.getAutorisationMaquillage());
+		childInformationSheet.setAutorisationRentrerSeul(xmlChildInformationSheet.getAuthorisationRentrerSeul());
+		childInformationSheet.setAutorisationTransporterTransportCommun(xmlChildInformationSheet.getAutorisationTransporterTransportCommun());
+		childInformationSheet.setAutorisationTransporterVehiculeMunicipal(xmlChildInformationSheet.getAutorisationTransporterVehiculeMunicipal());
+		childInformationSheet.setDifficulteSante(xmlChildInformationSheet.getDifficulteSante());
+		childInformationSheet.setEmailEnfant(xmlChildInformationSheet.getEmailEnfant());
+		childInformationSheet.setNomMedecinTraitant(xmlChildInformationSheet.getNomMedecinTraitant());
+		childInformationSheet.setNomOrganismeAssurance(xmlChildInformationSheet.getNomOrganismeAssurance());
+		childInformationSheet.setNumeroOrganismeAssurance(xmlChildInformationSheet.getNumeroOrganismeAssurance());
+		childInformationSheet.setProjetAccueilIndividualise(xmlChildInformationSheet.getProjetAccueilIndividualise());
+		childInformationSheet.setRecommandationParent(xmlChildInformationSheet.getRecommandationParent());
+		childInformationSheet.setTelephoneMedecinTraitant(xmlChildInformationSheet.getTelephoneMedecinTraitant());
+		childInformationSheet.setTelephonePortable(xmlChildInformationSheet.getTelephonePortable());
+		childInformationSheet.setVaccinAutre(xmlChildInformationSheet.getVaccinAutre());
+		
+		childInformationSheet.setVaccinBcg(xmlChildInformationSheet.getVaccinBcg().getTime());
+		childInformationSheet.setVaccinDtPolio(xmlChildInformationSheet.getVaccinDtPolio().getTime());
+		childInformationSheet.setVaccinInjectionSerum(xmlChildInformationSheet.getVaccinInjectionSerum().getTime());
+		childInformationSheet.setVaccinRor(xmlChildInformationSheet.getVaccinRor().getTime());
+		childInformationSheet.setVaccinTetracoqPentacoq(xmlChildInformationSheet.getVaccinTetracoqPentacoq().getTime());
+		
+		return childInformationSheet;
 	}
 
 	/**
@@ -1063,7 +806,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 	 *            information to populate
 	 * @return individual populated
 	 */
-	private Individual populateBirthPlace(Individual individual, XmlObject xmlIndividual)
+	private Individual populateBirthPlace(Individual individual, SubjectType xmlIndividual)
 	{
 		try
 		{
@@ -1140,7 +883,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		return individualsDeleted != null && individualsDeleted.size() > 0;
 	}
 
-	private Child ultimateChildMatchWithHomeFolder(XmlObject xmlChild, HomeFolder homeFolder)
+	private Child ultimateChildMatchWithHomeFolder(ChildType xmlChild, HomeFolder homeFolder)
 	{
 		for (Individual individual : homeFolder.getIndividuals())
 		{
@@ -1153,7 +896,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		return null;
 	}
 
-	private Child isMatchIndividuByName(XmlObject xmlChild, Individual individualCapDemat)
+	private Child isMatchIndividuByName(ChildType xmlChild, Individual individualCapDemat)
 	{
 		Child child = new Child();
 		if (isMatchIndividuByName(populateChild(child, xmlChild), individualCapDemat))
@@ -1164,7 +907,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		return null;
 	}
 
-	private Adult ultimateAdultMatchWithHomeFolder(XmlObject xmlAdult, HomeFolder homeFolder) throws CvqException
+	private Adult ultimateAdultMatchWithHomeFolder(AdultType xmlAdult, HomeFolder homeFolder) throws CvqException
 	{
 		for (Individual individual : homeFolder.getIndividuals())
 		{
@@ -1177,7 +920,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		return null;
 	}
 
-	private Adult isMatchAdultByName(XmlObject xmlAdult, Individual individualCapDemat) throws CvqException
+	private Adult isMatchAdultByName(AdultType xmlAdult, Individual individualCapDemat) throws CvqException
 	{
 		Adult adult = new Adult();
 		if (isMatchIndividuByName(populateAdult(adult, xmlAdult), individualCapDemat))

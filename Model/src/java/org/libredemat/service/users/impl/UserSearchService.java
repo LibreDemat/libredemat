@@ -127,13 +127,13 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
     public final List<Child> getChildren(final Long homeFolderId, UserState... states) {
         return childDAO.listChildrenByHomeFolder(homeFolderId, states);
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
     public final List<Adult> getAdults(final Long homeFolderId, UserState... states) {
         return adultDAO.listAdultsByHomeFolder(homeFolderId, states);
     }
@@ -155,7 +155,7 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
     public Adult getHomeFolderResponsible(Long homeFolderId) {
         List<Individual> individuals =
             individualDAO.listByHomeFolderRole(homeFolderId, RoleType.HOME_FOLDER_RESPONSIBLE);

@@ -65,7 +65,7 @@
             <prop key="{http://www.libredemat.org}homeFolderMappingServiceRequest">homeFolderMappingServiceEndpoint</prop>
             <prop key="{http://www.libredemat.org}GetDocumentListRequest">documentListServiceEndpoint</prop>
             <prop key="{http://www.libredemat.org}GetDocumentRequest">documentServiceEndpoint</prop>
-            <prop key="{http://www.libredemat.org}HomeFolderSynchronisationRequest">homeFolderSynchronisationEndpoint</prop>
+            <prop key="{http://www.libredemat.org/homeFolderSynchronisation}HomeFolderSynchronisationRequest">homeFolderSynchronisationEndpoint</prop>
             <prop key="{http://www.libredemat.org/homonymy}HomonymyRequest">homonymyEndpoint</prop>
         </props>
     </property>
