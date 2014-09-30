@@ -156,6 +156,14 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
             if (atom[1] === "address" && mode === "edit" && !!zcc.AddressAutocomplete) {
                 zcc.AddressAutocomplete.bind("address_" + id);
             }
+            
+            // chargement des calendriers :
+            if (yud.get("vaccinBcg") != undefined) zcb.Calendar("vaccinBcg");
+            if (yud.get("vaccinDtPolio") != undefined) zcb.Calendar("vaccinDtPolio");
+            if (yud.get("vaccinInjectionSerum") != undefined) zcb.Calendar("vaccinInjectionSerum");
+            if (yud.get("vaccinRor") != undefined) zcb.Calendar("vaccinRor");
+            if (yud.get("vaccinTetracoqPentacoq") != undefined) zcb.Calendar("vaccinTetracoqPentacoq");
+            
           });
       },
       edit : function(e) {
