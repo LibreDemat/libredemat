@@ -122,14 +122,19 @@
                 <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} adult-contact required collapse">
                   <g:render template="static/contact" model="['adult':homeFolderResponsible, 'isResponsible':true]" />
                 </dl>
-                <g:each var="homeMapping" in="${homeMappings}">
-                   <g:set var="individualsMappings" value="${homeMapping.individualsMappings.groupBy { it.individualId }}" />
-                   <g:each var="mapping" in="${individualsMappings[homeFolderResponsible.id]}">
-                   <h3>${homeMapping.externalServiceLabel}</h3>
-                   <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} individual-${homeMapping.externalServiceLabel.replace(" ", "#")}-mapping required collapse">
-                      <g:render template="static/mapping" model="['mapping':mapping]" />
+                <g:each var="homeMapping" in="${homeMappings}"> 
+                   <g:each var="indivMap" in="${homeMapping.individualsMappings}">
+                   		<g:if test="${indivMap.individualId == homeFolderResponsible.id}">
+		                   <h3>${homeMapping.externalServiceLabel}</h3>
+		                   <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} individual-${homeMapping.externalServiceLabel.replace(" ", "#")}-mapping required collapse">
+		                      <g:render template="static/mapping" model="['mapping':indivMap]" />
+		                   </dl>
+	                   </g:if>
+                	</g:each>
+                   <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} individual-${homeMapping.externalServiceLabel.replace(" ", "#")}-homeFolderMapping required collapse">
+                    <!-- to do inexine get home folder external id -->
+                      <g:render template="static/homeFolderMapping" model="['mapping':homeMapping]" />
                    </dl>
-                  </g:each>
                 </g:each>
               </div>
             </div>

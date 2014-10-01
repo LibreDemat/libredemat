@@ -492,6 +492,22 @@ class BackofficeHomeFolderController {
         render(template : mode + "/mapping", model : ["mapping" : mapping])
     }
 
+    def homeFolderMapping =
+    {
+      if (request.post)
+      {
+        def homeFolderMappingObject = externalHomeFolderService.getHomeFolderMapping(params.externalServiceLabel, Long.valueOf(params.homeFolderId))
+          homeFolderMappingObject.externalId = params.externalId
+          externalHomeFolderService.modifyHomeFolderMapping(homeFolderMappingObject)
+          //externalHomeFolderService.setExternalId(params.externalServiceLabel, Long.valueOf(params.homeFolderId), Long.valueOf(params.mappingId), params.externalId)
+      }
+      def individual = userSearchService.getById(params.long("id"))
+        //def mapping = externalHomeFolderService.getIndividualMapping(individual, params.externalServiceLabel)
+        def mapping = externalHomeFolderService.getHomeFolderMapping(params.externalServiceLabel, individual.homeFolder.id)
+        def mode = request.get ? params.mode : "static"
+        render(template : mode + "/homeFolderMapping", model : ["mapping" : mapping, 'individualId':individual.id])
+    }
+
     def responsibles = {
         def child = userSearchService.getChildById(Long.valueOf(params.id))
         def mode = request.get ? params.mode : "static"
