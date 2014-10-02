@@ -17,10 +17,13 @@ import org.libredemat.business.users.IndividualRole;
 import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.UserEvent;
 import org.libredemat.business.users.UserState;
+import org.libredemat.business.users.external.HomeFolderMapping;
+import org.libredemat.business.users.external.IndividualMapping;
 import org.libredemat.dao.users.IAdultDAO;
 import org.libredemat.dao.users.IChildDAO;
 import org.libredemat.dao.users.IHomeFolderDAO;
 import org.libredemat.dao.users.IIndividualDAO;
+import org.libredemat.dao.users.IHomeFolderMappingDAO;
 import org.libredemat.exception.CvqInvalidTransitionException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.security.annotation.Context;
@@ -29,7 +32,9 @@ import org.libredemat.security.annotation.ContextType;
 import org.libredemat.service.users.IUserDeduplicationService;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.IUserWorkflowService;
+import org.libredemat.service.users.IUserCoherenceService;
 import org.libredemat.util.JSONUtils;
+import org.libredemat.service.users.external.IExternalHomeFolderService;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.ApplicationListener;
@@ -42,7 +47,7 @@ import com.google.gson.JsonObject;
 public class UserDeduplicationService implements ApplicationListener<UserEvent>, ApplicationEventPublisherAware, IUserDeduplicationService{
 
     private static Logger logger = Logger.getLogger(UserDeduplicationService.class);
-    
+
     private ApplicationEventPublisher applicationEventPublisher;
 
     private IAdultDAO adultDAO;
@@ -51,6 +56,9 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
     private IHomeFolderDAO homeFolderDAO;
     private IUserSearchService userSearchService;
     private IUserWorkflowService userWorkflowService;
+    private IHomeFolderMappingDAO homeFolderMappingDAO;
+    private IUserCoherenceService userCoherenceService;
+    private IExternalHomeFolderService externalHomeFolderService;
     
     @Override
     public void onApplicationEvent(UserEvent userEvent) {
@@ -400,7 +408,84 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
             homeFolderDAO.update(targetHomeFolder);
         }
 
+
+        // MAPPINGS
+        createHomeFolderMappingIfNotExist(homeFolder, targetHomeFolder);
+        for (Long id : ids) {
+            Individual individual = userSearchService.getById(id);
+            Long targetIndividualId = merged.get(individual.getId());
+            if (targetIndividualId != null) {
+                mergeMappingForIndividual(
+                    homeFolder.getId(),
+                    targetHomeFolder.getId(),
+                    individual.getId().toString(),
+                    targetIndividualId == null ? null : targetIndividualId.toString()
+                );
+            }
+        }
+
         userWorkflowService.changeState(homeFolder, UserState.ARCHIVED);
+    }
+
+    private void createHomeFolderMappingIfNotExist(HomeFolder homeFolder, HomeFolder homeFolderTarget) {
+        List<HomeFolderMapping> findByHomeFolderId = homeFolderMappingDAO.findByHomeFolderId(homeFolder.getId());
+        for (HomeFolderMapping hfm : findByHomeFolderId) {
+            if (!userCoherenceService.existHomeFolderMappingByExternalLabel(homeFolderTarget,
+                        hfm.getExternalServiceLabel())) externalHomeFolderService.addHomeFolderMapping(
+                    hfm.getExternalServiceLabel(), homeFolderTarget.getId(), hfm.getExternalId());
+        }
+    }
+
+    /**
+     * met à jour le homeFolderMapping d'un individu qui est fusionné d'un
+     * homefolder à un autre.
+     * 
+     * @param homeFolderId
+     * @param homeFolderTargetId
+     * @param individualId
+     * @param individualtargetId
+     */
+    public void mergeMappingForIndividual(Long homeFolderId, Long homeFolderTargetId, String individualId,
+            String individualtargetId) {
+        List<HomeFolderMapping> findByHomeFolderId = externalHomeFolderService.getHomeFolderMappings(homeFolderId);
+        Long indivId = Long.valueOf(individualId);
+        Long indivTargetId = Long.valueOf(individualId); // oO
+        if (individualtargetId != null) indivTargetId = Long.valueOf(individualtargetId);
+        for (HomeFolderMapping HomeMap : findByHomeFolderId) {
+            if (!isExistHomeFolderMapping(HomeMap.getExternalServiceLabel(), homeFolderTargetId)) {
+                externalHomeFolderService.addHomeFolderMapping(HomeMap.getExternalServiceLabel(), homeFolderTargetId,
+                        HomeMap.getExternalId());
+            }
+            for (IndividualMapping indivMap : HomeMap.getIndividualsMappings()) {
+                if (indivMap.getIndividualId().compareTo(indivId) == 0) {
+                    if (!isExistIndividualMapping(HomeMap.getExternalServiceLabel(), homeFolderTargetId, indivTargetId)) {
+                        externalHomeFolderService.setExternalId(HomeMap.getExternalServiceLabel(), homeFolderTargetId,
+                                indivTargetId, indivMap.getExternalId());
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean isExistHomeFolderMapping(String externalLabel, Long homeFolderId) {
+        List<HomeFolderMapping> findByHomeFolderId = externalHomeFolderService.getHomeFolderMappings(homeFolderId);
+        for (HomeFolderMapping HomeMap : findByHomeFolderId) {
+            if (HomeMap.getExternalServiceLabel().equals(externalLabel) && HomeMap.getExternalId() != null
+                    && !HomeMap.getExternalId().equals("")) return true;
+        }
+        return false;
+    }
+
+    private boolean isExistIndividualMapping(String externalLabel, Long homeFolderId, Long individualId) {
+        List<HomeFolderMapping> findByHomeFolderId = externalHomeFolderService.getHomeFolderMappings(homeFolderId);
+        for (HomeFolderMapping HomeMap : findByHomeFolderId) {
+            for (IndividualMapping indivMap : HomeMap.getIndividualsMappings()) {
+                if (externalLabel.equals(HomeMap.getExternalServiceLabel()) && indivMap.getIndividualId() != null
+                        && indivMap.getIndividualId().compareTo(individualId) == 0 && indivMap.getExternalId() != null
+                        && !indivMap.getExternalId().trim().equals("")) { return true; }
+            }
+        }
+        return false;
     }
 
     private void moveOrMergeIndividual(Individual individual, HomeFolder targetHomeFolder) 
@@ -520,4 +605,17 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
         this.applicationEventPublisher = applicationEventPublisher;
     }
+
+    public void setHomeFolderMappingDAO(IHomeFolderMappingDAO homeFolderMappingDAO) {
+        this.homeFolderMappingDAO = homeFolderMappingDAO;
+    }
+
+    public void setUserCoherenceService(IUserCoherenceService userCoherenceService) {
+        this.userCoherenceService = userCoherenceService;
+    }
+
+    public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService) {
+        this.externalHomeFolderService = externalHomeFolderService;
+    }
+
 }

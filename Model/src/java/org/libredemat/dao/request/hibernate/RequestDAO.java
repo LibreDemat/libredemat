@@ -819,4 +819,12 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Request> findAllWithoutArchived()
+    {
+        Query query = HibernateUtil.getSession().createQuery("from RequestData as request where state != 'ARCHIVED'");
+        return transform(query.list(), false);
+    }
+
 }

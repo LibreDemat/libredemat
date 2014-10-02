@@ -246,4 +246,17 @@ public class HomeFolder implements Serializable {
     public List<Document> getDocuments() {
         return documents;
     }
+
+    public Individual getIndividualResponsable() {
+        if (getIndividuals() == null) return null;
+        for (Individual indiv : getIndividuals())
+        {
+            for (IndividualRole role : indiv.getIndividualRoles())
+            {
+                if (role.getRole() == RoleType.HOME_FOLDER_RESPONSIBLE) return indiv;
+            }
+        }
+        return null;
+    }
+
 }

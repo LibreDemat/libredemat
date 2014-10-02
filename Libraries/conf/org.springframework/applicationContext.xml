@@ -410,6 +410,19 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="individualDAO" ref="individualDAO" />
     <property name="userSearchService" ref="userSearchService" />
     <property name="userWorkflowService" ref="userWorkflowService" />
+    <property name="userCoherenceService" ref="userCoherenceService" />
+    <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO" />
+    <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+  </bean>
+
+  <bean id="userCoherenceService" class="org.libredemat.service.users.impl.UserCoherenceService">
+      <property name="homeFolderDAO" ref="homeFolderDAO" />
+      <property name="individualDAO" ref="individualDAO" />
+      <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO" />
+      <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+      <property name="authenticationService" ref="authenticationService" />
+      <property name="userWorkflowService" ref="userWorkflowService" />
+      <property name="requestDAO" ref="requestDAO" />
   </bean>
 
   <bean id="userSearchServiceToHasLegalResponsiblesCheckInjector"
