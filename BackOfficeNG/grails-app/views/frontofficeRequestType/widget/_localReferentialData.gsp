@@ -51,5 +51,5 @@
     <g:render template="/frontofficeRequestType/widget/localReferentialEntriesSelectTree"
               model="['lrEntries': lrEntries, 'lrDatas': currentLrDatas]"/>
   </select>
-  <input type="hidden" name="${javaName}[0].additionalInformationValue" value="${entry?.externalCode}" />
+  <input type="hidden" name="${javaName}[${flash[javaName+'Index']}].additionalInformationValue" value="${entry?.externalCode}" />
 </g:else>

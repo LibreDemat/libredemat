@@ -12,6 +12,13 @@ public class LocalReferentialEntryData {
     protected String label;
     /// (Optional) Additionnal message
     protected String message;
+    /*
+     * Hack inexine to add external code field
+     */
+    protected String externalCode;
+    /*
+     * end of hack
+     */
 
     public final String getKey() {
         return key;
@@ -24,4 +31,10 @@ public class LocalReferentialEntryData {
     public String getMessage() {
         return message;
     }
+    
+    // hack inexine
+    public String getExternalCode() {
+        return externalCode;
+    }
+    // end of hack
 }

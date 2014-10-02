@@ -7,7 +7,10 @@
   <input type="text" name="label" value="${entry?.label}" class="required" title="${message(code:'localReferential.error.labelisRequired')}" />
   <label for="message">${message(code:'localReferential.label.message')} : </label>
   <input type="text" name="message" value="${entry?.message}" />
-  
+  <!-- Hack inexine to add field external code -->
+  <label for="externalCode">${message(code:'localReferential.label.externalCode')} : </label>
+  <input type="text" name="externalCode" value="${entry?.externalCode}" />
+  <!-- end Hack inexine to add field external code -->
   <input type="hidden" name="entry.key" value="${entry?.key}" />
   <input type="hidden" name="parentEntryKey"value="${parentEntryKey}" />
   <input type="hidden" name="dataName" value="${dataName}" />

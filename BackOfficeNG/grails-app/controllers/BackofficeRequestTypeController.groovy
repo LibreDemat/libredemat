@@ -482,11 +482,13 @@ class BackofficeRequestTypeController {
         def parentKey = params.parentEntryKey != params.dataName ? params.parentEntryKey : null
         def newLabel = params.label
         def newMessage = params.message
+        // hack inexine to add external code field
+        def newExternalCode = params.externalCode
         if (params.'entry.key' == params.parentEntryKey) {
-            localReferentialService.addLocalReferentialEntry(rtLabel, params.dataName, parentKey, newLabel, newMessage)
+            localReferentialService.addLocalReferentialEntry(rtLabel, params.dataName, parentKey, newLabel, newMessage, newExternalCode)
             isNew = true
         } else {
-            localReferentialService.editLocalReferentialEntry(rtLabel, params.dataName, params.'entry.key', newLabel, newMessage)
+            localReferentialService.editLocalReferentialEntry(rtLabel, params.dataName, params.'entry.key', newLabel, newMessage, newExternalCode)
         }
         render (['isNew': isNew, 'entryLabel': newLabel, 'entryKey': params.'entry.key',
                  'status':'success', 'message':message(code:"message.updateDone")] as JSON)

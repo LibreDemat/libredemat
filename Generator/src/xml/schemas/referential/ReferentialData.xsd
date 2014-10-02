@@ -69,6 +69,18 @@
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
+            <!-- inexine hack external spécific field -->
+            <xs:element name="externalCode" minOccurs="0" maxOccurs="1" type="xs:normalizedString">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr">
+                  Code externe de l'activite
+                </xs:documentation>
+                <xs:documentation xml:lang="en">
+                  Activity external code
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <!-- end of hack -->            
             <xs:element name="entries" type="ref:LocalReferentialEntryType" minOccurs="0" />
           </xs:sequence>
           <xs:attribute name="key" type="xs:NMTOKEN" />

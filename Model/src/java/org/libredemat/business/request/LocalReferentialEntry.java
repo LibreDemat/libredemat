@@ -53,4 +53,11 @@ public class LocalReferentialEntry extends LocalReferentialEntryData {
     public void setMessage(String message) {
         this.message = message;
     }
+    
+    // hack inexine to add external code field
+    public void setExternalCode(String externalCode){
+        this.externalCode = externalCode;
+    }
+    // end hack inexine
+    
 }
