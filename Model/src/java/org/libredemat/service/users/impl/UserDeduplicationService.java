@@ -141,8 +141,8 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
 
     private void findChildDuplicates(Child child, Long targetHomeFolderId) {
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("lastName", child.getLastName());
-        parameters.put("firstName", child.getFirstName());
+        parameters.put("lastName", formatData(child.getLastName()));
+        parameters.put("firstName", formatData(child.getFirstName()));
         parameters.put("birthDate", child.getBirthDate());
         parameters.put("homeFolderId", targetHomeFolderId);
         List<Child> duplicates = childDAO.findDuplicates(parameters);
@@ -153,11 +153,11 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
                 Map<String, String> homeFolderEntry = new HashMap<String, String>();
                 homeFolderEntry.put("id", duplicate.getId().toString());
                 int rank = 0;
-                if (duplicate.getFirstName().equals(child.getFirstName())) {
+                if (formatData(duplicate.getFirstName()).equals(formatData(child.getFirstName()))) {
                     rank++;
                     homeFolderEntry.put("firstName", duplicate.getFirstName());
                 }
-                if (duplicate.getLastName().equals(child.getLastName())) {
+                if (formatData(duplicate.getLastName()).equals(formatData(child.getLastName()))) {
                     rank++;
                     homeFolderEntry.put("lastName", duplicate.getLastName());
                 }
@@ -179,10 +179,10 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
 
     private void findAdultDuplicates(Adult adult) {
         Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put("lastName", adult.getLastName());
-        parameters.put("firstName", adult.getFirstName());
-        parameters.put("email", adult.getEmail());
-        parameters.put("address", adult.getAddress().getStreetName());
+        parameters.put("lastName", formatData(adult.getLastName()));
+        parameters.put("firstName", formatData(adult.getFirstName()));
+        parameters.put("email", formatData(adult.getEmail()));
+        parameters.put("address", formatDataForText(adult.getAddress().getStreetName()));
         List<Adult> duplicates = adultDAO.findDuplicates(parameters);
         if (duplicates != null && !duplicates.isEmpty()) {
             Map<Long, Map<String, String>> duplicatesMap =
@@ -194,19 +194,19 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
                 Map<String, String> homeFolderEntry = duplicatesMap.get(duplicate.getHomeFolder().getId());
                 homeFolderEntry.put("id", duplicate.getId().toString());
                 int rank = 0;
-                if (duplicate.getLastName().equals(adult.getLastName())) {
+                if (formatData(duplicate.getLastName()).equals(formatData(adult.getLastName()))) {
                     rank++;
                     homeFolderEntry.put("lastName", duplicate.getLastName());
                 }
-                if (duplicate.getFirstName().equals(adult.getFirstName())) {
+                if (formatData(duplicate.getFirstName()).equals(formatData(adult.getFirstName()))) {
                     rank++;
                     homeFolderEntry.put("firstName", duplicate.getFirstName());
                 }
-                if (duplicate.getEmail().equals(adult.getEmail())) {
+                if (formatData(duplicate.getEmail()).equals(formatData(adult.getEmail()))) {
                     rank++;
                     homeFolderEntry.put("email", duplicate.getEmail());
                 }
-                if (duplicate.getAddress().getStreetName().equals(adult.getAddress().getStreetName())) {
+                if (formatDataForText(duplicate.getAddress().getStreetName()).equals(formatDataForText(adult.getAddress().getStreetName()))) {
                     rank++;
                     homeFolderEntry.put("streetName", duplicate.getAddress().getStreetName());
                 }
@@ -467,6 +467,29 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         
         individual.setDuplicateAlert(false);
         individual.setDuplicateData(null);
+    }
+
+    private String formatData(String data) {
+        if (data == null) return "";
+        data = data.trim();
+        data = data.toLowerCase();
+        data = data.replaceAll("é", "e");
+        data = data.replaceAll("è", "e");
+        data = data.replaceAll("ê", "e");
+        data = data.replaceAll("ë", "e");
+        data = data.replaceAll("à", "a");
+        data = data.replaceAll("â", "a");
+        data = data.replaceAll("ä", "a");
+        data = data.replaceAll("ï", "i");
+        data = data.replaceAll("î", "i");
+        return data;
+    }
+
+    private String formatDataForText(String data) {
+        if (data == null) return "";
+        data = data.trim();
+        data = data.toLowerCase();
+        return data;
     }
 
     public void setAdultDAO(IAdultDAO adultDAO) {
