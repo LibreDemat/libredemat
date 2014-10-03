@@ -1,0 +1,53 @@
+ycrr.duration.value =
+
+ycrr.property.subject.label = Sujet
+
+ycrr.step.registration.label =
+ycrr.step.registration.desc =
+
+ycrr.step.rules.label =
+ycrr.step.rules.desc =
+
+
+ycrr.property.subjectChoiceBirthDate.help =
+ycrr.property.subjectChoiceBirthDate.validationError =
+
+
+ycrr.property.subjectChoiceMobilePhone.help =
+ycrr.property.subjectChoiceMobilePhone.validationError =
+
+
+ycrr.property.subjectChoiceEmail.help =
+ycrr.property.subjectChoiceEmail.validationError =
+
+
+ycrr.property.isFirstRegistration.help =
+ycrr.property.isFirstRegistration.validationError =
+
+
+ycrr.property.firstRegistrationDate.help =
+ycrr.property.firstRegistrationDate.validationError =
+
+
+ycrr.property.firstRegistrationNumeroAdherent.help =
+ycrr.property.firstRegistrationNumeroAdherent.validationError =
+
+
+ycrr.property.childAlone.help =
+ycrr.property.childAlone.validationError =
+
+
+ycrr.property.multiActivities.help =
+ycrr.property.multiActivities.validationError =
+
+
+ycrr.property.rulesAcceptance.help =
+ycrr.property.rulesAcceptance.validationError =
+
+
+
+ycrr.step.homeFolder.label = Compte famille
+ycrr.step.homeFolder.desc = Composition de votre compte famille
+
+ycrr.incitationText.desc = <span style="font-weight: bold;">Avant de continuer votre demande, merci de :</span><br /> - vérifier l''exactitude des informations de votre compte et des membres qui le compose<br /> - compléter votre compte en ajoutant tous les membres de votre famille (responsables légaux et enfants).<br /><br /><a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)
+ycrr.incitationText.desc2 = <a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)</span>

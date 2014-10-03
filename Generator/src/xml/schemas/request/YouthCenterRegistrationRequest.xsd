@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.libredemat.org/schema/ycrr"
+    xmlns:ycrr="http://www.libredemat.org/schema/ycrr"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:cvq="http://www.libredemat.org/schema/common"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://www.libredemat.org/schema/common"
+      schemaLocation="../common/CVQCommonElements.xsd" />
+
+  <xs:element name="YouthCenterRegistrationRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Inscription à la maison des jeunes
+      </xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+        Youth center registration request
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Inscription à la maison des jeunes
+      </xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
+        Youth center registration
+      </xs:documentation>
+      <xs:appinfo>
+        <model namespace="leisure" />
+        <common>
+          <namespace name="leisure" />
+          <steps>
+            <step index="0" name="registration">
+              <widgets>
+                <subject>
+                  <autofill name="subjectFilling" type="trigger" />
+                </subject>
+              </widgets>
+              <conditions>
+                <condition name="isFirstRegistration" />
+              </conditions>
+            </step>
+            <step index="1" name="rules" />
+            <step index="2" ref="document" />
+            <step index="3" ref="validation" />
+            <step index="4" ref="administration" />
+          </steps>
+        </common>
+      </xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="cvq:RequestType">
+          <xs:sequence>
+
+            <!-- Date de naissance -->
+            <xs:element name="SubjectChoiceBirthDate" type="xs:date" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Date de Naissance
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Date de Naissance
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                    <autofill name="subjectFilling" type="listener" field="BirthDate" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- Téléphone portable de l'enfant -->
+            <xs:element name="SubjectChoiceMobilePhone" type="cvq:PhoneType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Téléphone portable de l'enfant
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Téléphone portable de l'enfant
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- Courriel de l'enfant -->
+            <xs:element name="SubjectChoiceEmail" type="cvq:EmailType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Courriel de l'enfant
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Courriel de l'enfant
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- Première inscription -->
+            <xs:element name="IsFirstRegistration" type="xs:boolean" default="true">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Première inscription
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Première inscription
+                </xs:documentation>
+                <xs:documentation xml:lang="en"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  First registration
+                </xs:documentation>
+                <xs:documentation xml:lang="en"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  First registration
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                    <conditions>
+                      <condition name="isFirstRegistration" type="trigger" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- Première inscription date -->
+            <xs:element name="FirstRegistrationDate" type="xs:date">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Date de délivrance
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Date de délivrance
+                </xs:documentation>
+                <xs:documentation xml:lang="en"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Date of issue
+                </xs:documentation>
+                <xs:documentation xml:lang="en"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Date of issue
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                    <conditions>
+                      <condition name="isFirstRegistration" type="filled"
+                          required="true" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- Première inscription numéro d'adhérent -->
+            <xs:element name="FirstRegistrationNumeroAdherent" type="xs:string">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Numéro d'adhérent
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Numéro d'adhérent
+                </xs:documentation>
+                <xs:documentation xml:lang="en"
+                    source="http://www.libredemat.org/schema/longdesc">
+                  Subscriber number
+                </xs:documentation>
+                <xs:documentation xml:lang="en"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  Subscriber number
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                    <conditions>
+                      <condition name="isFirstRegistration" type="filled"
+                          required="true" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- L'enfant rentre chez lui seul -->
+            <xs:element name="ChildAlone" type="cvq:AcceptanceType" default="false">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  <br/><br/>J'autorise que mon enfant regagne son domicile par ses propres moyens à la sortie de la Maison des jeunes et de ses activités.
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="rules" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- Plusieurs activités pour l'enfant -->
+            <xs:element name="MultiActivities" type="cvq:AcceptanceType" default="false">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  <br/><br/>La maison des Jeunes propose des activités multisports gratuites. Ces séances sont encadrées par un animateur et se déroulent sur les sites sportifs de la ville (piscine, gymnase, stade...) et les déplacements peuvent s'effectuer soit en minibus, soit à pieds.<br/><br/>Cette autorisation permet à votre enfant de participer à ces activités à tout moment et sans réservation dès lors qu'il est présent à la Maison des Jeunes. J'autorise mon enfant à participer aux activités multisports organisées par la Maison des Jeunes.
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="rules" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <!-- L'utilisateur a pris connaissance du règlement -->
+            <xs:element name="RulesAcceptance" type="cvq:AcceptanceType" default="false">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.libredemat.org/schema/shortdesc">
+                  <br/><br/>Les informations recueillies font l'objet d'un traitement informatique destiné à gérer l'inscription administrative de votre enfant à la maison des jeunes. Le destinataire des données est le service Sports Loisirs Jeunesse de la Mairie de YERRES.<br/><br/>Conformément à la loi "informatique et libertés" du 6 Janvier 1978 modifiée en 2004, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à la Maison des Jeunes, située au 18 rue de Mendig ou par téléphone au 01 69 48 27 30.<br/><br/>Vous pouvez également, pour des motifs légitimes, vous opposer ou traitement des données vous concernant. J'atteste avoir pris connaissance du règlement de la Maison des Jeunes et en approuve les termes.
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="rules" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -204,4 +204,9 @@
     <xb:package>org.libredemat.xml.request.social</xb:package>
   </xb:namespace>
 
+  <!-- Youth Center Registration Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/ycrr">
+    <xb:package>org.libredemat.xml.request.leisure</xb:package>
+  </xb:namespace>
+
 </xb:config>

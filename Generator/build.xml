@@ -64,6 +64,7 @@
       <include name="StandardElectoralRollRegistrationRequest.xsd" />
       <include name="StudyGrantRequest.xsd" />
       <include name="TechnicalInterventionRequest.xsd" />
+      <include name="YouthCenterRegistrationRequest.xsd" />
     </fileset>
 
   </target>
