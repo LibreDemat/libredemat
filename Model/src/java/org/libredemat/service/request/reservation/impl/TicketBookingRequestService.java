@@ -278,5 +278,11 @@ public class TicketBookingRequestService extends RequestService implements ITick
         this.paymentService = paymentService;
     }
 
+    public void setPayment(Request request, Payment p) {
+        // Dummy method...
+    }
 
+    public Payment getPayment(Request request) {
+        return null;
+    }
 }

@@ -209,4 +209,9 @@
     <xb:package>org.libredemat.xml.request.leisure</xb:package>
   </xb:namespace>
 
+  <!-- Park Card request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/pcr">
+    <xb:package>org.libredemat.xml.request.parking</xb:package>
+  </xb:namespace>
+
 </xb:config>

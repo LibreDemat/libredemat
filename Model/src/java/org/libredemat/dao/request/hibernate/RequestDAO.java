@@ -827,4 +827,38 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
         return transform(query.list(), false);
     }
 
+    @Override
+    public List<Request> listBySubjectAndLabelAndDate(Long requestId, Long subjectId, String label, Date dateStart,
+            Date dateEnd, final boolean full) {
+        try
+        {
+            Query query = HibernateUtil
+                .getSession()
+                .createQuery(
+                        "from RequestData as request where "
+                        + (requestId != null ? "request.id != :requestId " : "")
+                        + "and request.subjectId = :subjectId "
+                        + "and request.requestType.label = :label "
+                        + "and request.state != :state "
+                        + "and request.state != :state1 "
+                        + "and request.state != :state2 "
+                        + "and (request.validationDate is null or (request.validationDate > :dateStart and request.validationDate < :dateEnd))"
+                        + "");
+            if (requestId != null) query.setLong("requestId", requestId);
+            query.setLong("subjectId", subjectId);
+            query.setString("label", label);
+            query.setString("state", RequestState.ARCHIVED.name());
+            query.setString("state1", RequestState.CANCELLED.name());
+            query.setString("state2", RequestState.REJECTED.name());
+            query.setDate("dateStart", dateStart);
+            query.setDate("dateEnd", dateEnd);
+            return transform(query.list(), full);
+        }
+        catch (Exception e)
+        {
+            //should not happen ?
+            e.printStackTrace();
+        }
+        return new ArrayList<Request>();
+    }
 }

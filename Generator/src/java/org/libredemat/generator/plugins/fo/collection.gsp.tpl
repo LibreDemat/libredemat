@@ -151,8 +151,8 @@
             """
          ,'text' :
             """
-            <input type="text" id="${IdRefNamePrefix}${element.javaFieldName}" name="${namePrefix}${element.javaFieldName}" value="\${${valuePrefix}.${element.javaFieldName}?.toString()}" 
-                    class="${element.htmlClass} \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}" title="<g:message code="${element.i18nPrefixCode}.validationError" />" ${element.jsRegexp} ${element.lengthLimits} />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" id="${IdRefNamePrefix}${element.javaFieldName}" name="${namePrefix}${element.javaFieldName}" ${element.collectionSpecific != null ? "value=\"\${collectionSpecific['${element.collectionSpecific}'][collectionIndex + collectionIndexAdded]}\"" : "${element.i18nPrefixContent != null ? "value=\"\${message(code:'${element.i18nPrefixContent}' + ${valuePrefix}.${element.javaFieldName}?.toString())}\"" : "value=\"\${${valuePrefix}.${element.javaFieldName}?.toString()}\""}"} 
+                    class="${element.htmlClass} \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}" title="<g:message code="${element.i18nPrefixCode}.validationError" />" ${element.jsRegexp} ${element.lengthLimits} style="${element.style}" />
             """
          ,'number' :
             """

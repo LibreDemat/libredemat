@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
+    <data name="borderresidentTarification" allowMultipleChoices="false" allowRadioChoice="false" manager="CapDémat">
+        <label>Tarifs carte riverain</label>
+        <entries>
+            <entry key="border0">
+                <label>Première Carte</label>
+                <entries>
+                    <entry key="price0">
+                        <label>3300</label>
+                        <message/>
+                        <externalCode/>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="border1">
+                <label>Deuxième Carte</label>
+                <entries>
+                    <entry key="price1">
+                        <label>2222</label>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="border2">
+                <label>Troisième Carte</label>
+                <entries>
+                    <entry key="price2">
+                        <label>1111</label>
+                    </entry>
+                </entries>
+            </entry>
+        </entries>
+    </data>
+    <data name="cityresidentTarification">
+        <label>Tarifs carte résident</label>
+        <entries>
+            <entry key="resident0">
+                <label>Première Carte</label>
+                <entries>
+                    <entry key="price0">
+                        <label>1740</label>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="resident1">
+                <label>Deuxième Carte</label>
+                <entries>
+                    <entry key="price1">
+                        <label>280</label>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="resident2">
+                <label>Troisième Carte</label>
+                <entries>
+                    <entry key="price2">
+                        <label>0</label>
+                    </entry>
+                </entries>
+            </entry>
+        </entries>
+    </data>
+    <data name="foreignerTarification">
+        <label>Tarifs carte non résident</label>
+        <entries>
+            <entry key="foreign0">
+                <label>Première Carte</label>
+                <entries>
+                    <entry key="price0">
+                        <label>5700</label>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="foreign1">
+                <label>Deuxième Carte</label>
+                <entries>
+                    <entry key="price1">
+                        <label>0000</label>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="foreign2">
+                <label>Troisième Carte</label>
+                <entries>
+                    <entry key="price2">
+                        <label>0000</label>
+                    </entry>
+                </entries>
+            </entry>
+        </entries>
+    </data>
+    <data name="borderresidentLimitNumber">
+        <label>Nombre de cartes autorisées pour riverain</label>
+        <entries>
+            <entry key="limitborderresident">
+                <label>3</label>
+            </entry>
+        </entries>
+    </data>
+    <data name="cityresidentLimitNumber" allowMultipleChoices="false" allowRadioChoice="false" manager="CapDémat">
+        <label>Nombre de cartes autorisées pour résident</label>
+        <entries>
+            <entry key="limitcityresident">
+                <label>1</label>
+                <message/>
+                <externalCode/>
+            </entry>
+        </entries>
+    </data>
+    <data name="foreignerLimitNumber" allowMultipleChoices="false" allowRadioChoice="false" manager="CapDémat">
+        <label>Nombre de cartes autorisées pour non résident</label>
+        <entries>
+            <entry key="limitforeigner">
+                <label>2</label>
+                <message/>
+                <externalCode/>
+            </entry>
+        </entries>
+    </data>
+</LocalReferential>

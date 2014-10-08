@@ -154,4 +154,9 @@ public interface IRequestService extends ApplicationListener<LibreDematEvent> {
      */
     Map<String,Object> getBusinessReferential() throws CvqException;
 
+    public boolean isPayableAtValidateTS(Request request);
+
+    public boolean acceptPayment(Request request);
+
+    boolean isSubjectPolicySpecific(Long individualId, Long requestId);
 }

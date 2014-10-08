@@ -245,4 +245,19 @@ public abstract class RequestService implements IRequestService {
     public void setRequestTypeService(IRequestTypeService requestTypeService) {
         this.requestTypeService = requestTypeService;
     }
+
+    @Override
+    public boolean isPayableAtValidateTS(Request request) {
+        return false;
+    }
+
+    @Override
+    public boolean acceptPayment(Request request) {
+        return false;
+    }
+
+    @Override
+    public boolean isSubjectPolicySpecific(Long individualId, Long requestId) {
+        return true;
+    }
 }

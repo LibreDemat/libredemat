@@ -145,4 +145,14 @@ public class LocalReferentialType {
     public Set<String> getEntriesKeys() {
         return keyEntriesMap.keySet();
     }
+
+    private boolean radio = false;
+
+    public final boolean isRadio() {
+        return radio;
+    }
+
+    public final void setRadio(boolean radio) {
+        this.radio = radio;
+    }
 }

@@ -191,13 +191,21 @@ public class FoPlugin implements IPluginGenerator {
             elementFo.setModelNamespace(RequestCommon.MODEL_REQUEST_NS + "." + appDoc.getRequestCommon().getNamespace());
             elementFo.setJsRegexp(appDoc.getRequestCommon().getCurrentElementCommon().getJsRegexp());
             elementFo.setDisplay(true);
-            
             if (appDoc.getNodeName().equals("fo")) {
                 Node node = appDoc.getXmlNode();
                 elementFo.setElementToDisplay(ApplicationDocumentation.getNodeAttributeValue(node, "element"));
                 elementFo.setAfter(ApplicationDocumentation.getNodeAttributeValue(node, "after"));
                 elementFo.setModifier(ApplicationDocumentation.getNodeAttributeValue(node, "modifier"));
-                
+
+                elementFo.setDisabled("true".equals(ApplicationDocumentation.getNodeAttributeValue(node, "disabled")));
+
+                String specificTestCodeToAddItemInCollection = ApplicationDocumentation.getNodeAttributeValue(node, "specificTestCodeToAddItemInCollection");
+                if (specificTestCodeToAddItemInCollection != null && !specificTestCodeToAddItemInCollection.equals("")) elementFo.setSpecificTestCodeToAddItemInCollection(specificTestCodeToAddItemInCollection);
+
+                String collectionSpecific = ApplicationDocumentation.getNodeAttributeValue(node, "collectionSpecific");
+                if (collectionSpecific != null && !collectionSpecific.equals("")) elementFo.setCollectionSpecific(collectionSpecific);
+
+
                 if (appDoc.hasChildNode("select"))
                     elementFo.setWidget("select");
                 if (appDoc.hasChildNode("radio"))

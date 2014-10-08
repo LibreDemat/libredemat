@@ -6,6 +6,7 @@ package org.libredemat.business.payment;
 public enum PaymentState {
 
     INITIALIZED("Initialized"),
+    TOPAY("Topay"),
     VALIDATED("Validated"),
     REFUSED("Refused"),
     CANCELLED("Cancelled");

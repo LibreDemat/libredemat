@@ -14,7 +14,11 @@ public enum RequestActionType {
     RED_ALERT_NOTIFICATION("RedAlertNotification"),
     CREATION("Creation"),
     STATE_CHANGE("StateChange"),
-    CONTACT_CITIZEN("ContactCitizen");
+    CONTACT_CITIZEN("ContactCitizen"),
+    PAYMENT_VALIDATED("paymentValidated"),
+    PAYMENT_CANCELLED("paymentCancelled"),
+    PAYMENT_REFUSED("paymentRefused");
+
 
     private String name;
 

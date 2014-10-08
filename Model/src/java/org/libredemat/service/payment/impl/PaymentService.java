@@ -702,4 +702,28 @@ public final class PaymentService implements IPaymentService,
     public void setGenericDAO(IGenericDAO genericDAO) {
         this.genericDAO = genericDAO;
     }
+
+    /**
+     * Hack inexine, méthode pour être sur de récupérer les bons brokers
+     * 
+     * @param type
+     *            de request, exemple : Park Card
+     * @return la liste de brokers
+     */
+    public Map<String, String> getAllBrokersByType(String type)
+    {
+        Map<IPaymentProviderService, PaymentServiceBean> paymentProviders = SecurityContext
+            .getCurrentConfigurationBean().getPaymentServices();
+        if (paymentProviders == null || paymentProviders.isEmpty()) return null;
+        Map<String, String> brokers = new HashMap<String, String>();
+        for (IPaymentProviderService paymentProviderService : paymentProviders.keySet())
+        {
+            PaymentServiceBean psb = paymentProviders.get(paymentProviderService);
+            for (String requestTyp : psb.getRequestTypes())
+            {
+                if (requestTyp.equals(type)) brokers.put(psb.getBroker(), psb.getFriendlyLabel());
+            }
+        }
+        return brokers;
+    }
 }

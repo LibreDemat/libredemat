@@ -72,4 +72,6 @@ public interface IPaymentDAO extends IJpaTemplate<Payment,Long> {
     List<Payment> paymentNotSent();
 
     List<Payment> paymentSentError();
+
+    Payment getByRequestIdOnly(Long requestId);
 }

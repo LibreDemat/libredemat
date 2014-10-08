@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.libredemat.org/schema/pcr" xmlns:pcr="http://www.libredemat.org/schema/pcr"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cvq="http://www.libredemat.org/schema/common"
+    elementFormDefault="qualified" attributeFormDefault="unqualified"
+    >
+  <xs:import namespace="http://www.libredemat.org/schema/common" schemaLocation="../common/CVQCommonElements.xsd" />
+  <xs:element name="ParkCardRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Demande de carte de
+        stationnement
+      </xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc"> Park card request
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Carte de stationnement
+      </xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc"> Park card
+      </xs:documentation>
+      <xs:appinfo>
+        <model namespace="parking" />
+        <common>
+          <namespace name="parking" />
+          <steps>
+            <step index="0" name="subject">
+              <widgets>
+                <subject>
+                  <autofill name="subjectFilling" type="trigger" />
+                </subject>
+              </widgets>
+            </step>
+            <step index="1" name="car" />
+            <step index="2" ref="document" />
+            <step index="3" ref="validation" />
+          </steps>
+        </common>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="cvq:RequestType">
+          <xs:sequence>
+            <xs:element name="SubjectAddress" type="cvq:AddressType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Adresse de stationnement
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Adresse de stationnement
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="users" isTiedToRequest="true" />
+                  <common>
+                    <step name="subject" />
+                    <autofill name="subjectFilling" type="listener" field="Address" />
+                  </common>
+                  <pdf />
+                  <fo disabled='true' addressClass='addressWithoutAutoComplete' />
+                  <bo column="1" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <!-- Parking resident -->
+            <xs:element name="ParkResident" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Situation géographique du demandeur
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Situation géographique du demandeur
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="parking" />
+                  <common>
+                    <step name="car" />
+                  </common>
+                  <fo disabled='true' i18nPrefixContent="pcr.property." />
+                  <bo column="1" disabled='true' i18nPrefixContent="pcr.property." />
+                  <pdf i18nPrefixContent="pcr.property." />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <!-- Parking resident -->
+            <xs:element name="InformationCardLimitRest" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Nombre de carte autorisé
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Nombre de carte autorisé
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="parking" />
+                  <common>
+                    <step name="car" />
+                  </common>
+                  <fo disabled='true' i18nPrefixContent="pcr.property.rest." />
+                  <bo column="1" disabled='true' />
+                  <pdf i18nPrefixContent="pcr.property.rest." />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <!-- Véhicule information -->
+            <xs:element name="ParkImatriculation" type="pcr:ParkImmatriculationType"
+                minOccurs="1" maxOccurs="10">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Numéro d'immatriculation
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Immatriculation et tarif
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="car" />
+                  </common>
+                  <fo specificTestCodeToAddItemInCollection="rqt.getCardNumberLimit() > (collectionIndexAdded + rqt.getParkImatriculation()?.size())"/>
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <!-- tarif total à afficher -->
+            <xs:element name="PaymentTotal" type="xs:string" minOccurs="0" default="0.0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Total à payer (€)
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Total à payer (€)
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="parking" />
+                  <common>
+                    <step name="car" />
+                  </common>
+                  <fo disabled='true' style="width:100px" />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="PaymentReference" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Référence de paiement
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Référence de paiement
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="parking" />
+                  <common>
+                    <step name="car" />
+                  </common>
+                  <bo column="1" disabled='true' />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <!-- Tarification -->
+            <xs:element name="Tarification" type="pcr:ParkTarifDefinitionType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/longdesc"
+                    > Tarification
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                    source="http://www.cg95.fr/cvq/schema/shortdesc"
+                    > Tarification
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="parking" />
+                  <common>
+                    <step name="car" />
+                  </common>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ParkImmatriculationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Immatriculation des véhicules
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Immatriculation des véhicules
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Immatriculation" type="xs:string" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Numéro d'immatriculation
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Numéro d'immatriculation
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="car" />
+            </common>
+            <fo />
+            <bo column="1" />
+            <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Tarif" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Tarif (€)
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Tarif (€)
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="car" />
+            </common>
+            <fo disabled='true' collectionSpecific='tarifImatriculation' />
+            <bo column="1" />
+            <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParkTarifDefinitionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Definition des Tarifs
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Définition des Tarifs
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <!-- Card 1 price -->
+      <xs:element name="CardOnePrice" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Tarif carte 1
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Tarif carte 1
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="car" />
+            </common>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <!-- Card 2 price -->
+      <xs:element name="CardTwoPrice" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Tarif carte 2
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Tarif carte 2
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="car" />
+            </common>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <!-- Card 3 price -->
+      <xs:element name="CardThreePrice" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Tarif carte 3
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Tarif carte 3
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="car" />
+            </common>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <!-- limit card number -->
+      <xs:element name="CardNumberLimit" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Nombre limite de Carte
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Nombre limite de Carte
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="car" />
+            </common>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ParkResidentType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc"> Situation Géographique du
+        demandeur
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc"> Situation Géographique du
+        demandeur
+      </xs:documentation>
+      <xs:documentation xml:lang="fr"
+          source="http://www.cg95.fr/cvq/schema/translation/enum"
+          >
+        <enum key="Borderingresident" value="Riverain" />
+        <enum key="Resident" value="Résident" />
+        <enum key="Foreigner" value="Hors commune" />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Borderingresident" />
+      <xs:enumeration value="Resident" />
+      <xs:enumeration value="Foreigner" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

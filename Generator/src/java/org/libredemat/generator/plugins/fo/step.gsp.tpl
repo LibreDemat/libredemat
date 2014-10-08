@@ -20,8 +20,8 @@
               <li>
                 <input type="hidden" name="_${namePrefix}${element.javaFieldName}" /><!-- Grails 1.2.x convention to bind checkboxes. -->
                 <input type="checkbox" id="${IdRefNamePrefix}${element.javaFieldName}" name="${namePrefix}${element.javaFieldName}"
-                       class="${element.htmlClass}"
-                       title="\${message(code:'${element.i18nPrefixCode}.validationError')}"
+                           class="${element.htmlClass}"
+                           title="\${message(code:'${element.i18nPrefixCode}.validationError')}"
                        \${${valuePrefix}.${element.javaFieldName} ? 'checked="checked"' : ''} value="true" />
                 <label for="${IdRefNamePrefix}${element.javaFieldName}" class="${element.listenerConditionsClass}">
                   \${message(code:'${element.i18nPrefixCode}.label')}${element.mandatory ? '&nbsp;*' : ''}
@@ -60,24 +60,24 @@
             """
             <div id="${IdRefNamePrefix}${element.javaFieldName}" class="address ${element.listenerConditionsClass} ${element.autofillClass} \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}">
             <label for="${IdRefNamePrefix}${element.javaFieldName}.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
-            <input type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.additionalDeliveryInformation}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.additionalDeliveryInformation" name="${namePrefix}${element.javaFieldName}.additionalDeliveryInformation" />  
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.additionalDeliveryInformation}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.additionalDeliveryInformation" name="${namePrefix}${element.javaFieldName}.additionalDeliveryInformation" />  
             <label for="${IdRefNamePrefix}${element.javaFieldName}.additionalGeographicalInformation"><g:message code="address.property.additionalGeographicalInformation" /></label>
-            <input type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.additionalGeographicalInformation}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.additionalGeographicalInformation" name="${namePrefix}${element.javaFieldName}.additionalGeographicalInformation" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.additionalGeographicalInformation}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.additionalGeographicalInformation" name="${namePrefix}${element.javaFieldName}.additionalGeographicalInformation" />
             <label for="${IdRefNamePrefix}${element.javaFieldName}_streetNumber"><g:message code="address.property.streetNumber" /></label> - 
             <label for="${IdRefNamePrefix}${element.javaFieldName}_streetName" class="required"><g:message code="address.property.streetName" /> *</label><br />
-            <input type="text" class="line1 validate-streetNumber \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.streetNumber') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.streetNumber}" size="5" maxlength="5" id="${IdRefNamePrefix}${element.javaFieldName}_streetNumber" name="${namePrefix}${element.javaFieldName}.streetNumber" />
-            <input type="text" class="line2 required validate-streetName \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.streetName') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.streetName}" maxlength="32" id="${IdRefNamePrefix}${element.javaFieldName}_streetName" name="${namePrefix}${element.javaFieldName}.streetName" title="<g:message code="address.property.streetName.validationError" />" />
-            <input type="hidden" value="\${${valuePrefix}.${element.javaFieldName}?.streetMatriculation}" id="${IdRefNamePrefix}${element.javaFieldName}_streetMatriculation" name="${IdRefNamePrefix}${element.javaFieldName}.streetMatriculation" />
-            <input type="hidden" value="\${${valuePrefix}.${element.javaFieldName}?.streetRivoliCode}" id="${IdRefNamePrefix}${element.javaFieldName}_streetRivoliCode" name="${IdRefNamePrefix}${element.javaFieldName}.streetRivoliCode" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="line1 validate-streetNumber \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.streetNumber') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.streetNumber}" size="5" maxlength="5" id="${IdRefNamePrefix}${element.javaFieldName}_streetNumber" name="${namePrefix}${element.javaFieldName}.streetNumber" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="line2 required validate-streetName \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.streetName') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.streetName}" maxlength="32" id="${IdRefNamePrefix}${element.javaFieldName}_streetName" name="${namePrefix}${element.javaFieldName}.streetName" title="<g:message code="address.property.streetName.validationError" />" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="hidden" value="\${${valuePrefix}.${element.javaFieldName}?.streetMatriculation}" id="${IdRefNamePrefix}${element.javaFieldName}_streetMatriculation" name="${IdRefNamePrefix}${element.javaFieldName}.streetMatriculation" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="hidden" value="\${${valuePrefix}.${element.javaFieldName}?.streetRivoliCode}" id="${IdRefNamePrefix}${element.javaFieldName}_streetRivoliCode" name="${IdRefNamePrefix}${element.javaFieldName}.streetRivoliCode" />
             <label for="${IdRefNamePrefix}${element.javaFieldName}.placeNameOrService"><g:message code="address.property.placeNameOrService" /></label>
-            <input type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.placeNameOrService') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.placeNameOrService}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.placeNameOrService" name="${namePrefix}${element.javaFieldName}.placeNameOrService" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.placeNameOrService') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.placeNameOrService}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.placeNameOrService" name="${namePrefix}${element.javaFieldName}.placeNameOrService" />
             <label for="${IdRefNamePrefix}${element.javaFieldName}_postalCode" class="required"><g:message code="address.property.postalCode" /> * </label> - 
             <label for="${IdRefNamePrefix}${element.javaFieldName}_city" class="required"><g:message code="address.property.city" /> *</label><br />
-            <input type="text" class="line1 required validate-postalCode \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.postalCode') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.postalCode}" size="5" maxlength="5" id="${IdRefNamePrefix}${element.javaFieldName}_postalCode" name="${namePrefix}${element.javaFieldName}.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
-            <input type="text" class="line2 required validate-city \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.city') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.city}" maxlength="32" id="${IdRefNamePrefix}${element.javaFieldName}_city" name="${namePrefix}${element.javaFieldName}.city" title="<g:message code="address.property.city.validationError" />" />
-            <input type="hidden" value="\${${valuePrefix}.${element.javaFieldName}?.cityInseeCode}" id="${IdRefNamePrefix}${element.javaFieldName}_cityInseeCode" name="${IdRefNamePrefix}${element.javaFieldName}.cityInseeCode" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="line1 required validate-postalCode \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.postalCode') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.postalCode}" size="5" maxlength="5" id="${IdRefNamePrefix}${element.javaFieldName}_postalCode" name="${namePrefix}${element.javaFieldName}.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="line2 required validate-city \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.city') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.city}" maxlength="32" id="${IdRefNamePrefix}${element.javaFieldName}_city" name="${namePrefix}${element.javaFieldName}.city" title="<g:message code="address.property.city.validationError" />" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="hidden" value="\${${valuePrefix}.${element.javaFieldName}?.cityInseeCode}" id="${IdRefNamePrefix}${element.javaFieldName}_cityInseeCode" name="${IdRefNamePrefix}${element.javaFieldName}.cityInseeCode" />
             <label for="${IdRefNamePrefix}${element.javaFieldName}.countryName"><g:message code="address.property.countryName" /></label>
-            <input type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.countryName') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.countryName}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.countryName" name="${namePrefix}${element.javaFieldName}.countryName" />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" class="validate-addressLine38 \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}.countryName') ? 'validation-failed' : ''}" value="\${${valuePrefix}.${element.javaFieldName}?.countryName}" maxlength="38" id="${IdRefNamePrefix}${element.javaFieldName}.countryName" name="${namePrefix}${element.javaFieldName}.countryName" />
             </div>
             """
          ,'frenchRIB' :
@@ -201,7 +201,7 @@
             
          ,'text' :
             """
-            <input type="text" id="${IdRefNamePrefix}${element.javaFieldName}" name="${namePrefix}${element.javaFieldName}" value="\${${valuePrefix}.${element.javaFieldName}?.toString()}" 
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" id="${IdRefNamePrefix}${element.javaFieldName}" name="${namePrefix}${element.javaFieldName}" value="\${${valuePrefix}.${element.javaFieldName}?.toString()}" 
                     class="${element.htmlClass} \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}" title="<g:message code="${element.i18nPrefixCode}.validationError" />" ${element.jsRegexp} ${element.lengthLimits} />
             """
          ,'number' :
@@ -351,12 +351,15 @@
       <h4 class="${element.listenerConditionsClass}"><g:message code="${element.i18nPrefixCode}.label" /> 
         <span><g:message code="${element.i18nPrefixCode}.help" /></span>
       </h4>
+
+    <g:if test="\${${element.specificTestCodeToAddItemInCollection} && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="\${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'${step.name}', 'currentCollection':'${element.javaFieldName}', 'collectionIndex':(rqt.${element.javaFieldName} ? rqt.${element.javaFieldName}.size() : 0)])}" style="font-size:1.3em;" />
           \${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="\${rqt.${element.javaFieldName}}" status="index">
       <div class="item">
         <dl>

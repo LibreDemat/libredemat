@@ -33,6 +33,9 @@ public class ElementFo extends ElementSpecific<ElementFo> {
     private Integer maxLength = 0;
     
     private String i18nPrefixCode;
+    private String i18nPrefixContent;
+    private String style = "width:99%";
+
     private String htmlClass;
     private String widget;
     private String[] enumValues;
@@ -40,16 +43,19 @@ public class ElementFo extends ElementSpecific<ElementFo> {
     private ElementTypeClass typeClass;
  
     private boolean display;
+    private boolean disabled = false;
 
     private String elementToDisplay;
     private String after;
     private String modifier;
     private int rows;
+    private String collectionSpecific;
 
     private Step step;
     private ConditionListener conditionListener;
     private List<Condition> triggeredConditions;
     private Autofill autofill;
+    private String specificTestCodeToAddItemInCollection = "true";
     
     public ElementFo(String name, String requestAcronym) {
         this.name = name;
@@ -274,6 +280,10 @@ public class ElementFo extends ElementSpecific<ElementFo> {
         return step;
     }
 
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
+    }
+
     public void setStep(Step step) {
         this.step = step;
     }
@@ -325,5 +335,36 @@ public class ElementFo extends ElementSpecific<ElementFo> {
             }
         }
         return sb.toString();
+    }
+
+    public String getCollectionSpecific() {
+        return collectionSpecific;
+    }
+
+    public void setCollectionSpecific(String collectionSpecific) {
+        this.collectionSpecific = collectionSpecific;
+    }
+
+    public String getI18nPrefixContent() {
+        return i18nPrefixContent;
+    }
+
+    public void setI18nPrefixContent(String i18nPrefixContent) {
+        this.i18nPrefixContent = i18nPrefixContent;
+    }
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public String getSpecificTestCodeToAddItemInCollection() {
+        return specificTestCodeToAddItemInCollection;
+    }
+
+    public void setSpecificTestCodeToAddItemInCollection(String specificTestCodeToAddItemInCollection) {
+        this.specificTestCodeToAddItemInCollection = specificTestCodeToAddItemInCollection;
     }
 }

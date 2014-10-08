@@ -124,4 +124,6 @@ public interface IRequestDAO extends IJpaTemplate<Request, Long> {
         throws CvqException;
 
     List<Request> findAllWithoutArchived();
+
+    List<Request> listBySubjectAndLabelAndDate(Long requestId, Long subjectId, String label, Date dateStart, Date dateEnd, final boolean full);
 }

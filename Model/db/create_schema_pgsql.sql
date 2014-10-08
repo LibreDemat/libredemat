@@ -296,6 +296,12 @@
     alter table music_school_registration_request_activity 
         drop constraint FK6393FFD42B476549;
 
+    alter table park_card_request 
+        drop constraint FK9647369558B2AF6;
+
+    alter table park_immatriculation 
+        drop constraint FKDF88749972930EBE;
+
     alter table perischool_activity_registration_request 
         drop constraint FK76BAA59A37A0DD36;
 
@@ -639,6 +645,10 @@
 
     drop table music_school_registration_request_activity cascade;
 
+    drop table park_card_request cascade;
+
+    drop table park_immatriculation cascade;
+
     drop table payment cascade;
 
     drop table perischool_activity_registration_request cascade;
@@ -720,6 +730,8 @@
     drop table sports_associations_grant_request cascade;
 
     drop table standard_electoral_roll_registration_request cascade;
+
+    drop table street_border_referential cascade;
 
     drop table study_grant_request cascade;
 
@@ -2095,6 +2107,29 @@
         primary key (music_school_registration_request_id, activity_index)
     );
 
+    create table park_card_request (
+        id int8 not null,
+        card_number_limit bytea,
+        card_one_price numeric(19, 2),
+        card_three_price numeric(19, 2),
+        card_two_price numeric(19, 2),
+        information_card_limit_rest varchar(255),
+        park_resident varchar(255),
+        payment_reference varchar(255),
+        payment_total varchar(255),
+        subject_address_id int8,
+        primary key (id)
+    );
+
+    create table park_immatriculation (
+        id int8 not null,
+        immatriculation varchar(255),
+        tarif varchar(255),
+        park_card_request_id int8,
+        park_imatriculation_index int4,
+        primary key (id)
+    );
+
     create table payment (
         id int8 not null,
         amount float8,
@@ -2614,6 +2649,14 @@
         type_election varchar(255),
         type_inscription varchar(255),
         ville_naissance_code_postal varchar(32),
+        primary key (id)
+    );
+
+    create table street_border_referential (
+        id int8 not null,
+        city varchar(255),
+        postal_code varchar(255),
+        street_label varchar(255),
         primary key (id)
     );
 
@@ -3320,6 +3363,16 @@
         add constraint FK6393FFD42B476549 
         foreign key (music_school_registration_request_id) 
         references music_school_registration_request;
+
+    alter table park_card_request 
+        add constraint FK9647369558B2AF6 
+        foreign key (subject_address_id) 
+        references address;
+
+    alter table park_immatriculation 
+        add constraint FKDF88749972930EBE 
+        foreign key (park_card_request_id) 
+        references park_card_request;
 
     alter table perischool_activity_registration_request 
         add constraint FK76BAA59A37A0DD36 

@@ -315,6 +315,10 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="localReferentialService" ref="localReferentialService" />
   </bean>
 
+  <bean id="parkCardService" class="org.libredemat.service.request.impl.ParkCardService">
+      <property name="parkCardDAO" ref="parkCardDAO" />
+  </bean>
+
   <!-- *************************************************************************  -->
   <!-- ************************ DOCUMENTS RELATED SERVICES *********************  -->
   <!-- *************************************************************************  -->
@@ -828,6 +832,24 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
   </bean>
 
+  <bean id="parkCardRequestService" class="org.libredemat.service.request.parking.impl.ParkCardRequestService" parent="requestService" >
+      <property name="label" value="Park Card" />
+      <property name="localReferentialFilename" value="local_referential_pcr" />
+      <property name="defaultDisplayGroup" value="urbanism" />
+      <property name="filingDelay" value="12" />
+      <property name="subjectPolicy" value="SUBJECT_POLICY_ADULT" />
+      <property name="supportUnregisteredCreation" value="false" />
+      <property name="supportMultiple" value="true" />
+      <property name="paymentDAO" ref="paymentDAO" />
+      <property name="requestDAO" ref="requestDAO" />
+      <property name="individualDAO" ref="individualDAO" />
+      <property name="paymentService" ref="paymentService" />
+      <property name="requestActionService" ref="requestActionService" />
+      <property name="requestLockService" ref="requestLockService" />
+      <property name="parkCardService" ref="parkCardService" />
+      <property name="localReferentialService" ref="localReferentialService" />
+  </bean>
+
   <bean id="displayGroupService" class="org.libredemat.service.request.impl.DisplayGroupService">
     <property name="genericDAO" ref="genericDAO" />
     <property name="requestTypeDAO" ref="requestTypeDAO" />
@@ -926,6 +948,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="ticketBookingDAO" class="org.libredemat.dao.request.hibernate.TicketBookingDAO" />
 
   <bean id="homeFolderMappingDAO" class="org.libredemat.dao.users.hibernate.HomeFolderMappingDAO" />
+
+  <bean id="parkCardDAO" class="org.libredemat.dao.request.hibernate.ParkCardDAO" />
   
   <bean id="localReferentialDAO" class="org.libredemat.dao.request.xml.LocalReferentialDAO">
       <property name="requestServiceRegistry" ref="requestServiceRegistry" />

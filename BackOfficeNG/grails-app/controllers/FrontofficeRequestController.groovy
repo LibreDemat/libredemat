@@ -5,6 +5,8 @@ import org.libredemat.business.users.RoleType
 import org.libredemat.business.request.Request
 import org.libredemat.business.request.RequestNoteType
 import org.libredemat.business.request.RequestState
+import org.libredemat.business.request.parking.ParkCardRequest
+import org.libredemat.business.request.parking.ParkImmatriculation
 import org.libredemat.business.users.Adult
 import org.libredemat.business.users.Child
 import org.libredemat.exception.CvqException
@@ -23,6 +25,10 @@ import org.libredemat.service.request.ICategoryService
 import org.libredemat.service.request.IRequestTypeService
 import org.libredemat.service.request.IRequestWorkflowService
 import org.libredemat.service.request.IRequestServiceRegistry
+import org.libredemat.service.request.parking.IParkCardRequestService
+import org.libredemat.service.request.parking.impl.ParkCardRequestService
+import org.libredemat.service.request.IParkCardService
+import org.libredemat.service.request.IRequestService
 import org.libredemat.service.users.IUserService
 import org.libredemat.service.users.IUserSearchService
 import org.libredemat.service.users.IUserWorkflowService
@@ -61,6 +67,7 @@ class FrontofficeRequestController {
     IRequestSearchService requestSearchService
     IRequestServiceRegistry requestServiceRegistry
     IPaymentService paymentService
+    IParkCardService parkCardService
 
     def defaultAction = 'index'
     Adult currentEcitizen
@@ -129,6 +136,8 @@ class FrontofficeRequestController {
         def id = Long.valueOf(params.id)
         requestLockService.lock(id)
         Request rqt = requestSearchService.getById(id, true)
+        IRequestService requestService = requestServiceRegistry.getRequestService(rqt)
+
         def isEdition = !RequestState.DRAFT.equals(rqt.state)
         def temporary = SecurityContext.currentCredentialBean.ecitizen?.homeFolder.temporary
         if (request.post) {
@@ -178,6 +187,37 @@ class FrontofficeRequestController {
                     }
                     return
                 } else if (params.currentStep != 'homeFolder') { // nothing to validate for common home folder step
+                    // Spécial Address fore fields disabled... On select individu
+                    if (rqt.requestType.label.equals('Park Card')) {
+                        ParkCardRequest pcr = (ParkCardRequest) rqt
+                        if (params.subjectId != null) {
+                            Adult adult = userSearchService.getAdultById(params.subjectId.toLong())
+                                pcr.setSubjectAddress(adult.getAddress().clone())
+                        }
+
+                        // géographie du citoyen
+                        IParkCardRequestService pcrService = (IParkCardRequestService)requestService
+                        pcr.setParkResident(pcrService.getResidentType(rqt.getSubjectId()).getLegacyLabel())
+
+                        pcr.setPaymentReference("")
+
+                        // Tarif et nombre de cartes
+                        pcr.setCardNumberLimit(pcrService.getLimiteCartByParkResident(pcr.getParkResident()))
+                        pcr.setCardOnePrice(pcrService.getTarifCartByParkResident(pcr.getParkResident(), 1))
+                        pcr.setCardTwoPrice(pcrService.getTarifCartByParkResident(pcr.getParkResident(), 2))
+                        pcr.setCardThreePrice(pcrService.getTarifCartByParkResident(pcr.getParkResident(), 3))
+
+                        def cardsAllReadyPayed = pcrService.getNumberOfImmatAllReadyPayed(pcr.getSubjectId(), pcr.getId())
+                        if (params.currentStep != null && params.currentStep == 'car' && params.currentCollection != null && params.currentCollection == 'parkImatriculation') {
+                            // params.collectionIndex in GET VERBOTTEN
+                            if ((pcr.getParkImatriculation()?.size()-1 + cardsAllReadyPayed) < pcr.getCardNumberLimit()) {
+                                // OK
+                            } else {
+                                throw new CvqException("pcr.step.immatriculation.numberlimit.passe")
+                            }
+                        }
+                    }
+
                     requestWorkflowService.modify(rqt)
                     requestWorkflowService.validate(rqt, [params.currentStep])
                     if (params.currentCollection != null) {
@@ -225,6 +265,52 @@ class FrontofficeRequestController {
             params.nextStep = true
             nextWebflowStep = webflowNextStep(rqt, "homeFolder")
         }
+
+        def collectionSpecific = [:]
+        def collectionIndexAdded = 0
+        if (rqt.requestType.label.equals('Park Card')) {
+            IParkCardRequestService pcrService = (IParkCardRequestService)requestService
+            ParkCardRequest pcr = (ParkCardRequest)rqt
+
+            collectionSpecific['tarifImatriculation'] = [0, 0, 0]
+            if (pcr.getCardNumberLimit() != null) {
+                collectionSpecific['tarifImatriculation'][0] = Double.valueOf(pcr.getCardOnePrice() / 100)
+                collectionSpecific['tarifImatriculation'][1] = Double.valueOf(pcr.getCardTwoPrice() / 100)
+                collectionSpecific['tarifImatriculation'][2] = Double.valueOf(pcr.getCardThreePrice() / 100) //
+                collectionSpecific['tarifImatriculation'][3] = "Carte non disponible, pas de tarif"
+                collectionIndexAdded = pcrService.getNumberOfImmatAllReadyPayed(pcr.getSubjectId(), rqt.getId())
+
+                def cardLimitRest = pcr.getCardNumberLimit() - (collectionIndexAdded + pcr.getParkImatriculation()?.size())
+                if (cardLimitRest < 0)
+                {
+                    def sizeImmat = pcr.getParkImatriculation().size()
+                        for (def i = sizeImmat-1; i >= sizeImmat + cardLimitRest; i--)
+                        {
+                            pcr.getParkImatriculation().remove(i)
+                        }
+                }
+                Double total = 0.0
+                for (def i = 0; i < pcr.getParkImatriculation().size(); i++)
+                {
+                    try
+                    {
+                        ParkImmatriculation immat = pcr.getParkImatriculation().get(i)
+                            Double dd = collectionSpecific['tarifImatriculation'][i + collectionIndexAdded]
+                            immat.setTarif(dd + "")
+                            total = total + dd
+                    }
+                    catch (Exception ex) {}
+                }
+                pcr.setPaymentTotal(total + "")
+                pcr.setInformationCardLimitRest(pcr.getCardNumberLimit() - (collectionIndexAdded + pcr.getParkImatriculation()?.size()) + "")
+            } else {
+                log.error "Vous avez dépassé le nombre de carte limite"
+                flash.errorMessage = "Vous avez dépassé le nombre de carte limite"
+                session.doRollback = true
+            }
+        }
+
+
         render(view: viewPath, model: [
             'rqt': rqt,
             'requester': SecurityContext.currentEcitizen,
@@ -237,6 +323,8 @@ class FrontofficeRequestController {
             'currentStep': nextWebflowStep,
             'currentCollection': params.currentCollection,
             'collectionIndex': params.collectionIndex ? Integer.valueOf(params.collectionIndex) : null,
+            'collectionIndexAdded': collectionIndexAdded,
+            'collectionSpecific': collectionSpecific,
             'documentTypes': documentAdaptorService.getDocumentTypes(rqt),
             'documentsByTypes': ['document','validation'].contains(nextWebflowStep) ? documentAdaptorService.getDocumentsByType(rqt) : [],
             'returnUrl' : (params.returnUrl != null ? params.returnUrl : ""),

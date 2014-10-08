@@ -18,6 +18,7 @@ import org.libredemat.business.payment.ExternalTicketingContractItem;
 import org.libredemat.business.payment.Payment;
 import org.libredemat.business.payment.PaymentMode;
 import org.libredemat.business.payment.PaymentState;
+import org.libredemat.business.payment.InternalInvoiceItem;
 import org.libredemat.business.request.Request;
 import org.libredemat.business.request.RequestActionType;
 import org.libredemat.dao.hibernate.HibernateUtil;
@@ -457,5 +458,32 @@ public class PaymentDAO extends JpaTemplate<Payment,Long> implements IPaymentDAO
                     "items.externalNotificationStatus = ?",
                 PaymentState.VALIDATED,
                 ExternalNotificationStatus.ITEM_SENT_ERROR);
+    }
+
+    /*
+     * Hack inexine.
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Payment getByRequestIdOnly(Long requestId)
+    {
+        // select * from payment p, purchase_item pu where p.id = pu.payment_id
+        // and pu.key = '27690'
+        Query query = HibernateUtil.getSession().createQuery(
+                "from InternalInvoiceItem as purchasse where purchasse.key = :requestId");
+        query.setString("requestId", requestId.toString());
+        List<InternalInvoiceItem> internalInvoiceItem = (List<InternalInvoiceItem>) query.list();
+        if (internalInvoiceItem == null || internalInvoiceItem.isEmpty()) return null;
+        for (InternalInvoiceItem internalInvoiceItem2 : internalInvoiceItem)
+        {
+            if (internalInvoiceItem2 != null && internalInvoiceItem2.getPaymentId() != null)
+            {
+                query = HibernateUtil.getSession().createQuery("from Payment as payment where payment.id = :paymentId");
+                query.setLong("paymentId", internalInvoiceItem2.getPaymentId());
+                List<Payment> list = query.list();
+                if (list != null && !list.isEmpty()) return (Payment) list.get(0);
+            }
+        }
+        return null;
     }
 }

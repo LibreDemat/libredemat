@@ -27,6 +27,8 @@ public abstract class PurchaseItem implements Serializable {
     private Long id;
     private String label;
     private Double amount;
+    @Column(name = "payment_id")
+    private Long paymentId;
 
     /**
      * Convey broker information for this item. It can't be null.
@@ -86,5 +88,13 @@ public abstract class PurchaseItem implements Serializable {
     @Override
     public String toString() {
         return getInformativeFriendlyLabel();
+    }
+
+    public Long getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
     }
 }

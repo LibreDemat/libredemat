@@ -149,4 +149,6 @@ public interface IPaymentService {
     Long getDepositAccountsCount(Set<Critere> criteriaSet);
 
     Long getTicketingContractsCount(Set<Critere> criteriaSet);
+
+    Map<String, String> getAllBrokersByType(String type);
 }
