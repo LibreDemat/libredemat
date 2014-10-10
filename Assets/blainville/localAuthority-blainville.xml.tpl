@@ -48,6 +48,7 @@
             <property name="friendlyLabel" value="Services autres que restauration scolaire"></property>
             <property name="requestTypes">
               <list>
+                <value>Park Card</value>
                 <value>Ticket Booking</value>
                 <value>Perischool Activity Registration</value>
               </list>
@@ -58,6 +59,30 @@
     </property>
     <property name="externalServices">
       <map>
+      <entry>
+      <key>
+      <ref bean="cardFiveExternalService" />
+      </key>
+      <bean class="org.libredemat.external.ExternalServiceBean">
+      <property name="requestTypes">
+      <list>
+      <value>Park Card</value>
+      </list>
+      </property>
+
+      <property name="serviceProperties">
+      <map>
+      <entry key="FtpServer" value="192.168.1.193" />
+      <entry key="FtpPort" value="21" />
+      <entry key="FtpUserName" value="ponpon" />
+      <entry key="FtpPassword" value="vazyponponcbon" />
+      <entry key="FtpFolder" value="parkCard" />
+      <entry key="ServerName" value="blainville.inexine.net" />
+      </map>
+      </property>
+      </bean>
+      </entry>
+
         <entry>
           <key>
             <ref bean="fakeExternalService" />

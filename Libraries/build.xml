@@ -23,6 +23,7 @@
         <!-- Technocarte deliverable and dependency -->
         <include name="LibreDemat-Plugin-ExternalServices-Technocarte-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-RestGenericExternalService-*.jar" />
+        <include name="LibreDemat-Plugin-ExternalServices-CardFive-*.jar" />
         <include name="soap.jar" />
     </fileset>
 
@@ -65,8 +66,10 @@
                 <include name="commons-httpclient*.jar" />
                 <include name="commons-compress*.jar" />
                 <include name="commons-lang-3.0-SNAPSHOT.jar" />
+                <include name="commons-net-*.jar" />
             </fileset>
             <fileset dir="${axis.lib.dir}" />
+            <fileset dir="${poi.lib.dir}" />
             <fileset dir="${jaxen.lib.dir}">
                 <include name="jaxen-*.jar" />
             </fileset>
