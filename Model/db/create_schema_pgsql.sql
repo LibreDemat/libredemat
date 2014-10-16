@@ -719,6 +719,8 @@
 
     drop table school_registration_request cascade;
 
+    drop table school_registration_with_remote_cirilnetenfance_request cascade;
+
     drop table school_transport_registration_request cascade;
 
     drop table sewer_connection_request cascade;
@@ -2204,6 +2206,7 @@
         id int8 not null,
         amount float8,
         label varchar(255),
+        payment_id int8,
         supported_broker varchar(255),
         external_application_id varchar(255),
         external_home_folder_id varchar(255),
@@ -2211,22 +2214,21 @@
         external_item_id varchar(255),
         external_notification_status varchar(32),
         external_service_label varchar(255),
-        expiration_date timestamp,
-        is_paid bool,
-        issue_date timestamp,
-        payment_date timestamp,
+        old_value float8,
+        old_value_date timestamp,
         key varchar(255),
         key_owner varchar(255),
         quantity int4,
         unit_price float8,
-        old_value float8,
-        old_value_date timestamp,
         creation_date timestamp,
         max_buy int4,
         min_buy int4,
         old_quantity int4,
         subject_id int8,
-        payment_id int8,
+        expiration_date timestamp,
+        is_paid bool,
+        issue_date timestamp,
+        payment_date timestamp,
         primary key (id)
     );
 
@@ -2548,6 +2550,18 @@
         section varchar(32),
         urgency_phone varchar(10),
         school_id int8,
+        primary key (id)
+    );
+
+    create table school_registration_with_remote_cirilnetenfance_request (
+        id int8 not null,
+        current_school_address varchar(255),
+        current_school_name varchar(255),
+        current_section varchar(32),
+        rules_and_regulations_acceptance bool,
+        school_name varchar(255),
+        section varchar(32),
+        urgency_phone varchar(10),
         primary key (id)
     );
 

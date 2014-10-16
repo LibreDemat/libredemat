@@ -3,22 +3,25 @@
 
 <beans>
 
-  <bean id="cirilNetEnfanceExternalService" parent="externalProviderServiceAdapter"
-    class="org.libredemat.plugins.externalservices.cirilnetenfance.service.CirilNetEnfanceService">
+  <bean id="cirilNetEnfanceExternalService" parent="externalProviderServiceAdapter" class="org.libredemat.plugins.externalservices.cirilnetenfance.service.CirilNetEnfanceService">
     <property name="label" value="CirilNetEnfance" />
-    <!-- Insert services you need here -->
-    <property name="externalHomeFolderService">
-      <ref bean="externalHomeFolderService" />
-    </property>
-    <property name="requestWorkflowService">
-      <ref bean="requestWorkflowService" />
-    </property>
-    <property name="schoolDAO">
-      <ref bean="schoolDAO"/>
-    </property>
- 
+    <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+    <property name="requestWorkflowService" ref="requestWorkflowService" />
+    <property name="cirilClient" ref="cirilClient" />
+    <property name="schoolDAO" ref="schoolDAO" />
+    <property name="requestDAO" ref="requestDAO" />
+    <property name="individualDAO" ref="individualDAO" />
   </bean>
 
-  
-  
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- WS CLIENT -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <bean id="cirilnetenfanceXmlBeanMarshaller" class="org.springframework.oxm.xmlbeans.XmlBeansMarshaller" />
+  <bean name="cirilClientService" class="org.springframework.ws.client.core.WebServiceTemplate">
+    <property name="marshaller" ref="cirilnetenfanceXmlBeanMarshaller" />
+    <property name="unmarshaller" ref="cirilnetenfanceXmlBeanMarshaller" />
+  </bean>
+  <bean id="cirilClient" class="org.libredemat.plugins.externalservices.cirilnetenfance.ws.impl.CirilClient">
+    <property name="cirilClientService" ref="cirilClientService" />
+  </bean>
 </beans>

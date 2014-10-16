@@ -362,6 +362,7 @@ ${endGT()}
   <% displayWidget(['widget':'requester'], "rqt") %>
 <% requestPdf.steps.each { step -> %>
   <% if (requestPdf.getElementsByStep(step).isEmpty()) return %>
+  <% if (step.displayNotInPDF) return; %>
   <h2>\${i18n.translate('${step.i18nPrefix()}.step.${step.name}.label')}</h2>
   <% requestPdf.getElementsByStep(step).each { element -> %>
     <% if (element.typeClass == "COLLECTION") { %>

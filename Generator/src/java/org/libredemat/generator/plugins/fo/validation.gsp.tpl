@@ -186,7 +186,8 @@
 %>
 
 <% stepBundle.each { step -> %>
-  <% if (step.name == 'document') { %>
+  <% if (step.displayNotInValidation) { %>
+  <% } else if (step.name == 'document') { %>
   <g:if test="\${!documentsByTypes.isEmpty()}">
     <h3>\${message(code:'request.step.document.label')}</h3>
     <g:each in="\${documentsByTypes}" var="documentType">

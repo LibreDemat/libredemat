@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="Ciril:Enfance:ServicesEnfance"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:enf="Ciril:Enfance:ServicesEnfance"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+      <simpleType name="PostalCodeType">
+   <restriction base="xsd:string">
+    <pattern value="[0-9]{5}"/>
+    <maxLength value="5"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="DepartmentCodeType">
+   <restriction base="xsd:string">
+    <pattern value="[0-9]{2}"/>
+    <maxLength value="2"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="CityType">
+   <restriction base="xsd:string">
+    <maxLength value="32"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="LastNameType">
+   <restriction base="xsd:string">
+    <pattern value="[A-Z.]*"/>
+    <maxLength value="38"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="EmailType">
+   <restriction base="xsd:string">
+    <pattern value="[a-zA-Z0-9._%\-]+@[a-zA-Z0-9._%\-]+\.[a-zA-Z0-9._%\-]{2,4}"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="PhoneType">
+   <restriction base="xsd:string">
+    <pattern value="^0[1-9][0-9]{8}"/>
+    <maxLength value="10"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="MobilePhoneType">
+   <restriction base="xsd:string">
+    <pattern value="^0[67][0-9]{8}"/>
+    <maxLength value="10"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="CfbnType">
+   <restriction base="xsd:string">
+    <pattern value="[0-9]{7}[A-Z]{0,1}"/>
+    <maxLength value="8"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="FirstNameType">
+   <restriction base="xsd:string">
+    <pattern value="[A-Z]?.*"/>
+    <maxLength value="38"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="AddressBloc32UpperType">
+   <restriction base="xsd:string">
+    <pattern value="[ A-Z0-9]{1,32}"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="AddressBloc38Type">
+   <restriction base="xsd:string">
+    <maxLength value="38"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="AddressBloc38UpperType">
+   <restriction base="xsd:string">
+    <pattern value="[ A-Z0-9]{1,38}"/>
+   </restriction>
+  </simpleType>
+  <simpleType name="AcceptanceType">
+   <restriction base="xsd:boolean">
+   </restriction>
+  </simpleType>
+  <simpleType name="SchoolNameType">
+   <restriction base="xsd:string">
+   </restriction>
+  </simpleType>
+  <simpleType name="SectionType">
+   <restriction base="xsd:string">
+    <enumeration value="BeforeFirstSection"/><!-- enum const = 0 -->
+    <enumeration value="FirstSection"/><!-- enum const = 1 -->
+    <enumeration value="SecondSection"/><!-- enum const = 2 -->
+    <enumeration value="ThirdSection"/><!-- enum const = 3 -->
+    <enumeration value="CP"/><!-- enum const = 4 -->
+    <enumeration value="CE1"/><!-- enum const = 5 -->
+    <enumeration value="CE2"/><!-- enum const = 6 -->
+    <enumeration value="CM1"/><!-- enum const = 7 -->
+    <enumeration value="CM2"/><!-- enum const = 8 -->
+    <enumeration value="CLISS"/><!-- enum const = 9 -->
+    <enumeration value="Unknown"/><!-- enum const = 10 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="SexType">
+   <restriction base="xsd:string">
+    <enumeration value="Male"/><!-- enum const = 0 -->
+    <enumeration value="Female"/><!-- enum const = 1 -->
+    <enumeration value="Unknown"/><!-- enum const = 2 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="TitleType">
+   <restriction base="xsd:string">
+    <enumeration value="Mister"/><!-- enum const = 0 -->
+    <enumeration value="Madam"/><!-- enum const = 1 -->
+    <enumeration value="Miss"/><!-- enum const = 2 -->
+    <enumeration value="Agency"/><!-- enum const = 3 -->
+    <enumeration value="Unknown"/><!-- enum const = 4 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="FamilyStatusType">
+   <restriction base="xsd:string">
+    <enumeration value="Married"/><!-- enum const = 0 -->
+    <enumeration value="Single"/><!-- enum const = 1 -->
+    <enumeration value="Divorced"/><!-- enum const = 2 -->
+    <enumeration value="Widow"/><!-- enum const = 3 -->
+    <enumeration value="CommonLawMarriage"/><!-- enum const = 4 -->
+    <enumeration value="PACS"/><!-- enum const = 5 -->
+    <enumeration value="Other"/><!-- enum const = 6 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="UserStateType">
+   <restriction base="xsd:string">
+    <enumeration value="Pending"/><!-- enum const = 0 -->
+    <enumeration value="Valid"/><!-- enum const = 1 -->
+    <enumeration value="Invalid"/><!-- enum const = 2 -->
+    <enumeration value="Archived"/><!-- enum const = 3 -->
+    <enumeration value="Modified"/><!-- enum const = 4 -->
+    <enumeration value="New"/><!-- enum const = 5 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="MeansOfContactEnumType">
+   <restriction base="xsd:string">
+    <enumeration value="Mail"/><!-- enum const = 0 -->
+    <enumeration value="Email"/><!-- enum const = 1 -->
+    <enumeration value="HomePhone"/><!-- enum const = 2 -->
+    <enumeration value="OfficePhone"/><!-- enum const = 3 -->
+    <enumeration value="MobilePhone"/><!-- enum const = 4 -->
+    <enumeration value="Sms"/><!-- enum const = 5 -->
+    <enumeration value="LocalAuthorityOffice"/><!-- enum const = 6 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="RoleType">
+   <restriction base="xsd:string">
+    <enumeration value="HomeFolderResponsible"/><!-- enum const = 0 -->
+    <enumeration value="ClrMother"/><!-- enum const = 1 -->
+    <enumeration value="ClrFather"/><!-- enum const = 2 -->
+    <enumeration value="ClrTutor"/><!-- enum const = 3 -->
+    <enumeration value="Tutor"/><!-- enum const = 4 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="LegalResponsibleRoleType">
+   <restriction base="xsd:string">
+    <enumeration value="Father"/><!-- enum const = 0 -->
+    <enumeration value="Mother"/><!-- enum const = 1 -->
+    <enumeration value="Tutor"/><!-- enum const = 2 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="RequestStateType">
+   <restriction base="xsd:string">
+    <enumeration value="Validated"/><!-- enum const = 0 -->
+    <enumeration value="Closed"/><!-- enum const = 1 -->
+    <enumeration value="Archived"/><!-- enum const = 2 -->
+    <enumeration value="Rejected"/><!-- enum const = 3 -->
+    <enumeration value="Uncomplete"/><!-- enum const = 4 -->
+    <enumeration value="Complete"/><!-- enum const = 5 -->
+    <enumeration value="Cancelled"/><!-- enum const = 6 -->
+    <enumeration value="Pending"/><!-- enum const = 7 -->
+    <enumeration value="Notified"/><!-- enum const = 8 -->
+    <enumeration value="Draft"/><!-- enum const = 9 -->
+    <enumeration value="Inprogress"/><!-- enum const = 10 -->
+    <enumeration value="Extinprogress"/><!-- enum const = 11 -->
+    <enumeration value="Rectified"/><!-- enum const = 12 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="DataStateType">
+   <restriction base="xsd:string">
+    <enumeration value="Pending"/><!-- enum const = 0 -->
+    <enumeration value="Valid"/><!-- enum const = 1 -->
+    <enumeration value="Invalid"/><!-- enum const = 2 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="SchoolType-Type">
+   <restriction base="xsd:string">
+    <enumeration value="Nursery"/><!-- enum const = 0 -->
+    <enumeration value="Primary"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="RequestType-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="SchoolCanteenRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="PerischoolActivityRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="RecreationActivityRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="SchoolRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="SchoolRegistrationWithRemoteCirilnetenfanceRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="HomeFolderModificationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="DayPeriodType">
+   <restriction base="xsd:string">
+    <enumeration value="allDay"/><!-- enum const = 0 -->
+    <enumeration value="halfDay"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="ChildCareCenterRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="GlobalSchoolServicesRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+  <simpleType name="YouthCenterRegistrationRequest-Step">
+   <restriction base="xsd:string">
+    <enumeration value="Instruction"/><!-- enum const = 0 -->
+    <enumeration value="Delivery"/><!-- enum const = 1 -->
+   </restriction>
+  </simpleType>
+    
+  <complexType name="RecreationContactIndividualType">
+   <sequence>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="HomePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="OfficePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="RecreationAuthorizedIndividualType">
+   <sequence>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="HomePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="OfficePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="GlobalSchoolAuthorizedIndividualsType">
+   <sequence>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="HomePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="OfficePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+   <complexType name="PerischoolContactIndividualType">
+   <sequence>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="HomePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="OfficePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="PerischoolAuthorizedIndividualType">
+   <sequence>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="HomePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="OfficePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="CurrentSchoolType">
+   <sequence>
+     <element name="CurrentSchoolName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true" default=""/>
+     <element name="CurrentSchoolAddress" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true" default=""/>
+     <element name="CurrentSection" type="enf:SectionType" minOccurs="0" maxOccurs="1" default="Unknown"/>
+   </sequence>
+  </complexType>
+  <complexType name="CurrentSchool2Type">
+   <sequence>
+     <element name="CurrentSchoolName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true" default=""/>
+     <element name="CurrentSchoolAddress" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true" default=""/>
+     <element name="CurrentSection" type="enf:SectionType" minOccurs="0" maxOccurs="1" default="Unknown"/>
+   </sequence>
+  </complexType>
+  <complexType name="LocalAuthorityType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="PostalCode" type="enf:PostalCodeType" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="SchoolType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Type" type="enf:SchoolType-Type" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="RecreationCenterType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Description" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="VacationsType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="StartDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="EndDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="BirthPlaceType">
+   <sequence>
+     <element name="City" type="enf:CityType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="PostalCode" type="enf:PostalCodeType" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="AddressType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="AdditionalDeliveryInformation" type="enf:AddressBloc38Type" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalGeographicalInformation" type="enf:AddressBloc38Type" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="StreetNumber" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="StreetCode" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="StreetName" type="enf:AddressBloc32UpperType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="PlaceNameOrService" type="enf:AddressBloc38UpperType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="PostalCode" type="enf:PostalCodeType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="City" type="enf:AddressBloc32UpperType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CountryName" type="enf:AddressBloc38UpperType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="LegalResponsibleType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Role" type="enf:LegalResponsibleRoleType" minOccurs="1" maxOccurs="1"/>
+     <element name="LegalResponsible" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="MeansOfContactType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Type" type="enf:MeansOfContactEnumType" minOccurs="1" maxOccurs="1"/>
+     <element name="Enabled" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="IndividualType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalCapdematId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Login" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="PublicKey" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName2" type="enf:FirstNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FirstName3" type="enf:FirstNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="BirthDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="BirthPlace" type="enf:BirthPlaceType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Sex" type="enf:SexType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="State" type="enf:UserStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="Role" type="enf:IndividualRoleType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="IndividualRoleType">
+   <sequence>
+     <element name="IndividualId" type="xsd:long" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="HomeFolderId" type="xsd:long" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="RoleName" type="enf:RoleType" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="HomeFolderType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalCapdematId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Individuals" type="enf:SubjectType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="Address" type="enf:AddressType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="State" type="enf:UserStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="FamilyQuotient" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="SubjectType">
+    <choice>
+     <element name="Individual" type="enf:IndividualType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Adult" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Child" type="enf:ChildType" minOccurs="1" maxOccurs="1" nillable="false"/>
+    </choice>
+  </complexType>
+  <complexType name="RequestType">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:RequestType-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="RequestSeasonType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Label" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RegistrationStart" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RegistrationEnd" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationAuthorizationStart" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="EffectStart" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="EffectEnd" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="AdditionalInformationType">
+   <sequence>
+     <any processContents="lax" minOccurs="0" maxOccurs="unbounded"/><!-- member __any -->
+   </sequence>
+  </complexType>
+  <complexType name="LocalReferentialDataType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Priority" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformationLabel" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformationValue" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Children" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="TicketTypeSelectionType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Number" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="PlaceReservationDataType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="TicketTypeSelection" type="enf:TicketTypeSelectionType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="AdultType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalCapdematId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Login" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="PublicKey" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName2" type="enf:FirstNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FirstName3" type="enf:FirstNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="BirthDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="BirthPlace" type="enf:BirthPlaceType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Sex" type="enf:SexType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="State" type="enf:UserStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="Role" type="enf:IndividualRoleType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="Title" type="enf:TitleType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="MaidenName" type="enf:LastNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="NameOfUse" type="enf:LastNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FamilyStatus" type="enf:FamilyStatusType" minOccurs="1" maxOccurs="1" default="Other"/>
+     <element name="HomePhone" type="enf:PhoneType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="OfficePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="MobilePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Email" type="enf:EmailType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Cfbn" type="enf:CfbnType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Profession" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Question" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Answer" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Password" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildType">
+   <sequence>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalCapdematId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Login" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="PublicKey" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="LastName" type="enf:LastNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName" type="enf:FirstNameType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FirstName2" type="enf:FirstNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FirstName3" type="enf:FirstNameType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="BirthDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="BirthPlace" type="enf:BirthPlaceType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Sex" type="enf:SexType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Address" type="enf:AddressType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="State" type="enf:UserStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="Role" type="enf:IndividualRoleType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="LegalResponsible" type="enf:LegalResponsibleType" minOccurs="1" maxOccurs="3"/>
+     <element name="Note" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="RequestInstructionNotification">
+   <sequence>
+     <element name="LocalAuthority" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolderMapping" type="enf:HomeFolderMappingType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="IndividualMapping" type="enf:IndividualMappingType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="RequestActivityMapping" type="enf:RequestActivityMappingType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="HomeFolderMappingType">
+   <sequence>
+     <element name="CapDematId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="IndividualMappingType">
+   <sequence>
+     <element name="CapDematId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="RequestActivityMappingType">
+   <sequence>
+     <element name="CapDematId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="RequestResponseMessage">
+   <sequence>
+     <element name="Error" type="enf:ErrorType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+     <attribute name="state" type="xsd:string" use="optional"/>
+     <attribute name="timestamp" type="xsd:dateTime" use="optional"/>
+  </complexType>
+  <complexType name="ErrorType">
+   <sequence>
+     <element name="Message" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+     <attribute name="code" type="xsd:integer" use="optional"/>
+  </complexType>
+  <complexType name="accountType">
+   <sequence>
+   </sequence>
+     <attribute name="account-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="external-application-label" type="xsd:string" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+     <attribute name="broker" type="xsd:string" use="optional"/>
+     <attribute name="account-value" type="xsd:int" use="optional"/>
+     <attribute name="account-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="account-label" type="xsd:string" use="optional"/>
+  </complexType>
+  <complexType name="invoiceType">
+   <sequence>
+   </sequence>
+     <attribute name="invoice-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="external-application-label" type="xsd:string" use="optional"/>
+     <attribute name="broker" type="xsd:string" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+     <attribute name="invoice-value" type="xsd:int" use="optional"/>
+     <attribute name="invoice-total-value" type="xsd:int" use="optional"/>
+     <attribute name="invoice-label" type="xsd:string" use="optional"/>
+     <attribute name="invoice-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="invoice-expiration-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="invoice-payment-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="invoice-paid" type="xsd:boolean" use="optional"/>
+     <attribute name="invoice-url" type="xsd:string" use="optional"/>
+  </complexType>
+  <complexType name="individualContractType">
+   <sequence>
+     <element name="contract" type="enf:contractType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+     <attribute name="capwebct-individual-id" type="xsd:long" use="optional"/>
+     <attribute name="capwebct-external-individual-id" type="xsd:string" use="optional"/>
+  </complexType>
+  <complexType name="contractType">
+   <sequence>
+   </sequence>
+     <attribute name="contract-id" type="xsd:string" use="optional"/>
+     <attribute name="external-individual-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="external-application-label" type="xsd:string" use="optional"/>
+     <attribute name="broker" type="xsd:string" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+     <attribute name="contract-label" type="xsd:string" use="optional"/>
+     <attribute name="contract-value" type="xsd:int" use="optional"/>
+     <attribute name="contract-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="buy-price" type="xsd:int" use="optional"/>
+     <attribute name="min-buy" type="xsd:int" use="optional"/>
+     <attribute name="max-buy" type="xsd:int" use="optional"/>
+  </complexType>
+  <complexType name="family-accounts">
+   <sequence>
+     <element name="account" type="enf:accountType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="family-invoices">
+   <sequence>
+     <element name="invoice" type="enf:invoiceType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="family-contracts">
+   <sequence>
+     <element name="contract" type="enf:individualContractType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="invoiceDetailType">
+   <sequence>
+     <element name="child-name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="child-surname" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="label" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="unit-price" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="quantity" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="value" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="invoiceDetailsRequest">
+   <sequence>
+     <element name="LocalAuthority" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ExternalApplicationId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalFamilyAccountId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="InvoiceId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="accountDetailType">
+   <sequence>
+     <element name="date" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="holder-name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="holder-surname" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="value" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="payment-type" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="cvq-ack" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="payment-ack" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="accountDetailsRequest">
+   <sequence>
+     <element name="LocalAuthority" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ExternalApplicationId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalFamilyAccountId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="AccountId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="StartSearch" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="EndSearch" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="paymentType">
+   <sequence>
+   </sequence>
+     <attribute name="payment-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="payment-amount" type="xsd:int" use="optional"/>
+     <attribute name="payment-type" type="xsd:string" use="optional"/>
+     <attribute name="payment-ack" type="xsd:string" use="optional"/>
+     <attribute name="cvq-ack" type="xsd:string" use="optional"/>
+     <attribute name="payment-broker" type="xsd:string" use="optional"/>
+  </complexType>
+  <complexType name="familyType">
+   <sequence>
+   </sequence>
+     <attribute name="id" type="xsd:long" use="optional"/>
+     <attribute name="externalCapDematId" type="xsd:string" use="optional"/>
+     <attribute name="externalId" type="xsd:string" use="optional"/>
+     <attribute name="zip" type="xsd:string" use="optional"/>
+  </complexType>
+  <complexType name="contractUpdateType">
+   <sequence>
+   </sequence>
+     <attribute name="contract-id" type="xsd:string" use="optional"/>
+     <attribute name="external-individual-id" type="xsd:string" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="capwebct-individual-id" type="xsd:long" use="optional"/>
+     <attribute name="capwebct-external-individual-id" type="xsd:string" use="optional"/>
+     <attribute name="quantity" type="xsd:int" use="optional"/>
+     <attribute name="price" type="xsd:int" use="optional"/>
+     <attribute name="amount" type="xsd:int" use="optional"/>
+  </complexType>
+  <complexType name="accountUpdateType">
+   <sequence>
+   </sequence>
+     <attribute name="account-id" type="xsd:string" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="account-old-value" type="xsd:double" use="optional"/>
+     <attribute name="account-old-value-date" type="xsd:dateTime" use="optional"/>
+     <attribute name="account-new-value" type="xsd:int" use="optional"/>
+  </complexType>
+  <complexType name="invoiceUpdateType">
+   <sequence>
+   </sequence>
+     <attribute name="invoice-id" type="xsd:string" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="amount" type="xsd:int" use="optional"/>
+  </complexType>
+  <complexType name="bank-transaction-accounts">
+   <sequence>
+     <element name="account" type="enf:accountUpdateType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="bank-transaction-invoices">
+   <sequence>
+     <element name="invoice" type="enf:invoiceUpdateType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="bank-transaction-contracts">
+   <sequence>
+     <element name="contract" type="enf:contractUpdateType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="bank-transaction">
+   <sequence>
+     <element name="payment" type="enf:paymentType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="family" type="enf:familyType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="accounts" type="enf:bank-transaction-accounts" minOccurs="1" maxOccurs="1"/>
+     <element name="invoices" type="enf:bank-transaction-invoices" minOccurs="1" maxOccurs="1"/>
+     <element name="contracts" type="enf:bank-transaction-contracts" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+     <attribute name="version" type="xsd:string" use="optional"/>
+  </complexType>
+  <complexType name="SchoolCanteenRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:SchoolCanteenRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="UrgencyPhone" type="enf:PhoneType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="School" type="enf:SchoolType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Section" type="enf:SectionType" minOccurs="1" maxOccurs="1" default="Unknown"/>
+     <element name="FoodDiet" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="CanteenAttendingDays" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="FoodAllergy" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false"/>
+     <element name="DoctorName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true" default=""/>
+     <element name="DoctorPhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="HospitalizationPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="RulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="PerischoolActivityRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:PerischoolActivityRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="PerischoolActivity" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="UrgencyPhone" type="enf:PhoneType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="School" type="enf:SchoolType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Section" type="enf:SectionType" minOccurs="1" maxOccurs="1" default="Unknown"/>
+     <element name="ContactIndividuals" type="enf:PerischoolContactIndividualType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="AuthorizedIndividuals" type="enf:PerischoolAuthorizedIndividualType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="RulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="ClassTripPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="ChildPhotoExploitationPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="HospitalizationPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="RecreationActivityRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:RecreationActivityRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="RecreationActivity" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="RecreationPolyActivity" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="UrgencyPhone" type="enf:PhoneType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RecreationCenter" type="enf:RecreationCenterType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ContactIndividuals" type="enf:RecreationContactIndividualType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="AuthorizedIndividuals" type="enf:RecreationAuthorizedIndividualType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="RulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="ClassTripPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="ChildPhotoExploitationPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+     <element name="HospitalizationPermission" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="SchoolRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:SchoolRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="School" type="enf:SchoolType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Section" type="enf:SectionType" minOccurs="1" maxOccurs="1" default="Unknown"/>
+     <element name="UrgencyPhone" type="enf:PhoneType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CurrentSchool" type="enf:CurrentSchoolType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="SchoolRegistrationWithRemoteCirilnetenfanceRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:SchoolRegistrationWithRemoteCirilnetenfanceRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="SchoolName" type="enf:SchoolType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Section" type="enf:SectionType" minOccurs="1" maxOccurs="1" default="Unknown"/>
+     <element name="UrgencyPhone" type="enf:PhoneType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CurrentSchool" type="enf:CurrentSchoolType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  <complexType name="HomeFolderModificationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:HomeFolderModificationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildMonDayType">
+   <sequence>
+     <element name="MondayPeriod" type="enf:DayPeriodType" minOccurs="0" maxOccurs="1" default="allDay"/>
+     <element name="MondayFirstPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="MondayFirstPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="MondaySecondPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="MondaySecondPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildTuesdayType">
+   <sequence>
+     <element name="TuesdayPeriod" type="enf:DayPeriodType" minOccurs="0" maxOccurs="1" default="allDay"/>
+     <element name="TuesdayFirstPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="TuesdayFirstPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="TuesdaySecondPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="TuesdaySecondPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildWednesdayType">
+   <sequence>
+     <element name="WednesdayPeriod" type="enf:DayPeriodType" minOccurs="0" maxOccurs="1" default="allDay"/>
+     <element name="WednesdayFirstPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="WednesdayFirstPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="WednesdaySecondPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="WednesdaySecondPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildThursdayType">
+   <sequence>
+     <element name="ThursdayPeriod" type="enf:DayPeriodType" minOccurs="0" maxOccurs="1" default="allDay"/>
+     <element name="ThursdayFirstPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ThursdayFirstPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ThursdaySecondPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ThursdaySecondPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildFridayType">
+   <sequence>
+     <element name="FridayPeriod" type="enf:DayPeriodType" minOccurs="0" maxOccurs="1" default="allDay"/>
+     <element name="FridayFirstPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FridayFirstPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FridaySecondPeriodBegining" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FridaySecondPeriodEnding" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="ChildCareCenterRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningUserId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:ChildCareCenterRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="SubjectChoiceBirthDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="SubjectChoiceGender" type="enf:SexType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="RegistrationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MondayRegistrationParam" type="enf:ChildMonDayType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="TuesdayRegistrationParam" type="enf:ChildTuesdayType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="WednesdayRegistrationParam" type="enf:ChildWednesdayType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ThursdayRegistrationParam" type="enf:ChildThursdayType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="FridayRegistrationParam" type="enf:ChildFridayType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="WelcomingChoice" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+   </sequence>
+  </complexType>
+  <complexType name="DoctorInformationType">
+   <sequence>
+     <element name="DoctorName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="DoctorPhone" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="CivilResponsabilityType">
+   <sequence>
+     <element name="InsuranceName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="InsuranceNumber" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+   </sequence>
+  </complexType>
+  <complexType name="GlobalSchoolServicesRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:GlobalSchoolServicesRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Activities" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="Vaccin" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false"/>
+     <element name="VaccinDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Allergy" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false"/>
+     <element name="AllergicPrecision" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Diet" type="enf:LocalReferentialDataType" minOccurs="0" maxOccurs="unbounded"/>
+     <element name="DoctorInformation" type="enf:DoctorInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="SocialSecurityNumber" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="InsuranceInformation" type="enf:CivilResponsabilityType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="GlobalSchoolAuthorizedIndividuals" type="enf:GlobalSchoolAuthorizedIndividualsType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="MedicalRulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="0" maxOccurs="1"/>
+     <element name="ImageRulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="0" maxOccurs="1"/>
+     <element name="TransportRulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="0" maxOccurs="1"/>
+     <element name="PerischoolRulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="0" maxOccurs="1"/>
+     <element name="GeneralRulesAndRegulationsAcceptance" type="enf:AcceptanceType" minOccurs="0" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  
+  <complexType name="YouthCenterRegistrationRequest">
+   <sequence>
+     <element name="RequestTypeLabel" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="Id" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Subject" type="enf:SubjectType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Requester" type="enf:AdultType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="CreationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="ValidationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastModificationDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="LastInterveningAgentId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="Step" type="enf:GlobalSchoolServicesRegistrationRequest-Step" minOccurs="1" maxOccurs="1"/>
+     <element name="State" type="enf:RequestStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="DataState" type="enf:DataStateType" minOccurs="1" maxOccurs="1"/>
+     <element name="HomeFolder" type="enf:HomeFolderType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="MeansOfContact" type="enf:MeansOfContactType" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="RequestSeason" type="enf:RequestSeasonType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="Observations" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="AdditionalInformation" type="enf:AdditionalInformationType" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ChildAlone" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false"/>
+     <element name="FirstRegistrationDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="FirstRegistrationNumeroAdherent" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="IsFirstRegistration" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="true"/>
+     <element name="MultiActivities" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false"/>
+     <element name="RulesAcceptance" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false"/>
+     <element name="SubjectChoiceBirthDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="false"/>
+     <element name="SubjectChoiceEmail" type="enf:EmailType" minOccurs="0" maxOccurs="1" nillable="false"/>
+     <element name="SubjectChoiceMobilePhone" type="enf:PhoneType" minOccurs="0" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  
+   <!-- operation request element -->
+  <element name="SchoolRegistration">
+   <complexType>
+    <sequence>
+     <element name="SchoolRegistrationRequest" type="enf:SchoolRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="SchoolRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="SchoolName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  
+   <!-- operation request element -->
+  <element name="SchoolRegistrationWithRemoteCirilnetenfance">
+   <complexType>
+    <sequence>
+     <element name="SchoolRegistrationWithRemoteCirilnetenfanceRequest" type="enf:SchoolRegistrationWithRemoteCirilnetenfanceRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="SchoolRegistrationWithRemoteCirilnetenfanceResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="SchoolName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  
+  <!-- operation request element -->
+  <element name="familyAccountsRequest">
+   <complexType>
+    <sequence>
+     <element name="LocalAuthority" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+     <element name="HomeFolderId" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+     <element name="ExternalCapDematId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="ExternalId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="family">
+   <complexType>
+    <sequence>
+     <element name="accounts" type="enf:family-accounts" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="invoices" type="enf:family-invoices" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="contracts" type="enf:family-contracts" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+     <attribute name="id" type="xsd:long" use="optional"/>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="invoiceDetails">
+   <complexType>
+    <sequence>
+     <element name="invoiceDetailsRequest" type="enf:invoiceDetailsRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="invoiceDetailsResponse">
+   <complexType>
+    <sequence>
+     <element name="invoiceDetail" type="enf:invoiceDetailType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+     <attribute name="invoice-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="accountDetails">
+   <complexType>
+    <sequence>
+     <element name="accountDetailsRequest" type="enf:accountDetailsRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="accountDetailsResponse">
+   <complexType>
+    <sequence>
+     <element name="accountDetail" type="enf:accountDetailType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+     <attribute name="account-id" type="xsd:string" use="optional"/>
+     <attribute name="external-application-id" type="xsd:long" use="optional"/>
+     <attribute name="external-family-account-id" type="xsd:string" use="optional"/>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="CreditAccount">
+   <complexType>
+    <sequence>
+     <element name="bank-transaction" type="enf:bank-transaction" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="SchoolCanteenRegistration">
+   <complexType>
+    <sequence>
+     <element name="SchoolCanteenRegistrationRequest" type="enf:SchoolCanteenRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="SchoolCanteenRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="PerischoolActivityRegistration">
+   <complexType>
+    <sequence>
+     <element name="PerischoolActivityRegistrationRequest" type="enf:PerischoolActivityRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="PerischoolActivityRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="RecreationActivityRegistration">
+   <complexType>
+    <sequence>
+     <element name="RecreationActivityRegistrationRequest" type="enf:RecreationActivityRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="RecreationActivityRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+ 
+  <!-- operation request element -->
+  <element name="HomeFolderModification">
+   <complexType>
+    <sequence>
+     <element name="HomeFolderModificationRequest" type="enf:HomeFolderModificationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="HomeFolderModificationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="ChildCareCenterRegistration">
+   <complexType>
+    <sequence>
+     <element name="ChildCareCenterRegistrationRequest" type="enf:ChildCareCenterRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="ChildCareCenterRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="GlobalSchoolServicesRegistration">
+   <complexType>
+    <sequence>
+     <element name="GlobalSchoolServicesRegistrationRequest" type="enf:GlobalSchoolServicesRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="GlobalSchoolServicesRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  
+  <!-- operation request element -->
+  <element name="YouthCenterRegistration">
+   <complexType>
+    <sequence>
+     <element name="YouthCenterRegistrationRequest" type="enf:YouthCenterRegistrationRequest" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="YouthCenterRegistrationResponse">
+   <complexType>
+    <sequence>
+     <element name="notifications" type="enf:RequestInstructionNotification" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="message" type="enf:RequestResponseMessage" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  
+  
+ </schema>
+
+	

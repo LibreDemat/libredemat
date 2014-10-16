@@ -214,4 +214,9 @@
     <xb:package>org.libredemat.xml.request.parking</xb:package>
   </xb:namespace>
 
+  <!-- School Registration With Remote Cirilnetenfance Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/srwrcr">
+      <xb:package>org.libredemat.xml.request.school</xb:package>
+  </xb:namespace>
+
 </xb:config>

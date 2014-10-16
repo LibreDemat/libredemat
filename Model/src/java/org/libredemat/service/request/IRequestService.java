@@ -1,6 +1,7 @@
 package org.libredemat.service.request;
 
 import java.util.Map;
+import java.util.HashMap;
 
 import org.libredemat.business.LibreDematEvent;
 import org.libredemat.business.request.Request;

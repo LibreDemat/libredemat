@@ -51,6 +51,8 @@ public class CommonPlugin implements IPluginGenerator {
                         step = new CustomStep(
                             ApplicationDocumentation.getNodeAttributeValue(node, "index"),
                             ApplicationDocumentation.getNodeAttributeValue(node, "name"),
+                            ApplicationDocumentation.getNodeAttributeValue(node, "displayNotInValidation"),
+                            ApplicationDocumentation.getNodeAttributeValue(node, "displayNotInPDF"),
                             ApplicationDocumentation.getNodeAttributeValue(node, "required")
                         );
                     }

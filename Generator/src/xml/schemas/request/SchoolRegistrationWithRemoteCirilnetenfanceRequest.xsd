@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.libredemat.org/schema/srwrcr"
+  xmlns:srwrcr="http://www.libredemat.org/schema/srwrcr" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:cvq="http://www.libredemat.org/schema/common" 
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://www.libredemat.org/schema/common"
+    schemaLocation="../common/CVQCommonElements.xsd" />
+
+  <xs:element name="SchoolRegistrationWithRemoteCirilnetenfanceRequest" >
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Demande d'inscription scolaire avec remontée de l'école
+      </xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+        School registration request with school remote
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Inscription scolaire avec remontée de l'école
+      </xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
+        School Registration with school remote
+      </xs:documentation>
+      <xs:appinfo>
+        <model namespace="school" />
+        <common>
+	      <namespace name="school" />
+	      <steps>
+	        <step index="0" name="registration" >
+	          <widgets>
+                <subject />
+	          </widgets>
+	          <conditions>
+              <condition name="isSubjectId" />
+              <condition name="school" />
+              <condition name="schoolLoaded" />
+              <!--<condition name="others" />-->
+            </conditions>
+	       	</step>
+	       	<step index="1" name="rules" />
+	        <step index="2" ref="document" />
+	        <step index="3" ref="validation" />
+	        <step index="4" ref="administration" />
+	      </steps>
+	    </common>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+      
+        <xs:extension base="cvq:RequestType">
+          <xs:sequence>
+            <xs:element name="Section" type="cvq:SectionType" >
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Niveau
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Niveau
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="users" />
+                  <common>
+                    <step name="registration" />
+                    <conditions>
+                      <condition name="isSubjectId" type="filled" required="true" />
+                      <condition name="school" type="trigger" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+             
+
+            <xs:element name="TheSchool" type="srwrcr:SchoolSelected">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  L'école dans laquelle est inscrit l'enfant
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  L'école dans laquelle est inscrit l'enfant
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                  </common>
+                  <fo />
+                  <bo column="2" />
+                 <pdf />	  
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            
+
+            <!--
+            <xs:element name="UrgencyPhone" type="cvq:PhoneType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Téléphone en cas d'urgence
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Numéro de téléphone à contacter en cas d'urgence
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                    <conditions>
+                    	<condition name="others" type="filled" required="true" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          -->
+            
+                    <!--
+            <xs:element name="CurrentSchool" type="srwrcr:CurrentSchool2Type">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Informations conçernant l'école actuelle
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Ecole actuelle
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="registration" />
+                     <conditions>
+                    	<condition name="others" type="filled" required="true" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="2" />
+                 <pdf />	  
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+                  -->
+            
+            <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Prise en compte et acceptation du règlement intérieur
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  J'accepte et je m'engage à respecter le règlement
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="rules" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                 <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element> 
+            
+          </xs:sequence>
+        </xs:extension>
+        
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:complexType name="CurrentSchool2Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Informations conçernant le sujet de la demande
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Sujet
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CurrentSchoolName" type="xs:string" minOccurs="0" default="">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            L'école dans laquelle est inscrit l'enfant
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            Nom de l'école actuelle
+          </xs:documentation>
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+            The school in which the child is registered
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="registration" />
+           </common>
+           <fo />
+           <bo column="2" />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CurrentSchoolAddress" type="xs:string" minOccurs="0" default="">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            L'adresse de l'école dans laquelle est inscrit l'enfant
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            Adresse de l'école actuelle
+          </xs:documentation>
+          <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+            The address of the school in which the child is registered
+          </xs:documentation>
+          <xs:appinfo>
+            <common>
+              <step name="registration" />
+            </common>
+            <fo>
+              <textarea rows="3" />
+            </fo>
+            <bo column="2" />
+            <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="CurrentSection" type="cvq:SectionType" minOccurs="0"
+        default="Unknown">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            Classe actuelle
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            Classe dans laquelle l'enfant est actuellement inscrit
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            Current section
+          </xs:documentation>
+          <xs:appinfo>
+            <model namespace="users" />
+            <common>
+              <step name="registration" />
+            </common>
+            <fo />
+            <bo column="2" />
+            <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="SchoolSelected">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        L'école dans laquelle est inscrit l'enfant
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        L'école dans laquelle est inscrit l'enfant
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+
+        <xs:element name="IdSchoolName" type="xs:string" >
+          <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+              L'école dans laquelle est inscrit l'enfant
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+              Ecole
+            </xs:documentation>
+            <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+              The school in which the child is registered
+            </xs:documentation>
+            <xs:appinfo>
+                 <model namespace="users" />
+              <common>
+                <step ref="registration" />
+                    <conditions>
+                        <condition name="school" type="filled" required="true" />
+                        <!--<condition name="others" type="trigger" />-->
+                    </conditions>
+              </common>
+              <bo column="1" noI18n="true" />
+              <fo />
+              <pdf noI18n="true" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+
+        <xs:element name="LabelSchoolName" type="xs:string" >
+          <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+              L'école dans laquelle est inscrit l'enfant
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+              Ecole
+            </xs:documentation>
+            <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+              The school in which the child is registered
+            </xs:documentation>
+            <xs:appinfo>
+                 <model namespace="users" />
+              <common>
+                <step ref="registration" />
+                    <conditions>
+                        <condition name="school" type="filled" required="true" />
+                        <!--<condition name="others" type="trigger" />-->
+                    </conditions>
+              </common>
+              <bo column="1" noI18n="true" />
+              <fo />
+              <pdf noI18n="true" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

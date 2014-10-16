@@ -59,6 +59,7 @@
     </property>
     <property name="externalServices">
       <map>
+      <!--
       <entry>
       <key>
       <ref bean="cardFiveExternalService" />
@@ -82,7 +83,31 @@
       </property>
       </bean>
       </entry>
+      -->
+        <!-- Ciril Net Enfance plugin -->
+         <entry>
+            <key>
+                <ref bean="cirilNetEnfanceExternalService" />
+            </key>
+            <bean class="org.libredemat.external.ExternalServiceBean">
+                <property name="requestTypes">
+                    <list>
+                        <value>School Registration With Remote Cirilnetenfance</value>
+                    </list>
+                </property>
+                <property name="serviceProperties">
+                    <map>
+                        <entry key="EndPointRegistration" value="http://dev-enf.ciril.lan:9000/cgi-bin/ws.exe/cgi-bin/enf_cdv4_6_teleservices.exe?ws" />
+                        <entry key="EndPointReservation" value="http://dev-enf.ciril.lan:9000/cgi-bin/ws.exe/cgi-bin/enf_cdv4_6_reservations.exe?ws" />
+                        <entry key="EndPointSchool" value="http://dev-enf.ciril.lan:9000/cgi-bin/ws.exe/cgi-bin/enf_ts_soap.exe?ws" />
 
+                        <entry key="isActiveSendMailInValidNoPay" value="False" />
+                        <entry key="mailFrom" value="garmetta@ciril.net" />
+                        <!-- ARTUNG BOUBLONS IN CIVIL <entry key="sendHomeFolderCreation" value="createCompteOnSynchronise" /> -->
+                    </map>
+                </property>
+            </bean>
+        </entry>
         <entry>
           <key>
             <ref bean="fakeExternalService" />

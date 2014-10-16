@@ -32,4 +32,14 @@ public class CommonStep extends Step {
     public boolean isRequired() {
         return ref.isRequired();
     }
+
+    @Override
+    public boolean isDisplayNotInValidation() {
+        return false;
+    }
+
+    @Override
+    public boolean isDisplayNotInPDF() {
+        return false;
+    }
 }

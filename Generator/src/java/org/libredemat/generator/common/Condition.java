@@ -10,7 +10,7 @@ import java.util.List;
 public class Condition {
 
     public enum RoleType {
-        trigger, filled, unfilled;
+        trigger, filled, unfilled, loaded;
     }
 
     private String name;

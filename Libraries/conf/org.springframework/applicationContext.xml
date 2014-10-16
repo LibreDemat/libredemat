@@ -850,6 +850,19 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
       <property name="localReferentialService" ref="localReferentialService" />
   </bean>
 
+  <bean id="schoolRegistrationWithRemoteCirilnetenfanceRequestService" class="org.libredemat.service.request.school.impl.SchoolRegistrationWithRemoteCirilnetenfanceRequestService" parent="requestService" >
+      <property name="label" value="School Registration With Remote Cirilnetenfance" />
+      <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
+      <property name="defaultDisplayGroup" value="school" />
+      <property name="filingDelay" value="12" />
+      <property name="isOfRegistrationKind" value="true" />
+      <property name="requestExternalService" ref="requestExternalService" />
+      <property name="individualDAO" ref="individualDAO" />
+      <property name="requestDAO" ref="requestDAO" />
+  </bean>
+
+
+
   <bean id="displayGroupService" class="org.libredemat.service.request.impl.DisplayGroupService">
     <property name="genericDAO" ref="genericDAO" />
     <property name="requestTypeDAO" ref="requestTypeDAO" />

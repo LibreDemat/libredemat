@@ -51,12 +51,14 @@ public abstract class Step {
     }
 
     public void addWidget(Widget widget) {
-        if (index != 0)
-            throw new RuntimeException("addWidget - Widget can only be added in step with index 0");
         for (Widget w : widgets)
             if (w.getName().equals(widget.getName()))
                 throw new RuntimeException("addWidget() - Widget {"+ widget.getName() +"} " 
                         + "is already associated with Step {"+ getName() +"}");
         widgets.add(widget);
     }
+
+    public abstract boolean isDisplayNotInValidation();
+    public abstract boolean isDisplayNotInPDF();
+
 }

@@ -40,12 +40,35 @@ public class ExternalInvoiceItem extends ExternalAccountItem {
 
     @Column(name="is_paid")
     private Boolean isPaid;
+    
+    
+    /* Inexine get invoice pdf from business soft */
+    @Column(columnDefinition="TEXT")
+    private String invoiceUrl;
+
 
     @Transient private Double totalValue;
 
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="externalInvoiceItem")
     private Set<ExternalInvoiceItemDetail> invoiceDetails;
 
+    // Inexine Hack Frederic Fabre (Sebastien Faure)
+    // add constructor parameter : final String invoiceUrl
+    public ExternalInvoiceItem(final String label, final Double amount, final Double totalValue,
+            final String externalServiceLabel, final String externalItemId,
+            final Date issueDate, final Date expirationDate, final Date paymentDate,
+            final Boolean isPaid, final String broker, final String invoiceUrl) {
+        super(label, amount, externalServiceLabel, externalItemId, broker);
+        this.issueDate = issueDate;
+        this.expirationDate = expirationDate;
+        this.paymentDate = paymentDate;
+        this.isPaid = isPaid;
+        this.totalValue = totalValue;
+        this.invoiceUrl = invoiceUrl;
+    }
+
+
+    
     public ExternalInvoiceItem(final String label, final Double amount, final Double totalValue,
             final String externalServiceLabel, final String externalItemId,
             final Date issueDate, final Date expirationDate, final Date paymentDate,
