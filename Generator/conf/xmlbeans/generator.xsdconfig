@@ -219,4 +219,9 @@
       <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
+  <!-- Child Care Center Registration Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/cccrr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
+  </xb:namespace>
+
 </xb:config>

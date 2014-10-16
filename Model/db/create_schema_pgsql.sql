@@ -44,6 +44,12 @@
     alter table child 
         drop constraint FK5A3F51C1A5D42C9;
 
+    alter table child_care_center_registration_request_welcoming_choice 
+        drop constraint FK48474858C87E52FA;
+
+    alter table child_care_center_registration_request_welcoming_choice 
+        drop constraint FK484748582B1979B1;
+
     alter table compostable_waste_collection_request 
         drop constraint FKAFF7287798B9D644;
 
@@ -509,6 +515,10 @@
 
     drop table child cascade;
 
+    drop table child_care_center_registration_request cascade;
+
+    drop table child_care_center_registration_request_welcoming_choice cascade;
+
     drop table child_information_sheet cascade;
 
     drop table compostable_waste_collection_request cascade;
@@ -949,6 +959,46 @@
         id int8 not null,
         child_information_sheet_id int8,
         primary key (id)
+    );
+
+    create table child_care_center_registration_request (
+        id int8 not null,
+        friday_first_period_begining varchar(255),
+        friday_first_period_ending varchar(255),
+        friday_period varchar(255),
+        friday_second_period_begining varchar(255),
+        friday_second_period_ending varchar(255),
+        monday_first_period_begining varchar(255),
+        monday_first_period_ending varchar(255),
+        monday_period varchar(255),
+        monday_second_period_begining varchar(255),
+        monday_second_period_ending varchar(255),
+        registration_date timestamp,
+        subject_choice_birth_date timestamp,
+        subject_choice_gender varchar(255),
+        thursday_first_period_begining varchar(255),
+        thursday_first_period_ending varchar(255),
+        thursday_period varchar(255),
+        thursday_second_period_begining varchar(255),
+        thursday_second_period_ending varchar(255),
+        tuesday_first_period_begining varchar(255),
+        tuesday_first_period_ending varchar(255),
+        tuesday_period varchar(255),
+        tuesday_second_period_begining varchar(255),
+        tuesday_second_period_ending varchar(255),
+        wednesday_first_period_begining varchar(255),
+        wednesday_first_period_ending varchar(255),
+        wednesday_period varchar(255),
+        wednesday_second_period_begining varchar(255),
+        wednesday_second_period_ending varchar(255),
+        primary key (id)
+    );
+
+    create table child_care_center_registration_request_welcoming_choice (
+        child_care_center_registration_request_id int8 not null,
+        welcoming_choice_id int8 not null,
+        welcoming_choice_index int4 not null,
+        primary key (child_care_center_registration_request_id, welcoming_choice_index)
     );
 
     create table child_information_sheet (
@@ -2220,15 +2270,16 @@
         key_owner varchar(255),
         quantity int4,
         unit_price float8,
+        expiration_date timestamp,
+        invoiceUrl TEXT,
+        is_paid bool,
+        issue_date timestamp,
+        payment_date timestamp,
         creation_date timestamp,
         max_buy int4,
         min_buy int4,
         old_quantity int4,
         subject_id int8,
-        expiration_date timestamp,
-        is_paid bool,
-        issue_date timestamp,
-        payment_date timestamp,
         primary key (id)
     );
 
@@ -2555,13 +2606,10 @@
 
     create table school_registration_with_remote_cirilnetenfance_request (
         id int8 not null,
-        current_school_address varchar(255),
-        current_school_name varchar(255),
-        current_section varchar(32),
+        id_school_name varchar(255),
+        label_school_name varchar(255),
         rules_and_regulations_acceptance bool,
-        school_name varchar(255),
         section varchar(32),
-        urgency_phone varchar(10),
         primary key (id)
     );
 
@@ -2957,6 +3005,16 @@
         add constraint FK5A3F51C1A5D42C9 
         foreign key (child_information_sheet_id) 
         references child_information_sheet;
+
+    alter table child_care_center_registration_request_welcoming_choice 
+        add constraint FK48474858C87E52FA 
+        foreign key (child_care_center_registration_request_id) 
+        references child_care_center_registration_request;
+
+    alter table child_care_center_registration_request_welcoming_choice 
+        add constraint FK484748582B1979B1 
+        foreign key (welcoming_choice_id) 
+        references local_referential_data;
 
     alter table compostable_waste_collection_request 
         add constraint FKAFF7287798B9D644 

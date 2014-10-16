@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
+    <data name="WelcomingChoice" allowMultipleChoices="true" manager="CapDémat">
+        <label>Structure ou type d'accueil</label>
+        <entries>
+            <entry key="Creche-01">
+                <label>Creche 01</label>
+                <message>Creche 01</message>
+                <externalCode>code01</externalCode>
+            </entry>
+            <entry key="Creche-02">
+                <label>Creche 02</label>
+                <message>Creche 02</message>
+                <externalCode>Code02</externalCode>
+            </entry>
+        </entries>
+    </data>
+</LocalReferential>

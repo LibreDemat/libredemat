@@ -861,6 +861,17 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
       <property name="requestDAO" ref="requestDAO" />
   </bean>
 
+    <bean id="childCareCenterRegistrationRequestService" class="org.libredemat.service.request.school.impl.ChildCareCenterRegistrationRequestService" parent="requestService" >
+      <property name="userWorkflowService" ref="userWorkflowService" />
+      <property name="userSearchService" ref="userSearchService" />
+      <property name="localReferentialFilename" value="local_referential_cccrr" />
+      <property name="label" value="Child Care Center Registration" />
+      <property name="subjectPolicy" value="SUBJECT_POLICY_CHILD" />
+      <property name="defaultDisplayGroup" value="childCare" />
+      <property name="filingDelay" value="12" />
+    </bean>
+
+
 
 
   <bean id="displayGroupService" class="org.libredemat.service.request.impl.DisplayGroupService">

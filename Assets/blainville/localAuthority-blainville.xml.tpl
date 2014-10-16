@@ -51,6 +51,7 @@
                 <value>Park Card</value>
                 <value>Ticket Booking</value>
                 <value>Perischool Activity Registration</value>
+                <value>Child Care Registration</value>
               </list>
             </property>
           </bean>
@@ -93,6 +94,7 @@
                 <property name="requestTypes">
                     <list>
                         <value>School Registration With Remote Cirilnetenfance</value>
+                        <value>Child Care Registration</value>
                     </list>
                 </property>
                 <property name="serviceProperties">
