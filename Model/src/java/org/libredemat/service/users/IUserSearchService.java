@@ -63,6 +63,8 @@ public interface IUserSearchService extends IAutofillTriggerService {
 
     List<Individual> getIndividuals(@IsUser Long homeFolderId);
 
+    String getNameForExternalIdCirilNetEnfance(Long homeFolderId, Long externalId);
+
     /**
      * Return the list of children having only one responsible: the adult passed in param.
      */

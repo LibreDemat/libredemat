@@ -16,9 +16,7 @@ class FrontofficeCirilController {
 
     def schools = {
         def service = requestExternalService.getExternalServiceByRequestType(params.requestTypeLabel)
-        println(params.subjectId)
         def child = userSearchService.getChildById(params.subjectIdContainer.toLong())
-        println(child)
         def rqt = requestSearchService.getById(Long.parseLong(params.requestId), true)
 
         def parameters = [:]

@@ -7,11 +7,15 @@ import org.libredemat.business.users.Individual
 import org.libredemat.security.SecurityContext
 import org.libredemat.service.document.IDocumentService
 import org.libredemat.service.document.IDocumentTypeService
+import org.libredemat.service.request.school.external.ICirilDocumentProvider;
 import org.libredemat.util.UserUtils
 
 import java.util.Hashtable
 import javax.servlet.http.HttpServletResponse
 import grails.converters.JSON
+
+import org.jdom.output.*
+import org.jdom.*
 
 class FrontofficeDocumentController {
     
@@ -88,7 +92,8 @@ class FrontofficeDocumentController {
             'individuals' : this.getIndividuals(),
             'states': DocumentState.allDocumentStates.findAll{DocumentState.DRAFT != it}.collect{it.toString().toLowerCase()},
             'types' : this.getTypes(),
-            'maxRows': maxRows
+            'maxRows': maxRows,
+            'certificates': this.getCertificates()
         ])
     }
     
@@ -120,7 +125,48 @@ class FrontofficeDocumentController {
         
         return actions
     }
-    
+
+    def protected getCertificates(params) {
+        // méthode de récupération des certificats
+        def result = [:]                                                                            // on crée une map
+        result.familyDoc = []                                                                       // on crée deux sous map pour différencier les catégories de doc
+        result.individualDoc = [:]
+        def message = "message.noDocuments"
+
+        def homeFolderId = currentEcitizen.homeFolder.id;
+        def service = SecurityContext.currentConfigurationBean.getExternalServices().find { it.getKey() instanceof ICirilDocumentProvider }
+
+        if(service != null) {
+          def doc = service.getKey().getDocumentsOfCirilNetEnfance(homeFolderId)                // on fait passer les parametres au connecteur qui renvoit un doc xml org.jdom.Document
+          if (doc != null) {
+              def writer = new StringWriter()
+              // on prepare un flux d'écriture de String
+              new XMLOutputter().output(doc, writer)                                              // on y écrit le xml proprement
+              def certificates = new XmlSlurper().parseText(writer.toString())                        // on parse le xml de réponse Ciril
+              def family = certificates.FamilyAccountDocument.FamilyDocuments                         // on collecte les infos selon les catégorie
+              certificates = new XmlSlurper().parseText(writer.toString())                        // on parse le xml de réponse Ciril
+              def individual = certificates.IndividualAccountDocument.Individual
+
+              result.familyDoc = family.collect{[it.Label, it.Url]}
+              result.individualDoc = individual.collect{
+                [
+                  this.getNameByExternalId(homeFolderId, it.IndividualExternalId), it.IndividualDocument.collect{[it.Label, it.Url]}
+                ]}
+          }
+        }
+
+        return [
+            'family' : result.familyDoc,
+            'individual': result.individualDoc,
+            'count' : result.familyDoc.size() + result.individualDoc.size(),
+            'message' : message
+        ]
+    }
+
+    def protected getNameByExternalId(homeFolderId, externalId) {
+      return userSearchService.getNameForExternalIdCirilNetEnfance(homeFolderId, externalId.toLong());
+    }
+
     def protected getDocuments(state,params) {
         def result = []
         def criterias = new Hashtable<String,Object>();

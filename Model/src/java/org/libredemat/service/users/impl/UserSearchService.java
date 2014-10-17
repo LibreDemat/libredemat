@@ -15,10 +15,14 @@ import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.IndividualRole;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.UserState;
+import org.libredemat.business.users.external.HomeFolderMapping;
+import org.libredemat.business.users.external.IndividualMapping;
 import org.libredemat.dao.users.IAdultDAO;
 import org.libredemat.dao.users.IChildDAO;
 import org.libredemat.dao.users.IHomeFolderDAO;
 import org.libredemat.dao.users.IIndividualDAO;
+import org.libredemat.dao.users.IHomeFolderMappingDAO;
+import org.libredemat.dao.users.IIndividualMappingDAO;
 import org.libredemat.security.annotation.Context;
 import org.libredemat.security.annotation.ContextPrivilege;
 import org.libredemat.security.annotation.ContextType;
@@ -37,6 +41,10 @@ public class UserSearchService implements IUserSearchService {
     private IAdultDAO adultDAO;
 
     private IChildDAO childDAO;
+
+    private IIndividualMappingDAO individualMappingDAO;
+
+    private IHomeFolderMappingDAO homeFolderMappingDAO;
 
     private IExternalHomeFolderService externalHomeFolderService;
 
@@ -204,6 +212,32 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
+    public String getNameForExternalIdCirilNetEnfance(Long homeFolderId, Long externalId) {
+        List<IndividualMapping> findByExternalId = individualMappingDAO.findByExternalId(externalId + "");
+        for (IndividualMapping individualMapping : findByExternalId)
+        {
+            List<HomeFolderMapping> findByHomeFolderId = homeFolderMappingDAO.findByHomeFolderId(homeFolderId);
+            for (HomeFolderMapping homeFolderMapping : findByHomeFolderId)
+            {
+                if (homeFolderMapping.getExternalServiceLabel().equals("CirilNetEnfance")) // FIXME : refactor so that we don't use hard-coded service name
+                {
+                    Individual indiv = individualDAO.findById(individualMapping.getIndividualId());
+                    if (indiv != null)
+                    {
+                        String lastName = "";
+                        String firstName = "";
+                        if (indiv.getLastName() != null) lastName = indiv.getLastName();
+                        if (indiv.getFirstName() != null) firstName = indiv.getFirstName();
+                        return lastName + " " + firstName;
+                    }
+                }
+            }
+        }
+        return "NC";
+    }
+
+
+    @Override
     public Boolean hasExternalLibredematId(Long uId) {
         return (externalHomeFolderService.getIndividualMappings(uId).size() != 0);
     }
@@ -236,6 +270,14 @@ public class UserSearchService implements IUserSearchService {
 
     public void setChildDAO(IChildDAO childDAO) {
         this.childDAO = childDAO;
+    }
+
+    public void setHomeFolderMappingDAO(IHomeFolderMappingDAO hfmd) {
+        this.homeFolderMappingDAO = hfmd;
+    }
+
+    public void setIndividualMappingDAO(IIndividualMappingDAO imd) {
+        this.individualMappingDAO = imd;
     }
 
     @Override

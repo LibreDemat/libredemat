@@ -93,6 +93,7 @@ import org.libredemat.exception.CvqConfigurationException;
 import org.libredemat.exception.CvqException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.exception.CvqRemoteException;
+import org.libredemat.external.IExternalProviderService;
 import org.libredemat.external.ExternalServiceBean;
 import org.libredemat.external.impl.ExternalProviderServiceAdapter;
 import org.libredemat.security.SecurityContext;
@@ -103,6 +104,7 @@ import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.external.IExternalHomeFolderService;
 import org.libredemat.util.Critere;
 import org.libredemat.service.request.school.external.IRemoteCirilSchoolsProvider;
+import org.libredemat.service.request.school.external.ICirilDocumentProvider;
 import org.libredemat.xml.common.LocalReferentialDataType;
 import org.libredemat.xml.request.ecitizen.HomeFolderModificationRequestDocument.HomeFolderModificationRequest;
 import org.libredemat.xml.request.leisure.YouthCenterRegistrationRequestDocument.YouthCenterRegistrationRequest;
@@ -117,7 +119,7 @@ import org.libredemat.xml.request.school.SchoolRegistrationRequestDocument.Schoo
 import org.libredemat.xml.request.school.SchoolRegistrationWithRemoteCirilnetenfanceRequestDocument.SchoolRegistrationWithRemoteCirilnetenfanceRequest;
 
 public class CirilNetEnfanceService extends ExternalProviderServiceAdapter implements
-		IActivityReservationProviderService, IRemoteCirilSchoolsProvider 
+		IActivityReservationProviderService, IRemoteCirilSchoolsProvider, ICirilDocumentProvider
 {
 	private static Logger logger = Logger.getLogger(CirilNetEnfanceService.class);
 	private static final String END_POINT_REGISTRATION = "EndPointRegistration";
@@ -1044,6 +1046,26 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		}
 		return docx;
 	}
+
+    public org.jdom.Document getDocumentsOfCirilNetEnfance(Long homeFolderId) throws CvqException
+    {
+        // List<Request> rs =
+        // requestSearchService.getByHomeFolderIdWithoutStateClosed(homeFolderId,
+        // false);
+        HomeFolderMapping mapping = externalHomeFolderService.getHomeFolderMapping(getLabel(), homeFolderId);
+        if (mapping != null && mapping.getExternalId() != null)
+        {
+            Map<String, Object> parameter = new HashMap<String, Object>();
+            parameter.put("documentList", "ok");
+            parameter.put("homeFolderId", homeFolderId);
+            parameter.put("externalId", mapping.getExternalId());
+            Document doc = getInterractionReservation(parameter);
+            if (doc != null && doc.hasRootElement() && doc.getContent() != null && !doc.getContent().isEmpty()) {
+                return doc;
+            }
+        }
+        return null;
+    };
 
 	@Override
 	public boolean isServerStarted()

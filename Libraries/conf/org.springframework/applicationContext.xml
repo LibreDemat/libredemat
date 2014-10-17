@@ -404,6 +404,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="adultDAO" ref="adultDAO" />
     <property name="childDAO" ref="childDAO" />
     <property name="homeFolderDAO" ref="homeFolderDAO"/>
+    <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO"/>
+    <property name="individualMappingDAO" ref="individualMappingDAO"/>
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
   </bean>
 
@@ -974,6 +976,8 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
   <bean id="homeFolderMappingDAO" class="org.libredemat.dao.users.hibernate.HomeFolderMappingDAO" />
 
   <bean id="parkCardDAO" class="org.libredemat.dao.request.hibernate.ParkCardDAO" />
+
+  <bean id="individualMappingDAO" class="org.libredemat.dao.users.hibernate.IndividualMappingDAO" />
   
   <bean id="localReferentialDAO" class="org.libredemat.dao.request.xml.LocalReferentialDAO">
       <property name="requestServiceRegistry" ref="requestServiceRegistry" />
