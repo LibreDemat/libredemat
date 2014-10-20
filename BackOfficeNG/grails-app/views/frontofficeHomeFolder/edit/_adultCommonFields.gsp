@@ -50,7 +50,7 @@
   <label for="adultAddress_streetName" class="required">${message(code:'address.property.streetName')} *</label><br />
   <input type="text" class="line1 validate-streetNumber ${invalidFields?.contains('address.streetNumber') ? 'validation-failed' : ''}" size="5" maxlength="5" id="adultAddress_streetNumber" name="address.streetNumber"
       value="${adult?.address?.streetNumber}" />
-  <input type="text" class="line2 required validate-streetName ${invalidFields?.contains('address.streetName') ? 'validation-failed' : ''}" maxlength="32" id="adultAddress_streetName" name="address.streetName" title="${message(code:'address.property.streetName.validationError')}"
+  <input type="text" class="line2 required ${isAddresseReferentialCityRestriction != null && isAddresseReferentialCityRestriction ? 'validate-streetNameReferential' : 'validate-streetName'} ${invalidFields?.contains('address.streetName') ? 'validation-failed' : ''}" maxlength="32" id="adultAddress_streetName" name="address.streetName" title="${message(code:'address.property.streetName.validationError')}"
       value="${adult?.address?.streetName}" />
   <label for="adultAddress_placeNameOrService">${message(code:'address.property.placeNameOrService')}</label>
   <input type="text" class="validate-addressLine38 ${invalidFields?.contains('address.placeNameOrService') ? 'validation-failed' : ''}" maxlength="38" id="adultAddress_placeNameOrService" name="address.placeNameOrService"

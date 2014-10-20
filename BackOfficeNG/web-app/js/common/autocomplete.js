@@ -34,6 +34,8 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.common');
     this.inputId = options.inputId;
     this.modalId = options.modalId;
     this.modalTitle = options.modalTitle;
+    this.fieldsetId = options.fieldsetId;
+    this.streetField = options.streetField;
     this.url = options.url;
     if(options.urlParams) this.urlParams = options.urlParams;
     this.resultText = options.resultText;
@@ -64,6 +66,8 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.common');
     results: [],
     input: null,
     url: "",
+    fieldsetId : null,
+    streetField : false,
     urlParams: {},
     resultText: null,
     delay: 200,

@@ -56,6 +56,7 @@ public final class LocalAuthorityConfigurationBean {
     private boolean informationSheetDisplayed = true;
     private boolean viewDocumentInPanelInBO = true;
     private boolean autotransition = false;
+    private boolean addresseReferentialCityRestriction = false;
 
     public LocalAuthorityConfigurationBean() {
         paymentServices =
@@ -397,5 +398,12 @@ public final class LocalAuthorityConfigurationBean {
 
     public void setAccountValidationRequired(boolean accountValidationRequired) {
         this.accountValidationRequired = accountValidationRequired;
+    }
+
+    public boolean isAddresseReferentialCityRestriction() {
+        return addresseReferentialCityRestriction;
+    }
+    public void setAddresseReferentialCityRestriction(boolean addresseReferentialCityRestriction) {
+        this.addresseReferentialCityRestriction = addresseReferentialCityRestriction;
     }
 }

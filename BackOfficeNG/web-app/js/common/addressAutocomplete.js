@@ -14,6 +14,20 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
     var isActive = false;
     var autocompletes = {};
 
+    var isAddresseReferentialCityRestriction = function() {
+      if(window.XMLHttpRequest) // FIREFOX
+        xhr_object = new XMLHttpRequest();
+      else if(window.ActiveXObject) // IE
+      xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+      else return(false);
+      // ON APPELLE LA PAGE
+      xhr_object.open("GET", zc.contextPath + "/autocomplete/isAddresseReferentialCityRestriction", false);
+      xhr_object.send(null);
+      if (xhr_object.readyState == 4 && (xhr_object.status == 200 || xhr_object.status == 0))
+        return xhr_object.responseText;
+      else return "false";
+    }
+
     var reorderAddressFields = function(fieldsetId) {
       if (zc.baseUrl.indexOf('backoffice') > 0)
         return;
@@ -25,6 +39,8 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
       var divAutoComplete = document.createElement("div");
       yud.addClass(divAutoComplete, 'autocompleteZone');
       addressEl.appendChild(divAutoComplete);
+
+      var isAddresseReferentialCity = isAddresseReferentialCityRestriction() == "true";
       for (var i=0; i<fieldNamesToOrder.length; i++) {
         for (var j=0; j<addressFields.length; j++) {
           var it = addressFields[j];
@@ -35,6 +51,11 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
             yud.removeClass(it, 'line2');
             divAutoComplete.appendChild(it);
             addressFields[j] = undefined; // hack !
+          }
+          var id = it.getAttribute("id");
+          if (id != null && id.indexOf("_streetName") > 0 && isAddresseReferentialCity) {
+            yud.removeClass(it, 'validate-streetName');
+            yud.addClass(it, 'validate-streetNameReferential');
           }
         }
       }
@@ -64,6 +85,8 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
           inputId: fieldsetId + "_streetName",
           modalId: fieldsetId + "_streetName_autocomplete",
           url: zc.contextPath + "/autocomplete/ways",
+          fieldsetId : fieldsetId,
+          streetField : true,
           idField: "id",
           minimumChars: 2,
           urlParams : {
@@ -97,7 +120,9 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
         autocompletes[fieldsetId].city = new zcc.AutoComplete({
           inputId: fieldsetId + "_city",
           modalId: fieldsetId + "_city_autocomplete",
+          fieldsetId : fieldsetId,
           url: zc.contextPath + "/autocomplete/cities",
+          streetField : false,
           idField: "inseeCode",
           resultText: function(result) {
             //HACK tdu
@@ -134,6 +159,8 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
           modalId: fieldsetId + "_postalCode_autocomplete",
           url: zc.contextPath + "/autocomplete/cities",
           urlParams: { postalCode: true },
+          fieldsetId : fieldsetId,
+          streetField : false,
           idField: "inseeCode",
           minimumChars: 2,
           resultText: function(result) {

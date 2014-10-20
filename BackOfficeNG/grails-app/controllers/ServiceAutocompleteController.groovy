@@ -37,5 +37,9 @@ class ServiceAutocompleteController {
         }
     }
 
+    def isAddresseReferentialCityRestriction = { 
+      render SecurityContext.getCurrentConfigurationBean().isAddresseReferentialCityRestriction();
+    }
+
 }
 

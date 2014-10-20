@@ -245,6 +245,26 @@
     /* address specific rules */
     'streetNumber': new me.rule('regex', /^.{0,5}$/),
     'streetName': new me.rule('regex', /^.{0,32}$/),
+    'streetNameReferential':  new me.rule('func', function(f){var retour = false; 
+        var cityInseeCode = document.getElementById(f.id.substring(0, f.id.lastIndexOf("_")) + "_cityInseeCode").value; 
+        var city = document.getElementById(f.id.substring(0, f.id.lastIndexOf("_")) + "_city").value;
+
+        // Si la ville est différente de celle du référentiel on valide le formulaire
+        var currentCity = "";
+        var url = zc.contextPath + "/autocomplete/ways?city=&search=place";
+        var response = me.callSynchrone(url, false);
+        response = yl.JSON.parse(response); 
+        zct.each(response,function(i){ currentCity = this.city.toLowerCase(); }); 
+        if (city.toLowerCase() != currentCity) return true;
+        
+        // Si la ville est la mm que celle du référentiel, on vérifie l'adresse, si elle appartient au référentiel on valide
+        var search = f.value.toLowerCase();
+        url = zc.contextPath + "/autocomplete/ways?city="+cityInseeCode+"&search="+search;
+        response = me.callSynchrone(url, false);
+        response = yl.JSON.parse(response); 
+        zct.each(response,function(i){if (this.name.toLowerCase() == search) retour = true; }); 
+
+        return retour; }),
     'postalCode': new me.rule('regex', /^[0-9]{5}$/),
     'city': new me.rule('regex', /^.{0,32}$/),
     'addressLine38': new me.rule('regex', /^.{0,38}$/)

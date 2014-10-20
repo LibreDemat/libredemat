@@ -21,6 +21,7 @@
     <property name="viewDocumentInPanelInBO" value="false" />
     <property name="informationSheetDisplayed" value="true" />
     <property name="informationSheetRequired" value="false" />
+    <property name="addresseReferentialCityRestriction" value="true" />
     <property name="jpaConfigurations">
         <props>
             <prop key="hibernate.show_sql">false</prop>
@@ -86,6 +87,7 @@
       </entry>
       -->
         <!-- Ciril Net Enfance plugin -->
+        <!--
          <entry>
             <key>
                 <ref bean="cirilNetEnfanceExternalService" />
@@ -105,11 +107,14 @@
 
                         <entry key="isActiveSendMailInValidNoPay" value="False" />
                         <entry key="mailFrom" value="garmetta@ciril.net" />
+                        -->
                         <!-- ARTUNG BOUBLONS IN CIVIL <entry key="sendHomeFolderCreation" value="createCompteOnSynchronise" /> -->
+                        <!--
                     </map>
                 </property>
             </bean>
         </entry>
+        -->
         <entry>
           <key>
             <ref bean="fakeExternalService" />

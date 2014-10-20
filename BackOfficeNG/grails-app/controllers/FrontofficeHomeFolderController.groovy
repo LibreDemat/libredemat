@@ -302,6 +302,9 @@ class FrontofficeHomeFolderController {
         } catch (CaptchaServiceException e) {
             //No need to throw an exception when the captcha has expired…
         }
+        if (!ServiceAutocompletionController.wayExistAddressReferential(params.address?.cityInseeCode, params.address?.city, params.address?.streetName)) {
+          flash.invalidFields.add('address.streetName')
+        }
         if (!captchaIsValid) {
             flash.invalidFields.add('captchaText')
         }
@@ -339,6 +342,9 @@ class FrontofficeHomeFolderController {
             try {
                 def creation = false
                 if (individual.id) {
+                    if (!ServiceAutocompletionController.wayExistAddressReferential(params.cityInseeCode, params.city, params.streetName)) {
+                      throw new CvqValidationException(['address.streetName'])
+                    }
                     historize(params.fragment, individual)
                     if (individual.id == currentEcitizen.id && params.fragment == 'identity') {
                         securityService.setEcitizenSessionInformation(individual, session)
