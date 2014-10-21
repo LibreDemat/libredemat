@@ -52,6 +52,7 @@
     <ant dir="${plugins.externalservices.technocarte.dir}" target="clean" />
     <ant dir="${plugins.externalservices.restgeneric.dir}" target="clean" />
     <ant dir="${plugins.externalservices.cardfive.dir}" target="clean" />
+    <ant dir="${plugins.externalservices.datacomsys.dir}" target="clean" />
   </target>
     
   <target name="prepare-configfiles-model" depends="init">
@@ -186,6 +187,10 @@
 
   <target name="deploy-plugin-cardfive" depends="init, compile-model">
     <ant dir="${plugins.externalservices.cardfive.dir}" target="deploy" />
+  </target>
+
+  <target name="deploy-plugin-datacomsys" depends="init, compile-model">
+    <ant dir="${plugins.externalservices.datacomsys.dir}" target="deploy" />
   </target>
 
   <!-- ================================================================================= -->

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" output="Plugins/ExternalServices/Technocarte/build/classes" path="Plugins/ExternalServices/Technocarte/src/java"/>
+	<classpathentry kind="src" path="Plugins/ExternalServices/DataComSys/src/java"/>
 	<classpathentry kind="src" path="Plugins/PaymentProviders/SystemPay/src/java"/>
 	<classpathentry kind="src" path="Plugins/ExternalServices/RestGenericExternalService/src/java"/>
 	<classpathentry kind="src" output="Plugins/ExternalServices/CirilNetEnfance/build/classes" path="Plugins/ExternalServices/CirilNetEnfance/src/java"/>
