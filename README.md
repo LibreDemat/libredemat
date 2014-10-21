@@ -1,5 +1,4 @@
-# CG29 LibreDemat #
-
+# CIRIL LibreDemat #
 
 ### Pré-requis ###
 
@@ -11,6 +10,8 @@
 ### Procédure de lancement ###
 
 * ant prepare-webapp-fobo
+* ant deploy-plugins
+* ant prepare-webapp-fobo
 * cd BackOfficeNG/
 * grails run-app
-* Got to : localhost:8080/CapDemat/cas.gsp
+* Go to : localhost:8080/LibreDemat/cas.gsp
