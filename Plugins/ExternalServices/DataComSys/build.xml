@@ -40,27 +40,9 @@
       <classpath refid="classpath.compile"/>
     </javac>
   </target>
-	
-	<target name="compile-schemas" description="Compile Data Com Sys schemas" depends="init">
-
-		<taskdef name="xmlbean" 
-			classname="org.apache.xmlbeans.impl.tool.XMLBean" classpathref="classpath.compile">
-		</taskdef>
-
-		<xmlbean classpathref="classpath.compile" srconly="true" 
-			srcgendir="${basedir}/${src.java.dir}" classgendir="${basedir}/${build.classes.dir}">
-			<fileset dir="${basedir}/src/xml/schemas">
-				<include name="*.xsd" />
-			</fileset>
-			<fileset dir="${basedir}/conf/xmlbeans" includes="schemas.xsdconfig" />
-		</xmlbean>
-		
-		
-
-	  </target>
 
   <target name="dist"
-          depends="compile-schemas, compile"
+          depends="compile"
           description="Build the DataComSys plugin jar">
     <jar compress="on"
          jarfile="${basedir}/${build.archives.dir}/${application.name}-${module.name}-${application.version}.jar"
