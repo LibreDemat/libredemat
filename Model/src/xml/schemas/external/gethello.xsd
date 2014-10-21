@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="gethello"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  attributeFormDefault="unqualified">
+		<xsd:element name="getFactureRequest">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="id_family" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFactureRequestResponse">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="getFactureResult" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getPaiementRequest">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="mon_paiement_recu" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getPaiementRequestResponse">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="getPaiementResult" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFactureDetailRequest">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="id_family" type="xsd:string"/>
+					<xsd:element name="id_facture" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFactureDetailRequestResponse">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="getFactureDetailResult" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFamilyCreationRequest">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="ma_famille_cree_recu" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFamilyCreationRequestResponse">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="getFamilyCreationResult" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFamilyModificationRequest">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="ma_famille_modif_recu" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="getFamilyModificationRequestResponse">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="getFamilyModificationResult" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
