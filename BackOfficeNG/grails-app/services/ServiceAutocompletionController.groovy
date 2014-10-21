@@ -36,14 +36,16 @@ public class ServiceAutocompletionController {
     def retour = true
     JSON resultat = null
 
-    if(SecurityContext.getCurrentConfigurationBean().isAddresseReferentialCityRestriction()) {
-        if(org.apache.commons.lang3.StringUtils.equals(SecurityContext.getCurrentSite().getDisplayTitle().toLowerCase(), city.toLowerCase())) {
-            def http = new HTTPBuilder(url)
-            resultat = http.get(path: '/ways', query: [city: cityCodeInsee, search: streetName, token:token]) as JSON
-            if (resultat?.toString()?.contains("name") && resultat?.toString()?.contains("\""+streetName+"\"")) { // FIXME : real check ...
-                retour = true
-            } else {
-                retour = false
+    if(url != null && token != null && url != "" && token != "") {
+        if(SecurityContext.getCurrentConfigurationBean().isAddresseReferentialCityRestriction()) {
+            if(org.apache.commons.lang3.StringUtils.equals(SecurityContext.getCurrentSite().getDisplayTitle().toLowerCase(), city.toLowerCase())) {
+                def http = new HTTPBuilder(url)
+                resultat = http.get(path: '/ways', query: [city: cityCodeInsee, search: streetName, token:token]) as JSON
+                if (resultat?.toString()?.contains("name") && resultat?.toString()?.contains("\""+streetName+"\"")) { // FIXME : real check ...
+                    retour = true
+                } else {
+                    retour = false
+                }
             }
         }
     }
