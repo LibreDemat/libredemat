@@ -13,7 +13,7 @@ import org.springframework.oxm.XmlMappingException;
 import org.springframework.ws.client.WebServiceClientException;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
-import fr.capwebct.capdemat.plugins.externalservices.datacomsys.ws.IDataComSysClient;
+import org.libredemat.plugins.externalservices.datacomsys.ws.IDataComSysClient;
 import org.libredemat.business.payment.ExternalInvoiceItem;
 import org.libredemat.business.payment.PurchaseItem;
 import org.libredemat.exception.CvqException;
