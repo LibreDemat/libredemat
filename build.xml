@@ -10,7 +10,7 @@
     <echo message="Using deployment configuration file : ${deploy.properties_dir}/${deploy.properties_file}" />
 
     <tstamp>
-      <format property="application.revision" pattern="ddMMyyyy" />
+      <format property="application.revision" pattern="ddMMyyyy-kkmmssSSSS" />
     </tstamp>
   </target>
 
