@@ -11,6 +11,8 @@ import org.libredemat.business.request.RequestState
 import org.libredemat.business.users.Child;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.RoleType
+import org.libredemat.business.payment.Payment
+import org.libredemat.business.payment.PaymentState
 import org.libredemat.exception.CvqException
 import org.libredemat.exception.CvqModelException
 import org.libredemat.security.SecurityContext
@@ -306,6 +308,47 @@ class BackofficeRequestInstructionController {
                 rqt.recreationCenter = recreationCenter;
             } else {
                 throw new CvqModelException("request.error.inactiveRecreationCenter")
+            }
+        } else if (params.keySet().contains('payment') && params.payment == 'true') {
+            def requestPaymentService = requestServiceRegistry.getRequestPaymentService(rqt);
+            if (requestPaymentService != null)
+            {
+                Payment payment = null; 
+                def amount = Double.valueOf(params.amount);
+                if (amount > 0)
+                {
+                    payment = requestPaymentService.buildPayment(rqt);
+                    def value = amount + "";
+                    if (value.indexOf(".") > 0)
+                    { 
+                        value = (amount * 100) + "";
+                        if (value.indexOf(".") > 0) amount = value.substring(0, value.indexOf("."));
+                    }
+                    else
+                    {
+                        amount = amount * 100;
+                    }
+                    payment.setAmount(amount.toDouble());
+                    payment.setInitializationDate(new Date());
+                    payment.setState(PaymentState.TOPAY);
+                    requestPaymentService.setPayment(rqt, payment);
+                    requestWorkflowService.updateLastModificationInformation(rqt, null);
+                    def pdf = requestWorkflowService.createInvoiceForRequest(rqt);
+                    requestWorkflowService.mailCitizenForPayment(rqt, pdf);
+                    allReadyModify = true;
+                }
+                else if (requestPaymentService.getPayment(rqt) != null)
+                {
+                    // Annulation du paiement
+                    payment = requestPaymentService.buildPayment(rqt);
+                    payment.setAmount(0.0);
+                    payment.setState(PaymentState.CANCELLED);
+                    requestPaymentService.setPayment(rqt, payment);
+                    requestWorkflowService.updateLastModificationInformation(rqt, null);
+                    def pdf = requestWorkflowService.createInvoiceForRequest(rqt);
+                    requestWorkflowService.mailCitizenForAnnulationPayment(rqt, pdf);
+                    allReadyModify = true;
+                }
             }
         } else {
             DataBindingUtils.initBind(rqt, params)

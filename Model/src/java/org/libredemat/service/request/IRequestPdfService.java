@@ -31,4 +31,6 @@ public interface IRequestPdfService {
 
     public byte[] generateDocumentsArchive(Collection<RequestDocument> requestDocuments)
         throws CvqException;
+
+    byte[] generateInvoice(Request request) throws CvqException;
 }

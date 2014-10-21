@@ -1224,6 +1224,11 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         }
     }
 
+    @Override
+    public byte[] createInvoiceForRequest(Request request) throws CvqException {
+        return requestPdfService.generateInvoice(request);
+    }
+
     public void setRequestDAO(IRequestDAO requestDAO) {
         this.requestDAO = requestDAO;
     }

@@ -167,6 +167,50 @@ class FrontofficeDocumentController {
       return userSearchService.getNameForExternalIdCirilNetEnfance(homeFolderId, externalId.toLong());
     }
 
+	def docRender = {
+		// méthode de rendu du doc en pdf
+		def localAuthorityBasePdf = localAuthorityRegistry.getAssetsBase() +
+			SecurityContext.getCurrentSite().getName() + "/pdf" 										// on localise le pdf
+		def docFill = new File(localAuthorityBasePdf+"/doc/"+params.fileName)								// on le charge dans un objet file
+
+		// on lit les bytes
+		byte[] data = docFill.readBytes()
+
+		response.contentType = "application/pdf"
+		response.outputStream << data																		// on crée un flux de sortie
+	}
+
+	def showDoc = {
+		// méthode de téléchargement du doc et de renvoi
+		def result = [:]																					// vers le template de rendu
+		def localAuthorityBasePdf = localAuthorityRegistry.getAssetsBase() +
+			SecurityContext.getCurrentSite().getName() + "/pdf"											// on localise le dossier pdf
+		def doc = new File(localAuthorityBasePdf+'/doc')													// on crée un repertoir doc si il n'éxiste pas
+		doc.mkdir()
+		def url = params.fileUrl.decodeURL()																// on récupère l'url passé en parametre
+		url = url.replaceAll(' ','+')																		// on réencode l'url proprement
+		def fileName = new Random().nextInt(100000);
+		def file = new File(localAuthorityBasePdf + '/doc/' + fileName +".pdf")
+		try
+		{									// on récupère le nom
+			file.newOutputStream()			// on crée un flux de sortie file
+		}
+		catch (Exception ex)
+		{
+			file.delete()
+		}
+		file << new URL(url).openStream()																	// dans lequel on télécharge le fichier
+		try
+		{
+			file.close()
+		}
+		catch (Exception ex)
+		{
+		}																						// on l'écrit sur le disque
+		result.docName = fileName + ".pdf"
+		render(template:'showDoc', model:result)															// on fait passer en param le nom du fichier
+	}
+
     def protected getDocuments(state,params) {
         def result = []
         def criterias = new Hashtable<String,Object>();

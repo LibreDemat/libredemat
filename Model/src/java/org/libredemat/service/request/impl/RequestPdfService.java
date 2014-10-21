@@ -351,6 +351,72 @@ public class RequestPdfService implements IRequestPdfService {
         }
     }
 
+    @Override
+    public byte[] generateInvoice(Request request) throws CvqException
+    {
+        String htmlFilename = StringUtils.uncapitalize(request.getRequestType().getLabel().replace(" ", "")) + "Request";
+        File htmlTemplate = localAuthorityRegistry.getReferentialResource(Type.INVOICE_TEMPLATE, htmlFilename);
+        if (htmlTemplate == null || !htmlTemplate.exists()) { throw new CvqException("generate() invoice template file denoted by name "
+                + htmlFilename + ".html does not exist on filesystem"); }
+        File logoFile = localAuthorityRegistry.getLocalAuthorityResourceFile(LocalAuthorityResource.LOGO_PDF.getId());
+        File cssFile = localAuthorityRegistry.getLocalAuthorityResourceFile(LocalAuthorityResource.Type.CSS, "certificate", true);
+        Adult requester = null;
+        if (request.getRequesterId() != null) requester = userSearchService.getAdultById(request.getRequesterId());
+        Individual subject = null;
+        if (request.getSubjectId() != null) subject = userSearchService.getById(request.getSubjectId());
+        try
+        {
+            SimpleTemplateEngine templateEngine = new SimpleTemplateEngine();
+            Template template = templateEngine.createTemplate(htmlTemplate);
+            Map<String, Object> bindings = new HashMap<String, Object>();
+            bindings.put("localAuthority", SecurityContext.getCurrentSite());
+            bindings.put("rqt", request);
+            bindings.put("requester", requester);
+            bindings.put("subject", subject);
+            if (subject != null && subject instanceof Child) bindings.put("subjectIsChild", true);
+            else bindings.put("subjectIsChild", false);
+            bindings.put("lrTypes", getLocalReferentialTypes(request.getRequestType().getLabel()));
+            bindings.put("cssPath", cssFile.getAbsolutePath());
+            bindings.put("logoPath", logoFile.getAbsolutePath());
+            bindings.put("i18n", translationService);
+            File htmlCertificateFile = File.createTempFile(htmlFilename, ".html");
+            template.make(bindings).writeTo(new OutputStreamWriter(new FileOutputStream(htmlCertificateFile), "UTF-8"));
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ITextRenderer renderer = new ITextRenderer();
+            renderer.setDocument(htmlCertificateFile);
+            renderer.layout();
+            renderer.createPDF(baos);
+            htmlCertificateFile.delete();
+            return baos.toByteArray();
+        }
+        catch (CompilationFailedException e)
+        {
+            logger.error(e.getStackTrace());
+            throw new CvqException("generate(): Can't generate PDF request certificate");
+        }
+        catch (FileNotFoundException e)
+        {
+            logger.error(e.getStackTrace());
+            throw new CvqException("generate(): Can't generate PDF request certificate");
+        }
+        catch (ClassNotFoundException e)
+        {
+            logger.error(e.getStackTrace());
+            throw new CvqException("generate(): Can't generate PDF request certificate");
+        }
+        catch (IOException e)
+        {
+            logger.error(e.getStackTrace());
+            throw new CvqException("generate(): Can't generate PDF request certificate");
+        }
+        catch (DocumentException e)
+        {
+            logger.error(e.getStackTrace());
+            throw new CvqException("generate(): Can't generate PDF request certificate");
+        }
+    }
+
+
     // FIXME - feature duplicated in RequestTypeAdaptorService.groovy
     // TODO - mutualize
     private Map<String,LocalReferentialType> getLocalReferentialTypes(String requestTypeLabel) {

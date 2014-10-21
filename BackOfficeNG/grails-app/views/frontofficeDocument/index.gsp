@@ -2,6 +2,8 @@
   <head>
     <title>${message(code:'document.title')}</title>
     <meta name="layout" content="fo_main" />
+    <script type="text/javascript" src="${resource(dir:'js/frontoffice', file:'docShow.js')}"></script> 
+    <link rel="stylesheet" type="text/css" href="${resource(dir:'css/frontoffice', file:'payment.css')}" />
   </head>
 
   <body>
@@ -25,6 +27,19 @@
               <p class="empty"><g:message code="message.noDocuments" /></strong>
             </g:else>
           </div>
+
+		<!-- Inexine get document from model soft -- session.supportsPaymentsTab -->
+          <g:if test="${session.isCirilServer}">
+	          <div class="list-box">
+	            <h2><g:message code="menu.certificates" /></h2>
+	            <g:if test="${certificates.count > 0 }">
+	            	<g:render template="certificatesList" />
+	            </g:if>
+	            <g:else>
+	              <p class="empty"><g:message code="${certificates.message}" /></strong>
+	            </g:else>
+			  </div>
+		  </g:if>
 
         </div>
       </div>
