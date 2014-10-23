@@ -5,18 +5,19 @@
                   xmlns:schema="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
                   xmlns:tns="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
                   name=""
-                  targetNamespace="http://www.capwebct.fr/capdemat/homeFolderSynchronisation">
+                  targetNamespace= ="http://www.capwebct.fr/capdemat/homeFolderSynchronisation">
    <wsdl:types>
       <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                 xmlns:hfs="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
-                 targetNamespace="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
-                 elementFormDefault="qualified">
+                  xmlns:hfs="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
+                 targetNamespace=""
+                 elementFormDefault="qualified"
+                  targetNamespace= ="http://www.capwebct.fr/capdemat/homeFolderSynchronisation">
 
 	<!-- Request -->
 	<xs:element name="HomeFolderSynchronisationRequest">
 		          <xs:complexType>
 			            <xs:sequence>
-				              <xs:element name="HomeFolder" type="hfs:HomeFolderType" maxOccurs="unbounded"/>
+				              <xs:element name="HomeFolder" type="HomeFolderType" maxOccurs="unbounded"/>
 			            </xs:sequence>
 		          </xs:complexType>
 	        </xs:element>
@@ -28,10 +29,10 @@
 				              <xs:element name="ResponseCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				              <xs:element name="ResponseDetail" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				              <xs:element name="login" type="xs:string" minOccurs="0" maxOccurs="1"/>
-				              <xs:element name="HomeFolderMapping" type="hfs:HomeFolderMappingType" minOccurs="0"
+				              <xs:element name="HomeFolderMapping" type="HomeFolderMappingType" minOccurs="0"
                               maxOccurs="1"
                               nillable="false"/>
-				              <xs:element name="IndividualMapping" type="hfs:IndividualMappingType" minOccurs="0"
+				              <xs:element name="IndividualMapping" type="IndividualMappingType" minOccurs="0"
                               maxOccurs="unbounded"/>
 			            </xs:sequence>
 		          </xs:complexType>

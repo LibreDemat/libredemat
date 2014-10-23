@@ -18,18 +18,18 @@ import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.springframework.oxm.Marshaller;
 import org.springframework.ws.server.endpoint.AbstractMarshallingPayloadEndpoint;
-import org.libredemat.homeFolderSynchronisation.AdultType;
-import org.libredemat.homeFolderSynchronisation.ChildInformationSheetType;
-import org.libredemat.homeFolderSynchronisation.ChildType;
-import org.libredemat.homeFolderSynchronisation.HomeFolderMappingType;
-import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument;
-import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument.HomeFolderSynchronisationRequest;
-import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument;
-import org.libredemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument.HomeFolderSynchronisationResponse;
-import org.libredemat.homeFolderSynchronisation.HomeFolderType;
-import org.libredemat.homeFolderSynchronisation.IndividualMappingType;
-import org.libredemat.homeFolderSynchronisation.IndividualRoleType;
-import org.libredemat.homeFolderSynchronisation.SubjectType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.AdultType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.ChildInformationSheetType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.ChildType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderMappingType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument;
+import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument.HomeFolderSynchronisationRequest;
+import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument;
+import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationResponseDocument.HomeFolderSynchronisationResponse;
+import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.IndividualMappingType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.IndividualRoleType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.SubjectType;
 import org.libredemat.business.users.Address;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
@@ -103,7 +103,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		HomeFolderType[] homeFolderTypes = homeFolderSynchronisationRequest.getHomeFolderArray();
 		
 
-		XmlObject[] xmlHomeFolders = homeFolderSynchronisationRequest.selectPath(xqNamespace+"./hom:HomeFolder");
+		//XmlObject[] xmlHomeFolders = homeFolderSynchronisationRequest.selectPath("HomeFolder");
 		// Response
 		HomeFolderSynchronisationResponseDocument homeFolderSynchronisationResponseDocument = HomeFolderSynchronisationResponseDocument.Factory
 				.newInstance();
@@ -563,11 +563,10 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 			adult.setFirstName2(xmlAdult.getFirstName2());
 			adult.setFirstName3(xmlAdult.getFirstName3());
 			adult.setCreationDate(xmlAdult.getCreationDate().getTime());
-			adult.setBirthDate(xmlAdult.getBirthDate().getTime());
-			adult.setBirthCity(xmlAdult.getBirthPlace().getCity());
-			adult.setBirthPostalCode(xmlAdult.getBirthPlace().getPostalCode());
 			
-			
+            try { if(xmlAdult.getBirthDate() != null) adult.setBirthDate(xmlAdult.getBirthDate().getTime()); } catch(Exception e) { /* Got a BirthDate auto closed tag */ }
+			if(xmlAdult.getBirthPlace() != null) adult.setBirthCity(xmlAdult.getBirthPlace().getCity());
+			if(xmlAdult.getBirthPlace() != null) adult.setBirthPostalCode(xmlAdult.getBirthPlace().getPostalCode());
 			
 			adult.setTitle(TitleType.forString(StringUtils.upperCase(xmlAdult.getTitle().toString())));
 			
@@ -754,7 +753,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		if (xmlChildInformationSheet.getDiets() != null)
 		{
 			HashSet<Diet> dietSet = new HashSet<Diet>();
-			for (org.libredemat.homeFolderSynchronisation.DietEnumType.Enum xmlDiet : xmlChildInformationSheet.getDiets().getTypeArray())
+			for (fr.capwebct.capdemat.homeFolderSynchronisation.DietEnumType.Enum xmlDiet : xmlChildInformationSheet.getDiets().getTypeArray())
 			{
 				if (DietEnum.valueOf(xmlDiet.toString()) != null)
 					dietSet.add(new Diet(DietEnum.valueOf(xmlDiet.toString())));

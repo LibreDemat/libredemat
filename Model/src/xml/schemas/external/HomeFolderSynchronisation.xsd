@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.libredemat.org/homeFolderSynchronisation"
-	xmlns:hfs="http://www.libredemat.org/homeFolderSynchronisation"
+<xs:schema targetNamespace="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
+        xmlns:hfs="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified" 
   	attributeFormDefault="unqualified">
