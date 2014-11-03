@@ -16,4 +16,5 @@ public interface IIndividualMappingDAO extends IJpaTemplate<IndividualMapping, L
 {
 
 	List<IndividualMapping> findByExternalId(String externalId);
+	List<IndividualMapping> findByExternalLibredematId(String externalLibrdematId);
 }

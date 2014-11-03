@@ -41,4 +41,20 @@ public class IndividualMappingDAO extends JpaTemplate<IndividualMapping, Long> i
 			return null;
 		}
 	}
+
+    @Override
+	public List<IndividualMapping> findByExternalLibredematId(String externalLibredematId)
+	{
+		try
+		{
+			Criteria crit = HibernateUtil.getSession().createCriteria(IndividualMapping.class);
+			crit.add(Critere.compose("externalLibreDematId", externalLibredematId, Critere.EQUALS));
+			return (List<IndividualMapping>) crit.list();
+		}
+		catch (CvqDaoException cvqDaoException)
+		{
+			logger.error(cvqDaoException);
+			return null;
+		}
+	}
 }
