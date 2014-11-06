@@ -148,6 +148,9 @@ public class SecurityService {
         SecurityContext.setCurrentContext(SecurityContext.FRONT_OFFICE_CONTEXT)
         SecurityContext.setCurrentEcitizen(adult)
         session.currentEcitizenName = adult.firstName + " " + adult.lastName
+
+        def sessionActivityId= java.util.UUID.randomUUID()
+        adult.setSessionActivityId(sessionActivityId.toString())
     }
 
     public void setAgentSessionInformation(agent, session) {

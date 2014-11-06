@@ -6,6 +6,8 @@ import org.libredemat.oauth2.InsufficientScopeException;
 import org.libredemat.exception.CvqObjectNotFoundException
 import org.libredemat.service.authority.IAgentService
 
+import org.libredemat.business.users.Adult
+
 import grails.converters.JSON
 
 class ServiceIndividualController {
@@ -55,6 +57,10 @@ class ServiceIndividualController {
 
         if(token.scope.contains("homefolderId")) {
           result += [homefolderId: user.getHomeFolder().getId()]
+        }
+
+        if(token.scope.contains("sessionActivityId")) {
+          result += [sessionActivityId: ((Adult)user).getSessionActivityId()]
         }
 
         render (result as JSON)

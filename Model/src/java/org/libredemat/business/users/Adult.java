@@ -111,6 +111,9 @@ public class Adult extends Individual {
     @Transient
     private String confirmPassword;
 
+    @Column(name="sessionActivityId") // Specificly for CIRIL
+    private String sessionActivityId;
+
     public AdultType modelToXml() {
         AdultType adultType = AdultType.Factory.newInstance();
         fillCommonXmlInfo(adultType);
@@ -294,6 +297,14 @@ public class Adult extends Individual {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSessionActivityId() {
+        return this.sessionActivityId;
+    }
+
+    public void setSessionActivityId(String sessionActivityId) {
+        this.sessionActivityId = sessionActivityId;
     }
 
     public void setConfirmPassword(String confirmPassword) {

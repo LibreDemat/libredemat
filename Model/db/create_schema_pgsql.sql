@@ -812,6 +812,7 @@
         password varchar(255),
         profession varchar(255),
         question varchar(255),
+        sessionActivityId varchar(255),
         title varchar(16),
         validation_code varchar(100),
         validation_code_expiration timestamp,

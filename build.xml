@@ -140,6 +140,7 @@
     <ant dir="${plugins.externalservices.restgeneric.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.cardfive.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="deploy" />
+    <ant dir="${plugins.externalservices.ciril.dir}" target="deploy" />
   </target>
 
   <target name="deploy-plugin-paylineV4" depends="compile-model">
