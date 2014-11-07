@@ -43,7 +43,7 @@ public class ExternalInvoiceItem extends ExternalAccountItem {
     
     
     /* Inexine get invoice pdf from business soft */
-    @Column(columnDefinition="TEXT")
+    @Column(name="invoiceurl", columnDefinition="TEXT")
     private String invoiceUrl;
 
 

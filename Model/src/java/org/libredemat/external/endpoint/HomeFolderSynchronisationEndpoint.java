@@ -18,9 +18,11 @@ import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.springframework.oxm.Marshaller;
 import org.springframework.ws.server.endpoint.AbstractMarshallingPayloadEndpoint;
+
 import fr.capwebct.capdemat.homeFolderSynchronisation.AdultType;
 import fr.capwebct.capdemat.homeFolderSynchronisation.ChildInformationSheetType;
 import fr.capwebct.capdemat.homeFolderSynchronisation.ChildType;
+import fr.capwebct.capdemat.homeFolderSynchronisation.FamilyStatusType.Enum;
 import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderMappingType;
 import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument;
 import fr.capwebct.capdemat.homeFolderSynchronisation.HomeFolderSynchronisationRequestDocument.HomeFolderSynchronisationRequest;
@@ -574,7 +576,10 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 			if (maidenName != null && maidenName.trim().equals("")) maidenName = null;
 			adult.setMaidenName(maidenName);
 			
-			adult.setFamilyStatus(FamilyStatusType.forString(StringUtils.upperCase(xmlAdult.getFamilyStatus().toString())));
+			Enum fstatus = xmlAdult.getFamilyStatus();
+			if(fstatus != null)
+			    adult.setFamilyStatus(FamilyStatusType.forString(StringUtils.upperCase(xmlAdult.getFamilyStatus().toString())));
+
 			String homePhone = xmlAdult.getHomePhone();
 			if (homePhone != null && homePhone.trim().equals("")) homePhone = null;
 			if (homePhone != null && !homePhone.matches("^0[1-9][0-9]{8}$")) throw new CvqException(
