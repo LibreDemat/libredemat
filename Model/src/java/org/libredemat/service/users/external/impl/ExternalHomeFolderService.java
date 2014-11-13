@@ -92,7 +92,7 @@ public class ExternalHomeFolderService implements IExternalHomeFolderService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
     public List<HomeFolderMapping> getHomeFolderMappings(Long homeFolderId) {
         return genericDAO.simpleSelect(HomeFolderMapping.class)
                 .and("homeFolderId", homeFolderId).list();

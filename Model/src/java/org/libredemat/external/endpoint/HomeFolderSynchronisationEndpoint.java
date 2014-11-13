@@ -661,8 +661,9 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             child.setFirstName3(xmlChild.getFirstName3());
             child.setCreationDate(xmlChild.getCreationDate().getTime());
             child.setBirthDate(xmlChild.getBirthDate().getTime());
-            child.setBirthCity(xmlChild.getBirthPlace().getCity());
-            child.setBirthPostalCode(xmlChild.getBirthPlace().getPostalCode());
+
+            if(xmlChild.getBirthPlace() != null) child.setBirthCity(xmlChild.getBirthPlace().getCity());
+            if(xmlChild.getBirthPlace() != null) child.setBirthPostalCode(xmlChild.getBirthPlace().getPostalCode());
 			
 			child.setBorn(xmlChild.getBorn());
 			child.setSex(SexType.forString(xmlChild.getSex().toString()));

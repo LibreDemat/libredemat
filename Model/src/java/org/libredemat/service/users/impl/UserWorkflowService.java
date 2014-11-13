@@ -271,7 +271,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public Long add(HomeFolder homeFolder, Child child) throws CvqModelException, CvqInvalidTransitionException {
         return add(homeFolder, (Individual)child);
     }
@@ -527,7 +527,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public void link(Individual owner, Individual target, Collection<RoleType> types) {
         Set<RoleType> missing = new HashSet<RoleType>(types);
         for (IndividualRole role : owner.getIndividualRoles(target.getId())) {
