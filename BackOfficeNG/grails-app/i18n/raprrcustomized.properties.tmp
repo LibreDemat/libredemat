@@ -1,0 +1,103 @@
+raprr.duration.value =
+
+raprr.property.subject.label = Sujet
+
+raprr.step.requester.label =
+raprr.step.requester.desc =
+
+raprr.step.contact.label =
+raprr.step.contact.desc =
+
+raprr.step.authorization.label =
+raprr.step.authorization.desc =
+
+raprr.step.rules.label =
+raprr.step.rules.desc =
+
+
+raprr.property.recreationPolyActivity.help =
+raprr.property.recreationPolyActivity.validationError =
+
+
+raprr.property.urgencyPolyPhone.help =
+raprr.property.urgencyPolyPhone.validationError =
+
+
+raprr.property.recreationPolyCenter.help =
+raprr.property.recreationPolyCenter.validationError =
+
+
+raprr.property.contactPolyIndividuals.help =
+raprr.property.contactPolyIndividuals.validationError =
+
+raprr.property.contactPolyIndividuals.elementAdditionSuccess =
+
+
+raprr.property.lastName.help =
+raprr.property.lastName.validationError =
+
+
+raprr.property.firstName.help =
+raprr.property.firstName.validationError =
+
+
+raprr.property.address.help =
+raprr.property.address.validationError =
+
+
+raprr.property.homePhone.help =
+raprr.property.homePhone.validationError =
+
+
+raprr.property.officePhone.help =
+raprr.property.officePhone.validationError =
+
+
+raprr.property.authorizedPolyIndividuals.help =
+raprr.property.authorizedPolyIndividuals.validationError =
+
+raprr.property.authorizedPolyIndividuals.elementAdditionSuccess =
+
+
+raprr.property.lastName.help =
+raprr.property.lastName.validationError =
+
+
+raprr.property.firstName.help =
+raprr.property.firstName.validationError =
+
+
+raprr.property.address.help =
+raprr.property.address.validationError =
+
+
+raprr.property.homePhone.help =
+raprr.property.homePhone.validationError =
+
+
+raprr.property.officePhone.help =
+raprr.property.officePhone.validationError =
+
+
+raprr.property.rulesAndRegulationsPolyAcceptance.help =
+raprr.property.rulesAndRegulationsPolyAcceptance.validationError =
+
+
+raprr.property.classTripPolyPermission.help =
+raprr.property.classTripPolyPermission.validationError =
+
+
+raprr.property.childPhotoExploitationPolyPermission.help =
+raprr.property.childPhotoExploitationPolyPermission.validationError =
+
+
+raprr.property.hospitalizationPolyPermission.help =
+raprr.property.hospitalizationPolyPermission.validationError =
+
+
+
+raprr.step.homeFolder.label = Compte famille
+raprr.step.homeFolder.desc = Composition de votre compte famille
+
+raprr.incitationText.desc = <span style="font-weight: bold;">Avant de continuer votre demande, merci de :</span><br /> - vérifier l''exactitude des informations de votre compte et des membres qui le compose<br /> - compléter votre compte en ajoutant tous les membres de votre famille (responsables légaux et enfants).<br /><br /><a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)
+raprr.incitationText.desc2 = <a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)</span>

@@ -210,7 +210,7 @@ class BackofficeRequestInstructionController {
     * --------------------------------------------------------------------- */
 
     def widget = {
-        def widgets = ['date','time','address','bankAccount','frenchRIB','libredematEnum','boolean','textarea','localReferentialData','school','recreationCenter']
+        def widgets = ['date','time','address','bankAccount','frenchRIB','libredematEnum','boolean','textarea','localReferentialData','school','recreationCenter', 'recreationPolyCenter']
         
         def propertyTypes = JSON.parse(params.propertyType)
         def propertyType = propertyTypes.validate
@@ -263,7 +263,7 @@ class BackofficeRequestInstructionController {
                 propertyValue = Long.valueOf(params.propertyValue)
             }
         }
-        else if (propertyType == "recreationCenter") {
+        else if (propertyType == "recreationCenter" || propertyType == "recreationPolyCenter") {
             model.recreationCenters = recreationCenterService.getActive()
             if (params.propertyValue != "null") {
                 propertyValue = Long.valueOf(params.propertyValue)
@@ -301,6 +301,17 @@ class BackofficeRequestInstructionController {
             } else {
                 throw new CvqModelException("request.error.inactiveSchool")
             }
+        } else if (params.keySet().contains('recreationPolyCenterId')) {
+            // Hack Inexine - Frederic Fabre - PP - raprr
+            def recreationCenter = recreationCenterService.getById(Long.valueOf(params.recreationPolyCenterId))
+                if (recreationCenter?.active) 
+                {
+                    rqt.recreationPolyCenter = recreationCenter
+                } 
+                else 
+                {
+                    throw new CvqModelException("request.error.inactiveRecreationCenter")
+                }
         } else if (params.keySet().contains('recreationCenterId')) {
             // TODO move that in the business layer
             def recreationCenter = recreationCenterService.getById(Long.valueOf(params.recreationCenterId))

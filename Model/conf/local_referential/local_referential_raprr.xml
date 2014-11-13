@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
+    <data name="RecreationPolyActivity" allowMultipleChoices="true" allowRadioChoice="true" manager="LibreDémat">
+        <label>Activités de l'enfant au centre</label>
+        <entries>
+            <entry key="Cours-de-piano">
+                <label>Cours de piano</label>
+                <message>Cours de piano</message>
+                <externalCode>Piano</externalCode>
+            </entry>
+            <entry key="Cours-de-pipo">
+                <label>Cours de pipo</label>
+                <message>Cours de pipo</message>
+                <externalCode>Pipo</externalCode>
+            </entry>
+        </entries>
+    </data>
+</LocalReferential>

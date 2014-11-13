@@ -224,4 +224,9 @@
     <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
+  <!-- Recreation Activity Poly Registration Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/raprr">
+    <xb:package>org.libredemat.xml.request.school</xb:package>
+  </xb:namespace>
+
 </xb:config>

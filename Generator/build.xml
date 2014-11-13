@@ -55,6 +55,7 @@
       <include name="ParkCardRequest.xsd" />
       <include name="PessacAnimationRequest.xsd" />
       <include name="RecreationActivityRegistrationRequest.xsd" />
+      <include name="RecreationActivityPolyRegistrationRequest.xsd" />
       <include name="RemoteSupportRequest.xsd" />
       <include name="RenewalPerischoolActivitiesRequest.xsd" />
       <include name="SchoolCanteenRegistrationRequest.xsd" />
@@ -143,7 +144,7 @@
       <fileset refid="generated-requests" />
       -->
       <fileset id="generated-requests" dir="${src.xml.schema.dir}/request">
-        <include name="SchoolRegistrationWithRemoteCirilnetenfanceRequest.xsd" />
+        <include name="RecreationActivityPolyRegistrationRequest.xsd" />
       </fileset>
       <plugins>
         <fileset dir="${src.xml.plugins.dir}">
