@@ -25,6 +25,7 @@
         <include name="LibreDemat-Plugin-ExternalServices-RestGenericExternalService-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-CardFive-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-CirilNetEnfance-*.jar" />
+        <include name="LibreDemat-Plugin-ExternalServices-Digitech-*.jar" />
         <include name="soap.jar" />
     </fileset>
 

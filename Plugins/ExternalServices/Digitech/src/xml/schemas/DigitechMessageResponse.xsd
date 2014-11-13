@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:mr="http://www.digitech.fr/cityws/messageResponse"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://www.digitech.fr/cityws/messageResponse">
+			<xs:element name="MessageResponse">
+				<xs:annotation>
+					<xs:documentation xml:lang="fr">
+						Message de retour
+			</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element default="0" name="code" type="xs:int" />
+						<xs:element name="description" nillable="true" type="xs:string" />
+						<xs:element name="date" type="xs:dateTime" />
+						<xs:element name="severity" type="mr:SeverityType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:simpleType name="SeverityType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="INFO" />
+					<xs:enumeration value="WARN" />
+					<xs:enumeration value="ERROR" />
+					<xs:enumeration value="FATAL" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>

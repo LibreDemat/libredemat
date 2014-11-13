@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="digitechExternalService" parent="externalProviderServiceAdapter"
+		class="org.libredemat.plugins.externalservices.digitech.service.DigitechService"
+	>
+		<property name="label" value="Digitech"></property>
+		<!-- Insert services you need here -->
+		<property name="digitechClient" ref="digitechClient" />
+	</bean>
+	<!-- Client spring ws -->
+	<bean id="digitechXmlBeanMarshaller" class="org.springframework.oxm.xmlbeans.XmlBeansMarshaller" />
+	<bean name="digitechWebClientService" class="org.springframework.ws.client.core.WebServiceTemplate">
+		<property name="marshaller" ref="digitechXmlBeanMarshaller" />
+		<property name="unmarshaller" ref="digitechXmlBeanMarshaller" />
+	</bean>
+	<bean id="digitechClient"
+		class="org.libredemat.plugins.externalservices.digitech.ws.impl.DigitechClient"
+	>
+		<property name="digitechWebClientService" ref="digitechWebClientService"></property>
+		<property name="requestExternalActionService" ref="requestExternalActionService" />
+	</bean>
+</beans>

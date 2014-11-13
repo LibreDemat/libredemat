@@ -53,6 +53,7 @@
     <ant dir="${plugins.externalservices.restgeneric.dir}" target="clean" />
     <ant dir="${plugins.externalservices.cardfive.dir}" target="clean" />
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="clean" />
+    <ant dir="${plugins.externalservices.digitech.dir}" target="clean" />
   </target>
     
   <target name="prepare-configfiles-model" depends="init">
@@ -141,6 +142,7 @@
     <ant dir="${plugins.externalservices.cardfive.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.ciril.dir}" target="deploy" />
+    <ant dir="${plugins.externalservices.digitech.dir}" target="deploy" />
   </target>
 
   <target name="deploy-plugin-paylineV4" depends="compile-model">
@@ -193,6 +195,10 @@
 
   <target name="deploy-plugin-datacomsys" depends="init, compile-model">
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="deploy" />
+  </target>
+
+  <target name="deploy-plugin-digitech" depends="init, compile-model">
+    <ant dir="${plugins.externalservices.digitech.dir}" target="deploy" />
   </target>
 
   <!-- ================================================================================= -->

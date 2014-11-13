@@ -111,6 +111,30 @@
                 </property>
             </bean>
         </entry>
+        <!-- DIGITECH - City -->
+        <entry>
+          <key>
+            <ref bean="digitechExternalService" />
+          </key>
+          <bean class="org.libredemat.external.ExternalServiceBean">
+            <property name="requestTypes">
+              <list>
+                <value>Birth Details</value>
+                <value>Marriage Details</value>
+                <value>Death Details</value>
+              </list>
+            </property>
+            <!-- <property name="supportAccountsByHomeFolder"> <value>true</value> </property> <property 
+            name="supportAccountsByRequest"> <value>false</value> </property> -->
+            <property name="serviceProperties">
+              <map>
+                <!-- URL BIDON -->
+                <entry key="EndPoint" value="http://195.42.148.3:8282/cityws/infoliveServices/" />
+              </map>
+            </property>
+          </bean>
+        </entry>
+
         <entry>
           <key>
             <ref bean="fakeExternalService" />
