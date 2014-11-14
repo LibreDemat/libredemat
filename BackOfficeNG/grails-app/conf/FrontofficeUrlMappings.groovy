@@ -14,5 +14,6 @@ class FrontofficeUrlMappings {
     "/frontoffice/technocarte/$action/$id?" (controller : "frontofficeTechnocarte")
     "/frontoffice/ciril/$action/$id?" (controller : "frontofficeCiril")
     "/frontoffice/planning/$action?" (controller : "frontofficePlanning")
+    "/frontoffice/reservation/$action?/$id?" (controller : "frontofficeReservation" )
   }
 }
