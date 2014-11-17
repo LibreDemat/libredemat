@@ -478,7 +478,7 @@ public class CirilClient implements ICirilClient
 	private void listElements(Element element, Element newElement, String registrationType)
 	{
 		List<Element> elements = (List<Element>) element.getChildren();
-		Namespace ns2 = Namespace.getNamespace("com", "http://www.cg95.fr/cvq/schema/common");
+		Namespace ns2 = Namespace.getNamespace("com", "http://www.libredemat.org/schema/common");
 		Namespace ns3 = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
 		logger.debug("The new element is : " + newElement.getName());
 		for (Element elem : elements)
