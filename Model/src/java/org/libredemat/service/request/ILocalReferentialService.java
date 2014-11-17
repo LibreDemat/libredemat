@@ -57,8 +57,8 @@ public interface ILocalReferentialService {
      * @returns The key of the added entry
      * @throws CvqException 
      */
-    public String addLocalReferentialEntry(String requestTypeLabel, String typeName, String parentKey, String label, String message) throws CvqException;
-    public String addLocalReferentialEntry(String requestTypeLabel, String typeName, String parentKey, String key, String label, String message) throws CvqException;
+    public String addLocalReferentialEntry(String requestTypeLabel, String typeName, String parentKey, String label, String message, String externalCode) throws CvqException;
+    public String addLocalReferentialEntry(String requestTypeLabel, String typeName, String parentKey, String key, String label, String message, String externalCode) throws CvqException;
 
     /**
      * 
@@ -78,7 +78,7 @@ public interface ILocalReferentialService {
      * @param message
      * @throws CvqException 
      */
-    public void editLocalReferentialEntry(String requestTypeLabel, String typeName, String key, String label, String message) throws CvqException;
+    public void editLocalReferentialEntry(String requestTypeLabel, String typeName, String key, String label, String message, String externalCode) throws CvqException;
 
     /**
      * Return whether local referential is configured for the given request type.

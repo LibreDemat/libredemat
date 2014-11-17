@@ -120,17 +120,17 @@ public class StudyGrantRequestService extends RequestService implements ILocalAu
                                 parentKey = parentKeys.get(line[0]);
                                 if (parentKey == null) {
                                     parentKey = localReferentialService.addLocalReferentialEntry(
-                                        label, SCHOOLS, null, line[0], null);
+                                        label, SCHOOLS, null, line[0], null, "");
                                     parentKeys.put(line[0], parentKey);
                                 }
                             }
                             schoolAddresses.put(
                                 localReferentialService.addLocalReferentialEntry(
-                                    label, SCHOOLS, parentKey, line[1], null),
+                                    label, SCHOOLS, parentKey, line[1], null, ""),
                                 StringUtils.defaultString(line[2]).replaceAll(",", ""));
                         }
                     }
-                    localReferentialService.addLocalReferentialEntry(label, SCHOOLS, null, "autre", null);
+                    localReferentialService.addLocalReferentialEntry(label, SCHOOLS, null, "autre", null, "");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

@@ -60,7 +60,7 @@ public class LocalReferentialImporter {
                     localReferentialService.addLocalReferentialEntry(rtLabel, lrtName, null, line[0], line[1], null);
                 } else { // line = {label}
                     logger.info(line[0]);
-                    localReferentialService.addLocalReferentialEntry(rtLabel, lrtName, null, line[0], null);
+                    localReferentialService.addLocalReferentialEntry(rtLabel, lrtName, null, line[0], null, "");
                 }
             }
         } catch (IOException ioe) {

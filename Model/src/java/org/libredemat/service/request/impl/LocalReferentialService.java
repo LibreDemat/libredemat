@@ -141,8 +141,7 @@ public class LocalReferentialService
 
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.MANAGE)
-    public String addLocalReferentialEntry(String requestTypeLabel, String typeName,
-        String parentKey, String label, String message)
+    public String addLocalReferentialEntry(String requestTypeLabel, String typeName, String parentKey, String label, String message, String externalCode)
         throws CvqException {
         LocalReferentialType lrt = getLocalReferentialType(requestTypeLabel, typeName);
         LocalReferentialEntry parent = parentKey == null ? null : lrt.getEntryByKey(parentKey);
@@ -150,6 +149,7 @@ public class LocalReferentialService
         LocalReferentialEntry entry = new LocalReferentialEntry();
         entry.setLabel(label);
         entry.setMessage(message);
+        entry.setExternalCode(externalCode);
         
         lrt.addEntry(entry, parent);
         localReferentialDAO.save(requestTypeLabel, lrt);
@@ -159,8 +159,7 @@ public class LocalReferentialService
 
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.MANAGE)
-    public String addLocalReferentialEntry(String requestTypeLabel, String typeName,
-        String parentKey, String key, String label, String message)
+    public String addLocalReferentialEntry(String requestTypeLabel, String typeName, String parentKey, String key, String label, String message, String externalCode)
         throws CvqException {
         // FIXME factoriser ce code avec celui d’au-dessus
         LocalReferentialType lrt = getLocalReferentialType(requestTypeLabel, typeName);
@@ -169,6 +168,8 @@ public class LocalReferentialService
         LocalReferentialEntry entry = new LocalReferentialEntry();
         entry.setLabel(label);
         entry.setMessage(message);
+        entry.setExternalCode(externalCode);
+
         entry.setKey(key);
         
         lrt.addEntry(entry, parent);
@@ -180,13 +181,14 @@ public class LocalReferentialService
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.MANAGE)
     public void editLocalReferentialEntry(String requestTypeLabel, String typeName, String key,
-        String label, String message)
+        String label, String message, String externalCode)
         throws CvqException {
         LocalReferentialType lrt = getLocalReferentialType(requestTypeLabel, typeName);
         LocalReferentialEntry lre = lrt.getEntryByKey(key);
         
         lre.setLabel(label);
         lre.setMessage(message);
+        lre.setExternalCode(externalCode);
         
         localReferentialDAO.save(requestTypeLabel, lrt);
     }
