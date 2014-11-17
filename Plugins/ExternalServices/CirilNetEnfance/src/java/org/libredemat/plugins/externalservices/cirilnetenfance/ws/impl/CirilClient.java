@@ -451,7 +451,7 @@ public class CirilClient implements ICirilClient
 			jdom = saxb.build(xmlRequest);
 			Element racineInit = (Element) jdom.getRootElement();
 			Document newDoc = new Document();
-			Namespace ns = Namespace.getNamespace("q0", "Ciril:Enfance:ServicesEnfance");
+			Namespace ns = Namespace.getNamespace("Ciril:Enfance:ServicesEnfance");
 			Element newRacine = new Element(registrationType, ns);
 			newDoc.addContent(newRacine);
 			Element sRacine = new Element(registrationType + "Request");
