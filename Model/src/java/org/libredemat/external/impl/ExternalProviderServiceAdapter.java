@@ -145,7 +145,7 @@ public abstract class ExternalProviderServiceAdapter implements IExternalProvide
             logger.debug("sendRequest() routing request to external service " + getLabel());
             externalId = sendRequest(payload);
         } catch (Exception e) {
-            logger.error("sendRequest() error while sending request to " + getLabel());
+            logger.error("sendRequest() error while sending request to " + getLabel(), e);
             rea.setStatus(RequestExternalAction.Status.ERROR);
             rea.setMessage(e.getMessage());
         }
