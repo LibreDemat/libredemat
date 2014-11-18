@@ -38,6 +38,14 @@
       </span>
     </a></li>
   </g:if>
+  <g:if test="${session.supportsReservationTab}">
+    <li><a href="${createLink(controller : 'frontofficeReservation')}"
+      class="${menu.current(elem : 'reservation')} ${classFcac}" accesskey="5">
+      <span>
+      <g:message code="menu.reservation" />
+      </span>
+    </a></li>
+  </g:if>
   <g:if test="${session.additionalTabs.contains('Planning')}">
     <li><a href="${createLink(controller : 'frontofficePlanning')}"
       class="${menu.current(elem : 'planning')}">
