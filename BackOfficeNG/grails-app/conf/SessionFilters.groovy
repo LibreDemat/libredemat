@@ -139,6 +139,13 @@ class SessionFilters {
                     session.setAttribute("currentSiteDisplayTitle", la.displayTitle)
                     session.setAttribute("additionalTabs", lacb.getAdditionalTabs())
                     session.setAttribute("doRollback", false)
+                    def findIt = lacb.externalServices.find{it.key.label == "CirilNetEnfance"}
+                    if(findIt != null){
+                      session.setAttribute("supportsReservationTab", true)
+                    } else {
+                      session.setAttribute("supportsReservationTab", false)
+                    }
+
 
                 } catch (Throwable t) {
                 	log.error "Unexpected error while setting local authority context : ${t.message}"
