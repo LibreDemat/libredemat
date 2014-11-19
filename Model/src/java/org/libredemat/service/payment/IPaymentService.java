@@ -151,4 +151,6 @@ public interface IPaymentService {
     Long getTicketingContractsCount(Set<Critere> criteriaSet);
 
     Map<String, String> getAllBrokersByType(String type);
+
+    boolean isPaymnetInPopup(Payment payment) throws CvqException;
 }

@@ -13,6 +13,7 @@ public class PaymentServiceBean {
 
     protected String broker;
     protected String friendlyLabel;
+    protected boolean popupPayment = false;
     
     /** a map of service specific properties. */
     protected Map<String, Object> serviceProperties;
@@ -53,5 +54,13 @@ public class PaymentServiceBean {
 
     public final void setFriendlyLabel(String friendlyLabel) {
         this.friendlyLabel = friendlyLabel;
+    }
+
+    public boolean isPopupPayment() {
+        return popupPayment;
+    }
+
+    public void setPopupPayment(boolean popupPayment) {
+        this.popupPayment = popupPayment;
     }
 }

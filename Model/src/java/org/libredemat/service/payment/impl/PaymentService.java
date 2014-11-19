@@ -726,4 +726,13 @@ public final class PaymentService implements IPaymentService,
         }
         return brokers;
     }
+
+    @Override
+    public boolean isPaymnetInPopup(Payment payment) throws CvqException {
+        IPaymentProviderService paymentProviderService = getPaymentServiceByBrokerAndMode(payment.getBroker(),
+                payment.getPaymentMode());
+        if (paymentProviderService == null) { throw new CvqException("payment.provider_not_found"); }
+        PaymentServiceBean psb = getPaymentServiceBean(paymentProviderService);
+        return psb.isPopupPayment();
+    }
 }

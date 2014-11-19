@@ -21,5 +21,6 @@ class ServiceUrlMappings {
     "/service/oauth/v$version/request/$individual/$requestTypeLabel" (controller : "serviceRequest" )
     "/service/oauth/v$version/agent" (controller : "serviceUser"){action = [GET : "loginAgent"]}
     "/service/oauth/v$version/invoice" (controller : "serviceInvoice" ){action = [POST: "create"]}
+    "/service/ciril/$action?/$id?" (controller: "serviceCiril")
   }
 }
