@@ -6,8 +6,10 @@
   <bean id="cirilNetEnfanceExternalService" parent="externalProviderServiceAdapter" class="org.libredemat.plugins.externalservices.cirilnetenfance.service.CirilNetEnfanceService">
     <property name="label" value="CirilNetEnfance" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+    <property name="userSearchService" ref="userSearchService" />
     <property name="requestWorkflowService" ref="requestWorkflowService" />
     <property name="cirilClient" ref="cirilClient" />
+    <property name="paymentService" ref="paymentService" />
     <property name="schoolDAO" ref="schoolDAO" />
     <property name="requestDAO" ref="requestDAO" />
     <property name="individualDAO" ref="individualDAO" />

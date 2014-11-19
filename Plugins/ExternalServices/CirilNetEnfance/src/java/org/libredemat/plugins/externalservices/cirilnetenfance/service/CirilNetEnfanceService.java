@@ -769,7 +769,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		catch (Exception e)
 		{
 			logger.error("La connexion avec le connecteur Ciril a rencontré un pb - leur serveur est peut-être indisponible. "
-					+ e.getMessage());
+					+ e.getMessage(), e);
 			throw new CvqRemoteException("error.cirilConnectionFoReservationError");
 		}
 		return getRes;

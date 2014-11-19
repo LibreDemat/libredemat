@@ -744,6 +744,8 @@
 
     drop table requirement cascade;
 
+    drop table reservation cascade;
+
     drop table sagr_activite_association cascade;
 
     drop table sagr_membre_bureau cascade;
@@ -2596,6 +2598,20 @@
         multiplicity int4,
         special bool,
         special_reason varchar(255)
+    );
+
+    create table reservation (
+        id int8 not null,
+        activity_code varchar(255),
+        activity_service_code varchar(255),
+        ativity_service_label varchar(255),
+        child_id int8,
+        color varchar(255),
+        date timestamp,
+        day_type varchar(255),
+        home_folder_id int8,
+        session varchar(255),
+        primary key (id)
     );
 
     create table sagr_activite_association (

@@ -9,7 +9,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import org.libredemat.business.users.Adult;
+import org.libredemat.business.users.Child;
 import org.libredemat.business.users.GlobalHomeFolderConfiguration;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.IndividualRole;
@@ -31,6 +34,7 @@ import net.sf.oval.ConstraintViolation;
 import net.sf.oval.Validator;
 
 public class UserService implements IUserService {
+    private static Logger logger = Logger.getLogger(UserService.class);
 
     private IUserSearchService userSearchService;
     private IGenericDAO genericDAO;
@@ -185,6 +189,32 @@ public class UserService implements IUserService {
         adult.assignRandomValidationCode();
         adult.setValidationCodeExpiration(DateUtils.getShiftedDate(Calendar.DAY_OF_YEAR, 3));
         genericDAO.update(adult);
+    }
+
+    @Override
+    public boolean isChildInformationSheetFilled(Child child) {
+        boolean retour = false;
+        try {
+            boolean informationSheetRequired = SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired();
+            if (!informationSheetRequired) {
+                retour = true;
+            }
+            else {
+                if (child != null & child.getChildInformationSheet() != null) {
+                    if (child.getChildInformationSheet().getValidationDate() != null && 
+                        this.validate(child.getChildInformationSheet(), informationSheetRequired).isEmpty()) {
+                    // La date de validation de la fiche de renseignement est renseignée
+                    // et
+                    // tous les champs de la fiche de renseignement sont bien remplis
+                        retour = true;
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return retour;
     }
 
     private boolean isCodeVerificationValid(Adult adult, String code) {
