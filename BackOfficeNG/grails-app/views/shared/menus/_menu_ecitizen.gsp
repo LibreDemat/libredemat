@@ -30,6 +30,7 @@
       <g:message code="menu.documents" />
     </span>
   </a></li>
+  <!--
   <g:if test="${session.additionalTabs.contains('Activities')}">
     <li><a href="${createLink(controller : 'frontofficeActivity')}"
       class="${menu.current(elem : 'activity')}">
@@ -38,6 +39,7 @@
       </span>
     </a></li>
   </g:if>
+  -->
   <g:if test="${session.supportsReservationTab}">
     <li><a href="${createLink(controller : 'frontofficeReservation')}"
       class="${menu.current(elem : 'reservation')} ${classFcac}" accesskey="5">

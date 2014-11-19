@@ -36,7 +36,7 @@
 			 <div class="yui-u first">
 			<g:each in="${activities.value.activityServices}" status="inxo" var="activityServices">
 			<g:if test="${inxo % 2 == 0}">
-			<div class="yui-g">
+			<div class="yui-g" style="float:none">
 			  <h4><g:if test="${activityServices.value.type != 'single'}">${activityServices.value.groupLabel} :</g:if></h4>
 		        <div class="yui-u first">
 		          <ul>
