@@ -76,7 +76,7 @@
 
   
     <label for="subjectChoiceMobilePhone" class=""><g:message code="ycrr.property.subjectChoiceMobilePhone.label" />   <span><g:message code="ycrr.property.subjectChoiceMobilePhone.help" /></span></label>
-            <input type="text" id="subjectChoiceMobilePhone" name="subjectChoiceMobilePhone" value="${rqt.subjectChoiceMobilePhone?.toString()}" 
+            <input  type="text" id="subjectChoiceMobilePhone" name="subjectChoiceMobilePhone" value="${rqt.subjectChoiceMobilePhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('subjectChoiceMobilePhone') ? 'validation-failed' : ''}" title="<g:message code="ycrr.property.subjectChoiceMobilePhone.validationError" />"  maxlength="10" />
             
 
@@ -84,7 +84,7 @@
 
   
     <label for="subjectChoiceEmail" class=""><g:message code="ycrr.property.subjectChoiceEmail.label" />   <span><g:message code="ycrr.property.subjectChoiceEmail.help" /></span></label>
-            <input type="text" id="subjectChoiceEmail" name="subjectChoiceEmail" value="${rqt.subjectChoiceEmail?.toString()}" 
+            <input  type="text" id="subjectChoiceEmail" name="subjectChoiceEmail" value="${rqt.subjectChoiceEmail?.toString()}" 
                     class="  validate-email ${rqt.stepStates['registration'].invalidFields.contains('subjectChoiceEmail') ? 'validation-failed' : ''}" title="<g:message code="ycrr.property.subjectChoiceEmail.validationError" />"   />
             
 
@@ -148,7 +148,7 @@
 
   
     <label for="firstRegistrationNumeroAdherent" class="required condition-isFirstRegistration-filled"><g:message code="ycrr.property.firstRegistrationNumeroAdherent.label" /> *  <span><g:message code="ycrr.property.firstRegistrationNumeroAdherent.help" /></span></label>
-            <input type="text" id="firstRegistrationNumeroAdherent" name="firstRegistrationNumeroAdherent" value="${rqt.firstRegistrationNumeroAdherent?.toString()}" 
+            <input  type="text" id="firstRegistrationNumeroAdherent" name="firstRegistrationNumeroAdherent" value="${rqt.firstRegistrationNumeroAdherent?.toString()}" 
                     class="required condition-isFirstRegistration-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('firstRegistrationNumeroAdherent') ? 'validation-failed' : ''}" title="<g:message code="ycrr.property.firstRegistrationNumeroAdherent.validationError" />"   />
             
 

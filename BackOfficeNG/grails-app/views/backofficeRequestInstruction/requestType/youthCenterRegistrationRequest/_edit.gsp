@@ -103,19 +103,19 @@
             
               
               <dl>
-                <dt class="required">${message(code:'ycrr.property.childAlone.label')}&nbsp;*&nbsp;:</dt><dd id="childAlone" class="action-editField validate-acceptance required-true i18n-ycrr.property.childAlone" ><span class="value-${rqt?.childAlone}"><g:message code="message.${rqt?.childAlone ? 'yes' : 'no'}" /></span></dd>
+                <dt class="required">${message(code:'ycrr.property.childAlone.label')}&nbsp;*&nbsp;:</dt><dd id="childAlone" class="action-editField validate-boolean required-true i18n-ycrr.property.childAlone" ><span class="value-${rqt?.childAlone}"><g:message code="${rqt?.childAlone ? 'message.yes' : rqt?.childAlone==null ? '' : 'message.no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'ycrr.property.multiActivities.label')}&nbsp;*&nbsp;:</dt><dd id="multiActivities" class="action-editField validate-acceptance required-true i18n-ycrr.property.multiActivities" ><span class="value-${rqt?.multiActivities}"><g:message code="message.${rqt?.multiActivities ? 'yes' : 'no'}" /></span></dd>
+                <dt class="required">${message(code:'ycrr.property.multiActivities.label')}&nbsp;*&nbsp;:</dt><dd id="multiActivities" class="action-editField validate-boolean required-true i18n-ycrr.property.multiActivities" ><span class="value-${rqt?.multiActivities}"><g:message code="${rqt?.multiActivities ? 'message.yes' : rqt?.multiActivities==null ? '' : 'message.no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'ycrr.property.rulesAcceptance.label')}&nbsp;*&nbsp;:</dt><dd id="rulesAcceptance" class="action-editField validate-acceptance required-true i18n-ycrr.property.rulesAcceptance" ><span class="value-${rqt?.rulesAcceptance}"><g:message code="message.${rqt?.rulesAcceptance ? 'yes' : 'no'}" /></span></dd>
+                <dt class="required">${message(code:'ycrr.property.rulesAcceptance.label')}&nbsp;*&nbsp;:</dt><dd id="rulesAcceptance" class="action-editField validate-boolean required-true i18n-ycrr.property.rulesAcceptance" ><span class="value-${rqt?.rulesAcceptance}"><g:message code="${rqt?.rulesAcceptance ? 'message.yes' : rqt?.rulesAcceptance==null ? '' : 'message.no'}" /></span></dd>
               </dl>
               
             

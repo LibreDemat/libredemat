@@ -98,6 +98,7 @@
 
 
   
+  
   <h2>${i18n.translate('ycrr.step.registration.label')}</h2>
   
     
@@ -152,6 +153,7 @@
   
 
   
+  
   <h2>${i18n.translate('ycrr.step.rules.label')}</h2>
   
     
@@ -159,7 +161,7 @@
           <div class="response choice">
             <% [true,false].each { %>
               <span ${it == rqt.childAlone ? 'class="checked"': 'class="unchecked"'}>
-                ${i18n.translate('message.' + (it ? 'yes' : 'no'))}
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
               </span>
             <% } %>
           </div>
@@ -172,7 +174,7 @@
           <div class="response choice">
             <% [true,false].each { %>
               <span ${it == rqt.multiActivities ? 'class="checked"': 'class="unchecked"'}>
-                ${i18n.translate('message.' + (it ? 'yes' : 'no'))}
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
               </span>
             <% } %>
           </div>
@@ -185,7 +187,7 @@
           <div class="response choice">
             <% [true,false].each { %>
               <span ${it == rqt.rulesAcceptance ? 'class="checked"': 'class="unchecked"'}>
-                ${i18n.translate('message.' + (it ? 'yes' : 'no'))}
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
               </span>
             <% } %>
           </div>

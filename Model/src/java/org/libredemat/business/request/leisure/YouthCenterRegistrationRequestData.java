@@ -129,13 +129,6 @@ public class YouthCenterRegistrationRequestData implements Serializable {
         message = "childAlone"
       )
     
-      @AssertTrue(
-        
-        
-        profiles = {"rules"},
-        message = "childAlone"
-      )
-    
     private Boolean childAlone;
 
     public void setChildAlone(final Boolean childAlone) {
@@ -155,8 +148,9 @@ public class YouthCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['isFirstRegistration'].test(_this.isFirstRegistration.toString());" +
-                
+                "active &= _this.conditions['isFirstRegistration'].test(_this.isFirstRegistration.toString());" +
+                    
+                  
               
             
             
@@ -185,8 +179,9 @@ public class YouthCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['isFirstRegistration'].test(_this.isFirstRegistration.toString());" +
-                
+                "active &= _this.conditions['isFirstRegistration'].test(_this.isFirstRegistration.toString());" +
+                    
+                  
               
             
             
@@ -201,8 +196,9 @@ public class YouthCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['isFirstRegistration'].test(_this.isFirstRegistration.toString());" +
-                
+                "active &= _this.conditions['isFirstRegistration'].test(_this.isFirstRegistration.toString());" +
+                    
+                  
               
             
             
@@ -254,13 +250,6 @@ public class YouthCenterRegistrationRequestData implements Serializable {
         message = "multiActivities"
       )
     
-      @AssertTrue(
-        
-        
-        profiles = {"rules"},
-        message = "multiActivities"
-      )
-    
     private Boolean multiActivities;
 
     public void setMultiActivities(final Boolean multiActivities) {
@@ -276,13 +265,6 @@ public class YouthCenterRegistrationRequestData implements Serializable {
   
     
       @NotNull(
-        
-        
-        profiles = {"rules"},
-        message = "rulesAcceptance"
-      )
-    
-      @AssertTrue(
         
         
         profiles = {"rules"},

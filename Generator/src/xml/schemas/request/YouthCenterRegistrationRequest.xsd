@@ -221,7 +221,7 @@
             </xs:element>
 
             <!-- L'enfant rentre chez lui seul -->
-            <xs:element name="ChildAlone" type="cvq:AcceptanceType" default="false">
+            <xs:element name="ChildAlone" type="xs:boolean" default="false">
               <xs:annotation>
                 <xs:documentation xml:lang="fr"
                     source="http://www.libredemat.org/schema/shortdesc">
@@ -239,7 +239,7 @@
             </xs:element>
 
             <!-- Plusieurs activités pour l'enfant -->
-            <xs:element name="MultiActivities" type="cvq:AcceptanceType" default="false">
+            <xs:element name="MultiActivities" type="xs:boolean" default="false">
               <xs:annotation>
                 <xs:documentation xml:lang="fr"
                     source="http://www.libredemat.org/schema/shortdesc">
@@ -257,7 +257,7 @@
             </xs:element>
 
             <!-- L'utilisateur a pris connaissance du règlement -->
-            <xs:element name="RulesAcceptance" type="cvq:AcceptanceType" default="false">
+            <xs:element name="RulesAcceptance" type="xs:boolean" default="false">
               <xs:annotation>
                 <xs:documentation xml:lang="fr"
                     source="http://www.libredemat.org/schema/shortdesc">

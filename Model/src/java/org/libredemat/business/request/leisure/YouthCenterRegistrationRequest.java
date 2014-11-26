@@ -239,7 +239,7 @@ public class YouthCenterRegistrationRequest extends Request implements Serializa
         youthCenterRegistrationRequestData.setChildAlone(childAlone);
     }
 
-    @IsRulesAcceptance
+    
     public final Boolean getChildAlone() {
         return youthCenterRegistrationRequestData.getChildAlone();
     }
@@ -275,7 +275,7 @@ public class YouthCenterRegistrationRequest extends Request implements Serializa
         youthCenterRegistrationRequestData.setMultiActivities(multiActivities);
     }
 
-    @IsRulesAcceptance
+    
     public final Boolean getMultiActivities() {
         return youthCenterRegistrationRequestData.getMultiActivities();
     }
@@ -284,7 +284,7 @@ public class YouthCenterRegistrationRequest extends Request implements Serializa
         youthCenterRegistrationRequestData.setRulesAcceptance(rulesAcceptance);
     }
 
-    @IsRulesAcceptance
+    
     public final Boolean getRulesAcceptance() {
         return youthCenterRegistrationRequestData.getRulesAcceptance();
     }
