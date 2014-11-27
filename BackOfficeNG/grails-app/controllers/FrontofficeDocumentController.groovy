@@ -5,6 +5,7 @@ import org.libredemat.business.document.DocumentBinary
 import org.libredemat.business.users.Adult
 import org.libredemat.business.users.Individual
 import org.libredemat.security.SecurityContext
+import org.libredemat.service.users.IUserSearchService
 import org.libredemat.service.document.IDocumentService
 import org.libredemat.service.document.IDocumentTypeService
 import org.libredemat.service.request.school.external.ICirilDocumentProvider;
@@ -21,6 +22,7 @@ class FrontofficeDocumentController {
     
     IDocumentService documentService
     IDocumentTypeService documentTypeService
+    IUserSearchService userSearchService
     
     DocumentAdaptorService documentAdaptorService
     
