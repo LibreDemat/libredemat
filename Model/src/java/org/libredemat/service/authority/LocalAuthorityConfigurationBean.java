@@ -36,6 +36,7 @@ public final class LocalAuthorityConfigurationBean {
     private String name;
     private String defaultServerName;
     private String defaultEmail;
+    private String defaultPassword = "bienvenue";
     private String authenticationMethod;
     private String authenticationMethodFront;
     private boolean accountValidationRequired = false;
@@ -405,5 +406,13 @@ public final class LocalAuthorityConfigurationBean {
     }
     public void setAddresseReferentialCityRestriction(boolean addresseReferentialCityRestriction) {
         this.addresseReferentialCityRestriction = addresseReferentialCityRestriction;
+    }
+
+    public String getDefaultPassword() {
+        return defaultPassword;
+    }
+
+    public void setDefaultPassword(String defaultPassword) {
+        this.defaultPassword = defaultPassword;
     }
 }

@@ -14,6 +14,7 @@
     </property>
     <property name="defaultServerName" value="localhost"/>
     <property name="defaultEmail" value="libredemat-dev@zengularity.com"/>
+    <property name="defaultPassword" value="bienvenue"/>
     <property name="autotransition" value="true"/>
     <property name="authenticationMethod" value="builtin"/> <!-- builtin,cas -->
     <property name="authenticationMethodFront" value="builtin"/> <!-- builtin,oauth2-->
