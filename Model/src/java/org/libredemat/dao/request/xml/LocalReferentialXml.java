@@ -120,6 +120,10 @@ public class LocalReferentialXml {
             entry.setMessage(lre.getMessage());
         }
 
+        if (lre.getExternalCode() != null) {
+            entry.setExternalCode(lre.getExternalCode());
+        }
+
         // set children entries
         if (!lre.getEntries().isEmpty()) {
             LocalReferentialEntryType innerLretXml = entry.addNewEntries();
@@ -225,7 +229,11 @@ public class LocalReferentialXml {
             if (entry.isSetEntries()) {
                 xmlEntriesToModel(entry.getEntries(), lrt, tempLre);
             }
-            
+
+            if (entry.isSetExternalCode()) {
+                tempLre.setExternalCode(entry.getExternalCode());
+            }
+
             try {
                 lrt.addEntry(tempLre, parentLre);
             } catch (CvqLocalReferentialException ex) {
