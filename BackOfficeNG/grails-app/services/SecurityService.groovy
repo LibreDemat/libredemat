@@ -54,6 +54,7 @@ public class SecurityService {
                 "frontofficePlanning" : /.*/,
                 "frontofficeDocument" : [/details/,/binary/,/preview/],
                 "frontofficeHome" : [/loginAgent/,/logoutAgent/],
+                "frontofficeCiril" : /.*/,
                 "serviceAutocomplete" : /.*/,
                 "system" : /error/
             ]
