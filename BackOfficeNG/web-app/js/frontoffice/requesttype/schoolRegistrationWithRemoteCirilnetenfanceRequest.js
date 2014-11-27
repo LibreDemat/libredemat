@@ -27,7 +27,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         if(yud.get('idSchoolName').tagName.toUpperCase() != "SELECT") {
           setTimeout(
               function() {
-                  zct.alterer.toDropDown('SchoolName', zcfr.SchoolWithRemoteCirilnetenfanceRequest.schools, 'subjectId')
+                  zct.alterer.toDropDown('SchoolName', zcfr.SchoolWithRemoteCirilnetenfanceRequest.schools, 'section')
               },
           100)
         } else {
