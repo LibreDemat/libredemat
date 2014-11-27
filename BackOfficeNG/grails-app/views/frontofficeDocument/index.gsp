@@ -29,17 +29,15 @@
           </div>
 
 		<!-- Inexine get document from model soft -- session.supportsPaymentsTab -->
-          <g:if test="${session.isCirilServer}">
-	          <div class="list-box">
-	            <h2><g:message code="menu.certificates" /></h2>
-	            <g:if test="${certificates.count > 0 }">
-	            	<g:render template="certificatesList" />
-	            </g:if>
-	            <g:else>
-	              <p class="empty"><g:message code="${certificates.message}" /></strong>
-	            </g:else>
-			  </div>
-		  </g:if>
+          <div class="list-box">
+            <h2><g:message code="menu.certificates" /></h2>
+            <g:if test="${certificates.count > 0 }">
+                <g:render template="certificatesList" />
+            </g:if>
+            <g:else>
+              <p class="empty"><g:message code="${certificates.message}" /></strong>
+            </g:else>
+          </div>
 
         </div>
       </div>

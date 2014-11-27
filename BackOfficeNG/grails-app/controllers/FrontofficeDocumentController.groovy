@@ -9,6 +9,7 @@ import org.libredemat.service.users.IUserSearchService
 import org.libredemat.service.document.IDocumentService
 import org.libredemat.service.document.IDocumentTypeService
 import org.libredemat.service.request.school.external.ICirilDocumentProvider;
+import org.libredemat.service.authority.ILocalAuthorityRegistry
 import org.libredemat.util.UserUtils
 
 import java.util.Hashtable
@@ -23,6 +24,7 @@ class FrontofficeDocumentController {
     IDocumentService documentService
     IDocumentTypeService documentTypeService
     IUserSearchService userSearchService
+    ILocalAuthorityRegistry localAuthorityRegistry
     
     DocumentAdaptorService documentAdaptorService
     

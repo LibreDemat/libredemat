@@ -76,8 +76,9 @@ function getDocToShow(url, name)
 
 function showDocPanel(el, title)
 {
-	var name = el.id.split('_http:')[0];
-	var url = el.id.split('_http:')[1];
+    var nameNurl = el.id.replace("https", "http")
+	var name = nameNurl.split('_http:')[0];
+	var url = nameNurl.split('_http:')[1];
 	url = "http:" + url;
 	
 	var showDocContainer = yud.get("showPanelBody");
