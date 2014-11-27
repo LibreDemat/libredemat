@@ -3,21 +3,25 @@
 
   
     
-              <label class="required">
-                <g:message code="srwrcr.property.rulesAndRegulationsAcceptance.label" /> *
-                <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">
-                  <a target="_blank" href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':rqt.requestType.label, 'filename':'rulesAndRegulationsAcceptance']).encodeAsXML()}"><span><g:message code="request.action.consult.rules" /></span></a>
-                </g:if>
-                <span><g:message code="srwrcr.property.rulesAndRegulationsAcceptance.help" /></span>
-              </label>
-              <ul class="yes-no required ${rqt.stepStates['rules'].invalidFields.contains('rulesAndRegulationsAcceptance') ? 'validation-failed' : ''}">
-                <g:each in="${[true,false]}">
-                  <li>
-                    <input type="radio" id="rulesAndRegulationsAcceptance_${it ? 'yes' : 'no'}" class="required  validate-acceptance" title="" value="${it}" name="rulesAndRegulationsAcceptance" ${it == rqt.rulesAndRegulationsAcceptance ? 'checked="checked"': ''} />
-                    <label for="rulesAndRegulationsAcceptance_${it ? 'yes' : 'no'}"><g:message code="message.${it ? 'yes' : 'no'}" /></label>
-                  </li>
-                </g:each>
-              </ul>
+            <ul ${rqt.stepStates['rules'].invalidFields.contains('rulesAndRegulationsAcceptance') ? 'class="validation-failed"' : ''}>
+              <li>
+                <input type="hidden" name="_rulesAndRegulationsAcceptance" /><!-- Grails 1.2.x convention to bind checkboxes. -->
+                <input type="checkbox" id="rulesAndRegulationsAcceptance" name="rulesAndRegulationsAcceptance"
+                           class="required  validate-acceptance"
+                           title="${message(code:'srwrcr.property.rulesAndRegulationsAcceptance.validationError')}"
+                       ${rqt.rulesAndRegulationsAcceptance ? 'checked="checked"' : ''} value="true" />
+                <label for="rulesAndRegulationsAcceptance" class="required">
+                  ${message(code:'srwrcr.property.rulesAndRegulationsAcceptance.label')}&nbsp;*
+                  <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">
+                  <a target="_blank"
+                     href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':rqt.requestType.label, 'filename':'rulesAndRegulationsAcceptance']).encodeAsXML()}">
+                    <span>${message(code:'request.action.consult.rules')}</span>
+                  </a>
+                  </g:if>
+                  <span>${message(code:'srwrcr.property.rulesAndRegulationsAcceptance.help')}</span>
+                </label>
+              </li>
+            </ul>
             
 
   

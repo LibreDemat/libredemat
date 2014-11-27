@@ -1,9 +1,6 @@
-srwrcr.duration.value = 5 minutes
+srwrcr.duration.value =
 
 srwrcr.property.subject.label = Sujet
-
-srwrcr.step.information.label =
-srwrcr.step.information.desc =
 
 srwrcr.step.registration.label =
 srwrcr.step.registration.desc =
@@ -12,39 +9,29 @@ srwrcr.step.rules.label =
 srwrcr.step.rules.desc =
 
 
-srwrcr.property.informationMessageRequest.help =
-srwrcr.property.informationMessageRequest.validationError =
-
-
 srwrcr.property.section.help =
 srwrcr.property.section.validationError =
 
 
-srwrcr.property.schoolName.help =
-srwrcr.property.schoolName.validationError =
+srwrcr.property.theSchool.help =
+srwrcr.property.theSchool.validationError =
 
 
-srwrcr.property.urgencyPhone.help =
-srwrcr.property.urgencyPhone.validationError =
+srwrcr.property.idSchoolName.help =
+srwrcr.property.idSchoolName.validationError =
 
 
-srwrcr.property.currentSchool.help =
-srwrcr.property.currentSchool.validationError =
-
-
-srwrcr.property.currentSchoolName.help =
-srwrcr.property.currentSchoolName.validationError =
-
-
-srwrcr.property.currentSchoolAddress.help =
-srwrcr.property.currentSchoolAddress.validationError =
-
-
-srwrcr.property.currentSection.help =
-srwrcr.property.currentSection.validationError =
+srwrcr.property.labelSchoolName.help =
+srwrcr.property.labelSchoolName.validationError =
 
 
 srwrcr.property.rulesAndRegulationsAcceptance.help =
 srwrcr.property.rulesAndRegulationsAcceptance.validationError =
 
 
+
+srwrcr.step.homeFolder.label = Compte famille
+srwrcr.step.homeFolder.desc = Composition de votre compte famille
+
+srwrcr.incitationText.desc = <span style="font-weight: bold;">Avant de continuer votre demande, merci de :</span><br /> - vérifier l''exactitude des informations de votre compte et des membres qui le compose<br /> - compléter votre compte en ajoutant tous les membres de votre famille (responsables légaux et enfants).<br /><br /><a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)
+srwrcr.incitationText.desc2 = <a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)</span>

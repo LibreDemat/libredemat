@@ -157,7 +157,9 @@
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                  <pdf />
                 </xs:appinfo>
