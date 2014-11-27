@@ -11,7 +11,7 @@
     <!-- Insert services you need here -->
   </bean>
   <bean id="payBoxSystemRegie1PaymentProvider"
-      class="fr.capwebct.capdemat.plugins.paymentproviders.payboxsystem.service.PayBoxPaymentService"
+      class="org.libredemat.plugins.paymentproviders.payboxsystem.service.PayBoxPaymentService"
       init-method="init">
     <property name="label" value="PayBoxSystem"></property>
     <property name="paymentUrl" value="${plugins.paymentproviders.paybox.payment_url}" />
@@ -19,7 +19,7 @@
   </bean>
 
   <bean id="payBoxSystemRegie2PaymentProvider"
-      class="fr.capwebct.capdemat.plugins.paymentproviders.payboxsystem.service.PayBoxPaymentService"
+      class="org.libredemat.plugins.paymentproviders.payboxsystem.service.PayBoxPaymentService"
       init-method="init">
     <property name="label" value="PayBoxSystem"></property>
     <property name="paymentUrl" value="${plugins.paymentproviders.paybox.payment_url}" />
