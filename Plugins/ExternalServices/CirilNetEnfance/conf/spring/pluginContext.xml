@@ -13,6 +13,8 @@
     <property name="schoolDAO" ref="schoolDAO" />
     <property name="requestDAO" ref="requestDAO" />
     <property name="individualDAO" ref="individualDAO" />
+    <property name="genericDAO" ref="genericDAO" />
+    <property name="homeFolderDAO" ref="homeFolderDAO" />
   </bean>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

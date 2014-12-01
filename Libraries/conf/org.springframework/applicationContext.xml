@@ -257,6 +257,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="requestDAO" ref="requestDAO" />
     <property name="userSearchService" ref="userSearchService" />
     <property name="genericDAO" ref="genericDAO" />
+    <property name="homeFolderDAO" ref="homeFolderDAO" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
     <property name="requestExportService" ref="requestExportService" />
     <property name="translationService" ref="translationService" />

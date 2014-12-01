@@ -36,7 +36,8 @@ public class UserAction {
         WAITING_NOTIFICATION("WaitingNotification"),
         NOTIFICATION_ERROR("NotificationError"),
         NOTIFIED("Notified"),
-        SERVICE_EXTERNE("ServiceExterne");
+        SERVICE_EXTERNE("ServiceExterne"),
+        SYNCHRONISE("Synchronise");
 
         private String name;
         private Type(String type) { this.name = type; }

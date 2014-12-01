@@ -24,6 +24,8 @@ import org.apache.xmlbeans.XmlObject;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import enfanceServicesEnfance.AccountDetailType;
 import enfanceServicesEnfance.AccountDetailsResponseDocument;
@@ -79,16 +81,21 @@ import org.libredemat.business.payment.Payment;
 import org.libredemat.business.payment.PurchaseItem;
 import org.libredemat.business.request.Request;
 import org.libredemat.business.request.RequestState;
+import org.libredemat.business.users.HomeFolder;
+import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.SectionType;
 import org.libredemat.business.users.external.HomeFolderMapping;
 import org.libredemat.business.users.external.IndividualMapping;
+import org.libredemat.business.users.external.UserExternalAction;
 import org.libredemat.dao.authority.ISchoolDAO;
 import org.libredemat.dao.jpa.IJpaTemplate;
+import org.libredemat.dao.jpa.IGenericDAO;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.dao.users.IIndividualDAO;
+import org.libredemat.dao.users.IHomeFolderDAO;
 import org.libredemat.exception.CvqConfigurationException;
 import org.libredemat.exception.CvqException;
 import org.libredemat.exception.CvqModelException;
@@ -103,8 +110,10 @@ import org.libredemat.service.request.school.external.IActivityReservationProvid
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.external.IExternalHomeFolderService;
 import org.libredemat.util.Critere;
+import org.libredemat.util.UserUtils;
 import org.libredemat.service.request.school.external.IRemoteCirilSchoolsProvider;
 import org.libredemat.service.request.school.external.ICirilDocumentProvider;
+import org.libredemat.xml.common.RequestType;
 import org.libredemat.xml.common.LocalReferentialDataType;
 import org.libredemat.xml.request.ecitizen.HomeFolderModificationRequestDocument.HomeFolderModificationRequest;
 import org.libredemat.xml.request.leisure.YouthCenterRegistrationRequestDocument.YouthCenterRegistrationRequest;
@@ -139,6 +148,8 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private IIndividualDAO individualDAO;
     private IRequestDAO requestDAO;
+    protected IGenericDAO genericDAO;
+    private IHomeFolderDAO homeFolderDAO;
 	
 	public void checkConfiguration(ExternalServiceBean externalServiceBean, String localAuthorityName)
 			throws CvqConfigurationException
@@ -1067,6 +1078,48 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
         return null;
     };
 
+
+    public String sendHomeFolderModification(XmlObject requestXml) throws CvqException {
+        String message = "La synchronisation s'est effectuée avec succès";
+        String status = "Sent";
+
+        try {
+            sendRequest(requestXml);
+        } catch (Exception e) {
+            logger.error("sendHomeFolderModificationRequest() got error " + e.getMessage());
+            //uea.setStatus("Error");
+            //uea.setMessage(e.getMessage());
+
+            message = "Erreur interne : " + e.getMessage();
+            status = "ErrorInterne";
+        }
+
+
+
+        UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, ((RequestType)requestXml).getHomeFolder().getId());
+        JsonObject payload = UserUtils.getPayloadForUserAction(-1L, "Système", -1L, "CirilNetEnfance");
+        //if (isSynchroniseEvent) {
+        //    payload = UserUtils.getPayloadForUserAction(SecurityContext.getCurrentUserId(),
+        //            UserUtils.getDisplayName(SecurityContext.getCurrentUserId()), -1L,
+        //            "CirilNetEnfance");
+        //}
+        payload.addProperty("state", status);
+        payload.addProperty("message", message);
+        action.setData(new Gson().toJson(payload));
+        action = (UserAction) genericDAO.create(action);
+        HomeFolder hf = homeFolderDAO.findById(((RequestType)requestXml).getHomeFolder().getId());
+        hf.getActions().add(action);
+        homeFolderDAO.update(hf);
+
+        if ("ErrorInterne".equals(status)) {
+            logger.error("sendHomeFolderModificationRequest() error while sending request to " + getLabel());
+            throw new CvqException(message);
+        }
+        return null;
+    }
+
+
+
 	@Override
 	public boolean isServerStarted()
 	{
@@ -1109,5 +1162,13 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 
     public void setRequestDAO(IRequestDAO requestDAO) {
         this.requestDAO = requestDAO;
+    }
+
+    public void setGenericDAO(IGenericDAO genericDAO) {
+        this.genericDAO = genericDAO;
+    }
+
+    public void setHomeFolderDAO(IHomeFolderDAO homefolderDAO) {
+        this.homeFolderDAO = homefolderDAO;
     }
 }

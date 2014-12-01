@@ -37,6 +37,7 @@ import org.libredemat.business.users.external.UserExternalAction;
 import org.libredemat.dao.jpa.IGenericDAO;
 import org.libredemat.dao.jpa.JpaUtil;
 import org.libredemat.dao.request.IRequestDAO;
+import org.libredemat.dao.users.IHomeFolderDAO;
 import org.libredemat.exception.CvqException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.external.ExternalServiceBean;
@@ -57,6 +58,7 @@ import org.libredemat.service.request.external.IRequestExternalActionService;
 import org.libredemat.service.request.external.IRequestExternalService;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.external.IExternalHomeFolderService;
+import org.libredemat.util.UserUtils;
 import org.libredemat.util.Critere;
 import org.libredemat.util.JSONUtils;
 import org.libredemat.util.mail.IMailService;
@@ -101,6 +103,8 @@ public class RequestExternalService extends ExternalService implements IRequestE
     private IRequestSearchService requestSearchService;
 
     private IRequestTypeService requestTypeService;
+
+    private IHomeFolderDAO homeFolderDAO;
 
     private static final Set<RequestExternalAction.Status> finalExternalStatuses =
         new HashSet<RequestExternalAction.Status>(2);
@@ -493,11 +497,15 @@ public class RequestExternalService extends ExternalService implements IRequestE
                         newMappings.add(entry.getKey().getLabel());
                     }
                 }
-                try {
-                    for (HomeFolderMapping mapping :
-                        externalHomeFolderService.getHomeFolderMappings(homeFolder.getId())) {
+                for (HomeFolderMapping mapping :
+                    externalHomeFolderService.getHomeFolderMappings(homeFolder.getId())) {
 
-                        String externalServiceLabel = mapping.getExternalServiceLabel();
+                    String message = "La synchronisation s'est effectuée avec succès";
+                    String status = "Sent";
+
+                    String externalServiceLabel = mapping.getExternalServiceLabel();
+                    try {
+
                         IExternalProviderService externalProviderService =
                             getExternalServiceByLabel(externalServiceLabel);
                         if (externalProviderService == null) {
@@ -543,10 +551,14 @@ public class RequestExternalService extends ExternalService implements IRequestE
                         genericDAO.create(new UserExternalAction(
                             homeFolder.getId().toString(), externalServiceLabel, "Sent"));
                         }
+
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                        message = "Erreur interne : " + ex.getMessage();
+                        status = "ErrorInterne";
                     }
-                } catch (CvqException ex) {
-                    throw new RuntimeException(ex);
                 }
+
             }
         } else if (UserAction.Type.MERGE.equals(event.getAction().getType())) {
             
@@ -638,6 +650,10 @@ public class RequestExternalService extends ExternalService implements IRequestE
 
     public void setRequestDAO(IRequestDAO requestDAO) {
         this.requestDAO = requestDAO;
+    }
+
+    public void setHomeFolderDAO(IHomeFolderDAO homeFolderDAO) {
+        this.homeFolderDAO = homeFolderDAO;
     }
 
     public void setGenericDAO(IGenericDAO genericDAO) {

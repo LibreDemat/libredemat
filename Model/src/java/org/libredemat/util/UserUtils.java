@@ -7,6 +7,8 @@ import org.libredemat.service.authority.IAgentService;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.util.translation.ITranslationService;
 
+import com.google.gson.JsonObject;
+
 public class UserUtils {
 
     private static IAgentService agentService;
@@ -45,6 +47,29 @@ public class UserUtils {
                 }
             }
         }
+    }
+
+
+    public static JsonObject getPayloadForUserAction(Long id, String name, Long targetId, String targetName) {
+        JsonObject payload = new JsonObject();
+        JsonObject user = new JsonObject();
+        user.addProperty("id", id);
+        user.addProperty("name", name);
+        payload.add("user", user);
+
+        user = new JsonObject();
+        user.addProperty("id", targetId);
+        user.addProperty("name", targetName);
+        payload.add("target", user);
+
+        return payload;
+    }
+
+    public static JsonObject getPayloadForUserAction(Long id) {
+        JsonObject user = new JsonObject();
+        user.addProperty("id", id);
+        user.addProperty("name", getDisplayName(id));
+        return user;
     }
 
     public static String getNature(Long id) {
