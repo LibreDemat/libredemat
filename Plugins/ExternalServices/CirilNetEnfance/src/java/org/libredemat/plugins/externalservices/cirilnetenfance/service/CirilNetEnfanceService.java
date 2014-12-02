@@ -1078,48 +1078,6 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
         return null;
     };
 
-
-    public String sendHomeFolderModification(XmlObject requestXml) throws CvqException {
-        String message = "La synchronisation s'est effectuée avec succès";
-        String status = "Sent";
-
-        try {
-            sendRequest(requestXml);
-        } catch (Exception e) {
-            logger.error("sendHomeFolderModificationRequest() got error " + e.getMessage());
-            //uea.setStatus("Error");
-            //uea.setMessage(e.getMessage());
-
-            message = "Erreur interne : " + e.getMessage();
-            status = "ErrorInterne";
-        }
-
-
-
-        UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, ((RequestType)requestXml).getHomeFolder().getId());
-        JsonObject payload = UserUtils.getPayloadForUserAction(-1L, "Système", -1L, "CirilNetEnfance");
-        //if (isSynchroniseEvent) {
-        //    payload = UserUtils.getPayloadForUserAction(SecurityContext.getCurrentUserId(),
-        //            UserUtils.getDisplayName(SecurityContext.getCurrentUserId()), -1L,
-        //            "CirilNetEnfance");
-        //}
-        payload.addProperty("state", status);
-        payload.addProperty("message", message);
-        action.setData(new Gson().toJson(payload));
-        action = (UserAction) genericDAO.create(action);
-        HomeFolder hf = homeFolderDAO.findById(((RequestType)requestXml).getHomeFolder().getId());
-        hf.getActions().add(action);
-        homeFolderDAO.update(hf);
-
-        if ("ErrorInterne".equals(status)) {
-            logger.error("sendHomeFolderModificationRequest() error while sending request to " + getLabel());
-            throw new CvqException(message);
-        }
-        return null;
-    }
-
-
-
 	@Override
 	public boolean isServerStarted()
 	{

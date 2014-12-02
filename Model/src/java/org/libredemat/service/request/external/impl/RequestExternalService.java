@@ -557,6 +557,20 @@ public class RequestExternalService extends ExternalService implements IRequestE
                         message = "Erreur interne : " + ex.getMessage();
                         status = "ErrorInterne";
                     }
+
+                    //Trace on HF validation
+                    if(UserAction.Type.STATE_CHANGE.equals(event.getAction().getType()) &&
+                        externalServiceLabel.equals("CirilNetEnfance")) {
+
+                        UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId());
+                        JsonObject payload = UserUtils.getPayloadForUserAction(-1L, "Système", -1L, "CirilNetEnfance");
+                        payload.addProperty("state", status);
+                        payload.addProperty("message", message);
+                        action.setData(new Gson().toJson(payload));
+                        action = (UserAction) genericDAO.create(action);
+                        homeFolder.getActions().add(action);
+                        homeFolderDAO.update(homeFolder);
+                    }
                 }
 
             }
