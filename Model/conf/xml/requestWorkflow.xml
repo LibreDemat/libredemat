@@ -113,6 +113,8 @@ properties: see "Paramétrage du Workflow" in googledoc
 <transition from="Complete" to="Validated"/>
 <transition from="Complete" to="Cancelled"/>
 <transition from="Uncomplete" to="Rectified"/>
+<transition from="Uncomplete" to="Rejected"/>
+<transition from="Rectified" to="Rejected"/>
 <transition from="Rejected" to="Archived">
 	<context>adminContext</context>
 </transition>
