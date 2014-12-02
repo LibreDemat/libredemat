@@ -342,7 +342,7 @@ class FrontofficeHomeFolderController {
             try {
                 def creation = false
                 if (individual.id) {
-                    if (!ServiceAutocompletionController.wayExistAddressReferential(params.cityInseeCode, params.city, params.streetName)) {
+                    if (params.fragment == 'address' && !ServiceAutocompletionController.wayExistAddressReferential(params.cityInseeCode, params.city, params.streetName)) {
                       throw new CvqValidationException(['address.streetName'])
                     }
                     historize(params.fragment, individual)
