@@ -29,7 +29,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
               function() {
                   zct.alterer.toDropDown('SchoolName', zcfr.SchoolWithRemoteCirilnetenfanceRequest.schools, 'section')
               },
-          100)
+          200) // Yeah, so 100 is not enough apparently ... 200 is a lot though,  but it may work on many devices, or not
         } else {
             // let's clean schoolName label and field
             // Yeah it's fucking ugly but condition on an element tranformed with `alterer.js` does not play nice
@@ -41,7 +41,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
                 )
                 yud.addClass(yud.get("labelSchoolName"), 'unactive')
               },
-          100)
+          200)
         }
       },
 

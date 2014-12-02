@@ -852,6 +852,9 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
                 currentEcitizen.getAddress().getStreetName(), currentEcitizen.getAddress().getCity(), currentEcitizen
                 .getAddress().getPostalCode(), sectionContainer, year, new SimpleDateFormat("yyyy-MM-dd")
                 .format(child.getBirthDate()));
+
+        if(schoolsOfCirilNetEnfance == null) return Collections.emptyMap();
+
         Element rootElement = schoolsOfCirilNetEnfance.getRootElement();
         List<Object> children = rootElement.getChildren("ecolesSecteurHabitation");
         Iterator<Object> iterator = children.iterator();
@@ -945,12 +948,15 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
         parameter.put("dateReferenceAnneeScolaire", dateReferenceAnneeScolaire);
         parameter.put("dateNaissanceEnfant", dateNaissanceEnfant);
         parameter.put("codeNiveau", codeBaseEleveNiveau);
-        org.jdom.Document doc = getSchoolsOfChild(parameter);
-        if (doc != null && doc.hasRootElement() && doc.getContent() != null && !doc.getContent().isEmpty()) {
-            return doc;
-        } else {
-            throw new CvqException("external.warning.noschool");
+        try {
+            org.jdom.Document doc = getSchoolsOfChild(parameter);
+            if (doc != null && doc.hasRootElement() && doc.getContent() != null && !doc.getContent().isEmpty())
+                return doc;
+        } catch (CvqModelException cme) {
+            return null;
         }
+
+        return null;
     };
 
 
