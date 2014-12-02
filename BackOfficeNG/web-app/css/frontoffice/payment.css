@@ -14,3 +14,20 @@
 .narrow-box .body ul li  { padding: .3em 0; font-style: italic; color: #333; }
 .narrow-box .body form   { margin-top: .25em; text-align: right; }
 .narrow-box .body form a { display: inline; }
+
+#showBill {background-color: #fff;padding: 15px;border: 1px solid #000;}
+#showBill .hd{font-weight: bold;font-size: 1.2em; font-style: italic; border-bottom: 1px solid #B9121B; padding-bottom: 5px; }
+#showBill .ft{ text-align: right;margin-top: 15px;}
+
+p.linkPdf{width:100%; text-align: left;}
+a.icone {padding-left: 95%; margin-bottom: 15px; }
+p.icone {padding-left: 95%; margin-bottom: 15px; cursor: pointer;}
+/*.embedpdf { margin-top:20px; width: 100%; height: 350px; }*/
+.embedpdf { width: 100%; height: 550px; }
+
+.yui-resize .yui-resize-handle-br {
+  background-image: url( yui/resize/layout_sprite.png ); 
+  background-repeat: no-repeat; 
+  background-position: -22px -62px; 
+}
+

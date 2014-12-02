@@ -55,5 +55,12 @@
       </div>
     </div>
     <!-- end of narrow -->
+    <div id="showBill">
+      <div class="hd">Facture</div>
+      <div class="bd">
+        <div id="showPanelBody"></div>
+      </div>
+      <div class="ft"></div>
+    </div>
   </body>
 </html>

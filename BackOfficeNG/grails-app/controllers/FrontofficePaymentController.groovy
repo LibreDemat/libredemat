@@ -397,6 +397,7 @@ class FrontofficePaymentController {
         entry.isInCart = session.payment?.purchaseItems?.find {
             it.externalItemId.equals(entry.externalItemId) && it instanceof ExternalInvoiceItem 
         }
+        entry.invoiceUrl = item.invoiceUrl
         entry.type = 'invoices' 
         return entry;
     }
@@ -430,4 +431,31 @@ class FrontofficePaymentController {
         
         return factor
     }
+
+    def billRender = {
+      def localAuthorityBasePdf = localAuthorityRegistry.getAssetsBase() +  SecurityContext.getCurrentSite().getName() + "/pdf"
+      def billFill = new File(localAuthorityBasePdf+"/bill/"+params.fileName)
+      byte[] data = billFill.readBytes()
+      response.contentType = "application/pdf"
+      response.outputStream << data
+    }
+
+    def showDoc = {
+      def result = [:]
+      try {
+        def localAuthorityBasePdf = localAuthorityRegistry.getAssetsBase() +  SecurityContext.getCurrentSite().getName() + "/pdf"
+        def bill = new File(localAuthorityBasePdf+'/bill')
+        bill.mkdir()
+        def url = params.fileUrl.decodeURL()
+        url = url.replaceAll(' ','+')
+        def fileName = params.fileName
+        def file = new File(localAuthorityBasePdf + '/bill/' + fileName +".pdf").newOutputStream()
+        file << new URL(url).openStream()
+        file.close()
+        result.billName = fileName + ".pdf"
+      } catch (Exception ex) {
+        //
+      }
+      render(template:'showBill', model:result)
+  }
 }

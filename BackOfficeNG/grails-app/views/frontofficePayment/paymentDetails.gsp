@@ -19,6 +19,15 @@
                         <g:message code="payment.property.amount" /> : ${(record.amount / 100).floatValue()} €
                         - <g:message code="payment.header.issueAt" /> <g:formatDate formatName="format.date" date="${record.issueDate}"/>
                       </p>
+                      <g:if test="${record.invoiceUrl}">
+                        <p class="linkPdf">
+                          <a href="#" class="bill icone"> <img
+                              src="${resource(dir:'images/icons',file:'pdficon_small.gif')}"
+                              id="${record.externalItemId}_${record.invoiceUrl.encodeAsURL()}"
+                            />
+                          </a>
+                        </p>
+                      </g:if>
                     </li>
                   </g:each>
                 </ul>
@@ -67,6 +76,13 @@
           </a>
         </div>
       </div>
+    </div>
+    <div id="showBill">
+      <div class="hd">Facture</div>
+      <div class="bd">
+        <div id="showPanelBody"></div>
+      </div>
+      <div class="ft"></div>
     </div>
   </body>
 </html>

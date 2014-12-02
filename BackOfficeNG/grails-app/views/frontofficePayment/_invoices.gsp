@@ -25,6 +25,11 @@
             </a>
           </p>
         </g:if>
+        <g:if test="${record.invoiceUrl}">
+          <p id="${record.externalItemId}_${record.invoiceUrl}" class="icone" onClick="showDocPanel(this,'${message(code:'payment.header.invoice')}')">
+            <img src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
+          </p>
+        </g:if>
         <form  method="post" action="${createLink(action:'addToCart')}">
           <input type="submit" title="${message(code:'payment.action.addToCart')}"
             ${record.isInCart ?'disabled="disabled"':''}
