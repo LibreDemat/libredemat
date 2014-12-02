@@ -56,7 +56,7 @@ invoice : paid, no_paid
 .tag-draftdeletenotification, .tag-creationnotification,
 .tag-qos, .tag-urgent, .tag-late,
 .tag-orangealertnotification, .tag-redalertnotification, .tag-creation, .tag-modification, .tag-modified,
-.tag-statechange, .tag-contact, .tag-contactcitizen, .tag-comment, .tag-move, .tag-waiting_notification,
+.tag-statechange, .tag-contact, .tag-contactcitizen, .tag-comment, .tag-move, .tag-deletion, .tag-waiting_notification,
 .tag-notified, .tag-notification_error,
 /* document (request creation) */
 .tag-new, .tag-pageaddition, .tag-pageedition, .tag-pagedeletion, .tag-merge,
@@ -152,6 +152,7 @@ invoice : paid, no_paid
 .tag-required,
 .tag-e_citizen,
 .tag-creationnotification,
+.tag-deletion,
 .tag-manager       { background: #aa00ff; border-color:#aa00ff; }
 
 /* pink */
