@@ -63,7 +63,7 @@ invoice : paid, no_paid
 /* request admin actions */
 .tag-archivesdeleted, .tag-archivesdownloaded, .tag-passwordreset, .tag-requestsarchived, .tag-archivesmigrated,
 /* homefolder mapping */
-.tag-free, .tag-binded, .tag-ignored, 
+.tag-free, .tag-binded, .tag-ignored, .tag-synchronise,
 /* homefolder user */
 .tag-passwordreset, .tag-password_reset,
 /*  misc */
@@ -156,6 +156,7 @@ invoice : paid, no_paid
 
 /* pink */
 .tag-external,
+.tag-synchronise,
 .tag-clrmother    { background: #ff00aa; border-color:#ff0088; }
 
 /* gray */

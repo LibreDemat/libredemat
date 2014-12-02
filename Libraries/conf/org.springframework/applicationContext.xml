@@ -863,9 +863,6 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
       <property name="defaultDisplayGroup" value="school" />
       <property name="filingDelay" value="12" />
       <property name="isOfRegistrationKind" value="true" />
-      <property name="requestExternalService" ref="requestExternalService" />
-      <property name="individualDAO" ref="individualDAO" />
-      <property name="requestDAO" ref="requestDAO" />
   </bean>
 
     <bean id="childCareCenterRegistrationRequestService" class="org.libredemat.service.request.school.impl.ChildCareCenterRegistrationRequestService" parent="requestService" >

@@ -23,7 +23,6 @@ import org.libredemat.exception.CvqModelException;
 import org.libredemat.security.SecurityContext;
 import org.libredemat.service.request.condition.NotEmptyValueChecker;
 import org.libredemat.service.request.condition.EqualityChecker;
-import org.libredemat.service.request.external.IRequestExternalService;
 import org.libredemat.service.request.impl.RequestService;
 
 /**
@@ -32,9 +31,6 @@ import org.libredemat.service.request.impl.RequestService;
  * @author Pierre Pontfort
  */
 public final class SchoolRegistrationWithRemoteCirilnetenfanceRequestService extends RequestService {
-	private IRequestExternalService requestExternalService;
-	private IIndividualDAO individualDAO;
-	private IRequestDAO requestDAO;
 
 	@Override
 	public void onRequestCompleted(final Request request) throws CvqModelException
@@ -102,20 +98,5 @@ public final class SchoolRegistrationWithRemoteCirilnetenfanceRequestService ext
 		}*/
 		retour.put(true, "access.ok");
 		return retour;
-	}
-
-	public void setRequestExternalService(IRequestExternalService requestExternalService)
-	{
-		this.requestExternalService = requestExternalService;
-	}
-
-	public void setIndividualDAO(IIndividualDAO individualDAO)
-	{
-		this.individualDAO = individualDAO;
-	}
-
-	public void setRequestDAO(IRequestDAO requestDAO)
-	{
-		this.requestDAO = requestDAO;
 	}
 }
