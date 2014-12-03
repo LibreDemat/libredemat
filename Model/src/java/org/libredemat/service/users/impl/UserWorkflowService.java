@@ -742,7 +742,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         individual.setHomeFolder(null);
         individualDAO.delete(individual);
         homeFolderDAO.update(homeFolder);
-        HibernateUtil.getSession().flush();
+        JpaUtil.getEntityManager().flush();
 
         applicationEventPublisher.publishEvent(new UserEvent(this, action));
     }
