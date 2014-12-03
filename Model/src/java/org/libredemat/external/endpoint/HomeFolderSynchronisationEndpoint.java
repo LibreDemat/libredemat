@@ -249,6 +249,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		catch (Exception e)
 		{
 			logger.fatal(e.getMessage());
+            logger.error("Got an exception");
+            logger.error("Failure", e);
 			e.printStackTrace();
 			homeFolderSynchronisationResponse.setResponseCode("ERROR01");
 			homeFolderSynchronisationResponse.setResponseDetail("Erreur fatale lors de la synchronisation du compte : "
