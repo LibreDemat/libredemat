@@ -731,19 +731,19 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public void delete(Individual individual) {
         HomeFolder homeFolder = individual.getHomeFolder();
-        for (Individual responsible : homeFolder.getIndividuals()) {
+        List<Individual> toUnlink = homeFolder.getIndividuals();
+        for (Individual responsible : toUnlink) {
             unlink(responsible, individual);
         }
         UserAction action = new UserAction(UserAction.Type.DELETION, individual.getId());
         action = (UserAction) genericDAO.create(action);
+        applicationEventPublisher.publishEvent(new UserEvent(this, action));
         homeFolder.getActions().add(action);
         homeFolder.getIndividuals().remove(individual);
         individual.setAddress(null);
         individual.setHomeFolder(null);
         individualDAO.delete(individual);
         homeFolderDAO.update(homeFolder);
-
-        applicationEventPublisher.publishEvent(new UserEvent(this, action));
     }
 
     @Override
