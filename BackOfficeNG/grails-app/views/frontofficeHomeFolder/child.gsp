@@ -58,7 +58,7 @@
         <g:if test="${child.id != null}">
           <g:if test="${params.creation}">
           <div class="summary">
-              ${message(code:'homeFolder.childAdded',args:[child.lastName,child.firstName])}
+              ${message(code:'homeFolder.childAdded',args:[child.lastName,child.firstName?:""])}
               <a href="${createLink(action:'child')}">${message(code:'homeFolder.addOtherChild')}</a>
               <a href="${createLink(action:'adult')}">${message(code:'homeFolder.addOtherAdult')}</a>
             </div>
