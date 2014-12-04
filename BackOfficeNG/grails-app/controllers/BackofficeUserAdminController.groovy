@@ -14,7 +14,8 @@ class BackofficeUserAdminController {
         "userAdmin.index",
         "userSecurity.index",
         "homeFolder.meansOfContact",
-        "homeFolder.importHomeFolders"]
+        "homeFolder.importHomeFolders",
+        "homeFolder.childInformationSheetDateInitialisation"]
 
     def beforeInterceptor = {
         session['currentMenu'] = 'users'
