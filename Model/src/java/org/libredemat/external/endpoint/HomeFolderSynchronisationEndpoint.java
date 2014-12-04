@@ -800,24 +800,19 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            String strDate = xmlChildInformationSheet.xgetVaccinBcg().xmlText();
-            childInformationSheet.setVaccinBcg((Date) formatter.parse(strDate));
+            childInformationSheet.setVaccinBcg(xmlChildInformationSheet.xgetVaccinBcg().getDateValue());
         } catch (Exception e) { logger.error("Error parsing VaccinBcg : " + e.getMessage()); }
         try {
-            String strDate = xmlChildInformationSheet.xgetVaccinDtPolio().xmlText();
-            childInformationSheet.setVaccinDtPolio((Date) formatter.parse(strDate));
+            childInformationSheet.setVaccinDtPolio(xmlChildInformationSheet.xgetVaccinDtPolio().getDateValue());
         } catch (Exception e) { logger.error("Error parsing VaccinDTPOLIO : " + e.getMessage()); }
         try {
-            String strDate = xmlChildInformationSheet.xgetVaccinInjectionSerum().xmlText();
-            childInformationSheet.setVaccinInjectionSerum((Date) formatter.parse(strDate));
+            childInformationSheet.setVaccinInjectionSerum(xmlChildInformationSheet.xgetVaccinInjectionSerum().getDateValue());
         } catch (Exception e) { logger.error("Error parsing VaccinInjectionSerum : " + e.getMessage()); }
         try {
-            String strDate = xmlChildInformationSheet.xgetVaccinRor().xmlText();
-            childInformationSheet.setVaccinRor((Date) formatter.parse(strDate));
+            childInformationSheet.setVaccinRor(xmlChildInformationSheet.xgetVaccinRor().getDateValue());
         } catch (Exception e) { logger.error("Error parsing VaccinRor : " + e.getMessage()); }
         try {
-            String strDate = xmlChildInformationSheet.xgetVaccinTetracoqPentacoq().xmlText();
-            childInformationSheet.setVaccinTetracoqPentacoq((Date) formatter.parse(strDate));
+            childInformationSheet.setVaccinTetracoqPentacoq(xmlChildInformationSheet.xgetVaccinTetracoqPentacoq().getDateValue());
         } catch (Exception e) { logger.error("Error parsing VaccinTetracoqPentacoq : " + e.getMessage()); }
 		
 		return childInformationSheet;
