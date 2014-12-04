@@ -1,3 +1,7 @@
+update child_care_center_registration_request set monday_period = 'ALL_DAY' where monday_period = 'allDay';
+update child_care_center_registration_request set monday_period = 'HALF_DAY' where monday_period = 'halfDay';
+update child_care_center_registration_request set tuesday_period = 'ALL_DAY' where tuesday_period = 'allDay';
+update child_care_center_registration_request set tuesday_period = 'HALF_DAY' where tuesday_period = 'halfDay';
 update child_care_center_registration_request set wednesday_period = 'ALL_DAY' where wednesday_period = 'allDay';
 update child_care_center_registration_request set wednesday_period = 'HALF_DAY' where wednesday_period = 'halfDay';
 update child_care_center_registration_request set thursday_period = 'ALL_DAY' where thursday_period = 'allDay';

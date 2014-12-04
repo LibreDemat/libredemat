@@ -1,0 +1,1 @@
+delete from request_external_action_complementary_data ;
