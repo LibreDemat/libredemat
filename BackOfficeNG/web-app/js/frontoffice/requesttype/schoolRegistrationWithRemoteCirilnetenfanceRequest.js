@@ -28,24 +28,29 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       initConditions : function() {
 
         yue.on(
-          yud.get('section'),
-          'change',
-          zcfr.SchoolWithRemoteCirilnetenfanceRequest.altererSchoolsName
-        )
-
-        yue.on(
           yud.get('subjectId'),
           'change',
-          zcfr.SchoolWithRemoteCirilnetenfanceRequest.altererSchoolsName
+          function () {
+            yud.get('section').value='';
+            if ( this.value === '') {
+              yud.get('section').setAttribute('disabled','disabled');
+              for (i=1;i< yud.get('idSchoolName').length;  i++) {
+                yud.get('idSchoolName').remove(i);
+              }
+            } else {
+              yud.get('section').removeAttribute('disabled');
+            }
+          }
         )
       },
 
       init : function() {
         // Switch on step name.
         if (yus.query('div.form', 'request', true).id == "registration")  {
+            yud.get('section').setAttribute('disabled','disabled');
             zcfr.SchoolWithRemoteCirilnetenfanceRequest.initConditions()
-
             zcfr.SchoolWithRemoteCirilnetenfanceRequest.altererSchoolsName()
+            yud.get('idSchoolName').remove(1);
         }
       }
     }
