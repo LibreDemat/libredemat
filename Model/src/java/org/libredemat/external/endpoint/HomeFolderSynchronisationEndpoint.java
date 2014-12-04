@@ -6,6 +6,7 @@ package org.libredemat.external.endpoint;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
@@ -795,11 +796,22 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		childInformationSheet.setTelephonePortable(xmlChildInformationSheet.getTelephonePortable());
 		childInformationSheet.setVaccinAutre(xmlChildInformationSheet.getVaccinAutre());
 		
-		childInformationSheet.setVaccinBcg(xmlChildInformationSheet.getVaccinBcg().getTime());
-		childInformationSheet.setVaccinDtPolio(xmlChildInformationSheet.getVaccinDtPolio().getTime());
-		childInformationSheet.setVaccinInjectionSerum(xmlChildInformationSheet.getVaccinInjectionSerum().getTime());
-		childInformationSheet.setVaccinRor(xmlChildInformationSheet.getVaccinRor().getTime());
-		childInformationSheet.setVaccinTetracoqPentacoq(xmlChildInformationSheet.getVaccinTetracoqPentacoq().getTime());
+
+        try {
+            childInformationSheet.setVaccinBcg(xmlChildInformationSheet.getVaccinBcg().getTime());
+        } catch (Exception e) { logger.error("Error parsing VaccinBcg : " + e.getMessage()); }
+        try {
+            childInformationSheet.setVaccinDtPolio(xmlChildInformationSheet.getVaccinDtPolio().getTime());
+        } catch (Exception e) { logger.error("Error parsing VaccinDTPOLIO : " + e.getMessage()); }
+        try {
+            childInformationSheet.setVaccinInjectionSerum(xmlChildInformationSheet.getVaccinInjectionSerum().getTime());
+        } catch (Exception e) { logger.error("Error parsing VaccinInjectionSerum : " + e.getMessage()); }
+        try {
+            childInformationSheet.setVaccinRor(xmlChildInformationSheet.getVaccinRor().getTime());
+        } catch (Exception e) { logger.error("Error parsing VaccinRor : " + e.getMessage()); }
+        try {
+            childInformationSheet.setVaccinTetracoqPentacoq(xmlChildInformationSheet.getVaccinTetracoqPentacoq().getTime());
+        } catch (Exception e) { logger.error("Error parsing VaccinTetracoqPentacoq : " + e.getMessage()); }
 		
 		return childInformationSheet;
 	}
