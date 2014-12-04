@@ -36,7 +36,7 @@ public class ServiceAutocompletionController {
     def retour = true
     JSON resultat = null
 
-    if(url != null && token != null && url != "" && token != "") {
+    if(url != null && token != null && url != "" && token != "" && cityCodeInsee!=null && cityCodeInsee!="") {
         if(SecurityContext.getCurrentConfigurationBean().isAddresseReferentialCityRestriction()) {
             if(org.apache.commons.lang3.StringUtils.equals(SecurityContext.getCurrentSite().getDisplayTitle().toLowerCase(), city.toLowerCase())) {
                 def http = new HTTPBuilder(url)
@@ -48,6 +48,8 @@ public class ServiceAutocompletionController {
                 }
             }
         }
+    } else {
+        render [:] as JSON
     }
 
     return retour
