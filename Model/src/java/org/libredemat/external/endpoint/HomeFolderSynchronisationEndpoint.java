@@ -943,6 +943,9 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		if (individual instanceof Child && individualSendByWs instanceof Child)
 		{
 
+			logger.debug("IS_MATCH");
+			logger.debug(individual.getFirstName());
+			logger.debug(individual.getFirstName().toLowerCase());
 			logger.debug(individual.getFirstName().toLowerCase().trim());
             logger.debug(individualSendByWs.getFirstName().toLowerCase().trim());
 			logger.debug(individual.getFirstName().toLowerCase().trim().equals(individualSendByWs.getFirstName().toLowerCase().trim()));
