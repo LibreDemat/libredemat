@@ -1,32 +1,3 @@
-alter table recreation_activity_poly_registration_request 
-drop constraint FK376F9FB9426DFC62;
-
-alter table recreation_activity_poly_registration_request_recreation_poly_activity 
-drop constraint FK7F62DC7B2A37B0BD;
-
-alter table recreation_activity_poly_registration_request_recreation_poly_activity 
-drop constraint FK7F62DC7B87E8988A;
-
-alter table recreation_authorized_poly_individual 
-drop constraint FK306260953525DE03;
-
-alter table recreation_authorized_poly_individual 
-drop constraint FK3062609587E8988A;
-
-alter table recreation_contact_poly_individual 
-drop constraint FKDB500BA03525DE03;
-
-alter table recreation_contact_poly_individual 
-drop constraint FKDB500BA087E8988A;
-
-drop table recreation_activity_poly_registration_request cascade;
-
-drop table recreation_activity_poly_registration_request_recreation_poly_activity cascade;
-
-drop table recreation_authorized_poly_individual cascade;
-
-drop table recreation_contact_poly_individual cascade;
-
 create table recreation_activity_poly_registration_request (
     id int8 not null,
     child_photo_exploitation_poly_permission bool,
