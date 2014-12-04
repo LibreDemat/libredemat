@@ -36,9 +36,6 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
       var fieldNamesToOrder = ['city', 'postalCode', 'streetName', 'streetNumber'];
       var addressFields = yud.getChildren(addressEl.cloneNode(true));
       addressEl.innerHTML = '';
-      var divAutoComplete = document.createElement("div");
-      yud.addClass(divAutoComplete, 'autocompleteZone');
-      addressEl.appendChild(divAutoComplete);
 
       var isAddresseReferentialCity = isAddresseReferentialCityRestriction() == "true";
       for (var i=0; i<fieldNamesToOrder.length; i++) {
@@ -49,7 +46,7 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.common");
               || (it.getAttribute('for') + '').indexOf(fieldNamesToOrder[i]) > 0) {
             yud.removeClass(it, 'line1');
             yud.removeClass(it, 'line2');
-            divAutoComplete.appendChild(it);
+            addressEl.appendChild(it);
             addressFields[j] = undefined; // hack !
           }
           var id = it.getAttribute("id");
