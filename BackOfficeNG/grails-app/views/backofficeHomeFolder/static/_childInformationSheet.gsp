@@ -62,7 +62,7 @@
 						${dietsList?.get(dietKey)}
 						<g:set var="choix" value="" />
 							<g:each in="${child?.childInformationSheet?.diets}" var="diet" status="i">
-								<g:if test="${dietsList?.get(dietKey)?.toLowerCase() == diet.getType().name?.toLowerCase()}">
+								<g:if test="${dietKey.toLowerCase() == diet.getType().name?.toLowerCase()}">
 									<g:set var="choix" value="oui" /> 
 								</g:if>
 							</g:each>

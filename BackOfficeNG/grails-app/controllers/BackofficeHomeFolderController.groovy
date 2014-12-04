@@ -173,6 +173,10 @@ class BackofficeHomeFolderController {
         result.agentCanWrite = agentCanWrite
         result.informationSheetDisplayed = SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
 
+        result.dietsList = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration()
+        result.dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()
+        result.dietsListLibelle = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().values()
+
         result.groups = requestTypeAdaptorService.getActiveRequestTypeByDisplayGroup(homeFolder)
 
         if(!SecurityContext.getCurrentConfigurationBean().getExternalApplicationProperty("booker.url").isEmpty()
