@@ -540,6 +540,7 @@ class FrontofficeHomeFolderController {
             fields = individual instanceof Adult ?
                 ["title", "familyStatus", "lastName", "maidenName", "firstName", "firstName2", "firstName3", "profession", "cfbn"] :
                 ["born", "lastName", "firstName", "firstName2", "firstName3", "sex", "birthDate", "birthPostalCode", "birthCity", "birthCountry"]
+        }
 
         // Fred Fabre - Inexine Hack : Fiche de renseignement et de sécurité enfant
         if (fragment == 'informationSheet') {
@@ -579,7 +580,6 @@ class FrontofficeHomeFolderController {
                 "personneAutoriseTelephone3"
             ]
         }
-        }
         if (fragment == 'contact') {
             dto = new Adult()
             fields = ["email", "homePhone", "mobilePhone", "officePhone"]
@@ -606,8 +606,7 @@ class FrontofficeHomeFolderController {
         {
             bean = individual
         }
-        individualAdaptorService.historize(individual,
-            (fragment == 'address' ? individual.address : individual), dto, fragment, fields, validate)
+        individualAdaptorService.historize(individual, bean, dto, fragment, fields, validate)
     }
 
     def editPassword = {
