@@ -92,32 +92,12 @@ public class SchoolRegistrationWithRemoteCirilnetenfanceRequestData implements S
       @NotNull(
         
         
-          when = "groovy:def active = true;" +
-          
-                "active &= _this.conditions['section'].test(_this.section.toString());" +
-                    
-                  
-              
-            
-            
-            "return active",
-        
         profiles = {"registration"},
         message = "idSchoolName"
       )
     
       @NotBlank(
         
-        
-          when = "groovy:def active = true;" +
-          
-                "active &= _this.conditions['section'].test(_this.section.toString());" +
-                    
-                  
-              
-            
-            
-            "return active",
         
         profiles = {"registration"},
         message = "idSchoolName"
@@ -140,32 +120,12 @@ public class SchoolRegistrationWithRemoteCirilnetenfanceRequestData implements S
       @NotNull(
         
         
-          when = "groovy:def active = true;" +
-          
-                "active &= _this.conditions['section'].test(_this.section.toString());" +
-                    
-                  
-              
-            
-            
-            "return active",
-        
         profiles = {"registration"},
         message = "labelSchoolName"
       )
     
       @NotBlank(
         
-        
-          when = "groovy:def active = true;" +
-          
-                "active &= _this.conditions['section'].test(_this.section.toString());" +
-                    
-                  
-              
-            
-            
-            "return active",
         
         profiles = {"registration"},
         message = "labelSchoolName"
@@ -215,13 +175,6 @@ public class SchoolRegistrationWithRemoteCirilnetenfanceRequestData implements S
     
       @NotNull(
         
-        
-          when = "groovy:def active = true;" +
-          
-              
-            
-            
-            "return active",
         
         profiles = {"registration"},
         message = "section"

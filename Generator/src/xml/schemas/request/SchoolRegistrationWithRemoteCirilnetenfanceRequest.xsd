@@ -32,12 +32,13 @@
 	          <widgets>
                 <subject />
 	          </widgets>
+            <!--
 	          <conditions>
               <condition name="isSubjectId" />
               <condition name="school" />
               <condition name="schoolLoaded" />
-              <!--<condition name="others" />-->
             </conditions>
+          -->
 	       	</step>
 	       	<step index="1" name="rules" />
 	        <step index="2" ref="document" />
@@ -64,10 +65,12 @@
                   <model namespace="users" />
                   <common>
                     <step name="registration" />
+                    <!--
                     <conditions>
                       <condition name="isSubjectId" type="filled" required="true" />
                       <condition name="school" type="trigger" />
                     </conditions>
+                  -->
                   </common>
                   <fo />
                   <bo column="1" />
@@ -281,10 +284,11 @@
                  <model namespace="users" />
               <common>
                 <step ref="registration" />
+                <!--
                     <conditions>
                         <condition name="school" type="filled" required="true" />
-                        <!--<condition name="others" type="trigger" />-->
                     </conditions>
+                  -->
               </common>
               <bo column="1" noI18n="true" />
               <fo />
@@ -308,10 +312,11 @@
                  <model namespace="users" />
               <common>
                 <step ref="registration" />
+                <!--
                     <conditions>
                         <condition name="school" type="filled" required="true" />
-                        <!--<condition name="others" type="trigger" />-->
                     </conditions>
+                  -->
               </common>
               <bo column="1" noI18n="true" />
               <fo />

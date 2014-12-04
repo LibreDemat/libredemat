@@ -33,8 +33,8 @@
   
 
   
-    <label for="section" class="required condition-isSubjectId-filled"><g:message code="srwrcr.property.section.label" /> *  <span><g:message code="srwrcr.property.section.help" /></span></label>
-            <select id="section" name="section" class="required condition-isSubjectId-filled condition-school-trigger  validate-not-first ${rqt.stepStates['registration'].invalidFields.contains('section') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.section.validationError" />">
+    <label for="section" class="required"><g:message code="srwrcr.property.section.label" /> *  <span><g:message code="srwrcr.property.section.help" /></span></label>
+            <select id="section" name="section" class="required  validate-not-first ${rqt.stepStates['registration'].invalidFields.contains('section') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.section.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
               <g:each in="${['BEFORE_FIRST_SECTION','FIRST_SECTION','SECOND_SECTION','THIRD_SECTION','C_P','C_E1','C_E2','C_M1','C_M2','C_L_I_S_S','UNKNOWN']}">
                 <option value="${it}" ${it == rqt.section?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="srwrcr.property.section" /></option>
@@ -48,15 +48,15 @@
     <fieldset class="required">
     <legend><g:message code="srwrcr.property.theSchool.label" /></legend>
     
-      <label for="idSchoolName" class="required condition-school-filled"><g:message code="srwrcr.property.idSchoolName.label" /> *  <span><g:message code="srwrcr.property.idSchoolName.help" /></span></label>
+      <label for="idSchoolName" class="required"><g:message code="srwrcr.property.idSchoolName.label" /> *  <span><g:message code="srwrcr.property.idSchoolName.help" /></span></label>
             <input  type="text" id="idSchoolName" name="idSchoolName" value="${rqt.idSchoolName?.toString()}" 
-                    class="required condition-school-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('idSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.idSchoolName.validationError" />"   />
+                    class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('idSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.idSchoolName.validationError" />"   />
             
 
     
-      <label for="labelSchoolName" class="required condition-school-filled"><g:message code="srwrcr.property.labelSchoolName.label" /> *  <span><g:message code="srwrcr.property.labelSchoolName.help" /></span></label>
+      <label for="labelSchoolName" class="required"><g:message code="srwrcr.property.labelSchoolName.label" /> *  <span><g:message code="srwrcr.property.labelSchoolName.help" /></span></label>
             <input  type="text" id="labelSchoolName" name="labelSchoolName" value="${rqt.labelSchoolName?.toString()}" 
-                    class="required condition-school-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('labelSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.labelSchoolName.validationError" />"   />
+                    class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('labelSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.labelSchoolName.validationError" />"   />
             
 
     
