@@ -37,7 +37,7 @@
     class="required validate-firstName ${invalidFields?.contains('firstName') ? 'validation-failed' : ''}"
     title="${message(code:'homeFolder.individual.property.firstName.validationError')}" />
 
-<g:if test="${adult == null || adult.isHomeFolderResponsible()}">
+<g:if test="${hideAddressFields == null && (adult == null || adult.isHomeFolderResponsible() || adult.getId() == null)}">
 <label class="required">${message(code:'homeFolder.individual.property.address')} *</label>
 <div id="adultAddress" class="address required ${invalidFields?.contains('address') ? 'validation-failed' : ''}">
   <label for="adultAddress_additionalDeliveryInformation">${message(code:'address.property.additionalDeliveryInformation')}</label>

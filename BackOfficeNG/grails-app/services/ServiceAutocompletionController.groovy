@@ -48,10 +48,7 @@ public class ServiceAutocompletionController {
                 }
             }
         }
-    } else {
-        render [:] as JSON
     }
-
     return retour
   }
 }
