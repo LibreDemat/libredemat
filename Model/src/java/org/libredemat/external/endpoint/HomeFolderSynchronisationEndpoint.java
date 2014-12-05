@@ -797,22 +797,20 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		childInformationSheet.setVaccinAutre(xmlChildInformationSheet.getVaccinAutre());
 		
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-
         try {
-            childInformationSheet.setVaccinBcg(xmlChildInformationSheet.xgetVaccinBcg().getDateValue());
+            childInformationSheet.setVaccinBcg(xmlChildInformationSheet.getVaccinBcg().getTime());
         } catch (Exception e) { logger.error("Error parsing VaccinBcg : " + e.getMessage()); }
         try {
-            childInformationSheet.setVaccinDtPolio(xmlChildInformationSheet.xgetVaccinDtPolio().getDateValue());
-        } catch (Exception e) { logger.error("Error parsing VaccinDTPOLIO : " + e.getMessage()); }
+            childInformationSheet.setVaccinDtPolio(xmlChildInformationSheet.getVaccinDtPolio().getTime());
+        } catch (Exception e) { logger.error("Error parsing VaccinDTPOLIO : " + e.getMessage() + e.getCause()); }
         try {
-            childInformationSheet.setVaccinInjectionSerum(xmlChildInformationSheet.xgetVaccinInjectionSerum().getDateValue());
+            childInformationSheet.setVaccinInjectionSerum(xmlChildInformationSheet.getVaccinInjectionSerum().getTime());
         } catch (Exception e) { logger.error("Error parsing VaccinInjectionSerum : " + e.getMessage()); }
         try {
-            childInformationSheet.setVaccinRor(xmlChildInformationSheet.xgetVaccinRor().getDateValue());
+            childInformationSheet.setVaccinRor(xmlChildInformationSheet.getVaccinRor().getTime());
         } catch (Exception e) { logger.error("Error parsing VaccinRor : " + e.getMessage()); }
         try {
-            childInformationSheet.setVaccinTetracoqPentacoq(xmlChildInformationSheet.xgetVaccinTetracoqPentacoq().getDateValue());
+            childInformationSheet.setVaccinTetracoqPentacoq(xmlChildInformationSheet.getVaccinTetracoqPentacoq().getTime());
         } catch (Exception e) { logger.error("Error parsing VaccinTetracoqPentacoq : " + e.getMessage()); }
 		
 		return childInformationSheet;
