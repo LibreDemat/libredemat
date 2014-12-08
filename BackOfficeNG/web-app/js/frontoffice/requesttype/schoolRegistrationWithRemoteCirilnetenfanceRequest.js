@@ -34,6 +34,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             yud.get('section').value='';
             if ( this.value === '') {
               yud.get('section').setAttribute('disabled','disabled');
+              yud.get('idSchoolName').value = "";
               for (i=1;i< yud.get('idSchoolName').length;  i++) {
                 yud.get('idSchoolName').remove(i);
               }
