@@ -50,7 +50,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION suppressionlogininutile()
-  OWNER TO capdemat;
+  OWNER TO libredemat;
 select  suppressionlogininutile();
 
 
