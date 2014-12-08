@@ -95,23 +95,25 @@ public class HomonymyEndpoint extends AbstractMarshallingPayloadEndpoint {
                 // <LastName>
                 homonymIndividual.setLastName(individual.getLastName());
                 
-                Adult adult = Adult.class.cast(individual);
-                // <Email>                
-                homonymIndividual.setEmail(adult.getEmail());
-                // <HomePhone>
-                homonymIndividual.setHomePhone(adult.getHomePhone());
-                // <OfficePhone>
-                homonymIndividual.setOfficePhone(adult.getOfficePhone());
-                // <MobilePhone>
-                homonymIndividual.setMobilePhone(adult.getMobilePhone());
-                // <StreetNumber>
-                homonymIndividual.setStreetNumber(individual.getAddress().getStreetNumber());
-                // <StreetName>
-                homonymIndividual.setStreetName(individual.getAddress().getStreetName());
-                // <PostalCode>
-                homonymIndividual.setPostalCode(individual.getAddress().getPostalCode());
-                // <City>
-                homonymIndividual.setCity(individual.getAddress().getCity());
+                if(individual instanceof Adult) {
+                    Adult adult = Adult.class.cast(individual);
+                    // <Email>                
+                    homonymIndividual.setEmail(adult.getEmail());
+                    // <HomePhone>
+                    homonymIndividual.setHomePhone(adult.getHomePhone());
+                    // <OfficePhone>
+                    homonymIndividual.setOfficePhone(adult.getOfficePhone());
+                    // <MobilePhone>
+                    homonymIndividual.setMobilePhone(adult.getMobilePhone());
+                    // <StreetNumber>
+                    homonymIndividual.setStreetNumber(individual.getAddress().getStreetNumber());
+                    // <StreetName>
+                    homonymIndividual.setStreetName(individual.getAddress().getStreetName());
+                    // <PostalCode>
+                    homonymIndividual.setPostalCode(individual.getAddress().getPostalCode());
+                    // <City>
+                    homonymIndividual.setCity(individual.getAddress().getCity());
+                }
             }
         }
         logger.debug("Response : " + homonymyResponse.xmlText());
