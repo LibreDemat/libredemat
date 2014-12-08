@@ -897,7 +897,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
 		}
 		catch (Exception e)
 		{
-			logger.fatal(e.getMessage());
+			logger.error(e.getMessage(), e);
 		}
 		return individualsDeleted != null && individualsDeleted.size() > 0;
 	}

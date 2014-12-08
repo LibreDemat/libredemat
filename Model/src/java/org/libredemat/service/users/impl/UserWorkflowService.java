@@ -732,9 +732,15 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     public void delete(Individual individual) {
         HomeFolder homeFolder = individual.getHomeFolder();
         List<Individual> toUnlink = homeFolder.getIndividuals();
-        for (Individual responsible : toUnlink) {
-            unlink(responsible, individual);
+
+        List<Long> ids = new ArrayList<Long>();
+        for (Individual i : toUnlink) ids.add(i.getId());
+
+        for (Long id : ids) {
+            Individual ind = userSearchService.getById(id);
+            unlink(ind, individual);
         }
+
         UserAction action = new UserAction(UserAction.Type.DELETION, individual.getId());
         action = (UserAction) genericDAO.create(action);
         applicationEventPublisher.publishEvent(new UserEvent(this, action));
