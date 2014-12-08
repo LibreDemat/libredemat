@@ -17,7 +17,9 @@ import fr.capwebct.capdemat.homonymy.HomonymyRequestDocument;
 import fr.capwebct.capdemat.homonymy.HomonymyRequestDocument.HomonymyRequest;
 import fr.capwebct.capdemat.homonymy.HomonymyResponseDocument;
 import fr.capwebct.capdemat.homonymy.HomonymyResponseDocument.HomonymyResponse;
+
 import org.libredemat.business.users.Adult;
+import org.libredemat.business.users.Child;
 import org.libredemat.business.users.Individual;
 import org.libredemat.service.users.IUserSearchService;
 
@@ -84,6 +86,8 @@ public class HomonymyEndpoint extends AbstractMarshallingPayloadEndpoint {
             List<Individual> individuals = this.userSearchService.getIndividualsByFirstnameAndLastname(firstName, lastName);
             
             for (Individual individual : individuals) {
+                if(individual instanceof Child) continue;
+
                 // <HomonymIndividual>
                 HomonymIndividualType homonymIndividual = capdematHomonym.addNewHomonymIndividual();
                 // <HomeFolderId>
@@ -95,25 +99,23 @@ public class HomonymyEndpoint extends AbstractMarshallingPayloadEndpoint {
                 // <LastName>
                 homonymIndividual.setLastName(individual.getLastName());
                 
-                if(individual instanceof Adult) {
-                    Adult adult = Adult.class.cast(individual);
-                    // <Email>                
-                    homonymIndividual.setEmail(adult.getEmail());
-                    // <HomePhone>
-                    homonymIndividual.setHomePhone(adult.getHomePhone());
-                    // <OfficePhone>
-                    homonymIndividual.setOfficePhone(adult.getOfficePhone());
-                    // <MobilePhone>
-                    homonymIndividual.setMobilePhone(adult.getMobilePhone());
-                    // <StreetNumber>
-                    homonymIndividual.setStreetNumber(individual.getAddress().getStreetNumber());
-                    // <StreetName>
-                    homonymIndividual.setStreetName(individual.getAddress().getStreetName());
-                    // <PostalCode>
-                    homonymIndividual.setPostalCode(individual.getAddress().getPostalCode());
-                    // <City>
-                    homonymIndividual.setCity(individual.getAddress().getCity());
-                }
+                Adult adult = Adult.class.cast(individual);
+                // <Email>                
+                homonymIndividual.setEmail(adult.getEmail());
+                // <HomePhone>
+                homonymIndividual.setHomePhone(adult.getHomePhone());
+                // <OfficePhone>
+                homonymIndividual.setOfficePhone(adult.getOfficePhone());
+                // <MobilePhone>
+                homonymIndividual.setMobilePhone(adult.getMobilePhone());
+                // <StreetNumber>
+                homonymIndividual.setStreetNumber(individual.getAddress().getStreetNumber());
+                // <StreetName>
+                homonymIndividual.setStreetName(individual.getAddress().getStreetName());
+                // <PostalCode>
+                homonymIndividual.setPostalCode(individual.getAddress().getPostalCode());
+                // <City>
+                homonymIndividual.setCity(individual.getAddress().getCity());
             }
         }
         logger.debug("Response : " + homonymyResponse.xmlText());

@@ -861,7 +861,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             for (Long id : ids)
             {
                 Individual individual = this.userSearchService.getById(id);
-                if (individual != null)
+                if (individual != null && !UserState.ARCHIVED.equals(individual.getState()))
                 {
                     boolean found = false;
                     for (Individual individualSendByWs : individualsSendByWs)
@@ -887,7 +887,12 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         {
             for (Long id : individualsDeleted)
             {
-                this.userWorkflowService.delete(this.userSearchService.getById(id));
+                Individual ind = this.userSearchService.getById(id);
+                if(ind.getHomeFolder().getIndividualResponsable().getId().equals(ind.getId())) {
+                    logger.warn("Cannot delete individual "+ind+" beacause it's the home folder responsible");
+                } else {
+                    this.userWorkflowService.changeState(ind, UserState.ARCHIVED);
+                }
             }
         }
         catch (Exception e)

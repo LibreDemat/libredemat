@@ -19,6 +19,7 @@
 	<transition from="Valid" to="Archived">
 		<context>frontOffice</context>
 		<context>backOffice</context>
+        <context>externalServiceContext</context>
 	</transition>
 	<transition from="Modified" to="Invalid">
 		<context>backOffice</context>
