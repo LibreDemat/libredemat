@@ -23,6 +23,8 @@
     <property name="informationSheetDisplayed" value="true" />
     <property name="informationSheetRequired" value="false" />
     <property name="addresseReferentialCityRestriction" value="true" />
+    <property name="activeCocheAllInReservationPlaningMonth" value="true" />
+    <property name="activeGlobalReservation" value="false" />
     <property name="jpaConfigurations">
         <props>
             <prop key="hibernate.show_sql">false</prop>

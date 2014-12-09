@@ -58,6 +58,8 @@ public final class LocalAuthorityConfigurationBean {
     private boolean viewDocumentInPanelInBO = true;
     private boolean autotransition = false;
     private boolean addresseReferentialCityRestriction = false;
+    private boolean activeCocheAllInReservationPlaningMonth = false;
+    private boolean activeGlobalReservation = false;
 
     public LocalAuthorityConfigurationBean() {
         paymentServices =
@@ -163,37 +165,37 @@ public final class LocalAuthorityConfigurationBean {
     public Map<String, String> getMailAsMap(String hasNotificationMethodName, 
             String getNotificationDataMethodName, String mailKey) {
 
-		try {
-			Method hasNotificationMethod = 
-				getClass().getDeclaredMethod(hasNotificationMethodName, 
+        try {
+            Method hasNotificationMethod = 
+                getClass().getDeclaredMethod(hasNotificationMethodName, 
                         new Class[] { String.class });
-			Method getNotificationDataMethod = 
-				getClass().getDeclaredMethod(getNotificationDataMethodName, 
+            Method getNotificationDataMethod = 
+                getClass().getDeclaredMethod(getNotificationDataMethodName, 
                         new Class[] { String.class, String.class });
 
-			if ((Boolean) hasNotificationMethod.invoke(this, new Object[] {mailKey}))  {
+            if ((Boolean) hasNotificationMethod.invoke(this, new Object[] {mailKey}))  {
                 Map<String, String> mailMap = new HashMap<String, String>();
 
-				String mailSubject = 
+                String mailSubject = 
                     (String) getNotificationDataMethod.invoke(this, new Object[] {mailKey, "mailSubject"});
-				mailMap.put("mailSubject", mailSubject);
-				String mailSendTo = 
+                mailMap.put("mailSubject", mailSubject);
+                String mailSendTo = 
                     (String) getNotificationDataMethod.invoke(this, new Object[] {mailKey, "mailSendTo"});
-				mailMap.put("mailSendTo", mailSendTo);
-				String mailData = 
+                mailMap.put("mailSendTo", mailSendTo);
+                String mailData = 
                     (String) getNotificationDataMethod.invoke(this, new Object[] {mailKey, "mailData"});
-				mailMap.put("mailData", mailData);
+                mailMap.put("mailData", mailData);
 
                 return mailMap;
-			}
+            }
 
             return null;
-		} catch(Exception exception) {
-			logger.error("getMailAsMap() reflection method call exception");
-			exception.printStackTrace();
-			return null;
-		}
-	}
+        } catch(Exception exception) {
+            logger.error("getMailAsMap() reflection method call exception");
+            exception.printStackTrace();
+            return null;
+        }
+    }
 
     public List<String> getAdditionalTabs() {
         List<String> tabs = new ArrayList<String>();
@@ -283,13 +285,13 @@ public final class LocalAuthorityConfigurationBean {
         escb.unregisterExternalService(service);
     }
 
-	public void setAgentNotifications(Map<String, Map<String, String>> agentNotifications) {
-		this.agentNotifications = agentNotifications;
-	}
+    public void setAgentNotifications(Map<String, Map<String, String>> agentNotifications) {
+        this.agentNotifications = agentNotifications;
+    }
 
-	public void setPaymentNotifications(Map<String, Map<String, String>> paymentNotifications) {
-		this.paymentNotifications = paymentNotifications;
-	}
+    public void setPaymentNotifications(Map<String, Map<String, String>> paymentNotifications) {
+        this.paymentNotifications = paymentNotifications;
+    }
 
     public synchronized EntityManagerFactory getEntityManagerFactory() {
         if (entityManagerFactory == null){
@@ -406,6 +408,22 @@ public final class LocalAuthorityConfigurationBean {
     }
     public void setAddresseReferentialCityRestriction(boolean addresseReferentialCityRestriction) {
         this.addresseReferentialCityRestriction = addresseReferentialCityRestriction;
+    }
+
+    public boolean isActiveCocheAllInReservationPlaningMonth() {
+        return activeCocheAllInReservationPlaningMonth;
+    }
+
+    public void setActiveCocheAllInReservationPlaningMonth(boolean activeCocheAllInReservationPlaningMonth) {
+        this.activeCocheAllInReservationPlaningMonth = activeCocheAllInReservationPlaningMonth;
+    }
+
+    public boolean isActiveGlobalReservation() {
+        return activeGlobalReservation;
+    }
+
+    public void setActiveGlobalReservation(boolean activeGlobalReservation) {
+        this.activeGlobalReservation = activeGlobalReservation;
     }
 
     public String getDefaultPassword() {
