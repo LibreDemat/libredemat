@@ -19,7 +19,7 @@
         , index = 1
         , previous = dropDown.value
 
-      if(json["error"] !== null) {
+      if(typeof json["error"] !== 'undefined') {
           // Error in WS
           dropDown.empty()
 
