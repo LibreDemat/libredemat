@@ -444,6 +444,7 @@ class FrontofficeHomeFolderController {
                 redirect(action : 'child', params : ['id' : individual.id, 'creation' : creation])
                 return false
             } catch (CvqValidationException e) {
+                e.printStackTrace()
                 if (!params.id) failedCreation = true
                 flash['invalidFields'] = e.invalidFields
                 session.doRollback = true
