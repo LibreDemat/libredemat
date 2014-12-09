@@ -63,7 +63,7 @@ update individual
 set state = 'VALID'
 where state = 'MODIFIED'
 and home_folder_id NOTnull
-AND last_modification_date < '01/06/2014';
+AND last_modification_date < '01/06/2012';
 
 
 -- Modification du q_o_s
@@ -74,7 +74,7 @@ update individual
 set q_o_s = null
 where q_o_s = 'GOOD'
 and home_folder_id NOTnull
-AND last_modification_date < '01/06/2014';
+AND last_modification_date < '01/06/2012';
 
 
 -- Statut familial
