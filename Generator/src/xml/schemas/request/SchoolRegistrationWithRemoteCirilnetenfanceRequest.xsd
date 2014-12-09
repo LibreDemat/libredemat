@@ -83,10 +83,10 @@
             <xs:element name="TheSchool" type="srwrcr:SchoolSelected">
               <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  L'école dans laquelle est inscrit l'enfant
+                  Choix de l'école d'inscription
                 </xs:documentation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  L'école dans laquelle est inscrit l'enfant
+                  Choix de l'école d'inscription
                 </xs:documentation>
                 <xs:appinfo>
                   <common>
@@ -189,7 +189,7 @@
       <xs:element name="CurrentSchoolName" type="xs:string" minOccurs="0" default="">
         <xs:annotation>
           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-            L'école dans laquelle est inscrit l'enfant
+            Choix de l'école d'inscription
           </xs:documentation>
           <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
             Nom de l'école actuelle
@@ -261,10 +261,10 @@
   <xs:complexType name="SchoolSelected">
     <xs:annotation>
       <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-        L'école dans laquelle est inscrit l'enfant
+        Choix de l'école d'inscription
       </xs:documentation>
       <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-        L'école dans laquelle est inscrit l'enfant
+        Choix de l'école d'inscription
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -272,7 +272,7 @@
         <xs:element name="IdSchoolName" type="xs:string" >
           <xs:annotation>
             <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-              L'école dans laquelle est inscrit l'enfant
+              Choix de l'école d'inscription
             </xs:documentation>
             <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
               Ecole
@@ -300,7 +300,7 @@
         <xs:element name="LabelSchoolName" type="xs:string" >
           <xs:annotation>
             <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-              L'école dans laquelle est inscrit l'enfant
+              Choix de l'école d'inscription
             </xs:documentation>
             <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
               Ecole
