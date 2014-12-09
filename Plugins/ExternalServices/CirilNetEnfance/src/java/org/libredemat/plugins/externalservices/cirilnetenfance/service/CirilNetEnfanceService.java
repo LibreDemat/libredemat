@@ -948,13 +948,13 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
         parameter.put("dateReferenceAnneeScolaire", dateReferenceAnneeScolaire);
         parameter.put("dateNaissanceEnfant", dateNaissanceEnfant);
         parameter.put("codeNiveau", codeBaseEleveNiveau);
-        try {
-            org.jdom.Document doc = getSchoolsOfChild(parameter);
-            if (doc != null && doc.hasRootElement() && doc.getContent() != null && !doc.getContent().isEmpty())
-                return doc;
-        } catch (CvqModelException cme) {
-            return null;
-        }
+        //try {
+        org.jdom.Document doc = getSchoolsOfChild(parameter);
+        if (doc != null && doc.hasRootElement() && doc.getContent() != null && !doc.getContent().isEmpty())
+            return doc;
+        //} catch (CvqModelException cme) {
+            //return null;
+        //}
 
         return null;
     };

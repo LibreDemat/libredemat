@@ -19,20 +19,28 @@
         , index = 1
         , previous = dropDown.value
 
-      zct.each(json, function(key, object) {
-        var option
-        if (Object.prototype.toString.call(object) == '[object String]') {
-          var value = key
-            , text = object
-          option = new Option(text, value)
-          option.setAttribute( 'data-json'
-                             , '{"id":"' + value + '", "label":"' + text + '"}')
-        } else {
-          option = new Option(object.label, object.id)
-          option.setAttribute('data-json', ylj.stringify(object))
-        }
-        dropDown.options[index++] = option
-      })
+      if(json["error"] !== null) {
+          // Error in WS
+          dropDown.empty()
+
+          YAHOO.util.Selector.query("#"+dropDown.id+" ~ p.error")[0].innerHTML = json["error"]
+      } else {
+
+          zct.each(json, function(key, object) {
+            var option
+            if (Object.prototype.toString.call(object) == '[object String]') {
+              var value = key
+                , text = object
+              option = new Option(text, value)
+              option.setAttribute( 'data-json'
+                                 , '{"id":"' + value + '", "label":"' + text + '"}')
+            } else {
+              option = new Option(object.label, object.id)
+              option.setAttribute('data-json', ylj.stringify(object))
+            }
+            dropDown.options[index++] = option
+          })
+      }
 
       dropDown._tail(index)
       dropDown._onfill()

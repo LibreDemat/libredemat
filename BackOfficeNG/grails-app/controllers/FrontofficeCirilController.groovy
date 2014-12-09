@@ -24,8 +24,12 @@ class FrontofficeCirilController {
         parameters['sectionContainer'] = params.sectionContainer
         parameters['requestId'] = params.requestId
 
-        def result = (service instanceof IRemoteCirilSchoolsProvider ) ? ((IRemoteCirilSchoolsProvider ) service).loadChildSchools(parameters) : new HashMap<String,String>()
-        render(result as JSON)
+        try {
+            def result = (service instanceof IRemoteCirilSchoolsProvider ) ? ((IRemoteCirilSchoolsProvider ) service).loadChildSchools(parameters) : new HashMap<String,String>()
+            render(result as JSON)
+        } catch(Exception ex) {
+            render(contentType:"text/json", text: ["error": ex.getMessage()] as JSON)
+        }
     }
 
 }
