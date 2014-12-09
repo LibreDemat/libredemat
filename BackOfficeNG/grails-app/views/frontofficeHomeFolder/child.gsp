@@ -33,6 +33,7 @@
           ${message(code:'homeFolder.header.createChild')}
         </g:else>
       </h2>
+      <strong>${flash.invalidFields}</strong>
       <div class="main ${flash.invalidFields ? 'Invalid' : child.state}">
         <g:if test="${child.id != null}">
           <h3 id="generalInformations">${message(code:'homeFolder.individual.header.general')}</h3>
