@@ -30,8 +30,8 @@ delete from request r using request_type rt
 
 -- Delete request specific data.
 
--- alter table electoral_roll_registration_request
---    drop constraint FK456255296DE86034;
+ alter table electoral_roll_registration_request
+    drop constraint if exists FK456255296DE86034;
 
 delete from address a using electoral_roll_registration_request errr
     where errr.subject_address_outside_city_id = a.id;
@@ -41,7 +41,8 @@ drop table electoral_roll_registration_request cascade;
 -- Delete from request_type related tables.
 
 alter table forms
---    drop constraint fk5d18c2f38173b49,
+    drop constraint if exists fk5d18c2f38173b49,
+    drop constraint if exists fk5d18c2fd06e9c28,
     add constraint fk5d18c2f38173b49
         foreign key (request_form_id)
         references request_form
