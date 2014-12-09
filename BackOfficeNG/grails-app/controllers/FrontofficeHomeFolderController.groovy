@@ -429,6 +429,8 @@ class FrontofficeHomeFolderController {
                     def invalidFieldsChildInformationSheet = userService.validate(((Child)individual).childInformationSheet,
                         SecurityContext.getCurrentConfigurationBean().isInformationSheetRequired())
                     if (!invalidFieldsChildInformationSheet.isEmpty()) {
+                        println("invalidFieldsChildInformationSheet")
+                        println(invalidFieldsChildInformationSheet)
                         throw new CvqValidationException(invalidFieldsChildInformationSheet)
                     }
                     else {
