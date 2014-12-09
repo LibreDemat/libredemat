@@ -43,6 +43,7 @@ import enfanceServicesEnfance.FamilyDocument;
 import enfanceServicesEnfance.FamilyInvoices;
 import enfanceServicesEnfance.GetEcoleSecteurCalculeeResponseDocument;
 import enfanceServicesEnfance.GetEcoleSecteurCalculeeResponseDocument.GetEcoleSecteurCalculeeResponse.GestionErreur;
+import enfanceServicesEnfance.GlobalSchoolServicesRegistrationRequest;
 import enfanceServicesEnfance.GlobalSchoolServicesRegistrationResponseDocument;
 import enfanceServicesEnfance.GlobalSchoolServicesRegistrationResponseDocument.GlobalSchoolServicesRegistrationResponse;
 import enfanceServicesEnfance.HomeFolderModificationResponseDocument;
@@ -117,10 +118,12 @@ import org.libredemat.xml.common.RequestType;
 import org.libredemat.xml.common.LocalReferentialDataType;
 import org.libredemat.xml.request.ecitizen.HomeFolderModificationRequestDocument.HomeFolderModificationRequest;
 import org.libredemat.xml.request.leisure.YouthCenterRegistrationRequestDocument.YouthCenterRegistrationRequest;
+import org.libredemat.xml.request.school.ChildCareCenterRegistrationRequestDocument.ChildCareCenterRegistrationRequest;
 //import org.libredemat.xml.request.school.ChildCareCenterRegistrationRequestDocument.ChildCareCenterRegistrationRequest;
 //import org.libredemat.xml.request.school.ChildMedicalFormRequestDocument.ChildMedicalFormRequest;
 //import org.libredemat.xml.request.school.GlobalSchoolServicesRegistrationRequestDocument.GlobalSchoolServicesRegistrationRequest;
 import org.libredemat.xml.request.school.PerischoolActivityRegistrationRequestDocument.PerischoolActivityRegistrationRequest;
+import org.libredemat.xml.request.school.RecreationActivityPolyRegistrationRequestDocument.RecreationActivityPolyRegistrationRequest;
 //import org.libredemat.xml.request.school.RecreationActivityPolyRegistrationRequestDocument.RecreationActivityPolyRegistrationRequest;
 import org.libredemat.xml.request.school.RecreationActivityRegistrationRequestDocument.RecreationActivityRegistrationRequest;
 import org.libredemat.xml.request.school.SchoolCanteenRegistrationRequestDocument.SchoolCanteenRegistrationRequest;
@@ -391,7 +394,6 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 						.getReturnRegistration(endPointRegistration, rarr, "RecreationActivityRegistration");
 				businessError = getResult(repDoc.get("result"), rarr.getHomeFolder().getId(), rarr.getId());
 			}
-			/*
 			else if (xmlRequest instanceof RecreationActivityPolyRegistrationRequest)
 			{
 				RecreationActivityPolyRegistrationRequest rarr = (RecreationActivityPolyRegistrationRequest) xmlRequest;
@@ -415,8 +417,6 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 						.getReturnRegistration(endPointRegistration, rarr, "RecreationActivityRegistration");
 				businessError = getResult(repDoc.get("result"), rarr.getHomeFolder().getId(), rarr.getId());
 			}
-			*/
-			/*
 			else if (xmlRequest instanceof GlobalSchoolServicesRegistrationRequest)
 			{
 				GlobalSchoolServicesRegistrationRequest gssrr = (GlobalSchoolServicesRegistrationRequest) xmlRequest;
@@ -424,29 +424,26 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 						"GlobalSchoolServicesRegistration");
 				businessError = getResult(repDoc.get("result"), gssrr.getHomeFolder().getId(), gssrr.getId());
 			}
-			*/
-			/*
 			else if (xmlRequest instanceof ChildCareCenterRegistrationRequest)
 			{
 				ChildCareCenterRegistrationRequest gssrr = (ChildCareCenterRegistrationRequest) xmlRequest;
 				repDoc = cirilClient.getReturnRegistration(endPointRegistration, gssrr, "ChildCareCenterRegistration");
 				businessError = getResult(repDoc.get("result"), gssrr.getHomeFolder().getId(), gssrr.getId());
 			}
-			*/
 			else if (xmlRequest instanceof YouthCenterRegistrationRequest)
 			{
 				YouthCenterRegistrationRequest ycrr = (YouthCenterRegistrationRequest) xmlRequest;
 				repDoc = cirilClient.getReturnRegistration(endPointRegistration, ycrr, "YouthCenterRegistration");
 				businessError = getResult(repDoc.get("result"), ycrr.getHomeFolder().getId(), ycrr.getId());
 			}
-			/*
+            /*
 			else if (xmlRequest instanceof ChildMedicalFormRequest)
 			{
 				ChildMedicalFormRequest cmfr = (ChildMedicalFormRequest) xmlRequest;
 				repDoc = cirilClient.getReturnRegistration(endPointRegistration, cmfr, "ChildMedicalForm");
 				businessError = getResult(repDoc.get("result"), cmfr.getHomeFolder().getId(), cmfr.getId());
 			}
-			*/
+            */
 		}
 		catch (ParseException ep)
 		{
