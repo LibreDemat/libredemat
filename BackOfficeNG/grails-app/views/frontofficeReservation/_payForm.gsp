@@ -83,19 +83,19 @@
 	</div>
 	<br />
 	<h4 style='text-align: right;'>
-		Total des r&eacute;servations et reports :
-		<g:formatNumber number="${new BigDecimal(totalResa,2)}" type="currency"
-			currencyCode="EUR"
-		/>
-	</h4>
-	<br />
-	<h4 style='text-align: right;'>
 		Solde du compte avant paiement :
 		<g:formatNumber number="${new BigDecimal(amountNegative,2)}" type="currency"
 			currencyCode="EUR"
 		/>
 	</h4>
 	<input type="hidden" name="amountOrigin" value="${amount}" id="amountOrigin" /> <br />
+	<br />
+	<h4 style='text-align: right;'>
+		Total des r&eacute;servations et reports :
+		<g:formatNumber number="${new BigDecimal(totalResa,2)}" type="currency"
+			currencyCode="EUR"
+		/>
+	</h4>
 	<h4 style='text-align: right;'>
 		Total à payer :
 		<g:if test="${amount <= 0}">
