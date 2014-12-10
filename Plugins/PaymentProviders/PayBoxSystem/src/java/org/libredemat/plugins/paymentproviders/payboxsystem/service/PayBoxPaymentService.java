@@ -33,6 +33,10 @@ public class PayBoxPaymentService implements IPaymentProviderService {
     private static String PBX_EFFECTUE = "pbxEffectue";
     private static String PBX_REFUSE = "pbxRefuse";
     private static String PBX_ANNULE = "pbxAnnule";
+    private static String PBX_REPONDRE_A = "pbxRepondreA";
+    private static String PBX_PAYBOX = "pbxPaybox";
+    private static String PBX_BACKUP1 = "pbxBackup1";
+    private static String PBX_BACKUP2 = "pbxBackup2";
 
     private String label;
     private String paymentUrl;
@@ -85,6 +89,10 @@ public class PayBoxPaymentService implements IPaymentProviderService {
             String pbxEffectue = (String) paymentServiceBean.getProperty(PBX_EFFECTUE);
             String pbxRefuse = (String) paymentServiceBean.getProperty(PBX_REFUSE);
             String pbxAnnule = (String) paymentServiceBean.getProperty(PBX_ANNULE);
+            String pbxRepondreA = (String) paymentServiceBean.getProperty(PBX_REPONDRE_A);
+            String pbxPaybox = (String) paymentServiceBean.getProperty(PBX_PAYBOX);
+            String pbxBackup1 = (String) paymentServiceBean.getProperty(PBX_BACKUP1);
+            String pbxBackup2 = (String) paymentServiceBean.getProperty(PBX_BACKUP2);
 
             StringBuffer urlParameters = new StringBuffer();
             StringBuffer parameters = new StringBuffer();
@@ -129,6 +137,17 @@ public class PayBoxPaymentService implements IPaymentProviderService {
             parameters.append(pbxAnnule);
 
             String url2 = paymentUrl + urlParameters;
+            urlParameters.append("&PBX_REPONDRE_A=").append(pbxRepondreA);
+            parameters.append(pbxRepondreA);
+            if(pbxSite.equals("1999888")) {
+                logger.debug("Le site est en test de paiement");
+                urlParameters.append("&PBX_PAYBOX=").append(pbxPaybox);
+                parameters.append(pbxPaybox);
+                urlParameters.append("&PBX_BACKUP1=").append(pbxBackup1);
+                parameters.append(pbxBackup1);
+                urlParameters.append("&PBX_BACKUP2=").append(pbxBackup2);
+                parameters.append(pbxBackup2);
+            }
 
             URL url = null;
             try {
@@ -160,7 +179,6 @@ public class PayBoxPaymentService implements IPaymentProviderService {
 
         // compute return status according to bank transaction status
         if (bankTransactionStatus.equals("5") ||
-                bankTransactionStatus.equals("00001") ||
                 bankTransactionStatus.equals("00003") ||
                 bankTransactionStatus.equals("00010") ||
                 bankTransactionStatus.equals("00011") ||
@@ -168,7 +186,9 @@ public class PayBoxPaymentService implements IPaymentProviderService {
             return PaymentResultStatus.REFUSED;
         } else if (bankTransactionStatus.equals("00000")) {
             return PaymentResultStatus.OK;
-        } else {
+        } else if(bankTransactionStatus.equals("00001")){
+            return PaymentResultStatus.CANCELLED;
+        }else {
             logger.warn("getStateFromParameters() Received unknown return status " + bankTransactionStatus);
             return PaymentResultStatus.UNKNOWN;
         }
