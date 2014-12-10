@@ -53,7 +53,7 @@ ALTER FUNCTION suppressionlogininutile()
   OWNER TO libredemat;
 select  suppressionlogininutile();
 
-
+drop function suppressionlogininutile();
 
 -- Statut des individus
 
