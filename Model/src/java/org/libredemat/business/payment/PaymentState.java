@@ -32,6 +32,7 @@ public enum PaymentState {
         else if (enumAsString.equals(VALIDATED.toString())) return VALIDATED;
         else if (enumAsString.equals(CANCELLED.toString())) return CANCELLED;
         else if (enumAsString.equals(REFUSED.toString())) return REFUSED;
+        else if (enumAsString.equals(TOPAY.toString())) return TOPAY;
 
         return INITIALIZED;
     }
