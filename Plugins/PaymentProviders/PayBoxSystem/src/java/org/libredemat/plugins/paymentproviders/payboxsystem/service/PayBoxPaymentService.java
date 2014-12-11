@@ -136,7 +136,6 @@ public class PayBoxPaymentService implements IPaymentProviderService {
             urlParameters.append("&PBX_ANNULE=").append(pbxAnnule);
             parameters.append(pbxAnnule);
 
-            String url2 = paymentUrl + urlParameters;
             urlParameters.append("&PBX_REPONDRE_A=").append(pbxRepondreA);
             parameters.append(pbxRepondreA);
             if(pbxSite.equals("1999888")) {
@@ -148,6 +147,8 @@ public class PayBoxPaymentService implements IPaymentProviderService {
                 urlParameters.append("&PBX_BACKUP2=").append(pbxBackup2);
                 parameters.append(pbxBackup2);
             }
+
+            String url2 = paymentUrl + urlParameters;
 
             URL url = null;
             try {
