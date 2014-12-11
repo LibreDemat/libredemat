@@ -158,4 +158,6 @@ public interface IPaymentService {
     Map<String, String> getAllBrokersByType(String type);
 
     boolean isPaymnetInPopup(Payment payment) throws CvqException;
+
+    List<ExternalAccountItem> getExternalAccountItemByExternalItemId(String externalItemId);
 }

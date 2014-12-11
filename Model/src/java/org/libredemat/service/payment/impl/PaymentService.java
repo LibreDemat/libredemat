@@ -748,4 +748,18 @@ public final class PaymentService implements IPaymentService,
         PaymentServiceBean psb = getPaymentServiceBean(paymentProviderService);
         return psb.isPopupPayment();
     }
+
+    @Override
+    @Deprecated
+    public List<ExternalAccountItem> getExternalAccountItemByExternalItemId(String externalItemId) {
+        List<ExternalAccountItem> all = new ArrayList<ExternalAccountItem>();
+        if (externalItemId != null && !externalItemId.trim().equals("")) {
+            HashSet<Critere> criteres = new HashSet<Critere>();
+            Critere critere = new Critere(ExternalAccountItem.SEARCH_BY_EXTERNAL_ITEM_ID, externalItemId,
+                    Critere.EQUALS);
+            criteres.add(critere);
+            all.addAll(getInvoices(criteres, null, null, -1, 0));
+        }
+        return all;
+    }
 }

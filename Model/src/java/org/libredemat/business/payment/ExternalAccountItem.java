@@ -23,6 +23,7 @@ public abstract class ExternalAccountItem extends PurchaseItem {
     public static final String SEARCH_BY_EXTERNAL_SERVICE_LABEL = "externalServiceLabel";
     public static final String SEARCH_BY_EXTERNAL_HOME_FOLDER = "externalHomeFolderId";
     public static final String SEARCH_BY_EXTERNAL_APPLICATION = "externalApplication";
+    public static final String SEARCH_BY_EXTERNAL_ITEM_ID = "externalItemId";
 
     @Column(name="external_service_label")
     private String externalServiceLabel;

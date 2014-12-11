@@ -66,7 +66,7 @@ class FrontofficePaymentController {
             return result
         }
 
-        result.invoices = this.invoices.findAll{ paymentService.getByCvqReference(it.externalItemId)?.state != PaymentState.VALIDATED }
+        result.invoices = this.getInvoices().findAll{ paymentService.getByCvqReference(it.externalItemId)?.state != PaymentState.VALIDATED }
         result.depositAccounts = this.depositAccounts
         result.ticketingContracts = this.ticketingContracts
         result.invalid = flash.invalid
@@ -314,18 +314,51 @@ class FrontofficePaymentController {
     }
     
     protected List getInvoices() {
-        session.invoices = []
-        def result = []
-        def invoices = paymentExternalService.getExternalAccounts(ecitizen.homeFolder.id, IPaymentService.EXTERNAL_INVOICES)
-        
-        for(ExternalInvoiceItem item : invoices) {
-            if(!item.getIsPaid()) {
-                paymentExternalService.loadInvoiceDetails(item)
-                session.invoices.add(item)
-                result.add(this.buildInvoiceMap(item))
+      session.invoices = []
+      session.invoicesInitialised = []
+      def result = []
+
+      def invoices = paymentExternalService.getExternalAccounts(ecitizen.homeFolder.id, IPaymentService.EXTERNAL_INVOICES)
+
+      // récupérer les purchases SI external_item_id == REF de CIVIL de la facture en cours
+      // &&
+      // récupérer les paiements SI paiement INITIALISED
+      // ALORS
+      // La banque n'a peut-être pas put renvoyer le paiement OU nous n'avons pas reçu la réponse.
+      // Bloquer le paiement pour éviter les doublons
+      
+      for(ExternalInvoiceItem item : invoices) {
+        if(!item.getIsPaid()) {
+          // get purchase à partir de son external_item_id
+          if (item.getExternalItemId() != null && !item.getExternalItemId().equals("")) {
+            List<ExternalInvoiceItem> items = paymentService.getExternalAccountItemByExternalItemId(item.getExternalItemId())
+            if (items != null && !items.isEmpty()) {
+              // Cette référence est déjà rentrée en base.
+              ExternalInvoiceItem itemCart = items.get(0);
+              if (itemCart.getAmount().compareTo(item.getAmount()) != 0) {
+                // La valeur du montant de la facture est différente de celle de la facture du panier...
+
+                if(session.paymentDetail != null)
+                  paymentService.removePurchaseItemFromPayment((Payment)session.paymentDetail,itemCart);
+                //removeFromCart(item);
+              }
+              else item.setInitialisedInPayment(true)
             }
+          }
+          paymentExternalService.loadInvoiceDetails(item)
+          // Si le paiement reste impayé (invoice_value > 0) on l'ajoute bien.
+          session.invoices.add(item)
+          result.add(this.buildInvoiceMap(item))
+        } else {
+          def itemCart = session.paymentDetail?.purchaseItems?.find {
+            item?.externalItemId?.equals(it.externalItemId != null ? it.externalItemId : "") && item.class.equals(it.class)
+          }
+          // suppression de l'item s'il existe dans le panier...
+          if (itemCart != null) paymentService.removePurchaseItemFromPayment((Payment)session.paymentDetail,itemCart)
+          //removeFromCart(item);
         }
-        return result.sort{it.externalItemId}
+      }
+      return result.sort{it.externalItemId}
     }
 
     protected Map getInvoicesPaid() {
