@@ -338,8 +338,8 @@ class FrontofficePaymentController {
               if (itemCart.getAmount().compareTo(item.getAmount()) != 0) {
                 // La valeur du montant de la facture est différente de celle de la facture du panier...
 
-                if(session.paymentDetail != null)
-                  paymentService.removePurchaseItemFromPayment((Payment)session.paymentDetail,itemCart);
+                if(session.payment != null)
+                  paymentService.removePurchaseItemFromPayment((Payment)session.payment,itemCart);
                 //removeFromCart(item);
               }
               else item.setInitialisedInPayment(true)
@@ -350,11 +350,11 @@ class FrontofficePaymentController {
           session.invoices.add(item)
           result.add(this.buildInvoiceMap(item))
         } else {
-          def itemCart = session.paymentDetail?.purchaseItems?.find {
+          def itemCart = session.payment?.purchaseItems?.find {
             item?.externalItemId?.equals(it.externalItemId != null ? it.externalItemId : "") && item.class.equals(it.class)
           }
           // suppression de l'item s'il existe dans le panier...
-          if (itemCart != null) paymentService.removePurchaseItemFromPayment((Payment)session.paymentDetail,itemCart)
+          if (itemCart != null) paymentService.removePurchaseItemFromPayment((Payment)session.payment,itemCart)
           //removeFromCart(item);
         }
       }
