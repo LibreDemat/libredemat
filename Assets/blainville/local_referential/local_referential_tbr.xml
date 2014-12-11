@@ -62,9 +62,11 @@
             </entry>
             <entry key="Plein">
                 <label>Plein</label>
+                <message>Plein</message>
             </entry>
             <entry key="Reduit">
-                <label>Réduit</label>
+                <label>Reduit</label>
+                <message>Réduit</message>
             </entry>
         </entries>
     </data>

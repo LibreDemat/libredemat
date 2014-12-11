@@ -5,28 +5,35 @@
         <entries>
             <entry key="PANTHEON-SORBONNE-PARIS-1">
                 <label>PANTHEON-SORBONNE PARIS 1</label>
+                <externalCode/>
                 <entries>
                     <entry key="PANTHEON-SORBONNE-PARIS-1-Panthe-on-Sorbonne">
                         <label>Panthéon-Sorbonne</label>
+                        <externalCode/>
                     </entry>
                     <entry key="PANTHEON-SORBONNE-PARIS-1-Carre--colbert">
                         <label>Carré colbert</label>
+                        <externalCode/>
                     </entry>
                 </entries>
             </entry>
             <entry key="PANTHEON-ASSAS-PARIS-2">
                 <label>PANTHEON-ASSAS PARIS 2</label>
+                <externalCode/>
                 <entries>
                     <entry key="PANTHEON-ASSAS-PARIS-2-Antenne-de-Melun">
                         <label>Antenne de Melun</label>
+                        <externalCode/>
                     </entry>
                     <entry key="PANTHEON-ASSAS-PARIS-2-Centre-Assas">
                         <label>Centre Assas</label>
+                        <externalCode/>
                     </entry>
                 </entries>
             </entry>
             <entry key="autre">
                 <label>autre</label>
+                <externalCode/>
             </entry>
         </entries>
     </data>
@@ -34,10 +41,12 @@
         <label>Commune</label>
         <entries>
             <entry key="325">
-                <label>Melun</label>
+                <label>325</label>
+                <message>Melun</message>
             </entry>
             <entry key="573">
-                <label>Hors Seine et Marne</label>
+                <label>573</label>
+                <message>Hors Seine et Marne</message>
             </entry>
         </entries>
     </data>
