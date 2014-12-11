@@ -142,4 +142,9 @@ public final class WynidService implements IPaymentProviderService {
     public void setLabel(String label) {
         this.label = label;
     }
+
+    @Override
+    public boolean allowMultiplePurchaseItems() {
+        return true;
+    }
 }

@@ -12,6 +12,7 @@
 	<classpathentry kind="src" output="Plugins/PaymentProviders/Wynid/build/classes" path="Plugins/PaymentProviders/Wynid/src/java"/>
 	<classpathentry kind="src" output="Plugins/PaymentProviders/Spplus/build/classes" path="Plugins/PaymentProviders/Spplus/src/java"/>
 	<classpathentry kind="src" output="Plugins/PaymentProviders/PaylineV4/build/classes" path="Plugins/PaymentProviders/PaylineV4/src/java"/>
+    <classpathentry kind="src" output="Plugins/PaymentProviders/Tipi/build/classes" path="Plugins/PaymentProviders/Tipi/src/java"/>
 	<classpathentry excluding="**/*.groovy" kind="src" output="Generator/build/classes" path="Generator/src/java"/>
 	<classpathentry kind="src" output="Model/build/classes" path="Model/src/java"/>
 	<classpathentry kind="lib" path="Libraries/edu.yale/cas/casclient-2.1.1-1.jar"/>

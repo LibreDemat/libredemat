@@ -105,4 +105,9 @@ public final class FakePaymentProviderService implements IPaymentProviderService
     public final void setCallbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
     }
+
+    @Override
+    public boolean allowMultiplePurchaseItems() {
+        return true;
+    }
 }

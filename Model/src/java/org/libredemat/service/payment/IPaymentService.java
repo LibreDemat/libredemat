@@ -125,6 +125,11 @@ public interface IPaymentService {
      * Get a payment by id.
      */
     Payment getById(@IsPayment final Long id);
+
+    /**
+     * Get a payment by cvq reference
+     */
+    Payment getByCvqReference(@IsPayment final String reference);
     
     /**
      * Delete a payment.

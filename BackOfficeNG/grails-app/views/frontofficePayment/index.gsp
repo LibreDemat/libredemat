@@ -9,6 +9,11 @@
   <body>
     <div id="yui-main">
       <div id="main" class="yui-b">
+        <g:if test="${paymentPopUp}">
+            <div class="information-box">
+                <g:message code="payment.message.checkPopup" />
+            </div>
+        </g:if>
         <g:if test="${displayedMessage}">
           <div class="information-box">${displayedMessage}</div>
         </g:if>
@@ -37,6 +42,17 @@
             </div>
           </g:if>
         </g:else>
+        <g:if test="${paymentPopUp && params.paymentUrl}">
+          <script type="text/javascript">
+            var popPayment=window.open('${params.paymentUrl}','_blank','height=700,width=900,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no');
+            var timer = setInterval(function() {
+                if(popPayment.closed) {
+                  clearInterval(timer);
+                  window.location.href='status';
+                }
+            }, 500);
+          </script>
+        </g:if>
       </div>
     </div>
     <!-- end of yui-main -->

@@ -152,6 +152,13 @@ public final class PaymentService implements IPaymentService,
         else if (!broker.equals(payment.getBroker()))
             throw new CvqInvalidBrokerException("payment.incompatible_broker");
 
+        if(payment.getPurchaseItems().size() > 0) {
+            IPaymentProviderService paymentProviderService =
+                    getPaymentServiceByBrokerAndMode(payment.getBroker(), payment.getPaymentMode());
+            if(!paymentProviderService.allowMultiplePurchaseItems()) {
+                throw new CvqException("payment.broker_does_not_allow_multiple_items");
+            }
+        }
         processPurchaseItemAmount(purchaseItem);
         payment.getPurchaseItems().add(purchaseItem);
         double newAmount = payment.getAmount().doubleValue()
@@ -331,6 +338,12 @@ public final class PaymentService implements IPaymentService,
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
     public final Payment getById(final Long id) {
         return paymentDAO.findById(id);
+    }
+
+    @Override
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    public final Payment getByCvqReference(final String reference) {
+        return paymentDAO.findByCvqReference(reference);
     }
 
     @Override

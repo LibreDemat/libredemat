@@ -51,8 +51,9 @@ public class PaymentDAO extends JpaTemplate<Payment,Long> implements IPaymentDAO
 
     public Payment findByCvqReference(final String cvqReference) {
         return (Payment) HibernateUtil.getSession()
-            .createQuery("from Payment as payment where payment.cvqReference = :cvqReference")
-            .setParameter("cvqReference", cvqReference)
+            .createQuery("from Payment as payment where payment.cvqReference LIKE :cvqReference")
+            .setParameter("cvqReference", cvqReference+'%')
+            .setMaxResults(1)
             .uniqueResult(); 
     }
 

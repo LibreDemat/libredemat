@@ -212,4 +212,9 @@ public class PaylineV4Service implements IPaymentProviderService {
     public void setPaymentDAO(IPaymentDAO paymentDAO) {
         this.paymentDAO = paymentDAO;
     }
+
+    @Override
+    public boolean allowMultiplePurchaseItems() {
+        return true;
+    }
 }

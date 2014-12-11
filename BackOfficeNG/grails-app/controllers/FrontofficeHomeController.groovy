@@ -26,6 +26,7 @@ import org.libredemat.service.users.IUserWorkflowService
 import org.libredemat.service.users.IUserService
 import org.libredemat.util.Critere
 import org.libredemat.util.UserUtils
+import org.libredemat.business.payment.PaymentState
 
 class FrontofficeHomeController {
 
@@ -277,6 +278,8 @@ class FrontofficeHomeController {
         Critere critere = new Critere(Payment.SEARCH_BY_HOME_FOLDER_ID, 
         		currentEcitizen.homeFolder.id, Critere.EQUALS);
         criteriaSet.add(critere)
+        criteriaSet.add(new Critere(Payment.SEARCH_BY_PAYMENT_STATE,
+                  PaymentState.INITIALIZED, Critere.NEQUALS));
 
         return [
             'all' : paymentService.get(criteriaSet, 'initializationDate', 'desc', 

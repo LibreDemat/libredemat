@@ -54,4 +54,5 @@ public interface IPaymentProviderService {
     
     PaymentResultStatus getStateFromParameters(Map<String, String> parameters, 
             PaymentServiceBean paymentServiceBean) throws CvqException;
+    boolean allowMultiplePurchaseItems();
 }

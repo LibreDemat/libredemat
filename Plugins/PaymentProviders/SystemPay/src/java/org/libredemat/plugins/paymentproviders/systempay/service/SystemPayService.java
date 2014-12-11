@@ -266,6 +266,11 @@ public class SystemPayService implements IPaymentProviderService{
 
     }
 
+    @Override
+    public boolean allowMultiplePurchaseItems() {
+        return true;
+    }
+
     public void setLabel(String label) {
         this.label = label;
     }

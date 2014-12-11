@@ -210,4 +210,9 @@ public class PayBoxPaymentService implements IPaymentProviderService {
         this.label = label;
     }
 
+    @Override
+    public boolean allowMultiplePurchaseItems() {
+        return true;
+    }
+
 }
