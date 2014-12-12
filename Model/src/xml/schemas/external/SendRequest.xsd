@@ -7,6 +7,7 @@
   xmlns:parr="http://www.libredemat.org/schema/parr" 
   xmlns:rarr="http://www.libredemat.org/schema/rarr" 
   xmlns:bdr="http://www.libredemat.org/schema/bdr" 
+  xmlns:serrr="http://www.libredemat.org/schema/serrr" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
@@ -23,6 +24,8 @@
     schemaLocation="http://static.mairie24.fr/4.7-libredemat/schemas/request/RecreationActivityRegistrationRequest.xsd" />
   <xs:import namespace="http://www.libredemat.org/schema/bdr"
     schemaLocation="http://static.mairie24.fr/4.7-libredemat/schemas/request/BirthDetailsRequest.xsd" />
+  <xs:import namespace="http://www.libredemat.org/schema/serrr"
+    schemaLocation="http://static.mairie24.fr/4.7-libredemat/schemas/request/StandardElectoralRollRegistrationRequest.xsd" />
 
   <xs:element name="SendRequestRequest">
     <xs:complexType>
@@ -40,6 +43,7 @@
         <xs:element ref="parr:PerischoolActivityRegistrationRequest" />
         <xs:element ref="rarr:RecreationActivityRegistrationRequest" />
         <xs:element ref="bdr:BirthDetailsRequest" />
+        <xs:element ref="serrr:StandardElectoralRollRegistrationRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

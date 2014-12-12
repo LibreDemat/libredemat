@@ -26,6 +26,7 @@ import org.libredemat.external.ExternalServiceUtils;
 import org.libredemat.security.SecurityContext;
 import org.libredemat.xml.common.RequestType;
 import org.libredemat.xml.request.civil.BirthDetailsRequestDocument.BirthDetailsRequest;
+import org.libredemat.xml.request.election.StandardElectoralRollRegistrationRequestDocument.StandardElectoralRollRegistrationRequest;
 import org.libredemat.xml.request.school.PerischoolActivityRegistrationRequestDocument.PerischoolActivityRegistrationRequest;
 import org.libredemat.xml.request.school.RecreationActivityRegistrationRequestDocument.RecreationActivityRegistrationRequest;
 import org.libredemat.xml.request.school.SchoolCanteenRegistrationRequestDocument.SchoolCanteenRegistrationRequest;
@@ -276,6 +277,8 @@ public class SoapExternalService extends ExternalProviderServiceAdapter {
             sendRequestRequest.setRecreationActivityRegistrationRequest((RecreationActivityRegistrationRequest) request);
         else if (request instanceof BirthDetailsRequest)
             sendRequestRequest.setBirthDetailsRequest((BirthDetailsRequest) request);
+        else if (request instanceof StandardElectoralRollRegistrationRequest)
+            sendRequestRequest.setStandardElectoralRollRegistrationRequest((StandardElectoralRollRegistrationRequest) request);
         else
             sendRequestRequest.setRequest(request);
         sendRequestRequest.setRequestTypeLabel(request.getRequestTypeLabel());
