@@ -55,6 +55,7 @@
     <ant dir="${plugins.externalservices.cardfive.dir}" target="clean" />
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="clean" />
     <ant dir="${plugins.externalservices.digitech.dir}" target="clean" />
+    <ant dir="${plugins.externalservices.cirilelections.dir}" target="clean" />
   </target>
     
   <target name="prepare-configfiles-model" depends="init">
@@ -145,6 +146,7 @@
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.ciril.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.digitech.dir}" target="deploy" />
+    <ant dir="${plugins.externalservices.cirilelections.dir}" target="deploy" />
   </target>
 
   <target name="deploy-plugin-paylineV4" depends="compile-model">
@@ -207,7 +209,11 @@
     <ant dir="${plugins.externalservices.digitech.dir}" target="deploy" />
   </target>
 
-  <!-- ================================================================================= -->
+  <target name="deploy-plugin-cirilelections" depends="compile-model">
+    <ant dir="${plugins.externalservices.cirilelections.dir}" target="deploy" />
+  </target>
+
+    <!-- ================================================================================= -->
   <!-- ======================= WEBAPPS PREPARATION TARGETS ============================= -->
   <!-- ================================================================================= -->
 

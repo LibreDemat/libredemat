@@ -28,6 +28,7 @@
         <include name="LibreDemat-Plugin-ExternalServices-CirilNetEnfance-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-Digitech-*.jar" />
         <include name="soap.jar" />
+        <include name="LibreDemat-Plugin-ExternalServices-CirilElections-*.jar" />
     </fileset>
 
     <target name="clean" depends="init">
