@@ -1,7 +1,7 @@
 -- Casse sur les prénoms
-UPDATE individual
-set first_name = initcap(first_name)
-where upper(first_name) <> 'A NAITRE';
+-- UPDATE individual
+-- set first_name = initcap(first_name)
+-- where upper(first_name) <> 'A NAITRE';
 
 -- Suppression des login inutiles
 
