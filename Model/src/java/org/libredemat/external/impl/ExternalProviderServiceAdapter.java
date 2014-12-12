@@ -1,7 +1,9 @@
 package org.libredemat.external.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -23,7 +25,9 @@ import org.libredemat.business.request.workflow.event.impl.WorkflowUncompleteEve
 import org.libredemat.business.request.workflow.event.impl.WorkflowValidatedEvent;
 import org.libredemat.business.users.external.HomeFolderMapping;
 import org.libredemat.exception.CvqException;
+import org.libredemat.external.ExternalServiceBean;
 import org.libredemat.external.IExternalProviderService;
+import org.libredemat.security.SecurityContext;
 import org.libredemat.security.annotation.Context;
 import org.libredemat.security.annotation.ContextPrivilege;
 import org.libredemat.security.annotation.ContextType;
@@ -40,6 +44,8 @@ public abstract class ExternalProviderServiceAdapter implements IExternalProvide
     protected IRequestExternalService requestExternalService;
     protected IRequestExternalActionService requestExternalActionService;
     protected IExternalHomeFolderService externalHomeFolderService;
+
+    private Map<String, ExternalServiceBean> esbProperties = new HashMap<String, ExternalServiceBean>();
 
     public void setRequestExternalService(IRequestExternalService requestExternalService) {
         this.requestExternalService = requestExternalService;
@@ -167,5 +173,13 @@ public abstract class ExternalProviderServiceAdapter implements IExternalProvide
     @Override
     public String sendHomeFolderModification(XmlObject requestXml) throws CvqException {
         return sendRequest(requestXml);
+    }
+
+    public void registerEsbProperties(final String localAuthorityName, final ExternalServiceBean externalServiceBean) {
+        esbProperties.put(localAuthorityName, externalServiceBean);
+    }
+
+    public String getEsbProperty(final String propertyName) {
+        return (String) esbProperties.get(SecurityContext.getCurrentSite().getName()).getProperty(propertyName);
     }
 }
