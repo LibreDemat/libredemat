@@ -137,9 +137,6 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	private static final String END_POINT_REGISTRATION = "EndPointRegistration";
 	private static final String END_POINT_RESERVATION = "EndPointReservation";
 	private static final String END_POINT_SCHOOL = "EndPointSchool";
-	private String endPointReservation;
-	private String endPointRegistration;
-	private String endPointSchool;
 	private String label;
 	private String externalId;
 	private IExternalHomeFolderService externalHomeFolderService;
@@ -157,19 +154,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	public void checkConfiguration(ExternalServiceBean externalServiceBean, String localAuthorityName)
 			throws CvqConfigurationException
 	{
-		setEndPointRegistration((String) externalServiceBean.getProperty(END_POINT_REGISTRATION));
-		setEndPointReservation((String) externalServiceBean.getProperty(END_POINT_RESERVATION));
-		setEndPointSchool((String) externalServiceBean.getProperty(END_POINT_SCHOOL));
-		/*
-		 * Est-ce que c'est vraiment utile ?! if (endPointRegistration == null)
-		 * throw new CvqConfigurationException("Missing " +
-		 * END_POINT_REGISTRATION + " configuration parameter"); if
-		 * (endPointReservation == null) throw new
-		 * CvqConfigurationException("Missing " + END_POINT_RESERVATION +
-		 * " configuration parameter"); if (endPointSchool == null) throw new
-		 * CvqConfigurationException("Missing " + END_POINT_SCHOOL +
-		 * " configuration parameter");
-		 */
+		registerEsbProperties(localAuthorityName, externalServiceBean);
 	}
 
 	public void creditHomeFolderAccounts(Collection<PurchaseItem> purchaseItems, String cvqReference,
@@ -191,7 +176,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				Payment payment = (Payment) lisPayment.get(0);
 				broker = payment.getBroker();
 			}
-			cirilClient.getCreditAccount(endPointRegistration, purchaseItems, cvqReference, bankReference,
+			cirilClient.getCreditAccount(getEsbProperty(END_POINT_REGISTRATION), purchaseItems, cvqReference, bankReference,
 					homeFolderId, externalHomeFolderId, externalId, validationDate, SecurityContext.getCurrentSite()
 							.getPostalCode(), broker);
 		}
@@ -210,7 +195,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		setExternalId(externalId);
 		try
 		{
-			FamilyDocument family = cirilClient.getFamilyAccounts(endPointRegistration, SecurityContext
+			FamilyDocument family = cirilClient.getFamilyAccounts(getEsbProperty(END_POINT_REGISTRATION), SecurityContext
 					.getCurrentSite().getPostalCode(), homeFolderId, null, externalId);
 			logger.debug("getAccount() : " + family.toString());
 			List<ExternalAccountItem> depositAcount = new ArrayList<ExternalAccountItem>();
@@ -288,7 +273,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	{
 		try
 		{
-			AccountDetailsResponseDocument adrd = cirilClient.getAccountDetatil(endPointRegistration, SecurityContext
+			AccountDetailsResponseDocument adrd = cirilClient.getAccountDetatil(getEsbProperty(END_POINT_REGISTRATION), SecurityContext
 					.getCurrentSite().getPostalCode(), edai.getExternalApplicationId(), getExternalId(), edai
 					.getExternalItemId());
 			AccountDetailsResponse adr = adrd.getAccountDetailsResponse();
@@ -326,7 +311,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	{
 		try
 		{
-			InvoiceDetailsResponseDocument idrd = cirilClient.getInvoiceDetail(endPointRegistration, SecurityContext
+			InvoiceDetailsResponseDocument idrd = cirilClient.getInvoiceDetail(getEsbProperty(END_POINT_REGISTRATION), SecurityContext
 					.getCurrentSite().getPostalCode(), eii.getExternalHomeFolderId(), getExternalId(), eii
 					.getExternalItemId());
 			InvoiceDetailsResponse idr = idrd.getInvoiceDetailsResponse();
@@ -358,40 +343,40 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			if (xmlRequest instanceof SchoolRegistrationRequest)
 			{
 				SchoolRegistrationRequest srrd = (SchoolRegistrationRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, srrd, "SchoolRegistration");
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), srrd, "SchoolRegistration");
 				businessError = getResult(repDoc.get("result"), srrd.getHomeFolder().getId(), srrd.getId());
 			}
 			if (xmlRequest instanceof SchoolRegistrationWithRemoteCirilnetenfanceRequest)
 			{
 				SchoolRegistrationWithRemoteCirilnetenfanceRequest srrd = (SchoolRegistrationWithRemoteCirilnetenfanceRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, srrd,
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), srrd,
 						"SchoolRegistrationWithRemoteCirilnetenfance");
 				businessError = getResult(repDoc.get("result"), srrd.getHomeFolder().getId(), srrd.getId());
 			}
 			else if (xmlRequest instanceof HomeFolderModificationRequest)
 			{
 				HomeFolderModificationRequest hfmr = (HomeFolderModificationRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, hfmr, "HomeFolderModification");
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), hfmr, "HomeFolderModification");
 				businessError = getResult(repDoc.get("result"), hfmr.getHomeFolder().getId(), hfmr.getId());
 			}
 			else if (xmlRequest instanceof SchoolCanteenRegistrationRequest)
 			{
 				SchoolCanteenRegistrationRequest scrr = (SchoolCanteenRegistrationRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, scrr, "SchoolCanteenRegistration");
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), scrr, "SchoolCanteenRegistration");
 				businessError = getResult(repDoc.get("result"), scrr.getHomeFolder().getId(), scrr.getId());
 			}
 			else if (xmlRequest instanceof PerischoolActivityRegistrationRequest)
 			{
 				PerischoolActivityRegistrationRequest parr = (PerischoolActivityRegistrationRequest) xmlRequest;
 				repDoc = cirilClient
-						.getReturnRegistration(endPointRegistration, parr, "PerischoolActivityRegistration");
+						.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), parr, "PerischoolActivityRegistration");
 				businessError = getResult(repDoc.get("result"), parr.getHomeFolder().getId(), parr.getId());
 			}
 			else if (xmlRequest instanceof RecreationActivityRegistrationRequest)
 			{
 				RecreationActivityRegistrationRequest rarr = (RecreationActivityRegistrationRequest) xmlRequest;
 				repDoc = cirilClient
-						.getReturnRegistration(endPointRegistration, rarr, "RecreationActivityRegistration");
+						.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), rarr, "RecreationActivityRegistration");
 				businessError = getResult(repDoc.get("result"), rarr.getHomeFolder().getId(), rarr.getId());
 			}
 			else if (xmlRequest instanceof RecreationActivityPolyRegistrationRequest)
@@ -414,26 +399,26 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				}
 				rarr.setRecreationPolyActivityArray(tab);
 				repDoc = cirilClient
-						.getReturnRegistration(endPointRegistration, rarr, "RecreationActivityRegistration");
+						.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), rarr, "RecreationActivityRegistration");
 				businessError = getResult(repDoc.get("result"), rarr.getHomeFolder().getId(), rarr.getId());
 			}
 			else if (xmlRequest instanceof GlobalSchoolServicesRegistrationRequest)
 			{
 				GlobalSchoolServicesRegistrationRequest gssrr = (GlobalSchoolServicesRegistrationRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, gssrr,
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), gssrr,
 						"GlobalSchoolServicesRegistration");
 				businessError = getResult(repDoc.get("result"), gssrr.getHomeFolder().getId(), gssrr.getId());
 			}
 			else if (xmlRequest instanceof ChildCareCenterRegistrationRequest)
 			{
 				ChildCareCenterRegistrationRequest gssrr = (ChildCareCenterRegistrationRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, gssrr, "ChildCareCenterRegistration");
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), gssrr, "ChildCareCenterRegistration");
 				businessError = getResult(repDoc.get("result"), gssrr.getHomeFolder().getId(), gssrr.getId());
 			}
 			else if (xmlRequest instanceof YouthCenterRegistrationRequest)
 			{
 				YouthCenterRegistrationRequest ycrr = (YouthCenterRegistrationRequest) xmlRequest;
-				repDoc = cirilClient.getReturnRegistration(endPointRegistration, ycrr, "YouthCenterRegistration");
+				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), ycrr, "YouthCenterRegistration");
 				businessError = getResult(repDoc.get("result"), ycrr.getHomeFolder().getId(), ycrr.getId());
 			}
             /*
@@ -681,16 +666,6 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		return label;
 	}
 
-	public void setEndPointRegistration(String endPointRegistration)
-	{
-		this.endPointRegistration = endPointRegistration;
-	}
-
-	public void setEndPointReservation(String endPointReservation)
-	{
-		this.endPointReservation = endPointReservation;
-	}
-
 	public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService)
 	{
 		this.externalHomeFolderService = externalHomeFolderService;
@@ -757,7 +732,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		List<IndividualMapping> individuals = hfm.getIndividualsMappings();
 		try
 		{
-			ReservationResumeResponseDocument rrrespdoc = cirilClient.getReservationResume(endPointReservation,
+			ReservationResumeResponseDocument rrrespdoc = cirilClient.getReservationResume(getEsbProperty(END_POINT_RESERVATION),
 					hfm.getExternalId(), String.valueOf(homeFolderId), start, end, sessionId);
 			// for each child put an array only for child with external idof
 			// information
@@ -792,7 +767,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			ParseException
 	{ // retreive information for ona activity of one child during a month
 		Map<String, Object> getRes = new HashMap<String, Object>();
-		ReservationActivityPlanningResponseDocument raprd = cirilClient.getReservationPlanning(endPointReservation,
+		ReservationActivityPlanningResponseDocument raprd = cirilClient.getReservationPlanning(getEsbProperty(END_POINT_RESERVATION),
 				activityCode, folderId, externalFolderId, childId, externalChildId, start, end, sessionId);
 		/**
 		 * define information we need in the map to easily get them in
@@ -817,7 +792,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	public Map<String, Object> getAllReservation(Map<String, Object> params) throws CvqException, ParseException
 	{
 		Map<String, Object> getRes = new HashMap<String, Object>();		
-		UpdateReservationResponseDocument urrespd = cirilClient.getAllReservation(endPointReservation, params);
+		UpdateReservationResponseDocument urrespd = cirilClient.getAllReservation(getEsbProperty(END_POINT_RESERVATION), params);
 		
 		if (urrespd == null || urrespd.getUpdateReservationResponse() == null) return null;
 		getRes.put("amountNegativeInCent", urrespd.getUpdateReservationResponse().getAccountNegativeInCent());
@@ -874,7 +849,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			String sessionId) throws CvqException, ParseException
 	{ // validate reservation in the business soft
 		Map<String, Object> getRes = new HashMap<String, Object>();
-		UpdateReservationResponseDocument urrespd = cirilClient.getUpdateReservation(endPointReservation, folderId,
+		UpdateReservationResponseDocument urrespd = cirilClient.getUpdateReservation(getEsbProperty(END_POINT_RESERVATION), folderId,
 				externalFolderId, sessionId, reservationItems);
 		/**
 		 * define information we need in the map to easily get them in
@@ -892,7 +867,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			String sessionId) throws CvqException, ParseException
 	{
 		Map<String, Object> getRes = new HashMap<String, Object>();
-		AmountVerificationResponseDocument avrespd = cirilClient.getAmountVerification(endPointReservation, folderId,
+		AmountVerificationResponseDocument avrespd = cirilClient.getAmountVerification(getEsbProperty(END_POINT_RESERVATION), folderId,
 				externalFolderId, amountInCent, sessionId);
 		/**
 		 * define information we need in the map to easily get them in
@@ -961,13 +936,13 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	public void getPaymentValidation(String folderId, String externalFolderId, String returnType, String sessionId)
 			throws CvqException, ParseException
 	{ // return to the business soft the payment state
-		cirilClient.getPaymentReturnValidation(endPointReservation, folderId, externalFolderId, returnType, sessionId);
+		cirilClient.getPaymentReturnValidation(getEsbProperty(END_POINT_RESERVATION), folderId, externalFolderId, returnType, sessionId);
 	}
 
 	@Override
 	public void getCancelReservation(String sessionId) throws CvqException, ParseException
 	{ // cancel reservation on the busines soft
-		cirilClient.getCancelReservation(endPointReservation, sessionId);
+		cirilClient.getCancelReservation(getEsbProperty(END_POINT_RESERVATION), sessionId);
 	}
 
 	@Override
@@ -978,8 +953,8 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		logger.debug("Home folder id : " + homeFolderId);
 		logger.debug("external id : " + externalId);
 		logger.debug("params table size : " + params.size());
-		logger.debug("params endpoint_resa : " + endPointReservation);
-		logger.info("call : " + endPointReservation + " for : " + homeFolderId + " with : " + externalId);
+		logger.debug("params endpoint_resa : " + getEsbProperty(END_POINT_RESERVATION));
+		logger.info("call : " + getEsbProperty(END_POINT_RESERVATION) + " for : " + homeFolderId + " with : " + externalId);
 		Document docx = new Document();
 		SAXBuilder sax = new SAXBuilder();
 		if (params.containsKey("documentList"))
@@ -988,7 +963,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			ExternalDocumentReponseDocument edrd;
 			try
 			{
-				edrd = cirilClient.getExternalDocument(endPointReservation, homeFolderId, externalId);
+				edrd = cirilClient.getExternalDocument(getEsbProperty(END_POINT_RESERVATION), homeFolderId, externalId);
 				Reader in = new StringReader(edrd.toString());
 				docx = sax.build(in);
 			}
@@ -1029,14 +1004,14 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		String streetName = (String) params.get("streetName");
 		String city = (String) params.get("city");
 		String postalCode = (String) params.get("postalCode");
-		logger.info("call : " + endPointSchool + " for childId : " + codeEnfant + " with externalChildId : "
+		logger.info("call : " + getEsbProperty(END_POINT_SCHOOL) + " for childId : " + codeEnfant + " with externalChildId : "
 				+ codeExterneEnfant);
 		Document docx = new Document();
 		SAXBuilder sax = new SAXBuilder();
 		GetEcoleSecteurCalculeeResponseDocument edrd = null;
 		try
 		{
-			edrd = cirilClient.getChildSchool(endPointSchool, codeCommune, codeEnfant, codeExterneEnfant,
+			edrd = cirilClient.getChildSchool(getEsbProperty(END_POINT_SCHOOL), codeCommune, codeEnfant, codeExterneEnfant,
 					codeExterneFamille, codeFamille, codeBaseEleveNiveau, dateReferenceAnneeScolaire,
 					dateNaissanceEnfant, codeNiveau, streetName, city, postalCode);
 			logger.info("getChildSchool() : " + edrd.getGetEcoleSecteurCalculeeResponse());
@@ -1084,7 +1059,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	@Override
 	public boolean isServerStarted()
 	{
-		return cirilClient.isCirilServerStarted(endPointReservation);
+		return cirilClient.isCirilServerStarted(getEsbProperty(END_POINT_RESERVATION));
 	}
 
 	public void setRequestWorkflowService(IRequestWorkflowService requestWorkflowService)
@@ -1110,11 +1085,6 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	public void setExternalId(String externalId)
 	{
 		this.externalId = externalId;
-	}
-
-	public void setEndPointSchool(String endPointSchool)
-	{
-		this.endPointSchool = endPointSchool;
 	}
 
     public void setIndividualDAO(IIndividualDAO individualDAO) {
