@@ -34,9 +34,6 @@
             <p style="text-align:center">
               <a href="${createLink(action: 'activateAccount')}"  class="activate">${message(code:'agent.reset.action.activate')}</a>
             </p>
-            <p style="text-align:center">
-              ${message(code:'agent.reset.action.help')}
-            </p>
         </form>
     </div>
   </body>
