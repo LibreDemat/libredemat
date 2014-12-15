@@ -57,6 +57,11 @@
       yud.get('requestForm').submit();
     };
 
+    var orderSearch = function(event) {
+      yud.get('sortDir').value = yue.getTarget(event).id
+      yud.get('requestForm').submit()
+    }
+
     var filterSearchRequest = function(filterType) {
       yud.get('filterBy').value = [yud.get('filterBy').value, 
         '@', filterType, '=', yud.get(filterType).value].join('');
@@ -70,13 +75,13 @@
     return {
       init: function() {
         initCalendars();
-        //initSwitcher();
         displayPaginator();
-        yue.on(yus.query('input[type*=radio]'), 'click', 
+        yue.on(yus.query('#requestSearchSorters input[type*=radio]'), 'click',
           function(e) {
             sortSearchRequest(yue.getTarget(e).id);
           }
         );
+        yue.on(yus.query('#requestSearchOrder input[type="radio"]'), 'click', orderSearch);
         yue.on(yus.query('select[id*=Filter]'), 'change', 
           function(e) {
             filterSearchRequest(yue.getTarget(e).id);

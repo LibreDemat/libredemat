@@ -56,6 +56,24 @@
       </div>
 
       <div class="nobox">
+      <h3><g:message code="header.sortDir" /></h3>
+        <div class="body">
+          <form action="javascript:void(0)" id="requestSearchOrder">
+            <ul>
+              <li>
+                <label for="desc"><g:message code="search.descendent" /></label>
+                <input type="radio" name="order" id="desc" ${dir == 'desc' ? 'checked="checked"' : ''} />
+              </li>
+              <li>
+                <label for="asc"><g:message code="search.ascendent" /></label>
+                <input type="radio" name="order" id="asc" ${dir == 'asc' ? 'checked="checked"' : ''} />
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+
+      <div class="nobox">
         <h3><g:message code="header.filterBy" /></h3>
         <div class="body">
           <form action="#" id="requestSearchFilters">

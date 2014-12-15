@@ -13,6 +13,7 @@
     <input type="hidden" id="rowsPerPage" name="rowsPerPage" value="${results}" />
     <input type="hidden" id="sortBy" name="sortBy" value="${sortBy}" />
     <input type="hidden" id="filterBy" name="filterBy" value="${filterBy}" />
+    <input type="hidden" id="sortDir" name="dir" value="${dir}" />
 
     <div class="yui-g">
       <div class="yui-u first">

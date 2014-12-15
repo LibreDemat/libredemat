@@ -32,6 +32,7 @@ class BackofficeRequestController {
     def longKeys = ['id', 'homeFolderId']
     def dateKeys = ['creationDateFrom', 'creationDateTo']
     def defaultSortBy = 'creationDate'
+    def defaultSortDir = 'desc'
     def resultsPerPage = 15
     def beforeInterceptor = {
         session["currentMenu"] = "requests"
@@ -42,12 +43,12 @@ class BackofficeRequestController {
      * Called when first entering the search screen
      */
     def initSearch = {
-        if(session['filterBy'] || session['sortBy']) {
+        if(session['filterBy'] || session['sortBy'] || session['sortDir']) {
             redirect(action:search,params:['filterBy':session['filterBy']])
         }
         else {
         render(view:'search', 
-            model:['inSearch':false, 'sortBy':defaultSortBy,
+            model:['inSearch':false, 'sortBy':defaultSortBy, 'dir': defaultSortDir,
                    'filters':[:]].plus(initSearchReferential()))
         }
     }
@@ -122,9 +123,14 @@ class BackofficeRequestController {
             sortBy = params.sortBy
         else if(session['sortBy'])
             sortBy = session['sortBy']
-        
-        def sortDir = params.dir ? params.dir : 'desc'
-        
+
+        def sortDir = defaultSortDir
+        if (params.dir) {
+            sortDir = params.dir
+        } else if (session['sortDir']) {
+            sortDir = session['sortDir']
+        }
+
         // deal with pagination settings
         def results = params.results == null ? resultsPerPage : Integer.valueOf(params.results)
         def recordOffset = 
@@ -141,7 +147,8 @@ class BackofficeRequestController {
         
         session['filterBy'] = parsedFilters.filterBy
         session['sortBy'] = sortBy
-        
+        session['sortDir'] = sortDir
+
         render(view:'search', 
             model:['records':recordsList,
                    'recordsReturned':requests.size(),
@@ -182,6 +189,7 @@ class BackofficeRequestController {
 
         session['filterBy'] = [:]
         session['sortBy'] = defaultSortBy
+        session['sortDir'] = defaultSortDir
 
         // TODO deal with pagination
         render(view : 'search', model:['records' : recordsList,
@@ -191,6 +199,7 @@ class BackofficeRequestController {
                    'filterBy' : [:],
                    'recordOffset' : 0,
                    'sortBy' : defaultSortBy,
+                   'dir': defaultSortDir,
                    'inSearch' : true,
                    'results' : 100
                    ].plus(initSearchReferential()))
