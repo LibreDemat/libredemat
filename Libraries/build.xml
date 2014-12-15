@@ -17,6 +17,7 @@
         <include name="LibreDemat-Plugin-ExternalServices-Edemande-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-Horanet-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-Clever-*.jar" />
+        <include name="LibreDemat-Plugin-ExternalServices-OvhSms-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-PaylineV4-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-Spplus-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-SystemPay-*.jar" />

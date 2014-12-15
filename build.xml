@@ -56,6 +56,7 @@
     <ant dir="${plugins.externalservices.datacomsys.dir}" target="clean" />
     <ant dir="${plugins.externalservices.digitech.dir}" target="clean" />
     <ant dir="${plugins.externalservices.cirilelections.dir}" target="clean" />
+    <ant dir="${plugins.externalservices.ovhsms.dir}" target="clean" />
   </target>
     
   <target name="prepare-configfiles-model" depends="init">
@@ -148,6 +149,7 @@
     <ant dir="${plugins.externalservices.clever.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.digitech.dir}" target="deploy" />
     <ant dir="${plugins.externalservices.cirilelections.dir}" target="deploy" />
+    <ant dir="${plugins.externalservices.ovhsms.dir}" target="deploy" />
   </target>
 
   <target name="deploy-plugin-paylineV4" depends="compile-model">
@@ -214,7 +216,11 @@
     <ant dir="${plugins.externalservices.cirilelections.dir}" target="deploy" />
   </target>
 
-    <!-- ================================================================================= -->
+  <target name="deploy-plugin-ovhsms" depends="compile-model">
+    <ant dir="${plugins.externalservices.ovhsms.dir}" target="deploy" />
+  </target>
+
+  <!-- ================================================================================= -->
   <!-- ======================= WEBAPPS PREPARATION TARGETS ============================= -->
   <!-- ================================================================================= -->
 
