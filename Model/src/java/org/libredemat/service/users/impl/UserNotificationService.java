@@ -76,11 +76,7 @@ public class UserNotificationService implements IUserNotificationService, Applic
     @Override
     public void notifyBySms(String to, String body)
         throws CvqException {
-        if (smsService.isEnabled()) {
-            smsService.send(to, body);
-        } else {
-            throw new CvqException("sms_service.not.enabled");
-        }
+        smsService.send(to, body);
     }
 
     @Override

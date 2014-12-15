@@ -165,10 +165,10 @@
           </bean>
         </entry>
         -->
-
+        <!--
         <entry>
           <key>
-            <ref bean="fakeExternalService" />
+            <ref bean="cleverExternalService" />
           </key>
           <bean class="org.libredemat.external.ExternalServiceBean">
             <property name="requestTypes">
@@ -185,19 +185,22 @@
             <property name="serviceProperties">
               <map>
                 <entry>
-                  <key><value>sendHomeFolderCreation</value></key>
-                  <value>true</value>
+                  <key><value>endportpath</value></key>
+                  <value>http://services.clever.fr/cleversms/ws</value>
                 </entry>
                 <entry>
-                  <key><value>returnError</value></key>
-                  <value>false</value>
+                  <key><value>username</value></key>
+                  <value>toto</value>
+                </entry>
+                <entry>
+                  <key><value>password</value></key>
+                  <value>titi</value>
                 </entry>
               </map>
             </property>
-            <property name="login" value="fakeExternalService"/>
-            <property name="password" value="abcd"/>
           </bean>
         </entry>
+        -->
         <entry>
           <key>
             <ref bean="fakePointExternalService" />

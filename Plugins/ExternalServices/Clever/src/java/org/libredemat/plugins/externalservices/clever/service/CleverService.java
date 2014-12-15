@@ -12,6 +12,7 @@ import java.util.Set;
 
 import javax.xml.rpc.ServiceException;
 
+import cleversms.services.soap.*;
 import org.apache.log4j.Logger;
 import org.apache.xmlbeans.XmlObject;
 import org.libredemat.business.payment.ExternalAccountItem;
@@ -24,27 +25,22 @@ import org.libredemat.exception.CvqConfigurationException;
 import org.libredemat.exception.CvqException;
 import org.libredemat.external.ExternalServiceBean;
 import org.libredemat.external.impl.ExternalProviderServiceAdapter;
-import org.libredemat.plugins.externalservices.clever.service.CleverService;
 import org.libredemat.service.request.ILocalReferentialService;
 import org.libredemat.service.request.IRequestService;
 import org.libredemat.service.users.IUserSearchService;
+import org.libredemat.util.sms.ISmsProviderService;
 import org.libredemat.xml.common.LocalReferentialDataType;
 import org.libredemat.xml.request.leisure.SmsNotificationRequestDocument;
 
 import cleversms.services.CleverSMSServiceProvider;
-import cleversms.services.soap.CleverSMSContactSEI;
-import cleversms.services.soap.Contact;
-import cleversms.services.soap.ContactNotFoundException;
-import cleversms.services.soap.ExtendValue;
 
-public class CleverService extends ExternalProviderServiceAdapter {
+public class CleverService extends ExternalProviderServiceAdapter implements ISmsProviderService{
     private static Logger logger = Logger.getLogger(CleverService.class);
     
     private static final String YES_LABEL = "oui";
     private static final String NO_LABEL = "non";
     private String label;
 
-    private CleverSMSServiceProvider provider;
     private ILocalReferentialService localReferentialService;
     private IRequestService smsNotificationRequestService;
     private IUserSearchService userSearchService;
@@ -53,6 +49,50 @@ public class CleverService extends ExternalProviderServiceAdapter {
     private String username;
     private String password;
 
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public void send(String number, String message) throws CvqException {
+        try {
+            CleverSMSServiceProvider provider = new CleverSMSServiceProvider(
+                    endportpath, username, password);
+
+            CleverSMSMessageSEI smsMessageService = provider.getMessageService();
+            SmsMessage smsMessage = new SmsMessage();
+            smsMessage.setMessage(message);
+            // Hack to send internationalized phone numbers
+            if (number.startsWith("06")) {
+                smsMessage.setNumber("+33" + number.substring(1));
+            } else {
+                smsMessage.setNumber(number);
+            }
+
+            logger.debug("send() gonna send message " + message 
+                    + " to " + number);
+            smsMessageService.sendSMSMessage(smsMessage);
+
+        } catch (ServiceException se) {
+            logger.error("send() service exception : " + se.getMessage());
+            se.printStackTrace();
+            throw new CvqException("sms.technical_problem");
+        } catch (InvalidNumberException ine) {
+            logger.error("send() invalid number exception : " + ine.getMessage());
+            ine.printStackTrace();            
+            throw new CvqException("sms.invalid_number");
+        } catch (NotEnoughCreditException nece) {
+            logger.error("send() not enough credit exception : " + nece.getMessage());
+            nece.printStackTrace();
+            throw new CvqException("sms.not_enough_credit");
+        } catch (RemoteException re) {
+            logger.error("send() remote exception : " + re.getMessage());
+            re.printStackTrace();
+            throw new CvqException("sms.technical_problem");
+        }
+    }
+
     public String sendRequest(XmlObject requestXml) throws CvqException {
         try {
 
@@ -60,9 +100,9 @@ public class CleverService extends ExternalProviderServiceAdapter {
                 logger.warn("sendRequest() received an un-managed request type, ignoring it");
                 return null;
             }
-            
+
             // CleverSMS Service Provider
-            provider = new CleverSMSServiceProvider(endportpath, username, password);
+            CleverSMSServiceProvider provider = new CleverSMSServiceProvider(endportpath, username, password);
             CleverSMSContactSEI contactService = provider.getContactService();
 
             SmsNotificationRequestDocument snr = (SmsNotificationRequestDocument) requestXml;
@@ -148,6 +188,13 @@ public class CleverService extends ExternalProviderServiceAdapter {
 
     public void checkConfiguration(ExternalServiceBean externalServiceBean, String localAuthorityName)
             throws CvqConfigurationException {
+        try {
+            this.username = externalServiceBean.getProperty("username").toString();
+            this.password = externalServiceBean.getProperty("password").toString();
+            this.endportpath = externalServiceBean.getProperty("endportpath").toString();
+        } catch (NullPointerException npe) {
+            throw new CvqConfigurationException("NPE - CleverSmsService should be configured with : [username, password, endportpath]");
+        }
     }
 
     public void creditHomeFolderAccounts(Collection purchaseItems, String cvqReference,
@@ -185,18 +232,6 @@ public class CleverService extends ExternalProviderServiceAdapter {
 
     public void setLabel(String label) {
         this.label = label;
-    }
-
-    public void setEndportpath(String endportpath) {
-        this.endportpath = endportpath;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public void setLocalReferentialService(ILocalReferentialService localReferentialService) {

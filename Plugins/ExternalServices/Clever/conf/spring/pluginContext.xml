@@ -10,15 +10,6 @@
     <property name="localReferentialService" ref="localReferentialService"/>
     <property name="smsNotificationRequestService" ref="smsNotificationRequestService" />
     <property name="userSearchService" ref="userSearchService" />
-    <property name="endportpath">
-      <value>${plugins.externalservices.clever.endportpath}</value>
-    </property>
-    <property name="username">
-      <value>${plugins.externalservices.clever.username}</value>
-    </property>
-    <property name="password">
-      <value>${plugins.externalservices.clever.password}</value>
-    </property>
   </bean>
   
 </beans>

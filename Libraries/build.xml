@@ -16,6 +16,7 @@
     <fileset id="libredemat-plugins" dir="${deploy.plugins.dir}">
         <include name="LibreDemat-Plugin-ExternalServices-Edemande-*.jar" />
         <include name="LibreDemat-Plugin-ExternalServices-Horanet-*.jar" />
+        <include name="LibreDemat-Plugin-ExternalServices-Clever-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-PaylineV4-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-Spplus-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-SystemPay-*.jar" />
@@ -55,6 +56,7 @@
             <fileset dir="${xmlbean.lib.dir}" />
             <fileset dir="${mail.lib.dir}" />
             <fileset dir="${postgresql.jdbc.lib.dir}" />
+            <fileset dir="${cleversms.lib.dir}" />
             <fileset dir="${quartz.lib.dir}" />
             <fileset dir="${mime-util.lib.dir}" />
             <fileset dir="${pdfbox.lib.dir}" />

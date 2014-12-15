@@ -7,8 +7,10 @@ import org.libredemat.exception.CvqException;
  *
  * @author bor@zenexity.fr
  */
-public interface ISmsService {
+public interface ISmsProviderService {
 
     void send(final String number, final String message)
         throws CvqException;
+
+    boolean isEnabled();
 }

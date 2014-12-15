@@ -44,12 +44,6 @@ document.upload.maxSize = 0
 plugins.csvimporters.concerto.enableSummaryEmail=false
 plugins.csvimporters.concerto.summaryEmailRecipients=cartevaloise@valdoise.fr
 
-# ExternalServices - Clever
-plugins.externalservices.clever.endportpath=http://services.clever.fr/cleversms/ws
-plugins.externalservices.clever.username=toto
-plugins.externalservices.clever.password=titi
-plugins.externalservices.clever.enabled=false
-
 # ExternalServices - Horanet
 plugins.externalservices.horanet.end_point=http://80.118.178.14/WebServiceCG95/CVQ.asmx
 plugins.externalservices.horanet.end_point2=http://80.118.178.14/WebServiceCG95/CVQ2.asmx
