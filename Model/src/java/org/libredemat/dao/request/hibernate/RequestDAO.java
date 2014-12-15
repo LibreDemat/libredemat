@@ -48,8 +48,11 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
     public List<Request> search(final Set<Critere> criteria, final String sort, String dir, 
         int recordsReturned, int startIndex, final boolean full) {
 
+        StringBuffer sbSelect = new StringBuffer();
+        sbSelect.append("select distinct request from RequestData as request");
+
         StringBuffer sb = new StringBuffer();
-        sb.append("from RequestData as request").append(" where 1 = 1 ");
+        sb.append(" where 1 = 1 ");
 
         List<Object> parametersValues = new ArrayList<Object>();
         List<Type> parametersTypes = new ArrayList<Type>();
@@ -189,6 +192,11 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
                         + searchCrit.getComparatif() + " ?");
                 parametersValues.add(searchCrit.getLongValue());
                 parametersTypes.add(Hibernate.LONG);
+            } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_AGENT)) {
+                sbSelect.append(" join request.actions action");
+                sb.append(" and action.agentId " +searchCrit.getComparatif() + " ?");
+                parametersValues.add(searchCrit.getLongValue());
+                parametersTypes.add(Hibernate.LONG);
             }
         }
         
@@ -218,8 +226,9 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
 
         if (dir != null && dir.equals("desc"))
             sb.append(" desc");
-        
-        Query query = HibernateUtil.getSession().createQuery(sb.toString());
+
+        sbSelect.append(sb);
+        Query query = HibernateUtil.getSession().createQuery(sbSelect.toString());
         query.setParameters(parametersValues.toArray(), parametersTypes.toArray(new Type[0]));
         
         if (recordsReturned > 0)
@@ -238,9 +247,10 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
     protected Long searchCount(final Set<Critere> criteria) {
 
         StringBuffer sbSelect = new StringBuffer();
-        sbSelect.append("select count(*) from RequestData as request");
+        sbSelect.append("select count( distinct request ) from RequestData as request");
 
-        StringBuffer sb = new StringBuffer(" where 1 = 1 ");
+        StringBuffer sb = new StringBuffer();
+        sb.append(" where 1 = 1 ");
 
         List<Type> typeList = new ArrayList<Type>();
         List<Object> objectList = new ArrayList<Object>();
@@ -388,6 +398,11 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_SEASON_ID)) {
                 sb.append(" and request.requestSeason.id "
                     + searchCrit.getComparatif() + " ?");
+                objectList.add(searchCrit.getLongValue());
+                typeList.add(Hibernate.LONG);
+            } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_AGENT)) {
+                sbSelect.append(" join request.actions action");
+                sb.append(" and action.agentId " +searchCrit.getComparatif() + " ?");
                 objectList.add(searchCrit.getLongValue());
                 typeList.add(Hibernate.LONG);
             }

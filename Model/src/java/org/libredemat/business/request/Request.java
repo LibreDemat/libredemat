@@ -41,6 +41,7 @@ public class Request implements Serializable {
     public static final String SEARCH_BY_QUALITY_TYPE = "qualityType";
     public static final String SEARCH_BY_RESULTING_STATE = "resultingState";
     public static final String SEARCH_BY_MODIFICATION_DATE = "modificationDate";
+    public static final String SEARCH_BY_AGENT = "agent";
     public static final String QUALITY_TYPE_OK = "qualityTypeOk";
     public static final String QUALITY_TYPE_ORANGE = "qualityTypeOrange";
     public static final String QUALITY_TYPE_RED = "qualityTypeRed";

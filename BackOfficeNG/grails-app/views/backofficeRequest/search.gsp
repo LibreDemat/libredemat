@@ -119,6 +119,16 @@
                 <g:message code="request.property.orangeAlert"/>
               </option>
             </select>
+
+            <label for="agentFilter"><g:message code="request.property.agent" /> :</label>
+            <select id="agentFilter">
+              <option value=""><g:message code="search.filter.defaultValue"/></option>
+              <g:each in="${allAgents}" var="agent">
+                <option value="${agent.id}" ${filters['agentFilter'] == agent.id.toString() ? 'selected' : ''}>
+                  ${agent.getLastName() != null ? agent.getLastName() + " " + agent.getFirstName() : agent.getLogin()}
+                </option>
+              </g:each>
+            </select>
             
           </form>
         </div>
