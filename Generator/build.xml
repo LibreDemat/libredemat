@@ -34,6 +34,7 @@
       <include name="BirthDetailsRequest.xsd" />
       <include name="BulkyWasteCollectionRequest.xsd" />
       <include name="CompostableWasteCollectionRequest.xsd" />
+      <include name="ConflansMunicipalWasteRequest.xsd" />
       <include name="ChildCareCenterRegistrationRequest.xsd" />
       <include name="DayCareCenterRegistrationRequest.xsd" />
       <include name="DeathDetailsRequest.xsd" />

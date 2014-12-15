@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
+    <data name="Conteneur" allowMultipleChoices="true" manager="LibreDémat">
+        <label>Type de l'habitation</label>
+        <entries>
+            <entry key="Premiere-demande">
+                <label>Première demande</label>
+                <message/>
+                <entries>
+                    <entry key="Premiere-demande-Ordures-menageres">
+                        <label>Ordures ménagères</label>
+                        <message/>
+                    </entry>
+                    <entry key="Premiere-demande-Emballages">
+                        <label>Emballages</label>
+                        <message/>
+                    </entry>
+                    <entry key="Premiere-demande-Verre">
+                        <label>Verre</label>
+                        <message/>
+                    </entry>
+                    <entry key="Premiere-demande-Composteur">
+                        <label>Composteur</label>
+                        <message/>
+                    </entry>
+                </entries>
+            </entry>
+            <entry key="Renouvellement">
+                <label>Renouvellement / Réparation</label>
+                <message/>
+                <entries>
+                    <entry key="Renouvellement-Ordures-menageres">
+                        <label>Ordures ménagères</label>
+                        <message/>
+                    </entry>
+                    <entry key="Renouvellement-Emballages">
+                        <label>Emballages</label>
+                        <message/>
+                    </entry>
+                    <entry key="Renouvellement-Verre">
+                        <label>Verre</label>
+                        <message/>
+                    </entry>
+                    <entry key="Renouvellement-Composteur">
+                        <label>Composteur</label>
+                        <message/>
+                    </entry>
+                </entries>
+            </entry>
+        </entries>
+    </data>
+    <data name="Quartier" allowMultipleChoices="false" manager="LibreDémat">
+        <label>Quartier</label>
+        <entries>
+            <entry key="Basses-Roches">
+                <label>Basses Roches</label>
+                <message/>
+                <externalCode/>
+            </entry>
+            <entry key="Vieux-Conflans">
+                <label>Vieux Conflans</label>
+                <message/>
+                <externalCode/>
+            </entry>
+        </entries>
+    </data>
+</LocalReferential>

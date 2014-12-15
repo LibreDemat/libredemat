@@ -890,6 +890,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 
 
 
+  <bean id="conflansMunicipalWasteRequestService"
+    class="org.libredemat.service.request.environment.impl.ConflansMunicipalWasteRequestService"
+    parent="requestService">
+    <property name="label" value="Conflans Municipal Waste"/>
+    <property name="localReferentialFilename" value="local_referential_cmwr"/>
+    <property name="defaultDisplayGroup" value="environment" />
+  </bean>
+
   <bean id="displayGroupService" class="org.libredemat.service.request.impl.DisplayGroupService">
     <property name="genericDAO" ref="genericDAO" />
     <property name="requestTypeDAO" ref="requestTypeDAO" />

@@ -1,0 +1,630 @@
+<xs:schema targetNamespace="http://www.libredemat.org/schema/cmwr" 
+  xmlns:cmwr="http://www.libredemat.org/schema/cmwr"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:cvq="http://www.libredemat.org/schema/common"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://www.libredemat.org/schema/common" schemaLocation="../common/CVQCommonElements.xsd" />
+
+  <xs:element name="ConflansMunicipalWasteRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Demande de conteneurs / composteurs
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Demande de conteneurs / composteurs
+      </xs:documentation>
+      <xs:appinfo>
+        <model namespace="environment" />
+        <common>
+          <namespace name="environment" />
+          <steps>
+            <step index="0" name="informations">
+                <conditions>
+                    <condition name="estParticulier" />
+                </conditions>
+            </step>
+            <step index="1" ref="document" />
+            <step index="2" ref="validation" />
+            <step index="3" ref="administration" />
+          </steps>
+        </common>
+      </xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="cvq:RequestType">
+          <xs:sequence>
+
+            <!--        STEP 0 : INFORMATIONS       -->
+            
+            <xs:element name="ProfilDemandeur" type="cmwr:CmwrProfilDemandeurType" default="Particulier">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Vous êtes un
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  Vous êtes un
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="informations" />
+                    <conditions>
+                        <condition name="estParticulier" type="trigger" />
+                    </conditions>
+                  </common>
+                  <fo>
+                    <radio />
+                  </fo>
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="NomOrganisation">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Organisme ou propriétaire
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  Organisme ou propriétaire
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="informations" />
+                    <validation jsregexp="^[\w\W]{0,255}$" />
+                    <conditions>
+                        <condition name="estParticulier" type="unfilled" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="^[\w\W]{0,255}$" />
+                  <xs:length value="255" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="AdresseOrganisation" type="cvq:AddressType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Adresse de l'organisation
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  Adresse de l'organisation
+                </xs:documentation>
+                <xs:appinfo>
+                 <model namespace="users" isTiedToRequest="true" />
+                  <common>
+                    <step name="informations" />
+                    <conditions>
+                        <condition name="estParticulier" type="unfilled" />
+                    </conditions>
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="NombreResidants">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Nombre de personnes résidant à cette adresse
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  Nombre de personnes résidant à cette adresse
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="informations" />
+                    <validation jsregexp="^[\w\W]{0,255}$" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="^[\w\W]{0,255}$" />
+                  <xs:length value="255" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="TypeHabitation" type="cmwr:CmwrTypeHabitationType" default="Pavillon">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Type de l'habitation
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  Type de l'habitation
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="informations" />
+                  </common>
+                  <fo>
+                    <radio />
+                  </fo>
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="Conteneur" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Type de conteneur
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  Type de conteneur
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step name="informations" />
+                  </common>
+                  <fo />
+                  <bo column="2" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="PrecisionsReparation" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  En cas de réparation, précisez le type (cuve, couvercle, roue, autre...)
+                </xs:documentation>
+                <xs:documentation xml:lang="fr"
+                  source="http://www.libredemat.org/schema/shortdesc">
+                  En cas de réparation, précisez le type (cuve, couvercle, roue, autre...)
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="informations" />
+                    <validation jsregexp="^[\w\W]{0,1024}$" />
+                  </common>
+                  <fo>
+                    <textarea rows="4" />
+                  </fo>
+                  <bo column="2" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[\w\W]{0,1024}" />
+                  <xs:length value="1024" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="Quartier" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Quartier
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Quartier
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step ref="administration" />
+                  </common>
+                  <bo column="1" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="VolumesOm" type="cmwr:CmwrVolumesOmType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Ordures Ménagères (OM)
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Ordures Ménagères (OM)
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step ref="administration" />
+                  </common>
+                  <bo column="1" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="VolumesTri" type="cmwr:CmwrVolumesTriType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Tri
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Tri
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step ref="administration" />
+                  </common>
+                  <bo column="2" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="VolumesVerre" type="cmwr:CmwrVolumesVerreType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Verre
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Verre
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step ref="administration" />
+                  </common>
+                  <bo column="1" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="TailleComposteur" type="cmwr:CmwrTailleComposteurType">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Composteur
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Composteur
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step ref="administration" />
+                  </common>
+                  <bo column="2" />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:simpleType name="CmwrProfilDemandeurType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Profil du demandeur
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Profil du demandeur
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
+        <enum key="Particulier" value="Particulier" />
+        <enum key="Bailleur" value="Bailleur" />
+        <enum key="Syndic" value="Syndic" />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Particulier" />
+      <xs:enumeration value="Bailleur" />
+      <xs:enumeration value="Syndic" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CmwrTypeHabitationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Type de l'habitation
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Type de l'habitation
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
+        <enum key="Pavillon" value="Pavillon" />
+        <enum key="Commerce" value="Commerce" />
+        <enum key="Immeuble" value="Immeuble" />
+        <enum key="Industriel" value="Industriel" />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pavillon" />
+      <xs:enumeration value="Commerce" />
+      <xs:enumeration value="Immeuble" />
+      <xs:enumeration value="Industriel" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CmwrVolumesOmType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Volumes OM
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Volumes OM
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OmCentVingtLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            120 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            120 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OmDeuxCentQuaranteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            240 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            240 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OmTroisCentQuaranteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            340 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            340 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OmSixCentSoixanteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            660 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            660 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CmwrVolumesTriType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Volumes Tri
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Volumes Tri
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TriCentVingtLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            120 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            120 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TriDeuxCentQuaranteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            240 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            240 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TriTroisCentQuaranteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            340 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            340 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TriSixCentSoixanteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            660 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            660 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CmwrVolumesVerreType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Volumes Verre
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Volumes Verre
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="VerreTrenteCinqLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            35 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            35 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerreCentVingtLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            120 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            120 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerreDeuxCentQuaranteLitres" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            240 L
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            240 L
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CmwrTailleComposteurType">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Taille Composteur
+      </xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Taille Composteur
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ComposteurPetit" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            Petit
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            Petit
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ComposteurGrand" type="xs:positiveInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+            Grand
+          </xs:documentation>
+          <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+            Grand
+          </xs:documentation>
+          <xs:appinfo>
+           <common>
+             <step name="administration" />
+           </common>
+           <bo />
+           <pdf />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

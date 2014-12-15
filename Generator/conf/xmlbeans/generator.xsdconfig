@@ -229,4 +229,9 @@
     <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
+  <!-- Conflans Municipal Waste Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/cmwr">
+    <xb:package>org.libredemat.xml.request.environment</xb:package>
+  </xb:namespace>
+
 </xb:config>

@@ -59,6 +59,21 @@
     alter table compostable_waste_collection_request_compostable_waste_type 
         drop constraint FK765E424B15569E14;
 
+    alter table conflans_municipal_waste_request 
+        drop constraint FK49CC15BC79FCFCD;
+
+    alter table conflans_municipal_waste_request_conteneur 
+        drop constraint FK2465E5C483DA04E6;
+
+    alter table conflans_municipal_waste_request_conteneur 
+        drop constraint FK2465E5C4D3F8ADAB;
+
+    alter table conflans_municipal_waste_request_quartier 
+        drop constraint FK20F08FDA83DA04E6;
+
+    alter table conflans_municipal_waste_request_quartier 
+        drop constraint FK20F08FDA3AC38F7B;
+
     alter table dhr_not_real_asset 
         drop constraint FK2BA9F1ECEB2E1636;
 
@@ -545,6 +560,12 @@
     drop table compostable_waste_collection_request cascade;
 
     drop table compostable_waste_collection_request_compostable_waste_type cascade;
+
+    drop table conflans_municipal_waste_request cascade;
+
+    drop table conflans_municipal_waste_request_conteneur cascade;
+
+    drop table conflans_municipal_waste_request_quartier cascade;
 
     drop table day_care_center_registration_request cascade;
 
@@ -1082,6 +1103,44 @@
         compostable_waste_type_id int8 not null,
         compostable_waste_type_index int4 not null,
         primary key (compostable_waste_collection_request_id, compostable_waste_type_index)
+    );
+
+    create table conflans_municipal_waste_request (
+        id int8 not null,
+        composteur_grand bytea,
+        composteur_petit bytea,
+        nom_organisation varchar(255),
+        nombre_residants varchar(255),
+        om_cent_vingt_litres bytea,
+        om_deux_cent_quarante_litres bytea,
+        om_six_cent_soixante_litres bytea,
+        om_trois_cent_quarante_litres bytea,
+        precisions_reparation varchar(1024),
+        profil_demandeur varchar(255),
+        tri_cent_vingt_litres bytea,
+        tri_deux_cent_quarante_litres bytea,
+        tri_six_cent_soixante_litres bytea,
+        tri_trois_cent_quarante_litres bytea,
+        type_habitation varchar(255),
+        verre_cent_vingt_litres bytea,
+        verre_deux_cent_quarante_litres bytea,
+        verre_trente_cinq_litres bytea,
+        adresse_organisation_id int8,
+        primary key (id)
+    );
+
+    create table conflans_municipal_waste_request_conteneur (
+        conflans_municipal_waste_request_id int8 not null,
+        conteneur_id int8 not null,
+        conteneur_index int4 not null,
+        primary key (conflans_municipal_waste_request_id, conteneur_index)
+    );
+
+    create table conflans_municipal_waste_request_quartier (
+        conflans_municipal_waste_request_id int8 not null,
+        quartier_id int8 not null,
+        quartier_index int4 not null,
+        primary key (conflans_municipal_waste_request_id, quartier_index)
     );
 
     create table day_care_center_registration_request (
@@ -2296,17 +2355,17 @@
         external_item_id varchar(255),
         external_notification_status varchar(32),
         external_service_label varchar(255),
-        old_value float8,
-        old_value_date timestamp,
+        expiration_date timestamp,
+        invoiceurl TEXT,
+        is_paid bool,
+        issue_date timestamp,
+        payment_date timestamp,
         key varchar(255),
         key_owner varchar(255),
         quantity int4,
         unit_price float8,
-        expiration_date timestamp,
-        invoiceUrl TEXT,
-        is_paid bool,
-        issue_date timestamp,
-        payment_date timestamp,
+        old_value float8,
+        old_value_date timestamp,
         creation_date timestamp,
         max_buy int4,
         min_buy int4,
@@ -3118,6 +3177,31 @@
         add constraint FK765E424B15569E14 
         foreign key (compostable_waste_collection_request_id) 
         references compostable_waste_collection_request;
+
+    alter table conflans_municipal_waste_request 
+        add constraint FK49CC15BC79FCFCD 
+        foreign key (adresse_organisation_id) 
+        references address;
+
+    alter table conflans_municipal_waste_request_conteneur 
+        add constraint FK2465E5C483DA04E6 
+        foreign key (conflans_municipal_waste_request_id) 
+        references conflans_municipal_waste_request;
+
+    alter table conflans_municipal_waste_request_conteneur 
+        add constraint FK2465E5C4D3F8ADAB 
+        foreign key (conteneur_id) 
+        references local_referential_data;
+
+    alter table conflans_municipal_waste_request_quartier 
+        add constraint FK20F08FDA83DA04E6 
+        foreign key (conflans_municipal_waste_request_id) 
+        references conflans_municipal_waste_request;
+
+    alter table conflans_municipal_waste_request_quartier 
+        add constraint FK20F08FDA3AC38F7B 
+        foreign key (quartier_id) 
+        references local_referential_data;
 
     alter table dhr_not_real_asset 
         add constraint FK2BA9F1ECEB2E1636 
