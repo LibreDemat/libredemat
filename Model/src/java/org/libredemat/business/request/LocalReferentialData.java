@@ -214,4 +214,9 @@ public class LocalReferentialData implements Serializable {
             return 42 * name.hashCode();
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

@@ -166,4 +166,6 @@ form.editable-list-form .calendarLink img { margin: 0; }
 }
 
 
-
+/* Buttons outside form
+------------------------------------------------------------- */
+.noform-button { margin: 10px 0 0 9px; }

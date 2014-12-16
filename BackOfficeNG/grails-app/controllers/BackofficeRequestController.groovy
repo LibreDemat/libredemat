@@ -24,6 +24,7 @@ class BackofficeRequestController {
     def translationService
     def requestAdaptorService
     def localAuthorityRegistry
+    def requestCsvAdaptorService
     
     def defaultAction = 'initSearch'
     // keys supported in advanced search screen : match with keys defined in Request.java
@@ -57,7 +58,63 @@ class BackofficeRequestController {
      * Called (synchronously) when performing a search
      */
     def search = {
-       
+
+        def (criteria, parsedFilters, sortBy, sortDir) = prepareSearch(request)
+
+        def requestSeasons = null
+        if (parsedFilters.filters.get("requestTypeIdFilter") != null) {
+            requestSeasons = requestTypeService.getRequestSeasons(Long.valueOf(parsedFilters.filters.get("requestTypeIdFilter")))
+        }
+
+        // deal with pagination settings
+        def results = params.results == null ? resultsPerPage : Integer.valueOf(params.results)
+        def recordOffset =
+            (params.recordOffset == "" || params.recordOffset == null) ? 0 : Integer.valueOf(params.recordOffset)
+
+        // now, perform the search request
+        def requests = requestSearchService.get(criteria, sortBy, sortDir, results, recordOffset, false)
+        def recordsList = requests.collect { requestAdaptorService.prepareRecordForSummaryView(it) }
+
+        session['filterBy'] = parsedFilters.filterBy
+        session['sortBy'] = sortBy
+
+        render(view: 'search',
+            model:['records': recordsList,
+                   'recordsReturned': requests.size(),
+                   'totalRecords': requestSearchService.getCount(criteria),
+                   'filters': parsedFilters.filters,
+                   'filterBy': parsedFilters.filterBy,
+                   'recordOffset': recordOffset,
+                   'sortBy': sortBy,
+                   'dir': sortDir,
+                   'inSearch': true,
+                   'allRequestSeasons': requestSeasons,
+                   'requestTypeFilterFilled': checkIfRequestTypeFilterIsFilled(parsedFilters),
+                   'results': results].plus(initSearchReferential()))
+    }
+
+    def exportCsv = {
+
+        def (criteria, parsedFilters, sortBy, sortDir) = prepareSearch(request)
+        def requests = requestSearchService.get(criteria, sortBy, sortDir, -1, 0, true)
+
+        if (requests.empty) {
+            flash.errorMessage = message("code": "request.exportCsv.error.noresult")
+            search()
+        } else if (!checkIfRequestTypeFilterIsFilled(parsedFilters)) {
+            flash.errorMessage = message("code": "request.exportCsv.error.nofilter")
+            search()
+        } else {
+            response.setHeader("Content-disposition", "attachment; filename=export-demandes.csv")
+            response.contentType = "text/csv"
+            response.outputStream.withWriter('ISO-8859-1') { writer ->
+                requestCsvAdaptorService.exportRequestAsCsv(requests, writer)
+            }
+        }
+    }
+
+    def prepareSearch(request) {
+
         // deal with search criteria
         Set<Critere> criteria = new HashSet<Critere>()
         params.each { key,value ->
@@ -83,10 +140,9 @@ class BackofficeRequestController {
                 criteria.add(critere)
             }
         }
-        
+
         // deal with dynamic filters
         def hasStateFilter = false
-        def requestSeasons
         def parsedFilters = SearchUtils.parseFilters(params.filterBy)
         parsedFilters.filters.each { key, value ->
             Critere critere = new Critere()
@@ -102,9 +158,6 @@ class BackofficeRequestController {
             } else
                 critere.value = Long.valueOf(value)
             criteria.add(critere)
-
-            if (key == 'requestTypeIdFilter')
-                requestSeasons = requestTypeService.getRequestSeasons(Long.valueOf(value))
         }
         if (!hasStateFilter) {
             Critere critere = new Critere()
@@ -114,9 +167,8 @@ class BackofficeRequestController {
             criteria.add(critere)
         }
         // in all cases, do not display draft requests
-        criteria.add(new Critere(Request.SEARCH_BY_STATE, RequestState.DRAFT,
-            Critere.NEQUALS))
-        
+        criteria.add(new Critere(Request.SEARCH_BY_STATE, RequestState.DRAFT, Critere.NEQUALS))
+
         // deal with dynamic sorts
         def sortBy = defaultSortBy
         if(params.sortBy)
@@ -124,43 +176,9 @@ class BackofficeRequestController {
         else if(session['sortBy'])
             sortBy = session['sortBy']
 
-        def sortDir = defaultSortDir
-        if (params.dir) {
-            sortDir = params.dir
-        } else if (session['sortDir']) {
-            sortDir = session['sortDir']
-        }
+        def sortDir = params.dir ? params.dir : 'desc'
 
-        // deal with pagination settings
-        def results = params.results == null ? resultsPerPage : Integer.valueOf(params.results)
-        def recordOffset = 
-            (params.recordOffset == "" || params.recordOffset == null) ? 0 : Integer.valueOf(params.recordOffset)        
-            
-        // now, perform the search request
-        def requests =
-            requestSearchService.get(criteria, sortBy, sortDir, results, recordOffset, false)
-        def recordsList = []
-        requests.each {
-            def record = requestAdaptorService.prepareRecordForSummaryView(it)
-            recordsList.add(record)
-        }
-        
-        session['filterBy'] = parsedFilters.filterBy
-        session['sortBy'] = sortBy
-        session['sortDir'] = sortDir
-
-        render(view:'search', 
-            model:['records':recordsList,
-                   'recordsReturned':requests.size(),
-                   'totalRecords':requestSearchService.getCount(criteria),
-                   'filters':parsedFilters.filters,
-                   'filterBy':parsedFilters.filterBy,
-                   'recordOffset':recordOffset,
-                   'sortBy':sortBy,
-                   'dir':sortDir,
-                   'inSearch':true,
-                   'allRequestSeasons':requestSeasons,
-                   'results':results].plus(initSearchReferential()))
+        return [criteria, parsedFilters, sortBy, sortDir]
     }
 
     def initSearchReferential() {
@@ -203,5 +221,9 @@ class BackofficeRequestController {
                    'inSearch' : true,
                    'results' : 100
                    ].plus(initSearchReferential()))
+    }
+
+    private def checkIfRequestTypeFilterIsFilled(parsedFilters) {
+        parsedFilters.get("filters") != null && parsedFilters.get("filters").containsKey("requestTypeIdFilter")
     }
 }

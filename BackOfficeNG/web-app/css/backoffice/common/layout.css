@@ -124,6 +124,7 @@ body {
 }
 #narrow .nobox p { margin-bottom:0.5em; }
 #narrow .nobox p.block { clear : both; margin-top : 2em; }
+#narrow .nobox p.action-help { margin: 10px 0 0 10px; font-size: 0.9em}
 
 /* form */
 #narrow .nobox .body form          { padding: 0; }
@@ -194,3 +195,16 @@ strong { font-weight: bold !important; }
   left: 30%;
   top: 2em;
 }
+
+.confirmation-box, .error-box, .success-box, .information-box {
+  margin: 0 0 1em;  padding: 1em;
+  border: 3px solid #000;
+  text-align: center;
+  clear: both;
+}
+.confirmation-box p, .error-box p, .success-box p { margin: 0 0 .5em; font-size: 1.3em; }
+.confirmation-box h2 { margin-bottom: .5em; color: #000; }
+
+.confirmation-box,
+.error-box         { border-color: #ff5555; background: #ffeeee; }
+.success-box       { border-color: #20CC20; background: #ECFDEC; }
