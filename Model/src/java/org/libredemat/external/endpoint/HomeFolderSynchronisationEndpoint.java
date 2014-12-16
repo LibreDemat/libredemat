@@ -560,8 +560,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         {
             adult.setLastName(xmlAdult.getLastName());
             adult.setFirstName(xmlAdult.getFirstName());
-            if(xmlAdult.getFirstName2() != null || xmlAdult.getFirstName2() != "") adult.setFirstName2(xmlAdult.getFirstName2());
-            if(xmlAdult.getFirstName3() != null || xmlAdult.getFirstName3() != "") adult.setFirstName3(xmlAdult.getFirstName3());
+            if(xmlAdult.getFirstName2() != null && xmlAdult.getFirstName2() != "") adult.setFirstName2(xmlAdult.getFirstName2());
+            if(xmlAdult.getFirstName3() != null && xmlAdult.getFirstName3() != "") adult.setFirstName3(xmlAdult.getFirstName3());
 
             adult.setCreationDate(xmlAdult.getCreationDate().getTime());
             
@@ -657,8 +657,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             child.setLastName(xmlChild.getLastName());
             child.setFirstName(xmlChild.getFirstName());
 
-            if(xmlChild.getFirstName2() != null || xmlChild.getFirstName2() != "") child.setFirstName2(xmlChild.getFirstName2());
-            if(xmlChild.getFirstName3() != null || xmlChild.getFirstName3() != "") child.setFirstName3(xmlChild.getFirstName3());
+            if(xmlChild.getFirstName2() != null && xmlChild.getFirstName2() != "") child.setFirstName2(xmlChild.getFirstName2());
+            if(xmlChild.getFirstName3() != null && xmlChild.getFirstName3() != "") child.setFirstName3(xmlChild.getFirstName3());
 
             child.setCreationDate(xmlChild.getCreationDate().getTime());
             child.setBirthDate(xmlChild.getBirthDate().getTime());
