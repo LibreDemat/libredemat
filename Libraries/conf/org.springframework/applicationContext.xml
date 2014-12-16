@@ -374,7 +374,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="userSearchService" ref="userSearchService"/>
     <property name="meansOfContactService" ref="meansOfContactService"/>
     <property name="mailService" ref="mailService"/>
-    <property name="smsService" ref="fakeSmsService"/>
+    <property name="smsService" ref="smsService"/>
     <property name="translationService" ref="translationService"/>
     <property name="homeFolderDAO" ref="homeFolderDAO"/>
     <property name="userService" ref="userService" />
