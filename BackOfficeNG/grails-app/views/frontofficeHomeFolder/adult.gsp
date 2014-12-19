@@ -49,7 +49,7 @@
       </div>
       <div class="side">
         <g:if test="${adult.id != null}">
-          <g:if test="${params.creation}">
+          <g:if test="${params.creation == 'true'}">
             <div class="summary">
               ${message(code:'homeFolder.adultAdded',args:[adult.lastName,adult.firstName])}
               <a href="${createLink(action:'adult')}">${message(code:'homeFolder.addOtherAdult')}</a>
