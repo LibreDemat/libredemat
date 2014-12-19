@@ -35,6 +35,23 @@
       </h2>
       <div class="main ${flash.invalidFields ? 'Invalid' : child.state}">
         <g:if test="${child.id != null}">
+
+          <div style="color:red">
+            <g:if test="${flash.invalidFields}">
+              <g:if test="${flash.invalidFields.size > 1}">${message(code:'homeFolder.individual.property.errors')} :</g:if>
+              <g:else>${message(code:'homeFolder.individual.property.error')} :</g:else>
+            </g:if>
+            <br />
+            <g:each in="${flash.invalidFields}" var="field" >
+              <g:if test="${field == 'legalResponsibles'}" >
+                  - ${message(code:'homeFolder.error.illegalLegalResponsiblesNumber', args:[child.lastName])} <br />
+              </g:if>
+              <g:else>
+                - ${message(code:'homeFolder.individual.property.' + field)} <br />
+              </g:else>
+            </g:each>
+          </div>
+
           <h3 id="generalInformations">${message(code:'homeFolder.individual.header.general')}</h3>
           <g:render template="${child.fragmentMode('general')}" />
           <h3 id="identity">${message(code:'homeFolder.individual.header.identity')}</h3>
