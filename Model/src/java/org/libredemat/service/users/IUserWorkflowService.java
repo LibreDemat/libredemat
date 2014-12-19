@@ -115,4 +115,7 @@ public interface IUserWorkflowService {
 	 * @return nombre de fiches réinitialisées
 	 */
 	public int childInformationSheetDateInitialisation();
+
+    public void synchronise(Individual individual) throws CvqException;
+
 }

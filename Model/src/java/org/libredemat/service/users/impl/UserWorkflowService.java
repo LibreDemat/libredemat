@@ -45,6 +45,7 @@ import org.libredemat.dao.hibernate.HibernateUtil;
 import org.libredemat.dao.jpa.IGenericDAO;
 import org.libredemat.dao.jpa.JpaUtil;
 import org.libredemat.dao.users.IHomeFolderDAO;
+import org.libredemat.dao.users.IHomeFolderMappingDAO;
 import org.libredemat.dao.users.IIndividualDAO;
 import org.libredemat.exception.CvqAuthenticationFailedException;
 import org.libredemat.exception.CvqBadPasswordException;
@@ -116,6 +117,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     private IIndividualDAO individualDAO;
 
     private IGenericDAO genericDAO;
+
+    private IHomeFolderMappingDAO homeFolderMappingDAO;
 
     private Map<String, UserWorkflow> workflows = new HashMap<String, UserWorkflow>();
 
@@ -1081,6 +1084,20 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         this.genericDAO = genericDAO;
     }
 
+    /**
+     * @return the homeFolderMappingDAO
+     */
+    public IHomeFolderMappingDAO getHomeFolderMappingDAO() {
+        return homeFolderMappingDAO;
+    }
+
+    /**
+     * @param homeFolderMappingDAO the homeFolderMappingDAO to set
+     */
+    public void setHomeFolderMappingDAO(IHomeFolderMappingDAO homeFolderMappingDAO) {
+        this.homeFolderMappingDAO = homeFolderMappingDAO;
+    }
+
     @Override
     @Context(types =
             { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
@@ -1167,6 +1184,35 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         this.individualDAO.update(child);
         this.homeFolderDAO.update(child.getHomeFolder());
         return childInformationSheet.getId();
+    }
+
+    @Override
+    @Context(types =
+            { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
+    public void synchronise(Individual individual) throws CvqException {
+        if (individual == null) throw new CvqException("No adult object provided");
+        else if (individual.getId() == null) throw new CvqException("Cannot modify a transient individual");
+        HomeFolder homeFolder = individual.getHomeFolder();
+        List<HomeFolderMapping> findByHomeFolderId = homeFolderMappingDAO.findByHomeFolderId(homeFolder.getId());
+        for (HomeFolderMapping homeFolderMapping : findByHomeFolderId)
+        {
+            if (homeFolderMapping.getExternalServiceLabel().equals("CirilNetEnfance"))
+            {
+                homeFolder.setExternalId(homeFolderMapping.getExternalId());
+            }
+        }
+        publishHomeFolder(homeFolder, new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId()));
+    }
+
+    private void publishHomeFolder(HomeFolder homeFolder, UserAction action) {
+        if ((!SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived() && homeFolder.getState() == UserState.ARCHIVED) || !SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeState())
+        {
+            // HACK INEXINE - aucune synchronisation du compte.
+        }
+        else
+        {
+            applicationEventPublisher.publishEvent(new UserEvent(this, action));
+        }
     }
 
 }

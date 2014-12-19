@@ -60,6 +60,8 @@ public final class LocalAuthorityConfigurationBean {
     private boolean addresseReferentialCityRestriction = false;
     private boolean activeCocheAllInReservationPlaningMonth = false;
     private boolean activeGlobalReservation = false;
+    private boolean synchroniseUserOnChangeStateToArchived = false;
+    private boolean synchroniseUserOnChangeState = false;
 
     public LocalAuthorityConfigurationBean() {
         paymentServices =
@@ -433,4 +435,24 @@ public final class LocalAuthorityConfigurationBean {
     public void setDefaultPassword(String defaultPassword) {
         this.defaultPassword = defaultPassword;
     }
+    public boolean isSynchroniseUserOnChangeStateToArchived()
+    {
+        return synchroniseUserOnChangeStateToArchived;
+    }
+
+    public void setSynchroniseUserOnChangeStateToArchived(boolean synchroniseUserOnChangeStateToArchived)
+    {
+        this.synchroniseUserOnChangeStateToArchived = synchroniseUserOnChangeStateToArchived;
+    }
+
+    public boolean isSynchroniseUserOnChangeState()
+    {
+        return synchroniseUserOnChangeState;
+    }
+
+    public void setSynchroniseUserOnChangeState(boolean synchroniseUserOnChangeState)
+    {
+        this.synchroniseUserOnChangeState = synchroniseUserOnChangeState;
+    }
+
 }

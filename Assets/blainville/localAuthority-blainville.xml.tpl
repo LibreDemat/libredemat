@@ -25,6 +25,8 @@
     <property name="addresseReferentialCityRestriction" value="true" />
     <property name="activeCocheAllInReservationPlaningMonth" value="true" />
     <property name="activeGlobalReservation" value="false" />
+    <property name="synchroniseuseronchangestatetoarchived" value="false" />
+    <property name="synchroniseuseronchangestate" value="true" />
     <property name="jpaConfigurations">
         <props>
             <prop key="hibernate.show_sql">false</prop>
