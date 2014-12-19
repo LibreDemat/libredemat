@@ -3,6 +3,7 @@ package org.libredemat.service.users;
 import java.util.List;
 import java.util.Map;
 
+import org.libredemat.business.users.HomeFolder;
 import org.libredemat.exception.CvqInvalidTransitionException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.security.annotation.IsUser;
@@ -33,4 +34,6 @@ public interface IUserDeduplicationService {
      */
     void mergeDuplicate(@IsUser Long homeFolderId, Long targetHomeFolderId)
         throws CvqModelException, CvqInvalidTransitionException;
+
+    void createMapping(HomeFolder homeFolderTarget);
 }

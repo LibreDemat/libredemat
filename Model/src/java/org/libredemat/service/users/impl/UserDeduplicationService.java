@@ -26,6 +26,7 @@ import org.libredemat.dao.users.IIndividualDAO;
 import org.libredemat.dao.users.IHomeFolderMappingDAO;
 import org.libredemat.exception.CvqInvalidTransitionException;
 import org.libredemat.exception.CvqModelException;
+import org.libredemat.external.IExternalService;
 import org.libredemat.security.annotation.Context;
 import org.libredemat.security.annotation.ContextPrivilege;
 import org.libredemat.security.annotation.ContextType;
@@ -59,6 +60,7 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
     private IHomeFolderMappingDAO homeFolderMappingDAO;
     private IUserCoherenceService userCoherenceService;
     private IExternalHomeFolderService externalHomeFolderService;
+    private IExternalService externalService;
     
     @Override
     public void onApplicationEvent(UserEvent userEvent) {
@@ -554,6 +556,20 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         individual.setDuplicateData(null);
     }
 
+    @Override
+    public void createMapping(HomeFolder homeFolderTarget) {
+        // Génère service externe vide pour tous les individus...
+        List<String> externalServiceByLabels = externalService.getExternalServiceByLabels();
+        List<HomeFolderMapping> homeFolderMappings = externalHomeFolderService.getHomeFolderMappings(homeFolderTarget
+                .getId());
+        for (String externalServiceLabel : externalServiceByLabels)
+        {
+            if (!userCoherenceService.existHomeFolderMappingByExternalLabel(homeFolderMappings, externalServiceLabel)) externalHomeFolderService
+                    .addHomeFolderMapping(externalServiceLabel, homeFolderTarget.getId(), null);
+        }
+        userCoherenceService.verifyConcordenceMappings(homeFolderTarget);
+    }
+
     private String formatData(String data) {
         if (data == null) return "";
         data = data.trim();
@@ -616,6 +632,20 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
 
     public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService) {
         this.externalHomeFolderService = externalHomeFolderService;
+    }
+
+    /**
+     * @return the externalService
+     */
+    public IExternalService getExternalService() {
+        return externalService;
+    }
+
+    /**
+     * @param externalService the externalService to set
+     */
+    public void setExternalService(IExternalService externalService) {
+        this.externalService = externalService;
     }
 
 }

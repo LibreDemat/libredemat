@@ -420,6 +420,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="userCoherenceService" ref="userCoherenceService" />
     <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+    <property name="externalService" ref="externalService" />
   </bean>
 
   <bean id="userCoherenceService" class="org.libredemat.service.users.impl.UserCoherenceService">

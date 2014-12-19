@@ -1,5 +1,7 @@
 package org.libredemat.external.impl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.libredemat.external.ExternalServiceBean;
 import org.libredemat.external.ExternalServiceConfigurationBean;
@@ -38,5 +40,10 @@ public class ExternalService implements IExternalService {
     @Override
     public IExternalProviderService getExternalServiceByLogin(String login) {
         return SecurityContext.getCurrentConfigurationBean().getExternalServiceConfigurationBean().getExternalServiceByLogin(login);
+    }
+
+    @Override
+    public List<String> getExternalServiceByLabels() {
+        return SecurityContext.getCurrentConfigurationBean().getExternalServiceConfigurationBean().getExternalServiceLabels();
     }
 }

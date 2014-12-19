@@ -896,4 +896,22 @@ class BackofficeHomeFolderController {
         return userService.hasValidEmail(homeFolderResponsible) && homeFolder.state != UserState.ARCHIVED
     }
 
+    def synchronise = {
+      Adult adult = userSearchService.getAdultById(params.id.toLong())
+        try {
+          userDeduplicationService.createMapping(adult.getHomeFolder());
+          userWorkflowService.synchronise(adult);
+        }
+      catch (Exception ex)
+      {
+        def message = ex.getMessage();
+        if (message == null || message.trim().equals("")) message = "Une erreur interne s'est produite";
+        redirect(action:'details', params:['id': adult.homeFolder.id, 'warningMessage' : message]);
+        return false;
+      }
+      redirect(action:'details', params:['id': adult.homeFolder.id, 'successMessage' :  message('code' : 'homefolder.adult.success.synchronise')]);
+    }
+
+
+
 }

@@ -1,6 +1,8 @@
 package org.libredemat.external;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -108,4 +110,17 @@ public class ExternalServiceConfigurationBean {
         }
         return null;
     }
+
+    public List<String> getExternalServiceLabels() {
+        List<String> externalServices = new ArrayList<String>();
+        if (externalProviderServices != null && !externalProviderServices.isEmpty())
+        {
+            for (IExternalProviderService service : externalProviderServices.keySet())
+            {
+                externalServices.add(service.getLabel());
+            }
+        }
+        return externalServices;
+    }
+
 }

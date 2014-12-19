@@ -181,6 +181,15 @@
       </div>
     </div>
     <div id="narrow" class="yui-b">
+      <p>
+        <g:if test="${homeFolderState != 'archived'}">
+          <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" alt="${message(code:'homeFolder.header.synchronise.title')}" title="${message(code:'homeFolder.header.synchronise.title')}">
+            ${message(code:'homeFolder.header.synchronise')}
+          </a>
+        </g:if>
+        <g:else>${message(code:'homeFolder.header.synchronise')}</g:else>
+      </p>
+
       <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
         <div class="nobox taskstate">
           <h3>${message(code:'home.header.realizeRequest')}</h3>

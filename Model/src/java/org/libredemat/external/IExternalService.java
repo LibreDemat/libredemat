@@ -1,5 +1,7 @@
 package org.libredemat.external;
 
+import java.util.List;
+
 
 public interface IExternalService {
 
@@ -11,4 +13,6 @@ public interface IExternalService {
     IExternalProviderService getExternalServiceByLabel(String externalServiceLabel);
 
     IExternalProviderService getExternalServiceByLogin(String login);
+
+    List<String> getExternalServiceByLabels();
 }
