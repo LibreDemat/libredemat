@@ -484,7 +484,9 @@ public class RequestExternalService extends ExternalService implements IRequestE
         }
 
         if (UserAction.Type.MODIFICATION.equals(event.getAction().getType())
-            || UserAction.Type.STATE_CHANGE.equals(event.getAction().getType())) {
+            || UserAction.Type.STATE_CHANGE.equals(event.getAction().getType())
+            || UserAction.Type.SYNCHRONISE.equals(event.getAction().getType())) {
+
             if (UserState.VALID.equals(homeFolder.getState())) {
 
                 List<String> newMappings = new ArrayList<String>();
@@ -534,7 +536,11 @@ public class RequestExternalService extends ExternalService implements IRequestE
                         calendar.setTime(event.getAction().getDate());
                         xmlRequest.setCreationDate(calendar);
                         // set request id to the trigerring action's id to ensure uniqueness and a minimum of coherence
-                        xmlRequest.setId(event.getAction().getId());
+                        if (UserAction.Type.SYNCHRONISE.equals(event.getAction().getType())) {
+                            xmlRequest.setId(event.getAction().getDate().getTime());
+                        } else {
+                            xmlRequest.setId(event.getAction().getId());
+                        }
                         xmlRequest.setLastModificationDate(calendar);
                         xmlRequest.setState(RequestStateType.Enum.forString(RequestState.VALIDATED.toString()));
                         xmlRequest.setValidationDate(calendar);
@@ -553,7 +559,7 @@ public class RequestExternalService extends ExternalService implements IRequestE
                         }
 
                     } catch (Exception ex) {
-                        ex.printStackTrace();
+                        logger.error(ex);
                         message = "Erreur interne : " + ex.getMessage();
                         status = "ErrorInterne";
                     }
@@ -571,8 +577,20 @@ public class RequestExternalService extends ExternalService implements IRequestE
                         homeFolder.getActions().add(action);
                         homeFolderDAO.update(homeFolder);
                     }
-                }
 
+                    if (UserAction.Type.SYNCHRONISE.equals(event.getAction().getType())) {
+                        JsonObject payload = UserUtils.getPayloadForUserAction(SecurityContext.getCurrentUserId(),
+                                    UserUtils.getDisplayName(SecurityContext.getCurrentUserId()), -1L,
+                                    externalServiceLabel);
+                        payload.addProperty("state", status);
+                        payload.addProperty("message", message);
+                        UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId());
+                        action.setData(new Gson().toJson(payload));
+                        action = (UserAction) genericDAO.create(action);
+                        homeFolder.getActions().add(action);
+                        homeFolderDAO.update(homeFolder);
+                    }
+                }
             }
         } else if (UserAction.Type.MERGE.equals(event.getAction().getType())) {
             
@@ -669,7 +687,6 @@ public class RequestExternalService extends ExternalService implements IRequestE
             homeFolder.getActions().add(action);
             homeFolderDAO.update(homeFolder);
         }
-
     }
 
     public void setRequestDAO(IRequestDAO requestDAO) {

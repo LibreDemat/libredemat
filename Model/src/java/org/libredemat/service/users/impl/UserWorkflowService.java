@@ -1189,8 +1189,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
-    @Context(types =
-            { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
+    @Context(types = { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
     public void synchronise(Individual individual) throws CvqException {
         if (individual == null) throw new CvqException("No adult object provided");
         else if (individual.getId() == null) throw new CvqException("Cannot modify a transient individual");
@@ -1207,7 +1206,9 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     private void publishHomeFolder(HomeFolder homeFolder, UserAction action) {
-        if ((!SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived() && homeFolder.getState() == UserState.ARCHIVED) || !SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeState())
+        if ((!SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived()
+                    && homeFolder.getState() == UserState.ARCHIVED)
+                || !SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeState())
         {
             // HACK INEXINE - aucune synchronisation du compte.
         }

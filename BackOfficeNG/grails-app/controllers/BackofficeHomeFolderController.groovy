@@ -905,11 +905,13 @@ class BackofficeHomeFolderController {
       catch (Exception ex)
       {
         def message = ex.getMessage();
-        if (message == null || message.trim().equals("")) message = "Une erreur interne s'est produite";
-        redirect(action:'details', params:['id': adult.homeFolder.id, 'warningMessage' : message]);
+        if (message == null || message.trim().equals("")) flash.errorMessage = "Une erreur interne s'est produite"
+        else flash.errorMessage = message
+        redirect(action:'details', params:['id': adult.homeFolder.id]);
         return false;
       }
-      redirect(action:'details', params:['id': adult.homeFolder.id, 'successMessage' :  message('code' : 'homefolder.adult.success.synchronise')]);
+      flash.successMessage = message('code' : 'homefolder.adult.success.synchronise')
+      redirect(action:'details', params:['id': adult.homeFolder.id]);
     }
 
 

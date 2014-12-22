@@ -4,6 +4,22 @@
 
 -------------------------------------------------------------- */
 
+.confirmation-box, .error-box, .success-box, .information-box, .warning-box {
+    margin: 0 5em 1em;
+    padding: 0.5em;
+    border: 1px solid #000;
+    text-align: center;
+    clear: both;
+}
+.confirmation-box p, .error-box p, .success-box p, .warning-box p { margin: 0 0 .5em; font-size: 1.3em; }
+.confirmation-box h2,  .error-box h2, .success-box h2, .warning-box h2 { margin-bottom: .5em; color: #000; }
+
+.confirmation-box,
+.error-box         { border-color: #ff5555; background: #ffeeee; }
+.success-box       { border-color: #20CC20; background: #ECFDEC; }
+.information-box   { border-color: #ffaa00; background: #ffffcc; text-align: left; }
+.warning-box  	   { border-color: #8043FA; background: #EBE3FA; }
+
 
 /* main box (to be used in '#bd > .yui-main > yui-b' block )
 -------------------------------------------------------------- */

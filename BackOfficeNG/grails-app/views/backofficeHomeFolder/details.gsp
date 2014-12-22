@@ -25,6 +25,13 @@
     </script>
   </head>
   <body>
+    <g:if test="${flash.errorMessage}">
+      <div class="error-box"><p>${flash.errorMessage}</p></div>
+    </g:if>
+    <g:if test="${flash.successMessage}">
+      <div class="success-box"><p>${flash.successMessage}</p></div>
+    </g:if>
+
     <div id="yui-main">
       <div class="yui-b">
         <div class="head">
@@ -181,14 +188,16 @@
       </div>
     </div>
     <div id="narrow" class="yui-b">
-      <p>
-        <g:if test="${homeFolderState != 'archived'}">
-          <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" alt="${message(code:'homeFolder.header.synchronise.title')}" title="${message(code:'homeFolder.header.synchronise.title')}">
-            ${message(code:'homeFolder.header.synchronise')}
-          </a>
-        </g:if>
-        <g:else>${message(code:'homeFolder.header.synchronise')}</g:else>
-      </p>
+      <g:if test="${homeFolderState != 'archived'}">
+        <div class="nobox taskstate">
+          <h3>${message(code:'header.subMenus')}</h3>
+          <div class="body">
+            <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" alt="${message(code:'homeFolder.header.synchronise.title')}" title="${message(code:'homeFolder.header.synchronise.title')}">
+              ${message(code:'homeFolder.header.synchronise')}
+            </a>
+          </div>
+        </div>
+      </g:if>
 
       <g:if test="${homeFolderResponsible?.state?.toString() != 'Archived'}">
         <div class="nobox taskstate">
