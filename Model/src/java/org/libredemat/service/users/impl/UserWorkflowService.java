@@ -385,6 +385,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 }
                 action.setData(gson.toJson(payload));
             }
+        } else if ("address".equals(type) && individual.isHomeFolderResponsible()) {
+            individual.getHomeFolder().setAddress(individual.getAddress());
         }
         individual.getHomeFolder().getActions().add(action);
         homeFolderDAO.update(individual.getHomeFolder());
