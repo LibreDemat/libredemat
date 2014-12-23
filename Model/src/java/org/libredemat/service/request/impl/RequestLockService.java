@@ -6,6 +6,7 @@ import org.joda.time.DateTime;
 import org.libredemat.business.request.RequestLock;
 import org.libredemat.dao.hibernate.HibernateUtil;
 import org.libredemat.dao.jpa.IGenericDAO;
+import org.libredemat.dao.jpa.JpaUtil;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.exception.CvqException;
 import org.libredemat.security.PermissionException;
@@ -71,6 +72,8 @@ public class RequestLockService implements IRequestLockService, BeanFactoryAware
             }
             genericDAO.saveOrUpdate(lock);
             HibernateUtil.getSession().flush();
+            JpaUtil.getEntityManager().flush();
+            JpaUtil.closeAndReOpen(false);
         }
     }
 
