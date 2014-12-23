@@ -88,6 +88,8 @@ class ServiceRequestExternalController {
             render(text: "", status: 404)
         } catch (PermissionException pe) {
             render(text: "", status: 403)
+        } catch (Exception e) {
+            render(text: message(code: e.message), status: 500)
         }
         return false
     }
@@ -159,6 +161,8 @@ class ServiceRequestExternalController {
                     render(text: '', status: 404)
                 } catch (PermissionException pe) {
                     render(text: '', status: 403)
+                } catch (Exception e) {
+                    render(text: message(code: e.message), status: 500)
                 }
                 return false
         }
