@@ -28,10 +28,12 @@ class ServiceAutocompleteController {
     def ways = {
         def token = SecurityContext.getCurrentSite().token ?: ""
         def url = SecurityContext.getCurrentSite().adressesReferentialUrl ?: ""
-        if(url) {
+        if(url && params.city!=null && params.city!="") {
             withHttp(uri: url) {
                 render get(path: '/ways', query: [city: params.city, search: params.search, token:token]) as JSON
             }
+        } else {
+            render [:] as JSON
         }
     }
 
