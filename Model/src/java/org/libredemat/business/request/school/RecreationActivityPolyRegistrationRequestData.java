@@ -146,20 +146,6 @@ public class RecreationActivityPolyRegistrationRequestData implements Serializab
     }
   
     
-      @NotNull(
-        
-        
-        profiles = {"rules"},
-        message = "childPhotoExploitationPolyPermission"
-      )
-    
-      @AssertTrue(
-        
-        
-        profiles = {"rules"},
-        message = "childPhotoExploitationPolyPermission"
-      )
-    
     private Boolean childPhotoExploitationPolyPermission;
 
     public void setChildPhotoExploitationPolyPermission(final Boolean childPhotoExploitationPolyPermission) {
@@ -173,20 +159,6 @@ public class RecreationActivityPolyRegistrationRequestData implements Serializab
         return this.childPhotoExploitationPolyPermission;
     }
   
-    
-      @NotNull(
-        
-        
-        profiles = {"rules"},
-        message = "classTripPolyPermission"
-      )
-    
-      @AssertTrue(
-        
-        
-        profiles = {"rules"},
-        message = "classTripPolyPermission"
-      )
     
     private Boolean classTripPolyPermission;
 
@@ -224,20 +196,6 @@ public class RecreationActivityPolyRegistrationRequestData implements Serializab
         return this.contactPolyIndividuals;
     }
   
-    
-      @NotNull(
-        
-        
-        profiles = {"rules"},
-        message = "hospitalizationPolyPermission"
-      )
-    
-      @AssertTrue(
-        
-        
-        profiles = {"rules"},
-        message = "hospitalizationPolyPermission"
-      )
     
     private Boolean hospitalizationPolyPermission;
 

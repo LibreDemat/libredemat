@@ -166,19 +166,19 @@
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.classTripPolyPermission.label')}&nbsp;*&nbsp;:</dt><dd id="classTripPolyPermission" class="action-editField validate-acceptance required-true i18n-raprr.property.classTripPolyPermission" ><span class="value-${rqt?.classTripPolyPermission}"><g:message code="message.${rqt?.classTripPolyPermission ? 'yes' : 'no'}" /></span></dd>
+                <dt class="">${message(code:'raprr.property.classTripPolyPermission.label')}&nbsp;:</dt><dd id="classTripPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.classTripPolyPermission" ><span class="value-${rqt?.classTripPolyPermission}"><g:message code="message.${rqt?.classTripPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.childPhotoExploitationPolyPermission.label')}&nbsp;*&nbsp;:</dt><dd id="childPhotoExploitationPolyPermission" class="action-editField validate-acceptance required-true i18n-raprr.property.childPhotoExploitationPolyPermission" ><span class="value-${rqt?.childPhotoExploitationPolyPermission}"><g:message code="message.${rqt?.childPhotoExploitationPolyPermission ? 'yes' : 'no'}" /></span></dd>
+                <dt class="">${message(code:'raprr.property.childPhotoExploitationPolyPermission.label')}&nbsp;:</dt><dd id="childPhotoExploitationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.childPhotoExploitationPolyPermission" ><span class="value-${rqt?.childPhotoExploitationPolyPermission}"><g:message code="message.${rqt?.childPhotoExploitationPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.hospitalizationPolyPermission.label')}&nbsp;*&nbsp;:</dt><dd id="hospitalizationPolyPermission" class="action-editField validate-acceptance required-true i18n-raprr.property.hospitalizationPolyPermission" ><span class="value-${rqt?.hospitalizationPolyPermission}"><g:message code="message.${rqt?.hospitalizationPolyPermission ? 'yes' : 'no'}" /></span></dd>
+                <dt class="">${message(code:'raprr.property.hospitalizationPolyPermission.label')}&nbsp;:</dt><dd id="hospitalizationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.hospitalizationPolyPermission" ><span class="value-${rqt?.hospitalizationPolyPermission}"><g:message code="message.${rqt?.hospitalizationPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             

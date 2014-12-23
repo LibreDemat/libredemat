@@ -163,7 +163,7 @@
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
-            <xs:element name="ClassTripPolyPermission" type="cvq:AcceptanceType" default="false">
+            <xs:element name="ClassTripPolyPermission" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Autorisation de l'enfant à participer aux sorties organisées
@@ -182,7 +182,7 @@
               </xs:annotation>
             </xs:element>
             <xs:element name="ChildPhotoExploitationPolyPermission" type="cvq:AcceptanceType"
-              default="false">
+              default="false" minOccurs="0">
               <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Autorisation accordée à l'école concernant l'exposition et 
@@ -202,7 +202,7 @@
               </xs:annotation>
             </xs:element>
             <xs:element name="HospitalizationPolyPermission" type="cvq:AcceptanceType"
-              default="false">
+              default="false" minOccurs="0">
               <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Autorisation de l'enfant à être soigné, hospitalisé et opéré si nécessaire
