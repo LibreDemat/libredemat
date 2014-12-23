@@ -70,6 +70,7 @@ import enfanceServicesEnfance.SchoolRegistrationWithRemoteCirilnetenfanceRespons
 import enfanceServicesEnfance.SchoolRegistrationWithRemoteCirilnetenfanceResponseDocument.SchoolRegistrationWithRemoteCirilnetenfanceResponse;
 import enfanceServicesEnfance.UpdateReservationResponseDocument;
 
+import org.libredemat.business.request.LocalReferentialData;
 import org.libredemat.plugins.externalservices.cirilnetenfance.ws.ICirilClient;
 import org.libredemat.business.authority.School;
 import org.libredemat.business.payment.ExternalAccountItem;
@@ -333,6 +334,18 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		}
 	}
 
+	private LocalReferentialDataType[] purgeLocalReferential(LocalReferentialDataType[] input) {
+		List<LocalReferentialDataType> list = new ArrayList<LocalReferentialDataType>();
+		for (LocalReferentialDataType rpa : input)
+		{
+			if (rpa.getName() != null && !rpa.getName().equals(""))
+			{
+				list.add(rpa);
+			}
+		}
+		return list.toArray(new LocalReferentialDataType[list.size()]);
+	}
+
 	public String sendRequest(final XmlObject xmlRequest) throws CvqException
 	{
 		logger.debug("CiriNetEnfance send request");
@@ -382,22 +395,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			else if (xmlRequest instanceof RecreationActivityPolyRegistrationRequest)
 			{
 				RecreationActivityPolyRegistrationRequest rarr = (RecreationActivityPolyRegistrationRequest) xmlRequest;
-				List<LocalReferentialDataType> list = new ArrayList<LocalReferentialDataType>();
-				for (LocalReferentialDataType rpa : rarr.getRecreationPolyActivityArray())
-				{
-					if (rpa.getName() != null && !rpa.getName().equals(""))
-					{
-						list.add(rpa);
-					}
-				}
-				LocalReferentialDataType[] tab = new LocalReferentialDataType[list.size()];
-				int i = 0;
-				for (LocalReferentialDataType rpa : list)
-				{
-					tab[i] = rpa;
-					i++;
-				}
-				rarr.setRecreationPolyActivityArray(tab);
+				rarr.setRecreationPolyActivityArray(purgeLocalReferential(rarr.getRecreationPolyActivityArray()));
 				repDoc = cirilClient
 						.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), rarr, "RecreationActivityRegistration");
 				businessError = getResult(repDoc.get("result"), rarr.getHomeFolder().getId(), rarr.getId());
@@ -412,6 +410,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			else if (xmlRequest instanceof ChildCareCenterRegistrationRequest)
 			{
 				ChildCareCenterRegistrationRequest gssrr = (ChildCareCenterRegistrationRequest) xmlRequest;
+				gssrr.setWelcomingChoiceArray(purgeLocalReferential(gssrr.getWelcomingChoiceArray()));
 				repDoc = cirilClient.getReturnRegistration(getEsbProperty(END_POINT_REGISTRATION), gssrr, "ChildCareCenterRegistration");
 				businessError = getResult(repDoc.get("result"), gssrr.getHomeFolder().getId(), gssrr.getId());
 			}
