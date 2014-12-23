@@ -292,8 +292,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         individual.setCreationDate(new Date());
         individual.setQoS(SecurityContext.isFrontOfficeContext() ? QoS.GOOD : null);
         individual.setLastModificationDate(new Date());
-        if (individual.getAddress() == null) individual.setAddress(homeFolder.getAddress());
         Long id = individualDAO.create(individual).getId();
+        if (individual.getAddress() == null) individual.setAddress(homeFolder.getAddress());
         UserAction action = new UserAction(UserAction.Type.CREATION, id);
         action = (UserAction) genericDAO.create(action);
         individual.getHomeFolder().getActions().add(action);
