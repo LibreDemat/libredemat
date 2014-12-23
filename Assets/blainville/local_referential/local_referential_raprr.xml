@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
+    <data name="RecreationPolyActivity" allowMultipleChoices="false" manager="LibreDémat">
+        <label>Activités de l'enfant au centre</label>
+        <entries>
+            <entry key="Ape-ro">
+                <label>Apéro</label>
+                <message/>
+                <externalCode/>
+            </entry>
+        </entries>
+    </data>
+</LocalReferential>
