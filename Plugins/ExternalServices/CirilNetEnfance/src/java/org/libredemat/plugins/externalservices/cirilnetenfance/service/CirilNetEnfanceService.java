@@ -443,6 +443,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	private String getResult(Object object, Long hid, Long requestId) throws CvqException
 	{
 		String error = "";
+		String state = "";
 		String hfextid = "";
 		HashMap<Long, String> accountMember = new HashMap<Long, String>();
 		boolean isHomeFolderModification = object instanceof HomeFolderModificationResponseDocument;
@@ -455,6 +456,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (srr.getMessage().getError() != null)
 				{
 					error = srr.getMessage().getError().getMessage();
+					state = srr.getMessage().getState();
 				}
 				if (srr.getNotifications() != null)
 				{
@@ -474,6 +476,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (srr.getMessage().getError() != null)
 				{
 					error = srr.getMessage().getError().getMessage();
+					state = srr.getMessage().getState();
 				}
 				if (srr.getNotifications() != null)
 				{
@@ -510,6 +513,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (scrr.getMessage().getError() != null)
 				{
 					error = scrr.getMessage().getError().getMessage();
+					state = scrr.getMessage().getState();
 				}
 				if (scrr.getNotifications() != null)
 				{
@@ -528,6 +532,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (parr.getMessage().getError() != null)
 				{
 					error = parr.getMessage().getError().getMessage();
+					state = parr.getMessage().getState();
 				}
 				if (parr.getNotifications() != null)
 				{
@@ -566,6 +571,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (rarr.getMessage().getError() != null)
 				{
 					error = rarr.getMessage().getError().getMessage();
+					state = rarr.getMessage().getState();
 				}
 				if (rarr.getNotifications() != null)
 				{
@@ -584,6 +590,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (rarr.getMessage().getError() != null)
 				{
 					error = rarr.getMessage().getError().getMessage();
+					state = rarr.getMessage().getState();
 				}
 				if (rarr.getNotifications() != null)
 				{
@@ -602,6 +609,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 				if (rarr.getMessage().getError() != null)
 				{
 					error = rarr.getMessage().getError().getMessage();
+					state = rarr.getMessage().getState();
 				}
 				if (rarr.getNotifications() != null)
 				{
@@ -637,8 +645,8 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 			if (!error.isEmpty())
 			{
 				// if () TODO correctif suite modification compte
-				if (!isHomeFolderModification) requestWorkflowService.updateRequestState(requestId,
-						RequestState.UNCOMPLETE, null);
+				if (!isHomeFolderModification && !"succes".equals(state))
+					requestWorkflowService.updateRequestState(requestId, RequestState.UNCOMPLETE, null);
 				throw new CvqModelException(error);
 			}
 		}
