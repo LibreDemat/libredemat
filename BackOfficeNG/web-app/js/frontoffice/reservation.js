@@ -106,7 +106,8 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.fong.reservation");
 
 				zcfr.Reservation.getPlaningCart(caddyBody.className, false, null, null); // get the planning cart
 
-				zct.doAjaxCall(url + "/getCancelReservation", null, function(o){} ,true); // kill ciril reservation on refrexh page or open reservation in new window
+				// Hack Ciril 
+				// zct.doAjaxCall(url + "/getCancelReservation", null, function(o){} ,true); // kill ciril reservation on refrexh page or open reservation in new window
 
 				zcfr.Reservation.clickEventDay = new zct.Event(zcfr.Reservation, zcfr.Reservation.getHandlerDay);
 				zcfr.Reservation.clickEventMonth = new zct.Event(zcfr.Reservation, zcfr.Reservation.getHandlerMonth);

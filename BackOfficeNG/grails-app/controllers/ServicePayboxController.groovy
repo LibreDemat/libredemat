@@ -69,8 +69,8 @@ class ServicePayboxController {
                       reservationItems.each{res ->
                         reservationService.delete(sessionId, res.id);
                       }
+                      ((IActivityReservationProviderService)service).getCancelReservation(sessionId);
                     }
-                  ((IActivityReservationProviderService)service).getCancelReservation(sessionId);
                 }
             }
         }
