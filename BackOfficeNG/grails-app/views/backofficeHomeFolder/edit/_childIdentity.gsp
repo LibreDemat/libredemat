@@ -44,7 +44,7 @@
   </dd>
   <dt>${message(code:'homeFolder.individual.property.birthPostalCode')}</dt>
   <dd>
-    <input type="text" name="birthPostalCode" value="${individual.birthPostalCode}" />
+    <input type="text" name="birthPostalCode" value="${individual.birthPostalCode}" maxlength="5" class="line1 validate-postalCode" />
   </dd>
   <dt>${message(code:'homeFolder.individual.property.birthCity')}</dt>
   <dd>

@@ -28,6 +28,7 @@ import javax.persistence.Transient;
 
 import net.sf.oval.constraint.AssertValid;
 import net.sf.oval.constraint.Future;
+import net.sf.oval.constraint.MatchPattern;
 import net.sf.oval.constraint.MaxLength;
 import net.sf.oval.constraint.NotEmpty;
 import net.sf.oval.constraint.NotNull;
@@ -125,6 +126,7 @@ public abstract class Individual implements Serializable {
     @Column(name="birth_city",length=32)
     private String birthCity;
 
+    @MatchPattern(pattern = "[0-9]{5}", message = "birthPostalCode")
     @MaxLength(value=5, message="birthPostalCode")
     @Column(name="birth_postal_code",length=5)
     private String birthPostalCode;

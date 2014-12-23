@@ -80,7 +80,7 @@
       </div>
 
     <label for="birthPostalCode">${message(code:'homeFolder.individual.property.birthPostalCode')}</label>
-    <input type="text" name="birthPostalCode" value="${child.birthPostalCode}" />
+    <input type="text" name="birthPostalCode" value="${child.birthPostalCode}" maxlength="5" class="line1 validate-postalCode" />
 
     <label for="birthCity">${message(code:'homeFolder.individual.property.birthCity')}</label>
     <input type="text" name="birthCity" value="${child.birthCity}" />
