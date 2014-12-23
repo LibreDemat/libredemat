@@ -10,13 +10,12 @@ public enum ContentType {
     JPEG("image/jpeg", "jpg"),
     OCTET_STREAM("application/octet-stream", ""),
     PDF("application/pdf", "pdf"),
-    PNG("image/png", "png"),
-    TIFF("image/tiff", "tiff");
+    PNG("image/png", "png");
 
     private static final long serialVersionUID = 1L;
 
     public static final ContentType[] allowedContentTypes = {
-        BMP, GIF, JPEG, PDF, PNG, TIFF
+        BMP, GIF, JPEG, PDF, PNG
     };
 
     /**
