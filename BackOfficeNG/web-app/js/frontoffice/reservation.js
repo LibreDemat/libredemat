@@ -588,12 +588,14 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.fong.reservation");
 			}, 
 
 			getPlaningCart : function(val, noAdd, ac, ci) { // method to fill the cart div
-				zct.doAjaxCall(url + "/getPlanningCart?homeFolderId="+val, null, function(o){
+				// Ajout du timestamp dans l'appel ajax pour ne pas que le navigateur garde en cache le retour (Bug sur IE 11, le panier n'était pas mis à jour lorsqu'on ajoutait une réservation, il fallait faire F5)
+				d = new Date(); 
+				zct.doAjaxCall(url + "/getPlanningCart?homeFolderId="+val+"&d="+d.getTime(), null, function(o){
 					caddyBody.innerHTML = o.responseText;
 					zcfr.Reservation.clickDeleteItem = new zct.Event(zcfr.Reservation, zcfr.Reservation.getDeleteItem);
 					yue.on(yus.query('.deleteItem'),'click', zcfr.Reservation.clickDeleteItem.dispatch, zcfr.Reservation.clickDeleteItem,true);
 					if(noAdd != false) {
-						zct.doAjaxCall(url + "/getPlanningCartToJson?homeFolderId="+val, null, function(o){
+						zct.doAjaxCall(url + "/getPlanningCartToJson?homeFolderId="+val+"&d="+d.getTime(), null, function(o){
 							var result = ylj.parse(o.responseText);                                  
 							var data = result.result
 							for(var i=0; i < data.length; i++){

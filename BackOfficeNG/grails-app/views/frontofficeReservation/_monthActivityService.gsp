@@ -37,7 +37,7 @@ Réservation jusqu'au ${endDateRegistration}
 
 </div>
 <div class=ft>
-<input id="allReservation" class="default" type="submit" />
+<input id="allReservation" class="default" type="submit" value="Valider"/>
 </div>
 
 </form>
@@ -63,5 +63,5 @@ Réservation au mois
 
 </form>
 <div class=ft>
-<input id="monthReservation" type="submit" />
+<input id="monthReservation" type="submit" value="Valider"/>
 </div>

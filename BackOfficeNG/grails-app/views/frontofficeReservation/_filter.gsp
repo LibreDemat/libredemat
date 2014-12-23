@@ -16,7 +16,7 @@
       <g:select name="year" class="year-filter" from="${(currentYear -3) .. (currentYear + 2)}" 
       	value="${(year == null)?(year=currentYear):(year)}"/>
       
-      </select>
+     
       <input id="cYear" type="hidden" name="cyear" value="${(year == null)?(year=currentYear):(year)}" />
       <input id="cMonth" type="hidden" name="cmonth" value="${(month == null)?(currentMonth):(month)}" />
       <input id="cActivityCode" type="hidden" name="activityCode" value="${activityCode}" />
