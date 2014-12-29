@@ -61,11 +61,8 @@ import fr.capwebct.capdemat.homeFolderSynchronisation.SubjectType;
  */
 public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloadEndpoint
 {
-    /** User search service */
     IUserSearchService userSearchService;
-    /** User workflow service */
     IUserWorkflowService userWorkflowService;
-    /** External homefolder service */
     IExternalHomeFolderService externalHomeFolderService;
 
     /**
@@ -99,16 +96,12 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         HomeFolderSynchronisationRequest homeFolderSynchronisationRequest = ((HomeFolderSynchronisationRequestDocument) request)
                 .getHomeFolderSynchronisationRequest();
         HomeFolderType[] homeFolderTypes = homeFolderSynchronisationRequest.getHomeFolderArray();
-        
 
-        //XmlObject[] xmlHomeFolders = homeFolderSynchronisationRequest.selectPath("HomeFolder");
-        // Response
         HomeFolderSynchronisationResponseDocument homeFolderSynchronisationResponseDocument = HomeFolderSynchronisationResponseDocument.Factory
                 .newInstance();
         HomeFolderSynchronisationResponse homeFolderSynchronisationResponse = homeFolderSynchronisationResponseDocument
                 .addNewHomeFolderSynchronisationResponse();
-        // Analyse the request to build the response
-        // Look into homefolders
+
         try
         {
             for (HomeFolderType homeFolderType : homeFolderTypes)
@@ -256,12 +249,6 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         return homeFolderSynchronisationResponse;
     }
 
-    /**
-     * HomeFolder population
-     * 
-     * @param xmlHomeFolder
-     * @return List<Individual> Populated individuals
-     */
     private List<Individual> populateHomeFolderIndividuals(HomeFolderType homeFolder) throws CvqException
     {
         logger.debug("HomeFolder creation : " + homeFolder);
@@ -272,8 +259,6 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             List<Adult> adults = new ArrayList<Adult>();
             List<Child> children = new ArrayList<Child>();
             
-            
-            XmlObject[] xmlIndividuals = homeFolder.selectPath("./Individual");
             // Look into individuals from the homefolder
             for (SubjectType individual : homeFolder.getIndividualArray())
             {
@@ -290,14 +275,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                     child.setIndividualRoles(this.populateIndividualRoles(individual));
                 }
             }
-            if (children != null)
-            {
-                individuals.addAll(children);
-            }
-            if (adults != null)
-            {
-                individuals.addAll(adults);
-            }
+            individuals.addAll(children);
+            individuals.addAll(adults);
         }
         return individuals;
     }

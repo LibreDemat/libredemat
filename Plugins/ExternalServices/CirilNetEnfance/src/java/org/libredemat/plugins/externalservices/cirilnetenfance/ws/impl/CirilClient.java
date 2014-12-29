@@ -458,7 +458,6 @@ public class CirilClient implements ICirilClient
 			newRacine.addContent(sRacine);
 			listElements(racineInit, sRacine, registrationType);
 			xmlModified = XmlObject.Factory.parse(out.outputString(newDoc));
-			logger.debug("This is the new xml : " + xmlModified.toString());
 		}
 		catch (JDOMException e)
 		{
@@ -480,7 +479,6 @@ public class CirilClient implements ICirilClient
 		List<Element> elements = (List<Element>) element.getChildren();
 		Namespace ns2 = Namespace.getNamespace("com", "http://www.libredemat.org/schema/common");
 		Namespace ns3 = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-		logger.debug("The new element is : " + newElement.getName());
 		for (Element elem : elements)
 		{
 			if (elem.getName().equals("Individuals"))
