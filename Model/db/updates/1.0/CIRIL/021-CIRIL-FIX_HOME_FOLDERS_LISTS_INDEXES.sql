@@ -28,9 +28,29 @@ CREATE FUNCTION init_hibernate_list_index(table_name text, foreign_id_col_name t
   END;
 $$ LANGUAGE plpgsql;
 
+DO $$ 
+    BEGIN
+        BEGIN
+            ALTER TABLE user_action ADD COLUMN home_folder_index integer;
+        EXCEPTION
+            WHEN duplicate_column THEN RAISE NOTICE 'column home_folder_index already exists in user_action.';
+        END;
+    END;
+$$;
+
 ALTER TABLE user_action DROP constraint if exists "home_folder_index_key";
 select init_hibernate_list_index('user_action', 'home_folder_id', 'id', 'home_folder_index');
 ALTER TABLE user_action ADD constraint "home_folder_index_key" unique (home_folder_id, home_folder_index);
+
+DO $$ 
+    BEGIN
+        BEGIN
+            ALTER TABLE individual ADD COLUMN home_folder_index integer;
+        EXCEPTION
+            WHEN duplicate_column THEN RAISE NOTICE 'column home_folder_index already exists in individual.';
+        END;
+    END;
+$$;
 
 ALTER TABLE individual DROP constraint if exists "home_folder_index_key";
 select init_hibernate_list_index('individual', 'home_folder_id', 'id', 'home_folder_index');
