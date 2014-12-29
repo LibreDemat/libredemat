@@ -75,14 +75,14 @@ public interface IUserWorkflowService {
 
     void unlink(@IsUser Individual owner, @IsUser HomeFolder target);
 
-    void link(@IsUser Individual owner, @IsUser Individual target, Collection<RoleType> roleTypes);
+    void link(@IsUser Individual owner, @IsUser Individual target, Collection<RoleType> roleTypes, boolean notifyEvent);
 
-    void unlink(@IsUser Individual owner, @IsUser Individual target);
+    void unlink(@IsUser Individual owner, @IsUser Individual target, boolean notifyEvent);
 
     void changeState(@IsUser HomeFolder homeFolder, UserState state)
         throws CvqModelException, CvqInvalidTransitionException;
 
-    void changeState(@IsUser Individual individual, UserState state)
+    void changeState(@IsUser Individual individual, UserState state, boolean notifyLinkEvent)
         throws CvqModelException, CvqInvalidTransitionException;
 
     void delete(@IsUser HomeFolder homeFolder);

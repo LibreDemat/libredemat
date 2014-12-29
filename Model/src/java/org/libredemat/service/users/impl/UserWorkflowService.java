@@ -37,7 +37,6 @@ import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.UserEvent;
 import org.libredemat.business.users.UserState;
 import org.libredemat.business.users.UserWorkflow;
-import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.ChildInformationSheet;
 import org.libredemat.business.users.external.HomeFolderMapping;
 import org.libredemat.business.users.external.IndividualMapping;
@@ -139,7 +138,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 add(homeFolder, other, false);
                 Child child = BusinessObjectsFactory.gimmeChild("Moreau", "Émilie");
                 add(homeFolder, child);
-                link(homeFolderResponsible, child, Collections.singleton(RoleType.CLR_FATHER));
+                link(homeFolderResponsible, child, Collections.singleton(RoleType.CLR_FATHER), true);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -533,7 +532,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     @Override
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
-    public void link(Individual owner, Individual target, Collection<RoleType> types) {
+    public void link(Individual owner, Individual target, Collection<RoleType> types, boolean notifyEvent) {
         Set<RoleType> missing = new HashSet<RoleType>(types);
         for (IndividualRole role : owner.getIndividualRoles(target.getId())) {
             if (types.contains(role.getRole())) missing.remove(role.getRole());
@@ -567,12 +566,13 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         action = (UserAction) genericDAO.create(action);
         owner.getHomeFolder().getActions().add(action);
         homeFolderDAO.update(owner.getHomeFolder());
-        applicationEventPublisher.publishEvent(new UserEvent(this, action));
+        if (notifyEvent)
+            applicationEventPublisher.publishEvent(new UserEvent(this, action));
     }
 
     @Override
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
-    public void unlink( Individual owner, Individual target) {
+    public void unlink(Individual owner, Individual target, boolean notifyEvent) {
         Set<IndividualRole> roles = owner.getIndividualRoles(target.getId());
         if (roles.isEmpty()) return;
         Set<RoleType> deleted = new HashSet<RoleType>();
@@ -601,7 +601,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         action = (UserAction) genericDAO.create(action);
         owner.getHomeFolder().getActions().add(action);
         homeFolderDAO.update(owner.getHomeFolder());
-        applicationEventPublisher.publishEvent(new UserEvent(this, action));
+        if (notifyEvent)
+            applicationEventPublisher.publishEvent(new UserEvent(this, action));
     }
 
     @Override
@@ -644,14 +645,14 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
             Individual individual = userSearchService.getById(id);
             if (individual.getState().equals(UserState.NEW) 
                     || individual.getState().equals(UserState.MODIFIED)) {
-                changeState(individual,UserState.VALID);
+                changeState(individual,UserState.VALID, true);
             }
         }
     }
 
     @Override
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
-    public void changeState(Individual individual, UserState state)
+    public void changeState(Individual individual, UserState state, boolean notifyLinkEvent)
         throws CvqModelException, CvqInvalidTransitionException {
         if (!isValidTransition(individual.getState(), state))
             throw new CvqInvalidTransitionException(
@@ -688,8 +689,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
             //Remove in and out roles.
             List<Individual> individualsCopy = new ArrayList<Individual>(homeFolder.getIndividuals());
             for (Individual responsible : individualsCopy) {
-                unlink(responsible, individual);
-                unlink(individual, responsible);
+                unlink(responsible, individual, notifyLinkEvent);
+                unlink(individual, responsible, notifyLinkEvent);
             }
         }
 
@@ -743,7 +744,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
         for (Long id : ids) {
             Individual ind = userSearchService.getById(id);
-            unlink(ind, individual);
+            unlink(ind, individual, true);
         }
 
         UserAction action = new UserAction(UserAction.Type.DELETION, individual.getId());
@@ -920,7 +921,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                             }
                         }
                         if (!roles.isEmpty()) {
-                            for (RoleType role : roles) link(a, c, Collections.singleton(role));
+                            for (RoleType role : roles) link(a, c, Collections.singleton(role), true);
                         }
                     }
                 }
