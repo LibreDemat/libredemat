@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="Ciril:Enfance:ServicesEnfance"
+                  xmlns:tns="Ciril:Enfance:ServicesEnfance"
+                  name=""
+                  targetNamespace="Ciril:Enfance:ServicesEnfance">
+   <wsdl:types>
+      <schema xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:cvq="http://www.libredemat.org/schema/common"
+              xmlns:enf="Ciril:Enfance:ServicesEnfance"
+              xmlns="http://www.w3.org/2001/XMLSchema"
+              targetNamespace="Ciril:Enfance:ServicesEnfance"
+              elementFormDefault="unqualified"
+              attributeFormDefault="unqualified">
+  
+         <import namespace="http://www.libredemat.org/schema/common"
+                 schemaLocation="http://static.mairie24.fr/4.7-libredemat/schemas/common/CVQCommonElements.xsd"/>
+  
+         <simpleType name="dayType">
+            <restriction base="xsd:string">
+               <enumeration value="Ouvert"/>
+               <!-- enum const = 0 -->
+    <enumeration value="ReservationValide"/>
+               <!-- enum const = 1 -->
+    <enumeration value="ReservationEnCours"/>
+               <!-- enum const = 2 -->
+    <enumeration value="ReportEnCours"/>
+               <!-- enum const = 3 -->
+   </restriction>
+         </simpleType>
+         <simpleType name="returnType">
+            <restriction base="xsd:string">
+               <enumeration value="Success"/>
+               <!-- enum const = 0 -->
+    <enumeration value="Canceled"/>
+               <!-- enum const = 1 -->
+    <enumeration value="Refused"/>
+               <!-- enum const = 2 -->
+   </restriction>
+         </simpleType>
+         <complexType name="day">
+            <sequence>
+               <element name="date" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+               <element name="dayType" type="enf:dayType" minOccurs="1" maxOccurs="1" nillable="false"/>
+            </sequence>
+         </complexType>
+         <complexType name="weeklySchedule">
+            <sequence>
+               <element name="monday" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false"/>
+               <element name="tuesday" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false"/>
+               <element name="wednesday" type="xsd:boolean" minOccurs="0" maxOccurs="1"
+                        nillable="false"/>
+               <element name="thursday" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false"/>
+               <element name="friday" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false"/>
+               <element name="saturday" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false"/>
+               <element name="sunday" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false"/>
+            </sequence>
+         </complexType>
+         <complexType name="activityServicesPlanning">
+            <sequence>
+               <element name="possiblePostPonement" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+               <element name="possibleReservation" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+               <element name="activityServiceCode" type="xsd:string" minOccurs="1" maxOccurs="1"
+                        nillable="false"/>
+               <element name="activityServiceLabel" type="xsd:string" minOccurs="1" maxOccurs="1"
+                        nillable="false"/>
+               <element name="endDateRegistration" type="xsd:date" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServiceColor" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServiceLinked" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+               <element name="activityServiceGroupCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServiceGroupLabel" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="incompatibleActivityServiceCode" type="xsd:string" minOccurs="0"
+                        maxOccurs="unbounded"
+                        nillable="true"/>
+               <element name="weeklySchedule" type="enf:weeklySchedule" minOccurs="0" maxOccurs="1"/>
+               <element name="day" type="enf:day" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="activityServicesDateResp">
+            <sequence>
+               <element name="date" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+               <element name="dayAmountInCent" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+               <element name="errorCode" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+               <element name="errorLabel" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+            </sequence>
+         </complexType>
+         <complexType name="activityServicesResp">
+            <sequence>
+               <element name="activityServiceCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServiceLabel" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServicesDateResp" type="enf:activityServicesDateResp"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="activitiesResp">
+            <sequence>
+               <element name="activityCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServicesResp" type="enf:activityServicesResp" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="childResp">
+            <sequence>
+               <element name="externalChildId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activitiesResp" type="enf:activitiesResp" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="activityServicesDateReq">
+            <sequence>
+               <element name="date" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+               <element name="dayType" type="enf:dayType" minOccurs="1" maxOccurs="1" nillable="false"/>
+            </sequence>
+         </complexType>
+         <complexType name="activityServicesReq">
+            <sequence>
+               <element name="activityServiceCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServicesDateReq" type="enf:activityServicesDateReq" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="activitiesReq">
+            <sequence>
+               <element name="activityCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServicesReq" type="enf:activityServicesReq" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="childReq">
+            <sequence>
+               <element name="externalChildId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activitiesReq" type="enf:activitiesReq" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="activityServices">
+            <sequence>
+               <element name="activityServiceCode" type="xsd:string" minOccurs="1" maxOccurs="1"
+                        nillable="false"/>
+               <element name="activityServiceLabel" type="xsd:string" minOccurs="1" maxOccurs="1"
+                        nillable="false"/>
+               <element name="activityServiceCount" type="xsd:string" minOccurs="1" maxOccurs="1"
+                        nillable="false"/>
+               <element name="activityServiceColor" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServiceGroupCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityServiceGroupLabel" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+            </sequence>
+         </complexType>
+         <complexType name="activities">
+            <sequence>
+               <element name="activitylabel" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activityCode" type="xsd:string" minOccurs="1" maxOccurs="1"
+                        nillable="false"/>
+               <element name="activityServices" type="enf:activityServices" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="child">
+            <sequence>
+               <element name="externalChildId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="activities" type="enf:activities" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="Documents">
+            <sequence>
+               <element name="Label" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+               <element name="Url" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+            </sequence>
+         </complexType>
+         <complexType name="FamilyAccountDocument">
+            <sequence>
+               <element name="FamilyDocuments" type="enf:Documents" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="Individual">
+            <sequence>
+               <element name="IndividualExternalId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                        nillable="true"/>
+               <element name="IndividualDocument" type="enf:Documents" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <complexType name="IndividualAccountDocument">
+            <sequence>
+               <element name="Individual" type="enf:Individual" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+         </complexType>
+         <!-- operation request element -->
+  <element name="reservationActivityPlanningRequest">
+            <complexType>
+               <sequence>
+                  <element name="activityCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="folderId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalFolderId" type="xsd:string" minOccurs="1" maxOccurs="1"
+                           nillable="false"/>
+                  <element name="childId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalChildId" type="xsd:string" minOccurs="1" maxOccurs="1"
+                           nillable="false"/>
+                  <element name="sessionId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="startDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="endDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation response element -->
+  <element name="reservationActivityPlanningResponse">
+            <complexType>
+               <sequence>
+                  <element name="amountInCent" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                  <element name="activityCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="activityLabel" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="instantPayment" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+                  <element name="reservationDeadline" type="xsd:date" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="activityServicesPlanning" type="enf:activityServicesPlanning"
+                           minOccurs="0"
+                           maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="updateReservationRequest">
+            <complexType>
+               <sequence>
+                  <element name="sessionId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="folderId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalFolderId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="childReq" type="enf:childReq" minOccurs="1" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation response element -->
+  <element name="updateReservationResponse">
+            <complexType>
+               <sequence>
+                  <element name="accountNegativeInCent" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                  <element name="amountToPay" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                  <element name="childResp" type="enf:childResp" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="updateGlobalReservationRequest">
+            <complexType>
+               <sequence>
+                  <element name="sessionId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="folderId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalFolderId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="childId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalChildId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="activityServiceCode" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="startingDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="endingDate" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="weeklySchedule" type="enf:weeklySchedule" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="cancelReservationRequest">
+            <complexType>
+               <sequence>
+                  <element name="sessionId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation response element -->
+  <element name="cancelReservationResponse">
+            <complexType>
+               <sequence>
+                  <element name="retour" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="amountVerificationRequest">
+            <complexType>
+               <sequence>
+                  <element name="folderId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalFolderId" type="xsd:string" minOccurs="1" maxOccurs="1"
+                           nillable="false"/>
+                  <element name="sessionId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="amountInCent" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation response element -->
+  <element name="amountVerificationResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnCode" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="errorLabel" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="expectedAmount" type="xsd:int" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="postPaymentReturnRequest">
+            <complexType>
+               <sequence>
+                  <element name="folderId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+                  <element name="externalFolderId" type="xsd:string" minOccurs="1" maxOccurs="1"
+                           nillable="false"/>
+                  <element name="sessionId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="returnType" type="enf:returnType" minOccurs="1" maxOccurs="1"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="reservationResumeRequest">
+            <complexType>
+               <sequence>
+                  <element name="externalFolderId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+                  <element name="folderId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="startDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="endDate" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <element name="sessionId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation response element -->
+  <element name="reservationResumeResponse">
+            <complexType>
+               <sequence>
+                  <element name="child" type="enf:child" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation request element -->
+  <element name="GetExternalDocument">
+            <complexType>
+               <sequence>
+                  <element name="IdFolder" type="xsd:long" minOccurs="1" maxOccurs="1"/>
+                  <element name="ExternalHomeFolderId" type="xsd:string" minOccurs="0" maxOccurs="1"
+                           nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+         <!-- operation response element -->
+  <element name="ExternalDocumentReponse">
+            <complexType>
+               <sequence>
+                  <element name="FamilyAccountDocument" type="enf:FamilyAccountDocument" minOccurs="0"
+                           maxOccurs="1"
+                           nillable="true"/>
+                  <element name="IndividualAccountDocument" type="enf:IndividualAccountDocument"
+                           minOccurs="0"
+                           maxOccurs="1"
+                           nillable="true"/>
+               </sequence>
+            </complexType>
+         </element>
+  
+         <!--  getEcoleSecteurCalculee  -->
+	<element name="getEcoleSecteurCalculee">
+		          <complexType>
+			            <sequence>
+				              <element name="codeApplication" type="xsd:string" minOccurs="1"/>
+				              <element name="codeCommune" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				              <element name="codeFamille" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				              <element name="codeExterneFamille" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				              <element name="codeEnfant" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				              <element name="codeExterneEnfant" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				              <element name="adresse" type="enf:adresse" minOccurs="0" maxOccurs="1"/>
+				              <element name="infosScolaires">
+				                 <complexType>
+				                    <sequence>
+				                       <element name="dateReferenceAnneeScolaire" type="xsd:string">
+				                          <annotation>
+				                             <documentation>
+				              Date de début de la saison associée au téléservice
+				            </documentation>
+				                          </annotation>
+				                       </element>			
+				                       <element name="codeNiveau" type="xsd:string">
+				                          <annotation>
+				                             <documentation>
+				               section de classe de l'enfant
+				            </documentation>
+				                          </annotation>
+				                       </element>		
+				                       <element name="codeBaseEleveNiveau" type="xsd:string" minOccurs="1">
+				                          <annotation>
+				                             <documentation>
+				               Code du niveau sélectionné (code base élève, même code que téléservice d'inscription scolaire), obligatoire pour ce TS
+				            </documentation>
+				                          </annotation>
+				                       </element>	
+				                       <element name="dateNaissanceEnfant" type="xsd:string">
+				                          <annotation>
+				                             <documentation>
+				               Date naissance enfant
+				            </documentation>
+				                          </annotation>
+				                       </element>	
+				                    </sequence>
+				                 </complexType>
+				              </element>			
+			            </sequence>
+		          </complexType>
+	        </element>
+
+	        <!-- Response -->
+	<element name="getEcoleSecteurCalculeeResponse">
+		          <complexType>
+			            <sequence>
+				              <element name="anneeScolaire" type="enf:anneeScolaireType">
+				   
+				</element>	
+				
+				              <element name="niveauScolaireCalcule" type="enf:niveauScolaireCalculeType">
+				   
+				</element>	
+				
+				              <element name="ecolesSecteurHabitation">
+				                 <complexType>
+				                    <sequence>
+						                     <element name="ecoleSecteurHabitation" type="enf:ecoleSecteurHabitationType"
+                                    maxOccurs="unbounded"/>
+				                    </sequence>
+				                 </complexType>
+				              </element>	
+				
+				              <element name="fichesInscriptionsScolaires">
+				                 <complexType>
+				                    <sequence>
+						                     <element name="ficheInscriptionScolaire" type="enf:ficheInscriptionScolaireType"
+                                    maxOccurs="unbounded"/>
+				                    </sequence>
+				                 </complexType>
+				              </element>	
+				
+				              <element name="gestionErreur">
+				                 <complexType>
+				                    <sequence>
+				                       <element name="codeErreur" type="xsd:long">
+				                          <annotation>
+				                             <documentation>
+				              numéro code erreur 
+				            </documentation>
+				                          </annotation>
+				                       </element>			
+				                       <element name="libelleErreur" type="xsd:string">
+				                          <annotation>
+				                             <documentation>
+				               Libellé
+				            </documentation>
+				                          </annotation>
+				                       </element>		
+				                       <element name="messageFront" type="xsd:string">
+				                          <annotation>
+				                             <documentation>
+				               Message en frontal
+				            </documentation>
+				                          </annotation>
+				                       </element>	
+				                    </sequence>
+				                 </complexType>
+				              </element>	
+				
+			            </sequence>
+		          </complexType>
+	        </element>
+	        <complexType name="ecoleSecteurHabitationType">
+            <sequence>
+               <element name="code" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              code
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="libelle" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              Libellé
+            </documentation>
+                  </annotation>
+               </element>
+            </sequence>
+         </complexType>	
+   
+	        <complexType name="ficheInscriptionScolaireType">
+            <sequence>
+               <element name="typeInscriptionScolaire" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              typeInscriptionScolaire
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="dateInscription" type="xsd:date">
+                  <annotation>
+                     <documentation>
+              Libellé
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="ecoleRetenue">
+                  <complexType>
+		                   <sequence>
+		                      <element name="code" type="xsd:string">
+		                         <annotation>
+		                            <documentation>
+		              Code 
+		            </documentation>
+		                         </annotation>
+		                      </element>			
+		                      <element name="libelle" type="xsd:string">
+		                         <annotation>
+		                            <documentation>
+		               Libellé
+		            </documentation>
+		                         </annotation>
+		                      </element>		
+		                   </sequence>
+		                </complexType>
+               </element>
+               <element name="niveauScolaire">
+                  <complexType>
+		                   <sequence>
+		                      <element name="code" type="xsd:string">
+		                         <annotation>
+		                            <documentation>
+		              Code 
+		            </documentation>
+		                         </annotation>
+		                      </element>			
+		                      <element name="codeBaseEleve" type="xsd:string">
+		                         <annotation>
+		                            <documentation>
+		               Code base élève
+		            </documentation>
+		                         </annotation>
+		                      </element>		
+		                      <element name="libelle" type="xsd:string">
+		                         <annotation>
+		                            <documentation>
+		               Libellé
+		            </documentation>
+		                         </annotation>
+		                      </element>		
+		                   </sequence>
+		                </complexType>
+               </element>
+            </sequence>
+         </complexType>	
+   
+         <complexType name="anneeScolaireType">
+            <sequence>
+               <element name="code" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              code
+            </documentation>
+                  </annotation>
+               </element>				
+               <element name="libelle" type="xsd:string">
+                  <annotation>
+                     <documentation>
+               libellé
+            </documentation>
+                  </annotation>
+               </element>	
+               <element name="dateDebut" type="xsd:date">
+                  <annotation>
+                     <documentation>
+              date début
+            </documentation>
+                  </annotation>
+               </element>	
+               <element name="dateFin" type="xsd:date">
+                  <annotation>
+                     <documentation>
+              date fin 
+            </documentation>
+                  </annotation>
+               </element>	
+            </sequence>
+         </complexType>
+   
+         <complexType name="niveauScolaireCalculeType">
+            <sequence>
+               <element name="code" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              code
+            </documentation>
+                  </annotation>
+               </element>				
+               <element name="codeBaseEleve" type="xsd:string">
+                  <annotation>
+                     <documentation>
+               code base élève
+            </documentation>
+                  </annotation>
+               </element>	
+               <element name="libelle" type="xsd:date">
+                  <annotation>
+                     <documentation>
+              Libellé
+            </documentation>
+                  </annotation>
+               </element>
+            </sequence>
+         </complexType>
+   
+         <complexType name="adresseFormatAfnor">
+            <sequence>
+               <element name="AdditionalDeliveryInformation" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              AdditionalDeliveryInformation
+            </documentation>
+                  </annotation>
+               </element>				
+               <element name="AdditionalGeographicalInformation" type="xsd:string">
+                  <annotation>
+                     <documentation>
+               AdditionalGeographicalInformation
+            </documentation>
+                  </annotation>
+               </element>	
+               <element name="StreetNumber" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              StreetNumber
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="StreetName" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              StreetName
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="PlaceNameOrService" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              PlaceNameOrService
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="PostalCode" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              PostalCode
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="City" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              City
+            </documentation>
+                  </annotation>
+               </element>
+               <element name="CountryName" type="xsd:string">
+                  <annotation>
+                     <documentation>
+              CountryName
+            </documentation>
+                  </annotation>
+               </element>
+            </sequence>
+         </complexType>
+
+         <complexType name="adresse">
+            <sequence>
+               <element name="adresseFormatAfnor" type="enf:adresseFormatAfnor" minOccurs="0"/>
+            </sequence>
+         </complexType>
+  
+      </schema>
+   </wsdl:types>
+   <wsdl:message name="reservationActivityPlanningRequestMessage">
+      <wsdl:part name="body" element="schema:reservationActivityPlanningRequest"/>
+   </wsdl:message>
+   <wsdl:message name="reservationActivityPlanningResponseMessage">
+      <wsdl:part name="body" element="schema:reservationActivityPlanningResponse"/>
+   </wsdl:message>
+   <wsdl:message name="updateReservationRequestMessage">
+      <wsdl:part name="body" element="schema:updateReservationRequest"/>
+   </wsdl:message>
+   <wsdl:message name="updateReservationResponseMessage">
+      <wsdl:part name="body" element="schema:updateReservationResponse"/>
+   </wsdl:message>
+   <wsdl:message name="updateGlobalReservationRequestMessage">
+      <wsdl:part name="body" element="schema:updateGlobalReservationRequest"/>
+   </wsdl:message>
+   <wsdl:message name="cancelReservationRequestMessage">
+      <wsdl:part name="body" element="schema:cancelReservationRequest"/>
+   </wsdl:message>
+   <wsdl:message name="cancelReservationResponseMessage">
+      <wsdl:part name="body" element="schema:cancelReservationResponse"/>
+   </wsdl:message>
+   <wsdl:message name="amountVerificationRequestMessage">
+      <wsdl:part name="body" element="schema:amountVerificationRequest"/>
+   </wsdl:message>
+   <wsdl:message name="amountVerificationResponseMessage">
+      <wsdl:part name="body" element="schema:amountVerificationResponse"/>
+   </wsdl:message>
+   <wsdl:message name="postPaymentReturnRequestMessage">
+      <wsdl:part name="body" element="schema:postPaymentReturnRequest"/>
+   </wsdl:message>
+   <wsdl:message name="reservationResumeRequestMessage">
+      <wsdl:part name="body" element="schema:reservationResumeRequest"/>
+   </wsdl:message>
+   <wsdl:message name="reservationResumeResponseMessage">
+      <wsdl:part name="body" element="schema:reservationResumeResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetExternalDocumentMessage">
+      <wsdl:part name="body" element="schema:GetExternalDocument"/>
+   </wsdl:message>
+   <wsdl:message name="ExternalDocumentReponseMessage">
+      <wsdl:part name="body" element="schema:ExternalDocumentReponse"/>
+   </wsdl:message>
+   <wsdl:message name="getEcoleSecteurCalculeeMessage">
+      <wsdl:part name="body" element="schema:getEcoleSecteurCalculee"/>
+   </wsdl:message>
+   <wsdl:message name="getEcoleSecteurCalculeeResponseMessage">
+      <wsdl:part name="body" element="schema:getEcoleSecteurCalculeeResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="PortType">
+      <wsdl:operation name="reservationActivityPlanning">
+         <wsdl:input name="reservationActivityPlanningInput"
+                     message="tns:reservationActivityPlanningRequestMessage"/>
+         <wsdl:output name="reservationActivityPlanningOutput"
+                      message="tns:reservationActivityPlanningResponseMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="updateReservation">
+         <wsdl:input name="updateReservationInput" message="tns:updateReservationRequestMessage"/>
+         <wsdl:output name="updateReservationOutput" message="tns:updateReservationResponseMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="updateGlobalReservation">
+         <wsdl:input name="updateGlobalReservationInput"
+                     message="tns:updateGlobalReservationRequestMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="cancelReservation">
+         <wsdl:input name="cancelReservationInput" message="tns:cancelReservationRequestMessage"/>
+         <wsdl:output name="cancelReservationOutput" message="tns:cancelReservationResponseMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="amountVerification">
+         <wsdl:input name="amountVerificationInput" message="tns:amountVerificationRequestMessage"/>
+         <wsdl:output name="amountVerificationOutput" message="tns:amountVerificationResponseMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="postPaymentReturn">
+         <wsdl:input name="postPaymentReturnInput" message="tns:postPaymentReturnRequestMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="reservationResume">
+         <wsdl:input name="reservationResumeInput" message="tns:reservationResumeRequestMessage"/>
+         <wsdl:output name="reservationResumeOutput" message="tns:reservationResumeResponseMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="Binding" type="tns:PortType">
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="reservationActivityPlanning">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/reservationActivityPlanning"/>
+         <wsdl:input name="reservationActivityPlanningInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="reservationActivityPlanningOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="updateReservation">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/updateReservation"/>
+         <wsdl:input name="updateReservationInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="updateReservationOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="updateGlobalReservation">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/updateGlobalReservation"/>
+         <wsdl:input name="updateGlobalReservationInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+      </wsdl:operation>
+      <wsdl:operation name="cancelReservation">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/cancelReservation"/>
+         <wsdl:input name="cancelReservationInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="cancelReservationOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="amountVerification">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/amountVerification"/>
+         <wsdl:input name="amountVerificationInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="amountVerificationOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="postPaymentReturn">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/postPaymentReturn"/>
+         <wsdl:input name="postPaymentReturnInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+      </wsdl:operation>
+      <wsdl:operation name="reservationResume">
+         <wsdlsoap:operation soapAction="Ciril:Enfance:ServicesEnfance/reservationResume"/>
+         <wsdl:input name="reservationResumeInput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="reservationResumeOutput">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="Service">
+      <wsdl:port name="Port" binding="tns:Binding">
+         <wsdlsoap:address location=""/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

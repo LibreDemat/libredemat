@@ -5,19 +5,19 @@
                   xmlns:schema="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
                   xmlns:tns="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
                   name=""
-                  targetNamespace= ="http://www.capwebct.fr/capdemat/homeFolderSynchronisation">
+                  targetNamespace="http://www.capwebct.fr/capdemat/homeFolderSynchronisation">
    <wsdl:types>
-      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:hfs="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
-                 targetNamespace=""
+      <xs:schema xmlns:hfs="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
+                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 targetNamespace="http://www.capwebct.fr/capdemat/homeFolderSynchronisation"
                  elementFormDefault="qualified"
-                  targetNamespace= ="http://www.capwebct.fr/capdemat/homeFolderSynchronisation">
-
+                 attributeFormDefault="unqualified">
+  
 	<!-- Request -->
 	<xs:element name="HomeFolderSynchronisationRequest">
 		          <xs:complexType>
 			            <xs:sequence>
-				              <xs:element name="HomeFolder" type="HomeFolderType" maxOccurs="unbounded"/>
+				              <xs:element name="HomeFolder" type="hfs:HomeFolderType" maxOccurs="unbounded"/>
 			            </xs:sequence>
 		          </xs:complexType>
 	        </xs:element>
@@ -29,10 +29,10 @@
 				              <xs:element name="ResponseCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				              <xs:element name="ResponseDetail" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				              <xs:element name="login" type="xs:string" minOccurs="0" maxOccurs="1"/>
-				              <xs:element name="HomeFolderMapping" type="HomeFolderMappingType" minOccurs="0"
+				              <xs:element name="HomeFolderMapping" type="hfs:HomeFolderMappingType" minOccurs="0"
                               maxOccurs="1"
                               nillable="false"/>
-				              <xs:element name="IndividualMapping" type="IndividualMappingType" minOccurs="0"
+				              <xs:element name="IndividualMapping" type="hfs:IndividualMappingType" minOccurs="0"
                               maxOccurs="unbounded"/>
 			            </xs:sequence>
 		          </xs:complexType>
@@ -127,7 +127,7 @@
 							</xs:documentation>
 						                  </xs:annotation>
 					                </xs:element>
-					                <xs:element name="FamilyStatus" type="hfs:FamilyStatusType" default="Other"/>
+					                <xs:element name="FamilyStatus" type="hfs:FamilyStatusType" default="OTHER"/>
 					                <xs:element name="HomePhone" type="hfs:PhoneType">
 						                  <xs:annotation>
 							                    <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
@@ -159,6 +159,7 @@
 						                  </xs:annotation>
 					                </xs:element>
 					                <xs:element name="Email" type="hfs:EmailType"/>
+					                <xs:element name="Cfbn" type="xs:string" minOccurs="0"/>
 					                <xs:element name="Profession" type="xs:string" minOccurs="0"/>
 				              </xs:sequence>
 			            </xs:extension>
@@ -177,6 +178,7 @@
 				              <xs:sequence>
 					                <xs:element name="Born" type="xs:boolean"/>
 					                <xs:element name="Sex" type="hfs:SexType" minOccurs="0"/>
+					                <xs:element name="ChildInformationSheet" type="hfs:ChildInformationSheetType" minOccurs="0"/>
 				              </xs:sequence>
 			            </xs:extension>
 		          </xs:complexContent>
@@ -201,7 +203,149 @@
 			            <xs:element name="City" type="hfs:AddressBloc32UpperType"/>
 		          </xs:sequence>
 	        </xs:complexType>
-  
+
+	        <!-- Fiche de renseignement et de santé de l'enfant -->
+	<xs:complexType name="ChildInformationSheetType">
+		          <xs:annotation>
+			            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Fiche de renseignement et de sécurité enfant
+			</xs:documentation>
+			            <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+				Child information sheet
+			</xs:documentation>
+			            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Fiche de renseignement et de sécurité enfant
+			</xs:documentation>
+			            <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+				Child information sheet
+			</xs:documentation>
+		          </xs:annotation>
+		          <xs:sequence>
+			<!-- -->
+			<xs:element name="Id" type="xs:long"/>
+			            <xs:element name="TelephonePortable" type="hfs:MobilePhoneType" minOccurs="0">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Téléphone portable de l'enfant
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Téléphone portable de l'enfant
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="EmailEnfant" type="hfs:EmailType" minOccurs="0"/>
+			            <xs:element name="NomOrganismeAssurance" type="xs:string"/>
+			            <xs:element name="NumeroOrganismeAssurance" type="xs:string"/>
+			            <xs:element name="NomMedecinTraitant" type="xs:string" minOccurs="0"/>
+			            <xs:element name="TelephoneMedecinTraitant" type="hfs:PhoneType" minOccurs="0">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Téléphone du médecin traitant
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Téléphone du médecin traitant
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="Allergie" type="xs:string" minOccurs="0"/>
+			            <xs:element name="Diets" type="hfs:DietType" minOccurs="0" maxOccurs="1"/>
+			            <xs:element name="VaccinBcg" type="xs:date" minOccurs="0">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="VaccinDtPolio" type="xs:date">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="VaccinInjectionSerum" type="xs:date" minOccurs="0">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="VaccinRor" type="xs:date" minOccurs="0">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="VaccinTetracoqPentacoq" type="xs:date" minOccurs="0">
+				              <xs:annotation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+						Date du vaccin
+					</xs:documentation>
+					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+						Date du vaccin
+					</xs:documentation>
+				              </xs:annotation>
+			            </xs:element>
+			            <xs:element name="RecommandationParent" type="xs:string" minOccurs="0"/>
+			            <xs:element name="DifficulteSante" type="xs:string" minOccurs="0"/>
+			            <xs:element name="ProjetAccueilIndividualise" type="xs:boolean" minOccurs="0"/>
+			            <xs:element name="AuthorisationDroitImage" type="xs:boolean" minOccurs="0"/>
+			            <xs:element name="AuthorisationRentrerSeul" type="xs:boolean" minOccurs="0"/>
+			            <xs:element name="AutorisationHospitalisation" type="xs:boolean" minOccurs="0"/>	
+			            <xs:element name="AutorisationMaquillage" type="xs:boolean" minOccurs="0"/>	
+			            <xs:element name="AutorisationTransporterTransportCommun" type="xs:boolean" minOccurs="0"/>	
+			            <xs:element name="AutorisationTransporterVehiculeMunicipal" type="xs:boolean" minOccurs="0"/>
+			            <xs:element name="VaccinAutre" type="xs:string" minOccurs="0"/>						
+		          </xs:sequence>
+	        </xs:complexType>
+	  
+         <xs:complexType name="DietType">
+            <xs:annotation>
+               <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+        Régime alimentaire
+      </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+               <xs:element name="Type" type="hfs:DietEnumType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+         </xs:complexType>
+
+         <xs:simpleType name="DietEnumType">
+            <xs:annotation>
+               <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+        Régimes alimentaires
+      </xs:documentation>
+               <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+        Régimes alimentaires
+      </xs:documentation>
+               <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
+                  <enum key="SANS_PORC" value="Sans porc"/>
+                  <enum key="SANS_POISS" value="Sans poisson"/>
+                  <enum key="PAI" value="PAI"/>
+                  <enum key="ALLERGIE" value="Sans allergène"/>
+               </xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="SANS_PORC"/>
+               <xs:enumeration value="SANS_POISS"/>
+               <xs:enumeration value="PAI"/>
+               <xs:enumeration value="ALLERGIE"/>
+            </xs:restriction>
+         </xs:simpleType>
+    	  
 	        <!-- **************************************************************************************** -->
 	<xs:simpleType name="AddressBloc38Type">
 		          <xs:annotation>
@@ -325,25 +469,25 @@
 				Situation familiale
 			</xs:documentation>
 			            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
-				              <enum key="Married" value="Marié(e)"/>
-				              <enum key="Single" value="Célibataire"/>
-				              <enum key="Divorced" value="Divorcé(e)"/>
-				              <enum key="Widow" value="Veuf(ve)"/>
-				              <enum key="CommonLawMarriage" value="Concubinage"/>
-				              <enum key="Separated" value="Séparé(e)"/>
+				              <enum key="MARRIED" value="Marié(e)"/>
+				              <enum key="SINGLE" value="Célibataire"/>
+				              <enum key="DIVORCED" value="Divorcé(e)"/>
+				              <enum key="WIDOW" value="Veuf(ve)"/>
+				              <enum key="COMMON_LAW_MARRIAGE" value="Concubinage"/>
+				              <enum key="SEPARATED" value="Séparé(e)"/>
 				              <enum key="PACS" value="PACS"/>
-				              <enum key="Other" value="Autre"/>
+				              <enum key="OTHER" value="Autre"/>
 			            </xs:documentation>
 		          </xs:annotation>
 		          <xs:restriction base="xs:string">
-			            <xs:enumeration value="Married"/>
-			            <xs:enumeration value="Single"/>
-			            <xs:enumeration value="Divorced"/>
-			            <xs:enumeration value="Widow"/>
-			            <xs:enumeration value="CommonLawMarriage"/>
-			            <xs:enumeration value="Separated"/>
+			            <xs:enumeration value="MARRIED"/>
+			            <xs:enumeration value="SINGLE"/>
+			            <xs:enumeration value="DIVORCED"/>
+			            <xs:enumeration value="WIDOW"/>
+			            <xs:enumeration value="COMMON_LAW_MARRIAGE"/>
+			            <xs:enumeration value="SEPARATED"/>
 			            <xs:enumeration value="PACS"/>
-			            <xs:enumeration value="Other"/>
+			            <xs:enumeration value="OTHER"/>
 		          </xs:restriction>
 	        </xs:simpleType>
 
@@ -437,7 +581,7 @@
 			</xs:documentation>
 		          </xs:annotation>
 		          <xs:sequence>
-			            <xs:element name="IndividualId" type="xs:long" minOccurs="0"/>
+			            <xs:element name="IndividualExternalId" type="xs:long" minOccurs="0"/>
 			            <xs:element name="IndividualName" minOccurs="0">
 				              <xs:annotation>
 					                <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
@@ -455,7 +599,7 @@
 					                </xs:restriction>
 				              </xs:simpleType>
 			            </xs:element>
-			            <xs:element name="HomeFolderId" type="xs:long" minOccurs="0"/>
+			            <xs:element name="HomeFolderExternalId" type="xs:long" minOccurs="0"/>
 			            <xs:element name="RoleName" type="hfs:RoleType"/>
 		          </xs:sequence>
 	        </xs:complexType>
@@ -470,19 +614,19 @@
 				Rôle
 			</xs:documentation>
 			            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
-				              <enum key="HomeFolderResponsible" value="Responsable de compte"/>
-				              <enum key="ClrMother" value="Responsable légal / Mère"/>
-				              <enum key="ClrFather" value="Responsable légal / Père"/>
-				              <enum key="ClrTutor" value="Responsable légal / Tuteur"/>
-				              <enum key="Tutor" value="Tuteur"/>
+				              <enum key="HOME_FOLDER_RESPONSIBLE" value="Responsable de compte"/>
+				              <enum key="CLR_MOTHER" value="Responsable légal / Mère"/>
+				              <enum key="CLR_FATHER" value="Responsable légal / Père"/>
+				              <enum key="CLR_TUTOR" value="Responsable légal / Tuteur"/>
+				              <enum key="TUTOR" value="Tuteur"/>
 			            </xs:documentation>
 		          </xs:annotation>
 		          <xs:restriction base="xs:string">
-			            <xs:enumeration value="HomeFolderResponsible"/>
-			            <xs:enumeration value="ClrMother"/>
-			            <xs:enumeration value="ClrFather"/>
-			            <xs:enumeration value="ClrTutor"/>
-			            <xs:enumeration value="Tutor"/>
+			            <xs:enumeration value="HOME_FOLDER_RESPONSIBLE"/>
+			            <xs:enumeration value="CLR_MOTHER"/>
+			            <xs:enumeration value="CLR_FATHER"/>
+			            <xs:enumeration value="CLR_TUTOR"/>
+			            <xs:enumeration value="TUTOR"/>
 		          </xs:restriction>
 	        </xs:simpleType>
 

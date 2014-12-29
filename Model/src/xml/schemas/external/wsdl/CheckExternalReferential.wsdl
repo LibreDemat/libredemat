@@ -15,7 +15,7 @@
                  attributeFormDefault="unqualified">
 
          <xs:import namespace="http://www.libredemat.org/schema/common"
-           schemaLocation="http://static.mairie24.fr/4.7-libredemat/schemas/common/CVQCommonElements.xsd"/>
+                    schemaLocation="http://static.mairie24.fr/4.7-libredemat/schemas/common/CVQCommonElements.xsd"/>
 
          <xs:element name="checkExternalReferentialRequest">
             <xs:complexType>
