@@ -244,7 +244,7 @@
   
   <target name="update-conf-fobo"
     description="Deploy BO config files" depends="init">
-  <ant dir="${libraries.dir}" target="bong-runtime-libs" />
+      <ant dir="${libraries.dir}" target="bong-runtime-libs" />
       <copy file="${deploy.properties_dir}/${deploy.properties_file}"
             tofile="BackOfficeNG/grails-app/conf/LibreDemat-config.properties"
             overwrite="true" />
@@ -259,6 +259,18 @@
       <copy file="${deploy.properties_dir}/log4j.properties.dev"
             tofile="BackOfficeNG/log4j.properties"
             overwrite="true" />
+      <copy file="${libraries.springconf.dir}/applicationContext.xml"
+            todir="BackOfficeNG/grails-app/conf/spring"
+            overwrite="true">
+      </copy>
+      <copy file="${libraries.springconf.dir}/applicationContext-deployment.xml"
+            todir="BackOfficeNG/grails-app/conf/spring"
+            overwrite="true">
+      </copy>
+      <copy file="${libraries.springconf.dir}/applicationContext-admin.xml"
+            todir="BackOfficeNG/grails-app/conf/spring"
+            overwrite="true">
+      </copy>
   </target>
 
   <!-- ================================================================================= -->
