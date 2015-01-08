@@ -30,8 +30,8 @@ delete from request r using request_type rt
 
 -- Delete request specific data.
 
-drop table school_registration_simplify_request cascade;
-drop table school_registration_simplify_request_section cascade;
+drop table if exists school_registration_simplify_request cascade;
+drop table if exists school_registration_simplify_request_section cascade;
 
 -- Delete from request_type related tables.
 

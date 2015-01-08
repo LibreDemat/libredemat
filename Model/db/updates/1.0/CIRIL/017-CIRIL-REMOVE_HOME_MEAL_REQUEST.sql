@@ -30,7 +30,7 @@ delete from request r using request_type rt
 
 -- Delete request specific data.
 
-drop table home_meal_delivery_request cascade;
+drop table if exists home_meal_delivery_request cascade;
 
 -- Delete from request_type related tables.
 

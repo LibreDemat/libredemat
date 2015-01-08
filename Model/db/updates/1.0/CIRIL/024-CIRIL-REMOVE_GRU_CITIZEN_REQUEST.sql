@@ -30,7 +30,7 @@ delete from request r using request_type rt
 
 -- Delete request specific data.
 
-drop table gru_citizen_request cascade;
+drop table if exists gru_citizen_request cascade;
 
 -- Delete from request_type related tables.
 

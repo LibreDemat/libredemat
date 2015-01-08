@@ -30,7 +30,7 @@ delete from request r using request_type rt
 
 -- Delete request specific data.
 
-drop table multi_cerfa_electoral_roll_registration_request cascade;
+drop table if exists multi_cerfa_electoral_roll_registration_request cascade;
 
 -- Delete from request_type related tables.
 
