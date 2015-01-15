@@ -97,6 +97,54 @@
           </div>
         </g:if>
 
+        <g:if test="${!homeFolderResponsible.duplicateAlert && !individualDuplicates?.isEmpty()}">
+          <div id="duplicates" class="mainbox">
+            <h2><g:message code="individual.message.duplicateAlert" /></h2>
+
+            <h3><g:message code="individual.message.duplicate.actions" /></h3>
+            <ul>
+                <li><g:message code="action.ignore" /> : <g:message code="individual.message.duplicate.ignore" /></li>
+            </ul>
+            <g:each in="${individualDuplicates}" var="duplicate">
+              <div class="yui-g duplicate">
+                  <h4>
+                    <g:message code="individual.message.duplicate.homeFolderId" /> ${duplicate.key}
+                    <g:if test="${Long.valueOf(duplicate.key) != homeFolder?.id}">
+                    <span>(<a href="${createLink(controller: 'backofficeHomeFolder',action:'details', id : duplicate.key)}"><g:message code="homeFolder.header.goToAccount" /></a>)</span>
+                    </g:if>
+                  </h4>
+                <span><g:message code="individual.message.duplicate.similars" /></span><br />
+                <g:each in="${duplicate.value}" var="duplicateIndividual">
+                  <div>
+                  <div class="yui-u first">
+                    <span><g:message code="individual.message.duplicate.individualId" /> ${duplicateIndividual.key}</span>
+                      <dl>
+                        <dd ${duplicateIndividual.value['birthDate'] != null ? 'class=\"duplicateData\"' : ''}><g:formatDate format="dd/MM/yyyy" date="${duplicateIndividual.value['birthDate']}"/></dd>
+                        <dd ${duplicateIndividual.value['lastName'] != null ? 'class=\"duplicateData\"' : ''}>${duplicateIndividual.value['lastName']}</dd>
+                        <dd ${duplicateIndividual.value['firstName'] != null ? 'class=\"duplicateData\"' : ''}>${duplicateIndividual.value['firstName']}</dd>
+                        <dd ${duplicateIndividual.value['streetName'] != null ? 'class=\"duplicateData\"' : ''}>${duplicateIndividual.value['streetName']}</dd>
+                        <dd ${duplicateIndividual.value['email'] != null ? 'class=\"duplicateData\"' : ''}>${duplicateIndividual.value['email']}</dd>
+                      </dl>
+                  </div>
+                  <div class="yui-u txt-right">
+                  <g:while test="${duplicateIndividual.value['rank'] > 0}">
+                    <img src="${createLinkTo(dir:'images/icons',file:'16-star.png')}" alt="${message(code:'homeFolder.label.rank')}" />
+                    <%duplicateIndividual.value['rank']--%>
+                  </g:while>
+                  <br />
+                  <form id="ignoreDuplicate" method="post" action="${g.createLink(action:'processDuplicate')}" style="float: right">
+                    <input type="submit" name="ignore" value="${message(code:'action.ignore')}" ${agentCanWrite ? '' : 'disabled="disabled"'}/>
+                    <input type="hidden" name="targetHomeFolderId" value="${duplicate.key}" />
+                    <input type="hidden" name="homeFolderId" value="${homeFolder.id}" />
+                  </form>
+                </div>
+                  </div>
+                </g:each>
+                </div>
+            </g:each>
+          </div>
+        </g:if>
+
         <div id="homeFolder" class="mainbox mainbox-yellow">
           <h2>${message(code:'homeFolder.search.isHomeFolderResponsible')}</h2>
 

@@ -1,6 +1,7 @@
 import com.google.gson.JsonObject
 import grails.converters.JSON
 import java.io.IOException
+import java.text.SimpleDateFormat
 import java.util.ArrayList
 import java.util.Collections
 
@@ -150,6 +151,40 @@ class BackofficeHomeFolderController {
                     userDeduplicationService.getHomeFolderDuplicates(homeFolder.id, Long.valueOf(homeFolderId))
                 result.homeFolderDuplicates[homeFolderId]['otherDuplicates'].remove(result.homeFolderResponsible.fullName)
                 result.homeFolderDuplicates[homeFolderId]['duplicateResponsibleData'] = userSearchService.getHomeFolderResponsible(Long.valueOf(homeFolderId))
+            }
+        } else {
+            String adultDuplicates = adults.inject("") { acc, a ->
+                if (a.duplicateAlert && !a.duplicateData.trim().isEmpty()) {
+                    acc + ", " + a.duplicateData
+                } else {
+                    acc
+                }
+            }
+            String childrenDuplicates = children.inject("") { acc, c ->
+                if (c.duplicateAlert && !c.duplicateData.trim().isEmpty()) {
+                    acc + ", " + c.duplicateData
+                } else {
+                    acc
+                }
+            }
+            def duplicates = JSON.parse(((adultDuplicates + childrenDuplicates).isEmpty()) ?
+                "[]" : "[" + (adultDuplicates + childrenDuplicates).substring(1) + "]")
+            result.individualDuplicates = [:]
+            def dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            duplicates.each { duplicate ->
+                duplicate.each { homeFolderId, values ->
+                    def individualId = values.get("id")
+                    result.individualDuplicates[homeFolderId] = [:]
+                    result.individualDuplicates[homeFolderId][individualId] = [:]
+                    values.each {
+                        if (it.key == 'rank')
+                            result.individualDuplicates[homeFolderId][individualId][it.key] = Long.valueOf(it.value)
+                        else if (it.key == 'birthDate')
+                            result.individualDuplicates[homeFolderId][individualId][it.key] = dateFormat.parse(it.value)
+                        else
+                            result.individualDuplicates[homeFolderId][individualId][it.key] = it.value
+                    }
+                }
             }
         }
         result.adults = adults.findAll{it.id != result.homeFolderResponsible.id}
