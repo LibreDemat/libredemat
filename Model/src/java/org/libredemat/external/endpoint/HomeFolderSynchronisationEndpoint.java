@@ -592,6 +592,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             if (profession != null && profession.trim().equals("")) profession = null;
             adult.setProfession(profession);
             adult.setExternalId(xmlAdult.getIndividualExternalId());
+            adult.setExternalServiceLabel("CirilNetEnfance");
             
             // Default password, don't modify it
             // TODO : Enable to personnalized it
@@ -648,6 +649,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             child.setBorn(xmlChild.getBorn());
             child.setSex(SexType.forString(xmlChild.getSex().toString()));
             child.setExternalId(xmlChild.getIndividualExternalId());
+            child.setExternalServiceLabel("CirilNetEnfance");
 
             if (xmlChild.getChildInformationSheet() != null)
             {

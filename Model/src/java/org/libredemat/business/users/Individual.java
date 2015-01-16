@@ -79,7 +79,10 @@ public abstract class Individual implements Serializable {
      */
     @Transient
     private String externalId;
-    
+
+    @Transient
+    private String externalServiceLabel;
+
     /**
      * the external LibreDemat identifier that is dynamically set before
      * talking to an external service.
@@ -259,6 +262,14 @@ public abstract class Individual implements Serializable {
 
     public void setExternalId(String externalId) {
         this.externalId = externalId;
+    }
+
+    public void setExternalServiceLabel(String externalServiceLabel) {
+        this.externalServiceLabel = externalServiceLabel;
+    }
+
+    public String getExternalServiceLabel() {
+        return this.externalServiceLabel;
     }
 
     public String getExternalLibreDematId() {

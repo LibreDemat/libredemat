@@ -157,9 +157,13 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         parameters.put("homeFolderId", targetHomeFolderId);
         List<Child> duplicates = childDAO.findDuplicates(parameters);
         if (duplicates != null && !duplicates.isEmpty()) {
+            boolean isACirilChild = (child.getExternalId() != null && "CirilNetEnfance".equals(child.getExternalServiceLabel())) ? true : false;
             Map<Long, Map<String, String>> duplicatesMap =
                 new HashMap<Long, Map<String, String>>();
             for (Child duplicate : duplicates) {
+                // ignore duplicate if both children are already mapped to the same external service
+                if (isACirilChild && (externalHomeFolderService.getIndividualMapping(duplicate, "CirilNetEnfance") != null))
+                    continue;
                 Map<String, String> homeFolderEntry = new HashMap<String, String>();
                 homeFolderEntry.put("id", duplicate.getId().toString());
                 int rank = 0;
@@ -195,10 +199,14 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         parameters.put("address", formatDataForText(adult.getAddress().getStreetName()));
         List<Adult> duplicates = adultDAO.findDuplicates(parameters);
         if (duplicates != null && !duplicates.isEmpty()) {
+            boolean isACirilAdult = (adult.getExternalId() != null && "CirilNetEnfance".equals(adult.getExternalServiceLabel())) ? true : false;
             Map<Long, Map<String, String>> duplicatesMap =
                 new HashMap<Long, Map<String, String>>();
             for (Adult duplicate : duplicates) {
                 if (duplicate.getId().equals(adult.getId()))
+                    continue;
+                // ignore duplicate if both adults are already mapped to the same external service
+                if (isACirilAdult && (externalHomeFolderService.getIndividualMapping(duplicate, "CirilNetEnfance") != null))
                     continue;
                 duplicatesMap.put(duplicate.getHomeFolder().getId(), new HashMap<String, String>());
                 Map<String, String> homeFolderEntry = duplicatesMap.get(duplicate.getHomeFolder().getId());
