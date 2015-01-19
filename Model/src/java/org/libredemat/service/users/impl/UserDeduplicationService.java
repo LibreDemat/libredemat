@@ -429,8 +429,11 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
                     homeFolder.getId(),
                     targetHomeFolder.getId(),
                     individual.getId().toString(),
-                    targetIndividualId == null ? null : targetIndividualId.toString()
+                    targetIndividualId.toString()
                 );
+            } else {
+                // if it's not a merge, it is a move (so I hope)
+                moveMappingForIndividual(homeFolderId, targetHomeFolderId, individual.getId());
             }
         }
 
@@ -441,26 +444,20 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         List<HomeFolderMapping> findByHomeFolderId = homeFolderMappingDAO.findByHomeFolderId(homeFolder.getId());
         for (HomeFolderMapping hfm : findByHomeFolderId) {
             if (!userCoherenceService.existHomeFolderMappingByExternalLabel(homeFolderTarget,
-                        hfm.getExternalServiceLabel())) externalHomeFolderService.addHomeFolderMapping(
+                        hfm.getExternalServiceLabel()))
+                externalHomeFolderService.addHomeFolderMapping(
                     hfm.getExternalServiceLabel(), homeFolderTarget.getId(), hfm.getExternalId());
         }
     }
 
     /**
-     * met à jour le homeFolderMapping d'un individu qui est fusionné d'un
-     * homefolder à un autre.
-     * 
-     * @param homeFolderId
-     * @param homeFolderTargetId
-     * @param individualId
-     * @param individualtargetId
+     * met à jour le homeFolderMapping d'un individu qui est fusionné d'un homefolder à un autre.
      */
-    public void mergeMappingForIndividual(Long homeFolderId, Long homeFolderTargetId, String individualId,
+    private void mergeMappingForIndividual(Long homeFolderId, Long homeFolderTargetId, String individualId,
             String individualtargetId) {
         List<HomeFolderMapping> findByHomeFolderId = externalHomeFolderService.getHomeFolderMappings(homeFolderId);
         Long indivId = Long.valueOf(individualId);
-        Long indivTargetId = Long.valueOf(individualId); // oO
-        if (individualtargetId != null) indivTargetId = Long.valueOf(individualtargetId);
+        Long indivTargetId = Long.valueOf(individualtargetId);
         for (HomeFolderMapping HomeMap : findByHomeFolderId) {
             if (!isExistHomeFolderMapping(HomeMap.getExternalServiceLabel(), homeFolderTargetId)) {
                 externalHomeFolderService.addHomeFolderMapping(HomeMap.getExternalServiceLabel(), homeFolderTargetId,
@@ -472,6 +469,18 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
                         externalHomeFolderService.setExternalId(HomeMap.getExternalServiceLabel(), homeFolderTargetId,
                                 indivTargetId, indivMap.getExternalId());
                     }
+                }
+            }
+        }
+    }
+
+    private void moveMappingForIndividual(Long homeFolderId, Long homeFolderTargetId, Long individualId) {
+        List<HomeFolderMapping> findByHomeFolderId = externalHomeFolderService.getHomeFolderMappings(homeFolderId);
+        for (HomeFolderMapping HomeMap : findByHomeFolderId) {
+            for (IndividualMapping indivMap : HomeMap.getIndividualsMappings()) {
+                if (indivMap.getIndividualId().compareTo(individualId) == 0) {
+                    externalHomeFolderService.setExternalId(HomeMap.getExternalServiceLabel(), homeFolderTargetId,
+                        individualId, indivMap.getExternalId());
                 }
             }
         }
