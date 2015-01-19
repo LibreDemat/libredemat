@@ -177,6 +177,24 @@ public class Adult extends Individual {
         }
     }
 
+    public void mergeEmptyFields(Individual individual) {
+        Adult adult = (Adult) individual;
+        if (this.cfbn == null && adult.getCfbn() != null)
+            this.setCfbn(adult.getCfbn());
+        if (this.homePhone == null && adult.getHomePhone() != null)
+            this.setHomePhone(adult.getHomePhone());
+        if (this.maidenName == null && adult.getMaidenName() != null)
+            this.setMaidenName(adult.getMaidenName());
+        if (this.mobilePhone == null && adult.getMobilePhone() != null)
+            this.setMobilePhone(adult.getMobilePhone());
+        if (this.officePhone == null && adult.getOfficePhone() != null)
+            this.setOfficePhone(adult.getOfficePhone());
+        if (this.profession == null && adult.getProfession() != null)
+            this.setProfession(adult.getProfession());
+
+        super.mergeEmptyFields(individual);
+    }
+
     public TitleType getTitle() {
         return this.title;
     }

@@ -543,6 +543,8 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
             homeFolderDAO.update(targetHomeFolder);
         } else {
             Long targetIndividualId = Long.valueOf(data.get(targetHomeFolder.getId()).get("id"));
+            Individual targetIndividual = userSearchService.getById(targetIndividualId);
+            targetIndividual.mergeEmptyFields(individual);
 
             JsonObject payload = new JsonObject();
             payload.addProperty("merge", targetIndividualId);

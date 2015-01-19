@@ -248,6 +248,21 @@ public abstract class Individual implements Serializable {
         setExternalId(individualType.getExternalId());
     }
 
+    public void mergeEmptyFields(Individual individual) {
+        if (this.birthCity == null && individual.getBirthCity() != null)
+            this.setBirthCity(individual.getBirthCity());
+        if (this.birthCountry == null && individual.getBirthCountry() != null)
+            this.setBirthCountry(individual.getBirthCountry());
+        if (this.birthDate == null && individual.getBirthDate() != null)
+            this.setBirthDate(individual.getBirthDate());
+        if (this.birthPostalCode == null && individual.getBirthPostalCode() != null)
+            this.setBirthPostalCode(individual.getBirthPostalCode());
+        if (this.firstName2 == null && individual.getFirstName2() != null)
+            this.setFirstName2(individual.getFirstName2());
+        if (this.firstName3 == null && individual.getFirstName3() != null)
+            this.setFirstName3(individual.getFirstName3());
+    }
+
     public Long getId() {
         return this.id;
     }
