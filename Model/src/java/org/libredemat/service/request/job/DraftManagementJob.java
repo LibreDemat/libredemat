@@ -12,6 +12,7 @@ import org.libredemat.business.request.Request;
 import org.libredemat.business.request.RequestActionType;
 import org.libredemat.business.request.RequestState;
 import org.libredemat.business.users.Adult;
+import org.libredemat.dao.jpa.JpaUtil;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.exception.CvqException;
 import org.libredemat.security.SecurityContext;
@@ -59,14 +60,13 @@ public class DraftManagementJob {
     }
     
     public void deleteExpiredDrafts() {
-        Set<Critere> criterias = prepareQueryParams(
-            requestTypeService.getGlobalRequestTypeConfiguration().getDraftLiveDuration());
-        List<Request> requests = requestDAO.search(criterias,null,null,0,0, true);
-        for (Request r : requests) {
-            requestWorkflowService.delete(r, false);
+        Request request;
+        while ((request = getNextDraftToDelete()) != null) {
+            requestWorkflowService.delete(request, false);
+            JpaUtil.closeAndReOpen(false);
         }
     }
-    
+
     /**
      * Send drafts expiration notification to ecitizens.
      * 
@@ -135,7 +135,17 @@ public class DraftManagementJob {
         
         return template;
     }
-    
+
+    private Request getNextDraftToDelete() {
+        Set<Critere> criterias = prepareQueryParams(
+                requestTypeService.getGlobalRequestTypeConfiguration().getDraftLiveDuration());
+        List<Request> requests = requestDAO.search(criterias,null,null,1,0, true);
+        if (requests != null && !requests.isEmpty())
+            return requests.get(0);
+        else
+            return null;
+    }
+
     protected Set<Critere> prepareQueryParams(Integer dateInterval) {
         Set<Critere> criterias = new HashSet<Critere>();
         
