@@ -792,8 +792,8 @@ class FrontofficeHomeFolderController {
                     return model
                 }
 
-                historize("connexion", currentEcitizen, false)
                 historize("contact", currentEcitizen, false)
+                historize("connexion", currentEcitizen, false)
             }
             redirect(controller : "frontofficeHomeFolder")
         }
