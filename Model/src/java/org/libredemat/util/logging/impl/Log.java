@@ -89,6 +89,49 @@ public class Log implements ILog, ILocalAuthorityLifecycleAware {
         }
     }
 
+    public static void importedHomeFolderToCsv(Adult adult, String password, String externalId) {
+        try {
+            String importedHomeFolderFile =  assetBase + SecurityContext.getCurrentSite().getName()
+                    + "/log/imported-home-folder-" + dateFormat.format(new Date()) + ".csv";
+            CSVWriter writer = new CSVWriter(new FileWriter(importedHomeFolderFile, true));
+
+            File file = new File(importedHomeFolderFile);
+            if (!file.exists() || file.length() == 0) {
+                List<String> line = new ArrayList<String>();
+                line.add("Identifiant de compte");
+                line.add("Identifiant métier");
+                line.add("Prénom");
+                line.add("Nom de famille");
+                line.add("Identifiant");
+                line.add("Mot de passe");
+                line.add("Courriel");
+                line.add("Adresse");
+                writer.writeNext(line.toArray(new String[]{}));
+            }
+
+            List<String> line = new ArrayList<String>();
+            line.add(adult.getHomeFolder().getId().toString());
+            line.add(externalId);
+            line.add(adult.getFirstName());
+            line.add(adult.getLastName());
+            line.add(adult.getLogin());
+            line.add(password);
+            line.add(adult.getEmail());
+            line.add(adult.getAddress().getStreetNumber() == null ?
+                    String.format("%s %s %s", adult.getAddress().getStreetName(),
+                            adult.getAddress().getPostalCode(), adult.getAddress().getCity()) :
+                    String.format("%s %s %s %s", adult.getAddress().getStreetNumber(),
+                            adult.getAddress().getStreetName(), adult.getAddress().getPostalCode(), adult.getAddress().getCity()));
+
+            writer.writeNext(line.toArray(new String[]{}));
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void paymentToCsv(Payment payment) {
         try {
             SecurityContext.getCurrentSite().getName();

@@ -54,6 +54,7 @@
     <property name="userSearchService" ref="userSearchService" />
     <property name="userWorkflowService" ref="userWorkflowService" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
+    <property name="authenticationService" ref="authenticationService" />
   </bean>
   
   <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">

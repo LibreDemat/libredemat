@@ -12,6 +12,7 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.apache.xmlbeans.XmlCursor;
 import org.apache.xmlbeans.XmlObject;
+import org.libredemat.authentication.IAuthenticationService;
 import org.libredemat.business.users.Address;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
@@ -33,6 +34,7 @@ import org.libredemat.exception.CvqException;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.IUserWorkflowService;
 import org.libredemat.service.users.external.IExternalHomeFolderService;
+import org.libredemat.util.logging.impl.Log;
 import org.springframework.oxm.Marshaller;
 import org.springframework.ws.server.endpoint.AbstractMarshallingPayloadEndpoint;
 
@@ -64,6 +66,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
     IUserSearchService userSearchService;
     IUserWorkflowService userWorkflowService;
     IExternalHomeFolderService externalHomeFolderService;
+    IAuthenticationService authenticationService;
 
     /**
      * Constructor
@@ -107,8 +110,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             for (HomeFolderType homeFolderType : homeFolderTypes)
             {
                 homeFolderCapdematId = homeFolderType.getHomeFolderCapdematId();
-
                 homeFolderExternalId = homeFolderType.getHomeFolderExternalId();
+                boolean isNewHomeFolder = false;
 
                 // Search for if the homefolder already exists : 2 ways
                 if (StringUtils.isNotBlank(homeFolderCapdematId))
@@ -150,6 +153,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                 {
                     // HomeFolder creation
                     homefolderFound = this.homeFolderCreation(individuals, homeFolderExternalId);
+                    isNewHomeFolder = true;
                 }
                 // Homefolder external id handling
                 HomeFolderMapping homeFolderMappingCirilNetEnfance = this.externalHomeFolderService
@@ -182,6 +186,14 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                     }
                 }
                 homeFolders.add(homefolderFound);
+                if (isNewHomeFolder) {
+                    Adult homeFolderResponsible = userSearchService.getHomeFolderResponsible(homefolderFound.getId());
+                    String newPassword = authenticationService.generatePassword();
+                    String externalId =
+                            externalHomeFolderService.getIndividualMapping(homeFolderResponsible, "CirilNetEnfance").getExternalId();
+                    homeFolderResponsible.setPassword(authenticationService.encryptPassword(newPassword));
+                    Log.importedHomeFolderToCsv(homeFolderResponsible, newPassword, externalId);
+                }
             }
             // Response
             for (HomeFolder homeFolder : homeFolders)
@@ -1121,5 +1133,9 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
     public void setExternalHomeFolderService(IExternalHomeFolderService externalHomeFolderService)
     {
         this.externalHomeFolderService = externalHomeFolderService;
+    }
+
+    public void setAuthenticationService(IAuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
     }
 }
