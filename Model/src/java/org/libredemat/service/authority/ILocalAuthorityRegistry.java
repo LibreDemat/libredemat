@@ -139,6 +139,8 @@ public interface ILocalAuthorityRegistry {
 
     File getLocalAuthorityResourceFile(Type type, String filename, Version version, boolean fallbackToDefault) throws CvqException;
 
+    String getLocalAuthorityImportedHomeFoldersFile(int numberOfDaysToShift);
+
     void registerLocalAuthorities(Resource[] localAuthoritiesFiles)
         throws CvqConfigurationException;
 

@@ -18,17 +18,9 @@ import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Properties;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
@@ -39,6 +31,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.ejb.HibernateEntityManager;
 import org.joda.time.DateMidnight;
+import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.libredemat.business.authority.Agent;
 import org.libredemat.business.authority.LocalAuthority;
@@ -377,6 +370,15 @@ public class LocalAuthorityRegistry
             result.add(filename.substring(0, filename.lastIndexOf(".pdf")));
         }
         return result;
+    }
+
+    @Override
+    public String getLocalAuthorityImportedHomeFoldersFile(int numberOfDaysToShift) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateTime now = new DateTime();
+        now = now.minusDays(numberOfDaysToShift);
+        return assetsBase + SecurityContext.getCurrentSite().getName()
+                + "/log/imported-home-folder-" + dateFormat.format(now.toDate()) + ".csv";
     }
 
     @Override

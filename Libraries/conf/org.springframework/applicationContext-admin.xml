@@ -428,6 +428,37 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="cronExpression" value="0 * * * * ?" />
   </bean> -->
 
+  <!-- ******************************************************************** -->
+  <!-- ******* Imported Home Folder Notification Job Configuration ******** -->
+  <!-- ******************************************************************** -->
+
+  <bean id="importedHomeFoldersNotificationJob"
+    class="org.libredemat.service.users.job.ImportedHomeFoldersNotificationJob">
+    <property name="localAuthorityRegistry" ref="localAuthorityRegistry" />
+    <property name="mailService" ref="mailService" />
+  </bean>
+
+  <bean id="importedHomeFoldersNotificationJobInvoker"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="importedHomeFoldersNotificationJob" />
+    <property name="targetMethod" value="launch" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <bean id="importedHomeFoldersNotificationJobTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="importedHomeFoldersNotificationJobInvoker" />
+    <property name="cronExpression" value="0 0 1 * * ?" />
+  </bean>
+    
+  <!-- testing purposes only -->
+  <!--    
+  <bean id="importedHomeFoldersNotificationJobTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="importedHomeFoldersNotificationJobInvoker" />
+    <property name="cronExpression" value="0 0/1 * * * ?" />
+  </bean>
+  -->
 
   <!-- *******************************************************************  -->
   <!-- ************ Where everything happens (or not) ********************  -->
@@ -437,6 +468,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
     <property name="triggers">
       <set>
+        <ref bean="importedHomeFoldersNotificationJobTrigger"/>
         <ref bean="requestCreationNotificationTrigger" />
         <ref bean="requestInstructionDurationCheckerTrigger" />
         <ref bean="userInstructionDurationCheckerTrigger" />

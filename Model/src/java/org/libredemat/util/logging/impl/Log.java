@@ -24,7 +24,7 @@ import au.com.bytecode.opencsv.CSVWriter;
 
 public class Log implements ILog, ILocalAuthorityLifecycleAware {
 
-    private ILocalAuthorityRegistry localAuthorityRegistry;
+    private static ILocalAuthorityRegistry localAuthorityRegistry;
     
     private static String assetBase;
 
@@ -91,8 +91,7 @@ public class Log implements ILog, ILocalAuthorityLifecycleAware {
 
     public static void importedHomeFolderToCsv(Adult adult, String password, String externalId) {
         try {
-            String importedHomeFolderFile =  assetBase + SecurityContext.getCurrentSite().getName()
-                    + "/log/imported-home-folder-" + dateFormat.format(new Date()) + ".csv";
+            String importedHomeFolderFile = localAuthorityRegistry.getLocalAuthorityImportedHomeFoldersFile(0);
             CSVWriter writer = new CSVWriter(new FileWriter(importedHomeFolderFile, true));
 
             File file = new File(importedHomeFolderFile);
