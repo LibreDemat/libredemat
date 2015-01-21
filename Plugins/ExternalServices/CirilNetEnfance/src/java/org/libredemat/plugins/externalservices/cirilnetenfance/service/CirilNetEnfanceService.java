@@ -355,7 +355,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 
 		logger.debug("CiriNetEnfance send request");
 		HashMap<String, Object> repDoc = new HashMap<String, Object>();
-		String businessError = "La connexion au serveur a echouée";
+		String businessError = "La connexion au serveur a echoué";
 		try
 		{
 			if (xmlRequest instanceof SchoolRegistrationRequest)
