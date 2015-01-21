@@ -298,7 +298,7 @@ class BackofficeHomeFolderController {
                 if (it.value instanceof GrailsParameterMap && it.value.owner != '' && it.value.type != '') {
                     userWorkflowService.link(
                         userSearchService.getById(Long.valueOf(it.value.owner)),
-                        child, [RoleType.valueOf(it.value.type)], true)
+                        child, [RoleType.valueOf(it.value.type)])
                 }
             }
             def invalidFields = userService.validate(child)
@@ -326,7 +326,7 @@ class BackofficeHomeFolderController {
     def removeIndividual = {
         def user = userSearchService.getById(params.long("id"))
         try {
-            userWorkflowService.changeState(user, UserState.ARCHIVED, true)
+            userWorkflowService.changeState(user, UserState.ARCHIVED)
             render(['status':'success', 'message':message(code:'homeFolder.message.individualRemoveSuccess')] as JSON)
         } catch (CvqModelException cme) {
             render(['status':'error', 'message':cme.message] as JSON)
@@ -348,7 +348,7 @@ class BackofficeHomeFolderController {
         }
         def mode = request.get ? params.mode : "static"
         if (request.post) {
-            userWorkflowService.changeState(user, UserState.forString(params.state), true)
+            userWorkflowService.changeState(user, UserState.forString(params.state))
         }
         render(template : mode + "/state", model : [
             "user" : user, "states" : userWorkflowService.getPossibleTransitions(user)])
@@ -555,9 +555,9 @@ class BackofficeHomeFolderController {
                 if (it.value instanceof GrailsParameterMap && it.value.owner != '') {
                     def owner = userSearchService.getById(Long.valueOf(it.value.owner))
                     if (it.value.type == '')
-                        userWorkflowService.unlink(owner,child, true)
+                        userWorkflowService.unlink(owner,child)
                     else
-                        userWorkflowService.link(owner,child, [RoleType.forString(it.value.type)], true)
+                        userWorkflowService.link(owner,child, [RoleType.forString(it.value.type)])
                 }
             }
             if (!userService.validate(child).isEmpty())  {

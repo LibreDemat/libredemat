@@ -320,7 +320,7 @@ class FrontofficeHomeFolderController {
     def deleteIndividual = {
         def user = userSearchService.getById(params.long("id"))
         try {
-            userWorkflowService.changeState(user, UserState.ARCHIVED, false)
+            userWorkflowService.changeState(user, UserState.ARCHIVED)
             redirect(action: 'index')
         } catch (CvqModelException cme) {
             redirect(action: 'index', params: ['deletionError': cme.message, 'idToDelete': user.id])
@@ -411,7 +411,7 @@ class FrontofficeHomeFolderController {
                     if (!params.roleType)
                         throw new CvqValidationException(['legalResponsibles'])
                     def owner = userSearchService.getById(Long.valueOf(params.roleOwnerId))
-                    userWorkflowService.link(owner, individual, [RoleType.forString(params.roleType)], false)
+                    userWorkflowService.link(owner, individual, [RoleType.forString(params.roleType)])
                     redirect(url:createLink(action:'child', params:['id':individual.id, 'fragment':params.fragment]) + '#' + params.fragment)
                     return false
                 } else if (individual.id) {
@@ -495,7 +495,7 @@ class FrontofficeHomeFolderController {
     def unlink = {
         def child = userSearchService.getById(Long.valueOf(params.id))
         def owner = userSearchService.getById(Long.valueOf(params.roleOwnerId))
-        userWorkflowService.unlink(owner, child, false)
+        userWorkflowService.unlink(owner, child)
         def invalidFields = userService.validate(child)
         if (!invalidFields.isEmpty()) {
             flash['invalidFields'] = invalidFields
@@ -520,7 +520,7 @@ class FrontofficeHomeFolderController {
             if (it.value instanceof GrailsParameterMap && it.value.owner != '' && it.value.type != '') {
                 userWorkflowService.link(
                     userSearchService.getById(Long.valueOf(it.value.owner)),
-                    individual, [RoleType.forString(it.value.type)], false)
+                    individual, [RoleType.forString(it.value.type)])
             }
         }
         def invalidFields = userService.validate(individual)

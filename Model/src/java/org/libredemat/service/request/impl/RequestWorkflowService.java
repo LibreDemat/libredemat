@@ -968,7 +968,7 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         HomeFolder homeFolder = userSearchService.getHomeFolderById(request.getHomeFolderId());
         Individual individual = userSearchService.getAdultById(request.getRequesterId());
         if (homeFolder.isTemporary() && !homeFolder.getState().equals(UserState.VALID))
-            userWorkflowService.changeState(individual, UserState.VALID, true);
+            userWorkflowService.changeState(individual, UserState.VALID);
 
         applicationContext.publishEvent(new RequestEvent(this, EVENT_TYPE.STATE_CHANGED, request, pdfData));
 

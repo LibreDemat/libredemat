@@ -490,7 +490,7 @@ class FrontofficeRequestController {
             if (it.value instanceof GrailsParameterMap && it.value.owner != '' && it.value.type != '') {
                 userWorkflowService.link(
                     userSearchService.getById(Long.valueOf(it.value.owner)),
-                    individual, [RoleType.forString(it.value.type)], false)
+                    individual, [RoleType.forString(it.value.type)])
             }
         }
         def invalidFields = userService.validate(individual)

@@ -348,6 +348,11 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 
 	public String sendRequest(final XmlObject xmlRequest) throws CvqException
 	{
+		if (SecurityContext.isExternalServiceContext() && SecurityContext.getCurrentExternalService().equals(label)) {
+			logger.info("Ignoring modification triggered by myself !");
+			return "";
+		}
+
 		logger.debug("CiriNetEnfance send request");
 		HashMap<String, Object> repDoc = new HashMap<String, Object>();
 		String businessError = "La connexion au serveur a echouée";

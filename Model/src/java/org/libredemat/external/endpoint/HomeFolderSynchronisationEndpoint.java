@@ -521,7 +521,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                                 {
                                     // Build individual role
                                     this.userWorkflowService.link(adult, child,
-                                            Collections.singleton(individualRole.getRole()), false);
+                                            Collections.singleton(individualRole.getRole()));
                                 }
                             }
                         }
@@ -887,7 +887,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                 if(ind.getHomeFolder().getIndividualResponsable().getId().equals(ind.getId())) {
                     logger.warn("Cannot delete individual "+ind+" beacause it's the home folder responsible");
                 } else {
-                    this.userWorkflowService.changeState(ind, UserState.ARCHIVED, false);
+                    this.userWorkflowService.changeState(ind, UserState.ARCHIVED);
                 }
             }
         }
@@ -1010,7 +1010,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                                 try
                                 {
                                     this.userWorkflowService.link(adult, child,
-                                            Collections.singleton(individualRole.getRole()), false);
+                                            Collections.singleton(individualRole.getRole()));
                                     result = true;
                                 }
                                 catch (Exception e)
