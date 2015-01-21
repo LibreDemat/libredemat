@@ -346,13 +346,18 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		return list.toArray(new LocalReferentialDataType[list.size()]);
 	}
 
-	public String sendRequest(final XmlObject xmlRequest) throws CvqException
-	{
+	@Override
+	public String sendHomeFolderModification(XmlObject requestXml) throws CvqException {
 		if (SecurityContext.isExternalServiceContext() && SecurityContext.getCurrentExternalService().equals(label)) {
 			logger.info("Ignoring modification triggered by myself !");
 			return "";
 		}
 
+		return sendRequest(requestXml);
+	}
+
+	public String sendRequest(final XmlObject xmlRequest) throws CvqException
+	{
 		logger.debug("CiriNetEnfance send request");
 		HashMap<String, Object> repDoc = new HashMap<String, Object>();
 		String businessError = "La connexion au serveur a echoué";
