@@ -362,7 +362,6 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
                     targetMoved = true;
                 if (ownerMoved && !targetMoved) {
                     role.setIndividualId(merged.get(role.getIndividualId()));
-                    individualDAO.update(owner);
                 } else if (!ownerMoved && targetMoved) {
                     Individual targetIndividual = userSearchService.getById(merged.get(owner.getId()));
                     IndividualRole newRole = new IndividualRole();
