@@ -62,6 +62,7 @@ public final class LocalAuthorityConfigurationBean {
     private boolean activeGlobalReservation = false;
     private boolean synchroniseUserOnChangeStateToArchived = false;
     private boolean synchroniseUserOnChangeState = false;
+    private boolean createOnlyTemporaryAccountInTS = false;
 
     public LocalAuthorityConfigurationBean() {
         paymentServices =
@@ -455,4 +456,11 @@ public final class LocalAuthorityConfigurationBean {
         this.synchroniseUserOnChangeState = synchroniseUserOnChangeState;
     }
 
+    public boolean isCreateOnlyTemporaryAccountInTS() {
+        return createOnlyTemporaryAccountInTS;
+    }
+
+    public void setCreateOnlyTemporaryAccountInTS(boolean createOnlyTemporaryAccountInTS) {
+        this.createOnlyTemporaryAccountInTS = createOnlyTemporaryAccountInTS;
+    }
 }

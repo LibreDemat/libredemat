@@ -72,12 +72,14 @@
                 ${message(code:'homeFolder.message.createTemporaryAccount')}
               </p>
             </li>
-            <li>
-              ${message(code:'homeFolder.message.whatFollowRequest')}
-              <p class="help">
-                ${message(code:'homeFolder.message.followRequestAdvantage')}
-              </p>
-            </li>
+            <g:if test="${!createOnlyTemporaryAccountInTS}">
+              <li>
+                ${message(code:'homeFolder.message.whatFollowRequest')}
+                <p class="help">
+                  ${message(code:'homeFolder.message.followRequestAdvantage')}
+                </p>
+              </li>
+            </g:if>
           </ul>
         </div>
       </g:else>

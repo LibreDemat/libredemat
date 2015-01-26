@@ -136,6 +136,9 @@ class FrontofficeHomeFolderController {
                 model = model.plus('temporary' : temporary)
         }
 
+        // Force la saisie d'un compte définitif même si la demande à la base permet de créer un compte temporaire
+        model = model.plus('createOnlyTemporaryAccountInTS' : SecurityContext.getCurrentConfigurationBean().isCreateOnlyTemporaryAccountInTS())
+
         /*
          * GET
          */
