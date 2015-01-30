@@ -565,8 +565,9 @@ public class RequestExternalService extends ExternalService implements IRequestE
                     }
 
                     //Trace on HF validation
-                    if(UserAction.Type.STATE_CHANGE.equals(event.getAction().getType()) &&
-                        externalServiceLabel.equals("CirilNetEnfance")) {
+                    if ((UserAction.Type.STATE_CHANGE.equals(event.getAction().getType())
+                            || UserAction.Type.MODIFICATION.equals(event.getAction().getType()))
+                          && externalServiceLabel.equals("CirilNetEnfance")) {
 
                         UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId());
                         JsonObject payload = UserUtils.getPayloadForUserAction(-1L, "Système", -1L, "CirilNetEnfance");
