@@ -16,7 +16,7 @@
               ${message(code:'homeFolder.adult.property.email.help')}
             </span>
           </label>
-          <input type="text" id="email" name="email" value=""
+          <input type="text" id="email" name="email" value="${adult?.email}"
               class="required validate-email ${invalidFields?.contains('email') ? 'validation-failed' : ''}"
               title="${message(code:'homeFolder.adult.property.email.validationError')}" autocomplete="off" />
 

@@ -442,18 +442,13 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         return individuals;
     }
 
-    /**
-     * HomeFolder creation
-     * 
-     * @param individuals
-     * @return homeFolderNew HomeFolder created
-     */
     private HomeFolder homeFolderCreation(List<Individual> individuals, String homeFolderExternalId)
     {
         logger.debug("homeFolderCreation");
         Adult adultResponsible = this.findHomeFolderResponsible(individuals);
         HomeFolder homeFolderNew = new HomeFolder();
         homeFolderNew.setExternalId(homeFolderExternalId);
+        homeFolderNew.setImportedAndNotInitialized(true);
         // HomeFolder creation
         if (adultResponsible != null)
         {

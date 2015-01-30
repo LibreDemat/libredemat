@@ -78,6 +78,9 @@ public class HomeFolder implements Serializable {
     @Column(name="family_quotient")
     private String familyQuotient;
 
+    @Column(name="is_imported_and_not_initialized")
+    private boolean isImportedAndNotInitialized;
+
     @AssertValid(message = "individuals")
     @MinSize(value = 1, message = "individuals")
     @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
@@ -226,6 +229,14 @@ public class HomeFolder implements Serializable {
 
     public final void setFamilyQuotient(String familyQuotient) {
         this.familyQuotient = familyQuotient;
+    }
+
+    public boolean isImportedAndNotInitialized() {
+        return isImportedAndNotInitialized;
+    }
+
+    public void setImportedAndNotInitialized(boolean isImportedAndNotInitialized) {
+        this.isImportedAndNotInitialized = isImportedAndNotInitialized;
     }
 
     @Override

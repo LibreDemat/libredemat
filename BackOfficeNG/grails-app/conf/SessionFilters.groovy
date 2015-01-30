@@ -233,9 +233,7 @@ class SessionFilters {
                 def userId = SecurityContext.getCurrentUserId()
 
                 if (userId != null && ecitizen != null &&
-                    (SecurityContext.getCurrentConfigurationBean().getDefaultEmail().equals(ecitizen.email) ||
-                        authenticationService.check(SecurityContext.getCurrentConfigurationBean().getDefaultPassword(),ecitizen.password))
-                    && !agentService.exists(userId)) {
+                    ecitizen.homeFolder.isImportedAndNotInitialized() && !agentService.exists(userId)) {
                     redirect(controller: "frontofficeHomeFolder", action: "editImportedAccount")
                     flash.redirect = true
                     return false
