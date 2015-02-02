@@ -336,27 +336,22 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         // make a first pass to deal with individual roles
         List<Long> moved = new ArrayList<Long>();
         Map<Long, Long> merged = new HashMap<Long, Long>();
-        for (Long id : ids) {
 
+        for (Long id : ids) {
             // check if it is a move or a merge
-            boolean moveIndividual = false;
-            Map<Long, Map<String, String>> data = 
+            Map<Long, Map<String, String>> data =
                 JSONUtils.deserializeAsArray(userSearchService.getById(id).getDuplicateData());
-            if (data == null || !data.containsKey(targetHomeFolder.getId()))
-                moveIndividual = true;
-            
-            if (moveIndividual) {
+            if (data == null || !data.containsKey(targetHomeFolder.getId())) {
                 moved.add(id);
             } else {
                 merged.put(id, Long.valueOf(data.get(targetHomeFolder.getId()).get("id")));
             }
         }
+
         for (Individual owner : homeFolder.getIndividuals()) {
-            boolean ownerMoved = false;
+            boolean ownerMoved = moved.contains(owner.getId());
             boolean targetMoved = false;
             List<IndividualRole> rolesToRemove = new ArrayList<IndividualRole>();
-            if (moved.contains(owner.getId()))
-                ownerMoved = true;
             for (IndividualRole role : owner.getIndividualRoles()) {
                 if (moved.contains(role.getIndividualId()))
                     targetMoved = true;
