@@ -190,7 +190,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                     Adult homeFolderResponsible = userSearchService.getHomeFolderResponsible(homefolderFound.getId());
                     String externalId =
                             externalHomeFolderService.getIndividualMapping(homeFolderResponsible, "CirilNetEnfance").getExternalId();
-                    String newPassword = "bienvenue" + externalId;
+                    String newPassword = "bienvenue" + homeFolderExternalId;
                     homeFolderResponsible.setPassword(authenticationService.encryptPassword(newPassword));
                     Log.importedHomeFolderToCsv(homeFolderResponsible, newPassword, externalId);
                 }
