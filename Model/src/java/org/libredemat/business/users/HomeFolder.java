@@ -79,7 +79,7 @@ public class HomeFolder implements Serializable {
     private String familyQuotient;
 
     @Column(name="is_imported_and_not_initialized")
-    private boolean isImportedAndNotInitialized;
+    private boolean isImportedAndNotInitialized = false;
 
     @AssertValid(message = "individuals")
     @MinSize(value = 1, message = "individuals")

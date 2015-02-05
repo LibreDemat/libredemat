@@ -448,13 +448,13 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         Adult adultResponsible = this.findHomeFolderResponsible(individuals);
         HomeFolder homeFolderNew = new HomeFolder();
         homeFolderNew.setExternalId(homeFolderExternalId);
-        homeFolderNew.setImportedAndNotInitialized(true);
         // HomeFolder creation
         if (adultResponsible != null)
         {
             try
             {
                 homeFolderNew = this.userWorkflowService.createOnly(adultResponsible);
+                homeFolderNew.setImportedAndNotInitialized(true);
             }
             catch (CvqException e)
             {
