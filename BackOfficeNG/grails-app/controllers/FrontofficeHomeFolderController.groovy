@@ -795,8 +795,7 @@ class FrontofficeHomeFolderController {
                     return model
                 }
 
-                currentEcitizen.homeFolder.setImportedAndNotInitialized(false)
-                userWorkflowService.modify(currentEcitizen.homeFolder)
+                userWorkflowService.setHomeFolderAsInitialized(currentEcitizen.homeFolder)
 
                 historize("contact", currentEcitizen, false)
                 historize("connexion", currentEcitizen, false)

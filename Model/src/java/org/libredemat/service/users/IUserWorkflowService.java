@@ -17,6 +17,9 @@ import org.libredemat.exception.CvqException;
 import org.libredemat.exception.CvqInvalidTransitionException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.schema.ximport.HomeFolderImportDocument;
+import org.libredemat.security.annotation.Context;
+import org.libredemat.security.annotation.ContextPrivilege;
+import org.libredemat.security.annotation.ContextType;
 import org.libredemat.security.annotation.IsUser;
 
 import com.google.gson.JsonObject;
@@ -46,6 +49,9 @@ public interface IUserWorkflowService {
         throws CvqException;
 
     void modify(@IsUser HomeFolder homeFolder);
+
+    @Context(types = {ContextType.ECITIZEN}, privilege = ContextPrivilege.WRITE)
+    void setHomeFolderAsInitialized(@IsUser HomeFolder homeFolder);
 
     void modify(@IsUser Individual individual, JsonObject atom)
         throws CvqException;

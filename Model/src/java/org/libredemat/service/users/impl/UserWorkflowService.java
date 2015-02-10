@@ -323,6 +323,13 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
+    @Context(types = {ContextType.ECITIZEN}, privilege = ContextPrivilege.WRITE)
+    public void setHomeFolderAsInitialized(HomeFolder homeFolder) {
+        homeFolder.setImportedAndNotInitialized(false);
+        homeFolderDAO.update(homeFolder);
+    }
+
+    @Override
     @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
     public void modify(Individual individual, JsonObject atom)
         throws CvqException {
