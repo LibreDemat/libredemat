@@ -17,7 +17,8 @@ public enum RequestActionType {
     CONTACT_CITIZEN("ContactCitizen"),
     PAYMENT_VALIDATED("paymentValidated"),
     PAYMENT_CANCELLED("paymentCancelled"),
-    PAYMENT_REFUSED("paymentRefused");
+    PAYMENT_REFUSED("paymentRefused"),
+    EXTERNAL_SYNCHRONISE_SENT("ExternalSynchroniseSent");
 
 
     private String name;
