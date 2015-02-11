@@ -248,7 +248,7 @@ public class TicketBookingRequestService extends RequestService implements ITick
     }
 
     @Override
-    public Payment buildPayment(Request request) throws CvqException {
+    public Payment buildPayment(Request request, Double amount) throws CvqException {
         List<InternalInvoiceItem> iiis = new ArrayList<InternalInvoiceItem>();
         for (TbrTicket ticket : ((TicketBookingRequest)request).getTbrTicket()) {
             iiis.add(new InternalInvoiceItem(

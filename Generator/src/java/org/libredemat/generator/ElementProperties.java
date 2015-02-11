@@ -18,8 +18,10 @@ public class ElementProperties {
         complexTypesAsSimple.add("SchoolType");
         complexTypesAsSimple.add("RecreationCenterType");
         complexTypesAsSimple.add("AddressType");
+        complexTypesAsSimple.add("PaymentType");
         complexTypesAsSimple.add("FrenchRIBType");
         complexTypesAsSimple.add("BankAccountType");
+        complexTypesAsSimple.add("calendar");
     }
 
     /** minimum element's occurences */

@@ -174,7 +174,8 @@ class FrontofficeRequestController {
                     parameters.temporary = temporary
                     parameters.requesterLogin = userSearchService.getHomeFolderResponsible(rqt.homeFolderId).login
 
-                    if (requestServiceRegistry.getRequestService(rqt) instanceof IRequestPaymentService) {
+                    if (requestServiceRegistry.getRequestService(rqt) instanceof IRequestPaymentService
+                        && requestService.isPayableAtValidateTS(rqt)) {
                         def payment = requestServiceRegistry.getRequestService(rqt).buildPayment(rqt)
                         payment.addPaymentSpecificData('scheme',request.scheme)
                         payment.addPaymentSpecificData('domainName',request.serverName)

@@ -68,6 +68,8 @@ import org.libredemat.security.annotation.ContextPrivilege;
 import org.libredemat.security.annotation.ContextType;
 import org.libredemat.service.authority.ILocalAuthorityRegistry;
 import org.libredemat.service.document.IDocumentService;
+import org.libredemat.service.payment.IPaymentService;
+import org.libredemat.service.payment.IRequestPaymentService;
 import org.libredemat.service.request.IRequestActionService;
 import org.libredemat.service.request.IRequestDocumentService;
 import org.libredemat.service.request.IRequestPdfService;
@@ -116,6 +118,7 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
     private IRequestTypeService requestTypeService;
     private IRequestDocumentService requestDocumentService;
     private IRequestSearchService requestSearchService;
+    private IPaymentService paymentService;
 
     private IRequestDAO requestDAO;
 
@@ -1140,7 +1143,8 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         return Arrays.asList(getWorkflow().getStatesWithProperty("done"));
     }
 
-    private void updateLastModificationInformation(Request request,
+    @Override
+    public void updateLastModificationInformation(Request request,
         final Date date) {
 
         // update request's last modification date
@@ -1229,6 +1233,30 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         return requestPdfService.generateInvoice(request);
     }
 
+    /**
+     * Envoi un mail avec la facture associée au citoyen A partir du model de
+     * Mail de l'asset une demande de paiement est envoyée au citoyen.
+     */
+    @Override
+    public void mailCitizenForPayment(Request request, byte[] pdf) throws CvqException {
+        IRequestPaymentService requestService = requestServiceRegistry.getRequestPaymentService(request);
+        String mailBody = paymentService.notifyPaymentByMailWithPDF(requestService.getPayment(request), pdf);
+        if (mailBody.isEmpty()) throw new CvqException("payment.error.send.mail");
+        requestActionService.addAction(request.getId(), RequestActionType.CONTACT_CITIZEN,
+                "Un mail a été envoyé au citoyen avec la facture comme pièce jointe", "Demande de paiement au citoyen",
+                pdf, "Mail avec facture");
+    }
+
+    @Override
+    public void mailCitizenForAnnulationPayment(Request request, byte[] pdf) throws CvqException {
+        IRequestPaymentService requestService = requestServiceRegistry.getRequestPaymentService(request);
+        String mailBody = paymentService.notifyAnnulationPaymentByMailWithPDF(requestService.getPayment(request), pdf);
+        if (mailBody.isEmpty()) throw new CvqException("payment.error.send.mail");
+        requestActionService.addAction(request.getId(), RequestActionType.CONTACT_CITIZEN,
+                "Un mail a été envoyé au citoyen avec la facture pour annulation de paiement",
+                "Annulation de paiement au citoyen", pdf, "Mail avec facture");
+    }
+
     public void setRequestDAO(IRequestDAO requestDAO) {
         this.requestDAO = requestDAO;
     }
@@ -1280,5 +1308,9 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
     @Override
     public void setApplicationContext(ApplicationContext arg0) throws BeansException {
         this.applicationContext = arg0;
+    }
+
+    public void setPaymentService(IPaymentService paymentService) {
+        this.paymentService = paymentService;
     }
 }

@@ -46,6 +46,13 @@
                     args="${[record.quantity,(record.unitPrice/100),(record.amount/100)]}" />
                 </p>
               </g:elseif>
+              <g:elseif test="${record.type == 'internalInvoices'}">
+                <h3>
+                  <g:message code="payment.header.invoice"/>
+                  ${record.label} <g:message code="message.of"/> ${record.amount ? record.amount / 100 + ' €':''}
+                  (<g:message code="message.ref"/> ${record.id})
+                </h3>
+              </g:elseif>
               <form method="post" action="${createLink(action:'removeCartItem')}">
                 <input type="submit" value="${message(code:'action.delete')}" title="${message(code:'action.delete')}" />
                 <input type="hidden" name="externalItemId" value="${record.externalItemId}"/>

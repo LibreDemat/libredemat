@@ -56,7 +56,11 @@ public class ElementFo extends ElementSpecific<ElementFo> {
     private List<Condition> triggeredConditions;
     private Autofill autofill;
     private String specificTestCodeToAddItemInCollection = "true";
-    
+
+    private String minDayOuvre;
+    private String notBeforeDate;
+    private String disabledWith;
+
     public ElementFo(String name, String requestAcronym) {
         this.name = name;
         this.javaFieldName = StringUtils.uncapitalize(name);
@@ -366,5 +370,29 @@ public class ElementFo extends ElementSpecific<ElementFo> {
 
     public void setSpecificTestCodeToAddItemInCollection(String specificTestCodeToAddItemInCollection) {
         this.specificTestCodeToAddItemInCollection = specificTestCodeToAddItemInCollection;
+    }
+
+    public String getMinDayOuvre() {
+        return minDayOuvre;
+    }
+
+    public void setMinDayOuvre(String minDayOuvre) {
+        this.minDayOuvre = minDayOuvre;
+    }
+
+    public String getNotBeforeDate() {
+        return notBeforeDate;
+    }
+
+    public void setNotBeforeDate(String notBeforeDate) {
+        this.notBeforeDate = notBeforeDate;
+    }
+
+    public String getDisabledWith() {
+        return disabledWith;
+    }
+
+    public void setDisabledWith(String disabledWith) {
+        this.disabledWith = disabledWith;
     }
 }

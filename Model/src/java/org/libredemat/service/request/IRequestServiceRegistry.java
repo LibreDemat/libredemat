@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.libredemat.business.request.Request;
 import org.libredemat.exception.CvqObjectNotFoundException;
+import org.libredemat.service.payment.IRequestPaymentService;
 
 
 /**
@@ -51,4 +52,6 @@ public interface IRequestServiceRegistry {
      * Register a new request service.
      */
     void registerService(IRequestService requestService);
+
+    IRequestPaymentService getRequestPaymentService(Request request);
 }

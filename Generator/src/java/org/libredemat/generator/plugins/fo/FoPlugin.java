@@ -217,6 +217,18 @@ public class FoPlugin implements IPluginGenerator {
                     elementFo.setRows(ApplicationDocumentation.getNodeAttributeValue(
                             appDoc.getChildrenNodes("textarea")[0], "rows"));
                 }
+                if (appDoc.hasChildNode("calendar")) {
+                    elementFo.setWidget("calendar");
+                    String minDayOuvre = ApplicationDocumentation.getNodeAttributeValue(
+                            appDoc.getChildrenNodes("calendar")[0], "minDayOuvre");
+                    if (minDayOuvre != null && !minDayOuvre.equals("")) elementFo.setMinDayOuvre(minDayOuvre);
+                    String notBeforeDate = ApplicationDocumentation.getNodeAttributeValue(
+                            appDoc.getChildrenNodes("calendar")[0], "notBeforeDate");
+                    if (notBeforeDate != null && !notBeforeDate.equals("")) elementFo.setNotBeforeDate(notBeforeDate);
+                    String disabledWith = ApplicationDocumentation.getNodeAttributeValue(
+                            appDoc.getChildrenNodes("calendar")[0], "disabledWith");
+                    if (disabledWith != null && !disabledWith.equals("")) elementFo.setDisabledWith(disabledWith);
+                }
             }
          }
     }

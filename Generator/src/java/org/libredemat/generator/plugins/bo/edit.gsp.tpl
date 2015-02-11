@@ -12,7 +12,9 @@
     def widgets = [
       'date' :
           "<span><g:formatDate formatName=\"format.date\" date=\"\${${wrapper}?.${element.javaFieldName}}\"/></span>"
-      ,'time' : 
+      ,'calendar' :
+          "<span><g:formatDate format=\"dd/MM/yyyy\" date=\"\${${wrapper}?.${element.javaFieldName}}\"/></span>"
+      ,'time' :
           ["<span>\${${wrapper}.${element.javaFieldName}?.getHourOfDay()} : "
           ,"\${${wrapper}.${element.javaFieldName} && ${wrapper}.${element.javaFieldName}.getMinuteOfHour() < 10 ? '0' : ''}"
           ,"\${${wrapper}.${element.javaFieldName}?.getMinuteOfHour()}</span>"
@@ -34,7 +36,12 @@
           ,"<g:if test=\"\${!!${wrapper}?.${element.javaFieldName}?.cityInseeCode}\"><em><g:message code=\"address.property.cityInseeCode\" /></em><span class=\"cityInseeCode\">\${${wrapper}?.${element.javaFieldName}?.cityInseeCode}</span></g:if>"
           ,"</div>"
           ].join()
-      ,'frenchRIB' :
+        ,'payment' :
+          ["<span>"
+          ,"<g:if test=\"\${${wrapper}.${element.javaFieldName} != null}\"><g:formatNumber number=\"\${(${wrapper}.${element.javaFieldName}.amount.toDouble())/100}\" type=\"number\" maxFractionDigits=\"2\" /></g:if><g:else><g:message code=\"payment.submit.nopaiement\" /></g:else>"
+          ,"</span>"
+          ].join()
+        ,'frenchRIB' :
           ["<div>"
           ,"<p class=\"bankCode\">\${${wrapper}?.${element.javaFieldName}?.bankCode}</p>"
           ,"<p class=\"counterCode\">\${${wrapper}?.${element.javaFieldName}?.counterCode}</p>"
@@ -90,7 +97,7 @@
             break
         default:
           output =
-            ["<dt class=\"${element.conditionsClass}\">\${message(code:'" + element.i18nPrefixCode + ".label')}${element.mandatory ? '&nbsp;*' : ''}&nbsp;:</dt>"
+            ["<dt class=\"${element.conditionsClass}\">\${message(code:'" + element.i18nPrefixCode + ".label')}${element.widget == 'payment' ? '(<g:message code="system.paiement" />)' : ''} ${element.mandatory ? '&nbsp;*' : ''}&nbsp;:</dt>"
             ,"<dd id=\"${element.javaFieldName}\" class=\"${element.htmlClass}\" ${element.jsRegexp}>"
             ,(widgets[element.widget] != null ? widgets[element.widget] : widgets['text'])
             ,"</dd>"
@@ -105,7 +112,7 @@
 <div id="requestData" class="yellow-yui-tabview">
   <ul class="yui-nav">
   <% for(step in requestBo.steps) { %>
-    <li class="${step.index == 0 ? 'selected ' :''}${step.name == "administration" ? 'administration ' :''}">
+    <li class="${step.index == 0 ? 'selected ' :''}${step.name == "administration" ? 'administration ' :''}${step.name == "paiement" ? 'paiement ' :''}">
       <a href="#page${step.index}"><em><g:message code="${step.i18nPrefix()}.step.${step.name}.label" /></em></a>
     </li>
   <% } %>

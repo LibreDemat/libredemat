@@ -36,7 +36,16 @@
               <g:render template="ticketingContracts" />
             </div>
           </g:if>
-          <g:if test="${invoices.isEmpty() && depositAccounts.isEmpty() && ticketingContracts.isEmpty()}">
+          <g:if test="${!paymentsToPay.isEmpty()}">
+            <div id="paymentsToPay">
+              <g:render template="paymentList"
+                        model="${[payments : paymentsToPay, paginate : false,
+                                  title : 'payment.header.topay',
+                                  noPaymentsMsg : 'payment.message.topay']}" />
+            </div>
+          </g:if>
+          <g:if test="${invoices.isEmpty() && depositAccounts.isEmpty() && ticketingContracts.isEmpty()
+                        && paymentsToPay.isEmpty()}">
             <div class="information-box">
               <g:message code="payment.message.noElementsToPay" />
             </div>

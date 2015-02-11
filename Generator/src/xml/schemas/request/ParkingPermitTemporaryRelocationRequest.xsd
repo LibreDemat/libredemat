@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.libredemat.org/schema/pptrr" xmlns:pptrr="http://www.libredemat.org/schema/pptrr"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cvq="http://www.libredemat.org/schema/common"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://www.libredemat.org/schema/common" schemaLocation="../common/CVQCommonElements.xsd"/>
+
+    <xs:element name="ParkingPermitTemporaryRelocationRequest">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                Demande de permis de stationnement provisoire pour déménagement
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                Permis de stationnement provisoire pour déménagement
+            </xs:documentation>
+            <xs:appinfo>
+                <model namespace="permit"/>
+                <common>
+                    <namespace name="permit"/>
+                    <steps>
+                        <step index="0" name="relocation">
+                            <widgets>
+                                <requester>
+                                    <autofill name="requesterFilling" type="trigger" />
+                                </requester>
+                            </widgets>
+                        </step>
+                        <step index="1" name="reglements"/>
+                        <step index="2" ref="validation"/>
+                        <step index="3" ref="paiement"/>
+                    </steps>
+                </common>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="cvq:RequestType">
+                    <xs:sequence>
+                        <xs:element name="RequesterAddress" type="cvq:AddressType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Adresse du déménagement qui va occasioner un stationnement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Adresse du déménagement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <model namespace="users" isTiedToRequest="true"/>
+                                    <common>
+                                        <step name="relocation"/>
+                                        <autofill name="requesterFilling" type="listener" field="Address"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo/>
+                                    <bo column="1"/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="PeriodeStart" type="xs:date" minOccurs="1">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Période prévue du
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Période prévue du
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo>
+                                        <calendar minDayOuvre="10"/>
+                                    </fo>
+                                    <bo column="1">
+                                        <calendar/>
+                                    </bo>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="PeriodeEnd" type="xs:date" minOccurs="1">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Au
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Au
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo>
+                                        <calendar notBeforeDate="periodeStart" disabledWith="periodeStart"/>
+                                    </fo>
+                                    <bo column="1">
+                                        <calendar/>
+                                    </bo>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="HeureStart" type="pptrr:HeuresType" minOccurs="1"
+                                    default="K9"
+                                >
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Horaires de début
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Horaires de début
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo style="width:100px"/>
+                                    <bo column="1"/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="HeureEnd" type="pptrr:HeuresType" minOccurs="1"
+                                    default="K18"
+                                >
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Horaires de fin
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Horaires de fin
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo style="width:100px"/>
+                                    <bo column="1"/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="PerformChoice" type="cvq:LocalReferentialDataType"
+                                    maxOccurs="unbounded"
+                                >
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Prestation souhaitée
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Prestation souhaitée
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <model namespace="request" isTiedToRequest="true"/>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo/>
+                                    <bo column="1"/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EquipmentUsed" type="cvq:LocalReferentialDataType"
+                                    maxOccurs="unbounded"
+                                >
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Matériel utilisé
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Matériel utilisé
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <model namespace="request" isTiedToRequest="true"/>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <pdf/>
+                                    <fo/>
+                                    <bo column="1"/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Marque">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Marque / type de véhicule
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Marque / type de véhicule
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                        <validation jsregexp="^[\w\W]{0,255}$"/>
+                                    </common>
+                                    <fo style="width:200px"/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="^[\w\W]{0,255}$"/>
+                                    <xs:maxLength value="255"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Immatriculation">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Numéro d'immatriculation
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Numéro d'immatriculation
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                        <validation jsregexp="^[\w\W]{0,255}$"/>
+                                    </common>
+                                    <fo style="width:200px"/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="^[\w\W]{0,255}$"/>
+                                    <xs:maxLength value="255"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Longeur" type="xs:positiveInteger">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Longueur du véhicule (en mètre)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Longueur du véhicule (en mètre)
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <fo style="width:100px"/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Largeur" type="xs:positiveInteger">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Largeur (en mètre)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Largeur (en mètre)
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <fo style="width:100px"/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Tonnage" type="xs:positiveInteger">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Tonnage
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Tonnage
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <fo style="width:100px"/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Volume" type="xs:positiveInteger">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Volume (en m3)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Volume (en m3)
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="relocation"/>
+                                    </common>
+                                    <fo style="width:100px"/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType"
+                                    default="false"
+                                >
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >J'accepte et je m'engage à respecter le règlement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >J'accepte et je m'engage à respecter le règlement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="reglements"/>
+                                    </common>
+                                    <fo>
+                                        <checkbox />
+                                    </fo>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Payment" type="cvq:PaymentType" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc"
+                                        >Activer un paiement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc"
+                                        >Activer un paiement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <model namespace="payment" isTiedToRequest="true"/>
+                                    <common>
+                                        <step name="paiement"/>
+                                    </common>
+                                    <bo column="1"
+                                        specificEditField="${rqt.payment != null AND rqt.payment.state.name == 'Validated' ? '' : 'action-editField'}"/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="HeuresType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Horaires
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">Horaires
+            </xs:documentation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/translation/enum"
+                    >
+                <enum value='0' key='K0'/>
+                <enum value='1' key='K1'/>
+                <enum value='2' key='K2'/>
+                <enum value='3' key='K3'/>
+                <enum value='4' key='K4'/>
+                <enum value='5' key='K5'/>
+                <enum value='6' key='K6'/>
+                <enum value='7' key='K7'/>
+                <enum value='8' key='K8'/>
+                <enum value='9' key='K9'/>
+                <enum value='10' key='K10'/>
+                <enum value='11' key='K11'/>
+                <enum value='12' key='K12'/>
+                <enum value='13' key='K13'/>
+                <enum value='14' key='K14'/>
+                <enum value='15' key='K15'/>
+                <enum value='16' key='K16'/>
+                <enum value='17' key='K17'/>
+                <enum value='18' key='K18'/>
+                <enum value='19' key='K19'/>
+                <enum value='20' key='K20'/>
+                <enum value='21' key='K21'/>
+                <enum value='22' key='K22'/>
+                <enum value='23' key='K23'/>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value='K0'/>
+            <xs:enumeration value='K1'/>
+            <xs:enumeration value='K2'/>
+            <xs:enumeration value='K3'/>
+            <xs:enumeration value='K4'/>
+            <xs:enumeration value='K5'/>
+            <xs:enumeration value='K6'/>
+            <xs:enumeration value='K7'/>
+            <xs:enumeration value='K8'/>
+            <xs:enumeration value='K9'/>
+            <xs:enumeration value='K10'/>
+            <xs:enumeration value='K11'/>
+            <xs:enumeration value='K12'/>
+            <xs:enumeration value='K13'/>
+            <xs:enumeration value='K14'/>
+            <xs:enumeration value='K15'/>
+            <xs:enumeration value='K16'/>
+            <xs:enumeration value='K17'/>
+            <xs:enumeration value='K18'/>
+            <xs:enumeration value='K19'/>
+            <xs:enumeration value='K20'/>
+            <xs:enumeration value='K21'/>
+            <xs:enumeration value='K22'/>
+            <xs:enumeration value='K23'/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PerformChoiceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Prestation souhaitée
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">Prestation souhaitée
+            </xs:documentation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/translation/enum"
+                    >
+                <enum key="free" value="Déménagement gratuit"/>
+                <enum key="payable" value="Déménagement payant"/>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="free"/>
+            <xs:enumeration value="payable"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="EquipmentUsedType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Matériel utilisé
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">Matériel utilisé
+            </xs:documentation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/translation/enum"
+                    >
+                <enum key="meuble" value="Monte meuble (sous réserve possibilité installation)"/>
+                <enum key="encombrement" value="Encombrement total en mètres linéaires"/>
+                <enum key="utilitaire" value="Petit utilitaire / VL"/>
+                <enum key="fourgon" value="Fourgon"/>
+                <enum key="camion" value="Camion"/>
+                <enum key="vehicule" value="Véhicule équipé d'un hayon"/>
+                <enum key="camionremorque" value="Camion remorque"/>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="meuble"/>
+            <xs:enumeration value="encombrement"/>
+            <xs:enumeration value="utilitaire"/>
+            <xs:enumeration value="fourgon"/>
+            <xs:enumeration value="camion"/>
+            <xs:enumeration value="vehicule"/>
+            <xs:enumeration value="camionremorque"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

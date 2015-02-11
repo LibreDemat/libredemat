@@ -30,14 +30,23 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong');
         reset();
         yue.on('stepForm', 'change', zcf.Autofill.fill, zcf.Autofill, true);
         yue.on('stepForm', 'click', zcf.Autofill.fill, zcf.Autofill, true);
+
+        // start hack inexine - TS Widget subject et requester
+        if (document.getElementById('requesterId') != undefined)
+        {
+          var disabled = document.getElementById('requesterId').disabled;
+          document.getElementById('requesterId').disabled = false;
+          document.getElementById('requesterId').click();
+          if (disabled) document.getElementById('requesterId').disabled="disabled";
+        }
       },
       fill : function(e) {
         if(e) {
           var target = yue.getTarget(e);
           if(/submit|file/i.test(target.type)||!zct.isIn(target.nodeName,['select','input'])) return true;
           if( !zct.isIn(target.nodeName,['select','input','textarea'])) return yue.stopEvent(e);
-          if(/radio|checkbox/i.test(target.type) && e.type == 'change') return yue.stopEvent(e);
-          if(!/radio|checkbox|select/i.test(target.type) && e.type == 'click') return yue.stopEvent(e);
+          if(/radio|checkbox|hidden/i.test(target.type) && e.type == 'change') return yue.stopEvent(e);
+          if(!/radio|checkbox|select|hidden/i.test(target.type) && e.type == 'click') return yue.stopEvent(e);
         }
         reset();
         var target = yue.getTarget(e);

@@ -51,7 +51,8 @@ public class RequestBo {
         this.steps = new ArrayList<Step>();
         for (Step step : steps) {
             if (!(step instanceof CommonStep)
-                || CommonStep.Ref.administration.name().equals(step.getName()))
+                || CommonStep.Ref.administration.name().equals(step.getName())
+                || CommonStep.Ref.paiement.name().equals(step.getName()))
                 this.steps.add(step);
         }
     }

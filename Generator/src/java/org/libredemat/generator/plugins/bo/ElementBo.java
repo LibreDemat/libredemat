@@ -40,6 +40,7 @@ public class ElementBo extends ElementSpecific<ElementBo> {
 
     private int column;
     private String after;
+    private String specificEditField;
 
     private Step step;
     private ConditionListener conditionListener;
@@ -135,6 +136,10 @@ public class ElementBo extends ElementSpecific<ElementBo> {
             ,(minLength > 0 ? " minLength-" + minLength : "")
             ,(maxLength > 0 ? " maxLength-" + maxLength : "")
         });
+        if (this.specificEditField != null) {
+            this.specificEditField = this.specificEditField.replace("AND", "&&");
+            this.htmlClass = this.htmlClass.replace("action-editField", this.specificEditField);
+        }
     }
 
     public String getWidget() {
@@ -239,5 +244,13 @@ public class ElementBo extends ElementSpecific<ElementBo> {
 
     public void setTriggeredConditions(List<Condition> triggeredConditions) {
         this.triggeredConditions = triggeredConditions;
+    }
+
+    public String getSpecificEditField() {
+        return specificEditField;
+    }
+
+    public void setSpecificEditField(String specificEditField) {
+        this.specificEditField = specificEditField;
     }
 }

@@ -234,4 +234,9 @@
     <xb:package>org.libredemat.xml.request.environment</xb:package>
   </xb:namespace>
 
+  <!-- Parking Permit Temporary Relocation Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/pptrr">
+    <xb:package>org.libredemat.xml.request.permit</xb:package>
+  </xb:namespace>
+   
 </xb:config>

@@ -188,6 +188,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="requestPdfService" ref="requestPdfService" />
     <property name="requestSearchService" ref="requestSearchService" />
     <property name="userWorkflowService" ref="userWorkflowService" />
+    <property name="paymentService" ref="paymentService" />
   </bean>
 
   <bean id="requestWorkflowServiceToSubjectIdCheckInjector"
@@ -881,8 +882,19 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
       <property name="supportMultiple" value="true" />
     </bean>
 
-
-
+	<!-- Parking Permit Temporary Relocation -->
+	<bean id="parkingPermitTemporaryRelocationRequestService" class="org.libredemat.service.request.permit.impl.ParkingPermitTemporaryRelocationRequestService"
+		parent="requestService">
+		<property name="label" value="Parking Permit Temporary Relocation" />
+		<property name="localReferentialFilename" value="local_referential_pptrr" />
+		<property name="supportUnregisteredCreation" value="false" />
+		<property name="defaultDisplayGroup" value="permit" />
+		<property name="filingDelay" value="12" />
+		<property name="paymentService" ref="paymentService" />
+		<property name="requestActionService" ref="requestActionService" />
+		<property name="requestLockService" ref="requestLockService" />
+		<property name="userSearchService" ref="userSearchService" />
+	</bean>
 
   <bean id="conflansMunicipalWasteRequestService"
     class="org.libredemat.service.request.environment.impl.ConflansMunicipalWasteRequestService"

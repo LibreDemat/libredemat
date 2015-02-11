@@ -208,6 +208,10 @@
   font-size: 1.2em; font-weight: bold;
 }
 
+/* yui-calendar */
+#request div.form img.calendar { cursor: pointer; }
+#request div.form .yui-cal { display: none;  position: absolute;}
+#request div.form td .calendar{text-align:top;}
 
 /* document step (override)
 --------------------------------------------------------------*/

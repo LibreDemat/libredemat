@@ -60,6 +60,31 @@
                   </g:each>
                 </ul>
             </g:if>
+            <g:if test="${!internalInvoices.isEmpty()}">
+                <h3><g:message code="payment.header.invoices" /></h3>
+                <ul>
+                    <g:each var="record" in="${internalInvoices}">
+                        <li>
+                            <h3>${record.label} - <g:message code="payment.item.property.invoiceId" /> ${record.id}</h3>
+                            <g:if test="${payment.state.toString() == 'Topay'}">
+                            <p>
+                                <span>
+                                    <a href="${createLink(controller:'frontofficePayment',action:'newPayment',id:payment.id, 'state' : state)}">
+                                        <g:message code="payment.action.topay"/>
+                                        <g:formatNumber number="${record.amount / 100}" type="currency" currencyCode="EUR" />
+                                    </a>
+                                </span>
+                            </p>
+                            </g:if>
+                            <g:else>
+                                <p>
+                                    <g:message code="payment.property.amount" /> : ${(record.amount / 100).floatValue()} €
+                                </p>
+                            </g:else>
+                        </li>
+                    </g:each>
+                </ul>
+            </g:if>
         </div>
       </div>
     </div>

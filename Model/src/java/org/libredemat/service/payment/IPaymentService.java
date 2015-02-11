@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.libredemat.business.payment.ExternalAccountItem;
-import org.libredemat.business.payment.ExternalInvoiceItem;
-import org.libredemat.business.payment.Payment;
-import org.libredemat.business.payment.PaymentMode;
-import org.libredemat.business.payment.PurchaseItem;
+import org.libredemat.business.payment.*;
+import org.libredemat.business.users.Individual;
 import org.libredemat.exception.CvqException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.exception.CvqObjectNotFoundException;
@@ -160,4 +157,13 @@ public interface IPaymentService {
     boolean isPaymnetInPopup(Payment payment) throws CvqException;
 
     List<ExternalAccountItem> getExternalAccountItemByExternalItemId(String externalItemId);
+
+    Payment getByRequestIdOnly(Long requestId);
+
+    Payment createPaymentContainerForRequest(PurchaseItem purchaseItem, PaymentMode paymentMode, Individual requester)
+            throws CvqModelException, CvqInvalidBrokerException, CvqException;
+
+    String notifyPaymentByMailWithPDF(Payment payment, byte[] pdf) throws CvqException;
+
+    String notifyAnnulationPaymentByMailWithPDF(Payment payment, byte[] pdf) throws CvqException;
 }

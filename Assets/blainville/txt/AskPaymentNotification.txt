@@ -1,0 +1,19 @@
+Bonjour,
+
+Le règlement d'un télé-service vous est demandé.
+
+--------------------------------------------------
+INFO PAIEMENT
+--------------------------------------------------
+Régie : ${broker}
+Identifiant de la demande : ${requestId}
+Mode de paiement : ${paymentMode}
+--------------------------------------------------
+
+Cliquez sur le lien pour accéder à votre compte citoyen : https://${url}
+
+Ci-joint votre facture.
+
+Cordialement,
+
+La ville de Sète.

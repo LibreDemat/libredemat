@@ -114,7 +114,7 @@ public class ParkCardRequestService extends RequestService implements IParkCardR
 	}
 
 	@Override
-	public Payment buildPayment(Request request) throws CvqException, IXEPaymentAllReadyExistException,
+	public Payment buildPayment(Request request, Double amount) throws CvqException, IXEPaymentAllReadyExistException,
 			IXENoBrokerFindException
 	{
 		Payment payment = paymentDAO.getByRequestIdOnly(request.getId());

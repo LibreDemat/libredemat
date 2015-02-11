@@ -60,7 +60,8 @@ public class RequestFo {
     public void setSteps(List<Step> steps) {
         this.steps = new ArrayList<Step>();
         for (Step step : steps) {
-            if (!CommonStep.Ref.administration.name().equals(step.getName()))
+            if (!CommonStep.Ref.administration.name().equals(step.getName())
+                    && !CommonStep.Ref.paiement.name().equals(step.getName()))
                this.steps.add(step);
         }
     }

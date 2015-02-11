@@ -1,3 +1,5 @@
+import org.libredemat.service.request.IRequestServiceRegistry
+
 import java.util.Collections;
 
 import org.libredemat.business.request.external.RequestExternalAction
@@ -52,6 +54,7 @@ class BackofficeRequestInstructionController {
     IRequestNoteService requestNoteService
     IRequestTypeService requestTypeService
     IRequestWorkflowService requestWorkflowService
+    IRequestServiceRegistry requestServiceRegistry
     IUserSearchService userSearchService
     IMeansOfContactService meansOfContactService
     IAgentService agentService
@@ -210,7 +213,7 @@ class BackofficeRequestInstructionController {
     * --------------------------------------------------------------------- */
 
     def widget = {
-        def widgets = ['date','time','address','bankAccount','frenchRIB','libredematEnum','boolean','textarea','localReferentialData','school','recreationCenter', 'recreationPolyCenter']
+        def widgets = ['date','calendar','payment','time','address','bankAccount','frenchRIB','libredematEnum','boolean','textarea','localReferentialData','school','recreationCenter', 'recreationPolyCenter']
         
         def propertyTypes = JSON.parse(params.propertyType)
         def propertyType = propertyTypes.validate
@@ -272,8 +275,13 @@ class BackofficeRequestInstructionController {
             propertyValue = [:]
             propertyValue.hour = params.propertyValue.split(':')[0].trim()
             propertyValue.minute = params.propertyValue.split(':')[1].trim()
-        }
-        else {
+        } else if (propertyType == "payment") {
+            try {
+                propertyValue = Double.valueOf(params.propertyValue);
+            } catch (Exception ex) {
+                propertyValue = 0;
+            }
+        } else {
             propertyValue = params.propertyValue
             model["minLength"] = propertyTypes.minLength
             model["maxLength"] = propertyTypes.maxLength
@@ -324,11 +332,9 @@ class BackofficeRequestInstructionController {
             def requestPaymentService = requestServiceRegistry.getRequestPaymentService(rqt);
             if (requestPaymentService != null)
             {
-                Payment payment = null; 
                 def amount = Double.valueOf(params.amount);
                 if (amount > 0)
                 {
-                    payment = requestPaymentService.buildPayment(rqt);
                     def value = amount + "";
                     if (value.indexOf(".") > 0)
                     { 
@@ -339,6 +345,7 @@ class BackofficeRequestInstructionController {
                     {
                         amount = amount * 100;
                     }
+                    Payment payment = requestPaymentService.buildPayment(rqt, amount.toDouble());
                     payment.setAmount(amount.toDouble());
                     payment.setInitializationDate(new Date());
                     payment.setState(PaymentState.TOPAY);
@@ -346,19 +353,17 @@ class BackofficeRequestInstructionController {
                     requestWorkflowService.updateLastModificationInformation(rqt, null);
                     def pdf = requestWorkflowService.createInvoiceForRequest(rqt);
                     requestWorkflowService.mailCitizenForPayment(rqt, pdf);
-                    allReadyModify = true;
                 }
                 else if (requestPaymentService.getPayment(rqt) != null)
                 {
                     // Annulation du paiement
-                    payment = requestPaymentService.buildPayment(rqt);
+                    Payment payment = requestPaymentService.buildPayment(rqt);
                     payment.setAmount(0.0);
                     payment.setState(PaymentState.CANCELLED);
                     requestPaymentService.setPayment(rqt, payment);
                     requestWorkflowService.updateLastModificationInformation(rqt, null);
                     def pdf = requestWorkflowService.createInvoiceForRequest(rqt);
                     requestWorkflowService.mailCitizenForAnnulationPayment(rqt, pdf);
-                    allReadyModify = true;
                 }
             }
         } else {

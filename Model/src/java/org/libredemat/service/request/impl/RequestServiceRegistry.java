@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.libredemat.business.request.Request;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.exception.CvqObjectNotFoundException;
+import org.libredemat.service.payment.IRequestPaymentService;
 import org.libredemat.service.request.IRequestService;
 import org.libredemat.service.request.IRequestServiceRegistry;
 
@@ -81,6 +82,15 @@ public class RequestServiceRegistry implements IRequestServiceRegistry {
     public void registerService(IRequestService requestService) {
         logger.debug("registerService() registering service " + requestService.getLabel());
         servicesMap.put(requestService.getLabel(), requestService);
+    }
+
+    @Override
+    public IRequestPaymentService getRequestPaymentService(Request request) {
+        for (IRequestService requestService : servicesMap.values()) {
+            if (requestService.accept(request) && requestService.acceptPayment(request))
+                return (IRequestPaymentService) requestService;
+        }
+        return null;
     }
 
     public void setRequestDAO(IRequestDAO requestDAO) {

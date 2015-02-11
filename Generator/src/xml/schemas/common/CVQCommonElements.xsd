@@ -2657,4 +2657,56 @@
     </xs:sequence>
   </xs:complexType>
 
+    <xs:complexType name="PaymentType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                Paiement en ligne
+            </xs:documentation>
+            <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                Payment live
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                Paiement
+            </xs:documentation>
+            <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                Payment
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Id" type="xs:long"/>
+            <xs:element name="amount" type="xs:double" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                        Montant
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                        Amount
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                        Montant
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                        Amount
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="broker" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/longdesc">
+                        Broker
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/longdesc">
+                        Broker
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                        Broker
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en" source="http://www.cg95.fr/cvq/schema/shortdesc">
+                        Broker
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
 </xs:schema>

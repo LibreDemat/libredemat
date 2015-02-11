@@ -169,11 +169,17 @@ public class BoPlugin implements IPluginGenerator {
                 Node node = appDoc.getXmlNode();
                 elementBo.setColumn(ApplicationDocumentation.getNodeAttributeValue(node, "column"));
                 elementBo.setAfter(ApplicationDocumentation.getNodeAttributeValue(node, "after"));
-                
+                String specificEditField = ApplicationDocumentation.getNodeAttributeValue(node, "specificEditField");
+                if (specificEditField != null) elementBo.setSpecificEditField(specificEditField);
+
                 if (appDoc.hasChildNode("textarea")) {
                     elementBo.setRows(ApplicationDocumentation.getNodeAttributeValue(
                             appDoc.getChildrenNodes("textarea")[0], "rows"));
                     elementBo.setWidget("textarea");
+                }
+
+                if (appDoc.hasChildNode("calendar")) {
+                    elementBo.setWidget("calendar");
                 }
             }
          }

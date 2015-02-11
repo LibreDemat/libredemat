@@ -74,6 +74,10 @@
           """
           <dd><g:formatDate formatName="format.date" date="\${${wrapper}.${element.javaFieldName}}"/></dd>
           """
+      ,'calendar' :
+          """
+          <dd><g:formatDate format="dd/MM/yyyy" date="\${${wrapper}.${element.javaFieldName}}"/></dd>
+          """
       ,'time' :
           """
           <dd>

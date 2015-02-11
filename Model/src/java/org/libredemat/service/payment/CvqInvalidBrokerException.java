@@ -9,4 +9,9 @@ public class CvqInvalidBrokerException extends CvqException {
     public CvqInvalidBrokerException(final String key) {
         super(key);
     }
+
+    public CvqInvalidBrokerException(final String key, final String[] i18n)
+    {
+        super(key, i18n);
+    }
 }

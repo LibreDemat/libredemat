@@ -25,6 +25,7 @@ import org.libredemat.business.payment.PaymentState;
 import org.libredemat.business.payment.PurchaseItem;
 import org.libredemat.business.payment.external.ExternalHomeFolder;
 import org.libredemat.business.users.Adult;
+import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.UserEvent;
 import org.libredemat.business.users.external.HomeFolderMapping;
@@ -763,5 +764,91 @@ public final class PaymentService implements IPaymentService,
             all.addAll(getInvoices(criteres, null, null, -1, 0));
         }
         return all;
+    }
+
+    @Override
+    public Payment getByRequestIdOnly(Long requestId) {
+        return paymentDAO.getByRequestIdOnly(requestId);
+    }
+
+    @Override
+    public final Payment createPaymentContainerForRequest(PurchaseItem purchaseItem, PaymentMode paymentMode,
+            Individual requester) throws CvqModelException, CvqInvalidBrokerException, CvqException
+    {
+        checkPurchaseItem(purchaseItem);
+        Payment payment = new Payment();
+        String broker = purchaseItem.getSupportedBroker();
+        // Damn quick hack to link an external service item to a broker
+        if (broker == null && getAllBrokers() != null && getAllBrokers().size() == 1)
+            broker = getAllBrokers().keySet().iterator().next();
+        if (broker == null || broker.equals(""))
+            throw new CvqInvalidBrokerException("payment.missing_broker");
+        else if (payment.getPurchaseItems() == null || payment.getPurchaseItems().isEmpty())
+            payment.setBroker(broker);
+        else if (!broker.equals(payment.getBroker()))
+            throw new CvqInvalidBrokerException("payment.incompatible_broker", new String[] { broker, payment.getBroker() });
+        payment.setBroker(broker);
+        processPurchaseItemAmount(purchaseItem);
+        payment.setAmount(purchaseItem.getAmount());
+        payment.setHomeFolderId(requester.getHomeFolder().getId());
+        payment.setRequesterId(requester.getId());
+        payment.setRequesterLastName(requester.getLastName());
+        payment.setRequesterFirstName(requester.getFirstName());
+        Set<PurchaseItem> purchaseItems = new HashSet<PurchaseItem>();
+        purchaseItems.add(purchaseItem);
+        payment.setPurchaseItems(purchaseItems);
+        payment.setPaymentMode(paymentMode);
+        payment.addPaymentSpecificData(Payment.SPECIFIC_DATA_EMAIL, ((Adult) requester).getEmail());
+        return payment;
+    }
+
+    @Override
+    public String notifyPaymentByMailWithPDF(Payment payment, byte[] pdf) throws CvqException
+    {
+        return sendMailByType(payment, pdf, "facture.pdf", "AskPaymentNotification");
+    }
+
+    @Override
+    public String notifyAnnulationPaymentByMailWithPDF(Payment payment, byte[] pdf) throws CvqException
+    {
+        return sendMailByType(payment, pdf, "facture.pdf", "CancelPaymentNotification");
+    }
+
+    private String sendMailByType(Payment payment, byte[] pdf, String attachedName, String modelMail)
+            throws CvqException {
+
+        Adult requester = userSearchService.getAdultById(payment.getRequesterId());
+        String mailSendTo = requester.getEmail();
+        if (mailSendTo == null || mailSendTo.equals(""))
+        {
+            logger.warn("notifyPaymentByMail() e-citizen has no email address, returning");
+            return "";
+        }
+        LocalAuthorityConfigurationBean lacb = SecurityContext.getCurrentConfigurationBean();
+        Map<String, String> mailMap = lacb.getMailAsMap("hasPaymentNotification", "getPaymentNotificationData",
+                modelMail);
+        if (mailMap == null) throw new CvqException("payment.model.template.noexist");
+        String mailSubject = mailMap.get("mailSubject") != null ? mailMap.get("mailSubject") : "";
+        String mailBodyFilename = mailMap.get("mailData") != null ? mailMap.get("mailData") : "";
+        String mailBody = localAuthorityRegistry.getBufferedLocalAuthorityResource(Type.TXT, mailBodyFilename, false);
+        if (mailBody == null)
+        {
+            logger.warn("notifyPaymentByMail() did not find mail template " + mailBodyFilename
+                    + " for local authority " + SecurityContext.getCurrentSite().getName());
+            return "";
+        }
+        // Mail body variable
+        mailBody = mailBody.replace("${broker}", payment.getBroker() != null ? payment.getBroker() : "");
+        mailBody = mailBody.replace("${url}", lacb.getDefaultServerName() != null ? lacb.getDefaultServerName() : "");
+        mailBody = mailBody.replace("${requestId}", payment.getRequesterId() != null ? payment.getRequesterId() + ""
+                : "");
+        mailBody = mailBody.replace("${cvqReference}", payment.getCvqReference() != null ? payment.getCvqReference()
+                : "");
+        mailBody = mailBody.replace("${paymentMode}", payment.getPaymentMode() != null ? payment.getPaymentMode()
+                .toString() : "");
+        mailBody = mailBody.replace("${commitDate}", payment.getCommitDate() != null ? payment.getCommitDate()
+                .toString() : "");
+        mailService.send(null, mailSendTo, null, mailSubject, mailBody, pdf, pdf != null ? attachedName : "");
+        return mailBody;
     }
 }

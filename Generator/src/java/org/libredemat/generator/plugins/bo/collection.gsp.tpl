@@ -3,7 +3,9 @@
     def widgets = [
       'date' : 
           "<span><g:formatDate formatName=\"format.date\" date=\"\${${wrapper}?.${element.javaFieldName}}\"/></span>"
-      ,'time' : 
+      ,'calendar' :
+          "<span><g:formatDate format=\"dd/MM/yyyy\" date=\"\${${wrapper}?.${element.javaFieldName}}\"/></span>"
+      ,'time' :
            ["<span>\${${wrapper}.${element.javaFieldName}?.getHourOfDay()} : "
           ,"\${${wrapper}.${element.javaFieldName} && ${wrapper}.${element.javaFieldName}.getMinuteOfHour() < 10 ? '0' : ''}"
           ,"\${${wrapper}.${element.javaFieldName}?.getMinuteOfHour()}</span>"

@@ -323,6 +323,24 @@
     alter table park_immatriculation 
         drop constraint FKDF88749972930EBE;
 
+    alter table parking_permit_temporary_relocation_request 
+        drop constraint FK826DD83FC859B01;
+
+    alter table parking_permit_temporary_relocation_request 
+        drop constraint FK826DD839DBF56A6;
+
+    alter table parking_permit_temporary_relocation_request_equipment_used 
+        drop constraint FK1775820ADCF45D04;
+
+    alter table parking_permit_temporary_relocation_request_equipment_used 
+        drop constraint FK1775820A801C7F07;
+
+    alter table parking_permit_temporary_relocation_request_perform_choice 
+        drop constraint FKC2280E7B1CD9AEF3;
+
+    alter table parking_permit_temporary_relocation_request_perform_choice 
+        drop constraint FKC2280E7B801C7F07;
+
     alter table perischool_activity_registration_request 
         drop constraint FK76BAA59A37A0DD36;
 
@@ -700,6 +718,12 @@
     drop table park_card_request cascade;
 
     drop table park_immatriculation cascade;
+
+    drop table parking_permit_temporary_relocation_request cascade;
+
+    drop table parking_permit_temporary_relocation_request_equipment_used cascade;
+
+    drop table parking_permit_temporary_relocation_request_perform_choice cascade;
 
     drop table payment cascade;
 
@@ -2273,6 +2297,38 @@
         primary key (id)
     );
 
+    create table parking_permit_temporary_relocation_request (
+        id int8 not null,
+        acceptation_reglement_interieur bool,
+        heure_end varchar(255),
+        heure_start varchar(255),
+        immatriculation varchar(255),
+        largeur bytea,
+        longeur bytea,
+        marque varchar(255),
+        periode_end timestamp,
+        periode_start timestamp,
+        tonnage bytea,
+        volume bytea,
+        payment_id int8,
+        requester_address_id int8,
+        primary key (id)
+    );
+
+    create table parking_permit_temporary_relocation_request_equipment_used (
+        parking_permit_temporary_relocation_request_id int8 not null,
+        equipment_used_id int8 not null,
+        equipment_used_index int4 not null,
+        primary key (parking_permit_temporary_relocation_request_id, equipment_used_index)
+    );
+
+    create table parking_permit_temporary_relocation_request_perform_choice (
+        parking_permit_temporary_relocation_request_id int8 not null,
+        perform_choice_id int8 not null,
+        perform_choice_index int4 not null,
+        primary key (parking_permit_temporary_relocation_request_id, perform_choice_index)
+    );
+
     create table payment (
         id int8 not null,
         amount float8,
@@ -3618,15 +3674,40 @@
         foreign key (park_card_request_id) 
         references park_card_request;
 
+    alter table parking_permit_temporary_relocation_request 
+        add constraint FK826DD83FC859B01 
+        foreign key (payment_id) 
+        references payment;
+
+    alter table parking_permit_temporary_relocation_request 
+        add constraint FK826DD839DBF56A6 
+        foreign key (requester_address_id) 
+        references address;
+
+    alter table parking_permit_temporary_relocation_request_equipment_used 
+        add constraint FK1775820ADCF45D04 
+        foreign key (equipment_used_id) 
+        references local_referential_data;
+
+    alter table parking_permit_temporary_relocation_request_equipment_used 
+        add constraint FK1775820A801C7F07 
+        foreign key (parking_permit_temporary_relocation_request_id) 
+        references parking_permit_temporary_relocation_request;
+
+    alter table parking_permit_temporary_relocation_request_perform_choice 
+        add constraint FKC2280E7B1CD9AEF3 
+        foreign key (perform_choice_id) 
+        references local_referential_data;
+
+    alter table parking_permit_temporary_relocation_request_perform_choice 
+        add constraint FKC2280E7B801C7F07 
+        foreign key (parking_permit_temporary_relocation_request_id) 
+        references parking_permit_temporary_relocation_request;
+
     alter table perischool_activity_registration_request 
         add constraint FK76BAA59A37A0DD36 
         foreign key (school_id) 
         references school;
-
-    alter table perischool_activity_registration_request_perischool_activity 
-        add constraint FK2007A4E9D9BCA5E7 
-        foreign key (perischool_activity_registration_request_id) 
-        references perischool_activity_registration_request;
 
     alter table perischool_activity_registration_request_perischool_activity 
         add constraint FK2007A4E959E559C4 

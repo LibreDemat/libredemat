@@ -1,10 +1,7 @@
 package org.libredemat.business.payment;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.libredemat.xml.common.PaymentType;
 
 @Entity
 @Table(name="payment")
@@ -104,6 +102,41 @@ public class Payment implements Serializable, Comparable<Payment> {
     @Transient private Map<String, String> paymentSpecificData = new HashMap<String, String>();
 
     public Payment() {
+    }
+
+    public static PaymentType modelToXml(Payment payment)
+    {
+        PaymentType paymentType = PaymentType.Factory.newInstance();
+        if (payment.getId() != null) paymentType.setId(payment.getId().longValue());
+        paymentType.setAmount(payment.getAmount());
+        paymentType.setBroker(payment.getBroker());
+        return paymentType;
+    }
+
+    public static Payment xmlToModel(PaymentType paymentType)
+    {
+        if (paymentType != null)
+        {
+            Payment payment = new Payment();
+            if (paymentType.getId() != 0) payment.setId(new Long(paymentType.getId()));
+            payment.setAmount(paymentType.getAmount());
+            payment.setBroker(paymentType.getBroker());
+            return payment;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    @Override
+    public Payment clone()
+    {
+        Payment paymentClone = new Payment();
+        if (this.getId() != null) paymentClone.setId(this.getId().longValue());
+        paymentClone.setAmount(this.getAmount());
+        paymentClone.setBroker(this.getBroker());
+        return paymentClone;
     }
 
     public Long getId() {
@@ -266,5 +299,19 @@ public class Payment implements Serializable, Comparable<Payment> {
         return new ToStringBuilder(this)
             .append("id", getId())
             .toString();
+    }
+
+    public boolean isExternalItem() {
+        if (!purchaseItems.isEmpty()) {
+            Iterator<PurchaseItem> iterator = purchaseItems.iterator();
+            while (iterator.hasNext())
+            {
+                PurchaseItem next = iterator.next();
+                if (next instanceof ExternalInvoiceItem) return true;
+                else if (next instanceof ExternalDepositAccountItem) return true;
+                else if (next instanceof ExternalTicketingContractItem) return true;
+            }
+        }
+        return false;
     }
 }

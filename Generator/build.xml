@@ -54,6 +54,7 @@
       <include name="MusicSchoolRegistrationRequest.xsd" />
       <include name="PerischoolActivityRegistrationRequest.xsd" />
       <include name="ParkCardRequest.xsd" />
+      <include name="ParkingPermitTemporaryRelocationRequest.xsd" />
       <include name="PessacAnimationRequest.xsd" />
       <include name="RecreationActivityRegistrationRequest.xsd" />
       <include name="RecreationActivityPolyRegistrationRequest.xsd" />

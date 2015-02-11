@@ -113,6 +113,20 @@
                       model="['javaName':'${element.javaFieldName}', 'i18nPrefixCode':'${element.i18nPrefixCode}', 'htmlClass':'${element.htmlClass.replace('validate-localReferentialData','')}', 
                               'lrEntries': lrTypes.${element.javaFieldName}.entries, 'depth':0]" />
             """
+         ,'calendar' :
+            """
+            <table><tr>
+            <td>
+                <input type="text" id="${IdRefNamePrefix}${element.javaFieldName}" name="${IdRefNamePrefix}${element.javaFieldName}" class="required validate-calendar"
+                <g:if test="\${${valuePrefix}.${element.javaFieldName}}">value="<g:formatDate formatName='format.date' date='\${${valuePrefix}.${element.javaFieldName}}'/>"</g:if>>
+            </td>
+            <td class="yui-skin-sam calendar" style="padding-top: 4px;vertical-align:top">
+                <img id="${IdRefNamePrefix}${element.javaFieldName}Show" src="\${resource(dir:'css/frontoffice/yui/calendar',file:'calendar.gif')}"
+                    class="calendar <g:if test="${element.disabledWith != null}">disabledWith_${element.disabledWith}</g:if> <g:if test="${element.minDayOuvre != null}">mindayouvre_${element.minDayOuvre}</g:if> <g:if test="${element.notBeforeDate != null}">notBeforeDate_${element.notBeforeDate}</g:if>"
+                ><span id="${IdRefNamePrefix}${element.javaFieldName}CalContainer" class="yui-cal yui-calcontainer"></span>
+            </td>
+            </tr></table>
+            """
          ,'date' :
             """
             <div class="date ${element.htmlClass} ${element.listenerConditionsClass} ${element.autofillClass}">
@@ -237,6 +251,13 @@
               </g:each>
             </select>
             """
+         ,'requester' :
+            """
+            <label>\${requester.firstName} \${requester.lastName}</label>
+            <input type="hidden" value="\${requester.id}" id="requesterId" name="requesterId"
+              <g:if test="\${!rqt.requesterAddress}" > class='${element.autofillClass}' </g:if> />
+            <br />
+            """
          ,'label' :
             """<label class="${element.listenerConditionsClass}"><g:message code="${element.i18nPrefixCode}.label" /> ${element.mandatory ? '*' : ''}  <span><g:message code="${element.i18nPrefixCode}.help" /></span></label>"""
          ,'labelWithFor' :
@@ -322,6 +343,8 @@
             """
           ,'date' :
               """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}"><g:formatDate formatName="format.date" date="\${${valuePrefix}.${element.javaFieldName}}"/></dd>"""
+          ,'calendar' :
+              """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}"><g:formatDate formatName="dd/MM/yyyy" date="\${${valuePrefix}.${element.javaFieldName}}"/></dd>"""
           ,'time' :
               """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}"><g:formatDate formatName="format.time" date="\${${valuePrefix}.${element.javaFieldName}}" type="time"/></dd>"""
           ,'text' : 

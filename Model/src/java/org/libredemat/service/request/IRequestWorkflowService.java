@@ -1,6 +1,7 @@
 package org.libredemat.service.request;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -164,6 +165,12 @@ public interface IRequestWorkflowService {
      * Modify a request.
      */
     void modify(@IsRequest Request request) throws CvqException;
+
+    void mailCitizenForPayment(Request request, byte[] pdf) throws CvqException;
+
+    void mailCitizenForAnnulationPayment(Request request, byte[] pdf) throws CvqException;
+
+    void updateLastModificationInformation(Request request, Date date);
 
     void delete(@IsRequest Request request, boolean homeFolderDeletionInProgress);
 

@@ -1,0 +1,77 @@
+pptrr.duration.value =
+
+pptrr.property.subject.label = Sujet
+
+pptrr.step.relocation.label =
+pptrr.step.relocation.desc =
+
+pptrr.step.reglements.label =
+pptrr.step.reglements.desc =
+
+
+pptrr.property.requesterAddress.help =
+pptrr.property.requesterAddress.validationError =
+
+
+pptrr.property.periodeStart.help =
+pptrr.property.periodeStart.validationError =
+
+
+pptrr.property.periodeEnd.help =
+pptrr.property.periodeEnd.validationError =
+
+
+pptrr.property.heureStart.help =
+pptrr.property.heureStart.validationError =
+
+
+pptrr.property.heureEnd.help =
+pptrr.property.heureEnd.validationError =
+
+
+pptrr.property.performChoice.help =
+pptrr.property.performChoice.validationError =
+
+
+pptrr.property.equipmentUsed.help =
+pptrr.property.equipmentUsed.validationError =
+
+
+pptrr.property.marque.help =
+pptrr.property.marque.validationError =
+
+
+pptrr.property.immatriculation.help =
+pptrr.property.immatriculation.validationError =
+
+
+pptrr.property.longeur.help =
+pptrr.property.longeur.validationError =
+
+
+pptrr.property.largeur.help =
+pptrr.property.largeur.validationError =
+
+
+pptrr.property.tonnage.help =
+pptrr.property.tonnage.validationError =
+
+
+pptrr.property.volume.help =
+pptrr.property.volume.validationError =
+
+
+pptrr.property.acceptationReglementInterieur.help =
+pptrr.property.acceptationReglementInterieur.validationError =
+
+
+pptrr.property.payment.help =
+pptrr.property.payment.validationError =
+
+
+
+pptrr.step.homeFolder.label = Compte famille
+pptrr.step.homeFolder.desc = Composition de votre compte famille
+
+pptrr.incitationText.desc = <span style="font-weight: bold;">Avant de continuer votre demande, merci de :</span><br /> - vérifier l''exactitude des informations de votre compte et des membres qui le compose<br /> - compléter votre compte en ajoutant tous les membres de votre famille (responsables légaux et enfants).<br /><br /><a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)
+pptrr.incitationText.desc2 = <a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)</span>

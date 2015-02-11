@@ -85,6 +85,10 @@
             ${toGT("localReferentialWidget(rqt, '${element.javaFieldName}', lrTypes.${element.javaFieldName}.entries, 0)")}
           </div>
           """
+      ,'calendar' :
+          """
+          <div class="response">\${${wrapper}.${element.javaFieldName} ? String.format('%td/%<tm/%<tY',${wrapper}.${element.javaFieldName}) : ''}</div>
+          """
       ,'date' :
           """
           <div class="response">\${${wrapper}.${element.javaFieldName} ? String.format('%td/%<tm/%<tY',${wrapper}.${element.javaFieldName}) : ''}</div>

@@ -10,7 +10,8 @@ public class CommonStep extends Step {
         homeFolder(false),
         document(false),
         validation(true),
-        administration(false);
+        administration(false),
+        paiement(false);
         private boolean required;
         private Ref(boolean required) { this.required = required; }
         public boolean isRequired() { return required; }

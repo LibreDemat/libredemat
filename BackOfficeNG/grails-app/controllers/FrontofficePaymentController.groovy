@@ -1,3 +1,5 @@
+import org.libredemat.business.payment.InternalInvoiceItem
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +43,7 @@ class FrontofficePaymentController {
         if (params.st != null) state.st = params.st;
         
         if(['addToCart','removeCartItem'].contains(actionName)) {
-            if(!['invoices','depositAccounts','ticketingContracts'].contains(params.type))
+            if(!['invoices','depositAccounts','ticketingContracts','internalInvoices'].contains(params.type))
                 throw new Exception("NotAuthorizedPaymentType")
         }
     }
@@ -69,6 +71,8 @@ class FrontofficePaymentController {
         result.invoices = this.getInvoices().findAll{ paymentService.getByCvqReference(it.externalItemId)?.state != PaymentState.VALIDATED }
         result.depositAccounts = this.depositAccounts
         result.ticketingContracts = this.ticketingContracts
+        result.paymentsToPay = this.getToPayPayments()
+
         result.invalid = flash.invalid
         result.paymentPopUp = params.paymentPopUp
         
@@ -147,8 +151,10 @@ class FrontofficePaymentController {
         }
 
         PurchaseItem item = session.payment?.purchaseItems?.find {
-            it.externalItemId.equals(params.externalItemId) && 
-                this.buildPurchaseItemMap(it).type.equals(params.type) 
+            if (it instanceof InternalInvoiceItem)
+                it.id.toString().equals(params.externalItemId)
+            else
+                it.externalItemId.equals(params.externalItemId) && this.buildPurchaseItemMap(it).type.equals(params.type)
         }
         paymentService.removePurchaseItemFromPayment((Payment)session.payment,item) 
         
@@ -181,7 +187,7 @@ class FrontofficePaymentController {
     
     def paymentDetails = {
         def payment = paymentService.getById(Long.valueOf(params.id))
-        def result = [invoices:[], deposits:[], contracts:[]]
+        def result = [invoices:[], deposits:[], contracts:[], internalInvoices:[]]
         for (PurchaseItem item : payment.purchaseItems) {
             if (item instanceof ExternalInvoiceItem)
                 result.invoices.add(item)
@@ -189,10 +195,38 @@ class FrontofficePaymentController {
                 result.deposits.add(item)
             else if (item instanceof ExternalTicketingContractItem)
                 result.contracts.add(item)
+            else if (item instanceof InternalInvoiceItem)
+                result.internalInvoices.add(item)
         }
+        result.payment = payment
         return result
     }
-    
+
+    def newPayment = {
+        def payment = paymentService.getById(Long.valueOf(params.id))
+        if (payment.getState().equals(PaymentState.TOPAY)) {
+            payment.addPaymentSpecificData('scheme',request.scheme)
+            payment.addPaymentSpecificData('domainName',request.serverName)
+            payment.addPaymentSpecificData(Payment.SPECIFIC_DATA_EMAIL, SecurityContext.getCurrentEcitizen().getEmail())
+            payment.addPaymentSpecificData('port',request.serverPort.toString())
+            session.payment = payment
+            def paymentUrl = paymentService.initPayment(payment).toString()
+            if(paymentUrl.contains("&openInPopUp=true")) {
+                paymentUrl = paymentUrl.replace("&openInPopUp=true","")
+                redirect(action:'index', params:[paymentPopUp:"true", paymentUrl: paymentUrl ])
+                return false
+            }
+
+            redirect(url:paymentUrl)
+            return false
+        }
+        else
+        {
+            redirect(action:'history', params : ['state' : payment.getState().toString().toLowerCase()])
+            return false
+        }
+    }
+
     def details = {
         if (!localAuthorityRegistry.isPaymentEnabled()) {
             redirect(action:'index')
@@ -270,8 +304,28 @@ class FrontofficePaymentController {
         critere.value = PaymentState.INITIALIZED
         criteriaSet.add(critere)
 
+        Critere critere2 = new Critere();
+        critere2.comparatif = Critere.NEQUALS
+        critere2.attribut = Payment.SEARCH_BY_PAYMENT_STATE
+        critere2.value = PaymentState.TOPAY
+        criteriaSet.add(critere2)
+
         result.all = paymentService.get(criteriaSet, 'initializationDate', 'desc', maxRows, offset)
         result.count = paymentService.getCount(criteriaSet)
+        return result
+    }
+
+    protected Map getToPayPayments() {
+        def result = [:]
+
+        Set criteriaSet = new HashSet<Critere>()
+        Critere critere = new Critere()
+        critere.comparatif = Critere.EQUALS
+        critere.attribut = Payment.SEARCH_BY_PAYMENT_STATE
+        critere.value = PaymentState.TOPAY
+        criteriaSet.add(critere)
+
+        result.all = paymentService.get(criteriaSet, 'initializationDate', 'desc', 0, 0)
         return result
     }
 
@@ -375,7 +429,9 @@ class FrontofficePaymentController {
             return (this.buildInvoiceMap((ExternalInvoiceItem)item))
         else if(item instanceof ExternalTicketingContractItem)
             return (this.buildTicketMap((ExternalTicketingContractItem)item))
-        
+        else if(item instanceof InternalInvoiceItem)
+            return (this.buildInternalInvoiceMap((InternalInvoiceItem)item))
+
         return null
     }
     
@@ -442,7 +498,20 @@ class FrontofficePaymentController {
         entry.type = 'invoices' 
         return entry;
     }
-    
+
+    protected Map buildInternalInvoiceMap(InternalInvoiceItem item) {
+        def entry = [:]
+        entry.id = item.id
+        entry.externalItemId = item.id
+        entry.amount = item.amount
+        entry.label = item.label
+        entry.isInCart = session.payment?.purchaseItems?.find {
+            it.id.equals(entry.id) && it instanceof InternalInvoiceItem
+        }
+        entry.type = 'internalInvoices'
+        return entry;
+    }
+
     protected Boolean validate(PurchaseItem item) {
         try {
             if(item instanceof ExternalTicketingContractItem)

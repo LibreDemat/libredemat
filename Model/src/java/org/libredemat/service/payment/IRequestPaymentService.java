@@ -14,7 +14,7 @@ import org.libredemat.exception.IXEPaymentAllReadyExistException;
  */
 public interface IRequestPaymentService {
 
-    Payment buildPayment(Request request) throws CvqException, IXEPaymentAllReadyExistException, IXENoBrokerFindException;
+    Payment buildPayment(Request request, Double amount) throws CvqException, IXEPaymentAllReadyExistException, IXENoBrokerFindException;
 
     boolean onPaymentValidated(Request request, String paymentReference) throws CvqException;
 

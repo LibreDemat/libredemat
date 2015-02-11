@@ -276,6 +276,20 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.request');
         var m = formEl[formEl.id.replace('_Form', '_minute')].value;
         propertyWrapperEl.innerHTML = h + ' : ' + m;
       }
+      else if (isSubmit && yud.hasClass(ddEl, 'validate-payment')) {
+        var elName = formEl.id.replace('_Form', '') + '_Field';
+        propertyValue = yud.get(elName).value;
+        if (propertyValue.lastIndexOf(".") > 0) {
+            var virgule = propertyValue.substring(propertyValue.lastIndexOf(".")+1, propertyValue.length);
+            if (virgule != undefined && virgule.length > 2) {
+                virgule = virgule.substring(0, 2);
+                var virguleLess = propertyValue.substring(0, propertyValue.lastIndexOf("."));
+                propertyValue = virguleLess + "." + virgule;
+            }
+        }
+        propertyWrapperEl.innerHTML = propertyValue;
+        propertyWrapperEl.className = 'payment';
+      }
       else if (isSubmit) {
         var elName = formEl.id.replace('_Form', '') + '_Field';
         propertyValue = yud.get(elName).value;
@@ -365,6 +379,9 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.request');
           else if (jsonPropertyType['validate'] ===  'recreationPolyCenter') {
             propertyValue = (propertyWrapperEl.className.split('-')[1])||null;
           }
+          else if (jsonPropertyType['validate'] ===  'payment') {
+            propertyValue = propertyWrapperEl.innerHTML.replace(",", '.').replace("&nbsp;", "");
+          }
           else {
             propertyValue = propertyWrapperEl.innerHTML;
           }
@@ -387,6 +404,9 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.request');
               }
 
               if (yud.hasClass(targetEl, 'validate-date')) {
+                zcb.Calendar(targetEl.id + "_Field");
+              }
+              if (yud.hasClass(targetEl, 'validate-calendar')) {
                 zcb.Calendar(targetEl.id + "_Field");
               }
               // FIXME: rib complex are never poped

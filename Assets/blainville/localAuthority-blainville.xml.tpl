@@ -55,6 +55,7 @@
             <property name="requestTypes">
               <list>
                 <value>Park Card</value>
+                <value>Parking Permit Temporary Relocation</value>
                 <value>Ticket Booking</value>
                 <value>Perischool Activity Registration</value>
                 <value>Child Care Registration</value>
@@ -269,7 +270,25 @@
             <entry key="mailData" value="CommitPaymentNotification"/>
           </map>
         </entry>
-      </map>
+        <entry>
+            <key>
+                <value>AskPaymentNotification</value>
+            </key>
+            <map>
+                <entry key="mailSubject" value="[CapDémat] Demande de paiement" />
+                <entry key="mailData" value="AskPaymentNotification" />
+            </map>
+          </entry>
+          <entry>
+              <key>
+                  <value>CancelPaymentNotification</value>
+              </key>
+              <map>
+                  <entry key="mailSubject" value="[CapDémat] Annulation de paiement" />
+                  <entry key="mailData" value="CancelPaymentNotification" />
+              </map>
+          </entry>
+        </map>
     </property>
     <property name="externalApplicationProperties">
       <map>

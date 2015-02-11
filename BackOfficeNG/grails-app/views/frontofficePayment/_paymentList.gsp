@@ -21,13 +21,38 @@
             <p>
               <g:message code="payment.searchResult.initializationDate" /> 
               <g:formatDate date="${record.initializationDate}" formatName="format.fullDate"/>
-              - <span><g:message code="payment.searchResult.paidBy" /> ${record.paymentMode}</span>
+                -
+                <g:if test="${record.state.toString().toLowerCase() == 'topay'}">
+                <span>
+                    <a href="${createLink(controller:'frontofficePayment',action:'newPayment',id:record.id, 'state' : state)}">
+                        <g:message code="payment.action.topay"/>
+                        <g:formatNumber number="${record.amount / 100}" type="currency" currencyCode="EUR" />
+                        <g:message code="payment.action.to"/>
+                        ${record.paymentMode}
+                    </a>
+                </span>
+                </g:if>
+                <g:elseif test="${record.state.toString().toLowerCase() == 'initialized'}">
+                    <span>
+                        <g:message code="payment.searchResult.initializedBy"/> ${record.paymentMode}
+                    </span>
+                </g:elseif>
+                <g:elseif test="${record.state.toString().toLowerCase() == 'cancelled'}">
+                    <span>
+                        <g:message code="payment.searchResult.cancelledBy"/> ${record.paymentMode}
+                    </span>
+                </g:elseif>
+                <g:else>
+                    <span><g:message code="payment.searchResult.paidBy" /> ${record.paymentMode}</span>
+                </g:else>
             </p>
-            <p>
-              <a href="${createLink(action:'paymentDetails',id:record.id)}">
-                <g:message code="payment.action.seePaymentDetails"/>
-              </a>
-            </p>
+            <g:if test="${record.isExternalItem() || record.state.toString().toLowerCase() != 'topay'}">
+              <p>
+                <a href="${createLink(action:'paymentDetails', id:record.id, 'state': state)}">
+                  <g:message code="payment.action.seePaymentDetails" />
+                </a>
+              </p>
+            </g:if>
         </li>
       </g:each>
     </ul>

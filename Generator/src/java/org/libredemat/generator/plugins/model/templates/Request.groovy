@@ -164,6 +164,7 @@ import org.joda.time.LocalTime;
 import net.sf.oval.constraint.AssertValid;
 import org.apache.xmlbeans.XmlOptions;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.request.annotation.*;
 import org.libredemat.business.users.*;
