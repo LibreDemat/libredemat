@@ -2042,6 +2042,7 @@
         id int8 not null,
         enabled bool,
         family_quotient varchar(255),
+        is_imported_and_not_initialized bool,
         state varchar(16) not null,
         is_temporary bool,
         address_id int8,
