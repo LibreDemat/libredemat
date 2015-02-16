@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="LibreDémat - PayBoxSystem V6 Plugin" default="dist" basedir=".">
+
+  <description>Ant build file for the PayBoxSystem V6 plugin project.</description>
+
+  <target name="init">
+    
+    <!-- plugin specific properties -->
+    <property file="${basedir}/build.properties" />
+    
+    <mkdir dir="${basedir}/${build.classes.dir}" />
+    <mkdir dir="${basedir}/${build.archives.dir}" />
+
+    <!-- Paths -->
+    <path id="classpath.compile">
+      <fileset dir="${libraries.dir}">
+        <include name="**/*.jar" />
+      </fileset>
+    </path>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!--                        Regular targets                              -->
+  <!-- =================================================================== -->
+
+  <target name="clean" depends="init">
+    <delete dir="${basedir}/${build.dir}" />
+  </target>
+
+  <target name="compile" depends="init">
+    <javac optimize="on"
+           debug="on"
+           deprecation="on"
+           verbose="off"
+           srcdir="${basedir}/${src.java.dir}"
+           includes="**/*.java"
+           destdir="${basedir}/${build.classes.dir}">
+      <classpath refid="classpath.compile"/>
+    </javac>
+  </target>
+
+  <target name="dist"
+          depends="compile"
+          description="Build the PayBoxSystem V6 plugin jar">
+    <jar compress="on"
+         jarfile="${basedir}/${build.archives.dir}/${application.name}-${module.name}-${application.version}.jar"
+         manifest="${basedir}/${src.java.dir}/META-INF/manifest.mf">
+      <fileset dir="${basedir}/${build.classes.dir}">
+        <include name="**/**" />
+      </fileset>
+      <fileset dir="${basedir}/conf/spring">
+        <include name="pluginContext.xml"/>
+      </fileset>
+      <!--  add other directories and files here (eg, CSV mapping definition file) -->
+    </jar>
+  </target>
+
+  <target name="deploy" depends="dist">
+    <copy todir="${deploy.plugins.dir}" 
+      file="${basedir}/${build.archives.dir}/${application.name}-${module.name}-${application.version}.jar"/>
+  </target>
+
+</project>

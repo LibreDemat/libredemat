@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="payBoxSystemV6PaymentProvider"
+    class="org.libredemat.plugins.paymentproviders.payboxsystemv6.service.PayBoxV6PaymentService"
+    init-method="init">
+    <property name="label" value="PayBoxSystemV6" />
+    <property name="paymentUrl" value="${plugins.paymentproviders.payboxv6.payment_url}" />
+  </bean>
+
+</beans>

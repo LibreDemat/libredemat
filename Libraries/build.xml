@@ -22,6 +22,7 @@
         <include name="LibreDemat-Plugin-PaymentProviders-Spplus-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-SystemPay-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-PayBoxSystem-*.jar" />
+        <include name="LibreDemat-Plugin-PaymentProviders-PayBoxSystemV6-*.jar" />
         <include name="LibreDemat-Plugin-PaymentProviders-Tipi-*.jar" />
         <!-- Technocarte deliverable and dependency -->
         <include name="LibreDemat-Plugin-ExternalServices-Technocarte-*.jar" />

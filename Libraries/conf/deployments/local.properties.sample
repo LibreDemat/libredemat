@@ -92,6 +92,9 @@ plugins.paymentproviders.systempay.payment_url=https://paiement.systempay.fr/vad
 # PaymentProviders - PayBoxSystem
 plugins.paymentproviders.paybox.payment_url=localhost
 
+# PaymentProviders - PayBoxSystem V6
+plugins.paymentproviders.payboxv6.payment_url=localhost
+
 # PaymentProviders - Payline V4
 plugins.paymentproviders.paylinev4.return_url=/frontoffice/payment/status
 plugins.paymentproviders.paylinev4.cancel_url=/frontoffice/payment/status
