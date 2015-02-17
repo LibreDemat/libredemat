@@ -3,16 +3,7 @@ package org.libredemat.business.payment;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.Inheritance;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapKeyColumn;
+import javax.persistence.*;
 
 @Entity
 @Inheritance
@@ -39,6 +30,9 @@ public abstract class ExternalAccountItem extends PurchaseItem {
 
     @Column(name="external_individual_id")
     private String externalIndividualId;
+
+    @Transient
+    private boolean initialisedInPayment = false;
 
     @Enumerated(EnumType.STRING)
     @Column(name="external_notification_status",length=32)
@@ -132,5 +126,15 @@ public abstract class ExternalAccountItem extends PurchaseItem {
 
     public void setExternalServiceSpecificData(Map<String, String> externalServiceSpecificData) {
         this.externalServiceSpecificData = externalServiceSpecificData;
+    }
+
+    public boolean isInitialisedInPayment()
+    {
+        return initialisedInPayment;
+    }
+
+    public void setInitialisedInPayment(boolean initialisedInPayment)
+    {
+        this.initialisedInPayment = initialisedInPayment;
     }
 }
