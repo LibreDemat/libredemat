@@ -22,12 +22,8 @@
                         - <g:message code="payment.header.issueAt" /> <g:formatDate formatName="format.date" date="${record.issueDate}"/>
                       </p>
                       <g:if test="${record.invoiceUrl}">
-                        <p class="linkPdf">
-                          <a href="#" class="bill icone"> <img
-                              src="${resource(dir:'images/icons',file:'pdficon_small.gif')}"
-                              id="${record.externalItemId}_${record.invoiceUrl.encodeAsURL()}"
-                            />
-                          </a>
+                        <p id="${record.externalItemId}_${record.invoiceUrl}" class="icone" onClick="showDocPanel(this,'${message(code:'payment.header.invoice')}')">
+                          <img src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
                         </p>
                       </g:if>
                     </li>
