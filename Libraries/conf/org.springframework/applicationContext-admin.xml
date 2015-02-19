@@ -468,7 +468,6 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
     <property name="triggers">
       <set>
-        <ref bean="importedHomeFoldersNotificationJobTrigger"/>
         <ref bean="requestCreationNotificationTrigger" />
         <ref bean="requestInstructionDurationCheckerTrigger" />
         <ref bean="userInstructionDurationCheckerTrigger" />
@@ -485,6 +484,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <ref bean="userPendingManagementNotifierJobTrigger" />
         <ref bean="userPendingManagementRemoverJobTrigger" />
         <!--
+        <ref bean="importedHomeFoldersNotificationJobTrigger"/>
         <ref bean="requestWorkflowNavigatorTrigger" />
         -->
       </set>
