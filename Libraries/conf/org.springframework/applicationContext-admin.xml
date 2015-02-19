@@ -344,7 +344,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <bean id="paymentNotificationTrigger"
     class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail" ref="paymentNotificationInvoker" />
-    <property name="cronExpression" value="0 0/5 * * * ?" />
+    <property name="cronExpression" value="0 0/1 * * * ?" />
   </bean>
 
   <bean id="paymentErrorReportInvoker"
