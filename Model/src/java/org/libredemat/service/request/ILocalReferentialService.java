@@ -34,8 +34,10 @@ public interface ILocalReferentialService {
      * @throws CvqException 
      */
     public boolean isLocalReferentialTypeAllowingMultipleChoices(final String requestTypeLabel, final String typeName) throws CvqException;
-    
-    public void setLocalReferentialTypeAllowingMultipleChoices(final String requestTypeLabel, final String typeName, boolean multiple) throws CvqException;
+
+
+    void setLocalReferentialTypeAllowingMultipleChoices(String requestTypeLabel, String typeName, boolean multiple,
+                                                        boolean radioBox) throws CvqException;
 
     /**
      * 

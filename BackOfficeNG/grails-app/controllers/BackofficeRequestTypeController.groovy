@@ -446,19 +446,23 @@ class BackofficeRequestTypeController {
         def lrType = localReferentialService.getLocalReferentialType(requestTypeService.getRequestTypeById(Long.valueOf(params.id)).label, params.dataName)
         render(template:"localReferentialEntries", 
                model:['lrEntries': lrType.entries, 'areReadOnly': lrType.getManager() != "LibreDémat", 'parentEntry': lrType.name,
-                       'isMultiple': lrType.isMultiple(), 'depth': 0])
+                       'isMultiple': lrType.isMultiple(), 'isRadio': lrType.isRadio(), 'depth': 0])
     }
-    
+
     def saveLocalReferentialType = {
+        def allowMultipleChoices = false
+        def allowRadioChoice = false
+        if (params.allowMultipleChoices == 'radio') {
+            allowRadioChoice = true
+        } else {
+            allowMultipleChoices = Boolean.valueOf(params.allowMultipleChoices)
+        }
         localReferentialService.setLocalReferentialTypeAllowingMultipleChoices(
-            requestTypeService.getRequestTypeById(Long.valueOf(params.id)).label,
-            params.lrtDataName,
-            Boolean.valueOf(params.allowMultipleChoices)
-        )
-        render (['status':'success', 'message':message(code:"message.updateDone")] as JSON)
+                requestTypeService.getRequestTypeById(Long.valueOf(params.id)).label,
+                params.lrtDataName, allowMultipleChoices, allowRadioChoice)
+        render(['status': 'success', 'message': message(code: "message.updateDone")] as JSON)
     }
-    
-    
+
     def localReferentialEntry = {
        def lrType = localReferentialService.getLocalReferentialType(requestTypeService.getRequestTypeById(Long.valueOf(params.id)).label, params.dataName)
        def lre

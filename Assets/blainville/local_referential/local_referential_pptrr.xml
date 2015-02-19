@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LocalReferential xmlns="http://www.libredemat.org/schema/referential">
-    <data name="EquipmentUsed" allowMultipleChoices="true" allowRadioChoice="false" manager="CapDémat">
+    <data name="EquipmentUsed" allowMultipleChoices="true" allowRadioChoice="false" manager="LibreDémat">
         <label>Matériel utilisé</label>
         <entries>
             <entry key="meuble">
@@ -33,7 +33,7 @@
             </entry>
         </entries>
     </data>
-    <data name="PerformChoice" allowMultipleChoices="false" allowRadioChoice="true" manager="CapDémat">
+    <data name="PerformChoice" allowMultipleChoices="false" allowRadioChoice="true" manager="LibreDémat">
         <label>Prestation souhaitée</label>
         <entries>
             <entry key="free">

@@ -4,8 +4,9 @@
     <form id="widgetForm_${lrType.name}" action="${createLink(action:'saveLocalReferentialType', id: requestTypeId)}" method="post" style="padding-top: 0;">
       <select id="saveWidget_${lrType.name}" name="allowMultipleChoices" ${lrType.getManager() != "LibreDémat" ? 'disabled="disabled"' : ''} style="display: inline; margin-right: 10px;">
         <g:if test="${lrType.getManager() == 'LibreDémat'}">
-          <option value="false" ${lrType.isMultiple() ? '' : 'selected="selected"'}>${message(code:'localReferential.label.dropDownListWidget')}</option>
-          <option value="true" ${lrType.isMultiple() ? 'selected="selected"' : ''}>${message(code:'localReferential.label.checkBoxTreeWidget')}</option>
+          <option value="false" ${(!lrType.isMultiple() && !lrType.isRadio()) ? 'selected="selected"' : ''}>${message(code:'localReferential.label.dropDownListWidget')}</option>
+          <option value="radio" ${(!lrType.isMultiple() && lrType.isRadio()) ? 'selected="selected"' : ''}>${message(code:'localReferential.label.radioBoxWidget')}</option>
+          <option value="true" ${(lrType.isMultiple() && !lrType.isRadio()) ? 'selected="selected"' : ''}>${message(code:'localReferential.label.checkBoxTreeWidget')}</option>
         </g:if>
         <g:else>
           <option value="${lrType.isMultiple() ? 'true' : 'false'}" selected="selected">${message(code:'localReferential.label.notConfigurableInLibreDemat')}</option>

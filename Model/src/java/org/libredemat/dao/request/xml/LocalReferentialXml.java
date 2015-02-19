@@ -141,6 +141,7 @@ public class LocalReferentialXml {
         data.setLabel(lrt.getLabel());
         
         data.setAllowMultipleChoices(lrt.isMultiple());
+        data.setAllowRadioChoice(lrt.isRadio());
 
         data.setManager(lrt.getManager());
 
@@ -195,6 +196,7 @@ public class LocalReferentialXml {
         lrt.setLabel(refData.getLabel());
         
         lrt.setMultiple(refData.getAllowMultipleChoices());
+        lrt.setRadio(refData.getAllowRadioChoice());
 
         lrt.setManager(refData.getManager());
 

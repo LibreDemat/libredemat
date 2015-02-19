@@ -132,10 +132,11 @@ public class LocalReferentialService
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.MANAGE)
     public void setLocalReferentialTypeAllowingMultipleChoices(String requestTypeLabel,
-        String typeName, boolean multiple)
+        String typeName, boolean multiple, boolean radioBox)
         throws CvqException {
         LocalReferentialType lrt = getLocalReferentialType(requestTypeLabel, typeName);
         lrt.setMultiple(multiple);
+        lrt.setRadio(radioBox);
         localReferentialDAO.save(requestTypeLabel, lrt);
     }
 
