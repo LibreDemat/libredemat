@@ -2,7 +2,6 @@
   <head>
     <title><g:message code="requestExternalAction.header.search" /></title>
     <meta name="layout" content="main" />
-    <!-- link rel="stylesheet" href="${resource(dir : 'css/backoffice', file : 'externalSearch.css')}" / -->
     <script type="text/javascript" src="${resource(dir:'js/common',file:'calendar.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'externalSearch.js')}"></script>
   </head>
@@ -19,6 +18,28 @@
     </div>
     <!-- filters and sorters -->
     <div id="narrow" class="yui-b">
+      <g:if test="${inSearch && totalRecords > 0 && session.isACategoryManager}">
+          <div class="nobox yellow">
+              <h3><g:message code="requestExternalAction.header.externalServices" /></h3>
+              <div id="resendContainer" class="body">
+                  <div id="sendRequestsFormErrors"></div>
+                  <form action="sendRequests" method="post" id="sendRequestsForm">
+                      <g:each var="key" in="${keys}">
+                          <input type="hidden" name="ids" value="${key}" />
+                      </g:each>
+                      <g:if test="${!session.currentCredentialBean.agent.email}">
+                          <label for="notificationEmail"><g:message code="externalService.batchRequestResend.notifiedEmail" />
+                              <span class="help"><g:message code="externalService.batchRequestResend.notifiedEmail.help" /></span>
+                          </label>
+                          <input type="text" id="notificationEmail" name="email" class="validate required"
+                                 title="<g:message code="externalService.batchRequestResend.error.email.required" />" />
+                      </g:if>
+                      <input type="submit" id="resendButton"
+                             value="<g:message code="requestExternalAction.action.resend" />"/>
+                  </form>
+              </div>
+          </div>
+      </g:if>
       <div class="nobox">
         <h3><g:message code="header.sortBy" /></h3>
         <div class="body">
@@ -89,27 +110,6 @@
           </form>
         </div>
       </div>
-      <g:if test="${inSearch && totalRecords > 0 && session.isACategoryManager}">
-        <div class="nobox yellow">
-          <h3><g:message code="requestExternalAction.header.externalServices" /></h3>
-          <div id="resendContainer" class="body">
-            <div id="sendRequestsFormErrors"></div>
-            <form action="sendRequests" method="post" id="sendRequestsForm">
-              <g:each var="key" in="${keys}">
-                <input type="hidden" name="ids" value="${key}" />
-              </g:each>
-              <g:if test="${!session.currentCredentialBean.agent.email}">
-                <label for="notificationEmail"><g:message code="externalService.batchRequestResend.notifiedEmail" /></label>
-                <input type="text" id="notificationEmail" name="email" class="validate required"
-                  title="<g:message code="externalService.batchRequestResend.error.email.required" />" />
-                <span class="help"><g:message code="externalService.batchRequestResend.notifiedEmail.help" /></span>
-              </g:if>
-              <input type="submit" id="resendButton"
-                value="<g:message code="requestExternalAction.action.resend" />"/>
-            </form>
-          </div>
-        </div>
-      </g:if>
     </div>
   </body>
 </html>
