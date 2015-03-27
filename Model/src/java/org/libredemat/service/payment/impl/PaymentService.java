@@ -270,7 +270,12 @@ public final class PaymentService implements IPaymentService,
         logger.debug("commitPayment() looking for CVQ reference : " 
                 + paymentResultBean.getCvqReference());
         Payment payment = paymentDAO.findByCvqReference(paymentResultBean.getCvqReference());
-        payment.setBankReference(paymentResultBean.getBankReference());
+        String bankReference = paymentResultBean.getBankReference();
+        // Hack retour TIPI
+        if (bankReference.equals("XXXXXX")) {
+            bankReference = payment.getCvqReference();
+        }
+        payment.setBankReference(bankReference);
         payment.setCommitDate(new Date());
 
         PaymentEvent.EVENT_TYPE event = null;
