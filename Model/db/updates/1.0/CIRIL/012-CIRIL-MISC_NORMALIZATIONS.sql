@@ -49,10 +49,8 @@ END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION suppressionlogininutile()
-  OWNER TO libredemat;
-select  suppressionlogininutile();
 
+select  suppressionlogininutile();
 drop function suppressionlogininutile();
 
 -- Statut des individus
