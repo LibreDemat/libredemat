@@ -1,7 +1,7 @@
-
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Map
+import java.util.Locale
 
 import org.apache.commons.lang.StringUtils;
 
@@ -253,7 +253,7 @@ class FrontofficeReservationController
 				item.childId = it.childId
 				item.activityCode = it.activityCode
 				calendar.setTime(it.day)
-				item.day = String.format('%tY/%<tm/%<td', calendar)
+				item.day = String.format(Locale.FRANCE, '%tY/%<tm/%<td', calendar)
 				result.add(item)
 			}
 		}

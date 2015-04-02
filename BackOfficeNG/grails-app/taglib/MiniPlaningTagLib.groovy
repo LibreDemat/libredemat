@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat
+import java.util.Locale
 
 class MiniPlaningTagLib {
     /**
@@ -100,7 +101,7 @@ $table
         }
         
             result +=  '<span class="value">' + 
-		String.format('%ta %<te', calendar) + '</span><div class="container">'
+		String.format(Locale.FRANCE, '%ta %<te', calendar) + '</span><div class="container">'
 
         data.days.each{
             def state = getAssociationType(it.value.toString())

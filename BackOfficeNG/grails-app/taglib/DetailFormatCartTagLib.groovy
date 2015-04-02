@@ -1,5 +1,5 @@
 import java.text.SimpleDateFormat
-
+import java.util.Locale
 
 class DetailFormatCartTagLib { // tag lig to display cart detail
     
@@ -9,7 +9,7 @@ class DetailFormatCartTagLib { // tag lig to display cart detail
     def detailFormat = { attrs, body ->
         calendar.setTime(attrs.day)       
         def dateFormatString = new SimpleDateFormat("yyyy/MM/dd").format(attrs.day)
-        out << String.format('%te %<tb %<tY', calendar) 
+        out << String.format(Locale.FRANCE, '%te %<tb %<tY', calendar)
         out << '&nbsp;<span class="legend-label-box'+getType(attrs.type)+'" style="background-color: #'+attrs.color+';">&nbsp;</span> '
 		out << attrs.labelService +" "
         out << '( '+attrs.name."${attrs.childId.toLong()}"+' )'

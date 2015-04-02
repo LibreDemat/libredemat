@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat
+import java.util.Locale
 
 class PlanningTagLib {
 	def styles = [:]
@@ -100,8 +101,8 @@ $table
 		!listDate.contains(calendar.get(Calendar.DAY_OF_MONTH))   ) { // test if day is after dead line or not in registered day
 			result +=  '<span class="valueBefore">' + dom + '</span><div class="container">'
 		} else {
-			result +=  '<span class="value day" id="day-'+ String.format('%tY/%<tm/%<td', calendar) +'-'+ childId +'-' + activityCode.encodeAsURL() + '">' +
-					dom + '</span><div class="container" id="'+  String.format('%tY/%<tm/%<td', calendar) +'">'
+			result +=  '<span class="value day" id="day-'+ String.format(Locale.FRANCE, '%tY/%<tm/%<td', calendar) +'-'+ childId +'-' + activityCode.encodeAsURL() + '">' +
+					dom + '</span><div class="container" id="'+  String.format(Locale.FRANCE, '%tY/%<tm/%<td', calendar) +'">'
 		}
 
 		data.each { activity ->

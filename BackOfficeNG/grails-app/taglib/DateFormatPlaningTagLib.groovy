@@ -1,5 +1,5 @@
 import java.text.SimpleDateFormat
-
+import java.util.Locale
 
 class DateFormatPlaningTagLib { // tag lig to display cart list items
     
@@ -10,7 +10,7 @@ class DateFormatPlaningTagLib { // tag lig to display cart list items
         calendar.setTime(attrs.day)       
         def dateFormatString = new SimpleDateFormat("yyyy/MM/dd").format(attrs.day)
 		out << '<div>'
-        out << String.format('%te %<tb %<tY', calendar) 
+        out << String.format(Locale.FRANCE, '%te %<tb %<tY', calendar)
         out << '&nbsp;<span class="legend-label-box'+getType(attrs.type)+'" style="background-color: #'+attrs.color+';">&nbsp;</span>'
         out << '<input type="hidden" name="item" class="item" value="'
         out << attrs.childId +'-'+ attrs.homeFolderId + '-' + attrs.activityCode +'-'+ attrs.activityServiceCode
