@@ -15,6 +15,40 @@
     
       
       <dl>
+        <dt><g:message code="pptrr.property.isCompany.label" /></dt>
+          <dd><g:message code="message.${rqt.isCompany ? 'yes' : 'no'}" /></dd>
+          
+
+      </dl>
+      
+    
+      
+      <h4><g:message code="pptrr.property.companyInformation.label" /></h4>
+      <dl>
+        
+          <dt><g:message code="pptrr.property.siretNumber.label" /></dt><dd>${rqt.siretNumber?.toString()}</dd>
+
+        
+          <dt><g:message code="pptrr.property.apeCode.label" /></dt><dd>${rqt.apeCode?.toString()}</dd>
+
+        
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="pptrr.property.desiredService.label" /></dt>
+          <dd>
+          <g:render template="/frontofficeRequestType/widget/localReferentialDataSummary" 
+                    model="['javaName':'desiredService', 'lrEntries': lrTypes.desiredService.entries, 'depth':0]" />
+          </dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
         <dt><g:message code="pptrr.property.requesterAddress.label" /></dt>
           <dd>
           <g:if test="${rqt.requesterAddress}">
@@ -76,67 +110,32 @@
       
     
       
+      <h4><g:message code="pptrr.property.equipmentUsed.label" /></h4>
       <dl>
-        <dt><g:message code="pptrr.property.performChoice.label" /></dt>
-          <dd>
-          <g:render template="/frontofficeRequestType/widget/localReferentialDataSummary" 
-                    model="['javaName':'performChoice', 'lrEntries': lrTypes.performChoice.entries, 'depth':0]" />
-          </dd>
+        
+          <dt><g:message code="pptrr.property.vehicleType.label" /></dt><dd>${rqt.vehicleType?.toString()}</dd>
+
+        
+          <dt><g:message code="pptrr.property.longeur.label" /></dt><dd>${rqt.longeur?.toString()}</dd>
+
+        
+          <dt><g:message code="pptrr.property.immatriculation.label" /></dt><dd>${rqt.immatriculation?.toString()}</dd>
+
+        
+          <dt><g:message code="pptrr.property.furnitureLifting.label" /></dt>
+          <dd><g:message code="message.${rqt.furnitureLifting ? 'yes' : 'no'}" /></dd>
           
 
-      </dl>
-      
-    
-      
-      <dl>
-        <dt><g:message code="pptrr.property.equipmentUsed.label" /></dt>
-          <dd>
-          <g:render template="/frontofficeRequestType/widget/localReferentialDataSummary" 
-                    model="['javaName':'equipmentUsed', 'lrEntries': lrTypes.equipmentUsed.entries, 'depth':0]" />
-          </dd>
-          
+        
+          <dt><g:message code="pptrr.property.other.label" /></dt><dd>${rqt.other?.toString()}</dd>
 
+        
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="pptrr.property.marque.label" /></dt><dd>${rqt.marque?.toString()}</dd>
-
-      </dl>
-      
-    
-      
-      <dl>
-        <dt><g:message code="pptrr.property.immatriculation.label" /></dt><dd>${rqt.immatriculation?.toString()}</dd>
-
-      </dl>
-      
-    
-      
-      <dl>
-        <dt><g:message code="pptrr.property.longeur.label" /></dt><dd>${rqt.longeur?.toString()}</dd>
-
-      </dl>
-      
-    
-      
-      <dl>
-        <dt><g:message code="pptrr.property.largeur.label" /></dt><dd>${rqt.largeur?.toString()}</dd>
-
-      </dl>
-      
-    
-      
-      <dl>
-        <dt><g:message code="pptrr.property.tonnage.label" /></dt><dd>${rqt.tonnage?.toString()}</dd>
-
-      </dl>
-      
-    
-      
-      <dl>
-        <dt><g:message code="pptrr.property.volume.label" /></dt><dd>${rqt.volume?.toString()}</dd>
+        <dt><g:message code="pptrr.property.observations.label" /></dt><dd>${rqt.observations?.toString()}</dd>
 
       </dl>
       
@@ -152,6 +151,13 @@
         <dt><g:message code="pptrr.property.acceptationReglementInterieur.label" /></dt>
           <dd><g:message code="message.${rqt.acceptationReglementInterieur ? 'yes' : 'no'}" /></dd>
           
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="pptrr.property.observationsReglement.label" /></dt><dd>${rqt.observationsReglement?.toString()}</dd>
 
       </dl>
       

@@ -46,6 +46,8 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
       
         heureStart = org.libredemat.business.request.permit.HeuresType.K9;
       
+        isCompany = Boolean.valueOf(true);
+      
     }
 
     @Override
@@ -60,8 +62,20 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
           
             
-        List<org.libredemat.business.request.LocalReferentialData> equipmentUsedList = new ArrayList<org.libredemat.business.request.LocalReferentialData>();
-        result.setEquipmentUsed(equipmentUsedList);
+        result.setApeCode(apeCode);
+      
+          
+        
+          
+            
+        List<org.libredemat.business.request.LocalReferentialData> desiredServiceList = new ArrayList<org.libredemat.business.request.LocalReferentialData>();
+        result.setDesiredService(desiredServiceList);
+      
+          
+        
+          
+            
+        result.setFurnitureLifting(furnitureLifting);
       
           
         
@@ -91,7 +105,7 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
           
             
-        result.setLargeur(largeur);
+        result.setIsCompany(isCompany);
       
           
         
@@ -103,7 +117,19 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
           
             
-        result.setMarque(marque);
+        result.setObservations(observations);
+      
+          
+        
+          
+            
+        result.setObservationsReglement(observationsReglement);
+      
+          
+        
+          
+            
+        result.setOther(other);
       
           
         
@@ -111,13 +137,6 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
             
         if (payment != null)
             result.setPayment(payment.clone());
-      
-          
-        
-          
-            
-        List<org.libredemat.business.request.LocalReferentialData> performChoiceList = new ArrayList<org.libredemat.business.request.LocalReferentialData>();
-        result.setPerformChoice(performChoiceList);
       
           
         
@@ -142,13 +161,13 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
           
             
-        result.setTonnage(tonnage);
+        result.setSiretNumber(siretNumber);
       
           
         
           
             
-        result.setVolume(volume);
+        result.setVehicleType(vehicleType);
       
           
         
@@ -167,14 +186,14 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
 
   
     
-      @AssertTrue(
+      @NotNull(
         
         
         profiles = {"reglements"},
         message = "acceptationReglementInterieur"
       )
     
-      @NotNull(
+      @AssertTrue(
         
         
         profiles = {"reglements"},
@@ -195,39 +214,162 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
     }
   
     
+      @MaxLength(
+        
+          value = 5,
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "apeCode"
+      )
+    
+      @NotNull(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "apeCode"
+      )
+    
+      @MatchPattern(
+        
+          pattern = "^[0-9]{4}[a-zA-Z]{1}$",
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "apeCode"
+      )
+    
+      @NotBlank(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "apeCode"
+      )
+    
+    private String apeCode;
+
+    public void setApeCode(final String apeCode) {
+        this.apeCode = apeCode;
+    }
+
+ 
+    @Column(name="ape_code" , length=5 )
+      
+    public String getApeCode() {
+        return this.apeCode;
+    }
+  
+    
+      @LocalReferential(
+        
+        
+        profiles = {"relocation"},
+        message = "desiredService"
+      )
+    
       @MinSize(
         
           value = 1,
         
         
         profiles = {"relocation"},
-        message = "equipmentUsed"
+        message = "desiredService"
       )
     
-      @LocalReferential(
-        
-        
-        profiles = {"relocation"},
-        message = "equipmentUsed"
-      )
-    
-    private List<org.libredemat.business.request.LocalReferentialData> equipmentUsed;
+    private List<org.libredemat.business.request.LocalReferentialData> desiredService;
 
-    public void setEquipmentUsed(final List<org.libredemat.business.request.LocalReferentialData> equipmentUsed) {
-        this.equipmentUsed = equipmentUsed;
+    public void setDesiredService(final List<org.libredemat.business.request.LocalReferentialData> desiredService) {
+        this.desiredService = desiredService;
     }
 
  
     @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinTable(name="parking_permit_temporary_relocation_request_equipment_used",
+    @JoinTable(name="parking_permit_temporary_relocation_request_desired_service",
             joinColumns=
                 @JoinColumn(name="parking_permit_temporary_relocation_request_id"),
             inverseJoinColumns=
-                @JoinColumn(name="equipment_used_id"))
-    @OrderColumn(name="equipment_used_index")
+                @JoinColumn(name="desired_service_id"))
+    @OrderColumn(name="desired_service_index")
       
-    public List<org.libredemat.business.request.LocalReferentialData> getEquipmentUsed() {
-        return this.equipmentUsed;
+    public List<org.libredemat.business.request.LocalReferentialData> getDesiredService() {
+        return this.desiredService;
+    }
+  
+    
+      @NotNull(
+        
+        
+        profiles = {"relocation"},
+        message = "furnitureLifting"
+      )
+    
+    private Boolean furnitureLifting;
+
+    public void setFurnitureLifting(final Boolean furnitureLifting) {
+        this.furnitureLifting = furnitureLifting;
+    }
+
+ 
+    @Column(name="furniture_lifting"  )
+      
+    public Boolean getFurnitureLifting() {
+        return this.furnitureLifting;
     }
   
     
@@ -275,22 +417,6 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
     }
   
     
-      @NotBlank(
-        
-        
-        profiles = {"relocation"},
-        message = "immatriculation"
-      )
-    
-      @MatchPattern(
-        
-          pattern = "^[\\w\\W]{0,255}$",
-        
-        
-        profiles = {"relocation"},
-        message = "immatriculation"
-      )
-    
       @MaxLength(
         
           value = 255,
@@ -300,7 +426,9 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         message = "immatriculation"
       )
     
-      @NotNull(
+      @MatchPattern(
+        
+          pattern = "^[\\w\\W]{0,255}$",
         
         
         profiles = {"relocation"},
@@ -325,21 +453,20 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
         
         profiles = {"relocation"},
-        message = "largeur"
+        message = "isCompany"
       )
     
-    private java.math.BigInteger largeur;
+    private Boolean isCompany;
 
-    public void setLargeur(final java.math.BigInteger largeur) {
-        this.largeur = largeur;
+    public void setIsCompany(final Boolean isCompany) {
+        this.isCompany = isCompany;
     }
 
  
-    @Column(name="largeur" , columnDefinition="bytea" )
-    @Type(type="serializable") //Hack see http://libredemat.capwebct.fr/ticket/338
+    @Column(name="is_company"  )
       
-    public java.math.BigInteger getLargeur() {
-        return this.largeur;
+    public Boolean getIsCompany() {
+        return this.isCompany;
     }
   
     
@@ -365,49 +492,45 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
     }
   
     
-      @NotBlank(
-        
-        
-        profiles = {"relocation"},
-        message = "marque"
-      )
-    
-      @MatchPattern(
-        
-          pattern = "^[\\w\\W]{0,255}$",
-        
-        
-        profiles = {"relocation"},
-        message = "marque"
-      )
-    
-      @MaxLength(
-        
-          value = 255,
-        
-        
-        profiles = {"relocation"},
-        message = "marque"
-      )
-    
-      @NotNull(
-        
-        
-        profiles = {"relocation"},
-        message = "marque"
-      )
-    
-    private String marque;
+    private String observations;
 
-    public void setMarque(final String marque) {
-        this.marque = marque;
+    public void setObservations(final String observations) {
+        this.observations = observations;
     }
 
  
-    @Column(name="marque" , length=255 )
+    @Column(name="observations"  )
       
-    public String getMarque() {
-        return this.marque;
+    public String getObservations() {
+        return this.observations;
+    }
+  
+    
+    private String observationsReglement;
+
+    public void setObservationsReglement(final String observationsReglement) {
+        this.observationsReglement = observationsReglement;
+    }
+
+ 
+    @Column(name="observations_reglement"  )
+      
+    public String getObservationsReglement() {
+        return this.observationsReglement;
+    }
+  
+    
+    private String other;
+
+    public void setOther(final String other) {
+        this.other = other;
+    }
+
+ 
+    @Column(name="other"  )
+      
+    public String getOther() {
+        return this.other;
     }
   
     
@@ -430,42 +553,6 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
       
     public org.libredemat.business.payment.Payment getPayment() {
         return this.payment;
-    }
-  
-    
-      @MinSize(
-        
-          value = 1,
-        
-        
-        profiles = {"relocation"},
-        message = "performChoice"
-      )
-    
-      @LocalReferential(
-        
-        
-        profiles = {"relocation"},
-        message = "performChoice"
-      )
-    
-    private List<org.libredemat.business.request.LocalReferentialData> performChoice;
-
-    public void setPerformChoice(final List<org.libredemat.business.request.LocalReferentialData> performChoice) {
-        this.performChoice = performChoice;
-    }
-
- 
-    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinTable(name="parking_permit_temporary_relocation_request_perform_choice",
-            joinColumns=
-                @JoinColumn(name="parking_permit_temporary_relocation_request_id"),
-            inverseJoinColumns=
-                @JoinColumn(name="perform_choice_id"))
-    @OrderColumn(name="perform_choice_index")
-      
-    public List<org.libredemat.business.request.LocalReferentialData> getPerformChoice() {
-        return this.performChoice;
     }
   
     
@@ -511,14 +598,14 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
     }
   
     
-      @AssertValid(
+      @NotNull(
         
         
         profiles = {"relocation"},
         message = "requesterAddress"
       )
     
-      @NotNull(
+      @AssertValid(
         
         
         profiles = {"relocation"},
@@ -540,25 +627,105 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
     }
   
     
+      @MaxLength(
+        
+          value = 14,
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "siretNumber"
+      )
+    
       @NotNull(
         
         
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
         profiles = {"relocation"},
-        message = "tonnage"
+        message = "siretNumber"
       )
     
-    private java.math.BigInteger tonnage;
+      @MatchPattern(
+        
+          pattern = "^[0-9]{14}$",
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "siretNumber"
+      )
+    
+      @NotBlank(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+                "active &= _this.conditions['isCompany'].test(_this.isCompany.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"relocation"},
+        message = "siretNumber"
+      )
+    
+    private String siretNumber;
 
-    public void setTonnage(final java.math.BigInteger tonnage) {
-        this.tonnage = tonnage;
+    public void setSiretNumber(final String siretNumber) {
+        this.siretNumber = siretNumber;
     }
 
  
-    @Column(name="tonnage" , columnDefinition="bytea" )
-    @Type(type="serializable") //Hack see http://libredemat.capwebct.fr/ticket/338
+    @Column(name="siret_number" , length=14 )
       
-    public java.math.BigInteger getTonnage() {
-        return this.tonnage;
+    public String getSiretNumber() {
+        return this.siretNumber;
     }
   
     
@@ -566,21 +733,27 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
         
         profiles = {"relocation"},
-        message = "volume"
+        message = "vehicleType"
       )
     
-    private java.math.BigInteger volume;
+      @NotBlank(
+        
+        
+        profiles = {"relocation"},
+        message = "vehicleType"
+      )
+    
+    private String vehicleType;
 
-    public void setVolume(final java.math.BigInteger volume) {
-        this.volume = volume;
+    public void setVehicleType(final String vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
  
-    @Column(name="volume" , columnDefinition="bytea" )
-    @Type(type="serializable") //Hack see http://libredemat.capwebct.fr/ticket/338
+    @Column(name="vehicle_type"  )
       
-    public java.math.BigInteger getVolume() {
-        return this.volume;
+    public String getVehicleType() {
+        return this.vehicleType;
     }
   
 }

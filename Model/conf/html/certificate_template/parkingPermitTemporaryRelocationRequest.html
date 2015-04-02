@@ -139,6 +139,41 @@
     
   
     
+      <p class="label">${esc(i18n.translate('pptrr.property.isCompany.label'))}</p>
+          <div class="response choice">
+            <% [true,false].each { %>
+              <span ${it == rqt.isCompany ? 'class="checked"': 'class="unchecked"'}>
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
+              </span>
+            <% } %>
+          </div>
+          
+
+    
+  
+    
+      <h3>${i18n.translate('pptrr.property.companyInformation.label')}</h3>
+      <div class="complex">
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.siretNumber.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.siretNumber?.toString()))}</div>
+
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.apeCode.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.apeCode?.toString()))}</div>
+
+        
+      </div>
+    
+  
+    
+      <p class="label">${esc(i18n.translate('pptrr.property.desiredService.label'))}</p>
+          <div class="response choice">
+            <% localReferentialWidget(rqt, 'desiredService', lrTypes.desiredService.entries, 0) %>
+          </div>
+          
+
+    
+  
+    
       <p class="label">${esc(i18n.translate('pptrr.property.requesterAddress.label'))}</p>
           <div class="response">
             <% if(rqt.requesterAddress) { %>
@@ -191,50 +226,37 @@
     
   
     
-      <p class="label">${esc(i18n.translate('pptrr.property.performChoice.label'))}</p>
+      <h3>${i18n.translate('pptrr.property.equipmentUsed.label')}</h3>
+      <div class="complex">
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.vehicleType.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.vehicleType?.toString()))}</div>
+
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.longeur.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.longeur?.toString()))}</div>
+
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.immatriculation.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.immatriculation?.toString()))}</div>
+
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.furnitureLifting.label'))}</p>
           <div class="response choice">
-            <% localReferentialWidget(rqt, 'performChoice', lrTypes.performChoice.entries, 0) %>
+            <% [true,false].each { %>
+              <span ${it == rqt.furnitureLifting ? 'class="checked"': 'class="unchecked"'}>
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
+              </span>
+            <% } %>
           </div>
           
 
-    
-  
-    
-      <p class="label">${esc(i18n.translate('pptrr.property.equipmentUsed.label'))}</p>
-          <div class="response choice">
-            <% localReferentialWidget(rqt, 'equipmentUsed', lrTypes.equipmentUsed.entries, 0) %>
-          </div>
-          
+        
+          <p class="label">${esc(i18n.translate('pptrr.property.other.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.other?.toString()))}</div>
 
+        
+      </div>
     
   
     
-      <p class="label">${esc(i18n.translate('pptrr.property.marque.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.marque?.toString()))}</div>
-
-    
-  
-    
-      <p class="label">${esc(i18n.translate('pptrr.property.immatriculation.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.immatriculation?.toString()))}</div>
-
-    
-  
-    
-      <p class="label">${esc(i18n.translate('pptrr.property.longeur.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.longeur?.toString()))}</div>
-
-    
-  
-    
-      <p class="label">${esc(i18n.translate('pptrr.property.largeur.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.largeur?.toString()))}</div>
-
-    
-  
-    
-      <p class="label">${esc(i18n.translate('pptrr.property.tonnage.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.tonnage?.toString()))}</div>
-
-    
-  
-    
-      <p class="label">${esc(i18n.translate('pptrr.property.volume.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.volume?.toString()))}</div>
+      <p class="label">${esc(i18n.translate('pptrr.property.observations.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.observations?.toString()))}</div>
 
     
   
@@ -253,6 +275,11 @@
             <% } %>
           </div>
           
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('pptrr.property.observationsReglement.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.observationsReglement?.toString()))}</div>
 
     
   

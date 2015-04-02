@@ -14,6 +14,7 @@ import org.libredemat.service.payment.IPaymentService;
 import org.libredemat.service.payment.IRequestPaymentService;
 import org.libredemat.service.request.IRequestActionService;
 import org.libredemat.service.request.IRequestLockService;
+import org.libredemat.service.request.condition.EqualityChecker;
 import org.libredemat.service.request.impl.RequestService;
 import org.libredemat.service.users.IUserSearchService;
 
@@ -23,6 +24,11 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
     protected IRequestActionService requestActionService;
     protected IRequestLockService requestLockService;
     protected IUserSearchService userSearchService;
+
+    @Override
+    public void init() {
+        ParkingPermitTemporaryRelocationRequest.conditions.put("isCompany", new EqualityChecker("true"));
+    }
 
     @Override
     public boolean accept(Request request)

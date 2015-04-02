@@ -329,17 +329,11 @@
     alter table parking_permit_temporary_relocation_request 
         drop constraint FK826DD839DBF56A6;
 
-    alter table parking_permit_temporary_relocation_request_equipment_used 
-        drop constraint FK1775820ADCF45D04;
+    alter table parking_permit_temporary_relocation_request_desired_service 
+        drop constraint FKBC299F5410385382;
 
-    alter table parking_permit_temporary_relocation_request_equipment_used 
-        drop constraint FK1775820A801C7F07;
-
-    alter table parking_permit_temporary_relocation_request_perform_choice 
-        drop constraint FKC2280E7B1CD9AEF3;
-
-    alter table parking_permit_temporary_relocation_request_perform_choice 
-        drop constraint FKC2280E7B801C7F07;
+    alter table parking_permit_temporary_relocation_request_desired_service 
+        drop constraint FKBC299F54801C7F07;
 
     alter table perischool_activity_registration_request 
         drop constraint FK76BAA59A37A0DD36;
@@ -721,9 +715,7 @@
 
     drop table parking_permit_temporary_relocation_request cascade;
 
-    drop table parking_permit_temporary_relocation_request_equipment_used cascade;
-
-    drop table parking_permit_temporary_relocation_request_perform_choice cascade;
+    drop table parking_permit_temporary_relocation_request_desired_service cascade;
 
     drop table payment cascade;
 
@@ -2301,33 +2293,30 @@
     create table parking_permit_temporary_relocation_request (
         id int8 not null,
         acceptation_reglement_interieur bool,
+        ape_code varchar(5),
+        furniture_lifting bool,
         heure_end varchar(255),
         heure_start varchar(255),
         immatriculation varchar(255),
-        largeur bytea,
+        is_company bool,
         longeur bytea,
-        marque varchar(255),
+        observations varchar(255),
+        observations_reglement varchar(255),
+        other varchar(255),
         periode_end timestamp,
         periode_start timestamp,
-        tonnage bytea,
-        volume bytea,
+        siret_number varchar(14),
+        vehicle_type varchar(255),
         payment_id int8,
         requester_address_id int8,
         primary key (id)
     );
 
-    create table parking_permit_temporary_relocation_request_equipment_used (
+    create table parking_permit_temporary_relocation_request_desired_service (
         parking_permit_temporary_relocation_request_id int8 not null,
-        equipment_used_id int8 not null,
-        equipment_used_index int4 not null,
-        primary key (parking_permit_temporary_relocation_request_id, equipment_used_index)
-    );
-
-    create table parking_permit_temporary_relocation_request_perform_choice (
-        parking_permit_temporary_relocation_request_id int8 not null,
-        perform_choice_id int8 not null,
-        perform_choice_index int4 not null,
-        primary key (parking_permit_temporary_relocation_request_id, perform_choice_index)
+        desired_service_id int8 not null,
+        desired_service_index int4 not null,
+        primary key (parking_permit_temporary_relocation_request_id, desired_service_index)
     );
 
     create table payment (
@@ -2412,22 +2401,22 @@
         external_item_id varchar(255),
         external_notification_status varchar(32),
         external_service_label varchar(255),
+        key varchar(255),
+        key_owner varchar(255),
+        quantity int4,
+        unit_price float8,
         expiration_date timestamp,
         invoiceurl TEXT,
         is_paid bool,
         issue_date timestamp,
         payment_date timestamp,
-        key varchar(255),
-        key_owner varchar(255),
-        quantity int4,
-        unit_price float8,
-        old_value float8,
-        old_value_date timestamp,
         creation_date timestamp,
         max_buy int4,
         min_buy int4,
         old_quantity int4,
         subject_id int8,
+        old_value float8,
+        old_value_date timestamp,
         primary key (id)
     );
 
@@ -3686,23 +3675,13 @@
         foreign key (requester_address_id) 
         references address;
 
-    alter table parking_permit_temporary_relocation_request_equipment_used 
-        add constraint FK1775820ADCF45D04 
-        foreign key (equipment_used_id) 
+    alter table parking_permit_temporary_relocation_request_desired_service 
+        add constraint FKBC299F5410385382 
+        foreign key (desired_service_id) 
         references local_referential_data;
 
-    alter table parking_permit_temporary_relocation_request_equipment_used 
-        add constraint FK1775820A801C7F07 
-        foreign key (parking_permit_temporary_relocation_request_id) 
-        references parking_permit_temporary_relocation_request;
-
-    alter table parking_permit_temporary_relocation_request_perform_choice 
-        add constraint FKC2280E7B1CD9AEF3 
-        foreign key (perform_choice_id) 
-        references local_referential_data;
-
-    alter table parking_permit_temporary_relocation_request_perform_choice 
-        add constraint FKC2280E7B801C7F07 
+    alter table parking_permit_temporary_relocation_request_desired_service 
+        add constraint FKBC299F54801C7F07 
         foreign key (parking_permit_temporary_relocation_request_id) 
         references parking_permit_temporary_relocation_request;
 
@@ -3710,6 +3689,11 @@
         add constraint FK76BAA59A37A0DD36 
         foreign key (school_id) 
         references school;
+
+    alter table perischool_activity_registration_request_perischool_activity 
+        add constraint FK2007A4E9D9BCA5E7 
+        foreign key (perischool_activity_registration_request_id) 
+        references perischool_activity_registration_request;
 
     alter table perischool_activity_registration_request_perischool_activity 
         add constraint FK2007A4E959E559C4 

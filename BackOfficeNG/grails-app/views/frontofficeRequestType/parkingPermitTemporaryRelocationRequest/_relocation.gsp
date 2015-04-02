@@ -12,6 +12,49 @@
   
 
   
+    <label class="required"><g:message code="pptrr.property.isCompany.label" /> *  <span><g:message code="pptrr.property.isCompany.help" /></span></label>
+            <ul class="yes-no required ${rqt.stepStates['relocation'].invalidFields.contains('isCompany') ? 'validation-failed' : ''}">
+              <g:each in="${[true,false]}">
+              <li>
+                <input type="radio" id="isCompany_${it ? 'yes' : 'no'}" class="required condition-isCompany-trigger  validate-one-required boolean" title="" value="${it}" name="isCompany" ${it == rqt.isCompany ? 'checked="checked"': ''} />
+                <label for="isCompany_${it ? 'yes' : 'no'}"><g:message code="message.${it ? 'yes' : 'no'}" /></label>
+              </li>
+              </g:each>
+            </ul>
+            
+
+  
+
+  
+    <fieldset class="required condition-isCompany-filled">
+    <legend><g:message code="pptrr.property.companyInformation.label" /></legend>
+    
+      <label for="siretNumber" class="required condition-isCompany-filled"><g:message code="pptrr.property.siretNumber.label" /> *  <span><g:message code="pptrr.property.siretNumber.help" /></span></label>
+            <input  type="text" id="siretNumber" name="siretNumber" value="${rqt.siretNumber?.toString()}" 
+                    class="required condition-isCompany-filled  validate-regex ${rqt.stepStates['relocation'].invalidFields.contains('siretNumber') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.siretNumber.validationError" />" regex="^[0-9]{14}$" maxlength="14" />
+            
+
+    
+      <label for="apeCode" class="required condition-isCompany-filled"><g:message code="pptrr.property.apeCode.label" /> *  <span><g:message code="pptrr.property.apeCode.help" /></span></label>
+            <input  type="text" id="apeCode" name="apeCode" value="${rqt.apeCode?.toString()}" 
+                    class="required condition-isCompany-filled  validate-regex ${rqt.stepStates['relocation'].invalidFields.contains('apeCode') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.apeCode.validationError" />" regex="^[0-9]{4}[a-zA-Z]{1}$" maxlength="5" />
+            
+
+    
+    </fieldset>
+  
+
+  
+    <label class="required"><g:message code="pptrr.property.desiredService.label" /> *  <span><g:message code="pptrr.property.desiredService.help" /></span></label>
+            <g:set var="desiredServiceIndex" value="${0}" scope="flash" />
+            <g:render template="/frontofficeRequestType/widget/localReferentialData" 
+                      model="['javaName':'desiredService', 'i18nPrefixCode':'pptrr.property.desiredService', 'htmlClass':'required  ', 
+                              'lrEntries': lrTypes.desiredService.entries, 'depth':0]" />
+            
+
+  
+
+  
     <label class="required"><g:message code="pptrr.property.requesterAddress.label" /> *  <span><g:message code="pptrr.property.requesterAddress.help" /></span></label>
             <div id="requesterAddress" class="address required autofill-requesterFilling-listener-Address ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress') ? 'validation-failed' : ''}">
             <label for="requesterAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -97,69 +140,51 @@
   
 
   
-    <label class="required"><g:message code="pptrr.property.performChoice.label" /> *  <span><g:message code="pptrr.property.performChoice.help" /></span></label>
-            <g:set var="performChoiceIndex" value="${0}" scope="flash" />
-            <g:render template="/frontofficeRequestType/widget/localReferentialData" 
-                      model="['javaName':'performChoice', 'i18nPrefixCode':'pptrr.property.performChoice', 'htmlClass':'required  ', 
-                              'lrEntries': lrTypes.performChoice.entries, 'depth':0]" />
+    <fieldset class="required">
+    <legend><g:message code="pptrr.property.equipmentUsed.label" /></legend>
+    
+      <label for="vehicleType" class="required"><g:message code="pptrr.property.vehicleType.label" /> *  <span><g:message code="pptrr.property.vehicleType.help" /></span></label>
+            <input  type="text" id="vehicleType" name="vehicleType" value="${rqt.vehicleType?.toString()}" 
+                    class="required  validate-string ${rqt.stepStates['relocation'].invalidFields.contains('vehicleType') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.vehicleType.validationError" />"   />
             
 
-  
-
-  
-    <label class="required"><g:message code="pptrr.property.equipmentUsed.label" /> *  <span><g:message code="pptrr.property.equipmentUsed.help" /></span></label>
-            <g:set var="equipmentUsedIndex" value="${0}" scope="flash" />
-            <g:render template="/frontofficeRequestType/widget/localReferentialData" 
-                      model="['javaName':'equipmentUsed', 'i18nPrefixCode':'pptrr.property.equipmentUsed', 'htmlClass':'required  ', 
-                              'lrEntries': lrTypes.equipmentUsed.entries, 'depth':0]" />
-            
-
-  
-
-  
-    <label for="marque" class="required"><g:message code="pptrr.property.marque.label" /> *  <span><g:message code="pptrr.property.marque.help" /></span></label>
-            <input  type="text" id="marque" name="marque" value="${rqt.marque?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['relocation'].invalidFields.contains('marque') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.marque.validationError" />" regex="^[\w\W]{0,255}$" maxlength="255" />
-            
-
-  
-
-  
-    <label for="immatriculation" class="required"><g:message code="pptrr.property.immatriculation.label" /> *  <span><g:message code="pptrr.property.immatriculation.help" /></span></label>
-            <input  type="text" id="immatriculation" name="immatriculation" value="${rqt.immatriculation?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['relocation'].invalidFields.contains('immatriculation') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.immatriculation.validationError" />" regex="^[\w\W]{0,255}$" maxlength="255" />
-            
-
-  
-
-  
-    <label for="longeur" class="required"><g:message code="pptrr.property.longeur.label" /> *  <span><g:message code="pptrr.property.longeur.help" /></span></label>
+    
+      <label for="longeur" class="required"><g:message code="pptrr.property.longeur.label" /> *  <span><g:message code="pptrr.property.longeur.help" /></span></label>
             <input  type="text" id="longeur" name="longeur" value="${rqt.longeur?.toString()}" 
                     class="required  validate-positiveInteger ${rqt.stepStates['relocation'].invalidFields.contains('longeur') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.longeur.validationError" />"   />
             
 
-  
-
-  
-    <label for="largeur" class="required"><g:message code="pptrr.property.largeur.label" /> *  <span><g:message code="pptrr.property.largeur.help" /></span></label>
-            <input  type="text" id="largeur" name="largeur" value="${rqt.largeur?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['relocation'].invalidFields.contains('largeur') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.largeur.validationError" />"   />
+    
+      <label for="immatriculation" class=""><g:message code="pptrr.property.immatriculation.label" />   <span><g:message code="pptrr.property.immatriculation.help" /></span></label>
+            <input  type="text" id="immatriculation" name="immatriculation" value="${rqt.immatriculation?.toString()}" 
+                    class="  validate-regex ${rqt.stepStates['relocation'].invalidFields.contains('immatriculation') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.immatriculation.validationError" />" regex="^[\w\W]{0,255}$" maxlength="255" />
             
 
-  
-
-  
-    <label for="tonnage" class="required"><g:message code="pptrr.property.tonnage.label" /> *  <span><g:message code="pptrr.property.tonnage.help" /></span></label>
-            <input  type="text" id="tonnage" name="tonnage" value="${rqt.tonnage?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['relocation'].invalidFields.contains('tonnage') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.tonnage.validationError" />"   />
+    
+      <label class="required"><g:message code="pptrr.property.furnitureLifting.label" /> *  <span><g:message code="pptrr.property.furnitureLifting.help" /></span></label>
+            <ul class="yes-no required ${rqt.stepStates['relocation'].invalidFields.contains('furnitureLifting') ? 'validation-failed' : ''}">
+              <g:each in="${[true,false]}">
+              <li>
+                <input type="radio" id="furnitureLifting_${it ? 'yes' : 'no'}" class="required  validate-one-required boolean" title="" value="${it}" name="furnitureLifting" ${it == rqt.furnitureLifting ? 'checked="checked"': ''} />
+                <label for="furnitureLifting_${it ? 'yes' : 'no'}"><g:message code="message.${it ? 'yes' : 'no'}" /></label>
+              </li>
+              </g:each>
+            </ul>
             
 
+    
+      <label for="other" class=""><g:message code="pptrr.property.other.label" />   <span><g:message code="pptrr.property.other.help" /></span></label>
+            <input  type="text" id="other" name="other" value="${rqt.other?.toString()}" 
+                    class="  validate-string ${rqt.stepStates['relocation'].invalidFields.contains('other') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.other.validationError" />"   />
+            
+
+    
+    </fieldset>
   
 
   
-    <label for="volume" class="required"><g:message code="pptrr.property.volume.label" /> *  <span><g:message code="pptrr.property.volume.help" /></span></label>
-            <input  type="text" id="volume" name="volume" value="${rqt.volume?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['relocation'].invalidFields.contains('volume') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.volume.validationError" />"   />
+    <label for="observations" class=""><g:message code="pptrr.property.observations.label" />   <span><g:message code="pptrr.property.observations.help" /></span></label>
+            <textarea id="observations" name="observations" class="  validate-textarea ${rqt.stepStates['relocation'].invalidFields.contains('observations') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.observations.validationError" />" rows="3" cols=""  >${rqt.observations}</textarea>
             
 
   

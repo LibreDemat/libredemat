@@ -114,15 +114,20 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         
         if (getAcceptationReglementInterieur() != null)
             parkingPermitTemporaryRelocationRequest.setAcceptationReglementInterieur(getAcceptationReglementInterieur().booleanValue());
+        PptrrCompanyInformationType pptrrCompanyInformationTypeCompanyInformation = parkingPermitTemporaryRelocationRequest.addNewCompanyInformation();
+        pptrrCompanyInformationTypeCompanyInformation.setApeCode(getApeCode());
       
         i = 0;
-        if (getEquipmentUsed() != null) {
-            org.libredemat.xml.common.LocalReferentialDataType[] equipmentUsedTypeTab = new org.libredemat.xml.common.LocalReferentialDataType[getEquipmentUsed().size()];
-            for (LocalReferentialData object : getEquipmentUsed()) {
-              equipmentUsedTypeTab[i++] = LocalReferentialData.modelToXml(object);
+        if (getDesiredService() != null) {
+            org.libredemat.xml.common.LocalReferentialDataType[] desiredServiceTypeTab = new org.libredemat.xml.common.LocalReferentialDataType[getDesiredService().size()];
+            for (LocalReferentialData object : getDesiredService()) {
+              desiredServiceTypeTab[i++] = LocalReferentialData.modelToXml(object);
             }
-            parkingPermitTemporaryRelocationRequest.setEquipmentUsedArray(equipmentUsedTypeTab);
+            parkingPermitTemporaryRelocationRequest.setDesiredServiceArray(desiredServiceTypeTab);
         }
+        PptrrEquipementUsedType pptrrEquipementUsedTypeEquipmentUsed = parkingPermitTemporaryRelocationRequest.addNewEquipmentUsed();
+        if (getFurnitureLifting() != null)
+            pptrrEquipementUsedTypeEquipmentUsed.setFurnitureLifting(getFurnitureLifting().booleanValue());
       
         if (getHeureEnd() != null)
             parkingPermitTemporaryRelocationRequest.setHeureEnd(org.libredemat.xml.request.permit.HeuresType.Enum.forString(getHeureEnd().getLegacyLabel()));
@@ -130,27 +135,22 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         if (getHeureStart() != null)
             parkingPermitTemporaryRelocationRequest.setHeureStart(org.libredemat.xml.request.permit.HeuresType.Enum.forString(getHeureStart().getLegacyLabel()));
       
-        parkingPermitTemporaryRelocationRequest.setImmatriculation(getImmatriculation());
+        pptrrEquipementUsedTypeEquipmentUsed.setImmatriculation(getImmatriculation());
       
-        if (getLargeur() != null)
-            parkingPermitTemporaryRelocationRequest.setLargeur(new BigInteger(getLargeur().toString()));
+        if (getIsCompany() != null)
+            parkingPermitTemporaryRelocationRequest.setIsCompany(getIsCompany().booleanValue());
       
         if (getLongeur() != null)
-            parkingPermitTemporaryRelocationRequest.setLongeur(new BigInteger(getLongeur().toString()));
+            pptrrEquipementUsedTypeEquipmentUsed.setLongeur(new BigInteger(getLongeur().toString()));
       
-        parkingPermitTemporaryRelocationRequest.setMarque(getMarque());
+        parkingPermitTemporaryRelocationRequest.setObservations(getObservations());
+      
+        parkingPermitTemporaryRelocationRequest.setObservationsReglement(getObservationsReglement());
+      
+        pptrrEquipementUsedTypeEquipmentUsed.setOther(getOther());
       
         if (getPayment() != null)
             parkingPermitTemporaryRelocationRequest.setPayment(Payment.modelToXml(getPayment()));
-      
-        i = 0;
-        if (getPerformChoice() != null) {
-            org.libredemat.xml.common.LocalReferentialDataType[] performChoiceTypeTab = new org.libredemat.xml.common.LocalReferentialDataType[getPerformChoice().size()];
-            for (LocalReferentialData object : getPerformChoice()) {
-              performChoiceTypeTab[i++] = LocalReferentialData.modelToXml(object);
-            }
-            parkingPermitTemporaryRelocationRequest.setPerformChoiceArray(performChoiceTypeTab);
-        }
       
         date = getPeriodeEnd();
         if (date != null) {
@@ -167,11 +167,9 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         if (getRequesterAddress() != null)
             parkingPermitTemporaryRelocationRequest.setRequesterAddress(Address.modelToXml(getRequesterAddress()));
       
-        if (getTonnage() != null)
-            parkingPermitTemporaryRelocationRequest.setTonnage(new BigInteger(getTonnage().toString()));
+        pptrrCompanyInformationTypeCompanyInformation.setSiretNumber(getSiretNumber());
       
-        if (getVolume() != null)
-            parkingPermitTemporaryRelocationRequest.setVolume(new BigInteger(getVolume().toString()));
+        pptrrEquipementUsedTypeEquipmentUsed.setVehicleType(getVehicleType());
       
         return parkingPermitTemporaryRelocationRequestDoc;
     }
@@ -191,11 +189,15 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         
         parkingPermitTemporaryRelocationRequest.setAcceptationReglementInterieur(Boolean.valueOf(parkingPermitTemporaryRelocationRequestXml.getAcceptationReglementInterieur()));
       
-        List<org.libredemat.business.request.LocalReferentialData> equipmentUsedList = new ArrayList<org.libredemat.business.request.LocalReferentialData>(parkingPermitTemporaryRelocationRequestXml.sizeOfEquipmentUsedArray());
-        for (LocalReferentialDataType object : parkingPermitTemporaryRelocationRequestXml.getEquipmentUsedArray()) {
-            equipmentUsedList.add(org.libredemat.business.request.LocalReferentialData.xmlToModel(object));
+        parkingPermitTemporaryRelocationRequest.setApeCode(parkingPermitTemporaryRelocationRequestXml.getCompanyInformation().getApeCode());
+      
+        List<org.libredemat.business.request.LocalReferentialData> desiredServiceList = new ArrayList<org.libredemat.business.request.LocalReferentialData>(parkingPermitTemporaryRelocationRequestXml.sizeOfDesiredServiceArray());
+        for (LocalReferentialDataType object : parkingPermitTemporaryRelocationRequestXml.getDesiredServiceArray()) {
+            desiredServiceList.add(org.libredemat.business.request.LocalReferentialData.xmlToModel(object));
         }
-        parkingPermitTemporaryRelocationRequest.setEquipmentUsed(equipmentUsedList);
+        parkingPermitTemporaryRelocationRequest.setDesiredService(desiredServiceList);
+      
+        parkingPermitTemporaryRelocationRequest.setFurnitureLifting(Boolean.valueOf(parkingPermitTemporaryRelocationRequestXml.getEquipmentUsed().getFurnitureLifting()));
       
         if (parkingPermitTemporaryRelocationRequestXml.getHeureEnd() != null)
             parkingPermitTemporaryRelocationRequest.setHeureEnd(org.libredemat.business.request.permit.HeuresType.forString(parkingPermitTemporaryRelocationRequestXml.getHeureEnd().toString()));
@@ -207,22 +209,20 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         else
             parkingPermitTemporaryRelocationRequest.setHeureStart(org.libredemat.business.request.permit.HeuresType.getDefaultHeuresType());
       
-        parkingPermitTemporaryRelocationRequest.setImmatriculation(parkingPermitTemporaryRelocationRequestXml.getImmatriculation());
+        parkingPermitTemporaryRelocationRequest.setImmatriculation(parkingPermitTemporaryRelocationRequestXml.getEquipmentUsed().getImmatriculation());
       
-        parkingPermitTemporaryRelocationRequest.setLargeur(parkingPermitTemporaryRelocationRequestXml.getLargeur());
+        parkingPermitTemporaryRelocationRequest.setIsCompany(Boolean.valueOf(parkingPermitTemporaryRelocationRequestXml.getIsCompany()));
       
-        parkingPermitTemporaryRelocationRequest.setLongeur(parkingPermitTemporaryRelocationRequestXml.getLongeur());
+        parkingPermitTemporaryRelocationRequest.setLongeur(parkingPermitTemporaryRelocationRequestXml.getEquipmentUsed().getLongeur());
       
-        parkingPermitTemporaryRelocationRequest.setMarque(parkingPermitTemporaryRelocationRequestXml.getMarque());
+        parkingPermitTemporaryRelocationRequest.setObservations(parkingPermitTemporaryRelocationRequestXml.getObservations());
+      
+        parkingPermitTemporaryRelocationRequest.setObservationsReglement(parkingPermitTemporaryRelocationRequestXml.getObservationsReglement());
+      
+        parkingPermitTemporaryRelocationRequest.setOther(parkingPermitTemporaryRelocationRequestXml.getEquipmentUsed().getOther());
       
         if (parkingPermitTemporaryRelocationRequestXml.getPayment() != null)
             parkingPermitTemporaryRelocationRequest.setPayment(Payment.xmlToModel(parkingPermitTemporaryRelocationRequestXml.getPayment()));
-      
-        List<org.libredemat.business.request.LocalReferentialData> performChoiceList = new ArrayList<org.libredemat.business.request.LocalReferentialData>(parkingPermitTemporaryRelocationRequestXml.sizeOfPerformChoiceArray());
-        for (LocalReferentialDataType object : parkingPermitTemporaryRelocationRequestXml.getPerformChoiceArray()) {
-            performChoiceList.add(org.libredemat.business.request.LocalReferentialData.xmlToModel(object));
-        }
-        parkingPermitTemporaryRelocationRequest.setPerformChoice(performChoiceList);
       
         calendar = parkingPermitTemporaryRelocationRequestXml.getPeriodeEnd();
         if (calendar != null) {
@@ -237,9 +237,9 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         if (parkingPermitTemporaryRelocationRequestXml.getRequesterAddress() != null)
             parkingPermitTemporaryRelocationRequest.setRequesterAddress(Address.xmlToModel(parkingPermitTemporaryRelocationRequestXml.getRequesterAddress()));
       
-        parkingPermitTemporaryRelocationRequest.setTonnage(parkingPermitTemporaryRelocationRequestXml.getTonnage());
+        parkingPermitTemporaryRelocationRequest.setSiretNumber(parkingPermitTemporaryRelocationRequestXml.getCompanyInformation().getSiretNumber());
       
-        parkingPermitTemporaryRelocationRequest.setVolume(parkingPermitTemporaryRelocationRequestXml.getVolume());
+        parkingPermitTemporaryRelocationRequest.setVehicleType(parkingPermitTemporaryRelocationRequestXml.getEquipmentUsed().getVehicleType());
       
         return parkingPermitTemporaryRelocationRequest;
     }
@@ -290,13 +290,31 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         return parkingPermitTemporaryRelocationRequestData.getAcceptationReglementInterieur();
     }
   
-    public final void setEquipmentUsed(final List<org.libredemat.business.request.LocalReferentialData> equipmentUsed) {
-        parkingPermitTemporaryRelocationRequestData.setEquipmentUsed(equipmentUsed);
+    public final void setApeCode(final String apeCode) {
+        parkingPermitTemporaryRelocationRequestData.setApeCode(apeCode);
     }
 
     
-    public final List<org.libredemat.business.request.LocalReferentialData> getEquipmentUsed() {
-        return parkingPermitTemporaryRelocationRequestData.getEquipmentUsed();
+    public final String getApeCode() {
+        return parkingPermitTemporaryRelocationRequestData.getApeCode();
+    }
+  
+    public final void setDesiredService(final List<org.libredemat.business.request.LocalReferentialData> desiredService) {
+        parkingPermitTemporaryRelocationRequestData.setDesiredService(desiredService);
+    }
+
+    
+    public final List<org.libredemat.business.request.LocalReferentialData> getDesiredService() {
+        return parkingPermitTemporaryRelocationRequestData.getDesiredService();
+    }
+  
+    public final void setFurnitureLifting(final Boolean furnitureLifting) {
+        parkingPermitTemporaryRelocationRequestData.setFurnitureLifting(furnitureLifting);
+    }
+
+    
+    public final Boolean getFurnitureLifting() {
+        return parkingPermitTemporaryRelocationRequestData.getFurnitureLifting();
     }
   
     public final void setHeureEnd(final org.libredemat.business.request.permit.HeuresType heureEnd) {
@@ -326,13 +344,13 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         return parkingPermitTemporaryRelocationRequestData.getImmatriculation();
     }
   
-    public final void setLargeur(final java.math.BigInteger largeur) {
-        parkingPermitTemporaryRelocationRequestData.setLargeur(largeur);
+    public final void setIsCompany(final Boolean isCompany) {
+        parkingPermitTemporaryRelocationRequestData.setIsCompany(isCompany);
     }
 
     
-    public final java.math.BigInteger getLargeur() {
-        return parkingPermitTemporaryRelocationRequestData.getLargeur();
+    public final Boolean getIsCompany() {
+        return parkingPermitTemporaryRelocationRequestData.getIsCompany();
     }
   
     public final void setLongeur(final java.math.BigInteger longeur) {
@@ -344,13 +362,31 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         return parkingPermitTemporaryRelocationRequestData.getLongeur();
     }
   
-    public final void setMarque(final String marque) {
-        parkingPermitTemporaryRelocationRequestData.setMarque(marque);
+    public final void setObservations(final String observations) {
+        parkingPermitTemporaryRelocationRequestData.setObservations(observations);
     }
 
     
-    public final String getMarque() {
-        return parkingPermitTemporaryRelocationRequestData.getMarque();
+    public final String getObservations() {
+        return parkingPermitTemporaryRelocationRequestData.getObservations();
+    }
+  
+    public final void setObservationsReglement(final String observationsReglement) {
+        parkingPermitTemporaryRelocationRequestData.setObservationsReglement(observationsReglement);
+    }
+
+    
+    public final String getObservationsReglement() {
+        return parkingPermitTemporaryRelocationRequestData.getObservationsReglement();
+    }
+  
+    public final void setOther(final String other) {
+        parkingPermitTemporaryRelocationRequestData.setOther(other);
+    }
+
+    
+    public final String getOther() {
+        return parkingPermitTemporaryRelocationRequestData.getOther();
     }
   
     public final void setPayment(final org.libredemat.business.payment.Payment payment) {
@@ -360,15 +396,6 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
     
     public final org.libredemat.business.payment.Payment getPayment() {
         return parkingPermitTemporaryRelocationRequestData.getPayment();
-    }
-  
-    public final void setPerformChoice(final List<org.libredemat.business.request.LocalReferentialData> performChoice) {
-        parkingPermitTemporaryRelocationRequestData.setPerformChoice(performChoice);
-    }
-
-    
-    public final List<org.libredemat.business.request.LocalReferentialData> getPerformChoice() {
-        return parkingPermitTemporaryRelocationRequestData.getPerformChoice();
     }
   
     public final void setPeriodeEnd(final java.util.Date periodeEnd) {
@@ -398,22 +425,22 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         return parkingPermitTemporaryRelocationRequestData.getRequesterAddress();
     }
   
-    public final void setTonnage(final java.math.BigInteger tonnage) {
-        parkingPermitTemporaryRelocationRequestData.setTonnage(tonnage);
+    public final void setSiretNumber(final String siretNumber) {
+        parkingPermitTemporaryRelocationRequestData.setSiretNumber(siretNumber);
     }
 
     
-    public final java.math.BigInteger getTonnage() {
-        return parkingPermitTemporaryRelocationRequestData.getTonnage();
+    public final String getSiretNumber() {
+        return parkingPermitTemporaryRelocationRequestData.getSiretNumber();
     }
   
-    public final void setVolume(final java.math.BigInteger volume) {
-        parkingPermitTemporaryRelocationRequestData.setVolume(volume);
+    public final void setVehicleType(final String vehicleType) {
+        parkingPermitTemporaryRelocationRequestData.setVehicleType(vehicleType);
     }
 
     
-    public final java.math.BigInteger getVolume() {
-        return parkingPermitTemporaryRelocationRequestData.getVolume();
+    public final String getVehicleType() {
+        return parkingPermitTemporaryRelocationRequestData.getVehicleType();
     }
   
 }

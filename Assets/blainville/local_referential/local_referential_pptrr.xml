@@ -1,48 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LocalReferential xmlns="http://www.libredemat.org/schema/referential">
-    <data name="EquipmentUsed" allowMultipleChoices="true" allowRadioChoice="false" manager="LibreDémat">
-        <label>Matériel utilisé</label>
-        <entries>
-            <entry key="meuble">
-                <label>Monte meuble (sous réserve possibilité installation)</label>
-                <message/>
-            </entry>
-            <entry key="encombrement-">
-                <label>Encombrement total en mètres linéaires</label>
-                <message/>
-            </entry>
-            <entry key="utilitaire">
-                <label>Petit utilitaire / VL</label>
-                <message/>
-            </entry>
-            <entry key="fourgon">
-                <label>Fourgon</label>
-                <message/>
-            </entry>
-            <entry key="camion">
-                <label>Camion</label>
-                <message/>
-            </entry>
-            <entry key="vehicule">
-                <label>Véhicule équipé d'un hayon</label>
-                <message/>
-            </entry>
-            <entry key="camionremorque">
-                <label>Camion remorque</label>
-                <message/>
-            </entry>
-        </entries>
-    </data>
-    <data name="PerformChoice" allowMultipleChoices="false" allowRadioChoice="true" manager="LibreDémat">
+    <data name="DesiredService" allowMultipleChoices="false" allowRadioChoice="true" manager="LibreDémat">
         <label>Prestation souhaitée</label>
         <entries>
-            <entry key="free">
-                <label>Déménagement gratuit : La pose de panneaux de stationnement sera réalisée par le demandeur. Une prestation gratuite sera délivrée.</label>
-                <message/>
+            <entry key="Autorisation-sans-prestation">
+                <label>Autorisation sans prestation</label>
+                <message>Un message qui s'affiche (ou pas)</message>
+                <externalCode/>
             </entry>
-            <entry key="payable">
-                <label>Déménagement payant : Un arrêté municipal interdisant le stationnement sera pris. La pose de panneaux de réservation sera réalisée par les services minicipaux et controlée par les services de la police municipale. Une permission sera délivrée</label>
+            <entry key="De-me-nagement-avec-prestations">
+                <label>Déménagement avec prestations</label>
                 <message/>
+                <externalCode/>
             </entry>
         </entries>
     </data>

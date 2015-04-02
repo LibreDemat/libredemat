@@ -9,6 +9,26 @@ pptrr.step.reglements.label =
 pptrr.step.reglements.desc =
 
 
+pptrr.property.isCompany.help =
+pptrr.property.isCompany.validationError =
+
+
+pptrr.property.companyInformation.help =
+pptrr.property.companyInformation.validationError =
+
+
+pptrr.property.siretNumber.help =
+pptrr.property.siretNumber.validationError =
+
+
+pptrr.property.apeCode.help =
+pptrr.property.apeCode.validationError =
+
+
+pptrr.property.desiredService.help =
+pptrr.property.desiredService.validationError =
+
+
 pptrr.property.requesterAddress.help =
 pptrr.property.requesterAddress.validationError =
 
@@ -29,40 +49,40 @@ pptrr.property.heureEnd.help =
 pptrr.property.heureEnd.validationError =
 
 
-pptrr.property.performChoice.help =
-pptrr.property.performChoice.validationError =
-
-
 pptrr.property.equipmentUsed.help =
 pptrr.property.equipmentUsed.validationError =
 
 
-pptrr.property.marque.help =
-pptrr.property.marque.validationError =
-
-
-pptrr.property.immatriculation.help =
-pptrr.property.immatriculation.validationError =
+pptrr.property.vehicleType.help =
+pptrr.property.vehicleType.validationError =
 
 
 pptrr.property.longeur.help =
 pptrr.property.longeur.validationError =
 
 
-pptrr.property.largeur.help =
-pptrr.property.largeur.validationError =
+pptrr.property.immatriculation.help =
+pptrr.property.immatriculation.validationError =
 
 
-pptrr.property.tonnage.help =
-pptrr.property.tonnage.validationError =
+pptrr.property.furnitureLifting.help =
+pptrr.property.furnitureLifting.validationError =
 
 
-pptrr.property.volume.help =
-pptrr.property.volume.validationError =
+pptrr.property.other.help =
+pptrr.property.other.validationError =
+
+
+pptrr.property.observations.help =
+pptrr.property.observations.validationError =
 
 
 pptrr.property.acceptationReglementInterieur.help =
 pptrr.property.acceptationReglementInterieur.validationError =
+
+
+pptrr.property.observationsReglement.help =
+pptrr.property.observationsReglement.validationError =
 
 
 pptrr.property.payment.help =
