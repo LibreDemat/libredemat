@@ -4,9 +4,11 @@ pptrr.property.subject.label = Sujet
 
 pptrr.step.relocation.label =
 pptrr.step.relocation.desc =
+pptrr.step.relocation.footer.help =
 
 pptrr.step.reglements.label =
 pptrr.step.reglements.desc =
+pptrr.step.reglements.footer.help =
 
 
 pptrr.property.isCompany.help =

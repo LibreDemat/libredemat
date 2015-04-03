@@ -146,6 +146,9 @@
         <form method="post" id="stepForm" action="${createLink(controller:'frontofficeRequest', action:'edit')}">
       </g:if>
       <div class="error" id="stepForm-error"> </div>
+      <div class="footer-information">
+        ${message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help')}
+      </div>
       <input type="hidden" name="returnUrl" value="${returnUrl}" />
       <input type="hidden" name="id" value="${rqt.id}" />
       <input type="hidden" name="currentStep" value="${currentStep}" />
