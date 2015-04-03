@@ -229,6 +229,8 @@ public class FoPlugin implements IPluginGenerator {
                             appDoc.getChildrenNodes("calendar")[0], "disabledWith");
                     if (disabledWith != null && !disabledWith.equals("")) elementFo.setDisabledWith(disabledWith);
                 }
+                if (appDoc.hasChildNode("headerInformation"))
+                    elementFo.activateHeaderInformation();
             }
          }
     }

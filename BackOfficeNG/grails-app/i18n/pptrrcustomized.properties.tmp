@@ -13,82 +13,102 @@ pptrr.step.reglements.footer.help =
 
 pptrr.property.isCompany.help =
 pptrr.property.isCompany.validationError =
+pptrr.property.isCompany.headerInformation =
 
 
 pptrr.property.companyInformation.help =
 pptrr.property.companyInformation.validationError =
+pptrr.property.companyInformation.headerInformation =
 
 
 pptrr.property.siretNumber.help =
 pptrr.property.siretNumber.validationError =
+pptrr.property.siretNumber.headerInformation =
 
 
 pptrr.property.apeCode.help =
 pptrr.property.apeCode.validationError =
+pptrr.property.apeCode.headerInformation =
 
 
 pptrr.property.desiredService.help =
 pptrr.property.desiredService.validationError =
+pptrr.property.desiredService.headerInformation =
 
 
 pptrr.property.requesterAddress.help =
 pptrr.property.requesterAddress.validationError =
+pptrr.property.requesterAddress.headerInformation =
 
 
 pptrr.property.periodeStart.help =
 pptrr.property.periodeStart.validationError =
+pptrr.property.periodeStart.headerInformation =
 
 
 pptrr.property.periodeEnd.help =
 pptrr.property.periodeEnd.validationError =
+pptrr.property.periodeEnd.headerInformation =
 
 
 pptrr.property.heureStart.help =
 pptrr.property.heureStart.validationError =
+pptrr.property.heureStart.headerInformation =
 
 
 pptrr.property.heureEnd.help =
 pptrr.property.heureEnd.validationError =
+pptrr.property.heureEnd.headerInformation =
 
 
 pptrr.property.equipmentUsed.help =
 pptrr.property.equipmentUsed.validationError =
+pptrr.property.equipmentUsed.headerInformation =
 
 
 pptrr.property.vehicleType.help =
 pptrr.property.vehicleType.validationError =
+pptrr.property.vehicleType.headerInformation =
 
 
 pptrr.property.longeur.help =
 pptrr.property.longeur.validationError =
+pptrr.property.longeur.headerInformation =
 
 
 pptrr.property.immatriculation.help =
 pptrr.property.immatriculation.validationError =
+pptrr.property.immatriculation.headerInformation =
 
 
 pptrr.property.furnitureLifting.help =
 pptrr.property.furnitureLifting.validationError =
+pptrr.property.furnitureLifting.headerInformation =
 
 
 pptrr.property.other.help =
 pptrr.property.other.validationError =
+pptrr.property.other.headerInformation =
 
 
 pptrr.property.observations.help =
 pptrr.property.observations.validationError =
+pptrr.property.observations.headerInformation =
 
 
 pptrr.property.acceptationReglementInterieur.help =
 pptrr.property.acceptationReglementInterieur.validationError =
+pptrr.property.acceptationReglementInterieur.headerInformation =
 
 
 pptrr.property.observationsReglement.help =
 pptrr.property.observationsReglement.validationError =
+pptrr.property.observationsReglement.headerInformation =
 
 
 pptrr.property.payment.help =
 pptrr.property.payment.validationError =
+pptrr.property.payment.headerInformation =
 
 
 

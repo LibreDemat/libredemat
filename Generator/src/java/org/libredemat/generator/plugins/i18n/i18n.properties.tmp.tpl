@@ -9,6 +9,7 @@ ${acronym}.step.${it.name}.footer.help =
 <% elements.each { %>
 ${it.i18nPrefixCode}.help =
 ${it.i18nPrefixCode}.validationError =
+${it.i18nPrefixCode}.headerInformation =
 <% if (it.typeClass == "COLLECTION") { %>
 ${it.i18nPrefixCode}.elementAdditionSuccess =
 <% } %>

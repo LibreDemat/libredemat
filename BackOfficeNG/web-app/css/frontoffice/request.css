@@ -123,6 +123,10 @@
   color: #095ba6;
 }
 
+#request div.form div div.field-header-information {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 #request #nextStep, #request .previousStep { font-size: 1.2em; }
 
 #request div.form select#subjectId option:disabled { color: inherit; }

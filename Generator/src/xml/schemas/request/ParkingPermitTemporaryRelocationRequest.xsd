@@ -253,6 +253,7 @@
                                     <pdf/>
                                     <fo>
                                         <textarea rows="3" />
+                                        <headerInformation />
                                     </fo>
                                     <bo column="1">
                                         <textarea rows="3" />

@@ -61,6 +61,8 @@ public class ElementFo extends ElementSpecific<ElementFo> {
     private String notBeforeDate;
     private String disabledWith;
 
+    private boolean headerInformation = false;
+
     public ElementFo(String name, String requestAcronym) {
         this.name = name;
         this.javaFieldName = StringUtils.uncapitalize(name);
@@ -394,5 +396,13 @@ public class ElementFo extends ElementSpecific<ElementFo> {
 
     public void setDisabledWith(String disabledWith) {
         this.disabledWith = disabledWith;
+    }
+
+    public void activateHeaderInformation() {
+        this.headerInformation = true;
+    }
+
+    public boolean isHeaderInformationActivated() {
+        return this.headerInformation;
     }
 }

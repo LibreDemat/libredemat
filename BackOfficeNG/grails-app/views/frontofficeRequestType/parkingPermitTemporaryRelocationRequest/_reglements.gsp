@@ -3,6 +3,7 @@
 
   
     
+    
             <ul ${rqt.stepStates['reglements'].invalidFields.contains('acceptationReglementInterieur') ? 'class="validation-failed"' : ''}>
               <li>
                 <input type="hidden" name="_acceptationReglementInterieur" /><!-- Grails 1.2.x convention to bind checkboxes. -->
@@ -27,6 +28,9 @@
   
 
   
+    
+        <div class="field-header-information">${message(code:'pptrr.property.observationsReglement.headerInformation')}</div>
+    
     <label for="observationsReglement" class=""><g:message code="pptrr.property.observationsReglement.label" />   <span><g:message code="pptrr.property.observationsReglement.help" /></span></label>
             <textarea id="observationsReglement" name="observationsReglement" class="  validate-textarea ${rqt.stepStates['reglements'].invalidFields.contains('observationsReglement') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.observationsReglement.validationError" />" rows="3" cols=""  >${rqt.observationsReglement}</textarea>
             

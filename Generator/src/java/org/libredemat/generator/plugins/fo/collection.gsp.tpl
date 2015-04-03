@@ -231,6 +231,9 @@
     </span>
   </h4>
   <% element.elements.each { subElement -> %>
+    <% if (subElement.isHeaderInformationActivated()) { %>
+        <div class="field-header-information">\${message(code:'${subElement.i18nPrefixCode}.headerInformation')}</div>
+    <% } %>
     <% displayWidget(subElement, 'currentCollectionItem?', element.javaFieldName + '[${collectionIndex}].' ) %>
   <% } %>
   <input type="hidden" name="currentCollection" value="\${currentCollection}" />
