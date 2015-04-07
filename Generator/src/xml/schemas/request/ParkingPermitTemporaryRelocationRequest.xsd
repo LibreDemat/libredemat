@@ -109,7 +109,7 @@
                                     <fo >
                                         <textarea rows="3" />
                                     </fo>
-                                    <bo column="1" >
+                                    <bo column="2" >
                                         <textarea rows="3" />
                                     </bo>
                                 </xs:appinfo>
@@ -129,7 +129,7 @@
                                     <fo>
                                         <calendar minDayOuvre="10" />
                                     </fo>
-                                    <bo column="1">
+                                    <bo column="2">
                                         <calendar/>
                                     </bo>
                                 </xs:appinfo>
@@ -149,7 +149,7 @@
                                     <fo>
                                         <calendar notBeforeDate="periodeStart" disabledWith="periodeStart" />
                                     </fo>
-                                    <bo column="1">
+                                    <bo column="2">
                                         <calendar/>
                                     </bo>
                                 </xs:appinfo>
@@ -167,7 +167,7 @@
                                     </common>
                                     <pdf/>
                                     <fo style="width:100px" />
-                                    <bo column="1" />
+                                    <bo column="2" />
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
@@ -183,7 +183,7 @@
                                     </common>
                                     <pdf/>
                                     <fo style="width:100px" />
-                                    <bo column="1" />
+                                    <bo column="2" />
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
@@ -215,7 +215,7 @@
                                     <fo>
                                         <textarea rows="3" />
                                     </fo>
-                                    <bo column="1">
+                                    <bo column="2">
                                         <textarea rows="3" />
                                     </bo>
                                 </xs:appinfo>
@@ -258,7 +258,7 @@
                                         <textarea rows="3" />
                                         <headerInformation />
                                     </fo>
-                                    <bo column="1">
+                                    <bo column="2">
                                         <textarea rows="3" />
                                     </bo>
                                 </xs:appinfo>
