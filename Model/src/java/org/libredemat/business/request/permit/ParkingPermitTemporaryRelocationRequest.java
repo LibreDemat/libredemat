@@ -164,8 +164,7 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
             parkingPermitTemporaryRelocationRequest.setPeriodeStart(calendar);
         }
       
-        if (getRequesterAddress() != null)
-            parkingPermitTemporaryRelocationRequest.setRequesterAddress(Address.modelToXml(getRequesterAddress()));
+        parkingPermitTemporaryRelocationRequest.setRequesterAddress(getRequesterAddress());
       
         pptrrCompanyInformationTypeCompanyInformation.setSiretNumber(getSiretNumber());
       
@@ -234,8 +233,7 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
             parkingPermitTemporaryRelocationRequest.setPeriodeStart(calendar.getTime());
         }
       
-        if (parkingPermitTemporaryRelocationRequestXml.getRequesterAddress() != null)
-            parkingPermitTemporaryRelocationRequest.setRequesterAddress(Address.xmlToModel(parkingPermitTemporaryRelocationRequestXml.getRequesterAddress()));
+        parkingPermitTemporaryRelocationRequest.setRequesterAddress(parkingPermitTemporaryRelocationRequestXml.getRequesterAddress());
       
         parkingPermitTemporaryRelocationRequest.setSiretNumber(parkingPermitTemporaryRelocationRequestXml.getCompanyInformation().getSiretNumber());
       
@@ -416,12 +414,12 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         return parkingPermitTemporaryRelocationRequestData.getPeriodeStart();
     }
   
-    public final void setRequesterAddress(final org.libredemat.business.users.Address requesterAddress) {
+    public final void setRequesterAddress(final String requesterAddress) {
         parkingPermitTemporaryRelocationRequestData.setRequesterAddress(requesterAddress);
     }
 
     
-    public final org.libredemat.business.users.Address getRequesterAddress() {
+    public final String getRequesterAddress() {
         return parkingPermitTemporaryRelocationRequestData.getRequesterAddress();
     }
   

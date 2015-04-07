@@ -326,9 +326,6 @@
     alter table parking_permit_temporary_relocation_request 
         drop constraint FK826DD83FC859B01;
 
-    alter table parking_permit_temporary_relocation_request 
-        drop constraint FK826DD839DBF56A6;
-
     alter table parking_permit_temporary_relocation_request_desired_service 
         drop constraint FKBC299F5410385382;
 
@@ -2305,10 +2302,10 @@
         other varchar(255),
         periode_end timestamp,
         periode_start timestamp,
+        requester_address varchar(255),
         siret_number varchar(14),
         vehicle_type varchar(255),
         payment_id int8,
-        requester_address_id int8,
         primary key (id)
     );
 
@@ -2405,6 +2402,8 @@
         key_owner varchar(255),
         quantity int4,
         unit_price float8,
+        old_value float8,
+        old_value_date timestamp,
         expiration_date timestamp,
         invoiceurl TEXT,
         is_paid bool,
@@ -2415,8 +2414,6 @@
         min_buy int4,
         old_quantity int4,
         subject_id int8,
-        old_value float8,
-        old_value_date timestamp,
         primary key (id)
     );
 
@@ -3669,11 +3666,6 @@
         add constraint FK826DD83FC859B01 
         foreign key (payment_id) 
         references payment;
-
-    alter table parking_permit_temporary_relocation_request 
-        add constraint FK826DD839DBF56A6 
-        foreign key (requester_address_id) 
-        references address;
 
     alter table parking_permit_temporary_relocation_request_desired_service 
         add constraint FKBC299F5410385382 

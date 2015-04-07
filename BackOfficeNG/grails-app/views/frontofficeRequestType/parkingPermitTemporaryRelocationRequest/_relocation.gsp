@@ -61,28 +61,8 @@
 
   
     
-    <label class="required"><g:message code="pptrr.property.requesterAddress.label" /> *  <span><g:message code="pptrr.property.requesterAddress.help" /></span></label>
-            <div id="requesterAddress" class="address required autofill-requesterFilling-listener-Address ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress') ? 'validation-failed' : ''}">
-            <label for="requesterAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
-            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.additionalDeliveryInformation}" maxlength="38" id="requesterAddress.additionalDeliveryInformation" name="requesterAddress.additionalDeliveryInformation" />  
-            <label for="requesterAddress.additionalGeographicalInformation"><g:message code="address.property.additionalGeographicalInformation" /></label>
-            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.additionalGeographicalInformation}" maxlength="38" id="requesterAddress.additionalGeographicalInformation" name="requesterAddress.additionalGeographicalInformation" />
-            <label for="requesterAddress_streetNumber"><g:message code="address.property.streetNumber" /></label> - 
-            <label for="requesterAddress_streetName" class="required"><g:message code="address.property.streetName" /> *</label><br />
-            <input  type="text" class="line1 validate-streetNumber ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.streetNumber}" size="5" maxlength="5" id="requesterAddress_streetNumber" name="requesterAddress.streetNumber" />
-            <input  type="text" class="line2 required validate-streetName ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.streetName}" maxlength="32" id="requesterAddress_streetName" name="requesterAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
-            <input  type="hidden" value="${rqt.requesterAddress?.streetMatriculation}" id="requesterAddress_streetMatriculation" name="requesterAddress.streetMatriculation" />
-            <input  type="hidden" value="${rqt.requesterAddress?.streetRivoliCode}" id="requesterAddress_streetRivoliCode" name="requesterAddress.streetRivoliCode" />
-            <label for="requesterAddress.placeNameOrService"><g:message code="address.property.placeNameOrService" /></label>
-            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.placeNameOrService}" maxlength="38" id="requesterAddress.placeNameOrService" name="requesterAddress.placeNameOrService" />
-            <label for="requesterAddress_postalCode" class="required"><g:message code="address.property.postalCode" /> * </label> - 
-            <label for="requesterAddress_city" class="required"><g:message code="address.property.city" /> *</label><br />
-            <input  type="text" class="line1 required validate-postalCode ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.postalCode}" size="5" maxlength="5" id="requesterAddress_postalCode" name="requesterAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
-            <input  type="text" class="line2 required validate-city ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.city') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.city}" maxlength="32" id="requesterAddress_city" name="requesterAddress.city" title="<g:message code="address.property.city.validationError" />" />
-            <input  type="hidden" value="${rqt.requesterAddress?.cityInseeCode}" id="requesterAddress_cityInseeCode" name="requesterAddress.cityInseeCode" />
-            <label for="requesterAddress.countryName"><g:message code="address.property.countryName" /></label>
-            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.requesterAddress?.countryName}" maxlength="38" id="requesterAddress.countryName" name="requesterAddress.countryName" />
-            </div>
+    <label for="requesterAddress" class="required"><g:message code="pptrr.property.requesterAddress.label" /> *  <span><g:message code="pptrr.property.requesterAddress.help" /></span></label>
+            <textarea id="requesterAddress" name="requesterAddress" class="required  validate-textarea ${rqt.stepStates['relocation'].invalidFields.contains('requesterAddress') ? 'validation-failed' : ''}" title="<g:message code="pptrr.property.requesterAddress.validationError" />" rows="3" cols=""  >${rqt.requesterAddress}</textarea>
             
 
   

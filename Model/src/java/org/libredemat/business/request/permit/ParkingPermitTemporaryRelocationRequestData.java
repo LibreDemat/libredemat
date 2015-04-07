@@ -154,8 +154,7 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
           
             
-        if (requesterAddress != null)
-            result.setRequesterAddress(requesterAddress.clone());
+        result.setRequesterAddress(requesterAddress);
       
           
         
@@ -605,24 +604,23 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         message = "requesterAddress"
       )
     
-      @AssertValid(
+      @NotBlank(
         
         
         profiles = {"relocation"},
         message = "requesterAddress"
       )
     
-    private org.libredemat.business.users.Address requesterAddress;
+    private String requesterAddress;
 
-    public void setRequesterAddress(final org.libredemat.business.users.Address requesterAddress) {
+    public void setRequesterAddress(final String requesterAddress) {
         this.requesterAddress = requesterAddress;
     }
 
  
-    @ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name="requester_address_id")
+    @Column(name="requester_address"  )
       
-    public org.libredemat.business.users.Address getRequesterAddress() {
+    public String getRequesterAddress() {
         return this.requesterAddress;
     }
   

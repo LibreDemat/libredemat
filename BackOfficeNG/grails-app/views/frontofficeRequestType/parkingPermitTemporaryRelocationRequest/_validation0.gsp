@@ -49,18 +49,7 @@
     
       
       <dl>
-        <dt><g:message code="pptrr.property.requesterAddress.label" /></dt>
-          <dd>
-          <g:if test="${rqt.requesterAddress}">
-              <p>${rqt.requesterAddress?.additionalDeliveryInformation}</p>
-              <p>${rqt.requesterAddress?.additionalGeographicalInformation}</p>
-              <p>${rqt.requesterAddress?.streetNumber} ${rqt.requesterAddress?.streetName}</p>
-              <p>${rqt.requesterAddress?.placeNameOrService}</p>
-              <p>${rqt.requesterAddress?.postalCode} ${rqt.requesterAddress?.city}</p>
-              <p>${rqt.requesterAddress?.countryName}</p>
-          </g:if>
-          </dd>
-          
+        <dt><g:message code="pptrr.property.requesterAddress.label" /></dt><dd>${rqt.requesterAddress?.toString()}</dd>
 
       </dl>
       

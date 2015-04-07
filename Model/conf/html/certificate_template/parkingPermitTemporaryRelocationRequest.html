@@ -174,18 +174,7 @@
     
   
     
-      <p class="label">${esc(i18n.translate('pptrr.property.requesterAddress.label'))}</p>
-          <div class="response">
-            <% if(rqt.requesterAddress) { %>
-              <p>${esc(StringUtils.defaultString(rqt.requesterAddress?.additionalDeliveryInformation))}</p>
-              <p>${esc(StringUtils.defaultString(rqt.requesterAddress?.additionalGeographicalInformation))}</p>
-              <p>${esc(StringUtils.defaultString(rqt.requesterAddress?.streetNumber))} ${esc(StringUtils.defaultString(rqt.requesterAddress?.streetName))}</p>
-              <p>${esc(StringUtils.defaultString(rqt.requesterAddress?.placeNameOrService))}</p>
-              <p>${esc(StringUtils.defaultString(rqt.requesterAddress?.postalCode))} ${esc(StringUtils.defaultString(rqt.requesterAddress?.city))}</p>
-              <p>${esc(StringUtils.defaultString(rqt.requesterAddress?.countryName))}</p>
-            <% } %>
-          </div>
-          
+      <p class="label">${esc(i18n.translate('pptrr.property.requesterAddress.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.requesterAddress?.toString()))}</div>
 
     
   

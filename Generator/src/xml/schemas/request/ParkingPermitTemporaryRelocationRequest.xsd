@@ -92,7 +92,7 @@
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="RequesterAddress" type="cvq:AddressType">
+                        <xs:element name="RequesterAddress" type="xs:string">
                             <xs:annotation>
                                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                                     Adresse du déménagement qui va occasioner un stationnement
@@ -104,11 +104,14 @@
                                     <model namespace="users" isTiedToRequest="true" />
                                     <common>
                                         <step name="relocation" />
-                                        <autofill name="requesterFilling" type="listener" field="Address" />
                                     </common>
                                     <pdf/>
-                                    <fo/>
-                                    <bo column="1" />
+                                    <fo >
+                                        <textarea rows="3" />
+                                    </fo>
+                                    <bo column="1" >
+                                        <textarea rows="3" />
+                                    </bo>
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
