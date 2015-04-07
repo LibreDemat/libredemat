@@ -39,7 +39,7 @@
       <input type="radio" id="${javaName}.[${flash[javaName+'Index']}].name" name="${javaName}[0].name" value="${entry.key}" 
           class="${flash[javaName+'Index'] == 0 ? htmlClass : htmlClass.replace('required','') } ${flash[javaName+'Index'] == 0 ? 'validate-localReferentialData' : '' }" title="${message(code: i18nPrefixCode +'.validationError')}"
           ${currentLrDatas?.contains(entry.key) ? 'checked="checked"' : flash[javaName+'Index'] == 0 ? 'checked="checked"' : ''} />
-      <label for="${javaName}.[${flash[javaName+'Index']++}].name">${entry.label}</label>
+      <label for="${javaName}.[${flash[javaName+'Index']++}].name">${entry.label}</label> : ${entry.message}
       </li>
     </g:else>
   </g:each>

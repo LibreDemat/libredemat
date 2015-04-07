@@ -5,7 +5,7 @@
         <entries>
             <entry key="Autorisation-sans-prestation">
                 <label>Autorisation sans prestation</label>
-                <message>Un message qui s'affiche (ou pas)</message>
+                <message>(Tarif : &lt;span style="color:red;"> 11,50€&lt;/span>) Cette autorisation vous permet uniquement de justifier de l'occupation du domaine public et d'être dispensé de paiement dans les rues équipées d'horodateurs.</message>
                 <externalCode/>
             </entry>
             <entry key="De-me-nagement-avec-prestations">
