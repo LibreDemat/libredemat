@@ -1,6 +1,7 @@
 import org.libredemat.service.request.IRequestServiceRegistry
 
 import java.util.Collections;
+import java.lang.Math
 
 import org.libredemat.business.request.external.RequestExternalAction
 import org.libredemat.business.document.ContentType
@@ -332,19 +333,9 @@ class BackofficeRequestInstructionController {
             def requestPaymentService = requestServiceRegistry.getRequestPaymentService(rqt);
             if (requestPaymentService != null)
             {
-                def amount = Double.valueOf(params.amount);
+                def amount = (Math.round(Double.valueOf(params.amount) * 100 ) / 100) * 100
                 if (amount > 0)
                 {
-                    def value = amount + "";
-                    if (value.indexOf(".") > 0)
-                    { 
-                        value = (amount * 100) + "";
-                        if (value.indexOf(".") > 0) amount = value.substring(0, value.indexOf("."));
-                    }
-                    else
-                    {
-                        amount = amount * 100;
-                    }
                     Payment payment = requestPaymentService.buildPayment(rqt, amount.toDouble());
                     payment.setAmount(amount.toDouble());
                     payment.setInitializationDate(new Date());

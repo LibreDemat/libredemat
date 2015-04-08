@@ -429,6 +429,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.request');
                 zcb.Condition.run(e);
                 modifyField(targetEl, true);
                 yud.setStyle(formEl.id.replace('_Form', ''), 'background', '#aaffaa');
+                zcbr.Information.refreshHistory();
               }
               else {
                 yud.get(formId + 'Error').innerHTML = response.error_msg;
