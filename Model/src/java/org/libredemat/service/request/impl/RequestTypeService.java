@@ -130,9 +130,9 @@ public class RequestTypeService implements IRequestTypeService, ILocalAuthorityL
     @Context(types = {ContextType.SUPER_ADMIN})
     public void initRequestData(String serviceLabel) {
         
-        logger.debug("initRequestData() initializing " + serviceLabel 
-                + " for local authority " 
-                + SecurityContext.getCurrentSite().getName());
+        logger.debug("initRequestData() initializing " + serviceLabel +
+             " for local authority " +
+             SecurityContext.getCurrentSite().getName());
         
         RequestType requestType = requestTypeDAO.findByLabel(serviceLabel);
         if (requestType != null) {
@@ -165,8 +165,8 @@ public class RequestTypeService implements IRequestTypeService, ILocalAuthorityL
             }
         }
         for (IRequestService requestService : requestServiceRegistry.getAllRequestServices()) {
-            logger.debug("addLocalAuthority() registering service " + requestService.getLabel() 
-                    + " for local authority " + localAuthorityName);
+            logger.debug("addLocalAuthority() registering service " + requestService.getLabel() +
+                 " for local authority " + localAuthorityName);
             initRequestData(requestService.getLabel());
         }
         if (LocalAuthorityRegistry.DEVELOPMENT_LOCAL_AUTHORITY.equals(localAuthorityName)) {
@@ -696,5 +696,83 @@ public class RequestTypeService implements IRequestTypeService, ILocalAuthorityL
             if (m.isAnnotationPresent(IsRulesAcceptance.class))
                names.add(StringUtils.uncapitalize(m.getName().replaceFirst("get", "")));
         return names;
+    }
+
+    /**
+     * Check requestForm's labels uniqueness for given RequestFormType
+     *
+     * @param label
+     * @param shortLabel
+     * @param requestFormType
+     * @param requestFormId
+     * @throws CvqModelException
+     * 
+     */
+    private void checkHomeFolderRequestFormLabelUniqueness(String label, String shortLabel,
+            RequestFormType requestFormType, Long requestFormId) throws CvqModelException {
+        List<RequestForm> requestFormList = requestFormDAO.findByType(requestFormType);
+        for (RequestForm requestForm : requestFormList) {
+            if (!requestForm.getId().equals(requestFormId)) {
+                if (requestForm.getLabel().equals(label))
+                    throw new CvqModelException("requestForm.message.labelAlreadyUsed");
+                if (requestForm.getShortLabel().equals(shortLabel))
+                    throw new CvqModelException("requestForm.message.shortLabelAlreadyUsed");
+            }
+        }
+    }
+
+    /**
+     *
+     *
+     * @param requestForm
+     * @return
+     * @throws CvqException
+     *
+     */
+    public Long modifyHomeFolderRequestForm(RequestForm requestForm) throws CvqException {
+        Long result = -1L;
+        if ((requestForm.getType() == null)
+                || (requestForm.getType() != RequestFormType.HOMEFOLDER_MAIL_TEMPLATE)) {
+            throw new CvqModelException("requestForm.message.requestTypeIsNotHomeFolderType");
+        }
+
+        checkHomeFolderRequestFormLabelUniqueness(requestForm.getLabel(),
+                requestForm.getShortLabel(), requestForm.getType(),
+                requestForm.getId() == null ? new Long(-1) : requestForm.getId());
+
+        if (StringUtils.isBlank(requestForm.getLabel())) {
+            throw new CvqModelException("requestForm.message.labelIsNull");
+        }
+        if (StringUtils.isBlank(requestForm.getShortLabel())) {
+            throw new CvqModelException("requestForm.message.shortLabelIsNull");
+        }
+
+        if (requestForm.getId() != null) {
+            // Modification
+            result = requestForm.getId();
+            requestFormDAO.update(requestForm);
+        } else {
+            // Creation
+            result = ((RequestForm) requestFormDAO.create(requestForm)).getId();
+        }
+
+        return result;
+    }
+
+
+    /**
+     *
+     *
+     * @param requestFormType
+     * @return
+     * @throws CvqException
+     *
+     */
+    @Override
+    @Context(types = { ContextType.AGENT }, privilege = ContextPrivilege.READ)
+    public List<RequestForm> getRequestFormsByRequestFormType(RequestFormType requestFormType)
+            throws CvqException {
+        List<RequestForm> result = requestFormDAO.findByType(requestFormType);
+        return result;
     }
 }

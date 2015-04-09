@@ -3094,6 +3094,7 @@
         id int8 not null,
         data TEXT,
         date timestamp not null,
+        file bytea,
         note varchar(1024),
         target_id int8 not null,
         type varchar(255) not null,

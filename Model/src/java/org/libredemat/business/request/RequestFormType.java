@@ -10,7 +10,10 @@ package org.libredemat.business.request;
  */
 public enum RequestFormType {
 
-
+    // Hack Inexine
+    // Frederic Fabre - 19/11/2012
+    // Ajout du HOMEFOLDER_MAIL_TEMPLATE pour gérer les templates d'email sur le compte sans passer par une demande
+    HOMEFOLDER_MAIL_TEMPLATE("HomeFolder Mail Template"),
     REQUEST_CERTIFICAT("Request Certificate"),
     REQUEST_MAIL_TEMPLATE("Request Mail Template");
 

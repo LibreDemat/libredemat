@@ -43,6 +43,15 @@ import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 import org.codehaus.groovy.grails.web.json.JSONArray
 import org.codehaus.groovy.grails.web.json.JSONObject
 
+
+import org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine
+import org.springframework.web.context.request.RequestContextHolder
+import org.libredemat.business.authority.LocalAuthorityResource.Type
+import org.libredemat.business.request.RequestFormType
+import org.libredemat.business.request.RequestType
+import org.libredemat.business.request.RequestForm
+import org.libredemat.service.authority.ILocalAuthorityRegistry
+
 class BackofficeHomeFolderController {
 
     IExternalHomeFolderService externalHomeFolderService
@@ -58,6 +67,8 @@ class BackofficeHomeFolderController {
     IHomeFolderDocumentService homeFolderDocumentService
     IRequestTypeService requestTypeService
     ICategoryService categoryService
+    GroovyPagesTemplateEngine groovyPagesTemplateEngine
+    ILocalAuthorityRegistry localAuthorityRegistry
 
     def translationService
     def homeFolderAdaptorService
@@ -586,7 +597,21 @@ class BackofficeHomeFolderController {
         return ["actions" : homeFolderAdaptorService.prepareActions(list),
                 "archived" : params.boolean("archived")]
     }
-    
+
+    def view = {
+        if (!request.get) return false
+        response.contentType = "application/pdf"
+        response.setHeader("Content-disposition",
+            "attachment; filename=historique.pdf")
+        println("\n\n\n\n " + params.requestActionId)
+        def actionId = Long.valueOf(params.requestActionId); //% 512;
+        def action = userSearchService.getById(Long.valueOf(params.id)).homeFolder.actions.find { a -> a.id == actionId}
+
+        response.contentLength = action.file.length
+        response.outputStream << action.file
+        response.outputStream.flush();
+    }
+
     def currentHomeFolderState = {
         def result = [:];
         def homeFolder = userSearchService.getHomeFolderById(Long.parseLong(params.id));
@@ -949,6 +974,101 @@ class BackofficeHomeFolderController {
       redirect(action:'details', params:['id': adult.homeFolder.id]);
     }
 
+    /**
+     * retrieves request form list using passed request type id
+     */
+    def formList = {
+        def id = Long.valueOf(params.id)
+        def mailType = RequestFormType.HOMEFOLDER_MAIL_TEMPLATE
+        def forms = requestTypeService.getRequestFormsByRequestFormType(mailType)
+        render(template:"formList",model:["requestForms":forms])
+    }
 
+    /**
+     * Hack Inexine
+     */
+    def form = {
+        def method = request.getMethod().toLowerCase(), id
+        if(method == "post" && params?.requestTypeId) {
+            RequestForm form = new RequestForm()
+            if(params.requestFormId) {
+                form = requestTypeService.getRequestFormById(Long.valueOf(params.requestFormId))
+            }
+            form.setType(RequestFormType.HOMEFOLDER_MAIL_TEMPLATE)
+            form.setLabel(params.label)
+            form.setTemplateName(params.templateName)
+            form.setShortLabel(params.shortLabel)
+            id = requestTypeService.modifyHomeFolderRequestForm(form)
+
+            render(['id':id,status:"ok",success_msg:message(code:"message.updateDone")] as JSON)
+        } else if(method=="get") {
+            def requestForm = null
+            def templates = localAuthorityRegistry
+                    .getLocalAuthorityResourceFileNames(Type.MAIL_TEMPLATES,
+                    ".*\\" + Type.MAIL_TEMPLATES.extension)
+            if(params.id)
+                requestForm = requestTypeService
+                        .getRequestFormById(Long.valueOf(params.id))
+            render(template:"form",model:["requestForm":requestForm,
+                "templates":templates])
+        } else if(method=="delete") {
+            requestTypeService.removeRequestTypeForm(Long.valueOf(params.id))
+            render([status:"ok", success_msg:message(code:"message.deleteDone")] as JSON)
+        }
+    }
+
+    /**
+     * Hack Inexine
+     */
+    def mailTemplate = {
+        if(request.post) {
+            if(params.editor != "") {
+                RequestForm form = requestTypeService
+                        .getRequestFormById(Long.valueOf(params.requestFormId))
+                form.setType(RequestFormType.HOMEFOLDER_MAIL_TEMPLATE)
+                form.setPersonalizedData(params.editor.getBytes())
+
+                requestTypeService.modifyHomeFolderRequestForm(form)
+                render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+            } else {
+                throw new Exception("mail_templates.some_of_mandatory_fields_is_empty")
+            }
+        }
+        else {
+            def templates = localAuthorityRegistry
+                    .getLocalAuthorityResourceFileNames(Type.MAIL_TEMPLATES, "*")
+            render (view: 'mailTemplate', model:['name':params.id,'templates':templates])
+        }
+    }
+
+    /**
+     * Hack Inexine
+     */
+    def loadMailTemplate = {
+        def fileName = params.file
+        File templateFile = localAuthorityRegistry
+                .getLocalAuthorityResourceFile(Type.MAIL_TEMPLATES, fileName, false)
+
+        if(templateFile.exists()) {
+            response.contentType = 'text/html; charset=utf-8'
+
+            def forms = []
+            forms.add(requestTypeService.getRequestFormById(Long.valueOf(params.formId)))
+
+            def content = templateFile.text
+            def template = groovyPagesTemplateEngine.createTemplate(content,'page1')
+
+            def requestAttributes = RequestContextHolder.currentRequestAttributes()
+            def out = new StringWriter()
+            def originalOut = requestAttributes.getOut()
+            requestAttributes.setOut(out)
+            template.make(['name':fileName,'forms':forms]).writeTo(out)
+            requestAttributes.setOut(originalOut)
+
+            render out.toString()
+        } else {
+            render message(code:'message.templateDoesNotExist')
+        }
+    }
 
 }

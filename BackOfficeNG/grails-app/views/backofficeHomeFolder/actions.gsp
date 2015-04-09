@@ -83,6 +83,18 @@
               </g:if>
           </dd>
         </g:if>
+        <g:if test="${action.hasFile}">
+          <dt>
+            <g:message code="requestAction.property.requestCertificate" />
+          </dt>
+          <dd>
+            <a title="<g:message code='${"requestAction.action.download." + action.type.enumString}' />"
+               href="${createLink(controller : 'backofficeHomeFolder', action : 'view', params : ['id' : action.target.id, 'requestActionId' : action.actionId])}">
+                  <img alt="<g:message code='${"requestAction.action.download." + action.type.enumString}' />" src="${resource(dir:'images/icons',file:'pdficon_small.gif')}"/>
+            </a>
+          </dd>
+        </g:if>
+
       </dl>
     </li>
   </g:each>

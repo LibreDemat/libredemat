@@ -5,25 +5,38 @@
     <script type="text/javascript" src="${resource(dir:'js/backoffice', file:'homeFolderConfiguration.js')}"></script>
     <!-- Needed for document management -->
     <script type="text/javascript" src="${resource(dir:'js/backoffice', file:'requestTypeConfigure.js')}"></script>
-    <script type="text/javascript" src="${resource(dir:'js/backoffice', file:'requestTypeDocuments.js')}"></script>
-    <link rel="stylesheet" href="${resource(dir:'css/backoffice', file:'configuration.css')}" />
+        <link rel="stylesheet" href="${resource(dir:'css/backoffice', file:'configuration.css')}" />
     <!-- / -->
+    <link rel="stylesheet" href="${resource(dir:'css/backoffice/yui/editor',file:'simpleeditor.css')}" />
+    <link rel="stylesheet" href="${resource(dir:'css/backoffice/common/yui-skin',file:'simpleeditor.css')}" />
+
     <link rel="stylesheet" href="${resource(dir:'css/backoffice/common/yui-skin',file:'container.css')}" ></link>
+
+    <script type="text/javascript" src="${resource(dir:'js/yui/editor',file:'simpleeditor-min.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js/common',file:'editor.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js/common',file:'calendar.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestType' + org.apache.commons.lang3.StringUtils.capitalize(params.action) + '.js')}"></script>
+    <script type="text/javascript">
+      zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
+      <!-- Hack Inexine -->
+      <!-- Pour garder la compatibilité des scripts js, il faut laisser 0 -->
+      <!-- requesttype n'est pas utilisé pour les courriers sur les comptes -->
+      zenexity.libredemat.bong.requesttype.currentId = '0';
+    </script>
+    <script type="text/javascript" src="${resource(dir:'js/backoffice', file:'requestTypeForms.js')}"></script>
   </head>
   <body>
 
     <div id="yui-main">
+
       <div class="yui-b">
         <div class="head">
           <h1>${message(code:'homeFolder.title.configuration')}</h1>
         </div>
-        <div id="configuration" class="yellow-yui-tabview">
-          <ul class="yui-nav">
-            <li class="selected">
-              <a href="#homeFolderCreation"><em>Création de compte</em></a>
-            </li>
-          </ul>
+        <div id="configuration" class="yui-navset yellow-yui-tabview">
+
           <div class="yui-content">
+            <g:render template="forms" />
             <div id="homeFolderCreation">
 
               <div id="notification"></div>
@@ -51,7 +64,6 @@
                 </div>
                 <div id="documentList"></div>
               </div>
-
             </div>
           </div>
         </div>

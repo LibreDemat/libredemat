@@ -75,7 +75,9 @@
           <textarea id="templateMessage" name="templateMessage" class="required"
             rows="5" cols="40" maxlength="1024"></textarea>
         </p>
-        <g:if test="${rqt && !requestForms.isEmpty()}">
+        <!-- Hack Inexine -->
+        <!-- Affiche la liste des courriers type -->
+        <g:if test="${!requestForms.isEmpty()}">
           <p class="field">
             <span class="block">
               <label for="requestFormId">

@@ -66,6 +66,9 @@ public class UserAction {
     @Column(columnDefinition="TEXT")
     private String data;
 
+    @Column(name="file")
+    private byte[] file;
+
     protected UserAction() { /* empty constructor for Hibernate */ }
 
     public UserAction(Type type, Long targetId) {
@@ -172,5 +175,13 @@ public class UserAction {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public byte[] getFile() {
+        return file;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
     }
 }

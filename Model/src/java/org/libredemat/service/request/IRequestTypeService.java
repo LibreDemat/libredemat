@@ -206,4 +206,25 @@ public interface IRequestTypeService {
         throws CvqException;
 
     public List<String> getRulesAcceptanceFieldNames(Long requestTypeId);
+
+    /**
+     * Create or update HomeFolder form type
+     *
+     * @param requestForm the request form
+     * @return result
+     * @throws CvqException
+     *
+     */
+    public Long modifyHomeFolderRequestForm(RequestForm requestForm) throws CvqException;
+
+    /**
+     *
+     * get request forms by request form type
+     *
+     * @param requestFormType request form type searched
+     * @return request forms list
+     * @throws CvqException
+     *
+     */
+    public List<RequestForm> getRequestFormsByRequestFormType(RequestFormType requestFormType) throws CvqException;
 }

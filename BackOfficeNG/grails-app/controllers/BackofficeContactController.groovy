@@ -16,6 +16,11 @@ import grails.converters.JSON
 
 import org.springframework.web.context.request.RequestContextHolder
 import org.xhtmlrenderer.pdf.ITextRenderer
+import org.libredemat.business.users.Individual
+import org.libredemat.business.users.Adult
+import org.libredemat.business.users.UserAction
+import org.libredemat.service.users.IUserWorkflowService
+
 
 // mostly taken from RequestInstructionController,
 // so still dependent on a request
@@ -28,6 +33,7 @@ class BackofficeContactController {
     IUserNotificationService userNotificationService
     IUserSearchService userSearchService
     IAgentService agentService
+    IUserWorkflowService userWorkflowService
 
     def groovyPagesTemplateEngine
     def individualAdaptorService
@@ -87,7 +93,19 @@ class BackofficeContactController {
                 "id" : rqt.id,
                 "state": LibredematUtils.adaptLibredematEnum(rqt.state, "request.state")
             ]
-        }
+        } else {
+           // Hack Inexine
+           // Courrier type pour sur les comptes donc pas de demande
+           requestTypeService.getRequestFormsByRequestFormType(RequestFormType.HOMEFOLDER_MAIL_TEMPLATE).each {
+           String data = ""
+           if (it.personalizedData) data = new String(it.personalizedData)
+           requestForms.add([
+               "id": it.id,
+               "shortLabel": it.shortLabel,
+               "type": LibredematUtils.adaptLibredematEnum(it.type, "meansOfContact")
+           ])
+           }
+       }
         return [
             "meansOfContacts": meansOfContacts,
             "defaultMeansOfContact" : defaultMeansOfContact,
@@ -101,11 +119,11 @@ class BackofficeContactController {
         if (!request.post) return false
         if (params.previewFormat == "HTML") {
             response.contentType = "text/html; charset=utf-8"
-            render prepareTemplate(params.requestId, params.requestFormId,
+            render prepareTemplate(params.requestId, params.id, params.requestFormId,
                 params.templateMessage?.encodeAsHTML(), params.meansOfContact,
                 params.previewFormat)
         } else if (params.previewFormat == "PDF") {
-            def b = preparePdf(params.requestId, params.requestFormId,
+            def b = preparePdf(params.requestId, params.id,     params.requestFormId,
                 params.templateMessage, params.meansOfContact)
             response.contentType = "application/pdf"
             response.setHeader("Content-disposition",
@@ -131,6 +149,12 @@ class BackofficeContactController {
     def contact = {
         if (!request.post) return false
         def notification
+
+        def user
+        if (params.id != null) {
+            user = userSearchService.getById(params.long("id"))
+        }
+
         if (params.requestId) {
         // FIXME : no indentation to avoid fake rewriting of this action from git's POV
         def requestId = Long.valueOf(params.requestId)
@@ -148,7 +172,7 @@ class BackofficeContactController {
                     RequestActionType.CONTACT_CITIZEN,
                     params.templateMessage, params.note,
                     params.requestFormId ?
-                        preparePdf(params.requestId, params.requestFormId,
+                        preparePdf(params.requestId, params.id, params.requestFormId,
                             params.templateMessage, params.meansOfContact) : null, requestFormLabel)
                 notification = [
                     status : "ok",
@@ -158,7 +182,7 @@ class BackofficeContactController {
             case MeansOfContactEnum.EMAIL :
                 def pdf
                 if (params.requestFormId)
-                    pdf = preparePdf(requestId, requestFormId,
+                    pdf = preparePdf(requestId, params.id, requestFormId,
                         params.templateMessage, params.meansOfContact)
                 requestActionService.addAction(
                     requestId,
@@ -210,7 +234,7 @@ class BackofficeContactController {
                     RequestActionType.CONTACT_CITIZEN,
                     params.templateMessage, params.note,
                     params.requestFormId ?
-                        preparePdf(params.requestId, params.requestFormId,
+                        preparePdf(params.requestId, params.id, params.requestFormId,
                             params.templateMessage, params.meansOfContact) : null, requestFormLabel)
                 notification = [
                     status : "ok",
@@ -218,8 +242,85 @@ class BackofficeContactController {
                 ]
                 break;
         }
+        } 
+        // Contact du citoyen à partir du compte en choisissant 1 courrier type
+        else if (params.requestFormId) {
+
+            def requestId = null
+            def requestFormId
+            def requestFormLabel = null
+            if (params.requestFormId) {
+            requestFormId = Long.valueOf(params.requestFormId)
+            def requestForm = requestTypeService.getRequestFormById(requestFormId)
+            requestFormLabel = requestForm.getLabel()
+            }
+            switch (MeansOfContactEnum.forString(params.meansOfContact)) {
+            case MeansOfContactEnum.MAIL :
+                userWorkflowService.addHomeFolderAction(user, params.note, UserAction.Type.CONTACT,
+                params.templateMessage, MeansOfContactEnum.MAIL, params.email)
+
+                notification = [
+                status : "ok",
+                success_msg : message(code : "message.actionTraced")
+                ]
+                break;
+            case MeansOfContactEnum.EMAIL :
+                def pdf
+                if (params.requestFormId) {
+                pdf = preparePdf(requestId, params.id, requestFormId, params.templateMessage, params.meansOfContact)
+                }
+                userNotificationService.notifyByEmail(
+                null,
+                params.email,
+                message(code:"mail.ecitizenContact.subject"),
+                params.requestFormId ?
+                    message(code:"mail.ecitizenContact.body") :
+                    params.templateMessage,
+                pdf,
+                params.requestFormId ?
+                    "${requestTypeService.getRequestFormById(requestFormId).label}.pdf"
+                    : null)
+
+                userWorkflowService.addHomeFolderAction(user, params.note, UserAction.Type.CONTACT,
+                params.templateMessage, MeansOfContactEnum.EMAIL, params.email, pdf)
+
+                notification = [
+                status : "ok",
+                success_msg : message(code : "message.emailSent")
+                ]
+                break;
+            case MeansOfContactEnum.HOME_PHONE :
+            case MeansOfContactEnum.OFFICE_PHONE :
+            case MeansOfContactEnum.MOBILE_PHONE :
+
+                userWorkflowService.addHomeFolderAction(user, params.note, UserAction.Type.CONTACT,
+                params.templateMessage, MeansOfContactEnum.MOBILE_PHONE, params.email)
+
+                notification = [
+                status : "ok",
+                success_msg : message(code : "message.actionTraced")
+                ]
+                break;
+            case MeansOfContactEnum.SMS :
+                userWorkflowService.addHomeFolderAction(user, params.note, UserAction.Type.CONTACT,
+                params.templateMessage, MeansOfContactEnum.SMS, params.email)
+
+                notification = [
+                status : "ok",
+                success_msg : message(code : "message.smsSent")
+                ]
+                break;
+            case MeansOfContactEnum.LOCAL_AUTHORITY_OFFICE :
+                userWorkflowService.addHomeFolderAction(user, params.note, UserAction.Type.CONTACT,
+                params.templateMessage, MeansOfContactEnum.LOCAL_AUTHORITY_OFFICE, params.email)
+
+                notification = [
+                status : "ok",
+                success_msg : message(code : "message.actionTraced")
+                ]
+                break;
+            }
         } else {
-            def user = userSearchService.getById(params.long("id"))
             def moc = MeansOfContactEnum.forString(params.meansOfContact)
             switch (moc) {
                 case MeansOfContactEnum.LOCAL_AUTHORITY_OFFICE :
@@ -258,11 +359,11 @@ class BackofficeContactController {
         render(notification as JSON)
     }
 
-    private preparePdf(requestId, requestFormId, templateMessage, meansOfContact) {
+    private preparePdf(requestId, homeFolderResponsibleId, requestFormId, templateMessage, meansOfContact) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream()
         ITextRenderer renderer = new ITextRenderer()
         renderer.setDocumentFromString(prepareTemplate(
-            requestId, requestFormId,
+            requestId, homeFolderResponsibleId, requestFormId,
             templateMessage?.encodeAsXML().replaceAll(/\n/, "<br />"),
             meansOfContact, "PDF"))
         renderer.layout()
@@ -273,26 +374,37 @@ class BackofficeContactController {
     // directly taken from RequestInstructionController
     // TODO request decoupling
     //      and use RequestNotificationService.evaluate() for templating.
-    private prepareTemplate(requestId,formId,observations,meansOfContact,type) {
+    private prepareTemplate(requestId, homeFolderResponsibleId, formId,observations,meansOfContact,type) {
 
         def requestAttributes = RequestContextHolder.currentRequestAttributes()
         def form = requestTypeService.getRequestFormById(Long.valueOf(formId))
-        def rqt = requestSearchService.getById(Long.valueOf(requestId), false)
 
+        def requester = null
+        def rqt = null
+        def subjectObject = null
+        def subject = null
+
+        // Demandeur
         // FIXME RDJ - if no requester use homefolder responsible
-        def requester
-        if (rqt.requesterId != null)
-            requester = userSearchService.getById(rqt.requesterId)
-        else
-            requester = userSearchService.getHomeFolderResponsible(rqt.homeFolderId)
+        if (requestId != null) {
+            rqt = requestSearchService.getById(Long.valueOf(requestId), false)
+            if (rqt.requesterId != null) {
+                requester = userSearchService.getById(rqt.requesterId)
+            }
+            else {
+                requester = userSearchService.getHomeFolderResponsible(rqt.homeFolderId)
+            }
+            if (rqt.subjectId != null) {
+                subjectObject = userSearchService.getById(rqt.subjectId)
+                subject = individualAdaptorService.getIndividualDescription(subjectObject)
+            }
+        }
+        else {
+            requester = userSearchService.getAdultById(Long.valueOf(homeFolderResponsibleId))
+        }
 
         def address = requester.getHomeFolder().getAddress()
-        def subjectObject = null
-        if (rqt.subjectId) {
-            subjectObject = userSearchService.getById(rqt.subjectId)
-        }
-        def subject =
-            individualAdaptorService.getIndividualDescription(subjectObject)
+
         def forms = []
         forms.add(form)
 
@@ -311,8 +423,8 @@ class BackofficeContactController {
                             LocalAuthorityResource.LOGO_PDF.id)
                             .absolutePath
                 } catch (Exception e) {
-                    log.error("Exception while looking for JPEG logo : "
-                        + e.getMessage())
+                    log.error("Exception while looking for JPEG logo : ",
+                 e.getMessage())
                 }
                 try {
                     footerLink =
@@ -320,8 +432,8 @@ class BackofficeContactController {
                             LocalAuthorityResource.FOOTER_PDF.getId())
                             .absolutePath
                 } catch (Exception e) {
-                    log.error("Exception while looking for JPEG footer : "
-                        + e.getMessage())
+                    log.error("Exception while looking for JPEG footer : ",
+                 e.getMessage())
                 }
             }
 
@@ -336,21 +448,51 @@ class BackofficeContactController {
             requestAttributes.setOut(originalOut)
 
             String content = out.toString().replace('#{','${')
+
+            String tpLabel = ''
+            String lastAgentName = ''
+            String lastAgentEmail = ''
+            String requestValidationDate = ''
+            String requestDate = ''
+            String requestCategory = ''
+            String requestCategoryEmail = ''
+
+            if (rqt != null) {
+                tpLabel = type == "HTML" ?
+                    translationService.translateRequestTypeDescription(rqt?.requestType.label).toLowerCase().encodeAsHTML() :
+                    translationService.translateRequestTypeDescription(rqt?.requestType.label).toLowerCase()
+
+                lastAgentName = rqt ? UserUtils.getDisplayName(rqt?.lastInterveningUserId) : ''
+                lastAgentEmail = rqt ? agentService.exists(rqt?.lastInterveningUserId) ? agentService.getById(rqt?.lastInterveningUserId).email : '' : ''
+                requestValidationDate = rqt?.validationDate ? DateUtils.dateToFullString(rqt?.validationDate) : ''
+                requestDate = DateUtils.dateToFullString(rqt?.creationDate)
+                requestCategory = rqt?.requestType.category.name
+                requestCategoryEmail = rqt?.requestType.category.primaryEmail
+            }
+
+            String title = ''
+            if (subject != null) {
+                title = subject?.firstName == "" ? "" :
+                    messageSource.getMessage("homeFolder.adult.title.${subject?.title.toString().toLowerCase()}",
+                    null, SecurityContext.currentLocale)
+            }
+            String meansOfContactMessage = ''
+            if (meansOfContact != null) {
+                meansOfContactMessage = message(code : "meansOfContact." + StringUtils.pascalToCamelCase(meansOfContact))
+            }
+
             def model = [
                 "DATE" : DateUtils.dateToFullString(new Date()),
-                "LAST_AGENT_NAME" : UserUtils.getDisplayName(rqt.lastInterveningUserId),
-                "LAST_AGENT_EMAIL" : agentService.exists(rqt.lastInterveningUserId) ? agentService.getById(rqt.lastInterveningUserId).email : '',
-                "MOC" : message(code : "meansOfContact." + StringUtils.pascalToCamelCase(meansOfContact)),
-                "RQ_ID" : rqt.id,
-                "RQ_CAT" : rqt.requestType.category.name,
-                "RQ_CAT_EMAIL" : rqt.requestType.category.primaryEmail,
-                "RQ_TP_LABEL" : type == "HTML" ? 
-                    translationService.translateRequestTypeDescription(rqt.requestType.label).toLowerCase().encodeAsHTML() :
-                    translationService.translateRequestTypeDescription(rqt.requestType.label).toLowerCase(),
-                "RQ_CDATE" : DateUtils.dateToFullString(rqt.creationDate),
-                "RQ_DVAL" : rqt.validationDate ? DateUtils.dateToFullString(rqt.validationDate) : '',
+                "LAST_AGENT_NAME" : lastAgentName,
+                "LAST_AGENT_EMAIL" : lastAgentEmail,
+                "MOC" : meansOfContactMessage,
+                "RQ_ID" : rqt?.id,
+                "RQ_CAT" : requestCategory,
+                "RQ_CAT_EMAIL" : requestCategoryEmail,
+                "RQ_TP_LABEL" : tpLabel,
+                "RQ_CDATE" : requestDate,
+                "RQ_DVAL" : requestValidationDate,
                 "RQ_OBSERV" : observations,
-                "RQ_SEASON" : rqt.requestSeason ? rqt.requestSeason.label : '',
                 "HF_ID" : requester.homeFolder.id,
                 "RR_FNAME" : requester.firstName,
                 "RR_LNAME" : requester.lastName,
@@ -363,9 +505,7 @@ class BackofficeContactController {
                 "RR_ANSWER" : requester.answer,
                 "SU_FNAME" : subject?.firstName,
                 "SU_LNAME" : subject?.lastName,
-                "SU_TITLE" : subject?.firstName == "" ? "" :
-                    messageSource.getMessage("homeFolder.adult.title.${subject?.title.toString().toLowerCase()}",
-                        null, SecurityContext.currentLocale),
+                "SU_TITLE" : title,
                 "HF_ADDRESS_ADI" : address.additionalDeliveryInformation,
                 "HF_ADDRESS_AGI" : address.additionalGeographicalInformation,
                 "HF_ADDRESS_SNAME" : address.streetName,

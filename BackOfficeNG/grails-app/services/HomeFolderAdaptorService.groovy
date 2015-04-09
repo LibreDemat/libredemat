@@ -61,6 +61,13 @@ class HomeFolderAdaptorService {
             "date" : action.date,
             "note" : action.note
         ]
+        if (action.file)
+        {
+            result.fileType = "application/pdf";
+            result.hasFile = true;
+            result.actionId = action.id;
+        }
+
         if (action.data) {
             JSON.parse(action.data).each {
                 switch (it.key) {

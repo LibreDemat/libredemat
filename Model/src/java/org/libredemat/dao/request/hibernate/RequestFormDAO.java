@@ -41,4 +41,23 @@ public class RequestFormDAO extends JpaTemplate<RequestForm,Long> implements IRe
             .add(Critere.compose("id", requestTypeId, Critere.EQUALS));
         return crit.list();
     }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @param requestFormType
+     *
+     * @return
+     *
+     * @see
+     * org.libredemat.dao.request.IRequestFormDAO#findByType(org.libredemat.business
+     * .request.RequestFormType)
+     */
+    @Override
+    public List<RequestForm> findByType(RequestFormType requestFormType) {
+        Criteria crit = HibernateUtil.getSession().createCriteria(RequestForm.class);
+        crit.add(Critere.compose("type", requestFormType, Critere.EQUALS)).addOrder(
+                Order.desc("id"));
+        return crit.list();
+    }
 }

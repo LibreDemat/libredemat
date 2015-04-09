@@ -7,6 +7,7 @@ import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
 import org.libredemat.business.users.HomeFolder;
 import org.libredemat.business.users.Individual;
+import org.libredemat.business.users.MeansOfContactEnum;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.UserState;
 import org.libredemat.business.users.UserAction;
@@ -124,4 +125,18 @@ public interface IUserWorkflowService {
 
     public void synchronise(Individual individual) throws CvqException;
 
+    /**
+    *
+    * Add a homefolder action
+    *
+    * @param adult Personne dont le compte sera marqué d'une action
+    * @param note
+    * @param userActionType type d'action comme le contact
+    * @param message
+    * @param meansOfContactEnum Type contact pour le citoyen comme l'email
+    * @param recipient email ou numéro de telephone
+    *
+    */
+    public void addHomeFolderAction(Adult adult, String note, Type userActionType,
+           String message, MeansOfContactEnum meansOfContactEnum, String recipient, final byte[] pdfData);
 }

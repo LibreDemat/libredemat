@@ -31,9 +31,11 @@ import org.libredemat.business.users.FamilyStatusType;
 import org.libredemat.business.users.HomeFolder;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.IndividualRole;
+import org.libredemat.business.users.MeansOfContactEnum;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.TitleType;
 import org.libredemat.business.users.UserAction;
+import org.libredemat.business.users.UserAction.Type;
 import org.libredemat.business.users.UserEvent;
 import org.libredemat.business.users.UserState;
 import org.libredemat.business.users.UserWorkflow;
@@ -1225,4 +1227,34 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         }
     }
 
+    /**
+     * Add a homefolder action
+     *
+     * @param adult
+     * @param note
+     * @param userAction
+     * @param message
+     * @param meansOfContactEnum
+     * @param recipient
+     *
+     */
+    public void addHomeFolderAction(Adult adult, String note, Type userActionType,
+       String message, MeansOfContactEnum meansOfContactEnum, String recipient, final byte[] pdfData) {
+
+        JsonObject payload = new JsonObject();
+        JsonObject contact = new JsonObject();
+        contact.addProperty("meansOfContact", meansOfContactEnum.toString());
+        contact.addProperty("message", message);
+        if (!StringUtils.isBlank(recipient))
+        {
+            contact.addProperty("recipient", recipient);
+        }
+        payload.add("contact", contact);
+        UserAction action = new UserAction(userActionType, adult.getId(), payload);
+        action.setNote(note);
+        action.setFile(pdfData);
+        adult.getHomeFolder().getActions().add(action);
+        homeFolderDAO.update(adult.getHomeFolder());
+
+    }
 }
