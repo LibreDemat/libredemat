@@ -1,17 +1,20 @@
 package org.libredemat.service.request.permit.impl;
 
+import java.util.List;
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 import org.libredemat.business.payment.InternalInvoiceItem;
 import org.libredemat.business.payment.Payment;
 import org.libredemat.business.payment.PaymentMode;
-import org.libredemat.business.request.Request;
-import org.libredemat.business.request.RequestActionType;
+import org.libredemat.business.request.*;
 import org.libredemat.business.request.permit.ParkingPermitTemporaryRelocationRequest;
 import org.libredemat.exception.CvqException;
 import org.libredemat.exception.IXENoBrokerFindException;
 import org.libredemat.exception.IXEPaymentAllReadyExistException;
 import org.libredemat.service.payment.IPaymentService;
 import org.libredemat.service.payment.IRequestPaymentService;
+import org.libredemat.service.request.ILocalReferentialService;
 import org.libredemat.service.request.IRequestActionService;
 import org.libredemat.service.request.IRequestLockService;
 import org.libredemat.service.request.condition.EqualityChecker;
@@ -20,10 +23,13 @@ import org.libredemat.service.users.IUserSearchService;
 
 public class ParkingPermitTemporaryRelocationRequestService extends RequestService implements IRequestPaymentService {
 
+    private static Logger logger = Logger.getLogger(ParkingPermitTemporaryRelocationRequestService.class);
+
     protected IPaymentService paymentService;
     protected IRequestActionService requestActionService;
     protected IRequestLockService requestLockService;
     protected IUserSearchService userSearchService;
+    protected ILocalReferentialService localReferentialService;
 
     @Override
     public void init() {
@@ -46,6 +52,33 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
     public Request getSkeletonRequest()
     {
         return new ParkingPermitTemporaryRelocationRequest();
+    }
+
+    @Override
+    public void onRequestIssued(Request request) throws CvqException {
+        logger.debug("Received onRequestIssued event");
+        ParkingPermitTemporaryRelocationRequest pptrRequest = (ParkingPermitTemporaryRelocationRequest) request;
+        List<LocalReferentialData> desiredServiceData = pptrRequest.getDesiredService();
+        if (desiredServiceData == null || desiredServiceData.isEmpty() || desiredServiceData.size() > 1) {
+            logger.error("Can someone explain me why I did not get a single local referential choice ?!");
+            throw new CvqException("pptrr.error.shouldHaveOnlyOneDesiredService");
+        }
+        LocalReferentialData desiredService = desiredServiceData.get(0);
+        LocalReferentialType lrType = localReferentialService.getLocalReferentialType(getLabel(), "DesiredService");
+        for (LocalReferentialEntry entry : lrType.getEntries()) {
+            if (entry.getKey().equals(desiredService.getName())) {
+                try {
+                    pptrRequest.setPaymentIndicativeAmount(entry.getExternalCode());
+                } catch (NumberFormatException nfe) {
+                    logger.error("Unable to parse desired service price as a double");
+                    throw new CvqException("pptrr.error.servicePriseIsNotADouble");
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onRequestModified(Request request) throws CvqException {
     }
 
     @Override
@@ -139,5 +172,9 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
     public void setPayment(Request request, Payment paiement)
     {
         ((ParkingPermitTemporaryRelocationRequest) request).setPayment(paiement);
+    }
+
+    public void setLocalReferentialService(ILocalReferentialService localReferentialService) {
+        this.localReferentialService = localReferentialService;
     }
 }

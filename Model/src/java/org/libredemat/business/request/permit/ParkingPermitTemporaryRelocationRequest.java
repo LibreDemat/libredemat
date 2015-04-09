@@ -152,6 +152,8 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
         if (getPayment() != null)
             parkingPermitTemporaryRelocationRequest.setPayment(Payment.modelToXml(getPayment()));
       
+        parkingPermitTemporaryRelocationRequest.setPaymentIndicativeAmount(getPaymentIndicativeAmount());
+      
         date = getPeriodeEnd();
         if (date != null) {
             calendar.setTime(date);
@@ -222,6 +224,8 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
       
         if (parkingPermitTemporaryRelocationRequestXml.getPayment() != null)
             parkingPermitTemporaryRelocationRequest.setPayment(Payment.xmlToModel(parkingPermitTemporaryRelocationRequestXml.getPayment()));
+      
+        parkingPermitTemporaryRelocationRequest.setPaymentIndicativeAmount(parkingPermitTemporaryRelocationRequestXml.getPaymentIndicativeAmount());
       
         calendar = parkingPermitTemporaryRelocationRequestXml.getPeriodeEnd();
         if (calendar != null) {
@@ -394,6 +398,15 @@ public class ParkingPermitTemporaryRelocationRequest extends Request implements 
     
     public final org.libredemat.business.payment.Payment getPayment() {
         return parkingPermitTemporaryRelocationRequestData.getPayment();
+    }
+  
+    public final void setPaymentIndicativeAmount(final String paymentIndicativeAmount) {
+        parkingPermitTemporaryRelocationRequestData.setPaymentIndicativeAmount(paymentIndicativeAmount);
+    }
+
+    
+    public final String getPaymentIndicativeAmount() {
+        return parkingPermitTemporaryRelocationRequestData.getPaymentIndicativeAmount();
     }
   
     public final void setPeriodeEnd(final java.util.Date periodeEnd) {

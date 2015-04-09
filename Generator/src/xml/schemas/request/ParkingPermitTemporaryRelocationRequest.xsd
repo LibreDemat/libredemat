@@ -279,6 +279,21 @@
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
+                        <xs:element name="PaymentIndicativeAmount" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Montant indicatif du paiement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Montant indicatif du paiement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="paiement" />
+                                    </common>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:extension>
             </xs:complexContent>

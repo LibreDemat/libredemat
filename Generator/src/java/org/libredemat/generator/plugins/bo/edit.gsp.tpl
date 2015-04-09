@@ -38,7 +38,7 @@
           ].join()
         ,'payment' :
           ["<span>"
-          ,"<g:if test=\"\${${wrapper}.${element.javaFieldName} != null}\"><g:formatNumber number=\"\${(${wrapper}.${element.javaFieldName}.amount.toDouble())/100}\" type=\"number\" maxFractionDigits=\"2\" /></g:if><g:else><g:message code=\"payment.submit.nopaiement\" /></g:else>"
+          ,"<g:if test=\"\${${wrapper}.${element.javaFieldName} != null}\"><g:formatNumber number=\"\${(${wrapper}.${element.javaFieldName}.amount.toDouble())/100}\" type=\"number\" maxFractionDigits=\"2\" /></g:if><g:else>\${rqt.paymentIndicativeAmount}</g:else>"
           ,"</span>"
           ].join()
         ,'frenchRIB' :

@@ -2300,6 +2300,7 @@
         observations varchar(255),
         observations_reglement varchar(255),
         other varchar(255),
+        payment_indicative_amount varchar(255),
         periode_end timestamp,
         periode_start timestamp,
         requester_address varchar(255),

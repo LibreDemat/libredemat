@@ -894,6 +894,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 		<property name="requestActionService" ref="requestActionService" />
 		<property name="requestLockService" ref="requestLockService" />
 		<property name="userSearchService" ref="userSearchService" />
+        <property name="localReferentialService" ref="localReferentialService" />
 	</bean>
 
   <bean id="conflansMunicipalWasteRequestService"

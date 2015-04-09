@@ -142,6 +142,12 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
         
           
             
+        result.setPaymentIndicativeAmount(paymentIndicativeAmount);
+      
+          
+        
+          
+            
         result.setPeriodeEnd(periodeEnd);
       
           
@@ -552,6 +558,20 @@ public class ParkingPermitTemporaryRelocationRequestData implements Serializable
       
     public org.libredemat.business.payment.Payment getPayment() {
         return this.payment;
+    }
+  
+    
+    private String paymentIndicativeAmount;
+
+    public void setPaymentIndicativeAmount(final String paymentIndicativeAmount) {
+        this.paymentIndicativeAmount = paymentIndicativeAmount;
+    }
+
+ 
+    @Column(name="payment_indicative_amount"  )
+      
+    public String getPaymentIndicativeAmount() {
+        return this.paymentIndicativeAmount;
     }
   
     
