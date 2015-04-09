@@ -71,7 +71,7 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
     @Override
     public Long countDuplicates() {
         return (Long)HibernateUtil.getSession()
-            .createQuery("select count(*) from Adult a where a.duplicateAlert is true and homeFolder != null and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' )")
+            .createQuery("select count(*) from Adult a where a.duplicateAlert is true and a.homeFolder.temporary is false and homeFolder != null and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' )")
             .iterate().next();
     }
 
