@@ -127,7 +127,7 @@
                                     </common>
                                     <pdf/>
                                     <fo>
-                                        <calendar minDayOuvre="10" />
+                                        <calendar />
                                     </fo>
                                     <bo column="2">
                                         <calendar/>

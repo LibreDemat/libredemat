@@ -8,6 +8,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
     var yu = YAHOO.util;
     var yud = yu.Dom;
     var yue = YAHOO.util.Event;
+    var ylj = YAHOO.lang.JSON;
 
     zcfr.ParkingPermitTemporaryRelocationRequest = function () {
 
@@ -21,19 +22,10 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         };
 
         var getMinDate = function (target) {
-            var classes = yud.getAttribute(target, "class");
-            classes = classes.split(" ");
-            var mindate;
-            var added;
+            var classes = yud.getAttribute(target, "class").split(" ");
+            var mindate = getDate(zenexity.libredemat.pptrrSpecificConfigurationData.minDaysBeforeRelocation);
             for (var i = 0; i < classes.length; i++) {
-                if (classes[i].indexOf('mindayouvre_') > -1) {
-                    if (classes[i].split("_").length > 1) {
-                        added = classes[i].split("_")[1];
-                        mindate = getDate(added);
-                    }
-                }
-                else if (classes[i].indexOf('notBeforeDate_') > -1) {
-                    //var inputLabel = target.id.substring(0, target.id.indexOf("Show"));
+                if (classes[i].indexOf('notBeforeDate_') > -1) {
                     var inputLabel = classes[i].split("_")[1];
                     if (inputLabel != undefined && inputLabel != "null" && yud.get(inputLabel) != null) {
                         var inputValue = yud.get(inputLabel).value;
@@ -81,17 +73,10 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             }
         };
 
-        var addComplementaryTexts = function() {
-            if (yud.get('reglements')) {
-                console.log("in regelemnts");
-            }
-        };
-
         return {
             init: function () {
                 yue.on(yud.get('periodeStartShow'), 'click', zcfr.ParkingPermitTemporaryRelocationRequest.processClickStart, zcfr.ParkingPermitTemporaryRelocationRequest.processClickStart, true);
                 disabledFields();
-                addComplementaryTexts();
             },
             /**
              * @description The name of the method to call is the first part of the

@@ -26,6 +26,11 @@
       <script src="${resource(dir:'js/frontoffice/alterer', file:'alterer.js')}"></script>
       <script type="text/javascript" src="${resource(dir:customJS.dir,file:customJS.file)}"></script>
     </g:if>
+    <g:if test="${specificConfigurationData}">
+      <script type="text/javascript">
+        zenexity.libredemat.pptrrSpecificConfigurationData = ${specificConfigurationData};
+      </script>
+    </g:if>
     <script type="text/javascript">
         zenexity.libredemat.contextPath = "${request.contextPath}";
     </script>

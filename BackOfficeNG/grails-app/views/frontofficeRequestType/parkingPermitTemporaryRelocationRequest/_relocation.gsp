@@ -77,7 +77,7 @@
             </td>
             <td class="yui-skin-sam calendar" style="padding-top: 4px;vertical-align:top">
                 <img id="periodeStartShow" src="${resource(dir:'css/frontoffice/yui/calendar',file:'calendar.gif')}"
-                    class="calendar <g:if test="false">disabledWith_null</g:if> <g:if test="true">mindayouvre_10</g:if> <g:if test="false">notBeforeDate_null</g:if>"
+                    class="calendar <g:if test="false">disabledWith_null</g:if> <g:if test="false">mindayouvre_null</g:if> <g:if test="false">notBeforeDate_null</g:if>"
                 ><span id="periodeStartCalContainer" class="yui-cal yui-calcontainer"></span>
             </td>
             </tr></table>
