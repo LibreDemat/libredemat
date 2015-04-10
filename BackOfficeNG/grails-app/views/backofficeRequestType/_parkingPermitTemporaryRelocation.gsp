@@ -25,4 +25,23 @@
             <input type="hidden" name="id" value="${requestType?.id}"/>
         </div>
     </form>
+
+    <h2><g:message code="requestType.configuration.pptrr.dates"/></h2>
+
+    <div class="error" id="pptrrDatesFormError"></div>
+    <form class="edit" method="post" id="pptrrDatesForm" action="${createLink(action: 'savePptrrDates')}">
+        <p class="field">
+            <label for="minDaysBeforeRelocation">
+                <g:message code="requestType.property.pptrr.minDaysBeforeRelocation"/> :
+            </label>
+            <input type="text" class="validate-number" name="minDaysBeforeRelocation" id="minDaysBeforeRelocation"
+                   value="${minDaysBeforeRelocation?.getAsString()}" />
+        </p>
+
+        <div class="form-button">
+            <input type="button" id="savePptrrDates"
+                   name="savePptrrDates" value="${message(code: 'action.save')}"/>
+            <input type="hidden" name="id" value="${requestType?.id}"/>
+        </div>
+    </form>
 </div>

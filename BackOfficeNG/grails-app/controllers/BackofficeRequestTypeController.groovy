@@ -672,6 +672,7 @@ class BackofficeRequestTypeController {
         render(view: 'configure',
                model: ['authorizationWithoutPrestation': specificConfigurationData.get('authorizationWithoutPrestation'),
                        'relocationWithPrestation': specificConfigurationData.get('relocationWithPrestation'),
+                       'minDaysBeforeRelocation': specificConfigurationData.get('minDaysBeforeRelocation')
                       ].plus(getCommonModel(requestType)))
     }
 
@@ -679,6 +680,14 @@ class BackofficeRequestTypeController {
         def requestType = requestTypeService.getRequestTypeById(params.long('id'))
         requestType.addSpecificConfigurationData('authorizationWithoutPrestation', params.authorizationWithoutPrestation)
         requestType.addSpecificConfigurationData('relocationWithPrestation', params.relocationWithPrestation)
+        requestTypeService.modifyRequestType(requestType)
+
+        render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+    }
+
+    def savePptrrDates = {
+        def requestType = requestTypeService.getRequestTypeById(params.long('id'))
+        requestType.addSpecificConfigurationData('minDaysBeforeRelocation', params.minDaysBeforeRelocation)
         requestTypeService.modifyRequestType(requestType)
 
         render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)

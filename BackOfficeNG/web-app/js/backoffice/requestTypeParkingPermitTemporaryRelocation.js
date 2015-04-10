@@ -10,12 +10,29 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
     zcbrt.Pptrr = function() {
         return {
             init: function() {
-                zcbrt.Conf.savePptrrPrices = zcbrt.Pptrr.save;
+                zcbrt.Conf.savePptrrPrices = zcbrt.Pptrr.savePrices;
+                zcbrt.Conf.savePptrrDates = zcbrt.Pptrr.saveDates;
             },
-            save : function(e) {
+            savePrices : function(e) {
                 yue.preventDefault(e);
                 var form = yud.get('pptrrPricesForm');
                 var error = yud.get('pptrrPricesFormError');
+                if(zcv.check(form,error)) {
+                    var target = yue.getTarget(e);
+                    zct.doAjaxFormSubmitCall(form.getAttributeNode("id").value,[],function(o){
+                        var json = ylj.parse(o.responseText);
+                        if(json.success_msg) {
+                            zct.Notifier.processMessage('success',json.success_msg, null, target);
+                        } else {
+                            zct.Notifier.processMessage('error',json.error_msg, null, target);
+                        }
+                    });
+                }
+            },
+            saveDates : function(e) {
+                yue.preventDefault(e);
+                var form = yud.get('pptrrDatesForm');
+                var error = yud.get('pptrrDatesFormError');
                 if(zcv.check(form,error)) {
                     var target = yue.getTarget(e);
                     zct.doAjaxFormSubmitCall(form.getAttributeNode("id").value,[],function(o){
