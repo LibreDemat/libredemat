@@ -67,12 +67,8 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
         LocalReferentialType lrType = localReferentialService.getLocalReferentialType(getLabel(), "DesiredService");
         for (LocalReferentialEntry entry : lrType.getEntries()) {
             if (entry.getKey().equals(desiredService.getName())) {
-                try {
-                    pptrRequest.setPaymentIndicativeAmount(entry.getExternalCode());
-                } catch (NumberFormatException nfe) {
-                    logger.error("Unable to parse desired service price as a double");
-                    throw new CvqException("pptrr.error.servicePriseIsNotADouble");
-                }
+                pptrRequest.setPaymentIndicativeAmount(entry.getExternalCode());
+                break;
             }
         }
     }
