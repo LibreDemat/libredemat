@@ -55,7 +55,6 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
 
     @Override
     public void onRequestIssued(Request request) throws CvqException {
-        logger.debug("Received onRequestIssued event");
         ParkingPermitTemporaryRelocationRequest pptrRequest = (ParkingPermitTemporaryRelocationRequest) request;
         List<LocalReferentialData> desiredServiceData = pptrRequest.getDesiredService();
         if (desiredServiceData == null || desiredServiceData.isEmpty() || desiredServiceData.size() > 1) {
