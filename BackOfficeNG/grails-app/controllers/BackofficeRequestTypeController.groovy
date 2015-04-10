@@ -670,8 +670,8 @@ class BackofficeRequestTypeController {
         def specificConfigurationData = requestType.getSpecificConfigurationDataAsJson()
 
         render(view: 'configure',
-               model: ['authorizationWithoutPrestation': specificConfigurationData.get('authorizationWithoutPrestation').getAsString(),
-                       'relocationWithPrestation': specificConfigurationData.get('relocationWithPrestation').getAsString()
+               model: ['authorizationWithoutPrestation': specificConfigurationData.get('authorizationWithoutPrestation'),
+                       'relocationWithPrestation': specificConfigurationData.get('relocationWithPrestation'),
                       ].plus(getCommonModel(requestType)))
     }
 

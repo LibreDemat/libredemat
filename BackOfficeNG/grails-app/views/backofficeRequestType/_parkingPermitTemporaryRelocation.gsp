@@ -8,7 +8,7 @@
                 <g:message code="requestType.property.pptrr.authorizationWithoutPrestation"/> :
             </label>
             <input type="text" class="required validate-numeric" name="authorizationWithoutPrestation" id="authorizationWithoutPrestation"
-                value="${authorizationWithoutPrestation}" />
+                value="${authorizationWithoutPrestation?.getAsString()}" />
         </p>
 
         <p class="field">
@@ -16,7 +16,7 @@
                 <g:message code="requestType.property.pptrr.relocationWithPrestation"/> :
             </label>
             <input type="text" class="required validate-numeric" name="relocationWithPrestation" id="relocationWithPrestation"
-                value="${relocationWithPrestation}" />
+                value="${relocationWithPrestation?.getAsString()}" />
         </p>
 
         <div class="form-button">
