@@ -19,7 +19,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.libredemat.util.JSONUtils;
 
 @Entity
 @Table(name="request_type")
@@ -98,6 +101,9 @@ public class RequestType implements Serializable {
 
     @Column(name="filing_delay")
     private int filingDelay = 12;
+
+    @Column(name="specific_configuration_data", columnDefinition="TEXT")
+    private String specificConfigurationData;
 
     public RequestType() {
         setSeasons(new TreeSet<RequestSeason>());
@@ -241,6 +247,33 @@ public class RequestType implements Serializable {
 
     public void setFilingDelay(int filingDelay) {
         this.filingDelay = filingDelay;
+    }
+
+    public String getSpecificConfigurationData() {
+        return specificConfigurationData;
+    }
+
+    public JsonObject getSpecificConfigurationDataAsJson() {
+        if (specificConfigurationData == null)
+            return new JsonObject();
+        else
+            return JSONUtils.deserialize(specificConfigurationData);
+    }
+
+    public String getSpecificConfigurationDataValue(String key) {
+        JsonObject currentData = getSpecificConfigurationDataAsJson();
+        return currentData.get(key).getAsString();
+    }
+
+    public void setSpecificConfigurationData(String specificConfigurationData) {
+        this.specificConfigurationData = specificConfigurationData;
+    }
+
+
+    public void addSpecificConfigurationData(String key, String value) {
+        JsonObject currentData = getSpecificConfigurationDataAsJson();
+        currentData.addProperty(key, value);
+        this.specificConfigurationData = new Gson().toJson(currentData);
     }
 
     @Override

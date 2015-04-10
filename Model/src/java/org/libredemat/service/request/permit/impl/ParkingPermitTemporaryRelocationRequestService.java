@@ -29,7 +29,6 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
     protected IRequestActionService requestActionService;
     protected IRequestLockService requestLockService;
     protected IUserSearchService userSearchService;
-    protected ILocalReferentialService localReferentialService;
 
     @Override
     public void init() {
@@ -63,14 +62,12 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
             logger.error("Can someone explain me why I did not get a single local referential choice ?!");
             throw new CvqException("pptrr.error.shouldHaveOnlyOneDesiredService");
         }
-        LocalReferentialData desiredService = desiredServiceData.get(0);
-        LocalReferentialType lrType = localReferentialService.getLocalReferentialType(getLabel(), "DesiredService");
-        for (LocalReferentialEntry entry : lrType.getEntries()) {
-            if (entry.getKey().equals(desiredService.getName())) {
-                pptrRequest.setPaymentIndicativeAmount(entry.getExternalCode());
-                break;
-            }
-        }
+        String desiredServiceName = desiredServiceData.get(0).getName();
+        RequestType rt = pptrRequest.getRequestType();
+        if (desiredServiceName.equals("De-me-nagement-avec-prestations"))
+            pptrRequest.setPaymentIndicativeAmount(rt.getSpecificConfigurationDataValue("relocationWithPrestation"));
+        else if (desiredServiceName.equals("Autorisation-sans-prestation"))
+            pptrRequest.setPaymentIndicativeAmount(rt.getSpecificConfigurationDataValue("authorizationWithoutPrestation"));
     }
 
     @Override
@@ -168,9 +165,5 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
     public void setPayment(Request request, Payment paiement)
     {
         ((ParkingPermitTemporaryRelocationRequest) request).setPayment(paiement);
-    }
-
-    public void setLocalReferentialService(ILocalReferentialService localReferentialService) {
-        this.localReferentialService = localReferentialService;
     }
 }

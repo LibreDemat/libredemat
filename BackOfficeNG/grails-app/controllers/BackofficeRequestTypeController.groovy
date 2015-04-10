@@ -130,6 +130,9 @@ class BackofficeRequestTypeController {
         if (requestType.label == 'Ticket Booking') {
             result["configurationItems"]["ticketBooking"] =
                 ["requestType.configuration.ticketBooking", false]
+        } else if (requestType.label == 'Parking Permit Temporary Relocation') {
+            result["configurationItems"]["parkingPermitTemporaryRelocation"] =
+                    ["requestType.configuration.parkingPermitTemporaryRelocation", true]
         }
         return result
     }
@@ -657,5 +660,27 @@ class BackofficeRequestTypeController {
             view : "configure",
             model : getCommonModel(requestTypeService.getRequestTypeById(Long.valueOf(params.id)))
         )
+    }
+
+    /* Parking Permit Temporary Relocation
+      * --------------------------------------------------------------------- */
+
+    def parkingPermitTemporaryRelocation = {
+        def requestType = requestTypeService.getRequestTypeById(params.long('id'))
+        def specificConfigurationData = requestType.getSpecificConfigurationDataAsJson()
+
+        render(view: 'configure',
+               model: ['authorizationWithoutPrestation': specificConfigurationData.get('authorizationWithoutPrestation').getAsString(),
+                       'relocationWithPrestation': specificConfigurationData.get('relocationWithPrestation').getAsString()
+                      ].plus(getCommonModel(requestType)))
+    }
+
+    def savePptrrPrices = {
+        def requestType = requestTypeService.getRequestTypeById(params.long('id'))
+        requestType.addSpecificConfigurationData('authorizationWithoutPrestation', params.authorizationWithoutPrestation)
+        requestType.addSpecificConfigurationData('relocationWithPrestation', params.relocationWithPrestation)
+        requestTypeService.modifyRequestType(requestType)
+
+        render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
     }
 }

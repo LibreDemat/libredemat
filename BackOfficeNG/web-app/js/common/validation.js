@@ -202,6 +202,7 @@
   me.putRules({
     'number': new me.rule('func',function(f){ return (!isNaN(f.value) || !f.value.match(/[^\d]/)); }),
     'digits': new me.rule('func',function(f){ return !(f.value.replace(/ /,'').match(/[^\d]/)); }),
+    'numeric': new me.rule('regex', /^\d*[,]{0,1}\d+$/),
     'label': new me.rule('func',function(f){ return (f.value.length > 0); } ), // useless
     'alpha': new me.rule('regex', /^[a-zA-Z]+$/),
     'alphanum': new me.rule('regex', /\W/), //false

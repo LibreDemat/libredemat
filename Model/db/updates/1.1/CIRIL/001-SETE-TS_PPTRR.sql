@@ -49,3 +49,5 @@ alter table parking_permit_temporary_relocation_request_desired_service
 alter table parking_permit_temporary_relocation_request drop constraint FK826DD839DBF56A6;
 alter table parking_permit_temporary_relocation_request drop column requester_address_id ;
 alter table parking_permit_temporary_relocation_request add column requester_address varchar(255);
+
+alter table request_type add column specific_configuration_data TEXT;

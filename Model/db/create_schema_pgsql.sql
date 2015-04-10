@@ -2686,6 +2686,7 @@
         instruction_max_delay int4,
         is_of_registration_kind bool,
         label varchar(255),
+        specific_configuration_data TEXT,
         step_account_completion bool,
         subject_policy varchar(255),
         support_multiple bool,
