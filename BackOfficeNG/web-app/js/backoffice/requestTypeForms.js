@@ -27,6 +27,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
       { type: 'select', label: '...', value: 'insertvars', disabled: false,
         menu: [
           { text: '...', value:'0', checked: true },
+          { text: '(TS) Observations', value:'#{RQ_OBSERV}' },
           { text: '(TS) Identifiant', value:'#{RQ_ID}' },
           { text: '(TS) Label', value:'#{RQ_TP_LABEL}' },
           { text: '(TS) Saison', value:'#{RQ_SEASON}' },

@@ -87,7 +87,7 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
                     broker = keyBroker;
                 }
                 InternalInvoiceItem internalInvoiceItem =
-                        new InternalInvoiceItem("Demande de stationnement temporaire pour déménagement", amount,
+                        new InternalInvoiceItem("Demande numéro " + request.getId().toString() +" de stationnement temporaire pour déménagement", amount,
                             request.getId().toString(), // key
                             "libredemat", // keyOwner
                             broker, // nom du broker
