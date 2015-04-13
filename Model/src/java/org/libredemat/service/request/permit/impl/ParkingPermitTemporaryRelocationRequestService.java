@@ -14,7 +14,6 @@ import org.libredemat.exception.IXENoBrokerFindException;
 import org.libredemat.exception.IXEPaymentAllReadyExistException;
 import org.libredemat.service.payment.IPaymentService;
 import org.libredemat.service.payment.IRequestPaymentService;
-import org.libredemat.service.request.ILocalReferentialService;
 import org.libredemat.service.request.IRequestActionService;
 import org.libredemat.service.request.IRequestLockService;
 import org.libredemat.service.request.condition.EqualityChecker;
@@ -53,8 +52,7 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
         return new ParkingPermitTemporaryRelocationRequest();
     }
 
-    @Override
-    public void onRequestIssued(Request request) throws CvqException {
+    private void setPaymentIndicativeAmount(Request request) throws CvqException {
         ParkingPermitTemporaryRelocationRequest pptrRequest = (ParkingPermitTemporaryRelocationRequest) request;
         List<LocalReferentialData> desiredServiceData = pptrRequest.getDesiredService();
         if (desiredServiceData == null || desiredServiceData.isEmpty() || desiredServiceData.size() > 1) {
@@ -70,7 +68,18 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
     }
 
     @Override
+    public void onRequestIssued(Request request) throws CvqException {
+        setPaymentIndicativeAmount(request);
+    }
+
+    @Override
     public void onRequestModified(Request request) throws CvqException {
+        setPaymentIndicativeAmount(request);
+    }
+
+    @Override
+    public void onRequestRectified(Request request) throws CvqException {
+        setPaymentIndicativeAmount(request);
     }
 
     @Override

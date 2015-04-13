@@ -105,6 +105,8 @@ public interface IRequestService extends ApplicationListener<LibreDematEvent> {
      */
     void onRequestIssued(Request request) throws CvqException;
 
+    void onRequestRectified(Request request) throws CvqException;
+
     void onRequestModified(Request request) throws CvqException;
 
     void onRequestCompleted(Request request) throws CvqException;

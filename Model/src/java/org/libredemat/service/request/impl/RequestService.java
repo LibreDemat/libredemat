@@ -47,6 +47,10 @@ public abstract class RequestService implements IRequestService {
     }
 
     @Override
+    public void onRequestRectified(Request request) throws CvqException {
+    }
+
+    @Override
     public void onRequestModified(Request request) throws CvqException {
     }
 

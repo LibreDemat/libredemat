@@ -851,6 +851,9 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
         updateLastModificationInformation(request, date);
         request.setState(RequestState.RECTIFIED);
 
+        IRequestService requestService = requestServiceRegistry.getRequestService(request);
+        requestService.onRequestRectified(request);
+
         requestActionService.addWorfklowAction(request.getId(), note, date,
             RequestState.RECTIFIED, null);
 
