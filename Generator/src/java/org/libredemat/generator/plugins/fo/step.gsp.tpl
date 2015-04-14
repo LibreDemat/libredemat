@@ -254,8 +254,6 @@
          ,'requester' :
             """
             <label>\${requester.firstName} \${requester.lastName}</label>
-            <input type="hidden" value="\${requester.id}" id="requesterId" name="requesterId"
-              <g:if test="\${!rqt.requesterAddress}" > class='${element.autofillClass}' </g:if> />
             <br />
             """
          ,'label' :
