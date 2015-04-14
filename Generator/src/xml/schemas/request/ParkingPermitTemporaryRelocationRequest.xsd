@@ -18,9 +18,7 @@
                     <steps>
                         <step index="0" name="relocation">
                             <widgets>
-                                <requester>
-                                    <autofill name="requesterFilling" type="trigger" />
-                                </requester>
+                                <requester />
                             </widgets>
                             <conditions>
                                 <condition name="isCompany" />
@@ -101,7 +99,6 @@
                                     Adresse du déménagement
                                 </xs:documentation>
                                 <xs:appinfo>
-                                    <model namespace="users" isTiedToRequest="true" />
                                     <common>
                                         <step name="relocation" />
                                     </common>

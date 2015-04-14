@@ -5,8 +5,6 @@
     
     <label for="requester" class="required"><g:message code="request.property.requester.label" /> *  <span><g:message code="request.property.requester.help" /></span></label>
             <label>${requester.firstName} ${requester.lastName}</label>
-            <input type="hidden" value="${requester.id}" id="requesterId" name="requesterId"
-              <g:if test="${!rqt.requesterAddress}" > class='autofill-requesterFilling-trigger' </g:if> />
             <br />
             
 
