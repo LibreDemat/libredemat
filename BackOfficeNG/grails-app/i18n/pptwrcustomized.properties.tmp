@@ -1,0 +1,159 @@
+pptwr.duration.value =
+
+pptwr.property.subject.label = Sujet
+
+pptwr.step.work.label =
+pptwr.step.work.desc =
+pptwr.step.work.footer.help =
+
+pptwr.step.reglements.label =
+pptwr.step.reglements.desc =
+pptwr.step.reglements.footer.help =
+
+
+pptwr.property.isCompany.help =
+pptwr.property.isCompany.validationError =
+pptwr.property.isCompany.headerInformation =
+
+
+pptwr.property.companyInformation.help =
+pptwr.property.companyInformation.validationError =
+pptwr.property.companyInformation.headerInformation =
+
+
+pptwr.property.siretNumber.help =
+pptwr.property.siretNumber.validationError =
+pptwr.property.siretNumber.headerInformation =
+
+
+pptwr.property.apeCode.help =
+pptwr.property.apeCode.validationError =
+pptwr.property.apeCode.headerInformation =
+
+
+pptwr.property.desiredService.help =
+pptwr.property.desiredService.validationError =
+pptwr.property.desiredService.headerInformation =
+
+
+pptwr.property.desiredService.help =
+pptwr.property.desiredService.validationError =
+pptwr.property.desiredService.headerInformation =
+
+
+pptwr.property.parkingPermitForWorkInformation.help =
+pptwr.property.parkingPermitForWorkInformation.validationError =
+pptwr.property.parkingPermitForWorkInformation.headerInformation =
+
+
+pptwr.property.siteAddress.help =
+pptwr.property.siteAddress.validationError =
+pptwr.property.siteAddress.headerInformation =
+
+
+pptwr.property.workNature.help =
+pptwr.property.workNature.validationError =
+pptwr.property.workNature.headerInformation =
+
+
+pptwr.property.workOnBuilding.help =
+pptwr.property.workOnBuilding.validationError =
+pptwr.property.workOnBuilding.headerInformation =
+
+
+pptwr.property.constructLicenseNumber.help =
+pptwr.property.constructLicenseNumber.validationError =
+pptwr.property.constructLicenseNumber.headerInformation =
+
+
+pptwr.property.usedVehicles.help =
+pptwr.property.usedVehicles.validationError =
+pptwr.property.usedVehicles.headerInformation =
+
+
+pptwr.property.existingLicenseExtensionInformation.help =
+pptwr.property.existingLicenseExtensionInformation.validationError =
+pptwr.property.existingLicenseExtensionInformation.headerInformation =
+
+
+pptwr.property.referenceNumber.help =
+pptwr.property.referenceNumber.validationError =
+pptwr.property.referenceNumber.headerInformation =
+
+
+pptwr.property.scaffolding.help =
+pptwr.property.scaffolding.validationError =
+pptwr.property.scaffolding.headerInformation =
+
+
+pptwr.property.scaffoldingInformation.help =
+pptwr.property.scaffoldingInformation.validationError =
+pptwr.property.scaffoldingInformation.headerInformation =
+
+
+pptwr.property.scaffoldingLength.help =
+pptwr.property.scaffoldingLength.validationError =
+pptwr.property.scaffoldingLength.headerInformation =
+
+
+pptwr.property.scaffoldingStartDate.help =
+pptwr.property.scaffoldingStartDate.validationError =
+pptwr.property.scaffoldingStartDate.headerInformation =
+
+
+pptwr.property.scaffoldingEndDate.help =
+pptwr.property.scaffoldingEndDate.validationError =
+pptwr.property.scaffoldingEndDate.headerInformation =
+
+
+pptwr.property.vehicleParkingOrFloorOccupation.help =
+pptwr.property.vehicleParkingOrFloorOccupation.validationError =
+pptwr.property.vehicleParkingOrFloorOccupation.headerInformation =
+
+
+pptwr.property.vehicleParkingOrFloorOccupationInformation.help =
+pptwr.property.vehicleParkingOrFloorOccupationInformation.validationError =
+pptwr.property.vehicleParkingOrFloorOccupationInformation.headerInformation =
+
+
+pptwr.property.occupation.help =
+pptwr.property.occupation.validationError =
+pptwr.property.occupation.headerInformation =
+
+
+pptwr.property.occupationStartDate.help =
+pptwr.property.occupationStartDate.validationError =
+pptwr.property.occupationStartDate.headerInformation =
+
+
+pptwr.property.occupationEndDate.help =
+pptwr.property.occupationEndDate.validationError =
+pptwr.property.occupationEndDate.headerInformation =
+
+
+pptwr.property.observations.help =
+pptwr.property.observations.validationError =
+pptwr.property.observations.headerInformation =
+
+
+pptwr.property.acceptationReglementInterieur.help =
+pptwr.property.acceptationReglementInterieur.validationError =
+pptwr.property.acceptationReglementInterieur.headerInformation =
+
+
+pptwr.property.observationsReglement.help =
+pptwr.property.observationsReglement.validationError =
+pptwr.property.observationsReglement.headerInformation =
+
+
+pptwr.property.payment.help =
+pptwr.property.payment.validationError =
+pptwr.property.payment.headerInformation =
+
+
+
+pptwr.step.homeFolder.label = Compte famille
+pptwr.step.homeFolder.desc = Composition de votre compte famille
+
+pptwr.incitationText.desc = <span style="font-weight: bold;">Avant de continuer votre demande, merci de :</span><br /> - vérifier l''exactitude des informations de votre compte et des membres qui le compose<br /> - compléter votre compte en ajoutant tous les membres de votre famille (responsables légaux et enfants).<br /><br /><a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)
+pptwr.incitationText.desc2 = <a href="{0}">Je souhaite accéder à mon compte pour le mettre à jour.</a><br /><span style="font-style: italic; font-size: 0.9em;">(Vous pourrez reprendre votre demande après avoir mis à jour votre compte.)</span>

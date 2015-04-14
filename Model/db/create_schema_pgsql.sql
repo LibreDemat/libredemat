@@ -332,6 +332,9 @@
     alter table parking_permit_temporary_relocation_request_desired_service 
         drop constraint FKBC299F54801C7F07;
 
+    alter table parking_permit_temporary_work_request 
+        drop constraint FK40BE34ECFC859B01;
+
     alter table perischool_activity_registration_request 
         drop constraint FK76BAA59A37A0DD36;
 
@@ -713,6 +716,8 @@
     drop table parking_permit_temporary_relocation_request cascade;
 
     drop table parking_permit_temporary_relocation_request_desired_service cascade;
+
+    drop table parking_permit_temporary_work_request cascade;
 
     drop table payment cascade;
 
@@ -2317,6 +2322,34 @@
         primary key (parking_permit_temporary_relocation_request_id, desired_service_index)
     );
 
+    create table parking_permit_temporary_work_request (
+        id int8 not null,
+        acceptation_reglement_interieur bool,
+        ape_code varchar(5),
+        construct_license_number varchar(255),
+        desired_service varchar(255),
+        is_company bool,
+        observations varchar(255),
+        observations_reglement varchar(255),
+        occupation float8,
+        occupation_end_date timestamp,
+        occupation_start_date timestamp,
+        payment_indicative_amount varchar(255),
+        reference_number varchar(255),
+        scaffolding bool,
+        scaffolding_end_date timestamp,
+        scaffolding_length bytea,
+        scaffolding_start_date timestamp,
+        siret_number varchar(14),
+        site_address varchar(255),
+        used_vehicles varchar(255),
+        vehicle_parking_or_floor_occupation bool,
+        work_nature varchar(255),
+        work_on_building bool,
+        payment_id int8,
+        primary key (id)
+    );
+
     create table payment (
         id int8 not null,
         amount float8,
@@ -3678,6 +3711,11 @@
         add constraint FKBC299F54801C7F07 
         foreign key (parking_permit_temporary_relocation_request_id) 
         references parking_permit_temporary_relocation_request;
+
+    alter table parking_permit_temporary_work_request 
+        add constraint FK40BE34ECFC859B01 
+        foreign key (payment_id) 
+        references payment;
 
     alter table perischool_activity_registration_request 
         add constraint FK76BAA59A37A0DD36 

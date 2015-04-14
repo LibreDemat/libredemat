@@ -239,4 +239,9 @@
     <xb:package>org.libredemat.xml.request.permit</xb:package>
   </xb:namespace>
    
+  <!-- Parking Permit Temporary Work Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/pptwr">
+    <xb:package>org.libredemat.xml.request.permit</xb:package>
+  </xb:namespace>
+   
 </xb:config>

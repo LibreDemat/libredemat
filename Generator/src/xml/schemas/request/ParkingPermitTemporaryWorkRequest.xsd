@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="http://www.libredemat.org/schema/pptwr"
+           xmlns:pptwr="http://www.libredemat.org/schema/pptwr"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cvq="http://www.libredemat.org/schema/common"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://www.libredemat.org/schema/common" schemaLocation="../common/CVQCommonElements.xsd" />
+
+    <xs:element name="ParkingPermitTemporaryWorkRequest">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                Demande de permis de stationnement provisoire pour travaux
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                Permis de stationnement provisoire pour travaux
+            </xs:documentation>
+            <xs:appinfo>
+                <model namespace="permit" />
+                <common>
+                    <namespace name="permit" />
+                    <steps>
+                        <step index="0" name="work">
+                            <widgets>
+                                <requester />
+                            </widgets>
+                            <conditions>
+                                <condition name="isCompany" />
+                                <condition name="desiredService" />
+                                <condition name="workOnBuilding" />
+                                <condition name="scaffolding" />
+                                <condition name="vehicleParkingOrFloorOccupation" />
+                            </conditions>
+                        </step>
+                        <step index="1" name="reglements" />
+                        <step index="2" ref="validation" />
+                        <step index="3" ref="paiement" />
+                    </steps>
+                </common>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="cvq:RequestType">
+                    <xs:sequence>
+                        <xs:element name="IsCompany" type="xs:boolean" default="true">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Êtes-vous une entreprise ?
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Êtes-vous une entreprise ?
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="isCompany" type="trigger" />
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="CompanyInformation" type="pptwr:PptwrCompanyInformationType">
+                            <xs:annotation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="isCompany" type="filled" required="true" />
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="DesiredService" type="pptwr:DesiredServiceType" default="ParkingPermitForWork">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Prestation souhaitée
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Prestation souhaitée
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="desiredService" type="trigger" />
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ParkingPermitForWorkInformation" type="pptwr:ParkingPermitForWorkInformationType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Information en cas de permis de stationnement pour travaux
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Information en cas de permis de stationnement pour travaux
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="desiredService" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ExistingLicenseExtensionInformation" type="pptwr:ExistingLicenseExtensionInformationType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Information en cas d'extension pour un permis déjà existant
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Information en cas d'extension pour un permis déjà existant
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="desiredService" type="unfilled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Scaffolding" type="xs:boolean" default="true">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Échafaudage
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Échafaudage
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="scaffolding" type="trigger"/>
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ScaffoldingInformation" type="pptwr:ScaffoldingInformationType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Informations en cas de présence d'un échafaudage
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Informations en cas de présence d'un échafaudage
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="scaffolding" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="VehicleParkingOrFloorOccupation" type="xs:boolean" default="true">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Stationnement d’un véhicule ou occupation au sol
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Stationnement d’un véhicule ou occupation au sol
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="vehicleParkingOrFloorOccupation" type="trigger"/>
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="VehicleParkingOrFloorOccupationInformation" type="pptwr:VehicleParkingOrFloorOccupationInformationType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Informations en cas de stationnnement d'un véhicule ou d'une occupation au sol
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Informations en cas de stationnnement d'un véhicule ou d'une occupation au sol
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                        <conditions>
+                                            <condition name="vehicleParkingOrFloorOccupation" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <pdf/>
+                                    <fo />
+                                    <bo column="1" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Observations" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Observations ou compléments
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Observations ou compléments
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="work" />
+                                    </common>
+                                    <pdf/>
+                                    <fo>
+                                        <textarea rows="3" />
+                                    </fo>
+                                    <bo column="2">
+                                        <textarea rows="3" />
+                                    </bo>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AcceptationReglementInterieur" type="cvq:AcceptanceType" default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    J'accepte et je m'engage à respecter le règlement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    J'accepte et je m'engage à respecter le règlement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="reglements" />
+                                    </common>
+                                    <fo>
+                                        <checkbox/>
+                                    </fo>
+                                    <bo column="1" />
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ObservationsReglement" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Observations
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Observations
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="reglements" />
+                                    </common>
+                                    <pdf/>
+                                    <fo>
+                                        <textarea rows="3" />
+                                        <headerInformation />
+                                    </fo>
+                                    <bo column="2">
+                                        <textarea rows="3" />
+                                    </bo>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Payment" type="cvq:PaymentType" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">Activer un paiement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">Activer un paiement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <model namespace="payment" isTiedToRequest="true" />
+                                    <common>
+                                        <step name="paiement" />
+                                    </common>
+                                    <bo column="1" specificEditField="${rqt.payment != null AND rqt.payment.state.name == 'Validated' ? '' : 'action-editField'}" />
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="PaymentIndicativeAmount" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Montant indicatif du paiement
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Montant indicatif du paiement
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="paiement" />
+                                    </common>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="PptwrCompanyInformationType">
+        <xs:sequence>
+            <xs:element name="SiretNumber">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Numéro de SIRET
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Numéro de SIRET
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                            <conditions>
+                                <condition name="isCompany" type="filled" required="true" />
+                            </conditions>
+                            <validation jsregexp="^[0-9]{14}$" />
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="1" />
+                    </xs:appinfo>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{14}$" />
+                        <xs:maxLength value="14" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ApeCode">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Code APE
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Code APE
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                            <conditions>
+                                <condition name="isCompany" type="filled" required="true" />
+                            </conditions>
+                            <validation jsregexp="^[0-9]{4}[a-zA-Z]{1}$" />
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="1" />
+                    </xs:appinfo>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{4}[a-zA-Z]{1}$" />
+                        <xs:maxLength value="5" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="DesiredServiceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                Prestation souhaitée
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                Prestation souhaitée
+            </xs:documentation>
+            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
+                <enum key="ParkingPermitForWork" value="Permis de stationnement pour travaux" />
+                <enum key="ExistingLicenseExtension" value="Extension pour un permis déjà existant" />
+            </xs:documentation>
+            <xs:appinfo>
+                <common>
+                    <step name="work" />
+                </common>
+                <fo />
+                <bo column="1" />
+                <pdf/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ParkingPermitForWork" />
+            <xs:enumeration value="ExistingLicenseExtension" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ParkingPermitForWorkInformationType">
+        <xs:sequence>
+            <xs:element name="SiteAddress" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Adresse du chantier
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Adresse du chantier
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo >
+                            <textarea rows="3" />
+                        </fo>
+                        <bo column="2" >
+                            <textarea rows="3" />
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkNature" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Nature des travaux
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Nature des travaux
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo >
+                            <textarea rows="3" />
+                        </fo>
+                        <bo column="2" >
+                            <textarea rows="3" />
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WorkOnBuilding" type="xs:boolean" default="true">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Travaux sur bâtiment
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Travaux sur bâtiment
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                            <conditions>
+                                <condition name="workOnBuilding" type="trigger" />
+                            </conditions>
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="2" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ConstructLicenseNumber" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Numéro de permis de construire
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Numéro de permis de construire
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                            <conditions>
+                                <condition name="workOnBuilding" type="filled" required="true" />
+                            </conditions>
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="2" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="UsedVehicles" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Engins ou véhicules utilisés
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Engins ou véhicules utilisés
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="2" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ExistingLicenseExtensionInformationType">
+        <xs:sequence>
+            <xs:element name="ReferenceNumber" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Numéro du téléservice de référence
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Numéro du téléservice de référence
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="2" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ScaffoldingInformationType">
+        <xs:sequence>
+            <xs:element name="ScaffoldingLength" type="xs:positiveInteger">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Longueur de l'échafaudage (en ml)
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Longueur de l'échafaudage (en ml)
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="2" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ScaffoldingStartDate" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Date de début
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Date de début
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo>
+                            <calendar />
+                        </fo>
+                        <bo column="2">
+                            <calendar/>
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ScaffoldingEndDate" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Date de fin
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Date de fin
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo>
+                            <calendar notBeforeDate="scaffoldingStartDate" disabledWith="scaffoldingStartDate" />
+                        </fo>
+                        <bo column="2">
+                            <calendar/>
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VehicleParkingOrFloorOccupationInformationType">
+        <xs:sequence>
+            <xs:element name="Occupation" type="xs:double">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Occupation (en m²)
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Occupation (en m²)
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo />
+                        <bo column="2" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OccupationStartDate" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Date de début
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Date de début
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo>
+                            <calendar />
+                        </fo>
+                        <bo column="2">
+                            <calendar/>
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OccupationEndDate" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Date de fin
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Date de fin
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo>
+                            <calendar notBeforeDate="occupationStartDate" disabledWith="occupationStartDate" />
+                        </fo>
+                        <bo column="2">
+                            <calendar/>
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
