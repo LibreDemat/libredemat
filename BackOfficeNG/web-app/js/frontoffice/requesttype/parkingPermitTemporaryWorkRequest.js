@@ -22,8 +22,9 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
 
     var getMinDate = function (target) {
       var classes = yud.getAttribute(target, "class").split(" ");
-      //var mindate = getDate(zenexity.libredemat.pptwrSpecificConfigurationData.minDaysBeforeRelocation);
-      var mindate = getDate(5);
+      var mindate = target.id === 'scaffoldingStartDateShow' ? 
+        getDate(zenexity.libredemat.pptwrSpecificConfigurationData.minDaysBeforeScaffolding) :
+        getDate(zenexity.libredemat.pptwrSpecificConfigurationData.minDaysBeforeFloorOccupation);
       for (var i = 0; i < classes.length; i++) {
         if (classes[i].indexOf('notBeforeDate_') > -1) {
           var inputLabel = classes[i].split("_")[1];
