@@ -902,12 +902,10 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 		<property name="supportUnregisteredCreation" value="false" />
 		<property name="defaultDisplayGroup" value="permit" />
 		<property name="filingDelay" value="12" />
-        <!--
 		<property name="paymentService" ref="paymentService" />
 		<property name="requestActionService" ref="requestActionService" />
 		<property name="requestLockService" ref="requestLockService" />
 		<property name="userSearchService" ref="userSearchService" />
-        -->
 	</bean>
 
   <bean id="conflansMunicipalWasteRequestService"

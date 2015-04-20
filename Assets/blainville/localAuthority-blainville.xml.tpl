@@ -103,6 +103,7 @@
                                 <value>Ticket Booking</value>
                                 <value>Perischool Activity Registration</value>
                                 <value>Child Care Registration</value>
+                                <value>Parking Permit Temporary Work</value>
                             </list>
                         </property>
                     </bean>
