@@ -57,38 +57,6 @@
             
               
               <dl>
-                <dt class="required condition-desiredService-trigger">${message(code:'pptwr.property.desiredService.label')} &nbsp;*&nbsp;:</dt><dd id="desiredService" class="action-editField validate-libredematEnum required-true i18n-pptwr.property.desiredService javatype-org.libredemat.business.request.permit.DesiredServiceType" ><g:libredematEnumToField var="${rqt?.desiredService}" i18nKeyPrefix="pptwr.property.desiredService" /></dd>
-              </dl>
-              
-            
-              
-              <h3><g:message code="pptwr.property.parkingPermitForWorkInformation.label" /></h3>
-              <dl class="required condition-desiredService-filled">
-                
-                  <dt class="required">${message(code:'pptwr.property.siteAddress.label')} &nbsp;*&nbsp;:</dt><dd id="siteAddress" class="action-editField validate-textarea required-true i18n-pptwr.property.siteAddress rows-3" ><span>${rqt?.siteAddress}</span></dd>
-                
-                  <dt class="required">${message(code:'pptwr.property.workNature.label')} &nbsp;*&nbsp;:</dt><dd id="workNature" class="action-editField validate-textarea required-true i18n-pptwr.property.workNature rows-3" ><span>${rqt?.workNature}</span></dd>
-                
-                  <dt class="required condition-workOnBuilding-trigger">${message(code:'pptwr.property.workOnBuilding.label')} &nbsp;*&nbsp;:</dt><dd id="workOnBuilding" class="action-editField validate-boolean required-true i18n-pptwr.property.workOnBuilding" ><span class="value-${rqt?.workOnBuilding}"><g:message code="${rqt?.workOnBuilding ? 'message.yes' : rqt?.workOnBuilding==null ? '' : 'message.no'}" /></span></dd>
-                
-                  <dt class="required condition-workOnBuilding-filled">${message(code:'pptwr.property.constructLicenseNumber.label')} &nbsp;*&nbsp;:</dt><dd id="constructLicenseNumber" class="action-editField validate-string required-true i18n-pptwr.property.constructLicenseNumber" ><span>${rqt?.constructLicenseNumber}</span></dd>
-                
-                  <dt class="">${message(code:'pptwr.property.usedVehicles.label')} &nbsp;:</dt><dd id="usedVehicles" class="action-editField validate-string i18n-pptwr.property.usedVehicles" ><span>${rqt?.usedVehicles}</span></dd>
-                
-              </dl>
-              
-            
-              
-              <h3><g:message code="pptwr.property.existingLicenseExtensionInformation.label" /></h3>
-              <dl class="required condition-desiredService-unfilled">
-                
-                  <dt class="required">${message(code:'pptwr.property.referenceNumber.label')} &nbsp;*&nbsp;:</dt><dd id="referenceNumber" class="action-editField validate-string required-true i18n-pptwr.property.referenceNumber" ><span>${rqt?.referenceNumber}</span></dd>
-                
-              </dl>
-              
-            
-              
-              <dl>
                 <dt class="required condition-scaffolding-trigger">${message(code:'pptwr.property.scaffolding.label')} &nbsp;*&nbsp;:</dt><dd id="scaffolding" class="action-editField validate-boolean required-true i18n-pptwr.property.scaffolding" ><span class="value-${rqt?.scaffolding}"><g:message code="${rqt?.scaffolding ? 'message.yes' : rqt?.scaffolding==null ? '' : 'message.no'}" /></span></dd>
               </dl>
               
@@ -130,6 +98,38 @@
           
           <!-- column start -->
           <div class="yui-u">
+            
+              
+              <dl>
+                <dt class="required condition-desiredService-trigger">${message(code:'pptwr.property.desiredService.label')} &nbsp;*&nbsp;:</dt><dd id="desiredService" class="action-editField validate-libredematEnum required-true i18n-pptwr.property.desiredService javatype-org.libredemat.business.request.permit.DesiredServiceType" ><g:libredematEnumToField var="${rqt?.desiredService}" i18nKeyPrefix="pptwr.property.desiredService" /></dd>
+              </dl>
+              
+            
+              
+              <h3><g:message code="pptwr.property.parkingPermitForWorkInformation.label" /></h3>
+              <dl class="required condition-desiredService-filled">
+                
+                  <dt class="required">${message(code:'pptwr.property.siteAddress.label')} &nbsp;*&nbsp;:</dt><dd id="siteAddress" class="action-editField validate-textarea required-true i18n-pptwr.property.siteAddress rows-3" ><span>${rqt?.siteAddress}</span></dd>
+                
+                  <dt class="required">${message(code:'pptwr.property.workNature.label')} &nbsp;*&nbsp;:</dt><dd id="workNature" class="action-editField validate-textarea required-true i18n-pptwr.property.workNature rows-3" ><span>${rqt?.workNature}</span></dd>
+                
+                  <dt class="required condition-workOnBuilding-trigger">${message(code:'pptwr.property.workOnBuilding.label')} &nbsp;*&nbsp;:</dt><dd id="workOnBuilding" class="action-editField validate-boolean required-true i18n-pptwr.property.workOnBuilding" ><span class="value-${rqt?.workOnBuilding}"><g:message code="${rqt?.workOnBuilding ? 'message.yes' : rqt?.workOnBuilding==null ? '' : 'message.no'}" /></span></dd>
+                
+                  <dt class="required condition-workOnBuilding-filled">${message(code:'pptwr.property.constructLicenseNumber.label')} &nbsp;*&nbsp;:</dt><dd id="constructLicenseNumber" class="action-editField validate-string required-true i18n-pptwr.property.constructLicenseNumber" ><span>${rqt?.constructLicenseNumber}</span></dd>
+                
+                  <dt class="">${message(code:'pptwr.property.usedVehicles.label')} &nbsp;:</dt><dd id="usedVehicles" class="action-editField validate-string i18n-pptwr.property.usedVehicles" ><span>${rqt?.usedVehicles}</span></dd>
+                
+              </dl>
+              
+            
+              
+              <h3><g:message code="pptwr.property.existingLicenseExtensionInformation.label" /></h3>
+              <dl class="required condition-desiredService-unfilled">
+                
+                  <dt class="required">${message(code:'pptwr.property.referenceNumber.label')} &nbsp;*&nbsp;:</dt><dd id="referenceNumber" class="action-editField validate-string required-true i18n-pptwr.property.referenceNumber" ><span>${rqt?.referenceNumber}</span></dd>
+                
+              </dl>
+              
             
               
               <dl>

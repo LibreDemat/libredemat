@@ -67,6 +67,12 @@
                         </xs:element>
                         <xs:element name="CompanyInformation" type="pptwr:PptwrCompanyInformationType">
                             <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Informations relatives à l'entreprise
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Informations relatives à l'entreprise
+                                </xs:documentation>
                                 <xs:appinfo>
                                     <common>
                                         <step name="work" />
@@ -97,7 +103,7 @@
                                     </common>
                                     <pdf/>
                                     <fo />
-                                    <bo column="1" />
+                                    <bo column="2" />
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
@@ -118,7 +124,7 @@
                                     </common>
                                     <pdf/>
                                     <fo />
-                                    <bo column="1" />
+                                    <bo column="2" />
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
@@ -139,7 +145,7 @@
                                     </common>
                                     <pdf/>
                                     <fo />
-                                    <bo column="1" />
+                                    <bo column="2" />
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
@@ -406,7 +412,7 @@
                     <step name="work" />
                 </common>
                 <fo />
-                <bo column="1" />
+                <bo column="2" />
                 <pdf/>
             </xs:appinfo>
         </xs:annotation>
@@ -631,7 +637,7 @@
                         </common>
                         <pdf/>
                         <fo />
-                        <bo column="2" />
+                        <bo column="1" />
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
@@ -651,7 +657,7 @@
                         <fo>
                             <calendar />
                         </fo>
-                        <bo column="2">
+                        <bo column="1">
                             <calendar/>
                         </bo>
                     </xs:appinfo>
@@ -673,7 +679,7 @@
                         <fo>
                             <calendar notBeforeDate="occupationStartDate" disabledWith="occupationStartDate" />
                         </fo>
-                        <bo column="2">
+                        <bo column="1">
                             <calendar/>
                         </bo>
                     </xs:appinfo>
