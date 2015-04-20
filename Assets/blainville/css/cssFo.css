@@ -237,6 +237,8 @@ form textarea { border-top-color: #ccc !important; }
 #request .steps li { -moz-border-radius: 0 !important; border-radius: 0 !important; }
 #request .steps li.current { margin-left: -.5em !important; }
 
+#request div.footer-information, #request div.header-information { border-color: #4EC9EA; }
+
 /* document and activities
  * ----------------------------------------------------- */
 

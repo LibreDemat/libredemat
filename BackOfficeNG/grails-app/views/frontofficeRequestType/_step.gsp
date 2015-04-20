@@ -139,6 +139,11 @@
         <span class="error">${rqt.stepStates[currentStep]?.errorMsg}</span>
       </h3>
       <p class="required-fields-notice">${message(code:'request.message.requiredFieldsNotice')}</p>
+      <g:if test="${message(code:requestTypeAcronym + '.step.' + currentStep + '.header.help') != requestTypeAcronym + '.step.' + currentStep + '.header.help'}">
+        <div class="header-information">
+          ${message(code:requestTypeAcronym + '.step.' + currentStep + '.header.help')}
+        </div>
+      </g:if>
       <div>
        <g:render template="/frontofficeRequestType/${requestTypeLabelAsDir}/${currentStep}${currentCollection ? '-' + currentCollection : ''}" />
       </div>
@@ -146,9 +151,11 @@
         <form method="post" id="stepForm" action="${createLink(controller:'frontofficeRequest', action:'edit')}">
       </g:if>
       <div class="error" id="stepForm-error"> </div>
-      <div class="footer-information">
-        ${message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help') == requestTypeAcronym + ".step." + currentStep + ".footer.help" ? "" : message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help')}
-      </div>
+      <g:if test="${message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help') != requestTypeAcronym + '.step.' + currentStep + '.footer.help'}">
+        <div class="footer-information">
+          ${message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help')}
+        </div>
+      </g:if>
       <input type="hidden" name="returnUrl" value="${returnUrl}" />
       <input type="hidden" name="id" value="${rqt.id}" />
       <input type="hidden" name="currentStep" value="${currentStep}" />

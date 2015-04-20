@@ -294,8 +294,10 @@ a.link-agent          { color: #EA3D1A; }
 /* misc information
 --------------------------------------------------------------*/
 
-#request div.footer-information {
-  margin-bottom: 2em;
+#request div.footer-information, #request div.header-information {
+  margin: 1em 0 1em 0;
+  padding: 0.5em;
+  border: 1px solid #4EC9EA;
 }
 
 /* notices

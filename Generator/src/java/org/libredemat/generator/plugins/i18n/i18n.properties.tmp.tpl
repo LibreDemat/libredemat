@@ -4,6 +4,7 @@ ${acronym}.property.subject.label = Sujet
 <% steps.each { %>
 ${acronym}.step.${it.name}.label =
 ${acronym}.step.${it.name}.desc =
+${acronym}.step.${it.name}.header.help =
 ${acronym}.step.${it.name}.footer.help =
 <% } %>
 <% elements.each { %>

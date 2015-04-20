@@ -4,10 +4,12 @@ pptwr.property.subject.label = Sujet
 
 pptwr.step.work.label =
 pptwr.step.work.desc =
+pptwr.step.work.header.help =
 pptwr.step.work.footer.help =
 
 pptwr.step.reglements.label =
 pptwr.step.reglements.desc =
+pptwr.step.reglements.header.help =
 pptwr.step.reglements.footer.help =
 
 
