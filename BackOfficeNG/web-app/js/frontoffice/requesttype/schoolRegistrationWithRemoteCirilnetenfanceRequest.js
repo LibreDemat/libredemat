@@ -25,6 +25,18 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         zct.alterer.toDropDown('SchoolName', zcfr.SchoolWithRemoteCirilnetenfanceRequest.schools, 'section')
       },
 
+      initSections: function() {
+          if (yud.get('subjectId').value === '') {
+              yud.get('section').setAttribute('disabled','disabled');
+              yud.get('idSchoolName').value = "";
+              for (i=1;i< yud.get('idSchoolName').length;  i++) {
+                  yud.get('idSchoolName').remove(i);
+              }
+          } else {
+              yud.get('section').removeAttribute('disabled');
+          }
+      },
+
       initConditions : function() {
 
         yue.on(
@@ -48,7 +60,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       init : function() {
         // Switch on step name.
         if (yus.query('div.form', 'request', true).id == "registration")  {
-            yud.get('section').setAttribute('disabled','disabled');
+            zcfr.SchoolWithRemoteCirilnetenfanceRequest.initSections();
             zcfr.SchoolWithRemoteCirilnetenfanceRequest.initConditions()
             zcfr.SchoolWithRemoteCirilnetenfanceRequest.altererSchoolsName()
             yud.get('idSchoolName').remove(1);
