@@ -133,7 +133,11 @@ class BackofficeRequestTypeController {
         } else if (requestType.label == 'Parking Permit Temporary Relocation') {
             result["configurationItems"]["parkingPermitTemporaryRelocation"] =
                     ["requestType.configuration.parkingPermitTemporaryRelocation", true]
+        } else if (requestType.label == 'Parking Permit Temporary Work') {
+            result["configurationItems"]["parkingPermitTemporaryWork"] =
+                    ["requestType.configuration.parkingPermitTemporaryWork", true]
         }
+
         return result
     }
 
@@ -688,6 +692,43 @@ class BackofficeRequestTypeController {
     def savePptrrDates = {
         def requestType = requestTypeService.getRequestTypeById(params.long('id'))
         requestType.addSpecificConfigurationData('minDaysBeforeRelocation', params.minDaysBeforeRelocation)
+        requestTypeService.modifyRequestType(requestType)
+
+        render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+    }
+
+    /* Parking Permit Temporary Work
+      * --------------------------------------------------------------------- */
+
+    def parkingPermitTemporaryWork = {
+        def requestType = requestTypeService.getRequestTypeById(params.long('id'))
+        def specificConfigurationData = requestType.getSpecificConfigurationDataAsJson()
+
+        render(view: 'configure',
+                model: ['scaffoldingPrice': specificConfigurationData.get('scaffoldingPrice'),
+                        'floorOccupationPrice': specificConfigurationData.get('floorOccupationPrice'),
+                        'fixedChargePrice': specificConfigurationData.get('fixedChargePrice'),
+                        'exceedingPrice': specificConfigurationData.get('exceedingPrice'),
+                        'minDaysBeforeScaffolding': specificConfigurationData.get('minDaysBeforeScaffolding'),
+                        'minDaysBeforeFloorOccupation': specificConfigurationData.get('minDaysBeforeFloorOccupation')
+                ].plus(getCommonModel(requestType)))
+    }
+
+    def savePptwrPrices = {
+        def requestType = requestTypeService.getRequestTypeById(params.long('id'))
+        requestType.addSpecificConfigurationData('scaffoldingPrice', params.scaffoldingPrice)
+        requestType.addSpecificConfigurationData('floorOccupationPrice', params.floorOccupationPrice)
+        requestType.addSpecificConfigurationData('fixedChargePrice', params.fixedChargePrice)
+        requestType.addSpecificConfigurationData('exceedingPrice', params.exceedingPrice)
+        requestTypeService.modifyRequestType(requestType)
+
+        render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
+    }
+
+    def savePptwrDates = {
+        def requestType = requestTypeService.getRequestTypeById(params.long('id'))
+        requestType.addSpecificConfigurationData('minDaysBeforeScaffolding', params.minDaysBeforeScaffolding)
+        requestType.addSpecificConfigurationData('minDaysBeforeFloorOccupation', params.minDaysBeforeFloorOccupation)
         requestTypeService.modifyRequestType(requestType)
 
         render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
