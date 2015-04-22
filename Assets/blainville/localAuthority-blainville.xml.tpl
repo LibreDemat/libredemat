@@ -63,7 +63,6 @@
                                 <value>Recreation Activity Registration</value>
                                 <value>Recreation Activity Poly Registration</value>
                                 <value>Child Care Center Registration</value>
-                                <value>Parking Permit Temporary Relocation</value>
                             </list>
                         </property>
                         <property name="serviceProperties">
