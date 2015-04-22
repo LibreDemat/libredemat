@@ -335,6 +335,7 @@ class FrontofficeRequestController {
             'helps': localAuthorityRegistry.getBufferedCurrentLocalAuthorityRequestHelpMap(requestTypeLabelAsDir),
             'availableRules' : localAuthorityRegistry.getLocalAuthorityRules(requestTypeLabelAsDir),
             'customJS' : requestTypeAdaptorService.getCustomJS(rqt.requestType.label),
+            'customCSS' : requestTypeAdaptorService.getCustomCSS(rqt.requestType.label),
             'specificConfigurationData': rqt.requestType.getSpecificConfigurationDataAsJson(),
             "subjectPolicy" : requestTypeService.getSubjectPolicy(rqt.requestType.id),
             'customReferential' : requestServiceRegistry.getRequestService(rqt).getBusinessReferential(),

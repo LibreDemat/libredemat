@@ -18,6 +18,9 @@
     <g:if test="\${flash.addressesReferentialEnabled}">
         <link rel="stylesheet" type="text/css" href="\${resource(dir:'css/common', file:'autocomplete.css')}" />
     </g:if>
+    <g:if test="\${customCSS}">
+      <link rel="stylesheet" type="text/css" href="\${resource(dir:customCSS.dir,file:customCSS.file)}" />
+    </g:if>
     <script type="text/javascript" src="\${resource(dir:'js/frontoffice',file:'homeFolder.js')}"></script>
     <script type="text/javascript" src="\${resource(dir:'js/frontoffice',file:'requestCreation.js')}"></script>
     <script type="text/javascript" src="\${resource(dir:'js/frontoffice',file:'condition.js')}"></script>

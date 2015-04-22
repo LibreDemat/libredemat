@@ -148,6 +148,16 @@ public class RequestTypeAdaptorService {
         return null
     }
 
+    public Map getCustomCSS(requestTypeLabel) {
+        def customCSS = [
+                dir : "css/frontoffice/requesttype",
+                file : LibredematUtils.requestTypeLabelAsDir(requestTypeLabel) + ".css"
+        ]
+        if (ServletContextHolder.servletContext.getResource(["", customCSS.dir, customCSS.file].join('/')) != null)
+            return customCSS
+        return null
+    }
+
     public String generateAcronym(label) {
         def acronym = ''
         label.split(' ').each {
