@@ -402,7 +402,7 @@
     </g:each>
     </div>
   <% } else if (element.typeClass == "COMPLEX") { %>
-    <fieldset class="${element.listenerConditionsClass}">
+    <fieldset class="${element.listenerConditionsClass}" id="${element.name}">
     <legend><g:message code="${element.i18nPrefixCode}.label" /></legend>
     <% element.elements.each { subElement -> %>
       <% if (subElement.isHeaderInformationActivated()) { %>
