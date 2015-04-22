@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocalReferential xmlns="http://www.libredemat.org/schema/referential">
+    <data name="DesiredService" allowMultipleChoices="false" allowRadioChoice="true" manager="LibreDémat">
+        <label>Prestation souhaitée</label>
+        <entries>
+            <entry key="Permis-de-stationnement-provisoire-pour-travaux">
+                <label>Permis de stationnement provisoire pour travaux</label>
+                <message>Une estimation dynamique du tarif sera générée en fonction des prestations demandées.</message>
+                <externalCode/>
+            </entry>
+            <entry key="Extension-pour-un-permis-de-ja--existant">
+                <label>Extension pour un permis déjà existant</label>
+                <message>Vos travaux durent plus longtemps que prévu ? La surface occupée est plus importante que celle déclarée dans votre précédent téléservice ? Vous pouvez choisir cette option pour préciser le numéro du téléservice de référence.</message>
+                <externalCode/>
+            </entry>
+        </entries>
+    </data>
+</LocalReferential>

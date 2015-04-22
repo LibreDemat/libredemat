@@ -23,7 +23,7 @@
   </ul>
 </g:if>
 <g:elseif test="${lrTypes[javaName].isRadio()}">
-	<ul class="${depth==0 ? 'dataTree ' + htmlClass : ''}${stepStates != null && stepStates[currentStep]?.invalidFields?.contains(javaName) ? 'validation-failed' : ''}">
+	<ul class="${depth==0 ? 'dataTree required' : ''}${stepStates != null && stepStates[currentStep]?.invalidFields?.contains(javaName) ? 'validation-failed' : ''}">
   <g:each var="entry" in="${lrEntries}">
     <g:if test="${entry.entries}">
       <li>
@@ -36,7 +36,7 @@
       <li>
       <input type="hidden" name="_${javaName}[${flash[javaName+'Index']}].name" value="" />
       <input type="radio" id="${javaName}.[${flash[javaName+'Index']}].name" name="${javaName}[0].name" value="${entry.key}"
-          class="${flash[javaName+'Index'] == 0 ? htmlClass : htmlClass.replace('required','') } ${flash[javaName+'Index'] == 0 ? 'validate-localReferentialData' : '' }" title="${message(code: i18nPrefixCode +'.validationError')}"
+          class="${flash[javaName+'Index'] == 0 ? htmlClass : htmlClass.replace('required','') } ${flash[javaName+'Index'] == 0 ? 'validate-localReferentialData' : '' } data-localReferentialData" title="${message(code: i18nPrefixCode +'.validationError')}"
           ${currentLrDatas?.contains(entry.key) ? 'checked="checked"' : flash[javaName+'Index'] == 0 ? 'checked="checked"' : ''} />
       <label for="${javaName}.[${flash[javaName+'Index']++}].name">${entry.label}</label> ${entry.message ? ' : ' + entry.message : ''}
       </li>

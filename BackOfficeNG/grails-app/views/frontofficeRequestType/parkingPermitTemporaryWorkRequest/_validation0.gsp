@@ -39,9 +39,8 @@
       <dl>
         <dt><g:message code="pptwr.property.desiredService.label" /></dt>
           <dd>
-            <g:if test="${rqt.desiredService}">
-              <g:libredematEnumToField var="${rqt.desiredService}" i18nKeyPrefix="pptwr.property.desiredService" />
-            </g:if>
+          <g:render template="/frontofficeRequestType/widget/localReferentialDataSummary" 
+                    model="['javaName':'desiredService', 'lrEntries': lrTypes.desiredService.entries, 'depth':0]" />
           </dd>
           
 
@@ -135,6 +134,9 @@
           <dt><g:message code="pptwr.property.occupationEndDate.label" /></dt>
           <dd><g:formatDate format="dd/MM/yyyy" date="${rqt.occupationEndDate}"/></dd>
           
+
+        
+          <dt><g:message code="pptwr.property.occupationOtherAddress.label" /></dt><dd>${rqt.occupationOtherAddress?.toString()}</dd>
 
         
       </dl>

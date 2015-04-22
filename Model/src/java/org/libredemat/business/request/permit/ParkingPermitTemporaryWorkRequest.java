@@ -119,8 +119,14 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
         ParkingPermitForWorkInformationType parkingPermitForWorkInformationTypeParkingPermitForWorkInformation = parkingPermitTemporaryWorkRequest.addNewParkingPermitForWorkInformation();
         parkingPermitForWorkInformationTypeParkingPermitForWorkInformation.setConstructLicenseNumber(getConstructLicenseNumber());
       
-        if (getDesiredService() != null)
-            parkingPermitTemporaryWorkRequest.setDesiredService(org.libredemat.xml.request.permit.DesiredServiceType.Enum.forString(getDesiredService().getLegacyLabel()));
+        i = 0;
+        if (getDesiredService() != null) {
+            org.libredemat.xml.common.LocalReferentialDataType[] desiredServiceTypeTab = new org.libredemat.xml.common.LocalReferentialDataType[getDesiredService().size()];
+            for (LocalReferentialData object : getDesiredService()) {
+              desiredServiceTypeTab[i++] = LocalReferentialData.modelToXml(object);
+            }
+            parkingPermitTemporaryWorkRequest.setDesiredServiceArray(desiredServiceTypeTab);
+        }
       
         if (getIsCompany() != null)
             parkingPermitTemporaryWorkRequest.setIsCompany(getIsCompany().booleanValue());
@@ -137,6 +143,8 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
             calendar.setTime(date);
             vehicleParkingOrFloorOccupationInformationTypeVehicleParkingOrFloorOccupationInformation.setOccupationEndDate(calendar);
         }
+      
+        vehicleParkingOrFloorOccupationInformationTypeVehicleParkingOrFloorOccupationInformation.setOccupationOtherAddress(getOccupationOtherAddress());
       
         date = getOccupationStartDate();
         if (date != null) {
@@ -205,10 +213,11 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
       
         parkingPermitTemporaryWorkRequest.setConstructLicenseNumber(parkingPermitTemporaryWorkRequestXml.getParkingPermitForWorkInformation().getConstructLicenseNumber());
       
-        if (parkingPermitTemporaryWorkRequestXml.getDesiredService() != null)
-            parkingPermitTemporaryWorkRequest.setDesiredService(org.libredemat.business.request.permit.DesiredServiceType.forString(parkingPermitTemporaryWorkRequestXml.getDesiredService().toString()));
-        else
-            parkingPermitTemporaryWorkRequest.setDesiredService(org.libredemat.business.request.permit.DesiredServiceType.getDefaultDesiredServiceType());
+        List<org.libredemat.business.request.LocalReferentialData> desiredServiceList = new ArrayList<org.libredemat.business.request.LocalReferentialData>(parkingPermitTemporaryWorkRequestXml.sizeOfDesiredServiceArray());
+        for (LocalReferentialDataType object : parkingPermitTemporaryWorkRequestXml.getDesiredServiceArray()) {
+            desiredServiceList.add(org.libredemat.business.request.LocalReferentialData.xmlToModel(object));
+        }
+        parkingPermitTemporaryWorkRequest.setDesiredService(desiredServiceList);
       
         parkingPermitTemporaryWorkRequest.setIsCompany(Boolean.valueOf(parkingPermitTemporaryWorkRequestXml.getIsCompany()));
       
@@ -222,6 +231,8 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
         if (calendar != null) {
             parkingPermitTemporaryWorkRequest.setOccupationEndDate(calendar.getTime());
         }
+      
+        parkingPermitTemporaryWorkRequest.setOccupationOtherAddress(parkingPermitTemporaryWorkRequestXml.getVehicleParkingOrFloorOccupationInformation().getOccupationOtherAddress());
       
         calendar = parkingPermitTemporaryWorkRequestXml.getVehicleParkingOrFloorOccupationInformation().getOccupationStartDate();
         if (calendar != null) {
@@ -328,12 +339,12 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
         return parkingPermitTemporaryWorkRequestData.getConstructLicenseNumber();
     }
   
-    public final void setDesiredService(final org.libredemat.business.request.permit.DesiredServiceType desiredService) {
+    public final void setDesiredService(final List<org.libredemat.business.request.LocalReferentialData> desiredService) {
         parkingPermitTemporaryWorkRequestData.setDesiredService(desiredService);
     }
 
     
-    public final org.libredemat.business.request.permit.DesiredServiceType getDesiredService() {
+    public final List<org.libredemat.business.request.LocalReferentialData> getDesiredService() {
         return parkingPermitTemporaryWorkRequestData.getDesiredService();
     }
   
@@ -380,6 +391,15 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
     
     public final java.util.Date getOccupationEndDate() {
         return parkingPermitTemporaryWorkRequestData.getOccupationEndDate();
+    }
+  
+    public final void setOccupationOtherAddress(final String occupationOtherAddress) {
+        parkingPermitTemporaryWorkRequestData.setOccupationOtherAddress(occupationOtherAddress);
+    }
+
+    
+    public final String getOccupationOtherAddress() {
+        return parkingPermitTemporaryWorkRequestData.getOccupationOtherAddress();
     }
   
     public final void setOccupationStartDate(final java.util.Date occupationStartDate) {

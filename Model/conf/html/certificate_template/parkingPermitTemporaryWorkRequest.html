@@ -166,10 +166,8 @@
   
     
       <p class="label">${esc(i18n.translate('pptwr.property.desiredService.label'))}</p>
-          <div class="response">
-            <% if(rqt.desiredService) { %>
-              ${esc(i18n.translate('pptwr.property.desiredService.' + EnumTool.toLowerCamelCase(rqt.desiredService.toString())))}
-            <% } %>
+          <div class="response choice">
+            <% localReferentialWidget(rqt, 'desiredService', lrTypes.desiredService.entries, 0) %>
           </div>
           
 
@@ -276,6 +274,9 @@
           <p class="label">${esc(i18n.translate('pptwr.property.occupationEndDate.label'))}</p>
           <div class="response">${rqt.occupationEndDate ? String.format('%td/%<tm/%<tY',rqt.occupationEndDate) : ''}</div>
           
+
+        
+          <p class="label">${esc(i18n.translate('pptwr.property.occupationOtherAddress.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.occupationOtherAddress?.toString()))}</div>
 
         
       </div>

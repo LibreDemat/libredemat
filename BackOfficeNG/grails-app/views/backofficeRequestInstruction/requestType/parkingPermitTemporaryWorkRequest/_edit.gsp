@@ -90,6 +90,8 @@
                 
                   <dt class="required">${message(code:'pptwr.property.occupationEndDate.label')} &nbsp;*&nbsp;:</dt><dd id="occupationEndDate" class="action-editField validate-calendar required-true i18n-pptwr.property.occupationEndDate" ><span><g:formatDate format="dd/MM/yyyy" date="${rqt?.occupationEndDate}"/></span></dd>
                 
+                  <dt class="">${message(code:'pptwr.property.occupationOtherAddress.label')} &nbsp;:</dt><dd id="occupationOtherAddress" class="action-editField validate-textarea i18n-pptwr.property.occupationOtherAddress rows-3" ><span>${rqt?.occupationOtherAddress}</span></dd>
+                
               </dl>
               
             
@@ -101,7 +103,12 @@
             
               
               <dl>
-                <dt class="required condition-desiredService-trigger">${message(code:'pptwr.property.desiredService.label')} &nbsp;*&nbsp;:</dt><dd id="desiredService" class="action-editField validate-libredematEnum required-true i18n-pptwr.property.desiredService javatype-org.libredemat.business.request.permit.DesiredServiceType" ><g:libredematEnumToField var="${rqt?.desiredService}" i18nKeyPrefix="pptwr.property.desiredService" /></dd>
+                <dt class="required condition-desiredService-trigger">${message(code:'pptwr.property.desiredService.label')} &nbsp;*&nbsp;:</dt><dd id="desiredService" class="action-editField validate-localReferentialData required-true i18n-pptwr.property.desiredService data-localReferentialData" >
+           <g:render template="/backofficeRequestInstruction/widget/localReferentialDataStatic" 
+                     model="['javaName':'desiredService', 'lrEntries': lrTypes.desiredService?.entries, 
+                             'rqt':rqt, 'isMultiple':lrTypes.desiredService?.isMultiple(), 'depth':0]" />
+ 
+          </dd>
               </dl>
               
             

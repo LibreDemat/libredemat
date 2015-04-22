@@ -32,7 +32,7 @@ public class ParkingPermitTemporaryWorkRequestService  extends RequestService im
     @Override
     public void init() {
         ParkingPermitTemporaryWorkRequest.conditions.put("isCompany", new EqualityChecker("true"));
-        ParkingPermitTemporaryWorkRequest.conditions.put("desiredService", new EqualityChecker("PARKING_PERMIT_FOR_WORK"));
+        ParkingPermitTemporaryWorkRequest.conditions.put("desiredService", new EqualityChecker("Permis-de-stationnement-provisoire-pour-travaux"));
         ParkingPermitTemporaryWorkRequest.conditions.put("workOnBuilding", new EqualityChecker("true"));
         ParkingPermitTemporaryWorkRequest.conditions.put("scaffolding", new EqualityChecker("true"));
         ParkingPermitTemporaryWorkRequest.conditions.put("vehicleParkingOrFloorOccupation", new EqualityChecker("true"));

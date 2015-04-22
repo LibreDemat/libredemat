@@ -86,7 +86,7 @@
                                 </xs:appinfo>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="DesiredService" type="pptwr:DesiredServiceType" default="ParkingPermitForWork">
+                        <xs:element name="DesiredService" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                                     Prestation souhaitée
@@ -101,6 +101,7 @@
                                             <condition name="desiredService" type="trigger" />
                                         </conditions>
                                     </common>
+                                    <model namespace="request" isTiedToRequest="true" />
                                     <pdf/>
                                     <fo />
                                     <bo column="2" />
@@ -248,6 +249,7 @@
                                     <pdf/>
                                     <fo>
                                         <textarea rows="3" />
+                                        <headerInformation />
                                     </fo>
                                     <bo column="2">
                                         <textarea rows="3" />
@@ -339,10 +341,10 @@
             <xs:element name="SiretNumber">
                 <xs:annotation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                        Numéro de SIRET
+                        N° SIRET (14 chiffres)
                     </xs:documentation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                        Numéro de SIRET
+                        N° SIRET (14 chiffres)
                     </xs:documentation>
                     <xs:appinfo>
                         <common>
@@ -394,33 +396,6 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:simpleType name="DesiredServiceType">
-        <xs:annotation>
-            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                Prestation souhaitée
-            </xs:documentation>
-            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                Prestation souhaitée
-            </xs:documentation>
-            <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/translation/enum">
-                <enum key="ParkingPermitForWork" value="Permis de stationnement pour travaux" />
-                <enum key="ExistingLicenseExtension" value="Extension pour un permis déjà existant" />
-            </xs:documentation>
-            <xs:appinfo>
-                <common>
-                    <step name="work" />
-                </common>
-                <fo />
-                <bo column="2" />
-                <pdf/>
-            </xs:appinfo>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="ParkingPermitForWork" />
-            <xs:enumeration value="ExistingLicenseExtension" />
-        </xs:restriction>
-    </xs:simpleType>
 
     <xs:complexType name="ParkingPermitForWorkInformationType">
         <xs:sequence>
@@ -492,10 +467,10 @@
             <xs:element name="ConstructLicenseNumber" type="xs:string">
                 <xs:annotation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                        Numéro de permis de construire
+                        N° de permis de construire ou de déclaration de travaux
                     </xs:documentation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                        Numéro de permis de construire
+                        N° de permis de construire ou de déclaration de travaux
                     </xs:documentation>
                     <xs:appinfo>
                         <common>
@@ -681,6 +656,30 @@
                         </fo>
                         <bo column="1">
                             <calendar/>
+                        </bo>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OccupationOtherAddress" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                        Si le stationnement ne se situe pas au droit immédiat du chantier (en face ou plus loin), indiquez
+                        l'adresse demandée
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                        Si le stationnement ne se situe pas au droit immédiat du chantier (en face ou plus loin), indiquez
+                        l'adresse demandée
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="work" />
+                        </common>
+                        <pdf/>
+                        <fo >
+                            <textarea rows="3" />
+                        </fo>
+                        <bo column="2" >
+                            <textarea rows="3" />
                         </bo>
                     </xs:appinfo>
                 </xs:annotation>

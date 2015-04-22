@@ -48,13 +48,11 @@
 
   
     
-    <label for="desiredService" class="required"><g:message code="pptwr.property.desiredService.label" /> *  <span><g:message code="pptwr.property.desiredService.help" /></span></label>
-            <select id="desiredService" name="desiredService" class="required condition-desiredService-trigger  validate-not-first ${rqt.stepStates['work'].invalidFields.contains('desiredService') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.desiredService.validationError" />">
-              <option value=""><g:message code="message.select.defaultOption" /></option>
-              <g:each in="${['PARKING_PERMIT_FOR_WORK','EXISTING_LICENSE_EXTENSION']}">
-                <option value="${it}" ${it == rqt.desiredService?.toString() ? 'selected="selected"': ''}><g:libredematEnumToText var="${it}" i18nKeyPrefix="pptwr.property.desiredService" /></option>
-              </g:each>
-            </select>
+    <label class="required"><g:message code="pptwr.property.desiredService.label" /> *  <span><g:message code="pptwr.property.desiredService.help" /></span></label>
+            <g:set var="desiredServiceIndex" value="${0}" scope="flash" />
+            <g:render template="/frontofficeRequestType/widget/localReferentialData" 
+                      model="['javaName':'desiredService', 'i18nPrefixCode':'pptwr.property.desiredService', 'htmlClass':'required condition-desiredService-trigger  ', 
+                              'lrEntries': lrTypes.desiredService.entries, 'depth':0]" />
             
 
   
@@ -238,10 +236,18 @@
             
 
     
+      
+      <label for="occupationOtherAddress" class=""><g:message code="pptwr.property.occupationOtherAddress.label" />   <span><g:message code="pptwr.property.occupationOtherAddress.help" /></span></label>
+            <textarea id="occupationOtherAddress" name="occupationOtherAddress" class="  validate-textarea ${rqt.stepStates['work'].invalidFields.contains('occupationOtherAddress') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.occupationOtherAddress.validationError" />" rows="3" cols=""  >${rqt.occupationOtherAddress}</textarea>
+            
+
+    
     </fieldset>
   
 
   
+    
+        <div class="field-header-information">${message(code:'pptwr.property.observations.headerInformation')}</div>
     
     <label for="observations" class=""><g:message code="pptwr.property.observations.label" />   <span><g:message code="pptwr.property.observations.help" /></span></label>
             <textarea id="observations" name="observations" class="  validate-textarea ${rqt.stepStates['work'].invalidFields.contains('observations') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.observations.validationError" />" rows="3" cols=""  >${rqt.observations}</textarea>

@@ -42,8 +42,6 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
       
         acceptationReglementInterieur = Boolean.valueOf(false);
       
-        desiredService = org.libredemat.business.request.permit.DesiredServiceType.PARKING_PERMIT_FOR_WORK;
-      
         isCompany = Boolean.valueOf(true);
       
         scaffolding = Boolean.valueOf(true);
@@ -78,10 +76,8 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
         
           
             
-        if (desiredService != null)
-            result.setDesiredService(desiredService);
-        else
-            result.setDesiredService(org.libredemat.business.request.permit.DesiredServiceType.getDefaultDesiredServiceType());
+        List<org.libredemat.business.request.LocalReferentialData> desiredServiceList = new ArrayList<org.libredemat.business.request.LocalReferentialData>();
+        result.setDesiredService(desiredServiceList);
       
           
         
@@ -112,6 +108,12 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           
             
         result.setOccupationEndDate(occupationEndDate);
+      
+          
+        
+          
+            
+        result.setOccupationOtherAddress(occupationOtherAddress);
       
           
         
@@ -355,7 +357,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
                   
               
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -376,7 +378,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
                   
               
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -401,24 +403,38 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
     }
   
     
-      @NotNull(
+      @LocalReferential(
         
         
         profiles = {"work"},
         message = "desiredService"
       )
     
-    private org.libredemat.business.request.permit.DesiredServiceType desiredService;
+      @MinSize(
+        
+          value = 1,
+        
+        
+        profiles = {"work"},
+        message = "desiredService"
+      )
+    
+    private List<org.libredemat.business.request.LocalReferentialData> desiredService;
 
-    public void setDesiredService(final org.libredemat.business.request.permit.DesiredServiceType desiredService) {
+    public void setDesiredService(final List<org.libredemat.business.request.LocalReferentialData> desiredService) {
         this.desiredService = desiredService;
     }
 
  
-    @Enumerated(EnumType.STRING)
-    @Column(name="desired_service"  )
+    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(name="parking_permit_temporary_work_request_desired_service",
+            joinColumns=
+                @JoinColumn(name="parking_permit_temporary_work_request_id"),
+            inverseJoinColumns=
+                @JoinColumn(name="desired_service_id"))
+    @OrderColumn(name="desired_service_index")
       
-    public org.libredemat.business.request.permit.DesiredServiceType getDesiredService() {
+    public List<org.libredemat.business.request.LocalReferentialData> getDesiredService() {
         return this.desiredService;
     }
   
@@ -534,6 +550,20 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
     }
   
     
+    private String occupationOtherAddress;
+
+    public void setOccupationOtherAddress(final String occupationOtherAddress) {
+        this.occupationOtherAddress = occupationOtherAddress;
+    }
+
+ 
+    @Column(name="occupation_other_address"  )
+      
+    public String getOccupationOtherAddress() {
+        return this.occupationOtherAddress;
+    }
+  
+    
       @NotNull(
         
         
@@ -607,7 +637,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= !_this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= !_this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -624,7 +654,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= !_this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= !_this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -872,7 +902,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -889,7 +919,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -955,7 +985,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -972,7 +1002,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               
@@ -1003,7 +1033,7 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-                "active &= _this.conditions['desiredService'].test(_this.desiredService.toString());" +
+                "if (_this.desiredService == null || _this.desiredService.isEmpty()) return false; _this.desiredService.each { active &= _this.conditions['desiredService'].test(it.name) };" +
                     
                   
               

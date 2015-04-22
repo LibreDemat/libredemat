@@ -38,11 +38,6 @@ pptwr.property.desiredService.validationError =
 pptwr.property.desiredService.headerInformation =
 
 
-pptwr.property.desiredService.help =
-pptwr.property.desiredService.validationError =
-pptwr.property.desiredService.headerInformation =
-
-
 pptwr.property.parkingPermitForWorkInformation.help =
 pptwr.property.parkingPermitForWorkInformation.validationError =
 pptwr.property.parkingPermitForWorkInformation.headerInformation =
@@ -131,6 +126,11 @@ pptwr.property.occupationStartDate.headerInformation =
 pptwr.property.occupationEndDate.help =
 pptwr.property.occupationEndDate.validationError =
 pptwr.property.occupationEndDate.headerInformation =
+
+
+pptwr.property.occupationOtherAddress.help =
+pptwr.property.occupationOtherAddress.validationError =
+pptwr.property.occupationOtherAddress.headerInformation =
 
 
 pptwr.property.observations.help =
