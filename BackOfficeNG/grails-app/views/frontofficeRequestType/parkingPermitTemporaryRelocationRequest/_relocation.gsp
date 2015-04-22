@@ -26,7 +26,7 @@
   
 
   
-    <fieldset class="required condition-isCompany-filled">
+    <fieldset class="required condition-isCompany-filled" id="CompanyInformation">
     <legend><g:message code="pptrr.property.companyInformation.label" /></legend>
     
       
@@ -128,7 +128,7 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="EquipmentUsed">
     <legend><g:message code="pptrr.property.equipmentUsed.label" /></legend>
     
       

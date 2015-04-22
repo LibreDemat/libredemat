@@ -26,7 +26,7 @@
   
 
   
-    <fieldset class="required condition-isCompany-filled">
+    <fieldset class="required condition-isCompany-filled" id="CompanyInformation">
     <legend><g:message code="pptwr.property.companyInformation.label" /></legend>
     
       
@@ -58,7 +58,7 @@
   
 
   
-    <fieldset class="required condition-desiredService-filled">
+    <fieldset class="required condition-desiredService-filled" id="ParkingPermitForWorkInformation">
     <legend><g:message code="pptwr.property.parkingPermitForWorkInformation.label" /></legend>
     
       
@@ -104,7 +104,7 @@
   
 
   
-    <fieldset class="required condition-desiredService-unfilled">
+    <fieldset class="required condition-desiredService-unfilled" id="ExistingLicenseExtensionInformation">
     <legend><g:message code="pptwr.property.existingLicenseExtensionInformation.label" /></legend>
     
       
@@ -133,7 +133,7 @@
   
 
   
-    <fieldset class="required condition-scaffolding-filled">
+    <fieldset class="required condition-scaffolding-filled" id="ScaffoldingInformation">
     <legend><g:message code="pptwr.property.scaffoldingInformation.label" /></legend>
     
       
@@ -194,7 +194,7 @@
   
 
   
-    <fieldset class="required condition-vehicleParkingOrFloorOccupation-filled">
+    <fieldset class="required condition-vehicleParkingOrFloorOccupation-filled" id="VehicleParkingOrFloorOccupationInformation">
     <legend><g:message code="pptwr.property.vehicleParkingOrFloorOccupationInformation.label" /></legend>
     
       
