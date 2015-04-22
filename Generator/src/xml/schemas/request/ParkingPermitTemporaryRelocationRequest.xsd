@@ -363,10 +363,10 @@
             <xs:element name="SiretNumber">
                 <xs:annotation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                        Numéro de SIRET
+                        N° SIRET (14 chiffres)
                     </xs:documentation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                        Numéro de SIRET
+                        N° SIRET (14 chiffres)
                     </xs:documentation>
                     <xs:appinfo>
                         <common>
