@@ -75,6 +75,44 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       }
     };
 
+    var parseDate = function(str) {
+      var mdy = str.split('/');
+      return new Date(mdy[2], mdy[1]-1, mdy[0]);
+    };
+
+    var dayDiff = function(first, second) {
+      return (second-first)/(1000*60*60*24);
+    };
+
+    var updateScaffoldingPrice = function() {
+      if (!yud.get('scaffoldingPrice')) {
+        var elem = yud.getLastChild("ScaffoldingInformation");
+        var newNode = document.createElement('div');
+        newNode.id = 'scaffoldingPrice';
+        newNode.innerHTML = "Tarification : " +
+          "<span id='scaffoldingFixedInformation'>" +
+            zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice + " €</span> " +
+          "x <span id='scaffoldingLengthInformation'>0</span> ml " +
+          "x <span id='scaffoldingDurationInformation'>0</span> jours " +
+          "= <span id='scaffoldingTotalPrice'>0</span> € TTC";
+        yud.insertAfter(newNode, elem);
+      }
+
+      if (yud.get('scaffoldingLength').value != '')
+        yud.get('scaffoldingLengthInformation').innerHTML = yud.get('scaffoldingLength').value;
+
+      if (yud.get('scaffoldingStartDate').value != '' && yud.get('scaffoldingEndDate') != '') {
+        var numberOfDays = dayDiff(parseDate(yud.get('scaffoldingStartDate').value),
+                                   parseDate(yud.get('scaffoldingEndDate').value));
+        yud.get('scaffoldingDurationInformation').innerHTML = numberOfDays + 1;
+      }
+
+      var totalPrice = parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice.replace(",", ".")) *
+              parseFloat(yud.get('scaffoldingLengthInformation').innerHTML) *
+              parseFloat(yud.get('scaffoldingDurationInformation').innerHTML);
+      yud.get('scaffoldingTotalPrice').innerHTML = totalPrice;
+    };
+
     return {
       init: function () {
         yue.on(yud.get('scaffoldingStartDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickStart,
@@ -83,6 +121,17 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             zcfr.ParkingPermitTemporaryWorkRequest.processClickStart, true);
         disabledFields('scaffoldingEndDate');
         disabledFields('occupationEndDate');
+
+        yue.on(yud.get("scaffoldingLength"), 'change', function(e) {
+          updateScaffoldingPrice();
+        });
+        yue.on(yud.get("scaffoldingStartDate"), 'change', function(e) {
+          updateScaffoldingPrice();
+        });
+        yue.on(yud.get("scaffoldingEndDate"), 'change', function(e) {
+          updateScaffoldingPrice();
+        });
+        updateScaffoldingPrice();
       },
       /**
        * @description The name of the method to call is the first part of the
@@ -117,6 +166,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       callBack: function () {
         disabledFields('scaffoldingEndDate');
         disabledFields('occupationEndDate');
+        updateScaffoldingPrice();
       }
     }
   }();
