@@ -3,6 +3,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
 (function () {
 
   var zcf = zenexity.libredemat.fong;
+  var zcv = zenexity.libredemat.Validation;
   var zcfr = zcf.requesttype;
 
   var yu = YAHOO.util;
@@ -86,7 +87,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
 
     var updateScaffoldingPrice = function() {
       if (!yud.get('scaffoldingPrice')) {
-        var elem = yud.getLastChild("ScaffoldingInformation");
+        var elem = yud.getLastChild('ScaffoldingInformation');
         var newNode = document.createElement('div');
         newNode.id = 'scaffoldingPrice';
         newNode.innerHTML = "Tarification : " +
@@ -98,19 +99,24 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         yud.insertAfter(newNode, elem);
       }
 
-      if (yud.get('scaffoldingLength').value != '')
+      if (zcv.rules['numeric'].regex.test(yud.get('scaffoldingLength').value))
         yud.get('scaffoldingLengthInformation').innerHTML = yud.get('scaffoldingLength').value;
-
-      if (yud.get('scaffoldingStartDate').value != '' && yud.get('scaffoldingEndDate') != '') {
+      else
+        yud.get('scaffoldingLengthInformation').innerHTML = 0;
+      
+      if (zcv.rules['date'].func(yud.get('scaffoldingStartDate'))
+          && zcv.rules['date'].func(yud.get('scaffoldingEndDate'))) {
         var numberOfDays = dayDiff(parseDate(yud.get('scaffoldingStartDate').value),
                                    parseDate(yud.get('scaffoldingEndDate').value));
         yud.get('scaffoldingDurationInformation').innerHTML = numberOfDays + 1;
+      } else {
+        yud.get('scaffoldingDurationInformation').innerHTML = 0;
       }
 
-      var totalPrice = parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice.replace(",", ".")) *
-              parseFloat(yud.get('scaffoldingLengthInformation').innerHTML) *
-              parseFloat(yud.get('scaffoldingDurationInformation').innerHTML);
-      yud.get('scaffoldingTotalPrice').innerHTML = totalPrice;
+      yud.get('scaffoldingTotalPrice').innerHTML =
+          parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice.replace(",", ".")) *
+          parseFloat(yud.get('scaffoldingLengthInformation').innerHTML) *
+          parseFloat(yud.get('scaffoldingDurationInformation').innerHTML);
     };
 
     return {
