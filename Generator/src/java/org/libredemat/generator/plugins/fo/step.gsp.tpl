@@ -406,14 +406,14 @@
     <legend><g:message code="${element.i18nPrefixCode}.label" /></legend>
     <% element.elements.each { subElement -> %>
       <% if (subElement.isHeaderInformationActivated()) { %>
-        <div class="field-header-information">\${message(code:'${subElement.i18nPrefixCode}.headerInformation')}</div>
+        <div class="field-header-information" id="${subElement.name}-header-information">\${message(code:'${subElement.i18nPrefixCode}.headerInformation')}</div>
       <% } %>
       <% displayWidget(subElement, 'rqt', '') %>
     <% } %>
     </fieldset>
   <% } else { %>
     <% if (element.isHeaderInformationActivated()) { %>
-        <div class="field-header-information">\${message(code:'${element.i18nPrefixCode}.headerInformation')}</div>
+        <div class="field-header-information" id="${element.name}-header-information">\${message(code:'${element.i18nPrefixCode}.headerInformation')}</div>
     <% } %>
     <% displayWidget(element, 'rqt', '') %>
   <% } %>
