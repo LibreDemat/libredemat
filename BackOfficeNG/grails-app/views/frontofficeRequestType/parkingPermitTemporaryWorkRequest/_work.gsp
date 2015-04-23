@@ -247,7 +247,7 @@
 
   
     
-        <div class="field-header-information">${message(code:'pptwr.property.observations.headerInformation')}</div>
+        <div class="field-header-information" id="Observations-header-information">${message(code:'pptwr.property.observations.headerInformation')}</div>
     
     <label for="observations" class=""><g:message code="pptwr.property.observations.label" />   <span><g:message code="pptwr.property.observations.help" /></span></label>
             <textarea id="observations" name="observations" class="  validate-textarea ${rqt.stepStates['work'].invalidFields.contains('observations') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.observations.validationError" />" rows="3" cols=""  >${rqt.observations}</textarea>
