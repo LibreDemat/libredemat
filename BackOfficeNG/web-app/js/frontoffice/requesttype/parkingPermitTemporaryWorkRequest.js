@@ -90,6 +90,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         var elem = yud.getLastChild('ScaffoldingInformation');
         var newNode = document.createElement('div');
         newNode.id = 'scaffoldingPrice';
+        newNode.setAttribute('class', 'prices-information');
         newNode.innerHTML = "Tarification : " +
           "<span id='scaffoldingFixedInformation'>" +
             zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice + " €</span> " +
@@ -119,6 +120,41 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           parseFloat(yud.get('scaffoldingDurationInformation').innerHTML);
     };
 
+    var updateOccupationPrice = function() {
+      if (!yud.get('occupationPrice')) {
+        var elem = yud.getLastChild('VehicleParkingOrFloorOccupationInformation');
+        var newNode = document.createElement('div');
+        newNode.id = 'occupationPrice';
+        newNode.setAttribute('class', 'prices-information');
+        newNode.innerHTML = "Tarification : " +
+            "<span id='occupationFixedInformation'>" +
+            zenexity.libredemat.pptwrSpecificConfigurationData.floorOccupationPrice + " €</span> " +
+            "x <span id='occupationSurfaceInformation'>0</span> m² " +
+            "x <span id='occupationDurationInformation'>0</span> jours " +
+            "= <span id='occupationTotalPrice'>0</span> € TTC";
+        yud.insertAfter(newNode, elem);
+      }
+
+      if (zcv.rules['numeric'].regex.test(yud.get('occupation').value))
+        yud.get('occupationSurfaceInformation').innerHTML = yud.get('occupation').value;
+      else
+        yud.get('occupationSurfaceInformation').innerHTML = 0;
+
+      if (zcv.rules['date'].func(yud.get('occupationStartDate'))
+          && zcv.rules['date'].func(yud.get('occupationEndDate'))) {
+        var numberOfDays = dayDiff(parseDate(yud.get('occupationStartDate').value),
+            parseDate(yud.get('occupationEndDate').value));
+        yud.get('occupationDurationInformation').innerHTML = numberOfDays + 1;
+      } else {
+        yud.get('occupationDurationInformation').innerHTML = 0;
+      }
+
+      yud.get('occupationTotalPrice').innerHTML =
+          parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.floorOccupationPrice.replace(",", ".")) *
+          parseFloat(yud.get('occupationSurfaceInformation').innerHTML) *
+          parseFloat(yud.get('occupationDurationInformation').innerHTML);
+    };
+
     return {
       init: function () {
         yue.on(yud.get('scaffoldingStartDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickStart,
@@ -138,6 +174,17 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           updateScaffoldingPrice();
         });
         updateScaffoldingPrice();
+
+        yue.on(yud.get("occupation"), 'change', function(e) {
+          updateOccupationPrice();
+        });
+        yue.on(yud.get("occupationStartDate"), 'change', function(e) {
+          updateOccupationPrice();
+        });
+        yue.on(yud.get("occupationEndDate"), 'change', function(e) {
+          updateOccupationPrice();
+        });
+        updateOccupationPrice();
       },
       /**
        * @description The name of the method to call is the first part of the
@@ -173,6 +220,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         disabledFields('scaffoldingEndDate');
         disabledFields('occupationEndDate');
         updateScaffoldingPrice();
+        updateOccupationPrice();
       }
     }
   }();

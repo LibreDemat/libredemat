@@ -1,4 +1,4 @@
-#scaffoldingPrice {
+.prices-information {
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -8,3 +8,7 @@
     color: red;
 }
 
+#occupationFixedInformation, #occupationSurfaceInformation, #occupationDurationInformation,
+#occupationTotalPrice {
+    color: red;
+}
