@@ -3,6 +3,10 @@
     font-size: 1.2em;
 }
 
+.price-display {
+    color: red;
+}
+
 #scaffoldingFixedInformation, #scaffoldingLengthInformation, #scaffoldingDurationInformation,
     #scaffoldingTotalPrice {
     color: red;

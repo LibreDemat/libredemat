@@ -155,6 +155,19 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           parseFloat(yud.get('occupationDurationInformation').innerHTML);
     };
 
+    var displayPricesInformation = function() {
+      var elem = yud.get('Observations-header-information');
+      var newNode = document.createElement('div');
+      newNode.setAttribute('class', 'prices-information');
+      newNode.innerHTML = "Un droit fixe de <span class='price-display'>" +
+          zenexity.libredemat.pptwrSpecificConfigurationData.fixedChargePrice + " €</span> " +
+          "est dû pour l'établissement de toute autorisation. Tout dépassement des surfaces ou durées autorisées " +
+          "sera facturé par la ville au taux de <span class='price-display'>" +
+          zenexity.libredemat.pptwrSpecificConfigurationData.exceedingPrice + " €</span> " +
+          "par m² et par semaine (minimum de durée).";
+      yud.insertBefore(newNode, elem);
+    };
+
     return {
       init: function () {
         yue.on(yud.get('scaffoldingStartDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickStart,
@@ -185,6 +198,8 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           updateOccupationPrice();
         });
         updateOccupationPrice();
+
+        displayPricesInformation();
       },
       /**
        * @description The name of the method to call is the first part of the
