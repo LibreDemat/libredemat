@@ -2346,7 +2346,7 @@
         reference_number varchar(255),
         scaffolding bool,
         scaffolding_end_date timestamp,
-        scaffolding_length bytea,
+        scaffolding_length float8,
         scaffolding_start_date timestamp,
         siret_number varchar(14),
         site_address varchar(255),

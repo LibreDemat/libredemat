@@ -531,7 +531,7 @@
 
     <xs:complexType name="ScaffoldingInformationType">
         <xs:sequence>
-            <xs:element name="ScaffoldingLength" type="xs:positiveInteger">
+            <xs:element name="ScaffoldingLength" type="xs:double">
                 <xs:annotation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                         Longueur de l'échafaudage (en ml)

@@ -169,7 +169,7 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
         }
       
         if (getScaffoldingLength() != null)
-            scaffoldingInformationTypeScaffoldingInformation.setScaffoldingLength(new BigInteger(getScaffoldingLength().toString()));
+            scaffoldingInformationTypeScaffoldingInformation.setScaffoldingLength(getScaffoldingLength().doubleValue());
       
         date = getScaffoldingStartDate();
         if (date != null) {
@@ -253,7 +253,7 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
             parkingPermitTemporaryWorkRequest.setScaffoldingEndDate(calendar.getTime());
         }
       
-        parkingPermitTemporaryWorkRequest.setScaffoldingLength(parkingPermitTemporaryWorkRequestXml.getScaffoldingInformation().getScaffoldingLength());
+        parkingPermitTemporaryWorkRequest.setScaffoldingLength(new Double(parkingPermitTemporaryWorkRequestXml.getScaffoldingInformation().getScaffoldingLength()));
       
         calendar = parkingPermitTemporaryWorkRequestXml.getScaffoldingInformation().getScaffoldingStartDate();
         if (calendar != null) {
@@ -456,12 +456,12 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
         return parkingPermitTemporaryWorkRequestData.getScaffoldingEndDate();
     }
   
-    public final void setScaffoldingLength(final java.math.BigInteger scaffoldingLength) {
+    public final void setScaffoldingLength(final Double scaffoldingLength) {
         parkingPermitTemporaryWorkRequestData.setScaffoldingLength(scaffoldingLength);
     }
 
     
-    public final java.math.BigInteger getScaffoldingLength() {
+    public final Double getScaffoldingLength() {
         return parkingPermitTemporaryWorkRequestData.getScaffoldingLength();
     }
   

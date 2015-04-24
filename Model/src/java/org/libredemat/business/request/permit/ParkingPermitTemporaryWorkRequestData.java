@@ -748,17 +748,16 @@ public class ParkingPermitTemporaryWorkRequestData implements Serializable {
         message = "scaffoldingLength"
       )
     
-    private java.math.BigInteger scaffoldingLength;
+    private Double scaffoldingLength;
 
-    public void setScaffoldingLength(final java.math.BigInteger scaffoldingLength) {
+    public void setScaffoldingLength(final Double scaffoldingLength) {
         this.scaffoldingLength = scaffoldingLength;
     }
 
  
-    @Column(name="scaffolding_length" , columnDefinition="bytea" )
-    @Type(type="serializable") //Hack see http://libredemat.capwebct.fr/ticket/338
+    @Column(name="scaffolding_length"  )
       
-    public java.math.BigInteger getScaffoldingLength() {
+    public Double getScaffoldingLength() {
         return this.scaffoldingLength;
     }
   

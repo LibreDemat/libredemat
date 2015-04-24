@@ -230,7 +230,7 @@
       <h3>${i18n.translate('pptwr.property.scaffoldingInformation.label')}</h3>
       <div class="complex">
         
-          <p class="label">${esc(i18n.translate('pptwr.property.scaffoldingLength.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.scaffoldingLength?.toString()))}</div>
+          <p class="label">${esc(i18n.translate('pptwr.property.scaffoldingLength.label'))}</p><div class="response">${esc(StringUtils.defaultString(NumberFormat.getInstance().format((rqt.scaffoldingLength)?.doubleValue()?: 0).toString()))}</div>
 
         
           <p class="label">${esc(i18n.translate('pptwr.property.scaffoldingStartDate.label'))}</p>

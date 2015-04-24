@@ -65,7 +65,7 @@
               <h3><g:message code="pptwr.property.scaffoldingInformation.label" /></h3>
               <dl class="required condition-scaffolding-filled">
                 
-                  <dt class="required">${message(code:'pptwr.property.scaffoldingLength.label')} &nbsp;*&nbsp;:</dt><dd id="scaffoldingLength" class="action-editField validate-positiveInteger required-true i18n-pptwr.property.scaffoldingLength" ><span>${rqt?.scaffoldingLength}</span></dd>
+                  <dt class="required">${message(code:'pptwr.property.scaffoldingLength.label')}&nbsp;*&nbsp;:</dt><dd id="scaffoldingLength" class="action-editField validate-double required-true i18n-pptwr.property.scaffoldingLength" ><span>${formatNumber(number: rqt?.scaffoldingLength, type: 'number')}</span></dd>
                 
                   <dt class="required">${message(code:'pptwr.property.scaffoldingStartDate.label')} &nbsp;*&nbsp;:</dt><dd id="scaffoldingStartDate" class="action-editField validate-calendar required-true i18n-pptwr.property.scaffoldingStartDate" ><span><g:formatDate format="dd/MM/yyyy" date="${rqt?.scaffoldingStartDate}"/></span></dd>
                 

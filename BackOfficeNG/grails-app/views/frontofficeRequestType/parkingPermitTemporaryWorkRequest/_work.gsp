@@ -138,8 +138,8 @@
     
       
       <label for="scaffoldingLength" class="required"><g:message code="pptwr.property.scaffoldingLength.label" /> *  <span><g:message code="pptwr.property.scaffoldingLength.help" /></span></label>
-            <input  type="text" id="scaffoldingLength" name="scaffoldingLength" value="${rqt.scaffoldingLength?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['work'].invalidFields.contains('scaffoldingLength') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.scaffoldingLength.validationError" />"   />
+            <input type="text" id="scaffoldingLength" name="scaffoldingLength" value="${formatNumber(number: rqt.scaffoldingLength, type: 'number')}"
+                    class="required  validate-double ${rqt.stepStates['work'].invalidFields.contains('scaffoldingLength') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.scaffoldingLength.validationError" />"   />
             
 
     

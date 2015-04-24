@@ -94,7 +94,7 @@
       <h4><g:message code="pptwr.property.scaffoldingInformation.label" /></h4>
       <dl>
         
-          <dt><g:message code="pptwr.property.scaffoldingLength.label" /></dt><dd>${rqt.scaffoldingLength?.toString()}</dd>
+          <dt><g:message code="pptwr.property.scaffoldingLength.label" /></dt><dd>${formatNumber(number: rqt.scaffoldingLength, type: 'number')}</dd>
 
         
           <dt><g:message code="pptwr.property.scaffoldingStartDate.label" /></dt>
