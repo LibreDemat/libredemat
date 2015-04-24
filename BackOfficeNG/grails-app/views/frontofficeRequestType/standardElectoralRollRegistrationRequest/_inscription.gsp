@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="serrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,38 +34,43 @@
   
 
   
+    
     <label for="nomNaissance" class="required"><g:message code="serrr.property.nomNaissance.label" /> *  <span><g:message code="serrr.property.nomNaissance.help" /></span></label>
-            <input type="text" id="nomNaissance" name="nomNaissance" value="${rqt.nomNaissance?.toString()}" 
+            <input  type="text" id="nomNaissance" name="nomNaissance" value="${rqt.nomNaissance?.toString()}" 
                     class="required  validate-lastName ${rqt.stepStates['inscription'].invalidFields.contains('nomNaissance') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.nomNaissance.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label for="prenom" class="required"><g:message code="serrr.property.prenom.label" /> *  <span><g:message code="serrr.property.prenom.help" /></span></label>
-            <input type="text" id="prenom" name="prenom" value="${rqt.prenom?.toString()}" 
+            <input  type="text" id="prenom" name="prenom" value="${rqt.prenom?.toString()}" 
                     class="required autofill-subjectFirstNamesFilling-listener-FirstName validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('prenom') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.prenom.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label for="deuxiemePrenom" class=""><g:message code="serrr.property.deuxiemePrenom.label" />   <span><g:message code="serrr.property.deuxiemePrenom.help" /></span></label>
-            <input type="text" id="deuxiemePrenom" name="deuxiemePrenom" value="${rqt.deuxiemePrenom?.toString()}" 
+            <input  type="text" id="deuxiemePrenom" name="deuxiemePrenom" value="${rqt.deuxiemePrenom?.toString()}" 
                     class=" autofill-subjectFirstNamesFilling-listener-FirstName2 validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('deuxiemePrenom') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.deuxiemePrenom.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label for="troisiemePrenom" class=""><g:message code="serrr.property.troisiemePrenom.label" />   <span><g:message code="serrr.property.troisiemePrenom.help" /></span></label>
-            <input type="text" id="troisiemePrenom" name="troisiemePrenom" value="${rqt.troisiemePrenom?.toString()}" 
+            <input  type="text" id="troisiemePrenom" name="troisiemePrenom" value="${rqt.troisiemePrenom?.toString()}" 
                     class=" autofill-subjectFirstNamesFilling-listener-FirstName3 validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('troisiemePrenom') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.troisiemePrenom.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label class="required"><g:message code="serrr.property.sexe.label" /> *  <span><g:message code="serrr.property.sexe.help" /></span></label>
             <ul class="required ${rqt.stepStates['inscription'].invalidFields.contains('sexe') ? 'validation-failed' : ''}">
               <g:each in="${['FEMININ','MASCULIN']}">
@@ -79,14 +85,16 @@
   
 
   
+    
     <label for="nomMarital" class="condition-estFemme-filled"><g:message code="serrr.property.nomMarital.label" />   <span><g:message code="serrr.property.nomMarital.help" /></span></label>
-            <input type="text" id="nomMarital" name="nomMarital" value="${rqt.nomMarital?.toString()}" 
+            <input  type="text" id="nomMarital" name="nomMarital" value="${rqt.nomMarital?.toString()}" 
                     class="condition-estFemme-filled  validate-lastName ${rqt.stepStates['inscription'].invalidFields.contains('nomMarital') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.nomMarital.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label class="required"><g:message code="serrr.property.dateNaissance.label" /> *  <span><g:message code="serrr.property.dateNaissance.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['inscription'].invalidFields.contains('dateNaissance') ? 'validation-failed' : ''}"
@@ -129,15 +137,17 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="LieuNaissance">
     <legend><g:message code="serrr.property.lieuNaissance.label" /></legend>
     
+      
       <label for="villeNaissanceCodePostal" class="required"><g:message code="serrr.property.villeNaissanceCodePostal.label" /> *  <span><g:message code="serrr.property.villeNaissanceCodePostal.help" /></span></label>
-            <input type="text" id="villeNaissanceCodePostal" name="villeNaissanceCodePostal" value="${rqt.villeNaissanceCodePostal?.toString()}" 
+            <input  type="text" id="villeNaissanceCodePostal" name="villeNaissanceCodePostal" value="${rqt.villeNaissanceCodePostal?.toString()}" 
                     class="required  validate-city ${rqt.stepStates['inscription'].invalidFields.contains('villeNaissanceCodePostal') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.villeNaissanceCodePostal.validationError" />"  maxlength="32" />
             
 
     
+      
       <label for="lieuNaissanceDepartement" class=""><g:message code="serrr.property.lieuNaissanceDepartement.label" />   <span><g:message code="serrr.property.lieuNaissanceDepartement.help" /></span></label>
             <select id="lieuNaissanceDepartement" name="lieuNaissanceDepartement" class="  validate-select ${rqt.stepStates['inscription'].invalidFields.contains('lieuNaissanceDepartement') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.lieuNaissanceDepartement.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -148,6 +158,7 @@
             
 
     
+      
       <label for="lieuNaissancePays" class=""><g:message code="serrr.property.lieuNaissancePays.label" />   <span><g:message code="serrr.property.lieuNaissancePays.help" /></span></label>
             <select id="lieuNaissancePays" name="lieuNaissancePays" class="  validate-select ${rqt.stepStates['inscription'].invalidFields.contains('lieuNaissancePays') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.lieuNaissancePays.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -162,6 +173,7 @@
   
 
   
+    
     <label class="required"><g:message code="serrr.property.nationalite.label" /> *  <span><g:message code="serrr.property.nationalite.help" /></span></label>
             <ul class="required ${rqt.stepStates['inscription'].invalidFields.contains('nationalite') ? 'validation-failed' : ''}">
               <g:each in="${['FRANCAISE','RESSORTISSANT_U_E']}">
@@ -176,9 +188,10 @@
   
 
   
-    <fieldset class="required condition-estUnionEuropenne-filled">
+    <fieldset class="required condition-estUnionEuropenne-filled" id="FieldsetEstUnionEuropeenne">
     <legend><g:message code="serrr.property.fieldsetEstUnionEuropeenne.label" /></legend>
     
+      
       <label for="precisionNationalite" class="required condition-estUnionEuropenne-filled"><g:message code="serrr.property.precisionNationalite.label" /> *  <span><g:message code="serrr.property.precisionNationalite.help" /></span></label>
             <select id="precisionNationalite" name="precisionNationalite" class="required condition-estUnionEuropenne-filled  validate-not-first ${rqt.stepStates['inscription'].invalidFields.contains('precisionNationalite') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.precisionNationalite.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -189,6 +202,7 @@
             
 
     
+      
       <label class="required condition-estUnionEuropenne-filled"><g:message code="serrr.property.typeElection.label" /> *  <span><g:message code="serrr.property.typeElection.help" /></span></label>
             <ul class="required condition-estUnionEuropenne-filled ${rqt.stepStates['inscription'].invalidFields.contains('typeElection') ? 'validation-failed' : ''}">
               <g:each in="${['ELECTION_MUNICIPALE','ELECTION_EUROPEENNE']}">
@@ -201,6 +215,7 @@
             
 
     
+      
       <label for="paysPrecedent" class="condition-estElectionEuropenne-filled"><g:message code="serrr.property.paysPrecedent.label" />   <span><g:message code="serrr.property.paysPrecedent.help" /></span></label>
             <select id="paysPrecedent" name="paysPrecedent" class="condition-estElectionEuropenne-filled  validate-select ${rqt.stepStates['inscription'].invalidFields.contains('paysPrecedent') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.paysPrecedent.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -211,14 +226,16 @@
             
 
     
+      
       <label for="subdivisionAdministrativePrecedente" class="condition-estElectionEuropenne-filled"><g:message code="serrr.property.subdivisionAdministrativePrecedente.label" />   <span><g:message code="serrr.property.subdivisionAdministrativePrecedente.help" /></span></label>
-            <input type="text" id="subdivisionAdministrativePrecedente" name="subdivisionAdministrativePrecedente" value="${rqt.subdivisionAdministrativePrecedente?.toString()}" 
+            <input  type="text" id="subdivisionAdministrativePrecedente" name="subdivisionAdministrativePrecedente" value="${rqt.subdivisionAdministrativePrecedente?.toString()}" 
                     class="condition-estElectionEuropenne-filled  validate-string ${rqt.stepStates['inscription'].invalidFields.contains('subdivisionAdministrativePrecedente') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.subdivisionAdministrativePrecedente.validationError" />"   />
             
 
     
+      
       <label for="communeOuLocalitePrecedente" class="condition-estElectionEuropenne-filled"><g:message code="serrr.property.communeOuLocalitePrecedente.label" />   <span><g:message code="serrr.property.communeOuLocalitePrecedente.help" /></span></label>
-            <input type="text" id="communeOuLocalitePrecedente" name="communeOuLocalitePrecedente" value="${rqt.communeOuLocalitePrecedente?.toString()}" 
+            <input  type="text" id="communeOuLocalitePrecedente" name="communeOuLocalitePrecedente" value="${rqt.communeOuLocalitePrecedente?.toString()}" 
                     class="condition-estElectionEuropenne-filled  validate-city ${rqt.stepStates['inscription'].invalidFields.contains('communeOuLocalitePrecedente') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.communeOuLocalitePrecedente.validationError" />"  maxlength="32" />
             
 

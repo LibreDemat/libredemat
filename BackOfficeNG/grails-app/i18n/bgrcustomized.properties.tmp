@@ -4,80 +4,103 @@ bgr.property.subject.label = Sujet
 
 bgr.step.subject.label =
 bgr.step.subject.desc =
+bgr.step.subject.header.help =
+bgr.step.subject.footer.help =
 
 bgr.step.internship.label =
 bgr.step.internship.desc =
+bgr.step.internship.header.help =
+bgr.step.internship.footer.help =
 
 bgr.step.bankReference.label =
 bgr.step.bankReference.desc =
+bgr.step.bankReference.header.help =
+bgr.step.bankReference.footer.help =
 
 
 bgr.property.subjectBirthDate.help =
 bgr.property.subjectBirthDate.validationError =
+bgr.property.subjectBirthDate.headerInformation =
 
 
 bgr.property.subjectBirthCity.help =
 bgr.property.subjectBirthCity.validationError =
+bgr.property.subjectBirthCity.headerInformation =
 
 
 bgr.property.subjectAddress.help =
 bgr.property.subjectAddress.validationError =
+bgr.property.subjectAddress.headerInformation =
 
 
 bgr.property.subjectPhone.help =
 bgr.property.subjectPhone.validationError =
+bgr.property.subjectPhone.headerInformation =
 
 
 bgr.property.subjectEmail.help =
 bgr.property.subjectEmail.validationError =
+bgr.property.subjectEmail.headerInformation =
 
 
 bgr.property.internshipStartDate.help =
 bgr.property.internshipStartDate.validationError =
+bgr.property.internshipStartDate.headerInformation =
 
 
 bgr.property.internshipEndDate.help =
 bgr.property.internshipEndDate.validationError =
+bgr.property.internshipEndDate.headerInformation =
 
 
 bgr.property.internshipInstituteName.help =
 bgr.property.internshipInstituteName.validationError =
+bgr.property.internshipInstituteName.headerInformation =
 
 
 bgr.property.internshipInstituteAddress.help =
 bgr.property.internshipInstituteAddress.validationError =
+bgr.property.internshipInstituteAddress.headerInformation =
 
 
 bgr.property.isSubjectAccountHolder.help =
 bgr.property.isSubjectAccountHolder.validationError =
+bgr.property.isSubjectAccountHolder.headerInformation =
 
 
 bgr.property.accountHolderTitle.help =
 bgr.property.accountHolderTitle.validationError =
+bgr.property.accountHolderTitle.headerInformation =
 
 
 bgr.property.accountHolderLastName.help =
 bgr.property.accountHolderLastName.validationError =
+bgr.property.accountHolderLastName.headerInformation =
 
 
 bgr.property.accountHolderFirstName.help =
 bgr.property.accountHolderFirstName.validationError =
+bgr.property.accountHolderFirstName.headerInformation =
 
 
 bgr.property.accountHolderBirthDate.help =
 bgr.property.accountHolderBirthDate.validationError =
+bgr.property.accountHolderBirthDate.headerInformation =
 
 
 bgr.property.accountHolderEdemandeId.help =
 bgr.property.accountHolderEdemandeId.validationError =
+bgr.property.accountHolderEdemandeId.headerInformation =
 
 
 bgr.property.bankAccount.help =
 bgr.property.bankAccount.validationError =
+bgr.property.bankAccount.headerInformation =
 
 
 bgr.property.edemandeId.help =
 bgr.property.edemandeId.validationError =
+bgr.property.edemandeId.headerInformation =
 
 
 

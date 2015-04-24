@@ -4,18 +4,23 @@ par.property.subject.label = Sujet
 
 par.step.enfant.label =
 par.step.enfant.desc =
+par.step.enfant.header.help =
+par.step.enfant.footer.help =
 
 
 par.property.telephoneSujet.help =
 par.property.telephoneSujet.validationError =
+par.property.telephoneSujet.headerInformation =
 
 
 par.property.emailSujet.help =
 par.property.emailSujet.validationError =
+par.property.emailSujet.headerInformation =
 
 
 par.property.acceptationReglementInterieur.help =
 par.property.acceptationReglementInterieur.validationError =
+par.property.acceptationReglementInterieur.headerInformation =
 
 
 

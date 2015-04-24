@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="parr.property.rulesAndRegulationsAcceptance.label" /> 
                 <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">
@@ -23,6 +24,7 @@
   
 
   
+    
     
               <label class="">
                 <g:message code="parr.property.classTripPermission.label" /> 
@@ -45,6 +47,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="parr.property.childPhotoExploitationPermission.label" /> 
                 <g:if test="${availableRules.contains('childPhotoExploitationPermission')}">
@@ -65,6 +68,7 @@
   
 
   
+    
     
               <label class="">
                 <g:message code="parr.property.hospitalizationPermission.label" /> 

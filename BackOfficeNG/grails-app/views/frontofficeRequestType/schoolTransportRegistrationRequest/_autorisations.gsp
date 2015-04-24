@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="strr.property.estMaternelleElementaireAutorisations.label" /> *  <span><g:message code="strr.property.estMaternelleElementaireAutorisations.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['autorisations'].invalidFields.contains('estMaternelleElementaireAutorisations') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label for="autorisation" class="required condition-estMaternelleElementaire-filled"><g:message code="strr.property.autorisation.label" /> *  <span><g:message code="strr.property.autorisation.help" /></span></label>
             <select id="autorisation" name="autorisation" class="required condition-estMaternelleElementaire-filled condition-autoriseTiers-trigger condition-autoriseFrereOuSoeur-trigger  validate-not-first ${rqt.stepStates['autorisations'].invalidFields.contains('autorisation') ? 'validation-failed' : ''}" title="<g:message code="strr.property.autorisation.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -32,12 +34,15 @@
       <h4 class="required condition-autoriseTiers-filled"><g:message code="strr.property.tiersAutorises.label" /> 
         <span><g:message code="strr.property.tiersAutorises.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'autorisations', 'currentCollection':'tiersAutorises', 'collectionIndex':(rqt.tiersAutorises ? rqt.tiersAutorises.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.tiersAutorises}" status="index">
       <div class="item">
         <dl>
@@ -67,29 +72,33 @@
   
 
   
-    <fieldset class="required condition-autoriseFrereOuSoeur-filled">
+    <fieldset class="required condition-autoriseFrereOuSoeur-filled" id="FrereOuSoeurAutorise">
     <legend><g:message code="strr.property.frereOuSoeurAutorise.label" /></legend>
     
+      
       <label for="frereOuSoeurNom" class="required"><g:message code="strr.property.frereOuSoeurNom.label" /> *  <span><g:message code="strr.property.frereOuSoeurNom.help" /></span></label>
-            <input type="text" id="frereOuSoeurNom" name="frereOuSoeurNom" value="${rqt.frereOuSoeurNom?.toString()}" 
+            <input  type="text" id="frereOuSoeurNom" name="frereOuSoeurNom" value="${rqt.frereOuSoeurNom?.toString()}" 
                     class="required  validate-lastName ${rqt.stepStates['autorisations'].invalidFields.contains('frereOuSoeurNom') ? 'validation-failed' : ''}" title="<g:message code="strr.property.frereOuSoeurNom.validationError" />"  maxlength="38" />
             
 
     
+      
       <label for="frereOuSoeurPrenom" class="required"><g:message code="strr.property.frereOuSoeurPrenom.label" /> *  <span><g:message code="strr.property.frereOuSoeurPrenom.help" /></span></label>
-            <input type="text" id="frereOuSoeurPrenom" name="frereOuSoeurPrenom" value="${rqt.frereOuSoeurPrenom?.toString()}" 
+            <input  type="text" id="frereOuSoeurPrenom" name="frereOuSoeurPrenom" value="${rqt.frereOuSoeurPrenom?.toString()}" 
                     class="required  validate-firstName ${rqt.stepStates['autorisations'].invalidFields.contains('frereOuSoeurPrenom') ? 'validation-failed' : ''}" title="<g:message code="strr.property.frereOuSoeurPrenom.validationError" />"  maxlength="38" />
             
 
     
+      
       <label for="frereOuSoeurEcole" class="required"><g:message code="strr.property.frereOuSoeurEcole.label" /> *  <span><g:message code="strr.property.frereOuSoeurEcole.help" /></span></label>
-            <input type="text" id="frereOuSoeurEcole" name="frereOuSoeurEcole" value="${rqt.frereOuSoeurEcole?.toString()}" 
+            <input  type="text" id="frereOuSoeurEcole" name="frereOuSoeurEcole" value="${rqt.frereOuSoeurEcole?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['autorisations'].invalidFields.contains('frereOuSoeurEcole') ? 'validation-failed' : ''}" title="<g:message code="strr.property.frereOuSoeurEcole.validationError" />"   />
             
 
     
+      
       <label for="frereOuSoeurClasse" class="required"><g:message code="strr.property.frereOuSoeurClasse.label" /> *  <span><g:message code="strr.property.frereOuSoeurClasse.help" /></span></label>
-            <input type="text" id="frereOuSoeurClasse" name="frereOuSoeurClasse" value="${rqt.frereOuSoeurClasse?.toString()}" 
+            <input  type="text" id="frereOuSoeurClasse" name="frereOuSoeurClasse" value="${rqt.frereOuSoeurClasse?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['autorisations'].invalidFields.contains('frereOuSoeurClasse') ? 'validation-failed' : ''}" title="<g:message code="strr.property.frereOuSoeurClasse.validationError" />"   />
             
 

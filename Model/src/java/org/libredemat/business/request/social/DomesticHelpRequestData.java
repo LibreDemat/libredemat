@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -510,8 +511,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
-                
+                "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -562,8 +564,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
-                
+                "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -580,8 +583,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
-                
+                "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -610,8 +614,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
-                
+                "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -663,8 +668,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
-                
+                "active &= _this.conditions['dhrCurrentDwellingKind'].test(_this.dhrCurrentDwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -709,8 +715,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
+                    
+                  
               
             
             
@@ -725,8 +732,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
+                    
+                  
               
             
             
@@ -756,8 +764,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
+                    
+                  
               
             
             
@@ -789,8 +798,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
+                    
+                  
               
             
             
@@ -805,8 +815,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
+                    
+                  
               
             
             
@@ -821,8 +832,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterHaveGuardian'].test(_this.dhrRequesterHaveGuardian.toString());" +
+                    
+                  
               
             
             
@@ -910,8 +922,9 @@ public class DomesticHelpRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -986,8 +999,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrPrincipalPensionPlan'].test(_this.dhrPrincipalPensionPlan.toString());" +
-                
+                "active &= _this.conditions['dhrPrincipalPensionPlan'].test(_this.dhrPrincipalPensionPlan.toString());" +
+                    
+                  
               
             
             
@@ -1002,8 +1016,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrPrincipalPensionPlan'].test(_this.dhrPrincipalPensionPlan.toString());" +
-                
+                "active &= _this.conditions['dhrPrincipalPensionPlan'].test(_this.dhrPrincipalPensionPlan.toString());" +
+                    
+                  
               
             
             
@@ -1133,8 +1148,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1149,8 +1165,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1182,8 +1199,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1198,8 +1216,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1214,8 +1233,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1246,8 +1266,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1262,8 +1283,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1278,8 +1300,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
-                
+                "active &= _this.conditions['dhrHaveFamilyReferent'].test(_this.dhrHaveFamilyReferent.toString());" +
+                    
+                  
               
             
             
@@ -1379,8 +1402,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterNationality'].test(_this.dhrRequesterNationality.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterNationality'].test(_this.dhrRequesterNationality.toString());" +
+                    
+                  
               
             
             
@@ -1430,8 +1454,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequesterNationality'].test(_this.dhrRequesterNationality.toString());" +
-                
+                "active &= _this.conditions['dhrRequesterNationality'].test(_this.dhrRequesterNationality.toString());" +
+                    
+                  
               
             
             
@@ -1482,12 +1507,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1501,12 +1528,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1535,8 +1564,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1565,8 +1595,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1581,8 +1612,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1611,12 +1643,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= _this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1630,12 +1664,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= _this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1663,12 +1699,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1682,12 +1720,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1715,8 +1755,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1748,8 +1789,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1764,8 +1806,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1780,8 +1823,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1810,8 +1854,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpouseNationality'].test(_this.dhrSpouseNationality.toString());" +
-                
+                "active &= _this.conditions['dhrSpouseNationality'].test(_this.dhrSpouseNationality.toString());" +
+                    
+                  
               
             
             
@@ -1840,8 +1885,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpouseNationality'].test(_this.dhrSpouseNationality.toString());" +
-                
+                "active &= _this.conditions['dhrSpouseNationality'].test(_this.dhrSpouseNationality.toString());" +
+                    
+                  
               
             
             
@@ -1872,8 +1918,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpouseTitle'].test(_this.dhrSpouseTitle.toString());" +
-                
+                "active &= _this.conditions['dhrSpouseTitle'].test(_this.dhrSpouseTitle.toString());" +
+                    
+                  
               
             
             
@@ -1888,8 +1935,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpouseTitle'].test(_this.dhrSpouseTitle.toString());" +
-                
+                "active &= _this.conditions['dhrSpouseTitle'].test(_this.dhrSpouseTitle.toString());" +
+                    
+                  
               
             
             
@@ -1904,8 +1952,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpouseTitle'].test(_this.dhrSpouseTitle.toString());" +
-                
+                "active &= _this.conditions['dhrSpouseTitle'].test(_this.dhrSpouseTitle.toString());" +
+                    
+                  
               
             
             
@@ -1936,8 +1985,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1952,8 +2002,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1968,8 +2019,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -1998,8 +2050,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             
@@ -2029,12 +2082,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpousePrincipalPensionPlan'].test(_this.dhrSpousePrincipalPensionPlan.toString());" +
-                
+                "active &= _this.conditions['dhrSpousePrincipalPensionPlan'].test(_this.dhrSpousePrincipalPensionPlan.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -2048,12 +2103,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrSpousePrincipalPensionPlan'].test(_this.dhrSpousePrincipalPensionPlan.toString());" +
-                
+                "active &= _this.conditions['dhrSpousePrincipalPensionPlan'].test(_this.dhrSpousePrincipalPensionPlan.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -2081,12 +2138,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= _this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -2115,12 +2174,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -2134,12 +2195,14 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
-                
+                "active &= !_this.conditions['dhrIsSpouseRetired'].test(_this.dhrIsSpouseRetired.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -2167,8 +2230,9 @@ public class DomesticHelpRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
-                
+                "active &= _this.conditions['dhrRequestKind'].test(_this.dhrRequestKind.toString());" +
+                    
+                  
               
             
             

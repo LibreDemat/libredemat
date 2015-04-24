@@ -2,9 +2,10 @@
 
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="RsrSubject">
     <legend><g:message code="rsr.property.rsrSubject.label" /></legend>
     
+      
       
             <label for="subjectId" class="required">
               <g:message code="rsr.property.subject.label" /> *
@@ -34,6 +35,7 @@
             
 
     
+      
       <label for="subjectTitle" class="required"><g:message code="rsr.property.subjectTitle.label" /> *  <span><g:message code="rsr.property.subjectTitle.help" /></span></label>
             <select id="subjectTitle" name="subjectTitle" class="required autofill-subjectFilling-listener-Title validate-not-first ${rqt.stepStates['subject'].invalidFields.contains('subjectTitle') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.subjectTitle.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -44,6 +46,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.subjectBirthDate.label" /> *  <span><g:message code="rsr.property.subjectBirthDate.help" /></span></label>
             <div class="date required autofill-subjectFilling-listener-BirthDate validate-date required autofill-subjectFilling-listener-BirthDate">
               <select class="day ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthDate') ? 'validation-failed' : ''}"
@@ -84,6 +87,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.subjectResideWith.label" /> *  <span><g:message code="rsr.property.subjectResideWith.help" /></span></label>
             <ul class="required ${rqt.stepStates['subject'].invalidFields.contains('subjectResideWith') ? 'validation-failed' : ''}">
               <g:each in="${['ALONE','COUPLE','FAMILY']}">
@@ -96,6 +100,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.subjectIsTaxable.label" /> *  <span><g:message code="rsr.property.subjectIsTaxable.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subject'].invalidFields.contains('subjectIsTaxable') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -108,6 +113,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.subjectIsAPABeneficiary.label" /> *  <span><g:message code="rsr.property.subjectIsAPABeneficiary.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subject'].invalidFields.contains('subjectIsAPABeneficiary') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -120,6 +126,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.subjectIsDisabledPerson.label" /> *  <span><g:message code="rsr.property.subjectIsDisabledPerson.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subject'].invalidFields.contains('subjectIsDisabledPerson') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -136,9 +143,10 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="RequestInformation">
     <legend><g:message code="rsr.property.requestInformation.label" /></legend>
     
+      
       <label class="required"><g:message code="rsr.property.requestInformationRequestKind.label" /> *  <span><g:message code="rsr.property.requestInformationRequestKind.help" /></span></label>
             <ul class="required ${rqt.stepStates['subject'].invalidFields.contains('requestInformationRequestKind') ? 'validation-failed' : ''}">
               <g:each in="${['INDIVIDUAL','COUPLE']}">
@@ -151,6 +159,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.requestInformationEmergency.label" /> *  <span><g:message code="rsr.property.requestInformationEmergency.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subject'].invalidFields.contains('requestInformationEmergency') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -163,6 +172,7 @@
             
 
     
+      
       <label for="requestInformationEmergencyMotive" class="required condition-isEmergency-filled"><g:message code="rsr.property.requestInformationEmergencyMotive.label" /> *  <span><g:message code="rsr.property.requestInformationEmergencyMotive.help" /></span></label>
             <textarea id="requestInformationEmergencyMotive" name="requestInformationEmergencyMotive" class="required condition-isEmergency-filled  validate-textarea ${rqt.stepStates['subject'].invalidFields.contains('requestInformationEmergencyMotive') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.requestInformationEmergencyMotive.validationError" />" rows="3" cols=""  maxlength="180">${rqt.requestInformationEmergencyMotive}</textarea>
             
@@ -172,21 +182,24 @@
   
 
   
-    <fieldset class="required condition-isCoupleRequest-filled">
+    <fieldset class="required condition-isCoupleRequest-filled" id="Spouse">
     <legend><g:message code="rsr.property.spouse.label" /></legend>
     
+      
       <label for="spouseLastName" class="required"><g:message code="rsr.property.spouseLastName.label" /> *  <span><g:message code="rsr.property.spouseLastName.help" /></span></label>
-            <input type="text" id="spouseLastName" name="spouseLastName" value="${rqt.spouseLastName?.toString()}" 
+            <input  type="text" id="spouseLastName" name="spouseLastName" value="${rqt.spouseLastName?.toString()}" 
                     class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('spouseLastName') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.spouseLastName.validationError" />"  maxlength="38" />
             
 
     
+      
       <label for="spouseFirstName" class="required"><g:message code="rsr.property.spouseFirstName.label" /> *  <span><g:message code="rsr.property.spouseFirstName.help" /></span></label>
-            <input type="text" id="spouseFirstName" name="spouseFirstName" value="${rqt.spouseFirstName?.toString()}" 
+            <input  type="text" id="spouseFirstName" name="spouseFirstName" value="${rqt.spouseFirstName?.toString()}" 
                     class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('spouseFirstName') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.spouseFirstName.validationError" />"  maxlength="38" />
             
 
     
+      
       <label for="spouseTitle" class="required"><g:message code="rsr.property.spouseTitle.label" /> *  <span><g:message code="rsr.property.spouseTitle.help" /></span></label>
             <select id="spouseTitle" name="spouseTitle" class="required  validate-not-first ${rqt.stepStates['subject'].invalidFields.contains('spouseTitle') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.spouseTitle.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -197,6 +210,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.spouseBirthDate.label" /> *  <span><g:message code="rsr.property.spouseBirthDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['subject'].invalidFields.contains('spouseBirthDate') ? 'validation-failed' : ''}"
@@ -237,6 +251,7 @@
             
 
     
+      
       <label class="required"><g:message code="rsr.property.spouseIsDisabledPerson.label" /> *  <span><g:message code="rsr.property.spouseIsDisabledPerson.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subject'].invalidFields.contains('spouseIsDisabledPerson') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="rpar.property.acceptationReglementInterieur.label" /> 
                 <g:if test="${availableRules.contains('acceptationReglementInterieur')}">

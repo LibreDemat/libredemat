@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="msrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="msrr.property.activity.label" /> *  <span><g:message code="msrr.property.activity.help" /></span></label>
             <g:set var="activityIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 

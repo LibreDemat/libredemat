@@ -12,12 +12,14 @@
     </span>
   </h4>
   
+    
     <label for="careServices.${collectionIndex}.careServiceKind" class="required"><g:message code="hccr.property.careServiceKind.label" /> *  <span><g:message code="hccr.property.careServiceKind.help" /></span></label>
-            <input type="text" id="careServices.${collectionIndex}.careServiceKind" name="careServices[${collectionIndex}].careServiceKind" value="${currentCollectionItem?.careServiceKind?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['aid'].invalidFields.contains('careServices['+collectionIndex+'].careServiceKind') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.careServiceKind.validationError" />"   />
+            <input  type="text" id="careServices.${collectionIndex}.careServiceKind" name="careServices[${collectionIndex}].careServiceKind" value="${currentCollectionItem?.careServiceKind?.toString()}" 
+                    class="required  validate-string ${rqt.stepStates['aid'].invalidFields.contains('careServices['+collectionIndex+'].careServiceKind') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.careServiceKind.validationError" />"   style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="hccr.property.careServiceCareServiceEmployer.label" />&nbsp;* <span><g:message code="hccr.property.careServiceCareServiceEmployer.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('careServices['+collectionIndex+'].careServiceCareServiceEmployer') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -30,12 +32,14 @@
             
 
   
+    
     <label for="careServices.${collectionIndex}.careServiceProviderName" class="required condition-isCareServiceEmployer-unfilled"><g:message code="hccr.property.careServiceProviderName.label" /> *  <span><g:message code="hccr.property.careServiceProviderName.help" /></span></label>
-            <input type="text" id="careServices.${collectionIndex}.careServiceProviderName" name="careServices[${collectionIndex}].careServiceProviderName" value="${currentCollectionItem?.careServiceProviderName?.toString()}" 
-                    class="required condition-isCareServiceEmployer-unfilled  validate-lastName ${rqt.stepStates['aid'].invalidFields.contains('careServices['+collectionIndex+'].careServiceProviderName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.careServiceProviderName.validationError" />"  maxlength="38" />
+            <input  type="text" id="careServices.${collectionIndex}.careServiceProviderName" name="careServices[${collectionIndex}].careServiceProviderName" value="${currentCollectionItem?.careServiceProviderName?.toString()}" 
+                    class="required condition-isCareServiceEmployer-unfilled  validate-lastName ${rqt.stepStates['aid'].invalidFields.contains('careServices['+collectionIndex+'].careServiceProviderName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.careServiceProviderName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="condition-isCareServiceEmployer-unfilled"><g:message code="hccr.property.careServiceProviderAddress.label" /> <span><g:message code="hccr.property.careServiceProviderAddress.help" /></span></label>
             <div class="address condition-isCareServiceEmployer-unfilled  ${rqt.stepStates['aid'].invalidFields.contains('careServices['+collectionIndex+'].careServiceProviderAddress') ? 'validation-failed' : ''}">
             <label for="careServices.${collectionIndex}.careServiceProviderAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>

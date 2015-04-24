@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="gsrr.property.estPeriscolaire.label" /> *  <span><g:message code="gsrr.property.estPeriscolaire.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['periscolaire'].invalidFields.contains('estPeriscolaire') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

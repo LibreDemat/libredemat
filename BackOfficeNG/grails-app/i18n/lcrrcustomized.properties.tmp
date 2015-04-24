@@ -4,57 +4,73 @@ lcrr.property.subject.label = Sujet
 
 lcrr.step.enfant.label =
 lcrr.step.enfant.desc =
+lcrr.step.enfant.header.help =
+lcrr.step.enfant.footer.help =
 
 lcrr.step.reglements.label =
 lcrr.step.reglements.desc =
+lcrr.step.reglements.header.help =
+lcrr.step.reglements.footer.help =
 
 
 lcrr.property.estDerogation.help =
 lcrr.property.estDerogation.validationError =
+lcrr.property.estDerogation.headerInformation =
 
 
 lcrr.property.motifsDerogationCentreLoisirs.help =
 lcrr.property.motifsDerogationCentreLoisirs.validationError =
+lcrr.property.motifsDerogationCentreLoisirs.headerInformation =
 
 
 lcrr.property.centresLoisirs.help =
 lcrr.property.centresLoisirs.validationError =
+lcrr.property.centresLoisirs.headerInformation =
 
 
 lcrr.property.idCentreLoisirs.help =
 lcrr.property.idCentreLoisirs.validationError =
+lcrr.property.idCentreLoisirs.headerInformation =
 
 
 lcrr.property.labelCentreLoisirs.help =
 lcrr.property.labelCentreLoisirs.validationError =
+lcrr.property.labelCentreLoisirs.headerInformation =
 
 
 lcrr.property.estTransport.help =
 lcrr.property.estTransport.validationError =
+lcrr.property.estTransport.headerInformation =
 
 
 lcrr.property.transports.help =
 lcrr.property.transports.validationError =
+lcrr.property.transports.headerInformation =
 
 
 lcrr.property.idLigne.help =
 lcrr.property.idLigne.validationError =
+lcrr.property.idLigne.headerInformation =
 
 
 lcrr.property.labelLigne.help =
 lcrr.property.labelLigne.validationError =
+lcrr.property.labelLigne.headerInformation =
 
 
 lcrr.property.idArret.help =
 lcrr.property.idArret.validationError =
+lcrr.property.idArret.headerInformation =
 
 
 lcrr.property.labelArret.help =
 lcrr.property.labelArret.validationError =
+lcrr.property.labelArret.headerInformation =
 
 
 lcrr.property.acceptationReglementInterieur.help =
 lcrr.property.acceptationReglementInterieur.validationError =
+lcrr.property.acceptationReglementInterieur.headerInformation =
 
 
 

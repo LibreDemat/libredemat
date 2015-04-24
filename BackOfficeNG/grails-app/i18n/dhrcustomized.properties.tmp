@@ -4,383 +4,484 @@ dhr.property.subject.label = Sujet
 
 dhr.step.subject.label =
 dhr.step.subject.desc =
+dhr.step.subject.header.help =
+dhr.step.subject.footer.help =
 
 dhr.step.familyReferent.label =
 dhr.step.familyReferent.desc =
+dhr.step.familyReferent.header.help =
+dhr.step.familyReferent.footer.help =
 
 dhr.step.spouse.label =
 dhr.step.spouse.desc =
+dhr.step.spouse.header.help =
+dhr.step.spouse.footer.help =
 
 dhr.step.dwelling.label =
 dhr.step.dwelling.desc =
+dhr.step.dwelling.header.help =
+dhr.step.dwelling.footer.help =
 
 dhr.step.resources.label =
 dhr.step.resources.desc =
+dhr.step.resources.header.help =
+dhr.step.resources.footer.help =
 
 dhr.step.taxes.label =
 dhr.step.taxes.desc =
+dhr.step.taxes.header.help =
+dhr.step.taxes.footer.help =
 
 
 dhr.property.dhrRequester.help =
 dhr.property.dhrRequester.validationError =
+dhr.property.dhrRequester.headerInformation =
 
 
 dhr.property.dhrRequesterBirthDate.help =
 dhr.property.dhrRequesterBirthDate.validationError =
+dhr.property.dhrRequesterBirthDate.headerInformation =
 
 
 dhr.property.dhrRequesterBirthPlace.help =
 dhr.property.dhrRequesterBirthPlace.validationError =
+dhr.property.dhrRequesterBirthPlace.headerInformation =
 
 
 dhr.property.dhrRequesterNationality.help =
 dhr.property.dhrRequesterNationality.validationError =
+dhr.property.dhrRequesterNationality.headerInformation =
 
 
 dhr.property.dhrRequesterFranceArrivalDate.help =
 dhr.property.dhrRequesterFranceArrivalDate.validationError =
+dhr.property.dhrRequesterFranceArrivalDate.headerInformation =
 
 
 dhr.property.dhrRequesterIsFrenchResident.help =
 dhr.property.dhrRequesterIsFrenchResident.validationError =
+dhr.property.dhrRequesterIsFrenchResident.headerInformation =
 
 
 dhr.property.dhrRequesterPensionPlan.help =
 dhr.property.dhrRequesterPensionPlan.validationError =
+dhr.property.dhrRequesterPensionPlan.headerInformation =
 
 
 dhr.property.dhrPrincipalPensionPlan.help =
 dhr.property.dhrPrincipalPensionPlan.validationError =
+dhr.property.dhrPrincipalPensionPlan.headerInformation =
 
 
 dhr.property.dhrPensionPlanDetail.help =
 dhr.property.dhrPensionPlanDetail.validationError =
+dhr.property.dhrPensionPlanDetail.headerInformation =
 
 
 dhr.property.dhrComplementaryPensionPlan.help =
 dhr.property.dhrComplementaryPensionPlan.validationError =
+dhr.property.dhrComplementaryPensionPlan.headerInformation =
 
 
 dhr.property.dhrRequesterGuardian.help =
 dhr.property.dhrRequesterGuardian.validationError =
+dhr.property.dhrRequesterGuardian.headerInformation =
 
 
 dhr.property.dhrRequesterHaveGuardian.help =
 dhr.property.dhrRequesterHaveGuardian.validationError =
+dhr.property.dhrRequesterHaveGuardian.headerInformation =
 
 
 dhr.property.dhrGuardianMeasure.help =
 dhr.property.dhrGuardianMeasure.validationError =
+dhr.property.dhrGuardianMeasure.headerInformation =
 
 
 dhr.property.dhrGuardianName.help =
 dhr.property.dhrGuardianName.validationError =
+dhr.property.dhrGuardianName.headerInformation =
 
 
 dhr.property.dhrGuardianAddress.help =
 dhr.property.dhrGuardianAddress.validationError =
+dhr.property.dhrGuardianAddress.headerInformation =
 
 
 dhr.property.dhrFamilyReferent.help =
 dhr.property.dhrFamilyReferent.validationError =
+dhr.property.dhrFamilyReferent.headerInformation =
 
 
 dhr.property.dhrHaveFamilyReferent.help =
 dhr.property.dhrHaveFamilyReferent.validationError =
+dhr.property.dhrHaveFamilyReferent.headerInformation =
 
 
 dhr.property.dhrReferentName.help =
 dhr.property.dhrReferentName.validationError =
+dhr.property.dhrReferentName.headerInformation =
 
 
 dhr.property.dhrReferentFirstName.help =
 dhr.property.dhrReferentFirstName.validationError =
+dhr.property.dhrReferentFirstName.headerInformation =
 
 
 dhr.property.dhrReferentAddress.help =
 dhr.property.dhrReferentAddress.validationError =
+dhr.property.dhrReferentAddress.headerInformation =
 
 
 dhr.property.dhrSpouse.help =
 dhr.property.dhrSpouse.validationError =
+dhr.property.dhrSpouse.headerInformation =
 
 
 dhr.property.dhrRequestKind.help =
 dhr.property.dhrRequestKind.validationError =
+dhr.property.dhrRequestKind.headerInformation =
 
 
 dhr.property.dhrSpouseTitle.help =
 dhr.property.dhrSpouseTitle.validationError =
+dhr.property.dhrSpouseTitle.headerInformation =
 
 
 dhr.property.dhrSpouseFamilyStatus.help =
 dhr.property.dhrSpouseFamilyStatus.validationError =
+dhr.property.dhrSpouseFamilyStatus.headerInformation =
 
 
 dhr.property.dhrSpouseName.help =
 dhr.property.dhrSpouseName.validationError =
+dhr.property.dhrSpouseName.headerInformation =
 
 
 dhr.property.dhrSpouseFirstName.help =
 dhr.property.dhrSpouseFirstName.validationError =
+dhr.property.dhrSpouseFirstName.headerInformation =
 
 
 dhr.property.dhrSpouseMaidenName.help =
 dhr.property.dhrSpouseMaidenName.validationError =
+dhr.property.dhrSpouseMaidenName.headerInformation =
 
 
 dhr.property.dhrSpouseBirthDate.help =
 dhr.property.dhrSpouseBirthDate.validationError =
+dhr.property.dhrSpouseBirthDate.headerInformation =
 
 
 dhr.property.dhrSpouseBirthPlace.help =
 dhr.property.dhrSpouseBirthPlace.validationError =
+dhr.property.dhrSpouseBirthPlace.headerInformation =
 
 
 dhr.property.dhrSpouseNationality.help =
 dhr.property.dhrSpouseNationality.validationError =
+dhr.property.dhrSpouseNationality.headerInformation =
 
 
 dhr.property.dhrSpouseFranceArrivalDate.help =
 dhr.property.dhrSpouseFranceArrivalDate.validationError =
+dhr.property.dhrSpouseFranceArrivalDate.headerInformation =
 
 
 dhr.property.dhrSpouseIsFrenchResident.help =
 dhr.property.dhrSpouseIsFrenchResident.validationError =
+dhr.property.dhrSpouseIsFrenchResident.headerInformation =
 
 
 dhr.property.dhrSpouseStatus.help =
 dhr.property.dhrSpouseStatus.validationError =
+dhr.property.dhrSpouseStatus.headerInformation =
 
 
 dhr.property.dhrIsSpouseRetired.help =
 dhr.property.dhrIsSpouseRetired.validationError =
+dhr.property.dhrIsSpouseRetired.headerInformation =
 
 
 dhr.property.dhrSpousePrincipalPensionPlan.help =
 dhr.property.dhrSpousePrincipalPensionPlan.validationError =
+dhr.property.dhrSpousePrincipalPensionPlan.headerInformation =
 
 
 dhr.property.dhrSpousePensionPlanDetail.help =
 dhr.property.dhrSpousePensionPlanDetail.validationError =
+dhr.property.dhrSpousePensionPlanDetail.headerInformation =
 
 
 dhr.property.dhrSpouseComplementaryPensionPlan.help =
 dhr.property.dhrSpouseComplementaryPensionPlan.validationError =
+dhr.property.dhrSpouseComplementaryPensionPlan.headerInformation =
 
 
 dhr.property.dhrSpouseProfession.help =
 dhr.property.dhrSpouseProfession.validationError =
+dhr.property.dhrSpouseProfession.headerInformation =
 
 
 dhr.property.dhrSpouseEmployer.help =
 dhr.property.dhrSpouseEmployer.validationError =
+dhr.property.dhrSpouseEmployer.headerInformation =
 
 
 dhr.property.dhrSpouseAddress.help =
 dhr.property.dhrSpouseAddress.validationError =
+dhr.property.dhrSpouseAddress.headerInformation =
 
 
 dhr.property.dhrSpouseIncomes.help =
 dhr.property.dhrSpouseIncomes.validationError =
+dhr.property.dhrSpouseIncomes.headerInformation =
 
 
 dhr.property.pensions.help =
 dhr.property.pensions.validationError =
+dhr.property.pensions.headerInformation =
 
 
 dhr.property.dhrAllowances.help =
 dhr.property.dhrAllowances.validationError =
+dhr.property.dhrAllowances.headerInformation =
 
 
 dhr.property.dhrFurnitureInvestmentIncome.help =
 dhr.property.dhrFurnitureInvestmentIncome.validationError =
+dhr.property.dhrFurnitureInvestmentIncome.headerInformation =
 
 
 dhr.property.dhrRealEstateInvestmentIncome.help =
 dhr.property.dhrRealEstateInvestmentIncome.validationError =
+dhr.property.dhrRealEstateInvestmentIncome.headerInformation =
 
 
 dhr.property.dhrNetIncome.help =
 dhr.property.dhrNetIncome.validationError =
+dhr.property.dhrNetIncome.headerInformation =
 
 
 dhr.property.dhrIncomesAnnualTotal.help =
 dhr.property.dhrIncomesAnnualTotal.validationError =
+dhr.property.dhrIncomesAnnualTotal.headerInformation =
 
 
 dhr.property.dhrCurrentDwelling.help =
 dhr.property.dhrCurrentDwelling.validationError =
+dhr.property.dhrCurrentDwelling.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingAddress.help =
 dhr.property.dhrCurrentDwellingAddress.validationError =
+dhr.property.dhrCurrentDwellingAddress.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingPhone.help =
 dhr.property.dhrCurrentDwellingPhone.validationError =
+dhr.property.dhrCurrentDwellingPhone.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingKind.help =
 dhr.property.dhrCurrentDwellingKind.validationError =
+dhr.property.dhrCurrentDwellingKind.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingArrivalDate.help =
 dhr.property.dhrCurrentDwellingArrivalDate.validationError =
+dhr.property.dhrCurrentDwellingArrivalDate.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingStatus.help =
 dhr.property.dhrCurrentDwellingStatus.validationError =
+dhr.property.dhrCurrentDwellingStatus.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingNumberOfRoom.help =
 dhr.property.dhrCurrentDwellingNumberOfRoom.validationError =
+dhr.property.dhrCurrentDwellingNumberOfRoom.headerInformation =
 
 
 dhr.property.dhrCurrentDwellingNetArea.help =
 dhr.property.dhrCurrentDwellingNetArea.validationError =
+dhr.property.dhrCurrentDwellingNetArea.headerInformation =
 
 
 dhr.property.dhrPreviousDwelling.help =
 dhr.property.dhrPreviousDwelling.validationError =
+dhr.property.dhrPreviousDwelling.headerInformation =
 
 dhr.property.dhrPreviousDwelling.elementAdditionSuccess =
 
 
 dhr.property.dhrPreviousDwellingAddress.help =
 dhr.property.dhrPreviousDwellingAddress.validationError =
+dhr.property.dhrPreviousDwellingAddress.headerInformation =
 
 
 dhr.property.dhrPreviousDwellingKind.help =
 dhr.property.dhrPreviousDwellingKind.validationError =
+dhr.property.dhrPreviousDwellingKind.headerInformation =
 
 
 dhr.property.dhrPreviousDwellingStatus.help =
 dhr.property.dhrPreviousDwellingStatus.validationError =
+dhr.property.dhrPreviousDwellingStatus.headerInformation =
 
 
 dhr.property.dhrPreviousDwellingArrivalDate.help =
 dhr.property.dhrPreviousDwellingArrivalDate.validationError =
+dhr.property.dhrPreviousDwellingArrivalDate.headerInformation =
 
 
 dhr.property.dhrPreviousDwellingDepartureDate.help =
 dhr.property.dhrPreviousDwellingDepartureDate.validationError =
+dhr.property.dhrPreviousDwellingDepartureDate.headerInformation =
 
 
 dhr.property.dhrPreviousDwellingComment.help =
 dhr.property.dhrPreviousDwellingComment.validationError =
+dhr.property.dhrPreviousDwellingComment.headerInformation =
 
 
 dhr.property.dhrRequesterIncomes.help =
 dhr.property.dhrRequesterIncomes.validationError =
+dhr.property.dhrRequesterIncomes.headerInformation =
 
 
 dhr.property.pensions.help =
 dhr.property.pensions.validationError =
+dhr.property.pensions.headerInformation =
 
 
 dhr.property.dhrAllowances.help =
 dhr.property.dhrAllowances.validationError =
+dhr.property.dhrAllowances.headerInformation =
 
 
 dhr.property.dhrFurnitureInvestmentIncome.help =
 dhr.property.dhrFurnitureInvestmentIncome.validationError =
+dhr.property.dhrFurnitureInvestmentIncome.headerInformation =
 
 
 dhr.property.dhrRealEstateInvestmentIncome.help =
 dhr.property.dhrRealEstateInvestmentIncome.validationError =
+dhr.property.dhrRealEstateInvestmentIncome.headerInformation =
 
 
 dhr.property.dhrNetIncome.help =
 dhr.property.dhrNetIncome.validationError =
+dhr.property.dhrNetIncome.headerInformation =
 
 
 dhr.property.dhrIncomesAnnualTotal.help =
 dhr.property.dhrIncomesAnnualTotal.validationError =
+dhr.property.dhrIncomesAnnualTotal.headerInformation =
 
 
 dhr.property.dhrRealAsset.help =
 dhr.property.dhrRealAsset.validationError =
+dhr.property.dhrRealAsset.headerInformation =
 
 dhr.property.dhrRealAsset.elementAdditionSuccess =
 
 
 dhr.property.dhrRealAssetAddress.help =
 dhr.property.dhrRealAssetAddress.validationError =
+dhr.property.dhrRealAssetAddress.headerInformation =
 
 
 dhr.property.dhrRealAssetValue.help =
 dhr.property.dhrRealAssetValue.validationError =
+dhr.property.dhrRealAssetValue.headerInformation =
 
 
 dhr.property.realAssetNetFloorArea.help =
 dhr.property.realAssetNetFloorArea.validationError =
+dhr.property.realAssetNetFloorArea.headerInformation =
 
 
 dhr.property.dhrNotRealAsset.help =
 dhr.property.dhrNotRealAsset.validationError =
+dhr.property.dhrNotRealAsset.headerInformation =
 
 dhr.property.dhrNotRealAsset.elementAdditionSuccess =
 
 
 dhr.property.dhrNotRealAssetType.help =
 dhr.property.dhrNotRealAssetType.validationError =
+dhr.property.dhrNotRealAssetType.headerInformation =
 
 
 dhr.property.dhrNotRealAssetKind.help =
 dhr.property.dhrNotRealAssetKind.validationError =
+dhr.property.dhrNotRealAssetKind.headerInformation =
 
 
 dhr.property.dhrNotRealAssetAddress.help =
 dhr.property.dhrNotRealAssetAddress.validationError =
+dhr.property.dhrNotRealAssetAddress.headerInformation =
 
 
 dhr.property.dhrNotRealAssetBeneficiaryName.help =
 dhr.property.dhrNotRealAssetBeneficiaryName.validationError =
+dhr.property.dhrNotRealAssetBeneficiaryName.headerInformation =
 
 
 dhr.property.dhrNotRealAssetBeneficiaryFirstName.help =
 dhr.property.dhrNotRealAssetBeneficiaryFirstName.validationError =
+dhr.property.dhrNotRealAssetBeneficiaryFirstName.headerInformation =
 
 
 dhr.property.dhrNotRealAssetBeneficiaryAddress.help =
 dhr.property.dhrNotRealAssetBeneficiaryAddress.validationError =
+dhr.property.dhrNotRealAssetBeneficiaryAddress.headerInformation =
 
 
 dhr.property.dhrNotRealAssetValue.help =
 dhr.property.dhrNotRealAssetValue.validationError =
+dhr.property.dhrNotRealAssetValue.headerInformation =
 
 
 dhr.property.dhrNotRealAssetDate.help =
 dhr.property.dhrNotRealAssetDate.validationError =
+dhr.property.dhrNotRealAssetDate.headerInformation =
 
 
 dhr.property.dhrNotRealAssetNotaryName.help =
 dhr.property.dhrNotRealAssetNotaryName.validationError =
+dhr.property.dhrNotRealAssetNotaryName.headerInformation =
 
 
 dhr.property.dhrNotRealAssetNotaryAddress.help =
 dhr.property.dhrNotRealAssetNotaryAddress.validationError =
+dhr.property.dhrNotRealAssetNotaryAddress.headerInformation =
 
 
 dhr.property.dhrTaxesAmount.help =
 dhr.property.dhrTaxesAmount.validationError =
+dhr.property.dhrTaxesAmount.headerInformation =
 
 
 dhr.property.dhrIncomeTax.help =
 dhr.property.dhrIncomeTax.validationError =
+dhr.property.dhrIncomeTax.headerInformation =
 
 
 dhr.property.localRate.help =
 dhr.property.localRate.validationError =
+dhr.property.localRate.headerInformation =
 
 
 dhr.property.propertyTaxes.help =
 dhr.property.propertyTaxes.validationError =
+dhr.property.propertyTaxes.headerInformation =
 
 
 dhr.property.professionalTaxes.help =
 dhr.property.professionalTaxes.validationError =
+dhr.property.professionalTaxes.headerInformation =
 
 
 

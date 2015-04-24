@@ -4,95 +4,122 @@ rarr.property.subject.label = Sujet
 
 rarr.step.registration.label =
 rarr.step.registration.desc =
+rarr.step.registration.header.help =
+rarr.step.registration.footer.help =
 
 rarr.step.contact.label =
 rarr.step.contact.desc =
+rarr.step.contact.header.help =
+rarr.step.contact.footer.help =
 
 rarr.step.authorization.label =
 rarr.step.authorization.desc =
+rarr.step.authorization.header.help =
+rarr.step.authorization.footer.help =
 
 rarr.step.rules.label =
 rarr.step.rules.desc =
+rarr.step.rules.header.help =
+rarr.step.rules.footer.help =
 
 
 rarr.property.recreationActivity.help =
 rarr.property.recreationActivity.validationError =
+rarr.property.recreationActivity.headerInformation =
 
 
 rarr.property.urgencyPhone.help =
 rarr.property.urgencyPhone.validationError =
+rarr.property.urgencyPhone.headerInformation =
 
 
 rarr.property.recreationCenter.help =
 rarr.property.recreationCenter.validationError =
+rarr.property.recreationCenter.headerInformation =
 
 
 rarr.property.contactIndividuals.help =
 rarr.property.contactIndividuals.validationError =
+rarr.property.contactIndividuals.headerInformation =
 
 rarr.property.contactIndividuals.elementAdditionSuccess =
 
 
 rarr.property.lastName.help =
 rarr.property.lastName.validationError =
+rarr.property.lastName.headerInformation =
 
 
 rarr.property.firstName.help =
 rarr.property.firstName.validationError =
+rarr.property.firstName.headerInformation =
 
 
 rarr.property.address.help =
 rarr.property.address.validationError =
+rarr.property.address.headerInformation =
 
 
 rarr.property.homePhone.help =
 rarr.property.homePhone.validationError =
+rarr.property.homePhone.headerInformation =
 
 
 rarr.property.officePhone.help =
 rarr.property.officePhone.validationError =
+rarr.property.officePhone.headerInformation =
 
 
 rarr.property.authorizedIndividuals.help =
 rarr.property.authorizedIndividuals.validationError =
+rarr.property.authorizedIndividuals.headerInformation =
 
 rarr.property.authorizedIndividuals.elementAdditionSuccess =
 
 
 rarr.property.lastName.help =
 rarr.property.lastName.validationError =
+rarr.property.lastName.headerInformation =
 
 
 rarr.property.firstName.help =
 rarr.property.firstName.validationError =
+rarr.property.firstName.headerInformation =
 
 
 rarr.property.address.help =
 rarr.property.address.validationError =
+rarr.property.address.headerInformation =
 
 
 rarr.property.homePhone.help =
 rarr.property.homePhone.validationError =
+rarr.property.homePhone.headerInformation =
 
 
 rarr.property.officePhone.help =
 rarr.property.officePhone.validationError =
+rarr.property.officePhone.headerInformation =
 
 
 rarr.property.rulesAndRegulationsAcceptance.help =
 rarr.property.rulesAndRegulationsAcceptance.validationError =
+rarr.property.rulesAndRegulationsAcceptance.headerInformation =
 
 
 rarr.property.classTripPermission.help =
 rarr.property.classTripPermission.validationError =
+rarr.property.classTripPermission.headerInformation =
 
 
 rarr.property.childPhotoExploitationPermission.help =
 rarr.property.childPhotoExploitationPermission.validationError =
+rarr.property.childPhotoExploitationPermission.headerInformation =
 
 
 rarr.property.hospitalizationPermission.help =
 rarr.property.hospitalizationPermission.validationError =
+rarr.property.hospitalizationPermission.headerInformation =
 
 
 

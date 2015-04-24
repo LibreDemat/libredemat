@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="dccrr.property.modeAccueil.label" /> *  <span><g:message code="dccrr.property.modeAccueil.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['accueil'].invalidFields.contains('modeAccueil') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label for="modeAccueilChoixUn" class="required condition-estIndifferent-filled"><g:message code="dccrr.property.modeAccueilChoixUn.label" /> *  <span><g:message code="dccrr.property.modeAccueilChoixUn.help" /></span></label>
             <select id="modeAccueilChoixUn" name="modeAccueilChoixUn" class="required condition-estIndifferent-filled  validate-not-first ${rqt.stepStates['accueil'].invalidFields.contains('modeAccueilChoixUn') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.modeAccueilChoixUn.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -28,6 +30,7 @@
   
 
   
+    
     <label for="modeAccueilChoixDeux" class="condition-estIndifferent-filled"><g:message code="dccrr.property.modeAccueilChoixDeux.label" />   <span><g:message code="dccrr.property.modeAccueilChoixDeux.help" /></span></label>
             <select id="modeAccueilChoixDeux" name="modeAccueilChoixDeux" class="condition-estIndifferent-filled  validate-select ${rqt.stepStates['accueil'].invalidFields.contains('modeAccueilChoixDeux') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.modeAccueilChoixDeux.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -40,17 +43,19 @@
   
 
   
+    
     <label for="accueilAnterieur" class=""><g:message code="dccrr.property.accueilAnterieur.label" />   <span><g:message code="dccrr.property.accueilAnterieur.help" /></span></label>
-            <input type="text" id="accueilAnterieur" name="accueilAnterieur" value="${rqt.accueilAnterieur?.toString()}" 
+            <input  type="text" id="accueilAnterieur" name="accueilAnterieur" value="${rqt.accueilAnterieur?.toString()}" 
                     class="  validate-string ${rqt.stepStates['accueil'].invalidFields.contains('accueilAnterieur') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.accueilAnterieur.validationError" />"   />
             
 
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="DatePlacementAccueilRegulier">
     <legend><g:message code="dccrr.property.datePlacementAccueilRegulier.label" /></legend>
     
+      
       <label for="choixTypeDatePlacementAccueilRegulier" class="required"><g:message code="dccrr.property.choixTypeDatePlacementAccueilRegulier.label" /> *  <span><g:message code="dccrr.property.choixTypeDatePlacementAccueilRegulier.help" /></span></label>
             <select id="choixTypeDatePlacementAccueilRegulier" name="choixTypeDatePlacementAccueilRegulier" class="required condition-dateConnue-trigger  validate-not-first ${rqt.stepStates['accueil'].invalidFields.contains('choixTypeDatePlacementAccueilRegulier') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.choixTypeDatePlacementAccueilRegulier.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -61,6 +66,7 @@
             
 
     
+      
       <label class="required condition-dateConnue-filled"><g:message code="dccrr.property.datePlacementDebut.label" /> *  <span><g:message code="dccrr.property.datePlacementDebut.help" /></span></label>
             <div class="date required condition-dateConnue-filled  validate-date required condition-dateConnue-filled ">
               <select class="day ${rqt.stepStates['accueil'].invalidFields.contains('datePlacementDebut') ? 'validation-failed' : ''}"
@@ -105,6 +111,7 @@
   
 
   
+    
     <label for="choixHorairesAccueil" class="required"><g:message code="dccrr.property.choixHorairesAccueil.label" /> *  <span><g:message code="dccrr.property.choixHorairesAccueil.help" /></span></label>
             <select id="choixHorairesAccueil" name="choixHorairesAccueil" class="required condition-estHorairesAccueilRegulier-trigger condition-estHorairesAccueilIrregulier-trigger  validate-not-first ${rqt.stepStates['accueil'].invalidFields.contains('choixHorairesAccueil') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.choixHorairesAccueil.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -117,9 +124,10 @@
   
 
   
-    <fieldset class="required condition-estHorairesAccueilRegulier-filled">
+    <fieldset class="required condition-estHorairesAccueilRegulier-filled" id="PlageHoraireAccueilReguliere">
     <legend><g:message code="dccrr.property.plageHoraireAccueilReguliere.label" /></legend>
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinDebut.label" />   
@@ -167,6 +175,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinFin.label" />   
                 <span><g:message code="dccrr.property.horairePlacementMatinFin.help" /></span>
@@ -213,6 +222,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiDebut.label" />   
                 <span><g:message code="dccrr.property.horairePlacementApresMidiDebut.help" /></span>
@@ -258,6 +268,7 @@
             
 
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiFin.label" />   
@@ -308,9 +319,10 @@
   
 
   
-    <fieldset class="required condition-estHorairesAccueilIrregulier-filled">
+    <fieldset class="required condition-estHorairesAccueilIrregulier-filled" id="Lundi">
     <legend><g:message code="dccrr.property.lundi.label" /></legend>
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinDebutLundi.label" />   
@@ -358,6 +370,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinFinLundi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementMatinFinLundi.help" /></span>
@@ -404,6 +417,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiDebutLundi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementApresMidiDebutLundi.help" /></span>
@@ -449,6 +463,7 @@
             
 
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiFinLundi.label" />   
@@ -499,9 +514,10 @@
   
 
   
-    <fieldset class="required condition-estHorairesAccueilIrregulier-filled">
+    <fieldset class="required condition-estHorairesAccueilIrregulier-filled" id="Mardi">
     <legend><g:message code="dccrr.property.mardi.label" /></legend>
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinDebutMardi.label" />   
@@ -549,6 +565,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinFinMardi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementMatinFinMardi.help" /></span>
@@ -595,6 +612,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiDebutMardi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementApresMidiDebutMardi.help" /></span>
@@ -640,6 +658,7 @@
             
 
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiFinMardi.label" />   
@@ -690,9 +709,10 @@
   
 
   
-    <fieldset class="required condition-estHorairesAccueilIrregulier-filled">
+    <fieldset class="required condition-estHorairesAccueilIrregulier-filled" id="Mercredi">
     <legend><g:message code="dccrr.property.mercredi.label" /></legend>
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinDebutMercredi.label" />   
@@ -740,6 +760,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinFinMercredi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementMatinFinMercredi.help" /></span>
@@ -786,6 +807,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiDebutMercredi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementApresMidiDebutMercredi.help" /></span>
@@ -831,6 +853,7 @@
             
 
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiFinMercredi.label" />   
@@ -881,9 +904,10 @@
   
 
   
-    <fieldset class="required condition-estHorairesAccueilIrregulier-filled">
+    <fieldset class="required condition-estHorairesAccueilIrregulier-filled" id="Jeudi">
     <legend><g:message code="dccrr.property.jeudi.label" /></legend>
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinDebutJeudi.label" />   
@@ -931,6 +955,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinFinJeudi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementMatinFinJeudi.help" /></span>
@@ -977,6 +1002,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiDebutJeudi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementApresMidiDebutJeudi.help" /></span>
@@ -1022,6 +1048,7 @@
             
 
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiFinJeudi.label" />   
@@ -1072,9 +1099,10 @@
   
 
   
-    <fieldset class="required condition-estHorairesAccueilIrregulier-filled">
+    <fieldset class="required condition-estHorairesAccueilIrregulier-filled" id="Vendredi">
     <legend><g:message code="dccrr.property.vendredi.label" /></legend>
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinDebutVendredi.label" />   
@@ -1122,6 +1150,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementMatinFinVendredi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementMatinFinVendredi.help" /></span>
@@ -1168,6 +1197,7 @@
 
     
       
+      
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiDebutVendredi.label" />   
                 <span><g:message code="dccrr.property.horairePlacementApresMidiDebutVendredi.help" /></span>
@@ -1213,6 +1243,7 @@
             
 
     
+      
       
             <div class="time   validate-time  ">
               <label class=""><g:message code="dccrr.property.horairePlacementApresMidiFinVendredi.label" />   

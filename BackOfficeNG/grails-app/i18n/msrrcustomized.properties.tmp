@@ -4,17 +4,23 @@ msrr.property.subject.label = Sujet
 
 msrr.step.registration.label =
 msrr.step.registration.desc =
+msrr.step.registration.header.help =
+msrr.step.registration.footer.help =
 
 msrr.step.rules.label =
 msrr.step.rules.desc =
+msrr.step.rules.header.help =
+msrr.step.rules.footer.help =
 
 
 msrr.property.activity.help =
 msrr.property.activity.validationError =
+msrr.property.activity.headerInformation =
 
 
 msrr.property.rulesAndRegulationsAcceptance.help =
 msrr.property.rulesAndRegulationsAcceptance.validationError =
+msrr.property.rulesAndRegulationsAcceptance.headerInformation =
 
 
 

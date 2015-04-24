@@ -6,12 +6,15 @@
       <h4 class=""><g:message code="sagr.property.autreMembreBureau.label" /> 
         <span><g:message code="sagr.property.autreMembreBureau.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'bureau', 'currentCollection':'autreMembreBureau', 'collectionIndex':(rqt.autreMembreBureau ? rqt.autreMembreBureau.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.autreMembreBureau}" status="index">
       <div class="item">
         <dl>

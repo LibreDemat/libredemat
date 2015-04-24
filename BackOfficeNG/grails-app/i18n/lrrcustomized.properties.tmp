@@ -4,33 +4,43 @@ lrr.property.subject.label = Sujet
 
 lrr.step.registration.label =
 lrr.step.registration.desc =
+lrr.step.registration.header.help =
+lrr.step.registration.footer.help =
 
 lrr.step.rules.label =
 lrr.step.rules.desc =
+lrr.step.rules.header.help =
+lrr.step.rules.footer.help =
 
 
 lrr.property.subscription.help =
 lrr.property.subscription.validationError =
+lrr.property.subscription.headerInformation =
 
 
 lrr.property.rulesAndRegulationsAcceptance.help =
 lrr.property.rulesAndRegulationsAcceptance.validationError =
+lrr.property.rulesAndRegulationsAcceptance.headerInformation =
 
 
 lrr.property.parentalAuthorization.help =
 lrr.property.parentalAuthorization.validationError =
+lrr.property.parentalAuthorization.headerInformation =
 
 
 lrr.property.adultContentAuthorization.help =
 lrr.property.adultContentAuthorization.validationError =
+lrr.property.adultContentAuthorization.headerInformation =
 
 
 lrr.property.registrationNumber.help =
 lrr.property.registrationNumber.validationError =
+lrr.property.registrationNumber.headerInformation =
 
 
 lrr.property.subscriptionPrice.help =
 lrr.property.subscriptionPrice.validationError =
+lrr.property.subscriptionPrice.headerInformation =
 
 
 

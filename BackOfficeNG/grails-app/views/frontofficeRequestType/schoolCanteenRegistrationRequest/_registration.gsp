@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="scrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,14 +34,16 @@
   
 
   
+    
     <label for="urgencyPhone" class="required"><g:message code="scrr.property.urgencyPhone.label" /> *  <span><g:message code="scrr.property.urgencyPhone.help" /></span></label>
-            <input type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
+            <input  type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
                     class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.urgencyPhone.validationError" />"  maxlength="10" />
             
 
   
 
   
+    
     <label class="required"><g:message code="scrr.property.foodDiet.label" /> *  <span><g:message code="scrr.property.foodDiet.help" /></span></label>
             <g:set var="foodDietIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -51,6 +54,7 @@
   
 
   
+    
     <label class="required"><g:message code="scrr.property.canteenAttendingDays.label" /> *  <span><g:message code="scrr.property.canteenAttendingDays.help" /></span></label>
             <g:set var="canteenAttendingDaysIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -61,6 +65,7 @@
   
 
   
+    
     <label class="required"><g:message code="scrr.property.foodAllergy.label" /> *  <span><g:message code="scrr.property.foodAllergy.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['registration'].invalidFields.contains('foodAllergy') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -75,24 +80,27 @@
   
 
   
+    
     <label for="whichFoodAllergy" class="required condition-foodAllergy-filled"><g:message code="scrr.property.whichFoodAllergy.label" /> *  <span><g:message code="scrr.property.whichFoodAllergy.help" /></span></label>
-            <input type="text" id="whichFoodAllergy" name="whichFoodAllergy" value="${rqt.whichFoodAllergy?.toString()}" 
+            <input  type="text" id="whichFoodAllergy" name="whichFoodAllergy" value="${rqt.whichFoodAllergy?.toString()}" 
                     class="required condition-foodAllergy-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('whichFoodAllergy') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.whichFoodAllergy.validationError" />"   />
             
 
   
 
   
+    
     <label for="doctorName" class=""><g:message code="scrr.property.doctorName.label" />   <span><g:message code="scrr.property.doctorName.help" /></span></label>
-            <input type="text" id="doctorName" name="doctorName" value="${rqt.doctorName?.toString()}" 
+            <input  type="text" id="doctorName" name="doctorName" value="${rqt.doctorName?.toString()}" 
                     class="  validate-string ${rqt.stepStates['registration'].invalidFields.contains('doctorName') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.doctorName.validationError" />"   />
             
 
   
 
   
+    
     <label for="doctorPhone" class=""><g:message code="scrr.property.doctorPhone.label" />   <span><g:message code="scrr.property.doctorPhone.help" /></span></label>
-            <input type="text" id="doctorPhone" name="doctorPhone" value="${rqt.doctorPhone?.toString()}" 
+            <input  type="text" id="doctorPhone" name="doctorPhone" value="${rqt.doctorPhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('doctorPhone') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.doctorPhone.validationError" />"  maxlength="10" />
             
 

@@ -12,18 +12,21 @@
     </span>
   </h4>
   
+    
     <label for="contactPolyIndividuals.${collectionIndex}.lastName" class="required"><g:message code="raprr.property.lastName.label" /> *  <span><g:message code="raprr.property.lastName.help" /></span></label>
             <input  type="text" id="contactPolyIndividuals.${collectionIndex}.lastName" name="contactPolyIndividuals[${collectionIndex}].lastName" value="${currentCollectionItem?.lastName?.toString()}" 
                     class="required  validate-lastName ${rqt.stepStates['contact'].invalidFields.contains('contactPolyIndividuals['+collectionIndex+'].lastName') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.lastName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="contactPolyIndividuals.${collectionIndex}.firstName" class="required"><g:message code="raprr.property.firstName.label" /> *  <span><g:message code="raprr.property.firstName.help" /></span></label>
             <input  type="text" id="contactPolyIndividuals.${collectionIndex}.firstName" name="contactPolyIndividuals[${collectionIndex}].firstName" value="${currentCollectionItem?.firstName?.toString()}" 
                     class="required  validate-firstName ${rqt.stepStates['contact'].invalidFields.contains('contactPolyIndividuals['+collectionIndex+'].firstName') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.firstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="raprr.property.address.label" />&nbsp;* <span><g:message code="raprr.property.address.help" /></span></label>
             <div class="address required  ${rqt.stepStates['contact'].invalidFields.contains('contactPolyIndividuals['+collectionIndex+'].address') ? 'validation-failed' : ''}">
             <label for="contactPolyIndividuals.${collectionIndex}.address.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -46,12 +49,14 @@
             
 
   
+    
     <label for="contactPolyIndividuals.${collectionIndex}.homePhone" class=""><g:message code="raprr.property.homePhone.label" />   <span><g:message code="raprr.property.homePhone.help" /></span></label>
             <input  type="text" id="contactPolyIndividuals.${collectionIndex}.homePhone" name="contactPolyIndividuals[${collectionIndex}].homePhone" value="${currentCollectionItem?.homePhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['contact'].invalidFields.contains('contactPolyIndividuals['+collectionIndex+'].homePhone') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.homePhone.validationError" />"  maxlength="10" style="width:99%" />
             
 
   
+    
     <label for="contactPolyIndividuals.${collectionIndex}.officePhone" class=""><g:message code="raprr.property.officePhone.label" />   <span><g:message code="raprr.property.officePhone.help" /></span></label>
             <input  type="text" id="contactPolyIndividuals.${collectionIndex}.officePhone" name="contactPolyIndividuals[${collectionIndex}].officePhone" value="${currentCollectionItem?.officePhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['contact'].invalidFields.contains('contactPolyIndividuals['+collectionIndex+'].officePhone') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.officePhone.validationError" />"  maxlength="10" style="width:99%" />

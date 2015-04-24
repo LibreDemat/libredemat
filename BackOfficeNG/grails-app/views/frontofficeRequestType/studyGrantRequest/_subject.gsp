@@ -2,9 +2,10 @@
 
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="SubjectInformations">
     <legend><g:message code="sgr.property.subjectInformations.label" /></legend>
     
+      
       
             <label for="subjectId" class="required">
               <g:message code="sgr.property.subject.label" /> *
@@ -34,6 +35,7 @@
             
 
     
+      
       <label class="required"><g:message code="sgr.property.subjectBirthDate.label" /> *  <span><g:message code="sgr.property.subjectBirthDate.help" /></span></label>
             <div class="date required autofill-subjectFilling-listener-BirthDate validate-date required autofill-subjectFilling-listener-BirthDate">
               <select class="day ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthDate') ? 'validation-failed' : ''}"
@@ -74,6 +76,7 @@
             
 
     
+      
       <label class="required"><g:message code="sgr.property.subjectFirstRequest.label" /> *  <span><g:message code="sgr.property.subjectFirstRequest.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subject'].invalidFields.contains('subjectFirstRequest') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

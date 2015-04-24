@@ -12,6 +12,7 @@
     </span>
   </h4>
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.sportPratique" class="required"><g:message code="sagr.property.sportPratique.label" /> *  <span><g:message code="sagr.property.sportPratique.help" /></span></label>
             <select id="sagrActiviteAssociation.${collectionIndex}.sportPratique" name="sagrActiviteAssociation[${collectionIndex}].sportPratique" class="required condition-estAutreSportPratique-trigger  validate-not-first ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].sportPratique') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.sportPratique.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -22,12 +23,14 @@
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.sportPratiquePrecision" class="required condition-estAutreSportPratique-filled"><g:message code="sagr.property.sportPratiquePrecision.label" /> *  <span><g:message code="sagr.property.sportPratiquePrecision.help" /></span></label>
-            <input type="text" id="sagrActiviteAssociation.${collectionIndex}.sportPratiquePrecision" name="sagrActiviteAssociation[${collectionIndex}].sportPratiquePrecision" value="${currentCollectionItem?.sportPratiquePrecision?.toString()}" 
-                    class="required condition-estAutreSportPratique-filled  validate-string ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].sportPratiquePrecision') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.sportPratiquePrecision.validationError" />"   />
+            <input  type="text" id="sagrActiviteAssociation.${collectionIndex}.sportPratiquePrecision" name="sagrActiviteAssociation[${collectionIndex}].sportPratiquePrecision" value="${currentCollectionItem?.sportPratiquePrecision?.toString()}" 
+                    class="required condition-estAutreSportPratique-filled  validate-string ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].sportPratiquePrecision') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.sportPratiquePrecision.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.federationSportive" class="required"><g:message code="sagr.property.federationSportive.label" /> *  <span><g:message code="sagr.property.federationSportive.help" /></span></label>
             <select id="sagrActiviteAssociation.${collectionIndex}.federationSportive" name="sagrActiviteAssociation[${collectionIndex}].federationSportive" class="required condition-estAutreFederationSportive-trigger  validate-not-first ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].federationSportive') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.federationSportive.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -38,30 +41,35 @@
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.federationSportivePrecision" class="required condition-estAutreFederationSportive-filled"><g:message code="sagr.property.federationSportivePrecision.label" /> *  <span><g:message code="sagr.property.federationSportivePrecision.help" /></span></label>
-            <input type="text" id="sagrActiviteAssociation.${collectionIndex}.federationSportivePrecision" name="sagrActiviteAssociation[${collectionIndex}].federationSportivePrecision" value="${currentCollectionItem?.federationSportivePrecision?.toString()}" 
-                    class="required condition-estAutreFederationSportive-filled  validate-string ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].federationSportivePrecision') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.federationSportivePrecision.validationError" />"   />
+            <input  type="text" id="sagrActiviteAssociation.${collectionIndex}.federationSportivePrecision" name="sagrActiviteAssociation[${collectionIndex}].federationSportivePrecision" value="${currentCollectionItem?.federationSportivePrecision?.toString()}" 
+                    class="required condition-estAutreFederationSportive-filled  validate-string ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].federationSportivePrecision') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.federationSportivePrecision.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.numeroAffiliationActivite" class="required"><g:message code="sagr.property.numeroAffiliationActivite.label" /> *  <span><g:message code="sagr.property.numeroAffiliationActivite.help" /></span></label>
-            <input type="text" id="sagrActiviteAssociation.${collectionIndex}.numeroAffiliationActivite" name="sagrActiviteAssociation[${collectionIndex}].numeroAffiliationActivite" value="${currentCollectionItem?.numeroAffiliationActivite?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].numeroAffiliationActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.numeroAffiliationActivite.validationError" />"   />
+            <input  type="text" id="sagrActiviteAssociation.${collectionIndex}.numeroAffiliationActivite" name="sagrActiviteAssociation[${collectionIndex}].numeroAffiliationActivite" value="${currentCollectionItem?.numeroAffiliationActivite?.toString()}" 
+                    class="required  validate-string ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].numeroAffiliationActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.numeroAffiliationActivite.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.nombreLicencieMineurActivite" class="required"><g:message code="sagr.property.nombreLicencieMineurActivite.label" /> *  <span><g:message code="sagr.property.nombreLicencieMineurActivite.help" /></span></label>
-            <input type="text" id="sagrActiviteAssociation.${collectionIndex}.nombreLicencieMineurActivite" name="sagrActiviteAssociation[${collectionIndex}].nombreLicencieMineurActivite" value="${currentCollectionItem?.nombreLicencieMineurActivite?.toString()}" 
-                    class="required  validate-long ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].nombreLicencieMineurActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.nombreLicencieMineurActivite.validationError" />"   />
+            <input  type="text" id="sagrActiviteAssociation.${collectionIndex}.nombreLicencieMineurActivite" name="sagrActiviteAssociation[${collectionIndex}].nombreLicencieMineurActivite" value="${currentCollectionItem?.nombreLicencieMineurActivite?.toString()}" 
+                    class="required  validate-long ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].nombreLicencieMineurActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.nombreLicencieMineurActivite.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.nombreLicencieMajeurActivite" class="required"><g:message code="sagr.property.nombreLicencieMajeurActivite.label" /> *  <span><g:message code="sagr.property.nombreLicencieMajeurActivite.help" /></span></label>
-            <input type="text" id="sagrActiviteAssociation.${collectionIndex}.nombreLicencieMajeurActivite" name="sagrActiviteAssociation[${collectionIndex}].nombreLicencieMajeurActivite" value="${currentCollectionItem?.nombreLicencieMajeurActivite?.toString()}" 
-                    class="required  validate-long ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].nombreLicencieMajeurActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.nombreLicencieMajeurActivite.validationError" />"   />
+            <input  type="text" id="sagrActiviteAssociation.${collectionIndex}.nombreLicencieMajeurActivite" name="sagrActiviteAssociation[${collectionIndex}].nombreLicencieMajeurActivite" value="${currentCollectionItem?.nombreLicencieMajeurActivite?.toString()}" 
+                    class="required  validate-long ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].nombreLicencieMajeurActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.nombreLicencieMajeurActivite.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="sagrActiviteAssociation.${collectionIndex}.sommeSolliciteeActivite" class="required"><g:message code="sagr.property.sommeSolliciteeActivite.label" /> *  <span><g:message code="sagr.property.sommeSolliciteeActivite.help" /></span></label>
             <input type="text" id="sagrActiviteAssociation.${collectionIndex}.sommeSolliciteeActivite" name="sagrActiviteAssociation[${collectionIndex}].sommeSolliciteeActivite" value="${formatNumber(number: currentCollectionItem?.sommeSolliciteeActivite, type: 'number')}"
                     class="required  validate-decimal ${rqt.stepStates['activites'].invalidFields.contains('sagrActiviteAssociation['+collectionIndex+'].sommeSolliciteeActivite') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.sommeSolliciteeActivite.validationError" />"   />

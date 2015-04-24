@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -189,8 +190,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -205,8 +207,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -263,8 +266,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -279,8 +283,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -309,8 +314,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -325,8 +331,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -383,8 +390,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -399,8 +407,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
-                
+                "active &= _this.conditions['estTransport'].test(_this.estTransport.toString());" +
+                    
+                  
               
             
             "return active",
@@ -428,8 +437,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             
@@ -446,8 +456,9 @@ public class LeisureCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             

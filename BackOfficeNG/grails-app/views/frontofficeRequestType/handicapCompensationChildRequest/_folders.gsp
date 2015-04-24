@@ -2,9 +2,10 @@
 
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="Folders">
     <legend><g:message code="hccr.property.folders.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.foldersMdph.label" /> *  <span><g:message code="hccr.property.foldersMdph.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['folders'].invalidFields.contains('foldersMdph') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -17,18 +18,21 @@
             
 
     
+      
       <label for="foldersMdphNumber" class="condition-isMDPH-filled"><g:message code="hccr.property.foldersMdphNumber.label" />   <span><g:message code="hccr.property.foldersMdphNumber.help" /></span></label>
-            <input type="text" id="foldersMdphNumber" name="foldersMdphNumber" value="${rqt.foldersMdphNumber?.toString()}" 
+            <input  type="text" id="foldersMdphNumber" name="foldersMdphNumber" value="${rqt.foldersMdphNumber?.toString()}" 
                     class="condition-isMDPH-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersMdphNumber') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.foldersMdphNumber.validationError" />"  maxlength="30" />
             
 
     
+      
       <label for="foldersMdphDepartment" class="condition-isMDPH-filled"><g:message code="hccr.property.foldersMdphDepartment.label" />   <span><g:message code="hccr.property.foldersMdphDepartment.help" /></span></label>
-            <input type="text" id="foldersMdphDepartment" name="foldersMdphDepartment" value="${rqt.foldersMdphDepartment?.toString()}" 
+            <input  type="text" id="foldersMdphDepartment" name="foldersMdphDepartment" value="${rqt.foldersMdphDepartment?.toString()}" 
                     class="condition-isMDPH-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersMdphDepartment') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.foldersMdphDepartment.validationError" />"  maxlength="2" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.foldersCotorep.label" /> *  <span><g:message code="hccr.property.foldersCotorep.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorep') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -41,18 +45,21 @@
             
 
     
+      
       <label for="foldersCotorepNumber" class="condition-isCOTOREP-filled"><g:message code="hccr.property.foldersCotorepNumber.label" />   <span><g:message code="hccr.property.foldersCotorepNumber.help" /></span></label>
-            <input type="text" id="foldersCotorepNumber" name="foldersCotorepNumber" value="${rqt.foldersCotorepNumber?.toString()}" 
+            <input  type="text" id="foldersCotorepNumber" name="foldersCotorepNumber" value="${rqt.foldersCotorepNumber?.toString()}" 
                     class="condition-isCOTOREP-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorepNumber') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.foldersCotorepNumber.validationError" />"  maxlength="30" />
             
 
     
+      
       <label for="foldersCotorepDepartment" class="condition-isCOTOREP-filled"><g:message code="hccr.property.foldersCotorepDepartment.label" />   <span><g:message code="hccr.property.foldersCotorepDepartment.help" /></span></label>
-            <input type="text" id="foldersCotorepDepartment" name="foldersCotorepDepartment" value="${rqt.foldersCotorepDepartment?.toString()}" 
+            <input  type="text" id="foldersCotorepDepartment" name="foldersCotorepDepartment" value="${rqt.foldersCotorepDepartment?.toString()}" 
                     class="condition-isCOTOREP-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorepDepartment') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.foldersCotorepDepartment.validationError" />"  maxlength="2" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.foldersCdes.label" /> *  <span><g:message code="hccr.property.foldersCdes.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['folders'].invalidFields.contains('foldersCdes') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -65,18 +72,21 @@
             
 
     
+      
       <label for="foldersCdesNumber" class="condition-isCDES-filled"><g:message code="hccr.property.foldersCdesNumber.label" />   <span><g:message code="hccr.property.foldersCdesNumber.help" /></span></label>
-            <input type="text" id="foldersCdesNumber" name="foldersCdesNumber" value="${rqt.foldersCdesNumber?.toString()}" 
+            <input  type="text" id="foldersCdesNumber" name="foldersCdesNumber" value="${rqt.foldersCdesNumber?.toString()}" 
                     class="condition-isCDES-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersCdesNumber') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.foldersCdesNumber.validationError" />"  maxlength="30" />
             
 
     
+      
       <label for="foldersCdesDepartment" class="condition-isCDES-filled"><g:message code="hccr.property.foldersCdesDepartment.label" />   <span><g:message code="hccr.property.foldersCdesDepartment.help" /></span></label>
-            <input type="text" id="foldersCdesDepartment" name="foldersCdesDepartment" value="${rqt.foldersCdesDepartment?.toString()}" 
+            <input  type="text" id="foldersCdesDepartment" name="foldersCdesDepartment" value="${rqt.foldersCdesDepartment?.toString()}" 
                     class="condition-isCDES-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersCdesDepartment') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.foldersCdesDepartment.validationError" />"  maxlength="2" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.foldersOtherFolders.label" /> *  <span><g:message code="hccr.property.foldersOtherFolders.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['folders'].invalidFields.contains('foldersOtherFolders') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -97,12 +107,15 @@
       <h4 class="condition-isOtherFolders-filled"><g:message code="hccr.property.otherFolders.label" /> 
         <span><g:message code="hccr.property.otherFolders.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'folders', 'currentCollection':'otherFolders', 'collectionIndex':(rqt.otherFolders ? rqt.otherFolders.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.otherFolders}" status="index">
       <div class="item">
         <dl>

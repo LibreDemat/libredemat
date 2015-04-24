@@ -4,53 +4,68 @@ scrr.property.subject.label = Sujet
 
 scrr.step.registration.label =
 scrr.step.registration.desc =
+scrr.step.registration.header.help =
+scrr.step.registration.footer.help =
 
 scrr.step.rules.label =
 scrr.step.rules.desc =
+scrr.step.rules.header.help =
+scrr.step.rules.footer.help =
 
 
 scrr.property.urgencyPhone.help =
 scrr.property.urgencyPhone.validationError =
+scrr.property.urgencyPhone.headerInformation =
 
 
 scrr.property.school.help =
 scrr.property.school.validationError =
+scrr.property.school.headerInformation =
 
 
 scrr.property.section.help =
 scrr.property.section.validationError =
+scrr.property.section.headerInformation =
 
 
 scrr.property.foodDiet.help =
 scrr.property.foodDiet.validationError =
+scrr.property.foodDiet.headerInformation =
 
 
 scrr.property.canteenAttendingDays.help =
 scrr.property.canteenAttendingDays.validationError =
+scrr.property.canteenAttendingDays.headerInformation =
 
 
 scrr.property.foodAllergy.help =
 scrr.property.foodAllergy.validationError =
+scrr.property.foodAllergy.headerInformation =
 
 
 scrr.property.whichFoodAllergy.help =
 scrr.property.whichFoodAllergy.validationError =
+scrr.property.whichFoodAllergy.headerInformation =
 
 
 scrr.property.doctorName.help =
 scrr.property.doctorName.validationError =
+scrr.property.doctorName.headerInformation =
 
 
 scrr.property.doctorPhone.help =
 scrr.property.doctorPhone.validationError =
+scrr.property.doctorPhone.headerInformation =
 
 
 scrr.property.hospitalizationPermission.help =
 scrr.property.hospitalizationPermission.validationError =
+scrr.property.hospitalizationPermission.headerInformation =
 
 
 scrr.property.rulesAndRegulationsAcceptance.help =
 scrr.property.rulesAndRegulationsAcceptance.validationError =
+scrr.property.rulesAndRegulationsAcceptance.headerInformation =
 
 
 

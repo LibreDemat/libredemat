@@ -12,6 +12,7 @@
     </span>
   </h4>
   
+    
     <label class="required"><g:message code="dhr.property.dhrNotRealAssetType.label" />&nbsp;* <span><g:message code="dhr.property.dhrNotRealAssetType.help" /></span></label>
             <ul class="required ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetType') ? 'validation-failed' : ''}">
               <g:each in="${['SHARE','GIFT','SALE']}">
@@ -24,6 +25,7 @@
             
 
   
+    
     <label class="required"><g:message code="dhr.property.dhrNotRealAssetKind.label" />&nbsp;* <span><g:message code="dhr.property.dhrNotRealAssetKind.help" /></span></label>
             <ul class="required ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetKind') ? 'validation-failed' : ''}">
               <g:each in="${['REAL_ESTATE','OTHER']}">
@@ -36,6 +38,7 @@
             
 
   
+    
     <label class="required condition-isRealEstate-filled"><g:message code="dhr.property.dhrNotRealAssetAddress.label" />&nbsp;* <span><g:message code="dhr.property.dhrNotRealAssetAddress.help" /></span></label>
             <div class="address required condition-isRealEstate-filled  ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetAddress') ? 'validation-failed' : ''}">
             <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -58,18 +61,21 @@
             
 
   
+    
     <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryName" class="required"><g:message code="dhr.property.dhrNotRealAssetBeneficiaryName.label" /> *  <span><g:message code="dhr.property.dhrNotRealAssetBeneficiaryName.help" /></span></label>
-            <input type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryName" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetBeneficiaryName" value="${currentCollectionItem?.dhrNotRealAssetBeneficiaryName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetBeneficiaryName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetBeneficiaryName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryName" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetBeneficiaryName" value="${currentCollectionItem?.dhrNotRealAssetBeneficiaryName?.toString()}" 
+                    class="required  validate-lastName ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetBeneficiaryName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetBeneficiaryName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryFirstName" class="required"><g:message code="dhr.property.dhrNotRealAssetBeneficiaryFirstName.label" /> *  <span><g:message code="dhr.property.dhrNotRealAssetBeneficiaryFirstName.help" /></span></label>
-            <input type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryFirstName" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetBeneficiaryFirstName" value="${currentCollectionItem?.dhrNotRealAssetBeneficiaryFirstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetBeneficiaryFirstName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetBeneficiaryFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryFirstName" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetBeneficiaryFirstName" value="${currentCollectionItem?.dhrNotRealAssetBeneficiaryFirstName?.toString()}" 
+                    class="required  validate-firstName ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetBeneficiaryFirstName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetBeneficiaryFirstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="dhr.property.dhrNotRealAssetBeneficiaryAddress.label" />&nbsp;* <span><g:message code="dhr.property.dhrNotRealAssetBeneficiaryAddress.help" /></span></label>
             <div class="address required  ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetBeneficiaryAddress') ? 'validation-failed' : ''}">
             <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetBeneficiaryAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -92,12 +98,14 @@
             
 
   
+    
     <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetValue" class="required"><g:message code="dhr.property.dhrNotRealAssetValue.label" /> *  <span><g:message code="dhr.property.dhrNotRealAssetValue.help" /></span></label>
-            <input type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetValue" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetValue" value="${currentCollectionItem?.dhrNotRealAssetValue?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetValue') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetValue.validationError" />"   />
+            <input  type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetValue" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetValue" value="${currentCollectionItem?.dhrNotRealAssetValue?.toString()}" 
+                    class="required  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetValue') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetValue.validationError" />"   style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="dhr.property.dhrNotRealAssetDate.label" />&nbsp;* <span><g:message code="dhr.property.dhrNotRealAssetDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetDate') ? 'validation-failed' : ''}"
@@ -138,12 +146,14 @@
             
 
   
+    
     <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetNotaryName" class="required"><g:message code="dhr.property.dhrNotRealAssetNotaryName.label" /> *  <span><g:message code="dhr.property.dhrNotRealAssetNotaryName.help" /></span></label>
-            <input type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetNotaryName" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetNotaryName" value="${currentCollectionItem?.dhrNotRealAssetNotaryName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetNotaryName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetNotaryName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetNotaryName" name="dhrNotRealAsset[${collectionIndex}].dhrNotRealAssetNotaryName" value="${currentCollectionItem?.dhrNotRealAssetNotaryName?.toString()}" 
+                    class="required  validate-lastName ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetNotaryName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNotRealAssetNotaryName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="dhr.property.dhrNotRealAssetNotaryAddress.label" />&nbsp;* <span><g:message code="dhr.property.dhrNotRealAssetNotaryAddress.help" /></span></label>
             <div class="address required  ${rqt.stepStates['resources'].invalidFields.contains('dhrNotRealAsset['+collectionIndex+'].dhrNotRealAssetNotaryAddress') ? 'validation-failed' : ''}">
             <label for="dhrNotRealAsset.${collectionIndex}.dhrNotRealAssetNotaryAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>

@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="serrr.property.situation.label" /> *  <span><g:message code="serrr.property.situation.help" /></span></label>
             <ul class="required ${rqt.stepStates['situation'].invalidFields.contains('situation') ? 'validation-failed' : ''}">
               <g:each in="${['PREMIERE_INSCRIPTION','DEMENAGEMENT_MEME_COMMUNE','CHANGEMENT_COMMUNE']}">
@@ -16,15 +17,17 @@
   
 
   
-    <fieldset class="required condition-estChangementCommune-filled">
+    <fieldset class="required condition-estChangementCommune-filled" id="PrecedentLieuInscription">
     <legend><g:message code="serrr.property.precedentLieuInscription.label" /></legend>
     
+      
       <label for="ancienneCommune" class="required"><g:message code="serrr.property.ancienneCommune.label" /> *  <span><g:message code="serrr.property.ancienneCommune.help" /></span></label>
-            <input type="text" id="ancienneCommune" name="ancienneCommune" value="${rqt.ancienneCommune?.toString()}" 
+            <input  type="text" id="ancienneCommune" name="ancienneCommune" value="${rqt.ancienneCommune?.toString()}" 
                     class="required  validate-city ${rqt.stepStates['situation'].invalidFields.contains('ancienneCommune') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.ancienneCommune.validationError" />"  maxlength="32" />
             
 
     
+      
       <label for="departementAncienneCommune" class="required"><g:message code="serrr.property.departementAncienneCommune.label" /> *  <span><g:message code="serrr.property.departementAncienneCommune.help" /></span></label>
             <select id="departementAncienneCommune" name="departementAncienneCommune" class="required  validate-not-first ${rqt.stepStates['situation'].invalidFields.contains('departementAncienneCommune') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.departementAncienneCommune.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>

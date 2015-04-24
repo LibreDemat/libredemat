@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="hsr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="hsr.property.absenceStartDate.label" /> *  <span><g:message code="hsr.property.absenceStartDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['registration'].invalidFields.contains('absenceStartDate') ? 'validation-failed' : ''}"
@@ -75,6 +77,7 @@
   
 
   
+    
     <label class="required"><g:message code="hsr.property.absenceEndDate.label" /> *  <span><g:message code="hsr.property.absenceEndDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['registration'].invalidFields.contains('absenceEndDate') ? 'validation-failed' : ''}"

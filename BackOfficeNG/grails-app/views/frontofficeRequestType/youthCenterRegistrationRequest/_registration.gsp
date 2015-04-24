@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="ycrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class=""><g:message code="ycrr.property.subjectChoiceBirthDate.label" />   <span><g:message code="ycrr.property.subjectChoiceBirthDate.help" /></span></label>
             <div class="date  autofill-subjectFilling-listener-BirthDate validate-date  autofill-subjectFilling-listener-BirthDate">
               <select class="day ${rqt.stepStates['registration'].invalidFields.contains('subjectChoiceBirthDate') ? 'validation-failed' : ''}"
@@ -75,6 +77,7 @@
   
 
   
+    
     <label for="subjectChoiceMobilePhone" class=""><g:message code="ycrr.property.subjectChoiceMobilePhone.label" />   <span><g:message code="ycrr.property.subjectChoiceMobilePhone.help" /></span></label>
             <input  type="text" id="subjectChoiceMobilePhone" name="subjectChoiceMobilePhone" value="${rqt.subjectChoiceMobilePhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('subjectChoiceMobilePhone') ? 'validation-failed' : ''}" title="<g:message code="ycrr.property.subjectChoiceMobilePhone.validationError" />"  maxlength="10" />
@@ -83,6 +86,7 @@
   
 
   
+    
     <label for="subjectChoiceEmail" class=""><g:message code="ycrr.property.subjectChoiceEmail.label" />   <span><g:message code="ycrr.property.subjectChoiceEmail.help" /></span></label>
             <input  type="text" id="subjectChoiceEmail" name="subjectChoiceEmail" value="${rqt.subjectChoiceEmail?.toString()}" 
                     class="  validate-email ${rqt.stepStates['registration'].invalidFields.contains('subjectChoiceEmail') ? 'validation-failed' : ''}" title="<g:message code="ycrr.property.subjectChoiceEmail.validationError" />"   />
@@ -91,6 +95,7 @@
   
 
   
+    
     <label class="required"><g:message code="ycrr.property.isFirstRegistration.label" /> *  <span><g:message code="ycrr.property.isFirstRegistration.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['registration'].invalidFields.contains('isFirstRegistration') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -105,6 +110,7 @@
   
 
   
+    
     <label class="required condition-isFirstRegistration-filled"><g:message code="ycrr.property.firstRegistrationDate.label" /> *  <span><g:message code="ycrr.property.firstRegistrationDate.help" /></span></label>
             <div class="date required condition-isFirstRegistration-filled  validate-date required condition-isFirstRegistration-filled ">
               <select class="day ${rqt.stepStates['registration'].invalidFields.contains('firstRegistrationDate') ? 'validation-failed' : ''}"
@@ -147,6 +153,7 @@
   
 
   
+    
     <label for="firstRegistrationNumeroAdherent" class="required condition-isFirstRegistration-filled"><g:message code="ycrr.property.firstRegistrationNumeroAdherent.label" /> *  <span><g:message code="ycrr.property.firstRegistrationNumeroAdherent.help" /></span></label>
             <input  type="text" id="firstRegistrationNumeroAdherent" name="firstRegistrationNumeroAdherent" value="${rqt.firstRegistrationNumeroAdherent?.toString()}" 
                     class="required condition-isFirstRegistration-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('firstRegistrationNumeroAdherent') ? 'validation-failed' : ''}" title="<g:message code="ycrr.property.firstRegistrationNumeroAdherent.validationError" />"   />

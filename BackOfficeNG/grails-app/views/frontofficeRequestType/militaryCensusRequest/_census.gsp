@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="mcr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label for="childTitle" class="required"><g:message code="mcr.property.childTitle.label" /> *  <span><g:message code="mcr.property.childTitle.help" /></span></label>
             <select id="childTitle" name="childTitle" class="required  validate-not-first ${rqt.stepStates['census'].invalidFields.contains('childTitle') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childTitle.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -45,14 +47,16 @@
   
 
   
+    
     <label for="maidenName" class=""><g:message code="mcr.property.maidenName.label" />   <span><g:message code="mcr.property.maidenName.help" /></span></label>
-            <input type="text" id="maidenName" name="maidenName" value="${rqt.maidenName?.toString()}" 
+            <input  type="text" id="maidenName" name="maidenName" value="${rqt.maidenName?.toString()}" 
                     class=" autofill-subjectFilling-listener-LastName validate-lastName ${rqt.stepStates['census'].invalidFields.contains('maidenName') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.maidenName.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label for="childBirthCountry" class="required"><g:message code="mcr.property.childBirthCountry.label" /> *  <span><g:message code="mcr.property.childBirthCountry.help" /></span></label>
             <select id="childBirthCountry" name="childBirthCountry" class="required  validate-not-first ${rqt.stepStates['census'].invalidFields.contains('childBirthCountry') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childBirthCountry.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -65,6 +69,7 @@
   
 
   
+    
     <label for="childResidenceCountry" class=""><g:message code="mcr.property.childResidenceCountry.label" />   <span><g:message code="mcr.property.childResidenceCountry.help" /></span></label>
             <select id="childResidenceCountry" name="childResidenceCountry" class="  validate-select ${rqt.stepStates['census'].invalidFields.contains('childResidenceCountry') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childResidenceCountry.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -77,22 +82,25 @@
   
 
   
+    
     <label for="childPhone" class="required"><g:message code="mcr.property.childPhone.label" /> *  <span><g:message code="mcr.property.childPhone.help" /></span></label>
-            <input type="text" id="childPhone" name="childPhone" value="${rqt.childPhone?.toString()}" 
+            <input  type="text" id="childPhone" name="childPhone" value="${rqt.childPhone?.toString()}" 
                     class="required  validate-phone ${rqt.stepStates['census'].invalidFields.contains('childPhone') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childPhone.validationError" />"  maxlength="10" />
             
 
   
 
   
+    
     <label for="childMail" class=""><g:message code="mcr.property.childMail.label" />   <span><g:message code="mcr.property.childMail.help" /></span></label>
-            <input type="text" id="childMail" name="childMail" value="${rqt.childMail?.toString()}" 
+            <input  type="text" id="childMail" name="childMail" value="${rqt.childMail?.toString()}" 
                     class="  validate-email ${rqt.stepStates['census'].invalidFields.contains('childMail') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childMail.validationError" />"   />
             
 
   
 
   
+    
     <label for="childCountry" class="required"><g:message code="mcr.property.childCountry.label" /> *  <span><g:message code="mcr.property.childCountry.help" /></span></label>
             <select id="childCountry" name="childCountry" class="required  validate-not-first ${rqt.stepStates['census'].invalidFields.contains('childCountry') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childCountry.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -105,6 +113,7 @@
   
 
   
+    
     <label for="childOtherCountry" class=""><g:message code="mcr.property.childOtherCountry.label" />   <span><g:message code="mcr.property.childOtherCountry.help" /></span></label>
             <select id="childOtherCountry" name="childOtherCountry" class="  validate-select ${rqt.stepStates['census'].invalidFields.contains('childOtherCountry') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childOtherCountry.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -117,6 +126,7 @@
   
 
   
+    
     <label for="childConvention" class=""><g:message code="mcr.property.childConvention.label" />   <span><g:message code="mcr.property.childConvention.help" /></span></label>
             <textarea id="childConvention" name="childConvention" class="  validate-regex ${rqt.stepStates['census'].invalidFields.contains('childConvention') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childConvention.validationError" />" rows="3" cols="" regex="^[\w\W]{0,255}$" maxlength="255">${rqt.childConvention}</textarea>
             

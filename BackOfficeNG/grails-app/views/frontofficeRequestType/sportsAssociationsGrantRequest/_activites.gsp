@@ -6,12 +6,15 @@
       <h4 class="required"><g:message code="sagr.property.sagrActiviteAssociation.label" /> 
         <span><g:message code="sagr.property.sagrActiviteAssociation.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'activites', 'currentCollection':'sagrActiviteAssociation', 'collectionIndex':(rqt.sagrActiviteAssociation ? rqt.sagrActiviteAssociation.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.sagrActiviteAssociation}" status="index">
       <div class="item">
         <dl>
@@ -68,6 +71,7 @@
   
 
   
+    
     <label for="subventionSolliciteConseilGeneral" class=""><g:message code="sagr.property.subventionSolliciteConseilGeneral.label" />   <span><g:message code="sagr.property.subventionSolliciteConseilGeneral.help" /></span></label>
             <input type="text" id="subventionSolliciteConseilGeneral" name="subventionSolliciteConseilGeneral" value="${formatNumber(number: rqt.subventionSolliciteConseilGeneral, type: 'number')}"
                     class="  validate-decimal ${rqt.stepStates['activites'].invalidFields.contains('subventionSolliciteConseilGeneral') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.subventionSolliciteConseilGeneral.validationError" />"   />

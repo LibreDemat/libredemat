@@ -12,18 +12,21 @@
     </span>
   </h4>
   
+    
     <label for="professionals.${collectionIndex}.professionalLastName" class="required"><g:message code="hccr.property.professionalLastName.label" /> *  <span><g:message code="hccr.property.professionalLastName.help" /></span></label>
-            <input type="text" id="professionals.${collectionIndex}.professionalLastName" name="professionals[${collectionIndex}].professionalLastName" value="${currentCollectionItem?.professionalLastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['aid'].invalidFields.contains('professionals['+collectionIndex+'].professionalLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="professionals.${collectionIndex}.professionalLastName" name="professionals[${collectionIndex}].professionalLastName" value="${currentCollectionItem?.professionalLastName?.toString()}" 
+                    class="required  validate-lastName ${rqt.stepStates['aid'].invalidFields.contains('professionals['+collectionIndex+'].professionalLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalLastName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="professionals.${collectionIndex}.professionalFirstName" class="required"><g:message code="hccr.property.professionalFirstName.label" /> *  <span><g:message code="hccr.property.professionalFirstName.help" /></span></label>
-            <input type="text" id="professionals.${collectionIndex}.professionalFirstName" name="professionals[${collectionIndex}].professionalFirstName" value="${currentCollectionItem?.professionalFirstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['aid'].invalidFields.contains('professionals['+collectionIndex+'].professionalFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="professionals.${collectionIndex}.professionalFirstName" name="professionals[${collectionIndex}].professionalFirstName" value="${currentCollectionItem?.professionalFirstName?.toString()}" 
+                    class="required  validate-firstName ${rqt.stepStates['aid'].invalidFields.contains('professionals['+collectionIndex+'].professionalFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalFirstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="hccr.property.professionalAddress.label" />&nbsp;* <span><g:message code="hccr.property.professionalAddress.help" /></span></label>
             <div class="address required  ${rqt.stepStates['aid'].invalidFields.contains('professionals['+collectionIndex+'].professionalAddress') ? 'validation-failed' : ''}">
             <label for="professionals.${collectionIndex}.professionalAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>

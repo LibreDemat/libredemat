@@ -4,18 +4,23 @@ herr.property.subject.label = Sujet
 
 herr.step.subject.label =
 herr.step.subject.desc =
+herr.step.subject.header.help =
+herr.step.subject.footer.help =
 
 
 herr.property.dateDepart.help =
 herr.property.dateDepart.validationError =
+herr.property.dateDepart.headerInformation =
 
 
 herr.property.duree.help =
 herr.property.duree.validationError =
+herr.property.duree.headerInformation =
 
 
 herr.property.telephone.help =
 herr.property.telephone.validationError =
+herr.property.telephone.headerInformation =
 
 
 

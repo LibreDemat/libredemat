@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="scrr.property.hospitalizationPermission.label" /> 
                 <g:if test="${availableRules.contains('hospitalizationPermission')}">
@@ -23,6 +24,7 @@
   
 
   
+    
     
               <label class="">
                 <g:message code="scrr.property.rulesAndRegulationsAcceptance.label" /> 

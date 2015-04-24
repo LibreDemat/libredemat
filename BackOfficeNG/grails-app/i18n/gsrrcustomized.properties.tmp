@@ -4,63 +4,83 @@ gsrr.property.subject.label = Sujet
 
 gsrr.step.enfant.label =
 gsrr.step.enfant.desc =
+gsrr.step.enfant.header.help =
+gsrr.step.enfant.footer.help =
 
 gsrr.step.restauration.label =
 gsrr.step.restauration.desc =
+gsrr.step.restauration.header.help =
+gsrr.step.restauration.footer.help =
 
 gsrr.step.periscolaire.label =
 gsrr.step.periscolaire.desc =
+gsrr.step.periscolaire.header.help =
+gsrr.step.periscolaire.footer.help =
 
 gsrr.step.reglements.label =
 gsrr.step.reglements.desc =
+gsrr.step.reglements.header.help =
+gsrr.step.reglements.footer.help =
 
 
 gsrr.property.estDerogation.help =
 gsrr.property.estDerogation.validationError =
+gsrr.property.estDerogation.headerInformation =
 
 
 gsrr.property.ecoleDerogation.help =
 gsrr.property.ecoleDerogation.validationError =
+gsrr.property.ecoleDerogation.headerInformation =
 
 
 gsrr.property.idEcoleDerog.help =
 gsrr.property.idEcoleDerog.validationError =
+gsrr.property.idEcoleDerog.headerInformation =
 
 
 gsrr.property.labelEcoleDerog.help =
 gsrr.property.labelEcoleDerog.validationError =
+gsrr.property.labelEcoleDerog.headerInformation =
 
 
 gsrr.property.motifsDerogationEcole.help =
 gsrr.property.motifsDerogationEcole.validationError =
+gsrr.property.motifsDerogationEcole.headerInformation =
 
 
 gsrr.property.informationsComplementairesDerogation.help =
 gsrr.property.informationsComplementairesDerogation.validationError =
+gsrr.property.informationsComplementairesDerogation.headerInformation =
 
 
 gsrr.property.ecoleSecteur.help =
 gsrr.property.ecoleSecteur.validationError =
+gsrr.property.ecoleSecteur.headerInformation =
 
 
 gsrr.property.idEcoleSecteur.help =
 gsrr.property.idEcoleSecteur.validationError =
+gsrr.property.idEcoleSecteur.headerInformation =
 
 
 gsrr.property.labelEcoleSecteur.help =
 gsrr.property.labelEcoleSecteur.validationError =
+gsrr.property.labelEcoleSecteur.headerInformation =
 
 
 gsrr.property.estRestauration.help =
 gsrr.property.estRestauration.validationError =
+gsrr.property.estRestauration.headerInformation =
 
 
 gsrr.property.estPeriscolaire.help =
 gsrr.property.estPeriscolaire.validationError =
+gsrr.property.estPeriscolaire.headerInformation =
 
 
 gsrr.property.acceptationReglementInterieur.help =
 gsrr.property.acceptationReglementInterieur.validationError =
+gsrr.property.acceptationReglementInterieur.headerInformation =
 
 
 

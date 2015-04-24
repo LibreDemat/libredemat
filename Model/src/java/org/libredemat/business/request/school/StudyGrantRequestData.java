@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -322,8 +323,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
-                
+                "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
+                    
+                  
               
             
             
@@ -352,8 +354,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
-                
+                "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
+                    
+                  
               
             
             
@@ -383,8 +386,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
-                
+                "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
+                    
+                  
               
             
             
@@ -399,8 +403,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
-                
+                "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
+                    
+                  
               
             
             
@@ -429,8 +434,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
-                
+                "active &= _this.conditions['abroadInternship'].test(_this.abroadInternship.toString());" +
+                    
+                  
               
             
             
@@ -459,8 +465,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -519,8 +526,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -535,8 +543,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -551,8 +560,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -583,8 +593,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -599,8 +610,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -615,8 +627,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -645,8 +658,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
-                
+                "active &= !_this.conditions['isSubjectAccountHolder'].test(_this.isSubjectAccountHolder.toString());" +
+                    
+                  
               
             
             
@@ -773,8 +787,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
-                
+                "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
+                    
+                  
               
             
             
@@ -789,8 +804,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
-                
+                "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
+                    
+                  
               
             
             
@@ -856,8 +872,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
-                
+                "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
+                    
+                  
               
             
             
@@ -872,8 +889,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
-                
+                "if (_this.currentSchoolName == null || _this.currentSchoolName.isEmpty()) return false; _this.currentSchoolName.each { active &= _this.conditions['currentSchoolName'].test(it.name) };" +
+                    
+                  
               
             
             
@@ -1101,8 +1119,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['currentStudiesDiploma'].test(_this.currentStudiesDiploma.toString());" +
-                
+                "active &= _this.conditions['currentStudiesDiploma'].test(_this.currentStudiesDiploma.toString());" +
+                    
+                  
               
             
             
@@ -1117,8 +1136,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['currentStudiesDiploma'].test(_this.currentStudiesDiploma.toString());" +
-                
+                "active &= _this.conditions['currentStudiesDiploma'].test(_this.currentStudiesDiploma.toString());" +
+                    
+                  
               
             
             
@@ -1246,8 +1266,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "if (_this.taxHouseholdCity == null || _this.taxHouseholdCity.isEmpty()) return false; _this.taxHouseholdCity.each { active &= _this.conditions['taxHouseholdCity'].test(it.name) };" +
-                
+                "if (_this.taxHouseholdCity == null || _this.taxHouseholdCity.isEmpty()) return false; _this.taxHouseholdCity.each { active &= _this.conditions['taxHouseholdCity'].test(it.name) };" +
+                    
+                  
               
             
             
@@ -1262,8 +1283,9 @@ public class StudyGrantRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "if (_this.taxHouseholdCity == null || _this.taxHouseholdCity.isEmpty()) return false; _this.taxHouseholdCity.each { active &= _this.conditions['taxHouseholdCity'].test(it.name) };" +
-                
+                "if (_this.taxHouseholdCity == null || _this.taxHouseholdCity.isEmpty()) return false; _this.taxHouseholdCity.each { active &= _this.conditions['taxHouseholdCity'].test(it.name) };" +
+                    
+                  
               
             
             

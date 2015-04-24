@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="gsrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="gsrr.property.estDerogation.label" /> *  <span><g:message code="gsrr.property.estDerogation.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['enfant'].invalidFields.contains('estDerogation') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -47,17 +49,19 @@
   
 
   
-    <fieldset class="required condition-estDerogation-filled">
+    <fieldset class="required condition-estDerogation-filled" id="EcoleDerogation">
     <legend><g:message code="gsrr.property.ecoleDerogation.label" /></legend>
     
+      
       <label for="idEcoleDerog" class="required"><g:message code="gsrr.property.idEcoleDerog.label" /> *  <span><g:message code="gsrr.property.idEcoleDerog.help" /></span></label>
-            <input type="text" id="idEcoleDerog" name="idEcoleDerog" value="${rqt.idEcoleDerog?.toString()}" 
+            <input  type="text" id="idEcoleDerog" name="idEcoleDerog" value="${rqt.idEcoleDerog?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('idEcoleDerog') ? 'validation-failed' : ''}" title="<g:message code="gsrr.property.idEcoleDerog.validationError" />"   />
             
 
     
+      
       <label for="labelEcoleDerog" class="required"><g:message code="gsrr.property.labelEcoleDerog.label" /> *  <span><g:message code="gsrr.property.labelEcoleDerog.help" /></span></label>
-            <input type="text" id="labelEcoleDerog" name="labelEcoleDerog" value="${rqt.labelEcoleDerog?.toString()}" 
+            <input  type="text" id="labelEcoleDerog" name="labelEcoleDerog" value="${rqt.labelEcoleDerog?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('labelEcoleDerog') ? 'validation-failed' : ''}" title="<g:message code="gsrr.property.labelEcoleDerog.validationError" />"   />
             
 
@@ -66,6 +70,7 @@
   
 
   
+    
     <label class="required condition-estDerogation-filled"><g:message code="gsrr.property.motifsDerogationEcole.label" /> *  <span><g:message code="gsrr.property.motifsDerogationEcole.help" /></span></label>
             <g:set var="motifsDerogationEcoleIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -76,6 +81,7 @@
   
 
   
+    
     <label for="informationsComplementairesDerogation" class="condition-estDerogation-filled"><g:message code="gsrr.property.informationsComplementairesDerogation.label" />   <span><g:message code="gsrr.property.informationsComplementairesDerogation.help" /></span></label>
             <textarea id="informationsComplementairesDerogation" name="informationsComplementairesDerogation" class="condition-estDerogation-filled  validate-regex ${rqt.stepStates['enfant'].invalidFields.contains('informationsComplementairesDerogation') ? 'validation-failed' : ''}" title="<g:message code="gsrr.property.informationsComplementairesDerogation.validationError" />" rows="10" cols="" regex="^[\w\W]{0,1024}$" maxlength="1024">${rqt.informationsComplementairesDerogation}</textarea>
             
@@ -83,17 +89,19 @@
   
 
   
-    <fieldset class="required condition-estDerogation-unfilled">
+    <fieldset class="required condition-estDerogation-unfilled" id="EcoleSecteur">
     <legend><g:message code="gsrr.property.ecoleSecteur.label" /></legend>
     
+      
       <label for="idEcoleSecteur" class="required"><g:message code="gsrr.property.idEcoleSecteur.label" /> *  <span><g:message code="gsrr.property.idEcoleSecteur.help" /></span></label>
-            <input type="text" id="idEcoleSecteur" name="idEcoleSecteur" value="${rqt.idEcoleSecteur?.toString()}" 
+            <input  type="text" id="idEcoleSecteur" name="idEcoleSecteur" value="${rqt.idEcoleSecteur?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('idEcoleSecteur') ? 'validation-failed' : ''}" title="<g:message code="gsrr.property.idEcoleSecteur.validationError" />"   />
             
 
     
+      
       <label for="labelEcoleSecteur" class="required"><g:message code="gsrr.property.labelEcoleSecteur.label" /> *  <span><g:message code="gsrr.property.labelEcoleSecteur.help" /></span></label>
-            <input type="text" id="labelEcoleSecteur" name="labelEcoleSecteur" value="${rqt.labelEcoleSecteur?.toString()}" 
+            <input  type="text" id="labelEcoleSecteur" name="labelEcoleSecteur" value="${rqt.labelEcoleSecteur?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('labelEcoleSecteur') ? 'validation-failed' : ''}" title="<g:message code="gsrr.property.labelEcoleSecteur.validationError" />"   />
             
 

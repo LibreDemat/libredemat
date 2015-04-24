@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="cmwr.property.profilDemandeur.label" /> *  <span><g:message code="cmwr.property.profilDemandeur.help" /></span></label>
             <ul class="required ${rqt.stepStates['informations'].invalidFields.contains('profilDemandeur') ? 'validation-failed' : ''}">
               <g:each in="${['PARTICULIER','BAILLEUR','SYNDIC']}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label for="nomOrganisation" class="required condition-estParticulier-unfilled"><g:message code="cmwr.property.nomOrganisation.label" /> *  <span><g:message code="cmwr.property.nomOrganisation.help" /></span></label>
             <input  type="text" id="nomOrganisation" name="nomOrganisation" value="${rqt.nomOrganisation?.toString()}" 
                     class="required condition-estParticulier-unfilled  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('nomOrganisation') ? 'validation-failed' : ''}" title="<g:message code="cmwr.property.nomOrganisation.validationError" />" regex="^[\w\W]{0,255}$"  />
@@ -24,6 +26,7 @@
   
 
   
+    
     <label class="required condition-estParticulier-unfilled"><g:message code="cmwr.property.adresseOrganisation.label" /> *  <span><g:message code="cmwr.property.adresseOrganisation.help" /></span></label>
             <div id="adresseOrganisation" class="address required condition-estParticulier-unfilled  ${rqt.stepStates['informations'].invalidFields.contains('adresseOrganisation') ? 'validation-failed' : ''}">
             <label for="adresseOrganisation.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -51,6 +54,7 @@
   
 
   
+    
     <label for="nombreResidants" class="required"><g:message code="cmwr.property.nombreResidants.label" /> *  <span><g:message code="cmwr.property.nombreResidants.help" /></span></label>
             <input  type="text" id="nombreResidants" name="nombreResidants" value="${rqt.nombreResidants?.toString()}" 
                     class="required  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('nombreResidants') ? 'validation-failed' : ''}" title="<g:message code="cmwr.property.nombreResidants.validationError" />" regex="^[\w\W]{0,255}$"  />
@@ -59,6 +63,7 @@
   
 
   
+    
     <label class="required"><g:message code="cmwr.property.typeHabitation.label" /> *  <span><g:message code="cmwr.property.typeHabitation.help" /></span></label>
             <ul class="required ${rqt.stepStates['informations'].invalidFields.contains('typeHabitation') ? 'validation-failed' : ''}">
               <g:each in="${['PAVILLON','COMMERCE','IMMEUBLE','INDUSTRIEL']}">
@@ -73,6 +78,7 @@
   
 
   
+    
     <label class="required"><g:message code="cmwr.property.conteneur.label" /> *  <span><g:message code="cmwr.property.conteneur.help" /></span></label>
             <g:set var="conteneurIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -83,6 +89,7 @@
   
 
   
+    
     <label for="precisionsReparation" class=""><g:message code="cmwr.property.precisionsReparation.label" />   <span><g:message code="cmwr.property.precisionsReparation.help" /></span></label>
             <textarea id="precisionsReparation" name="precisionsReparation" class="  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('precisionsReparation') ? 'validation-failed' : ''}" title="<g:message code="cmwr.property.precisionsReparation.validationError" />" rows="4" cols="" regex="^[\w\W]{0,1024}$" >${rqt.precisionsReparation}</textarea>
             

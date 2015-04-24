@@ -4,21 +4,28 @@ rpar.property.subject.label = Sujet
 
 rpar.step.enfant.label =
 rpar.step.enfant.desc =
+rpar.step.enfant.header.help =
+rpar.step.enfant.footer.help =
 
 rpar.step.reglements.label =
 rpar.step.reglements.desc =
+rpar.step.reglements.header.help =
+rpar.step.reglements.footer.help =
 
 
 rpar.property.estRestauration.help =
 rpar.property.estRestauration.validationError =
+rpar.property.estRestauration.headerInformation =
 
 
 rpar.property.estPeriscolaire.help =
 rpar.property.estPeriscolaire.validationError =
+rpar.property.estPeriscolaire.headerInformation =
 
 
 rpar.property.acceptationReglementInterieur.help =
 rpar.property.acceptationReglementInterieur.validationError =
+rpar.property.acceptationReglementInterieur.headerInformation =
 
 
 

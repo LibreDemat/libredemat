@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="srr.property.rulesAndRegulationsAcceptance.label" /> 
                 <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">

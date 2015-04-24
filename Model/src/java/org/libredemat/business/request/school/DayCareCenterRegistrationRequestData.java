@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -574,8 +575,9 @@ public class DayCareCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['choixTypeDatePlacementAccueilRegulier'].test(_this.choixTypeDatePlacementAccueilRegulier.toString());" +
-                
+                "active &= _this.conditions['choixTypeDatePlacementAccueilRegulier'].test(_this.choixTypeDatePlacementAccueilRegulier.toString());" +
+                    
+                  
               
             
             
@@ -1186,8 +1188,9 @@ public class DayCareCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['modeAccueil'].test(_this.modeAccueil.toString());" +
-                
+                "active &= _this.conditions['modeAccueil'].test(_this.modeAccueil.toString());" +
+                    
+                  
               
             
             
@@ -1239,8 +1242,9 @@ public class DayCareCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['situationActuelleMere'].test(_this.situationActuelleMere.toString());" +
-                
+                "active &= _this.conditions['situationActuelleMere'].test(_this.situationActuelleMere.toString());" +
+                    
+                  
               
             
             
@@ -1255,8 +1259,9 @@ public class DayCareCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['situationActuelleMere'].test(_this.situationActuelleMere.toString());" +
-                
+                "active &= _this.conditions['situationActuelleMere'].test(_this.situationActuelleMere.toString());" +
+                    
+                  
               
             
             
@@ -1285,8 +1290,9 @@ public class DayCareCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['situationActuellePere'].test(_this.situationActuellePere.toString());" +
-                
+                "active &= _this.conditions['situationActuellePere'].test(_this.situationActuellePere.toString());" +
+                    
+                  
               
             
             
@@ -1301,8 +1307,9 @@ public class DayCareCenterRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['situationActuellePere'].test(_this.situationActuellePere.toString());" +
-                
+                "active &= _this.conditions['situationActuellePere'].test(_this.situationActuellePere.toString());" +
+                    
+                  
               
             
             

@@ -6,12 +6,15 @@
       <h4 class=""><g:message code="parr.property.contactIndividuals.label" /> 
         <span><g:message code="parr.property.contactIndividuals.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'contact', 'currentCollection':'contactIndividuals', 'collectionIndex':(rqt.contactIndividuals ? rqt.contactIndividuals.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.contactIndividuals}" status="index">
       <div class="item">
         <dl>

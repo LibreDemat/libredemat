@@ -12,6 +12,7 @@
     </span>
   </h4>
   
+    
     <label for="homeIntervenants.${collectionIndex}.homeIntervenantKind" class="required"><g:message code="hccr.property.homeIntervenantKind.label" /> *  <span><g:message code="hccr.property.homeIntervenantKind.help" /></span></label>
             <select id="homeIntervenants.${collectionIndex}.homeIntervenantKind" name="homeIntervenants[${collectionIndex}].homeIntervenantKind" class="required condition-isOtherHomeIntervant-trigger  validate-not-first ${rqt.stepStates['aid'].invalidFields.contains('homeIntervenants['+collectionIndex+'].homeIntervenantKind') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.homeIntervenantKind.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -22,9 +23,10 @@
             
 
   
+    
     <label for="homeIntervenants.${collectionIndex}.homeIntervenantDetails" class="required condition-isOtherHomeIntervant-filled"><g:message code="hccr.property.homeIntervenantDetails.label" /> *  <span><g:message code="hccr.property.homeIntervenantDetails.help" /></span></label>
-            <input type="text" id="homeIntervenants.${collectionIndex}.homeIntervenantDetails" name="homeIntervenants[${collectionIndex}].homeIntervenantDetails" value="${currentCollectionItem?.homeIntervenantDetails?.toString()}" 
-                    class="required condition-isOtherHomeIntervant-filled   ${rqt.stepStates['aid'].invalidFields.contains('homeIntervenants['+collectionIndex+'].homeIntervenantDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.homeIntervenantDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="homeIntervenants.${collectionIndex}.homeIntervenantDetails" name="homeIntervenants[${collectionIndex}].homeIntervenantDetails" value="${currentCollectionItem?.homeIntervenantDetails?.toString()}" 
+                    class="required condition-isOtherHomeIntervant-filled   ${rqt.stepStates['aid'].invalidFields.contains('homeIntervenants['+collectionIndex+'].homeIntervenantDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.homeIntervenantDetails.validationError" />"  maxlength="60" style="width:99%" />
             
 
   

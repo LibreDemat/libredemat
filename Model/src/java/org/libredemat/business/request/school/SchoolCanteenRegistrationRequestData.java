@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -381,8 +382,9 @@ public class SchoolCanteenRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foodAllergy'].test(_this.foodAllergy.toString());" +
-                
+                "active &= _this.conditions['foodAllergy'].test(_this.foodAllergy.toString());" +
+                    
+                  
               
             
             
@@ -397,8 +399,9 @@ public class SchoolCanteenRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foodAllergy'].test(_this.foodAllergy.toString());" +
-                
+                "active &= _this.conditions['foodAllergy'].test(_this.foodAllergy.toString());" +
+                    
+                  
               
             
             

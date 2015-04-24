@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="gsrr.property.estRestauration.label" /> *  <span><g:message code="gsrr.property.estRestauration.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['restauration'].invalidFields.contains('estRestauration') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

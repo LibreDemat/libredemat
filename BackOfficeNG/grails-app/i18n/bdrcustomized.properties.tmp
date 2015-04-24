@@ -4,81 +4,103 @@ bdr.property.subject.label = Sujet
 
 bdr.step.nature.label =
 bdr.step.nature.desc =
+bdr.step.nature.header.help =
+bdr.step.nature.footer.help =
 
 bdr.step.type.label =
 bdr.step.type.desc =
+bdr.step.type.header.help =
+bdr.step.type.footer.help =
 
 
 bdr.property.requesterQuality.help =
 bdr.property.requesterQuality.validationError =
+bdr.property.requesterQuality.headerInformation =
 
 
 bdr.property.requesterQualityPrecision.help =
 bdr.property.requesterQualityPrecision.validationError =
+bdr.property.requesterQualityPrecision.headerInformation =
 
 
 bdr.property.birthLastName.help =
 bdr.property.birthLastName.validationError =
+bdr.property.birthLastName.headerInformation =
 
 
 bdr.property.birthMarriageName.help =
 bdr.property.birthMarriageName.validationError =
+bdr.property.birthMarriageName.headerInformation =
 
 
 bdr.property.birthFirstNames.help =
 bdr.property.birthFirstNames.validationError =
+bdr.property.birthFirstNames.headerInformation =
 
 
 bdr.property.birthDate.help =
 bdr.property.birthDate.validationError =
+bdr.property.birthDate.headerInformation =
 
 
 bdr.property.birthCity.help =
 bdr.property.birthCity.validationError =
+bdr.property.birthCity.headerInformation =
 
 
 bdr.property.birthPostalCode.help =
 bdr.property.birthPostalCode.validationError =
+bdr.property.birthPostalCode.headerInformation =
 
 
 bdr.property.format.help =
 bdr.property.format.validationError =
+bdr.property.format.headerInformation =
 
 
 bdr.property.fatherInformation.help =
 bdr.property.fatherInformation.validationError =
+bdr.property.fatherInformation.headerInformation =
 
 
 bdr.property.fatherLastName.help =
 bdr.property.fatherLastName.validationError =
+bdr.property.fatherLastName.headerInformation =
 
 
 bdr.property.fatherFirstNames.help =
 bdr.property.fatherFirstNames.validationError =
+bdr.property.fatherFirstNames.headerInformation =
 
 
 bdr.property.motherInformation.help =
 bdr.property.motherInformation.validationError =
+bdr.property.motherInformation.headerInformation =
 
 
 bdr.property.motherMaidenName.help =
 bdr.property.motherMaidenName.validationError =
+bdr.property.motherMaidenName.headerInformation =
 
 
 bdr.property.motherFirstNames.help =
 bdr.property.motherFirstNames.validationError =
+bdr.property.motherFirstNames.headerInformation =
 
 
 bdr.property.copies.help =
 bdr.property.copies.validationError =
+bdr.property.copies.headerInformation =
 
 
 bdr.property.motive.help =
 bdr.property.motive.validationError =
+bdr.property.motive.headerInformation =
 
 
 bdr.property.comment.help =
 bdr.property.comment.validationError =
+bdr.property.comment.headerInformation =
 
 
 

@@ -4,45 +4,58 @@ ddr.property.subject.label = Sujet
 
 ddr.step.nature.label =
 ddr.step.nature.desc =
+ddr.step.nature.header.help =
+ddr.step.nature.footer.help =
 
 ddr.step.type.label =
 ddr.step.type.desc =
+ddr.step.type.header.help =
+ddr.step.type.footer.help =
 
 
 ddr.property.deathLastName.help =
 ddr.property.deathLastName.validationError =
+ddr.property.deathLastName.headerInformation =
 
 
 ddr.property.deathFirstNames.help =
 ddr.property.deathFirstNames.validationError =
+ddr.property.deathFirstNames.headerInformation =
 
 
 ddr.property.deathDate.help =
 ddr.property.deathDate.validationError =
+ddr.property.deathDate.headerInformation =
 
 
 ddr.property.deathCity.help =
 ddr.property.deathCity.validationError =
+ddr.property.deathCity.headerInformation =
 
 
 ddr.property.deathPostalCode.help =
 ddr.property.deathPostalCode.validationError =
+ddr.property.deathPostalCode.headerInformation =
 
 
 ddr.property.format.help =
 ddr.property.format.validationError =
+ddr.property.format.headerInformation =
 
 
 ddr.property.copies.help =
 ddr.property.copies.validationError =
+ddr.property.copies.headerInformation =
 
 
 ddr.property.motive.help =
 ddr.property.motive.validationError =
+ddr.property.motive.headerInformation =
 
 
 ddr.property.comment.help =
 ddr.property.comment.validationError =
+ddr.property.comment.headerInformation =
 
 
 

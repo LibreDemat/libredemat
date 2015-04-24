@@ -4,22 +4,28 @@ snr.property.subject.label = Sujet
 
 snr.step.subscription.label =
 snr.step.subscription.desc =
+snr.step.subscription.header.help =
+snr.step.subscription.footer.help =
 
 
 snr.property.mobilePhone.help =
 snr.property.mobilePhone.validationError =
+snr.property.mobilePhone.headerInformation =
 
 
 snr.property.subscription.help =
 snr.property.subscription.validationError =
+snr.property.subscription.headerInformation =
 
 
 snr.property.interests.help =
 snr.property.interests.validationError =
+snr.property.interests.headerInformation =
 
 
 snr.property.cleverSmsContactId.help =
 snr.property.cleverSmsContactId.validationError =
+snr.property.cleverSmsContactId.headerInformation =
 
 
 

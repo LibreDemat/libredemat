@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="sgr.property.hasCROUSHelp.label" /> *  <span><g:message code="sgr.property.hasCROUSHelp.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['otherHelps'].invalidFields.contains('hasCROUSHelp') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label class="required"><g:message code="sgr.property.hasRegionalCouncilHelp.label" /> *  <span><g:message code="sgr.property.hasRegionalCouncilHelp.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['otherHelps'].invalidFields.contains('hasRegionalCouncilHelp') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -30,6 +32,7 @@
   
 
   
+    
     <label class="required"><g:message code="sgr.property.hasEuropeHelp.label" /> *  <span><g:message code="sgr.property.hasEuropeHelp.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['otherHelps'].invalidFields.contains('hasEuropeHelp') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -44,6 +47,7 @@
   
 
   
+    
     <label class="required"><g:message code="sgr.property.hasOtherHelp.label" /> *  <span><g:message code="sgr.property.hasOtherHelp.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['otherHelps'].invalidFields.contains('hasOtherHelp') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

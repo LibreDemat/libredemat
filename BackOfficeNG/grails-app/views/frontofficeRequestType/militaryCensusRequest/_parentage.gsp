@@ -2,21 +2,24 @@
 
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="FatherInformation">
     <legend><g:message code="mcr.property.fatherInformation.label" /></legend>
     
+      
       <label for="fatherLastName" class=""><g:message code="mcr.property.fatherLastName.label" />   <span><g:message code="mcr.property.fatherLastName.help" /></span></label>
-            <input type="text" id="fatherLastName" name="fatherLastName" value="${rqt.fatherLastName?.toString()}" 
+            <input  type="text" id="fatherLastName" name="fatherLastName" value="${rqt.fatherLastName?.toString()}" 
                     class="  validate-lastName ${rqt.stepStates['parentage'].invalidFields.contains('fatherLastName') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.fatherLastName.validationError" />"  maxlength="38" />
             
 
     
+      
       <label for="fatherFirstName" class=""><g:message code="mcr.property.fatherFirstName.label" />   <span><g:message code="mcr.property.fatherFirstName.help" /></span></label>
-            <input type="text" id="fatherFirstName" name="fatherFirstName" value="${rqt.fatherFirstName?.toString()}" 
+            <input  type="text" id="fatherFirstName" name="fatherFirstName" value="${rqt.fatherFirstName?.toString()}" 
                     class="  validate-firstName ${rqt.stepStates['parentage'].invalidFields.contains('fatherFirstName') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.fatherFirstName.validationError" />"  maxlength="38" />
             
 
     
+      
       <label class=""><g:message code="mcr.property.fatherBirthDate.label" />   <span><g:message code="mcr.property.fatherBirthDate.help" /></span></label>
             <div class="date   validate-date  ">
               <select class="day ${rqt.stepStates['parentage'].invalidFields.contains('fatherBirthDate') ? 'validation-failed' : ''}"
@@ -57,12 +60,14 @@
             
 
     
+      
       <label for="fatherBirthCity" class=""><g:message code="mcr.property.fatherBirthCity.label" />   <span><g:message code="mcr.property.fatherBirthCity.help" /></span></label>
-            <input type="text" id="fatherBirthCity" name="fatherBirthCity" value="${rqt.fatherBirthCity?.toString()}" 
+            <input  type="text" id="fatherBirthCity" name="fatherBirthCity" value="${rqt.fatherBirthCity?.toString()}" 
                     class="  validate-string ${rqt.stepStates['parentage'].invalidFields.contains('fatherBirthCity') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.fatherBirthCity.validationError" />"   />
             
 
     
+      
       <label for="fatherBirthDepartment" class=""><g:message code="mcr.property.fatherBirthDepartment.label" />   <span><g:message code="mcr.property.fatherBirthDepartment.help" /></span></label>
             <select id="fatherBirthDepartment" name="fatherBirthDepartment" class="  validate-select ${rqt.stepStates['parentage'].invalidFields.contains('fatherBirthDepartment') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.fatherBirthDepartment.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -73,6 +78,7 @@
             
 
     
+      
       <label for="fatherBirthCountry" class=""><g:message code="mcr.property.fatherBirthCountry.label" />   <span><g:message code="mcr.property.fatherBirthCountry.help" /></span></label>
             <select id="fatherBirthCountry" name="fatherBirthCountry" class="  validate-select ${rqt.stepStates['parentage'].invalidFields.contains('fatherBirthCountry') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.fatherBirthCountry.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -83,6 +89,7 @@
             
 
     
+      
       <label for="fatherNationality" class=""><g:message code="mcr.property.fatherNationality.label" />   <span><g:message code="mcr.property.fatherNationality.help" /></span></label>
             <select id="fatherNationality" name="fatherNationality" class="  validate-select ${rqt.stepStates['parentage'].invalidFields.contains('fatherNationality') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.fatherNationality.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -97,21 +104,24 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="MotherInformation">
     <legend><g:message code="mcr.property.motherInformation.label" /></legend>
     
+      
       <label for="motherLastName" class="required"><g:message code="mcr.property.motherLastName.label" /> *  <span><g:message code="mcr.property.motherLastName.help" /></span></label>
-            <input type="text" id="motherLastName" name="motherLastName" value="${rqt.motherLastName?.toString()}" 
+            <input  type="text" id="motherLastName" name="motherLastName" value="${rqt.motherLastName?.toString()}" 
                     class="required  validate-lastName ${rqt.stepStates['parentage'].invalidFields.contains('motherLastName') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.motherLastName.validationError" />"  maxlength="38" />
             
 
     
+      
       <label for="motherFirstName" class="required"><g:message code="mcr.property.motherFirstName.label" /> *  <span><g:message code="mcr.property.motherFirstName.help" /></span></label>
-            <input type="text" id="motherFirstName" name="motherFirstName" value="${rqt.motherFirstName?.toString()}" 
+            <input  type="text" id="motherFirstName" name="motherFirstName" value="${rqt.motherFirstName?.toString()}" 
                     class="required  validate-firstName ${rqt.stepStates['parentage'].invalidFields.contains('motherFirstName') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.motherFirstName.validationError" />"  maxlength="38" />
             
 
     
+      
       <label class="required"><g:message code="mcr.property.motherBirthDate.label" /> *  <span><g:message code="mcr.property.motherBirthDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['parentage'].invalidFields.contains('motherBirthDate') ? 'validation-failed' : ''}"
@@ -152,12 +162,14 @@
             
 
     
+      
       <label for="motherBirthCity" class="required"><g:message code="mcr.property.motherBirthCity.label" /> *  <span><g:message code="mcr.property.motherBirthCity.help" /></span></label>
-            <input type="text" id="motherBirthCity" name="motherBirthCity" value="${rqt.motherBirthCity?.toString()}" 
+            <input  type="text" id="motherBirthCity" name="motherBirthCity" value="${rqt.motherBirthCity?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['parentage'].invalidFields.contains('motherBirthCity') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.motherBirthCity.validationError" />"   />
             
 
     
+      
       <label for="motherBirthDepartment" class=""><g:message code="mcr.property.motherBirthDepartment.label" />   <span><g:message code="mcr.property.motherBirthDepartment.help" /></span></label>
             <select id="motherBirthDepartment" name="motherBirthDepartment" class="  validate-select ${rqt.stepStates['parentage'].invalidFields.contains('motherBirthDepartment') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.motherBirthDepartment.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -168,6 +180,7 @@
             
 
     
+      
       <label for="motherBirthCountry" class=""><g:message code="mcr.property.motherBirthCountry.label" />   <span><g:message code="mcr.property.motherBirthCountry.help" /></span></label>
             <select id="motherBirthCountry" name="motherBirthCountry" class="  validate-select ${rqt.stepStates['parentage'].invalidFields.contains('motherBirthCountry') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.motherBirthCountry.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -178,6 +191,7 @@
             
 
     
+      
       <label for="motherNationality" class="required"><g:message code="mcr.property.motherNationality.label" /> *  <span><g:message code="mcr.property.motherNationality.help" /></span></label>
             <select id="motherNationality" name="motherNationality" class="required  validate-not-first ${rqt.stepStates['parentage'].invalidFields.contains('motherNationality') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.motherNationality.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>

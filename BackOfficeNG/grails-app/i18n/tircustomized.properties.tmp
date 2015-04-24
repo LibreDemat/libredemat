@@ -4,22 +4,28 @@ tir.property.subject.label = Sujet
 
 tir.step.intervention.label =
 tir.step.intervention.desc =
+tir.step.intervention.header.help =
+tir.step.intervention.footer.help =
 
 
 tir.property.interventionType.help =
 tir.property.interventionType.validationError =
+tir.property.interventionType.headerInformation =
 
 
 tir.property.otherInterventionLabel.help =
 tir.property.otherInterventionLabel.validationError =
+tir.property.otherInterventionLabel.headerInformation =
 
 
 tir.property.interventionPlace.help =
 tir.property.interventionPlace.validationError =
+tir.property.interventionPlace.headerInformation =
 
 
 tir.property.interventionDescription.help =
 tir.property.interventionDescription.validationError =
+tir.property.interventionDescription.headerInformation =
 
 
 

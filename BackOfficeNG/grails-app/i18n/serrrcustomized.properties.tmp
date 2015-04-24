@@ -4,112 +4,143 @@ serrr.property.subject.label = Sujet
 
 serrr.step.inscription.label =
 serrr.step.inscription.desc =
+serrr.step.inscription.header.help =
+serrr.step.inscription.footer.help =
 
 serrr.step.situation.label =
 serrr.step.situation.desc =
+serrr.step.situation.header.help =
+serrr.step.situation.footer.help =
 
 serrr.step.radiation.label =
 serrr.step.radiation.desc =
+serrr.step.radiation.header.help =
+serrr.step.radiation.footer.help =
 
 
 serrr.property.nomNaissance.help =
 serrr.property.nomNaissance.validationError =
+serrr.property.nomNaissance.headerInformation =
 
 
 serrr.property.prenom.help =
 serrr.property.prenom.validationError =
+serrr.property.prenom.headerInformation =
 
 
 serrr.property.deuxiemePrenom.help =
 serrr.property.deuxiemePrenom.validationError =
+serrr.property.deuxiemePrenom.headerInformation =
 
 
 serrr.property.troisiemePrenom.help =
 serrr.property.troisiemePrenom.validationError =
+serrr.property.troisiemePrenom.headerInformation =
 
 
 serrr.property.sexe.help =
 serrr.property.sexe.validationError =
+serrr.property.sexe.headerInformation =
 
 
 serrr.property.nomMarital.help =
 serrr.property.nomMarital.validationError =
+serrr.property.nomMarital.headerInformation =
 
 
 serrr.property.dateNaissance.help =
 serrr.property.dateNaissance.validationError =
+serrr.property.dateNaissance.headerInformation =
 
 
 serrr.property.lieuNaissance.help =
 serrr.property.lieuNaissance.validationError =
+serrr.property.lieuNaissance.headerInformation =
 
 
 serrr.property.villeNaissanceCodePostal.help =
 serrr.property.villeNaissanceCodePostal.validationError =
+serrr.property.villeNaissanceCodePostal.headerInformation =
 
 
 serrr.property.lieuNaissanceDepartement.help =
 serrr.property.lieuNaissanceDepartement.validationError =
+serrr.property.lieuNaissanceDepartement.headerInformation =
 
 
 serrr.property.lieuNaissancePays.help =
 serrr.property.lieuNaissancePays.validationError =
+serrr.property.lieuNaissancePays.headerInformation =
 
 
 serrr.property.nationalite.help =
 serrr.property.nationalite.validationError =
+serrr.property.nationalite.headerInformation =
 
 
 serrr.property.fieldsetEstUnionEuropeenne.help =
 serrr.property.fieldsetEstUnionEuropeenne.validationError =
+serrr.property.fieldsetEstUnionEuropeenne.headerInformation =
 
 
 serrr.property.precisionNationalite.help =
 serrr.property.precisionNationalite.validationError =
+serrr.property.precisionNationalite.headerInformation =
 
 
 serrr.property.typeElection.help =
 serrr.property.typeElection.validationError =
+serrr.property.typeElection.headerInformation =
 
 
 serrr.property.paysPrecedent.help =
 serrr.property.paysPrecedent.validationError =
+serrr.property.paysPrecedent.headerInformation =
 
 
 serrr.property.subdivisionAdministrativePrecedente.help =
 serrr.property.subdivisionAdministrativePrecedente.validationError =
+serrr.property.subdivisionAdministrativePrecedente.headerInformation =
 
 
 serrr.property.communeOuLocalitePrecedente.help =
 serrr.property.communeOuLocalitePrecedente.validationError =
+serrr.property.communeOuLocalitePrecedente.headerInformation =
 
 
 serrr.property.situation.help =
 serrr.property.situation.validationError =
+serrr.property.situation.headerInformation =
 
 
 serrr.property.precedentLieuInscription.help =
 serrr.property.precedentLieuInscription.validationError =
+serrr.property.precedentLieuInscription.headerInformation =
 
 
 serrr.property.ancienneCommune.help =
 serrr.property.ancienneCommune.validationError =
+serrr.property.ancienneCommune.headerInformation =
 
 
 serrr.property.departementAncienneCommune.help =
 serrr.property.departementAncienneCommune.validationError =
+serrr.property.departementAncienneCommune.headerInformation =
 
 
 serrr.property.ambassadeOuPosteConsulaire.help =
 serrr.property.ambassadeOuPosteConsulaire.validationError =
+serrr.property.ambassadeOuPosteConsulaire.headerInformation =
 
 
 serrr.property.paysRadiation.help =
 serrr.property.paysRadiation.validationError =
+serrr.property.paysRadiation.headerInformation =
 
 
 serrr.property.typeInscription.help =
 serrr.property.typeInscription.validationError =
+serrr.property.typeInscription.headerInformation =
 
 
 

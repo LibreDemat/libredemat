@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="cccrr.property.welcomingChoice.label" /> *  <span><g:message code="cccrr.property.welcomingChoice.help" /></span></label>
             <g:set var="welcomingChoiceIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 

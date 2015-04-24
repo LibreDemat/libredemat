@@ -12,18 +12,21 @@
     </span>
   </h4>
   
+    
     <label for="contactIndividuals.${collectionIndex}.lastName" class="required"><g:message code="rarr.property.lastName.label" /> *  <span><g:message code="rarr.property.lastName.help" /></span></label>
-            <input type="text" id="contactIndividuals.${collectionIndex}.lastName" name="contactIndividuals[${collectionIndex}].lastName" value="${currentCollectionItem?.lastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].lastName') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.lastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="contactIndividuals.${collectionIndex}.lastName" name="contactIndividuals[${collectionIndex}].lastName" value="${currentCollectionItem?.lastName?.toString()}" 
+                    class="required  validate-lastName ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].lastName') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.lastName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="contactIndividuals.${collectionIndex}.firstName" class="required"><g:message code="rarr.property.firstName.label" /> *  <span><g:message code="rarr.property.firstName.help" /></span></label>
-            <input type="text" id="contactIndividuals.${collectionIndex}.firstName" name="contactIndividuals[${collectionIndex}].firstName" value="${currentCollectionItem?.firstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].firstName') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.firstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="contactIndividuals.${collectionIndex}.firstName" name="contactIndividuals[${collectionIndex}].firstName" value="${currentCollectionItem?.firstName?.toString()}" 
+                    class="required  validate-firstName ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].firstName') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.firstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="rarr.property.address.label" />&nbsp;* <span><g:message code="rarr.property.address.help" /></span></label>
             <div class="address required  ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].address') ? 'validation-failed' : ''}">
             <label for="contactIndividuals.${collectionIndex}.address.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -46,15 +49,17 @@
             
 
   
+    
     <label for="contactIndividuals.${collectionIndex}.homePhone" class=""><g:message code="rarr.property.homePhone.label" />   <span><g:message code="rarr.property.homePhone.help" /></span></label>
-            <input type="text" id="contactIndividuals.${collectionIndex}.homePhone" name="contactIndividuals[${collectionIndex}].homePhone" value="${currentCollectionItem?.homePhone?.toString()}" 
-                    class="  validate-phone ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].homePhone') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.homePhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="contactIndividuals.${collectionIndex}.homePhone" name="contactIndividuals[${collectionIndex}].homePhone" value="${currentCollectionItem?.homePhone?.toString()}" 
+                    class="  validate-phone ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].homePhone') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.homePhone.validationError" />"  maxlength="10" style="width:99%" />
             
 
   
+    
     <label for="contactIndividuals.${collectionIndex}.officePhone" class=""><g:message code="rarr.property.officePhone.label" />   <span><g:message code="rarr.property.officePhone.help" /></span></label>
-            <input type="text" id="contactIndividuals.${collectionIndex}.officePhone" name="contactIndividuals[${collectionIndex}].officePhone" value="${currentCollectionItem?.officePhone?.toString()}" 
-                    class="  validate-phone ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].officePhone') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.officePhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="contactIndividuals.${collectionIndex}.officePhone" name="contactIndividuals[${collectionIndex}].officePhone" value="${currentCollectionItem?.officePhone?.toString()}" 
+                    class="  validate-phone ${rqt.stepStates['contact'].invalidFields.contains('contactIndividuals['+collectionIndex+'].officePhone') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.officePhone.validationError" />"  maxlength="10" style="width:99%" />
             
 
   

@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="lrr.property.rulesAndRegulationsAcceptance.label" /> 
                 <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">
@@ -24,6 +25,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="lrr.property.parentalAuthorization.label" /> 
                 <g:if test="${availableRules.contains('parentalAuthorization')}">
@@ -44,6 +46,7 @@
   
 
   
+    
     
               <label class="">
                 <g:message code="lrr.property.adultContentAuthorization.label" /> 

@@ -4,18 +4,23 @@ bwcr.property.subject.label = Sujet
 
 bwcr.step.waste.label =
 bwcr.step.waste.desc =
+bwcr.step.waste.header.help =
+bwcr.step.waste.footer.help =
 
 
 bwcr.property.bulkyWasteType.help =
 bwcr.property.bulkyWasteType.validationError =
+bwcr.property.bulkyWasteType.headerInformation =
 
 
 bwcr.property.otherWaste.help =
 bwcr.property.otherWaste.validationError =
+bwcr.property.otherWaste.headerInformation =
 
 
 bwcr.property.collectionAddress.help =
 bwcr.property.collectionAddress.validationError =
+bwcr.property.collectionAddress.headerInformation =
 
 
 

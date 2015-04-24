@@ -12,18 +12,21 @@
     </span>
   </h4>
   
+    
     <label for="authorizedIndividuals.${collectionIndex}.lastName" class="required"><g:message code="parr.property.lastName.label" /> *  <span><g:message code="parr.property.lastName.help" /></span></label>
-            <input type="text" id="authorizedIndividuals.${collectionIndex}.lastName" name="authorizedIndividuals[${collectionIndex}].lastName" value="${currentCollectionItem?.lastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].lastName') ? 'validation-failed' : ''}" title="<g:message code="parr.property.lastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="authorizedIndividuals.${collectionIndex}.lastName" name="authorizedIndividuals[${collectionIndex}].lastName" value="${currentCollectionItem?.lastName?.toString()}" 
+                    class="required  validate-lastName ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].lastName') ? 'validation-failed' : ''}" title="<g:message code="parr.property.lastName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="authorizedIndividuals.${collectionIndex}.firstName" class="required"><g:message code="parr.property.firstName.label" /> *  <span><g:message code="parr.property.firstName.help" /></span></label>
-            <input type="text" id="authorizedIndividuals.${collectionIndex}.firstName" name="authorizedIndividuals[${collectionIndex}].firstName" value="${currentCollectionItem?.firstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].firstName') ? 'validation-failed' : ''}" title="<g:message code="parr.property.firstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="authorizedIndividuals.${collectionIndex}.firstName" name="authorizedIndividuals[${collectionIndex}].firstName" value="${currentCollectionItem?.firstName?.toString()}" 
+                    class="required  validate-firstName ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].firstName') ? 'validation-failed' : ''}" title="<g:message code="parr.property.firstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="parr.property.address.label" />&nbsp;* <span><g:message code="parr.property.address.help" /></span></label>
             <div class="address required  ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].address') ? 'validation-failed' : ''}">
             <label for="authorizedIndividuals.${collectionIndex}.address.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -46,15 +49,17 @@
             
 
   
+    
     <label for="authorizedIndividuals.${collectionIndex}.homePhone" class=""><g:message code="parr.property.homePhone.label" />   <span><g:message code="parr.property.homePhone.help" /></span></label>
-            <input type="text" id="authorizedIndividuals.${collectionIndex}.homePhone" name="authorizedIndividuals[${collectionIndex}].homePhone" value="${currentCollectionItem?.homePhone?.toString()}" 
-                    class="  validate-phone ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].homePhone') ? 'validation-failed' : ''}" title="<g:message code="parr.property.homePhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="authorizedIndividuals.${collectionIndex}.homePhone" name="authorizedIndividuals[${collectionIndex}].homePhone" value="${currentCollectionItem?.homePhone?.toString()}" 
+                    class="  validate-phone ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].homePhone') ? 'validation-failed' : ''}" title="<g:message code="parr.property.homePhone.validationError" />"  maxlength="10" style="width:99%" />
             
 
   
+    
     <label for="authorizedIndividuals.${collectionIndex}.officePhone" class=""><g:message code="parr.property.officePhone.label" />   <span><g:message code="parr.property.officePhone.help" /></span></label>
-            <input type="text" id="authorizedIndividuals.${collectionIndex}.officePhone" name="authorizedIndividuals[${collectionIndex}].officePhone" value="${currentCollectionItem?.officePhone?.toString()}" 
-                    class="  validate-phone ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].officePhone') ? 'validation-failed' : ''}" title="<g:message code="parr.property.officePhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="authorizedIndividuals.${collectionIndex}.officePhone" name="authorizedIndividuals[${collectionIndex}].officePhone" value="${currentCollectionItem?.officePhone?.toString()}" 
+                    class="  validate-phone ${rqt.stepStates['authorization'].invalidFields.contains('authorizedIndividuals['+collectionIndex+'].officePhone') ? 'validation-failed' : ''}" title="<g:message code="parr.property.officePhone.validationError" />"  maxlength="10" style="width:99%" />
             
 
   

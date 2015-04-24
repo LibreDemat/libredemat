@@ -4,18 +4,23 @@ cwcr.property.subject.label = Sujet
 
 cwcr.step.waste.label =
 cwcr.step.waste.desc =
+cwcr.step.waste.header.help =
+cwcr.step.waste.footer.help =
 
 
 cwcr.property.compostableWasteType.help =
 cwcr.property.compostableWasteType.validationError =
+cwcr.property.compostableWasteType.headerInformation =
 
 
 cwcr.property.otherWaste.help =
 cwcr.property.otherWaste.validationError =
+cwcr.property.otherWaste.headerInformation =
 
 
 cwcr.property.collectionAddress.help =
 cwcr.property.collectionAddress.validationError =
+cwcr.property.collectionAddress.headerInformation =
 
 
 

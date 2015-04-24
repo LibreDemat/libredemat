@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -243,8 +244,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -259,8 +261,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -275,8 +278,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -329,8 +333,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -345,8 +350,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -361,8 +367,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -393,8 +400,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -409,8 +417,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -425,8 +434,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -477,8 +487,9 @@ public class RemoteSupportRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['requestInformationEmergency'].test(_this.requestInformationEmergency.toString());" +
-                
+                "active &= _this.conditions['requestInformationEmergency'].test(_this.requestInformationEmergency.toString());" +
+                    
+                  
               
             
             
@@ -493,8 +504,9 @@ public class RemoteSupportRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['requestInformationEmergency'].test(_this.requestInformationEmergency.toString());" +
-                
+                "active &= _this.conditions['requestInformationEmergency'].test(_this.requestInformationEmergency.toString());" +
+                    
+                  
               
             
             
@@ -509,8 +521,9 @@ public class RemoteSupportRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['requestInformationEmergency'].test(_this.requestInformationEmergency.toString());" +
-                
+                "active &= _this.conditions['requestInformationEmergency'].test(_this.requestInformationEmergency.toString());" +
+                    
+                  
               
             
             
@@ -564,8 +577,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -596,8 +610,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -628,8 +643,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
-                
+                "active &= _this.conditions['contactKind'].test(_this.contactKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -658,8 +674,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -690,8 +707,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -706,8 +724,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -722,8 +741,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -752,8 +772,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -784,8 +805,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -800,8 +822,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -816,8 +839,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",
@@ -846,8 +870,9 @@ public class RemoteSupportRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
-                
+                "active &= _this.conditions['requestInformationRequestKind'].test(_this.requestInformationRequestKind.toString());" +
+                    
+                  
               
             
             "return active",

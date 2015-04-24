@@ -4,206 +4,262 @@ sagr.property.subject.label = Sujet
 
 sagr.step.association.label =
 sagr.step.association.desc =
+sagr.step.association.header.help =
+sagr.step.association.footer.help =
 
 sagr.step.president.label =
 sagr.step.president.desc =
+sagr.step.president.header.help =
+sagr.step.president.footer.help =
 
 sagr.step.bureau.label =
 sagr.step.bureau.desc =
+sagr.step.bureau.header.help =
+sagr.step.bureau.footer.help =
 
 sagr.step.activites.label =
 sagr.step.activites.desc =
+sagr.step.activites.header.help =
+sagr.step.activites.footer.help =
 
 sagr.step.subvention.label =
 sagr.step.subvention.desc =
+sagr.step.subvention.header.help =
+sagr.step.subvention.footer.help =
 
 
 sagr.property.nomAssociation.help =
 sagr.property.nomAssociation.validationError =
+sagr.property.nomAssociation.headerInformation =
 
 
 sagr.property.siegeSocialAssociation.help =
 sagr.property.siegeSocialAssociation.validationError =
+sagr.property.siegeSocialAssociation.headerInformation =
 
 
 sagr.property.numerosAssociation.help =
 sagr.property.numerosAssociation.validationError =
+sagr.property.numerosAssociation.headerInformation =
 
 
 sagr.property.numeroSiretAssociation.help =
 sagr.property.numeroSiretAssociation.validationError =
+sagr.property.numeroSiretAssociation.headerInformation =
 
 
 sagr.property.numeroEnregistrementPrefectureAssociation.help =
 sagr.property.numeroEnregistrementPrefectureAssociation.validationError =
+sagr.property.numeroEnregistrementPrefectureAssociation.headerInformation =
 
 
 sagr.property.contactsAssociation.help =
 sagr.property.contactsAssociation.validationError =
+sagr.property.contactsAssociation.headerInformation =
 
 
 sagr.property.estAdresseCorrespondantPrincipal.help =
 sagr.property.estAdresseCorrespondantPrincipal.validationError =
+sagr.property.estAdresseCorrespondantPrincipal.headerInformation =
 
 
 sagr.property.nomCompletCorrespondantPrincipal.help =
 sagr.property.nomCompletCorrespondantPrincipal.validationError =
+sagr.property.nomCompletCorrespondantPrincipal.headerInformation =
 
 
 sagr.property.adresseCorrespondantPrincipal.help =
 sagr.property.adresseCorrespondantPrincipal.validationError =
+sagr.property.adresseCorrespondantPrincipal.headerInformation =
 
 
 sagr.property.emailClubOuCorrespondant.help =
 sagr.property.emailClubOuCorrespondant.validationError =
+sagr.property.emailClubOuCorrespondant.headerInformation =
 
 
 sagr.property.roleDemandeur.help =
 sagr.property.roleDemandeur.validationError =
+sagr.property.roleDemandeur.headerInformation =
 
 
 sagr.property.precisionPresident.help =
 sagr.property.precisionPresident.validationError =
+sagr.property.precisionPresident.headerInformation =
 
 
 sagr.property.nomPresident.help =
 sagr.property.nomPresident.validationError =
+sagr.property.nomPresident.headerInformation =
 
 
 sagr.property.prenomPresident.help =
 sagr.property.prenomPresident.validationError =
+sagr.property.prenomPresident.headerInformation =
 
 
 sagr.property.telephonePresident.help =
 sagr.property.telephonePresident.validationError =
+sagr.property.telephonePresident.headerInformation =
 
 
 sagr.property.emailPresident.help =
 sagr.property.emailPresident.validationError =
+sagr.property.emailPresident.headerInformation =
 
 
 sagr.property.autreMembreBureau.help =
 sagr.property.autreMembreBureau.validationError =
+sagr.property.autreMembreBureau.headerInformation =
 
 sagr.property.autreMembreBureau.elementAdditionSuccess =
 
 
 sagr.property.roleMembre.help =
 sagr.property.roleMembre.validationError =
+sagr.property.roleMembre.headerInformation =
 
 
 sagr.property.nomMembre.help =
 sagr.property.nomMembre.validationError =
+sagr.property.nomMembre.headerInformation =
 
 
 sagr.property.prenomMembre.help =
 sagr.property.prenomMembre.validationError =
+sagr.property.prenomMembre.headerInformation =
 
 
 sagr.property.telephoneMembre.help =
 sagr.property.telephoneMembre.validationError =
+sagr.property.telephoneMembre.headerInformation =
 
 
 sagr.property.emailMembre.help =
 sagr.property.emailMembre.validationError =
+sagr.property.emailMembre.headerInformation =
 
 
 sagr.property.sagrActiviteAssociation.help =
 sagr.property.sagrActiviteAssociation.validationError =
+sagr.property.sagrActiviteAssociation.headerInformation =
 
 sagr.property.sagrActiviteAssociation.elementAdditionSuccess =
 
 
 sagr.property.identifiantEDemandeActivite.help =
 sagr.property.identifiantEDemandeActivite.validationError =
+sagr.property.identifiantEDemandeActivite.headerInformation =
 
 
 sagr.property.sportPratique.help =
 sagr.property.sportPratique.validationError =
+sagr.property.sportPratique.headerInformation =
 
 
 sagr.property.sportPratiquePrecision.help =
 sagr.property.sportPratiquePrecision.validationError =
+sagr.property.sportPratiquePrecision.headerInformation =
 
 
 sagr.property.federationSportive.help =
 sagr.property.federationSportive.validationError =
+sagr.property.federationSportive.headerInformation =
 
 
 sagr.property.federationSportivePrecision.help =
 sagr.property.federationSportivePrecision.validationError =
+sagr.property.federationSportivePrecision.headerInformation =
 
 
 sagr.property.numeroAffiliationActivite.help =
 sagr.property.numeroAffiliationActivite.validationError =
+sagr.property.numeroAffiliationActivite.headerInformation =
 
 
 sagr.property.nombreLicencieMineurActivite.help =
 sagr.property.nombreLicencieMineurActivite.validationError =
+sagr.property.nombreLicencieMineurActivite.headerInformation =
 
 
 sagr.property.nombreLicencieMajeurActivite.help =
 sagr.property.nombreLicencieMajeurActivite.validationError =
+sagr.property.nombreLicencieMajeurActivite.headerInformation =
 
 
 sagr.property.totalLicencieActivite.help =
 sagr.property.totalLicencieActivite.validationError =
+sagr.property.totalLicencieActivite.headerInformation =
 
 
 sagr.property.sommeSolliciteeActivite.help =
 sagr.property.sommeSolliciteeActivite.validationError =
+sagr.property.sommeSolliciteeActivite.headerInformation =
 
 
 sagr.property.sommeAlloueeActivite.help =
 sagr.property.sommeAlloueeActivite.validationError =
+sagr.property.sommeAlloueeActivite.headerInformation =
 
 
 sagr.property.subventionSolliciteConseilGeneral.help =
 sagr.property.subventionSolliciteConseilGeneral.validationError =
+sagr.property.subventionSolliciteConseilGeneral.headerInformation =
 
 
 sagr.property.subventionPubliqueFonctionnement.help =
 sagr.property.subventionPubliqueFonctionnement.validationError =
+sagr.property.subventionPubliqueFonctionnement.headerInformation =
 
 
 sagr.property.budgetSaisonEcouleeRecette.help =
 sagr.property.budgetSaisonEcouleeRecette.validationError =
+sagr.property.budgetSaisonEcouleeRecette.headerInformation =
 
 
 sagr.property.budgetSaisonEcouleeDepenses.help =
 sagr.property.budgetSaisonEcouleeDepenses.validationError =
+sagr.property.budgetSaisonEcouleeDepenses.headerInformation =
 
 
 sagr.property.nombreLicencieMoinsDixHuitSaisonEcoulee.help =
 sagr.property.nombreLicencieMoinsDixHuitSaisonEcoulee.validationError =
+sagr.property.nombreLicencieMoinsDixHuitSaisonEcoulee.headerInformation =
 
 
 sagr.property.nombreLicenciePlusDixHuitSaisonEcoulee.help =
 sagr.property.nombreLicenciePlusDixHuitSaisonEcoulee.validationError =
+sagr.property.nombreLicenciePlusDixHuitSaisonEcoulee.headerInformation =
 
 
 sagr.property.communeAnneeN.help =
 sagr.property.communeAnneeN.validationError =
+sagr.property.communeAnneeN.headerInformation =
 
 
 sagr.property.communeAnneeNPlusUn.help =
 sagr.property.communeAnneeNPlusUn.validationError =
+sagr.property.communeAnneeNPlusUn.headerInformation =
 
 
 sagr.property.compteBancaire.help =
 sagr.property.compteBancaire.validationError =
+sagr.property.compteBancaire.headerInformation =
 
 
 sagr.property.numeroEnregistrementAssociation.help =
 sagr.property.numeroEnregistrementAssociation.validationError =
+sagr.property.numeroEnregistrementAssociation.headerInformation =
 
 
 sagr.property.identifiantEDemandeAssociation.help =
 sagr.property.identifiantEDemandeAssociation.validationError =
+sagr.property.identifiantEDemandeAssociation.headerInformation =
 
 
 sagr.property.montantSubvention.help =
 sagr.property.montantSubvention.validationError =
+sagr.property.montantSubvention.headerInformation =
 
 
 

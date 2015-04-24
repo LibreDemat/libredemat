@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -283,8 +284,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -299,8 +301,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -332,8 +335,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -348,8 +352,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -364,8 +369,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -396,8 +402,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -412,8 +419,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -428,8 +436,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -460,8 +469,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -476,8 +486,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",
@@ -492,8 +503,9 @@ public class HolidaySecurityRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
-                
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
               
             
             "return active",

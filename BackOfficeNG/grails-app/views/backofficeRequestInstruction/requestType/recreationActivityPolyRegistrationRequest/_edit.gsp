@@ -50,7 +50,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.recreationPolyActivity.label')}&nbsp;*&nbsp;:</dt><dd id="recreationPolyActivity" class="action-editField validate-localReferentialData required-true i18n-raprr.property.recreationPolyActivity data-localReferentialData" >
+                <dt class="required">${message(code:'raprr.property.recreationPolyActivity.label')} &nbsp;*&nbsp;:</dt><dd id="recreationPolyActivity" class="action-editField validate-localReferentialData required-true i18n-raprr.property.recreationPolyActivity data-localReferentialData" >
            <g:render template="/backofficeRequestInstruction/widget/localReferentialDataStatic" 
                      model="['javaName':'recreationPolyActivity', 'lrEntries': lrTypes.recreationPolyActivity?.entries, 
                              'rqt':rqt, 'isMultiple':lrTypes.recreationPolyActivity?.isMultiple(), 'depth':0]" />
@@ -61,7 +61,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.urgencyPolyPhone.label')}&nbsp;*&nbsp;:</dt><dd id="urgencyPolyPhone" class="action-editField validate-phone required-true i18n-raprr.property.urgencyPolyPhone maxLength-10" ><span>${rqt?.urgencyPolyPhone}</span></dd>
+                <dt class="required">${message(code:'raprr.property.urgencyPolyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPolyPhone" class="action-editField validate-phone required-true i18n-raprr.property.urgencyPolyPhone maxLength-10" ><span>${rqt?.urgencyPolyPhone}</span></dd>
               </dl>
               
             
@@ -73,7 +73,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'raprr.property.recreationPolyCenter.label')}&nbsp;:</dt><dd id="recreationPolyCenter" class="action-editField validate-recreationPolyCenter i18n-raprr.property.recreationPolyCenter" ><span class="value-${rqt?.recreationPolyCenter?.id}">${rqt?.recreationPolyCenter?.name}</span></dd>
+                <dt class="">${message(code:'raprr.property.recreationPolyCenter.label')} &nbsp;:</dt><dd id="recreationPolyCenter" class="action-editField validate-recreationCenter i18n-raprr.property.recreationPolyCenter" ><span class="value-${rqt?.recreationPolyCenter?.id}">${rqt?.recreationPolyCenter?.name}</span></dd>
               </dl>
               
             
@@ -160,25 +160,25 @@
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.rulesAndRegulationsPolyAcceptance.label')}&nbsp;*&nbsp;:</dt><dd id="rulesAndRegulationsPolyAcceptance" class="action-editField validate-acceptance required-true i18n-raprr.property.rulesAndRegulationsPolyAcceptance" ><span class="value-${rqt?.rulesAndRegulationsPolyAcceptance}"><g:message code="message.${rqt?.rulesAndRegulationsPolyAcceptance ? 'yes' : 'no'}" /></span></dd>
+                <dt class="required">${message(code:'raprr.property.rulesAndRegulationsPolyAcceptance.label')} &nbsp;*&nbsp;:</dt><dd id="rulesAndRegulationsPolyAcceptance" class="action-editField validate-acceptance required-true i18n-raprr.property.rulesAndRegulationsPolyAcceptance" ><span class="value-${rqt?.rulesAndRegulationsPolyAcceptance}"><g:message code="message.${rqt?.rulesAndRegulationsPolyAcceptance ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'raprr.property.classTripPolyPermission.label')}&nbsp;:</dt><dd id="classTripPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.classTripPolyPermission" ><span class="value-${rqt?.classTripPolyPermission}"><g:message code="message.${rqt?.classTripPolyPermission ? 'yes' : 'no'}" /></span></dd>
+                <dt class="">${message(code:'raprr.property.classTripPolyPermission.label')} &nbsp;:</dt><dd id="classTripPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.classTripPolyPermission" ><span class="value-${rqt?.classTripPolyPermission}"><g:message code="message.${rqt?.classTripPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'raprr.property.childPhotoExploitationPolyPermission.label')}&nbsp;:</dt><dd id="childPhotoExploitationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.childPhotoExploitationPolyPermission" ><span class="value-${rqt?.childPhotoExploitationPolyPermission}"><g:message code="message.${rqt?.childPhotoExploitationPolyPermission ? 'yes' : 'no'}" /></span></dd>
+                <dt class="">${message(code:'raprr.property.childPhotoExploitationPolyPermission.label')} &nbsp;:</dt><dd id="childPhotoExploitationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.childPhotoExploitationPolyPermission" ><span class="value-${rqt?.childPhotoExploitationPolyPermission}"><g:message code="message.${rqt?.childPhotoExploitationPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'raprr.property.hospitalizationPolyPermission.label')}&nbsp;:</dt><dd id="hospitalizationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.hospitalizationPolyPermission" ><span class="value-${rqt?.hospitalizationPolyPermission}"><g:message code="message.${rqt?.hospitalizationPolyPermission ? 'yes' : 'no'}" /></span></dd>
+                <dt class="">${message(code:'raprr.property.hospitalizationPolyPermission.label')} &nbsp;:</dt><dd id="hospitalizationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.hospitalizationPolyPermission" ><span class="value-${rqt?.hospitalizationPolyPermission}"><g:message code="message.${rqt?.hospitalizationPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             

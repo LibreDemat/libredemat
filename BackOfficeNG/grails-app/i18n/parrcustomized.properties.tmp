@@ -4,99 +4,127 @@ parr.property.subject.label = Sujet
 
 parr.step.registration.label =
 parr.step.registration.desc =
+parr.step.registration.header.help =
+parr.step.registration.footer.help =
 
 parr.step.contact.label =
 parr.step.contact.desc =
+parr.step.contact.header.help =
+parr.step.contact.footer.help =
 
 parr.step.authorization.label =
 parr.step.authorization.desc =
+parr.step.authorization.header.help =
+parr.step.authorization.footer.help =
 
 parr.step.rules.label =
 parr.step.rules.desc =
+parr.step.rules.header.help =
+parr.step.rules.footer.help =
 
 
 parr.property.perischoolActivity.help =
 parr.property.perischoolActivity.validationError =
+parr.property.perischoolActivity.headerInformation =
 
 
 parr.property.urgencyPhone.help =
 parr.property.urgencyPhone.validationError =
+parr.property.urgencyPhone.headerInformation =
 
 
 parr.property.school.help =
 parr.property.school.validationError =
+parr.property.school.headerInformation =
 
 
 parr.property.section.help =
 parr.property.section.validationError =
+parr.property.section.headerInformation =
 
 
 parr.property.contactIndividuals.help =
 parr.property.contactIndividuals.validationError =
+parr.property.contactIndividuals.headerInformation =
 
 parr.property.contactIndividuals.elementAdditionSuccess =
 
 
 parr.property.lastName.help =
 parr.property.lastName.validationError =
+parr.property.lastName.headerInformation =
 
 
 parr.property.firstName.help =
 parr.property.firstName.validationError =
+parr.property.firstName.headerInformation =
 
 
 parr.property.address.help =
 parr.property.address.validationError =
+parr.property.address.headerInformation =
 
 
 parr.property.homePhone.help =
 parr.property.homePhone.validationError =
+parr.property.homePhone.headerInformation =
 
 
 parr.property.officePhone.help =
 parr.property.officePhone.validationError =
+parr.property.officePhone.headerInformation =
 
 
 parr.property.authorizedIndividuals.help =
 parr.property.authorizedIndividuals.validationError =
+parr.property.authorizedIndividuals.headerInformation =
 
 parr.property.authorizedIndividuals.elementAdditionSuccess =
 
 
 parr.property.lastName.help =
 parr.property.lastName.validationError =
+parr.property.lastName.headerInformation =
 
 
 parr.property.firstName.help =
 parr.property.firstName.validationError =
+parr.property.firstName.headerInformation =
 
 
 parr.property.address.help =
 parr.property.address.validationError =
+parr.property.address.headerInformation =
 
 
 parr.property.homePhone.help =
 parr.property.homePhone.validationError =
+parr.property.homePhone.headerInformation =
 
 
 parr.property.officePhone.help =
 parr.property.officePhone.validationError =
+parr.property.officePhone.headerInformation =
 
 
 parr.property.rulesAndRegulationsAcceptance.help =
 parr.property.rulesAndRegulationsAcceptance.validationError =
+parr.property.rulesAndRegulationsAcceptance.headerInformation =
 
 
 parr.property.classTripPermission.help =
 parr.property.classTripPermission.validationError =
+parr.property.classTripPermission.headerInformation =
 
 
 parr.property.childPhotoExploitationPermission.help =
 parr.property.childPhotoExploitationPermission.validationError =
+parr.property.childPhotoExploitationPermission.headerInformation =
 
 
 parr.property.hospitalizationPermission.help =
 parr.property.hospitalizationPermission.validationError =
+parr.property.hospitalizationPermission.headerInformation =
 
 
 

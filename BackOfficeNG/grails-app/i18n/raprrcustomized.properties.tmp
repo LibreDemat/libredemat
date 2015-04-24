@@ -4,95 +4,122 @@ raprr.property.subject.label = Sujet
 
 raprr.step.requester.label =
 raprr.step.requester.desc =
+raprr.step.requester.header.help =
+raprr.step.requester.footer.help =
 
 raprr.step.contact.label =
 raprr.step.contact.desc =
+raprr.step.contact.header.help =
+raprr.step.contact.footer.help =
 
 raprr.step.authorization.label =
 raprr.step.authorization.desc =
+raprr.step.authorization.header.help =
+raprr.step.authorization.footer.help =
 
 raprr.step.rules.label =
 raprr.step.rules.desc =
+raprr.step.rules.header.help =
+raprr.step.rules.footer.help =
 
 
 raprr.property.recreationPolyActivity.help =
 raprr.property.recreationPolyActivity.validationError =
+raprr.property.recreationPolyActivity.headerInformation =
 
 
 raprr.property.urgencyPolyPhone.help =
 raprr.property.urgencyPolyPhone.validationError =
+raprr.property.urgencyPolyPhone.headerInformation =
 
 
 raprr.property.recreationPolyCenter.help =
 raprr.property.recreationPolyCenter.validationError =
+raprr.property.recreationPolyCenter.headerInformation =
 
 
 raprr.property.contactPolyIndividuals.help =
 raprr.property.contactPolyIndividuals.validationError =
+raprr.property.contactPolyIndividuals.headerInformation =
 
 raprr.property.contactPolyIndividuals.elementAdditionSuccess =
 
 
 raprr.property.lastName.help =
 raprr.property.lastName.validationError =
+raprr.property.lastName.headerInformation =
 
 
 raprr.property.firstName.help =
 raprr.property.firstName.validationError =
+raprr.property.firstName.headerInformation =
 
 
 raprr.property.address.help =
 raprr.property.address.validationError =
+raprr.property.address.headerInformation =
 
 
 raprr.property.homePhone.help =
 raprr.property.homePhone.validationError =
+raprr.property.homePhone.headerInformation =
 
 
 raprr.property.officePhone.help =
 raprr.property.officePhone.validationError =
+raprr.property.officePhone.headerInformation =
 
 
 raprr.property.authorizedPolyIndividuals.help =
 raprr.property.authorizedPolyIndividuals.validationError =
+raprr.property.authorizedPolyIndividuals.headerInformation =
 
 raprr.property.authorizedPolyIndividuals.elementAdditionSuccess =
 
 
 raprr.property.lastName.help =
 raprr.property.lastName.validationError =
+raprr.property.lastName.headerInformation =
 
 
 raprr.property.firstName.help =
 raprr.property.firstName.validationError =
+raprr.property.firstName.headerInformation =
 
 
 raprr.property.address.help =
 raprr.property.address.validationError =
+raprr.property.address.headerInformation =
 
 
 raprr.property.homePhone.help =
 raprr.property.homePhone.validationError =
+raprr.property.homePhone.headerInformation =
 
 
 raprr.property.officePhone.help =
 raprr.property.officePhone.validationError =
+raprr.property.officePhone.headerInformation =
 
 
 raprr.property.rulesAndRegulationsPolyAcceptance.help =
 raprr.property.rulesAndRegulationsPolyAcceptance.validationError =
+raprr.property.rulesAndRegulationsPolyAcceptance.headerInformation =
 
 
 raprr.property.classTripPolyPermission.help =
 raprr.property.classTripPolyPermission.validationError =
+raprr.property.classTripPolyPermission.headerInformation =
 
 
 raprr.property.childPhotoExploitationPolyPermission.help =
 raprr.property.childPhotoExploitationPolyPermission.validationError =
+raprr.property.childPhotoExploitationPolyPermission.headerInformation =
 
 
 raprr.property.hospitalizationPolyPermission.help =
 raprr.property.hospitalizationPolyPermission.validationError =
+raprr.property.hospitalizationPolyPermission.headerInformation =
 
 
 

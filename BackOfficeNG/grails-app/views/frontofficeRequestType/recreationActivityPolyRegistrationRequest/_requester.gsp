@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="raprr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="raprr.property.recreationPolyActivity.label" /> *  <span><g:message code="raprr.property.recreationPolyActivity.help" /></span></label>
             <g:set var="recreationPolyActivityIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -43,6 +45,7 @@
   
 
   
+    
     <label for="urgencyPolyPhone" class="required"><g:message code="raprr.property.urgencyPolyPhone.label" /> *  <span><g:message code="raprr.property.urgencyPolyPhone.help" /></span></label>
             <input  type="text" id="urgencyPolyPhone" name="urgencyPolyPhone" value="${rqt.urgencyPolyPhone?.toString()}" 
                     class="required  validate-phone ${rqt.stepStates['requester'].invalidFields.contains('urgencyPolyPhone') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.urgencyPolyPhone.validationError" />"  maxlength="10" />

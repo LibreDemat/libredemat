@@ -2,6 +2,7 @@
 
 
   
+    
     <label for="requesterQuality" class="required"><g:message code="ancr.property.requesterQuality.label" /> *  <span><g:message code="ancr.property.requesterQuality.help" /></span></label>
             <select id="requesterQuality" name="requesterQuality" class="required condition-isOwner-trigger  validate-not-first ${rqt.stepStates['cadastre'].invalidFields.contains('requesterQuality') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.requesterQuality.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -14,81 +15,89 @@
   
 
   
+    
     <label for="ownerLastName" class="required condition-isOwner-unfilled"><g:message code="ancr.property.ownerLastName.label" /> *  <span><g:message code="ancr.property.ownerLastName.help" /></span></label>
-            <input type="text" id="ownerLastName" name="ownerLastName" value="${rqt.ownerLastName?.toString()}" 
+            <input  type="text" id="ownerLastName" name="ownerLastName" value="${rqt.ownerLastName?.toString()}" 
                     class="required condition-isOwner-unfilled  validate-lastName ${rqt.stepStates['cadastre'].invalidFields.contains('ownerLastName') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.ownerLastName.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label for="ownerFirstNames" class="required condition-isOwner-unfilled"><g:message code="ancr.property.ownerFirstNames.label" /> *  <span><g:message code="ancr.property.ownerFirstNames.help" /></span></label>
-            <input type="text" id="ownerFirstNames" name="ownerFirstNames" value="${rqt.ownerFirstNames?.toString()}" 
+            <input  type="text" id="ownerFirstNames" name="ownerFirstNames" value="${rqt.ownerFirstNames?.toString()}" 
                     class="required condition-isOwner-unfilled  validate-string ${rqt.stepStates['cadastre'].invalidFields.contains('ownerFirstNames') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.ownerFirstNames.validationError" />"   />
             
 
   
 
   
+    
     <label class="required condition-isOwner-unfilled"><g:message code="ancr.property.ownerAddress.label" /> *  <span><g:message code="ancr.property.ownerAddress.help" /></span></label>
             <div id="ownerAddress" class="address required condition-isOwner-unfilled  ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress') ? 'validation-failed' : ''}">
             <label for="ownerAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.additionalDeliveryInformation}" maxlength="38" id="ownerAddress.additionalDeliveryInformation" name="ownerAddress.additionalDeliveryInformation" />  
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.additionalDeliveryInformation}" maxlength="38" id="ownerAddress.additionalDeliveryInformation" name="ownerAddress.additionalDeliveryInformation" />  
             <label for="ownerAddress.additionalGeographicalInformation"><g:message code="address.property.additionalGeographicalInformation" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.additionalGeographicalInformation}" maxlength="38" id="ownerAddress.additionalGeographicalInformation" name="ownerAddress.additionalGeographicalInformation" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.additionalGeographicalInformation}" maxlength="38" id="ownerAddress.additionalGeographicalInformation" name="ownerAddress.additionalGeographicalInformation" />
             <label for="ownerAddress_streetNumber"><g:message code="address.property.streetNumber" /></label> - 
             <label for="ownerAddress_streetName" class="required"><g:message code="address.property.streetName" /> *</label><br />
-            <input type="text" class="line1 validate-streetNumber ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.streetNumber}" size="5" maxlength="5" id="ownerAddress_streetNumber" name="ownerAddress.streetNumber" />
-            <input type="text" class="line2 required validate-streetName ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.streetName}" maxlength="32" id="ownerAddress_streetName" name="ownerAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
-            <input type="hidden" value="${rqt.ownerAddress?.streetMatriculation}" id="ownerAddress_streetMatriculation" name="ownerAddress.streetMatriculation" />
-            <input type="hidden" value="${rqt.ownerAddress?.streetRivoliCode}" id="ownerAddress_streetRivoliCode" name="ownerAddress.streetRivoliCode" />
+            <input  type="text" class="line1 validate-streetNumber ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.streetNumber}" size="5" maxlength="5" id="ownerAddress_streetNumber" name="ownerAddress.streetNumber" />
+            <input  type="text" class="line2 required validate-streetName ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.streetName}" maxlength="32" id="ownerAddress_streetName" name="ownerAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
+            <input  type="hidden" value="${rqt.ownerAddress?.streetMatriculation}" id="ownerAddress_streetMatriculation" name="ownerAddress.streetMatriculation" />
+            <input  type="hidden" value="${rqt.ownerAddress?.streetRivoliCode}" id="ownerAddress_streetRivoliCode" name="ownerAddress.streetRivoliCode" />
             <label for="ownerAddress.placeNameOrService"><g:message code="address.property.placeNameOrService" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.placeNameOrService}" maxlength="38" id="ownerAddress.placeNameOrService" name="ownerAddress.placeNameOrService" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.placeNameOrService}" maxlength="38" id="ownerAddress.placeNameOrService" name="ownerAddress.placeNameOrService" />
             <label for="ownerAddress_postalCode" class="required"><g:message code="address.property.postalCode" /> * </label> - 
             <label for="ownerAddress_city" class="required"><g:message code="address.property.city" /> *</label><br />
-            <input type="text" class="line1 required validate-postalCode ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.postalCode}" size="5" maxlength="5" id="ownerAddress_postalCode" name="ownerAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
-            <input type="text" class="line2 required validate-city ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.city') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.city}" maxlength="32" id="ownerAddress_city" name="ownerAddress.city" title="<g:message code="address.property.city.validationError" />" />
-            <input type="hidden" value="${rqt.ownerAddress?.cityInseeCode}" id="ownerAddress_cityInseeCode" name="ownerAddress.cityInseeCode" />
+            <input  type="text" class="line1 required validate-postalCode ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.postalCode}" size="5" maxlength="5" id="ownerAddress_postalCode" name="ownerAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
+            <input  type="text" class="line2 required validate-city ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.city') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.city}" maxlength="32" id="ownerAddress_city" name="ownerAddress.city" title="<g:message code="address.property.city.validationError" />" />
+            <input  type="hidden" value="${rqt.ownerAddress?.cityInseeCode}" id="ownerAddress_cityInseeCode" name="ownerAddress.cityInseeCode" />
             <label for="ownerAddress.countryName"><g:message code="address.property.countryName" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.countryName}" maxlength="38" id="ownerAddress.countryName" name="ownerAddress.countryName" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['cadastre'].invalidFields.contains('ownerAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.ownerAddress?.countryName}" maxlength="38" id="ownerAddress.countryName" name="ownerAddress.countryName" />
             </div>
             
 
   
 
   
+    
     <label for="section" class="required"><g:message code="ancr.property.section.label" /> *  <span><g:message code="ancr.property.section.help" /></span></label>
-            <input type="text" id="section" name="section" value="${rqt.section?.toString()}" 
+            <input  type="text" id="section" name="section" value="${rqt.section?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['cadastre'].invalidFields.contains('section') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.section.validationError" />"   />
             
 
   
 
   
+    
     <label for="number" class="required"><g:message code="ancr.property.number.label" /> *  <span><g:message code="ancr.property.number.help" /></span></label>
-            <input type="text" id="number" name="number" value="${rqt.number?.toString()}" 
+            <input  type="text" id="number" name="number" value="${rqt.number?.toString()}" 
                     class="required  validate-positiveInteger ${rqt.stepStates['cadastre'].invalidFields.contains('number') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.number.validationError" />"   />
             
 
   
 
   
+    
     <label for="locality" class=""><g:message code="ancr.property.locality.label" />   <span><g:message code="ancr.property.locality.help" /></span></label>
-            <input type="text" id="locality" name="locality" value="${rqt.locality?.toString()}" 
+            <input  type="text" id="locality" name="locality" value="${rqt.locality?.toString()}" 
                     class="  validate-string ${rqt.stepStates['cadastre'].invalidFields.contains('locality') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.locality.validationError" />"   />
             
 
   
 
   
+    
     <label for="transportationRoute" class=""><g:message code="ancr.property.transportationRoute.label" />   <span><g:message code="ancr.property.transportationRoute.help" /></span></label>
-            <input type="text" id="transportationRoute" name="transportationRoute" value="${rqt.transportationRoute?.toString()}" 
+            <input  type="text" id="transportationRoute" name="transportationRoute" value="${rqt.transportationRoute?.toString()}" 
                     class="  validate-string ${rqt.stepStates['cadastre'].invalidFields.contains('transportationRoute') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.transportationRoute.validationError" />"   />
             
 
   
 
   
+    
     <label class="required"><g:message code="ancr.property.moreThanTwoYears.label" /> *  <span><g:message code="ancr.property.moreThanTwoYears.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['cadastre'].invalidFields.contains('moreThanTwoYears') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -103,14 +112,16 @@
   
 
   
+    
     <label for="area" class=""><g:message code="ancr.property.area.label" />   <span><g:message code="ancr.property.area.help" /></span></label>
-            <input type="text" id="area" name="area" value="${rqt.area?.toString()}" 
+            <input  type="text" id="area" name="area" value="${rqt.area?.toString()}" 
                     class="  validate-positiveInteger ${rqt.stepStates['cadastre'].invalidFields.contains('area') ? 'validation-failed' : ''}" title="<g:message code="ancr.property.area.validationError" />"   />
             
 
   
 
   
+    
     <label class="required"><g:message code="ancr.property.isAlignment.label" /> *  <span><g:message code="ancr.property.isAlignment.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['cadastre'].invalidFields.contains('isAlignment') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -125,6 +136,7 @@
   
 
   
+    
     <label class="required"><g:message code="ancr.property.isNumbering.label" /> *  <span><g:message code="ancr.property.isNumbering.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['cadastre'].invalidFields.contains('isNumbering') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -139,6 +151,7 @@
   
 
   
+    
     <label class="required"><g:message code="ancr.property.isConnection.label" /> *  <span><g:message code="ancr.property.isConnection.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['cadastre'].invalidFields.contains('isConnection') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

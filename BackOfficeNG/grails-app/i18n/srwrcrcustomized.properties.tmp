@@ -4,29 +4,38 @@ srwrcr.property.subject.label = Sujet
 
 srwrcr.step.registration.label =
 srwrcr.step.registration.desc =
+srwrcr.step.registration.header.help =
+srwrcr.step.registration.footer.help =
 
 srwrcr.step.rules.label =
 srwrcr.step.rules.desc =
+srwrcr.step.rules.header.help =
+srwrcr.step.rules.footer.help =
 
 
 srwrcr.property.section.help =
 srwrcr.property.section.validationError =
+srwrcr.property.section.headerInformation =
 
 
 srwrcr.property.theSchool.help =
 srwrcr.property.theSchool.validationError =
+srwrcr.property.theSchool.headerInformation =
 
 
 srwrcr.property.idSchoolName.help =
 srwrcr.property.idSchoolName.validationError =
+srwrcr.property.idSchoolName.headerInformation =
 
 
 srwrcr.property.labelSchoolName.help =
 srwrcr.property.labelSchoolName.validationError =
+srwrcr.property.labelSchoolName.headerInformation =
 
 
 srwrcr.property.rulesAndRegulationsAcceptance.help =
 srwrcr.property.rulesAndRegulationsAcceptance.validationError =
+srwrcr.property.rulesAndRegulationsAcceptance.headerInformation =
 
 
 

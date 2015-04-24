@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="srwrcr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label for="section" class="required"><g:message code="srwrcr.property.section.label" /> *  <span><g:message code="srwrcr.property.section.help" /></span></label>
             <select id="section" name="section" class="required  validate-not-first ${rqt.stepStates['registration'].invalidFields.contains('section') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.section.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -45,15 +47,17 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="TheSchool">
     <legend><g:message code="srwrcr.property.theSchool.label" /></legend>
     
+      
       <label for="idSchoolName" class="required"><g:message code="srwrcr.property.idSchoolName.label" /> *  <span><g:message code="srwrcr.property.idSchoolName.help" /></span></label>
             <input  type="text" id="idSchoolName" name="idSchoolName" value="${rqt.idSchoolName?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('idSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.idSchoolName.validationError" />"   />
             
 
     
+      
       <label for="labelSchoolName" class="required"><g:message code="srwrcr.property.labelSchoolName.label" /> *  <span><g:message code="srwrcr.property.labelSchoolName.help" /></span></label>
             <input  type="text" id="labelSchoolName" name="labelSchoolName" value="${rqt.labelSchoolName?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('labelSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.labelSchoolName.validationError" />"   />

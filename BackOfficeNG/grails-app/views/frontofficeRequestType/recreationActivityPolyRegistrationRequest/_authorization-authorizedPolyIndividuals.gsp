@@ -12,18 +12,21 @@
     </span>
   </h4>
   
+    
     <label for="authorizedPolyIndividuals.${collectionIndex}.lastName" class="required"><g:message code="raprr.property.lastName.label" /> *  <span><g:message code="raprr.property.lastName.help" /></span></label>
             <input  type="text" id="authorizedPolyIndividuals.${collectionIndex}.lastName" name="authorizedPolyIndividuals[${collectionIndex}].lastName" value="${currentCollectionItem?.lastName?.toString()}" 
                     class="required  validate-lastName ${rqt.stepStates['authorization'].invalidFields.contains('authorizedPolyIndividuals['+collectionIndex+'].lastName') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.lastName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="authorizedPolyIndividuals.${collectionIndex}.firstName" class="required"><g:message code="raprr.property.firstName.label" /> *  <span><g:message code="raprr.property.firstName.help" /></span></label>
             <input  type="text" id="authorizedPolyIndividuals.${collectionIndex}.firstName" name="authorizedPolyIndividuals[${collectionIndex}].firstName" value="${currentCollectionItem?.firstName?.toString()}" 
                     class="required  validate-firstName ${rqt.stepStates['authorization'].invalidFields.contains('authorizedPolyIndividuals['+collectionIndex+'].firstName') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.firstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="raprr.property.address.label" />&nbsp;* <span><g:message code="raprr.property.address.help" /></span></label>
             <div class="address required  ${rqt.stepStates['authorization'].invalidFields.contains('authorizedPolyIndividuals['+collectionIndex+'].address') ? 'validation-failed' : ''}">
             <label for="authorizedPolyIndividuals.${collectionIndex}.address.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -46,12 +49,14 @@
             
 
   
+    
     <label for="authorizedPolyIndividuals.${collectionIndex}.homePhone" class=""><g:message code="raprr.property.homePhone.label" />   <span><g:message code="raprr.property.homePhone.help" /></span></label>
             <input  type="text" id="authorizedPolyIndividuals.${collectionIndex}.homePhone" name="authorizedPolyIndividuals[${collectionIndex}].homePhone" value="${currentCollectionItem?.homePhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['authorization'].invalidFields.contains('authorizedPolyIndividuals['+collectionIndex+'].homePhone') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.homePhone.validationError" />"  maxlength="10" style="width:99%" />
             
 
   
+    
     <label for="authorizedPolyIndividuals.${collectionIndex}.officePhone" class=""><g:message code="raprr.property.officePhone.label" />   <span><g:message code="raprr.property.officePhone.help" /></span></label>
             <input  type="text" id="authorizedPolyIndividuals.${collectionIndex}.officePhone" name="authorizedPolyIndividuals[${collectionIndex}].officePhone" value="${currentCollectionItem?.officePhone?.toString()}" 
                     class="  validate-phone ${rqt.stepStates['authorization'].invalidFields.contains('authorizedPolyIndividuals['+collectionIndex+'].officePhone') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.officePhone.validationError" />"  maxlength="10" style="width:99%" />

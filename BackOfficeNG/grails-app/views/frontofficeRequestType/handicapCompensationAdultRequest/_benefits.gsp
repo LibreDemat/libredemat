@@ -2,9 +2,10 @@
 
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="Benefits">
     <legend><g:message code="hcar.property.benefits.label" /></legend>
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDisabilityRecognition.label" /> *  <span><g:message code="hcar.property.benefitsDisabilityRecognition.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityRecognition') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -17,12 +18,14 @@
             
 
     
+      
       <label for="benefitsDisabilityRatio" class="required condition-isDisabilityRecognition-filled"><g:message code="hcar.property.benefitsDisabilityRatio.label" /> *  <span><g:message code="hcar.property.benefitsDisabilityRatio.help" /></span></label>
-            <input type="text" id="benefitsDisabilityRatio" name="benefitsDisabilityRatio" value="${rqt.benefitsDisabilityRatio?.toString()}" 
+            <input  type="text" id="benefitsDisabilityRatio" name="benefitsDisabilityRatio" value="${rqt.benefitsDisabilityRatio?.toString()}" 
                     class="required condition-isDisabilityRecognition-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityRatio') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.benefitsDisabilityRatio.validationError" />"  maxlength="3" />
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDisabilityCard.label" /> *  <span><g:message code="hcar.property.benefitsDisabilityCard.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityCard') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -35,6 +38,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsPainfulStandingCard.label" /> *  <span><g:message code="hcar.property.benefitsPainfulStandingCard.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsPainfulStandingCard') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -47,6 +51,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsParkingCard.label" /> *  <span><g:message code="hcar.property.benefitsParkingCard.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsParkingCard') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -59,6 +64,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDisabledWorkerRecognition.label" /> *  <span><g:message code="hcar.property.benefitsDisabledWorkerRecognition.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabledWorkerRecognition') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -71,6 +77,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsProfessionalOrientation.label" /> *  <span><g:message code="hcar.property.benefitsProfessionalOrientation.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsProfessionalOrientation') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -83,12 +90,14 @@
             
 
     
+      
       <label for="benefitsProfessionalOrientationDetails" class="required condition-isProfessionalOrientation-filled"><g:message code="hcar.property.benefitsProfessionalOrientationDetails.label" /> *  <span><g:message code="hcar.property.benefitsProfessionalOrientationDetails.help" /></span></label>
-            <input type="text" id="benefitsProfessionalOrientationDetails" name="benefitsProfessionalOrientationDetails" value="${rqt.benefitsProfessionalOrientationDetails?.toString()}" 
+            <input  type="text" id="benefitsProfessionalOrientationDetails" name="benefitsProfessionalOrientationDetails" value="${rqt.benefitsProfessionalOrientationDetails?.toString()}" 
                     class="required condition-isProfessionalOrientation-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsProfessionalOrientationDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.benefitsProfessionalOrientationDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDisabledAdultAllocation.label" /> *  <span><g:message code="hcar.property.benefitsDisabledAdultAllocation.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabledAdultAllocation') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -101,6 +110,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsIncreaseForIndependentLiving.label" /> *  <span><g:message code="hcar.property.benefitsIncreaseForIndependentLiving.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsIncreaseForIndependentLiving') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -113,6 +123,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsEducationAllocationOfDisabledChildren.label" /> *  <span><g:message code="hcar.property.benefitsEducationAllocationOfDisabledChildren.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsEducationAllocationOfDisabledChildren') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -125,6 +136,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsEducationOfDisabledChildren.label" /> *  <span><g:message code="hcar.property.benefitsEducationOfDisabledChildren.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsEducationOfDisabledChildren') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -137,12 +149,14 @@
             
 
     
+      
       <label for="benefitsEducationOfDisabledChildrenDetails" class="required condition-isEducationOfDisabledChildren-filled"><g:message code="hcar.property.benefitsEducationOfDisabledChildrenDetails.label" /> *  <span><g:message code="hcar.property.benefitsEducationOfDisabledChildrenDetails.help" /></span></label>
-            <input type="text" id="benefitsEducationOfDisabledChildrenDetails" name="benefitsEducationOfDisabledChildrenDetails" value="${rqt.benefitsEducationOfDisabledChildrenDetails?.toString()}" 
+            <input  type="text" id="benefitsEducationOfDisabledChildrenDetails" name="benefitsEducationOfDisabledChildrenDetails" value="${rqt.benefitsEducationOfDisabledChildrenDetails?.toString()}" 
                     class="required condition-isEducationOfDisabledChildren-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsEducationOfDisabledChildrenDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.benefitsEducationOfDisabledChildrenDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsSupplementForSingleParents.label" /> *  <span><g:message code="hcar.property.benefitsSupplementForSingleParents.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsSupplementForSingleParents') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -155,6 +169,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsThirdPersonCompensatoryAllowance.label" /> *  <span><g:message code="hcar.property.benefitsThirdPersonCompensatoryAllowance.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsThirdPersonCompensatoryAllowance') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -167,6 +182,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsThirdPartyCompensatoryAllowance.label" /> *  <span><g:message code="hcar.property.benefitsThirdPartyCompensatoryAllowance.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsThirdPartyCompensatoryAllowance') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -179,6 +195,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsCompensatoryAllowanceForExpenses.label" /> *  <span><g:message code="hcar.property.benefitsCompensatoryAllowanceForExpenses.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsCompensatoryAllowanceForExpenses') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -191,6 +208,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDisabilityCompensation.label" /> *  <span><g:message code="hcar.property.benefitsDisabilityCompensation.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityCompensation') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -203,6 +221,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDisabilityPension.label" /> *  <span><g:message code="hcar.property.benefitsDisabilityPension.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityPension') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -215,12 +234,14 @@
             
 
     
+      
       <label for="benefitsDisabilityPensionCategory" class="required condition-isDisabilityPension-filled"><g:message code="hcar.property.benefitsDisabilityPensionCategory.label" /> *  <span><g:message code="hcar.property.benefitsDisabilityPensionCategory.help" /></span></label>
-            <input type="text" id="benefitsDisabilityPensionCategory" name="benefitsDisabilityPensionCategory" value="${rqt.benefitsDisabilityPensionCategory?.toString()}" 
+            <input  type="text" id="benefitsDisabilityPensionCategory" name="benefitsDisabilityPensionCategory" value="${rqt.benefitsDisabilityPensionCategory?.toString()}" 
                     class="required condition-isDisabilityPension-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityPensionCategory') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.benefitsDisabilityPensionCategory.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsWorkAccidentAnnuity.label" /> *  <span><g:message code="hcar.property.benefitsWorkAccidentAnnuity.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsWorkAccidentAnnuity') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -233,12 +254,14 @@
             
 
     
+      
       <label for="benefitsWorkAccidentAnnuityRatio" class="required condition-isWorkAccidentAnnuity-filled"><g:message code="hcar.property.benefitsWorkAccidentAnnuityRatio.label" /> *  <span><g:message code="hcar.property.benefitsWorkAccidentAnnuityRatio.help" /></span></label>
-            <input type="text" id="benefitsWorkAccidentAnnuityRatio" name="benefitsWorkAccidentAnnuityRatio" value="${rqt.benefitsWorkAccidentAnnuityRatio?.toString()}" 
+            <input  type="text" id="benefitsWorkAccidentAnnuityRatio" name="benefitsWorkAccidentAnnuityRatio" value="${rqt.benefitsWorkAccidentAnnuityRatio?.toString()}" 
                     class="required condition-isWorkAccidentAnnuity-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsWorkAccidentAnnuityRatio') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.benefitsWorkAccidentAnnuityRatio.validationError" />"  maxlength="3" />
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsSocialWelfare.label" /> *  <span><g:message code="hcar.property.benefitsSocialWelfare.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsSocialWelfare') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -251,6 +274,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsUnemploymentBenefits.label" /> *  <span><g:message code="hcar.property.benefitsUnemploymentBenefits.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsUnemploymentBenefits') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -263,6 +287,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsDailyAllowances.label" /> *  <span><g:message code="hcar.property.benefitsDailyAllowances.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDailyAllowances') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -275,6 +300,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsThirdPartySupplement.label" /> *  <span><g:message code="hcar.property.benefitsThirdPartySupplement.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsThirdPartySupplement') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -287,6 +313,7 @@
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsSupportedByAnInstitution.label" /> *  <span><g:message code="hcar.property.benefitsSupportedByAnInstitution.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsSupportedByAnInstitution') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -299,12 +326,14 @@
             
 
     
+      
       <label for="benefitsSupportedByAnInstitutionDetails" class="required condition-isSupportedByAnInstitution-filled"><g:message code="hcar.property.benefitsSupportedByAnInstitutionDetails.label" /> *  <span><g:message code="hcar.property.benefitsSupportedByAnInstitutionDetails.help" /></span></label>
-            <input type="text" id="benefitsSupportedByAnInstitutionDetails" name="benefitsSupportedByAnInstitutionDetails" value="${rqt.benefitsSupportedByAnInstitutionDetails?.toString()}" 
+            <input  type="text" id="benefitsSupportedByAnInstitutionDetails" name="benefitsSupportedByAnInstitutionDetails" value="${rqt.benefitsSupportedByAnInstitutionDetails?.toString()}" 
                     class="required condition-isSupportedByAnInstitution-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsSupportedByAnInstitutionDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.benefitsSupportedByAnInstitutionDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hcar.property.benefitsOtherBenefits.label" /> *  <span><g:message code="hcar.property.benefitsOtherBenefits.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['benefits'].invalidFields.contains('benefitsOtherBenefits') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -325,12 +354,15 @@
       <h4 class="condition-isOtherBenefits-filled"><g:message code="hcar.property.otherBenefits.label" /> 
         <span><g:message code="hcar.property.otherBenefits.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'otherBenefits', 'collectionIndex':(rqt.otherBenefits ? rqt.otherBenefits.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.otherBenefits}" status="index">
       <div class="item">
         <dl>
@@ -358,12 +390,15 @@
       <h4 class=""><g:message code="hcar.property.additionalFee.label" /> 
         <span><g:message code="hcar.property.additionalFee.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'additionalFee', 'collectionIndex':(rqt.additionalFee ? rqt.additionalFee.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.additionalFee}" status="index">
       <div class="item">
         <dl>

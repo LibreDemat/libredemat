@@ -4,101 +4,128 @@ mdr.property.subject.label = Sujet
 
 mdr.step.nature.label =
 mdr.step.nature.desc =
+mdr.step.nature.header.help =
+mdr.step.nature.footer.help =
 
 mdr.step.type.label =
 mdr.step.type.desc =
+mdr.step.type.header.help =
+mdr.step.type.footer.help =
 
 
 mdr.property.requesterQuality.help =
 mdr.property.requesterQuality.validationError =
+mdr.property.requesterQuality.headerInformation =
 
 
 mdr.property.requesterQualityPrecision.help =
 mdr.property.requesterQualityPrecision.validationError =
+mdr.property.requesterQualityPrecision.headerInformation =
 
 
 mdr.property.marriageHusband.help =
 mdr.property.marriageHusband.validationError =
+mdr.property.marriageHusband.headerInformation =
 
 
 mdr.property.marriageHusbandLastName.help =
 mdr.property.marriageHusbandLastName.validationError =
+mdr.property.marriageHusbandLastName.headerInformation =
 
 
 mdr.property.marriageHusbandFirstNames.help =
 mdr.property.marriageHusbandFirstNames.validationError =
+mdr.property.marriageHusbandFirstNames.headerInformation =
 
 
 mdr.property.marriageWife.help =
 mdr.property.marriageWife.validationError =
+mdr.property.marriageWife.headerInformation =
 
 
 mdr.property.marriageWifeLastName.help =
 mdr.property.marriageWifeLastName.validationError =
+mdr.property.marriageWifeLastName.headerInformation =
 
 
 mdr.property.marriageWifeFirstNames.help =
 mdr.property.marriageWifeFirstNames.validationError =
+mdr.property.marriageWifeFirstNames.headerInformation =
 
 
 mdr.property.marriage.help =
 mdr.property.marriage.validationError =
+mdr.property.marriage.headerInformation =
 
 
 mdr.property.marriageDate.help =
 mdr.property.marriageDate.validationError =
+mdr.property.marriageDate.headerInformation =
 
 
 mdr.property.marriageCity.help =
 mdr.property.marriageCity.validationError =
+mdr.property.marriageCity.headerInformation =
 
 
 mdr.property.marriagePostalCode.help =
 mdr.property.marriagePostalCode.validationError =
+mdr.property.marriagePostalCode.headerInformation =
 
 
 mdr.property.format.help =
 mdr.property.format.validationError =
+mdr.property.format.headerInformation =
 
 
 mdr.property.copies.help =
 mdr.property.copies.validationError =
+mdr.property.copies.headerInformation =
 
 
 mdr.property.motive.help =
 mdr.property.motive.validationError =
+mdr.property.motive.headerInformation =
 
 
 mdr.property.comment.help =
 mdr.property.comment.validationError =
+mdr.property.comment.headerInformation =
 
 
 mdr.property.relationship.help =
 mdr.property.relationship.validationError =
+mdr.property.relationship.headerInformation =
 
 
 mdr.property.fatherInformation.help =
 mdr.property.fatherInformation.validationError =
+mdr.property.fatherInformation.headerInformation =
 
 
 mdr.property.fatherLastName.help =
 mdr.property.fatherLastName.validationError =
+mdr.property.fatherLastName.headerInformation =
 
 
 mdr.property.fatherFirstNames.help =
 mdr.property.fatherFirstNames.validationError =
+mdr.property.fatherFirstNames.headerInformation =
 
 
 mdr.property.motherInformation.help =
 mdr.property.motherInformation.validationError =
+mdr.property.motherInformation.headerInformation =
 
 
 mdr.property.motherMaidenName.help =
 mdr.property.motherMaidenName.validationError =
+mdr.property.motherMaidenName.headerInformation =
 
 
 mdr.property.motherFirstNames.help =
 mdr.property.motherFirstNames.validationError =
+mdr.property.motherFirstNames.headerInformation =
 
 
 

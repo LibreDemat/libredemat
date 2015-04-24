@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -1390,8 +1391,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1422,8 +1424,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -1558,8 +1561,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsDisabilityPension'].test(_this.benefitsDisabilityPension.toString());" +
-                
+                "active &= _this.conditions['benefitsDisabilityPension'].test(_this.benefitsDisabilityPension.toString());" +
+                    
+                  
               
             
             
@@ -1574,8 +1578,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsDisabilityPension'].test(_this.benefitsDisabilityPension.toString());" +
-                
+                "active &= _this.conditions['benefitsDisabilityPension'].test(_this.benefitsDisabilityPension.toString());" +
+                    
+                  
               
             
             
@@ -1590,8 +1595,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsDisabilityPension'].test(_this.benefitsDisabilityPension.toString());" +
-                
+                "active &= _this.conditions['benefitsDisabilityPension'].test(_this.benefitsDisabilityPension.toString());" +
+                    
+                  
               
             
             
@@ -1622,8 +1628,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsDisabilityRecognition'].test(_this.benefitsDisabilityRecognition.toString());" +
-                
+                "active &= _this.conditions['benefitsDisabilityRecognition'].test(_this.benefitsDisabilityRecognition.toString());" +
+                    
+                  
               
             
             
@@ -1638,8 +1645,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsDisabilityRecognition'].test(_this.benefitsDisabilityRecognition.toString());" +
-                
+                "active &= _this.conditions['benefitsDisabilityRecognition'].test(_this.benefitsDisabilityRecognition.toString());" +
+                    
+                  
               
             
             
@@ -1654,8 +1662,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsDisabilityRecognition'].test(_this.benefitsDisabilityRecognition.toString());" +
-                
+                "active &= _this.conditions['benefitsDisabilityRecognition'].test(_this.benefitsDisabilityRecognition.toString());" +
+                    
+                  
               
             
             
@@ -1791,8 +1800,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsEducationOfDisabledChildren'].test(_this.benefitsEducationOfDisabledChildren.toString());" +
-                
+                "active &= _this.conditions['benefitsEducationOfDisabledChildren'].test(_this.benefitsEducationOfDisabledChildren.toString());" +
+                    
+                  
               
             
             
@@ -1807,8 +1817,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsEducationOfDisabledChildren'].test(_this.benefitsEducationOfDisabledChildren.toString());" +
-                
+                "active &= _this.conditions['benefitsEducationOfDisabledChildren'].test(_this.benefitsEducationOfDisabledChildren.toString());" +
+                    
+                  
               
             
             
@@ -1823,8 +1834,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsEducationOfDisabledChildren'].test(_this.benefitsEducationOfDisabledChildren.toString());" +
-                
+                "active &= _this.conditions['benefitsEducationOfDisabledChildren'].test(_this.benefitsEducationOfDisabledChildren.toString());" +
+                    
+                  
               
             
             
@@ -1960,8 +1972,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsProfessionalOrientation'].test(_this.benefitsProfessionalOrientation.toString());" +
-                
+                "active &= _this.conditions['benefitsProfessionalOrientation'].test(_this.benefitsProfessionalOrientation.toString());" +
+                    
+                  
               
             
             
@@ -1976,8 +1989,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsProfessionalOrientation'].test(_this.benefitsProfessionalOrientation.toString());" +
-                
+                "active &= _this.conditions['benefitsProfessionalOrientation'].test(_this.benefitsProfessionalOrientation.toString());" +
+                    
+                  
               
             
             
@@ -1992,8 +2006,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsProfessionalOrientation'].test(_this.benefitsProfessionalOrientation.toString());" +
-                
+                "active &= _this.conditions['benefitsProfessionalOrientation'].test(_this.benefitsProfessionalOrientation.toString());" +
+                    
+                  
               
             
             
@@ -2087,8 +2102,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsSupportedByAnInstitution'].test(_this.benefitsSupportedByAnInstitution.toString());" +
-                
+                "active &= _this.conditions['benefitsSupportedByAnInstitution'].test(_this.benefitsSupportedByAnInstitution.toString());" +
+                    
+                  
               
             
             
@@ -2103,8 +2119,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsSupportedByAnInstitution'].test(_this.benefitsSupportedByAnInstitution.toString());" +
-                
+                "active &= _this.conditions['benefitsSupportedByAnInstitution'].test(_this.benefitsSupportedByAnInstitution.toString());" +
+                    
+                  
               
             
             
@@ -2119,8 +2136,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsSupportedByAnInstitution'].test(_this.benefitsSupportedByAnInstitution.toString());" +
-                
+                "active &= _this.conditions['benefitsSupportedByAnInstitution'].test(_this.benefitsSupportedByAnInstitution.toString());" +
+                    
+                  
               
             
             
@@ -2256,8 +2274,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsWorkAccidentAnnuity'].test(_this.benefitsWorkAccidentAnnuity.toString());" +
-                
+                "active &= _this.conditions['benefitsWorkAccidentAnnuity'].test(_this.benefitsWorkAccidentAnnuity.toString());" +
+                    
+                  
               
             
             
@@ -2272,8 +2291,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsWorkAccidentAnnuity'].test(_this.benefitsWorkAccidentAnnuity.toString());" +
-                
+                "active &= _this.conditions['benefitsWorkAccidentAnnuity'].test(_this.benefitsWorkAccidentAnnuity.toString());" +
+                    
+                  
               
             
             
@@ -2288,8 +2308,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsWorkAccidentAnnuity'].test(_this.benefitsWorkAccidentAnnuity.toString());" +
-                
+                "active &= _this.conditions['benefitsWorkAccidentAnnuity'].test(_this.benefitsWorkAccidentAnnuity.toString());" +
+                    
+                  
               
             
             
@@ -2339,8 +2360,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['careCareServices'].test(_this.careCareServices.toString());" +
-                
+                "active &= _this.conditions['careCareServices'].test(_this.careCareServices.toString());" +
+                    
+                  
               
             
             
@@ -2355,8 +2377,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['careCareServices'].test(_this.careCareServices.toString());" +
-                
+                "active &= _this.conditions['careCareServices'].test(_this.careCareServices.toString());" +
+                    
+                  
               
             
             
@@ -2432,8 +2455,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingKind'].test(_this.dwellingKind.toString());" +
-                
+                "active &= _this.conditions['dwellingKind'].test(_this.dwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -2448,8 +2472,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingKind'].test(_this.dwellingKind.toString());" +
-                
+                "active &= _this.conditions['dwellingKind'].test(_this.dwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -2464,8 +2489,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingKind'].test(_this.dwellingKind.toString());" +
-                
+                "active &= _this.conditions['dwellingKind'].test(_this.dwellingKind.toString());" +
+                    
+                  
               
             
             
@@ -2494,8 +2520,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
-                
+                "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
+                    
+                  
               
             
             
@@ -2510,8 +2537,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
-                
+                "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
+                    
+                  
               
             
             
@@ -2543,8 +2571,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
-                
+                "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
+                    
+                  
               
             
             
@@ -2559,8 +2588,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
-                
+                "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
+                    
+                  
               
             
             
@@ -2575,8 +2605,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
-                
+                "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
+                    
+                  
               
             
             
@@ -2605,8 +2636,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
-                
+                "active &= _this.conditions['dwellingEstablishmentReception'].test(_this.dwellingEstablishmentReception.toString());" +
+                    
+                  
               
             
             
@@ -2657,8 +2689,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
-                
+                "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
+                    
+                  
               
             
             
@@ -2673,8 +2706,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
-                
+                "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
+                    
+                  
               
             
             
@@ -2706,8 +2740,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
-                
+                "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
+                    
+                  
               
             
             
@@ -2722,8 +2757,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
-                
+                "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
+                    
+                  
               
             
             
@@ -2738,8 +2774,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
-                
+                "active &= _this.conditions['dwellingSocialReception'].test(_this.dwellingSocialReception.toString());" +
+                    
+                  
               
             
             
@@ -2791,8 +2828,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesAnimalAid'].test(_this.facilitiesAnimalAid.toString());" +
-                
+                "active &= _this.conditions['facilitiesAnimalAid'].test(_this.facilitiesAnimalAid.toString());" +
+                    
+                  
               
             
             
@@ -2807,8 +2845,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesAnimalAid'].test(_this.facilitiesAnimalAid.toString());" +
-                
+                "active &= _this.conditions['facilitiesAnimalAid'].test(_this.facilitiesAnimalAid.toString());" +
+                    
+                  
               
             
             
@@ -2823,8 +2862,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesAnimalAid'].test(_this.facilitiesAnimalAid.toString());" +
-                
+                "active &= _this.conditions['facilitiesAnimalAid'].test(_this.facilitiesAnimalAid.toString());" +
+                    
+                  
               
             
             
@@ -2876,8 +2916,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesCustomCar'].test(_this.facilitiesCustomCar.toString());" +
-                
+                "active &= _this.conditions['facilitiesCustomCar'].test(_this.facilitiesCustomCar.toString());" +
+                    
+                  
               
             
             
@@ -2892,8 +2933,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesCustomCar'].test(_this.facilitiesCustomCar.toString());" +
-                
+                "active &= _this.conditions['facilitiesCustomCar'].test(_this.facilitiesCustomCar.toString());" +
+                    
+                  
               
             
             
@@ -2908,8 +2950,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesCustomCar'].test(_this.facilitiesCustomCar.toString());" +
-                
+                "active &= _this.conditions['facilitiesCustomCar'].test(_this.facilitiesCustomCar.toString());" +
+                    
+                  
               
             
             
@@ -2961,8 +3004,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesHousing'].test(_this.facilitiesHousing.toString());" +
-                
+                "active &= _this.conditions['facilitiesHousing'].test(_this.facilitiesHousing.toString());" +
+                    
+                  
               
             
             
@@ -2977,8 +3021,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesHousing'].test(_this.facilitiesHousing.toString());" +
-                
+                "active &= _this.conditions['facilitiesHousing'].test(_this.facilitiesHousing.toString());" +
+                    
+                  
               
             
             
@@ -2993,8 +3038,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesHousing'].test(_this.facilitiesHousing.toString());" +
-                
+                "active &= _this.conditions['facilitiesHousing'].test(_this.facilitiesHousing.toString());" +
+                    
+                  
               
             
             
@@ -3046,8 +3092,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesSpecializedTransport'].test(_this.facilitiesSpecializedTransport.toString());" +
-                
+                "active &= _this.conditions['facilitiesSpecializedTransport'].test(_this.facilitiesSpecializedTransport.toString());" +
+                    
+                  
               
             
             
@@ -3062,8 +3109,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesSpecializedTransport'].test(_this.facilitiesSpecializedTransport.toString());" +
-                
+                "active &= _this.conditions['facilitiesSpecializedTransport'].test(_this.facilitiesSpecializedTransport.toString());" +
+                    
+                  
               
             
             
@@ -3078,8 +3126,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesSpecializedTransport'].test(_this.facilitiesSpecializedTransport.toString());" +
-                
+                "active &= _this.conditions['facilitiesSpecializedTransport'].test(_this.facilitiesSpecializedTransport.toString());" +
+                    
+                  
               
             
             
@@ -3131,8 +3180,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesTechnicalAssistance'].test(_this.facilitiesTechnicalAssistance.toString());" +
-                
+                "active &= _this.conditions['facilitiesTechnicalAssistance'].test(_this.facilitiesTechnicalAssistance.toString());" +
+                    
+                  
               
             
             
@@ -3147,8 +3197,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesTechnicalAssistance'].test(_this.facilitiesTechnicalAssistance.toString());" +
-                
+                "active &= _this.conditions['facilitiesTechnicalAssistance'].test(_this.facilitiesTechnicalAssistance.toString());" +
+                    
+                  
               
             
             
@@ -3163,8 +3214,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['facilitiesTechnicalAssistance'].test(_this.facilitiesTechnicalAssistance.toString());" +
-                
+                "active &= _this.conditions['facilitiesTechnicalAssistance'].test(_this.facilitiesTechnicalAssistance.toString());" +
+                    
+                  
               
             
             
@@ -3193,8 +3245,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['isFamilyAssistance'].test(_this.isFamilyAssistance.toString());" +
-                
+                "active &= _this.conditions['isFamilyAssistance'].test(_this.isFamilyAssistance.toString());" +
+                    
+                  
               
             
             
@@ -3209,8 +3262,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['isFamilyAssistance'].test(_this.isFamilyAssistance.toString());" +
-                
+                "active &= _this.conditions['isFamilyAssistance'].test(_this.isFamilyAssistance.toString());" +
+                    
+                  
               
             
             
@@ -3241,8 +3295,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['referentFamilyDependents'].test(_this.referentFamilyDependents.toString());" +
-                
+                "active &= _this.conditions['referentFamilyDependents'].test(_this.referentFamilyDependents.toString());" +
+                    
+                  
               
             
             
@@ -3257,8 +3312,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['referentFamilyDependents'].test(_this.referentFamilyDependents.toString());" +
-                
+                "active &= _this.conditions['referentFamilyDependents'].test(_this.referentFamilyDependents.toString());" +
+                    
+                  
               
             
             
@@ -3321,8 +3377,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -3353,8 +3410,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -3385,8 +3443,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -3437,8 +3496,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersCdes'].test(_this.foldersCdes.toString());" +
-                
+                "active &= _this.conditions['foldersCdes'].test(_this.foldersCdes.toString());" +
+                    
+                  
               
             
             
@@ -3469,8 +3529,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersCdes'].test(_this.foldersCdes.toString());" +
-                
+                "active &= _this.conditions['foldersCdes'].test(_this.foldersCdes.toString());" +
+                    
+                  
               
             
             
@@ -3522,8 +3583,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersCotorep'].test(_this.foldersCotorep.toString());" +
-                
+                "active &= _this.conditions['foldersCotorep'].test(_this.foldersCotorep.toString());" +
+                    
+                  
               
             
             
@@ -3554,8 +3616,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersCotorep'].test(_this.foldersCotorep.toString());" +
-                
+                "active &= _this.conditions['foldersCotorep'].test(_this.foldersCotorep.toString());" +
+                    
+                  
               
             
             
@@ -3607,8 +3670,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersMdph'].test(_this.foldersMdph.toString());" +
-                
+                "active &= _this.conditions['foldersMdph'].test(_this.foldersMdph.toString());" +
+                    
+                  
               
             
             
@@ -3639,8 +3703,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersMdph'].test(_this.foldersMdph.toString());" +
-                
+                "active &= _this.conditions['foldersMdph'].test(_this.foldersMdph.toString());" +
+                    
+                  
               
             
             
@@ -3784,8 +3849,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
+                    
+                  
               
             
             
@@ -3800,8 +3866,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
+                    
+                  
               
             
             
@@ -3816,8 +3883,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
+                    
+                  
               
             
             
@@ -3848,8 +3916,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
+                    
+                  
               
             
             
@@ -3864,8 +3933,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
+                    
+                  
               
             
             
@@ -3880,8 +3950,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByDoctor'].test(_this.healthFollowedByDoctor.toString());" +
+                    
+                  
               
             
             
@@ -3975,8 +4046,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByHospital'].test(_this.healthFollowedByHospital.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByHospital'].test(_this.healthFollowedByHospital.toString());" +
+                    
+                  
               
             
             
@@ -3991,8 +4063,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByHospital'].test(_this.healthFollowedByHospital.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByHospital'].test(_this.healthFollowedByHospital.toString());" +
+                    
+                  
               
             
             
@@ -4007,8 +4080,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByHospital'].test(_this.healthFollowedByHospital.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByHospital'].test(_this.healthFollowedByHospital.toString());" +
+                    
+                  
               
             
             
@@ -4039,8 +4113,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
+                    
+                  
               
             
             
@@ -4055,8 +4130,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
+                    
+                  
               
             
             
@@ -4071,8 +4147,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
+                    
+                  
               
             
             
@@ -4103,8 +4180,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
+                    
+                  
               
             
             
@@ -4119,8 +4197,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
+                    
+                  
               
             
             
@@ -4135,8 +4214,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
-                
+                "active &= _this.conditions['healthFollowedByProfessional'].test(_this.healthFollowedByProfessional.toString());" +
+                    
+                  
               
             
             
@@ -4165,8 +4245,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['homeInterventionHomeIntervenant'].test(_this.homeInterventionHomeIntervenant.toString());" +
-                
+                "active &= _this.conditions['homeInterventionHomeIntervenant'].test(_this.homeInterventionHomeIntervenant.toString());" +
+                    
+                  
               
             
             
@@ -4271,8 +4352,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -4303,8 +4385,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -4335,8 +4418,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             "return active",
@@ -4364,8 +4448,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['benefitsOtherBenefits'].test(_this.benefitsOtherBenefits.toString());" +
-                
+                "active &= _this.conditions['benefitsOtherBenefits'].test(_this.benefitsOtherBenefits.toString());" +
+                    
+                  
               
             
             
@@ -4396,8 +4481,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['foldersOtherFolders'].test(_this.foldersOtherFolders.toString());" +
-                
+                "active &= _this.conditions['foldersOtherFolders'].test(_this.foldersOtherFolders.toString());" +
+                    
+                  
               
             
             
@@ -4428,8 +4514,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4444,8 +4531,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4499,8 +4587,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4515,8 +4604,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4531,8 +4621,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4563,8 +4654,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4579,8 +4671,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4595,8 +4688,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
-                
+                "active &= _this.conditions['paymentAgencyBeneficiary'].test(_this.paymentAgencyBeneficiary.toString());" +
+                    
+                  
               
             
             
@@ -4625,8 +4719,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4700,8 +4795,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusElectiveFunction'].test(_this.professionalStatusElectiveFunction.toString());" +
-                
+                "active &= _this.conditions['professionalStatusElectiveFunction'].test(_this.professionalStatusElectiveFunction.toString());" +
+                    
+                  
               
             
             
@@ -4716,8 +4812,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusElectiveFunction'].test(_this.professionalStatusElectiveFunction.toString());" +
-                
+                "active &= _this.conditions['professionalStatusElectiveFunction'].test(_this.professionalStatusElectiveFunction.toString());" +
+                    
+                  
               
             
             
@@ -4732,8 +4829,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusElectiveFunction'].test(_this.professionalStatusElectiveFunction.toString());" +
-                
+                "active &= _this.conditions['professionalStatusElectiveFunction'].test(_this.professionalStatusElectiveFunction.toString());" +
+                    
+                  
               
             
             
@@ -4764,8 +4862,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4780,8 +4879,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4796,8 +4896,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4826,8 +4927,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4857,8 +4959,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isUnemployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isUnemployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4887,8 +4990,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusIndemnified'].test(_this.professionalStatusIndemnified.toString());" +
-                
+                "active &= _this.conditions['professionalStatusIndemnified'].test(_this.professionalStatusIndemnified.toString());" +
+                    
+                  
               
             
             
@@ -4941,8 +5045,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4957,8 +5062,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -4973,8 +5079,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isEmployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -5003,8 +5110,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusKind'].test('isUnemployed='+_this.professionalStatusKind.toString());" +
-                
+                "active &= _this.conditions['professionalStatusKind'].test('isUnemployed='+_this.professionalStatusKind.toString());" +
+                    
+                  
               
             
             
@@ -5033,8 +5141,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalStatusRegisterAsUnemployed'].test(_this.professionalStatusRegisterAsUnemployed.toString());" +
-                
+                "active &= _this.conditions['professionalStatusRegisterAsUnemployed'].test(_this.professionalStatusRegisterAsUnemployed.toString());" +
+                    
+                  
               
             
             
@@ -5063,8 +5172,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalSupportProfessionals'].test(_this.professionalSupportProfessionals.toString());" +
-                
+                "active &= _this.conditions['professionalSupportProfessionals'].test(_this.professionalSupportProfessionals.toString());" +
+                    
+                  
               
             
             
@@ -5114,8 +5224,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['professionalSupportProfessionals'].test(_this.professionalSupportProfessionals.toString());" +
-                
+                "active &= _this.conditions['professionalSupportProfessionals'].test(_this.professionalSupportProfessionals.toString());" +
+                    
+                  
               
             
             
@@ -5432,8 +5543,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['projectRequestsOther'].test(_this.projectRequestsOther.toString());" +
-                
+                "active &= _this.conditions['projectRequestsOther'].test(_this.projectRequestsOther.toString());" +
+                    
+                  
               
             
             
@@ -5448,8 +5560,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['projectRequestsOther'].test(_this.projectRequestsOther.toString());" +
-                
+                "active &= _this.conditions['projectRequestsOther'].test(_this.projectRequestsOther.toString());" +
+                    
+                  
               
             
             
@@ -5464,8 +5577,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['projectRequestsOther'].test(_this.projectRequestsOther.toString());" +
-                
+                "active &= _this.conditions['projectRequestsOther'].test(_this.projectRequestsOther.toString());" +
+                    
+                  
               
             
             
@@ -5815,8 +5929,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['referentTitle'].test(_this.referentTitle.toString());" +
-                
+                "active &= _this.conditions['referentTitle'].test(_this.referentTitle.toString());" +
+                    
+                  
               
             
             
@@ -5831,8 +5946,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['referentTitle'].test(_this.referentTitle.toString());" +
-                
+                "active &= _this.conditions['referentTitle'].test(_this.referentTitle.toString());" +
+                    
+                  
               
             
             
@@ -5847,8 +5963,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['referentTitle'].test(_this.referentTitle.toString());" +
-                
+                "active &= _this.conditions['referentTitle'].test(_this.referentTitle.toString());" +
+                    
+                  
               
             
             
@@ -5899,8 +6016,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingSendToSchool'].test(_this.schoolingSendToSchool.toString());" +
-                
+                "active &= _this.conditions['schoolingSendToSchool'].test(_this.schoolingSendToSchool.toString());" +
+                    
+                  
               
             
             
@@ -5974,8 +6092,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingExtraCurricular'].test(_this.schoolingExtraCurricular.toString());" +
-                
+                "active &= _this.conditions['schoolingExtraCurricular'].test(_this.schoolingExtraCurricular.toString());" +
+                    
+                  
               
             
             
@@ -5990,8 +6109,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingExtraCurricular'].test(_this.schoolingExtraCurricular.toString());" +
-                
+                "active &= _this.conditions['schoolingExtraCurricular'].test(_this.schoolingExtraCurricular.toString());" +
+                    
+                  
               
             
             
@@ -6006,8 +6126,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingExtraCurricular'].test(_this.schoolingExtraCurricular.toString());" +
-                
+                "active &= _this.conditions['schoolingExtraCurricular'].test(_this.schoolingExtraCurricular.toString());" +
+                    
+                  
               
             
             
@@ -6057,8 +6178,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6090,8 +6212,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6106,8 +6229,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6122,8 +6246,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6154,8 +6279,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6170,8 +6296,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6186,8 +6313,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingHomeSchoolingKind'].test(_this.schoolingHomeSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6259,8 +6387,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
-                
+                "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
+                    
+                  
               
             
             
@@ -6275,8 +6404,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
-                
+                "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
+                    
+                  
               
             
             
@@ -6308,8 +6438,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
-                
+                "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
+                    
+                  
               
             
             
@@ -6324,8 +6455,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
-                
+                "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
+                    
+                  
               
             
             
@@ -6340,8 +6472,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
-                
+                "active &= _this.conditions['schoolingEnrolment'].test(_this.schoolingEnrolment.toString());" +
+                    
+                  
               
             
             
@@ -6436,8 +6569,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingSpecializedGrade'].test(_this.schoolingSpecializedGrade.toString());" +
-                
+                "active &= _this.conditions['schoolingSpecializedGrade'].test(_this.schoolingSpecializedGrade.toString());" +
+                    
+                  
               
             
             
@@ -6452,8 +6586,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingSpecializedGrade'].test(_this.schoolingSpecializedGrade.toString());" +
-                
+                "active &= _this.conditions['schoolingSpecializedGrade'].test(_this.schoolingSpecializedGrade.toString());" +
+                    
+                  
               
             
             
@@ -6468,8 +6603,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingSpecializedGrade'].test(_this.schoolingSpecializedGrade.toString());" +
-                
+                "active &= _this.conditions['schoolingSpecializedGrade'].test(_this.schoolingSpecializedGrade.toString());" +
+                    
+                  
               
             
             
@@ -6498,8 +6634,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingSchoolingKind'].test(_this.schoolingSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingSchoolingKind'].test(_this.schoolingSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6514,8 +6651,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['schoolingSchoolingKind'].test(_this.schoolingSchoolingKind.toString());" +
-                
+                "active &= _this.conditions['schoolingSchoolingKind'].test(_this.schoolingSchoolingKind.toString());" +
+                    
+                  
               
             
             
@@ -6544,8 +6682,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6560,8 +6699,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6593,8 +6733,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6609,8 +6750,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6625,8 +6767,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6677,8 +6820,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6693,8 +6837,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
-                
+                "active &= _this.conditions['socialSecurityMemberShipKind'].test(_this.socialSecurityMemberShipKind.toString());" +
+                    
+                  
               
             
             
@@ -6723,8 +6868,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
-                
+                "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
+                    
+                  
               
             
             
@@ -6739,8 +6885,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
-                
+                "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
+                    
+                  
               
             
             
@@ -6772,8 +6919,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
-                
+                "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
+                    
+                  
               
             
             
@@ -6788,8 +6936,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
-                
+                "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
+                    
+                  
               
             
             
@@ -6804,8 +6953,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
-                
+                "active &= _this.conditions['socialServiceSupport'].test(_this.socialServiceSupport.toString());" +
+                    
+                  
               
             
             
@@ -6855,8 +7005,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -6887,8 +7038,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesAssistanceUnderDisability'].test(_this.studiesAssistanceUnderDisability.toString());" +
-                
+                "active &= _this.conditions['studiesAssistanceUnderDisability'].test(_this.studiesAssistanceUnderDisability.toString());" +
+                    
+                  
               
             
             
@@ -6903,8 +7055,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesAssistanceUnderDisability'].test(_this.studiesAssistanceUnderDisability.toString());" +
-                
+                "active &= _this.conditions['studiesAssistanceUnderDisability'].test(_this.studiesAssistanceUnderDisability.toString());" +
+                    
+                  
               
             
             
@@ -6919,8 +7072,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesAssistanceUnderDisability'].test(_this.studiesAssistanceUnderDisability.toString());" +
-                
+                "active &= _this.conditions['studiesAssistanceUnderDisability'].test(_this.studiesAssistanceUnderDisability.toString());" +
+                    
+                  
               
             
             
@@ -6970,8 +7124,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -6986,8 +7141,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7019,8 +7175,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7035,8 +7192,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7051,8 +7209,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7083,8 +7242,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7099,8 +7259,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7115,8 +7276,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
-                
+                "active &= _this.conditions['studiesHighSchool'].test(_this.studiesHighSchool.toString());" +
+                    
+                  
               
             
             
@@ -7240,8 +7402,9 @@ public class HandicapCompensationChildRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
-                
+                "active &= _this.conditions['subjectBirthDate'].test(_this.subjectBirthDate.toString());" +
+                    
+                  
               
             
             

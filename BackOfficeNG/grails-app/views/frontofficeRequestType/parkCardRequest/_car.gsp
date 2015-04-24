@@ -2,6 +2,7 @@
 
 
   
+    
     <label for="parkResident" class=""><g:message code="pcr.property.parkResident.label" />   <span><g:message code="pcr.property.parkResident.help" /></span></label>
             <input disabled=disabled type="text" id="parkResident" name="parkResident" value="${rqt.parkResident?.toString()}" 
                     class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('parkResident') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.parkResident.validationError" />"   />
@@ -10,6 +11,7 @@
   
 
   
+    
     <label for="informationCardLimitRest" class=""><g:message code="pcr.property.informationCardLimitRest.label" />   <span><g:message code="pcr.property.informationCardLimitRest.help" /></span></label>
             <input disabled=disabled type="text" id="informationCardLimitRest" name="informationCardLimitRest" value="${rqt.informationCardLimitRest?.toString()}" 
                     class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('informationCardLimitRest') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.informationCardLimitRest.validationError" />"   />
@@ -57,6 +59,7 @@
   
 
   
+    
     <label for="paymentTotal" class=""><g:message code="pcr.property.paymentTotal.label" />   <span><g:message code="pcr.property.paymentTotal.help" /></span></label>
             <input disabled=disabled type="text" id="paymentTotal" name="paymentTotal" value="${rqt.paymentTotal?.toString()}" 
                     class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('paymentTotal') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.paymentTotal.validationError" />"   />

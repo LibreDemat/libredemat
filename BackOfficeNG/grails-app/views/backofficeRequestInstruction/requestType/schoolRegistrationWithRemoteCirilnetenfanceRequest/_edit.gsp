@@ -42,7 +42,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'srwrcr.property.section.label')}&nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-libredematEnum required-true i18n-srwrcr.property.section javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.section}" i18nKeyPrefix="srwrcr.property.section" /></dd>
+                <dt class="required">${message(code:'srwrcr.property.section.label')} &nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-libredematEnum required-true i18n-srwrcr.property.section javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.section}" i18nKeyPrefix="srwrcr.property.section" /></dd>
               </dl>
               
             
@@ -56,9 +56,9 @@
               <h3><g:message code="srwrcr.property.theSchool.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'srwrcr.property.idSchoolName.label')}&nbsp;*&nbsp;:</dt><dd id="idSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.idSchoolName" ><span>${rqt?.idSchoolName}</span></dd>
+                  <dt class="required">${message(code:'srwrcr.property.idSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="idSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.idSchoolName" ><span>${rqt?.idSchoolName}</span></dd>
                 
-                  <dt class="required">${message(code:'srwrcr.property.labelSchoolName.label')}&nbsp;*&nbsp;:</dt><dd id="labelSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.labelSchoolName" ><span>${rqt?.labelSchoolName}</span></dd>
+                  <dt class="required">${message(code:'srwrcr.property.labelSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="labelSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.labelSchoolName" ><span>${rqt?.labelSchoolName}</span></dd>
                 
               </dl>
               
@@ -84,7 +84,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'srwrcr.property.rulesAndRegulationsAcceptance.label')}&nbsp;*&nbsp;:</dt><dd id="rulesAndRegulationsAcceptance" class="action-editField validate-acceptance required-true i18n-srwrcr.property.rulesAndRegulationsAcceptance" ><span class="value-${rqt?.rulesAndRegulationsAcceptance}"><g:message code="message.${rqt?.rulesAndRegulationsAcceptance ? 'yes' : 'no'}" /></span></dd>
+                <dt class="required">${message(code:'srwrcr.property.rulesAndRegulationsAcceptance.label')} &nbsp;*&nbsp;:</dt><dd id="rulesAndRegulationsAcceptance" class="action-editField validate-acceptance required-true i18n-srwrcr.property.rulesAndRegulationsAcceptance" ><span class="value-${rqt?.rulesAndRegulationsAcceptance}"><g:message code="message.${rqt?.rulesAndRegulationsAcceptance ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             

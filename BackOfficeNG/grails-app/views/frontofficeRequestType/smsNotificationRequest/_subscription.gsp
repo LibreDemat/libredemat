@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="snr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,14 +34,16 @@
   
 
   
+    
     <label for="mobilePhone" class=""><g:message code="snr.property.mobilePhone.label" />   <span><g:message code="snr.property.mobilePhone.help" /></span></label>
-            <input type="text" id="mobilePhone" name="mobilePhone" value="${rqt.mobilePhone?.toString()}" 
+            <input  type="text" id="mobilePhone" name="mobilePhone" value="${rqt.mobilePhone?.toString()}" 
                     class=" autofill-subjectFilling-listener-MobilePhone validate-mobilePhone ${rqt.stepStates['subscription'].invalidFields.contains('mobilePhone') ? 'validation-failed' : ''}" title="<g:message code="snr.property.mobilePhone.validationError" />"  maxlength="10" />
             
 
   
 
   
+    
     <label class="required"><g:message code="snr.property.subscription.label" /> *  <span><g:message code="snr.property.subscription.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['subscription'].invalidFields.contains('subscription') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -55,6 +58,7 @@
   
 
   
+    
     <label class="required"><g:message code="snr.property.interests.label" /> *  <span><g:message code="snr.property.interests.help" /></span></label>
             <g:set var="interestsIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 

@@ -4,45 +4,58 @@ ycrr.property.subject.label = Sujet
 
 ycrr.step.registration.label =
 ycrr.step.registration.desc =
+ycrr.step.registration.header.help =
+ycrr.step.registration.footer.help =
 
 ycrr.step.rules.label =
 ycrr.step.rules.desc =
+ycrr.step.rules.header.help =
+ycrr.step.rules.footer.help =
 
 
 ycrr.property.subjectChoiceBirthDate.help =
 ycrr.property.subjectChoiceBirthDate.validationError =
+ycrr.property.subjectChoiceBirthDate.headerInformation =
 
 
 ycrr.property.subjectChoiceMobilePhone.help =
 ycrr.property.subjectChoiceMobilePhone.validationError =
+ycrr.property.subjectChoiceMobilePhone.headerInformation =
 
 
 ycrr.property.subjectChoiceEmail.help =
 ycrr.property.subjectChoiceEmail.validationError =
+ycrr.property.subjectChoiceEmail.headerInformation =
 
 
 ycrr.property.isFirstRegistration.help =
 ycrr.property.isFirstRegistration.validationError =
+ycrr.property.isFirstRegistration.headerInformation =
 
 
 ycrr.property.firstRegistrationDate.help =
 ycrr.property.firstRegistrationDate.validationError =
+ycrr.property.firstRegistrationDate.headerInformation =
 
 
 ycrr.property.firstRegistrationNumeroAdherent.help =
 ycrr.property.firstRegistrationNumeroAdherent.validationError =
+ycrr.property.firstRegistrationNumeroAdherent.headerInformation =
 
 
 ycrr.property.childAlone.help =
 ycrr.property.childAlone.validationError =
+ycrr.property.childAlone.headerInformation =
 
 
 ycrr.property.multiActivities.help =
 ycrr.property.multiActivities.validationError =
+ycrr.property.multiActivities.headerInformation =
 
 
 ycrr.property.rulesAcceptance.help =
 ycrr.property.rulesAcceptance.validationError =
+ycrr.property.rulesAcceptance.headerInformation =
 
 
 

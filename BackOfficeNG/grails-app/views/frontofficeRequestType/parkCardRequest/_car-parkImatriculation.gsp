@@ -12,12 +12,14 @@
     </span>
   </h4>
   
+    
     <label for="parkImatriculation.${collectionIndex}.immatriculation" class="required"><g:message code="pcr.property.immatriculation.label" /> *  <span><g:message code="pcr.property.immatriculation.help" /></span></label>
             <input  type="text" id="parkImatriculation.${collectionIndex}.immatriculation" name="parkImatriculation[${collectionIndex}].immatriculation" value="${currentCollectionItem?.immatriculation?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['car'].invalidFields.contains('parkImatriculation['+collectionIndex+'].immatriculation') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.immatriculation.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="parkImatriculation.${collectionIndex}.tarif" class=""><g:message code="pcr.property.tarif.label" />   <span><g:message code="pcr.property.tarif.help" /></span></label>
             <input disabled=disabled type="text" id="parkImatriculation.${collectionIndex}.tarif" name="parkImatriculation[${collectionIndex}].tarif" value="${collectionSpecific['tarifImatriculation'][collectionIndex + collectionIndexAdded]}" 
                     class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('parkImatriculation['+collectionIndex+'].tarif') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.tarif.validationError" />"   style="width:99%" />

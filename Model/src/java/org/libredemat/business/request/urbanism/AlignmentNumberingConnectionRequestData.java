@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -320,8 +321,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isAccountAddress'].test(_this.isAccountAddress.toString());" +
-                
+                "active &= !_this.conditions['isAccountAddress'].test(_this.isAccountAddress.toString());" +
+                    
+                  
               
             
             
@@ -336,8 +338,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['isAccountAddress'].test(_this.isAccountAddress.toString());" +
-                
+                "active &= !_this.conditions['isAccountAddress'].test(_this.isAccountAddress.toString());" +
+                    
+                  
               
             
             
@@ -367,8 +370,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             
@@ -383,8 +387,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             
@@ -414,8 +419,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             
@@ -430,8 +436,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             
@@ -462,8 +469,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             
@@ -478,8 +486,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             
@@ -494,8 +503,9 @@ public class AlignmentNumberingConnectionRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
-                
+                "active &= !_this.conditions['requesterQuality'].test(_this.requesterQuality.toString());" +
+                    
+                  
               
             
             

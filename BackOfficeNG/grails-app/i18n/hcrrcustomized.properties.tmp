@@ -4,25 +4,33 @@ hcrr.property.subject.label = Sujet
 
 hcrr.step.enfant.label =
 hcrr.step.enfant.desc =
+hcrr.step.enfant.header.help =
+hcrr.step.enfant.footer.help =
 
 hcrr.step.reglements.label =
 hcrr.step.reglements.desc =
+hcrr.step.reglements.header.help =
+hcrr.step.reglements.footer.help =
 
 
 hcrr.property.centreSejours.help =
 hcrr.property.centreSejours.validationError =
+hcrr.property.centreSejours.headerInformation =
 
 
 hcrr.property.idCentreSejours.help =
 hcrr.property.idCentreSejours.validationError =
+hcrr.property.idCentreSejours.headerInformation =
 
 
 hcrr.property.labelCentreSejours.help =
 hcrr.property.labelCentreSejours.validationError =
+hcrr.property.labelCentreSejours.headerInformation =
 
 
 hcrr.property.acceptationReglementInterieur.help =
 hcrr.property.acceptationReglementInterieur.validationError =
+hcrr.property.acceptationReglementInterieur.headerInformation =
 
 
 

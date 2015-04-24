@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="hsr.property.rulesAndRegulationsAcceptance.label" /> 
                 <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">

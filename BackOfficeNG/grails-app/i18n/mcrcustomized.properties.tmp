@@ -4,179 +4,228 @@ mcr.property.subject.label = Sujet
 
 mcr.step.census.label =
 mcr.step.census.desc =
+mcr.step.census.header.help =
+mcr.step.census.footer.help =
 
 mcr.step.parentage.label =
 mcr.step.parentage.desc =
+mcr.step.parentage.header.help =
+mcr.step.parentage.footer.help =
 
 mcr.step.situation.label =
 mcr.step.situation.desc =
+mcr.step.situation.header.help =
+mcr.step.situation.footer.help =
 
 mcr.step.exemption.label =
 mcr.step.exemption.desc =
+mcr.step.exemption.header.help =
+mcr.step.exemption.footer.help =
 
 
 mcr.property.childTitle.help =
 mcr.property.childTitle.validationError =
+mcr.property.childTitle.headerInformation =
 
 
 mcr.property.maidenName.help =
 mcr.property.maidenName.validationError =
+mcr.property.maidenName.headerInformation =
 
 
 mcr.property.childBirthCountry.help =
 mcr.property.childBirthCountry.validationError =
+mcr.property.childBirthCountry.headerInformation =
 
 
 mcr.property.childResidenceCountry.help =
 mcr.property.childResidenceCountry.validationError =
+mcr.property.childResidenceCountry.headerInformation =
 
 
 mcr.property.childPhone.help =
 mcr.property.childPhone.validationError =
+mcr.property.childPhone.headerInformation =
 
 
 mcr.property.childMail.help =
 mcr.property.childMail.validationError =
+mcr.property.childMail.headerInformation =
 
 
 mcr.property.childCountry.help =
 mcr.property.childCountry.validationError =
+mcr.property.childCountry.headerInformation =
 
 
 mcr.property.childOtherCountry.help =
 mcr.property.childOtherCountry.validationError =
+mcr.property.childOtherCountry.headerInformation =
 
 
 mcr.property.childConvention.help =
 mcr.property.childConvention.validationError =
+mcr.property.childConvention.headerInformation =
 
 
 mcr.property.fatherInformation.help =
 mcr.property.fatherInformation.validationError =
+mcr.property.fatherInformation.headerInformation =
 
 
 mcr.property.fatherLastName.help =
 mcr.property.fatherLastName.validationError =
+mcr.property.fatherLastName.headerInformation =
 
 
 mcr.property.fatherFirstName.help =
 mcr.property.fatherFirstName.validationError =
+mcr.property.fatherFirstName.headerInformation =
 
 
 mcr.property.fatherBirthDate.help =
 mcr.property.fatherBirthDate.validationError =
+mcr.property.fatherBirthDate.headerInformation =
 
 
 mcr.property.fatherBirthCity.help =
 mcr.property.fatherBirthCity.validationError =
+mcr.property.fatherBirthCity.headerInformation =
 
 
 mcr.property.fatherBirthDepartment.help =
 mcr.property.fatherBirthDepartment.validationError =
+mcr.property.fatherBirthDepartment.headerInformation =
 
 
 mcr.property.fatherBirthCountry.help =
 mcr.property.fatherBirthCountry.validationError =
+mcr.property.fatherBirthCountry.headerInformation =
 
 
 mcr.property.fatherNationality.help =
 mcr.property.fatherNationality.validationError =
+mcr.property.fatherNationality.headerInformation =
 
 
 mcr.property.motherInformation.help =
 mcr.property.motherInformation.validationError =
+mcr.property.motherInformation.headerInformation =
 
 
 mcr.property.motherLastName.help =
 mcr.property.motherLastName.validationError =
+mcr.property.motherLastName.headerInformation =
 
 
 mcr.property.motherFirstName.help =
 mcr.property.motherFirstName.validationError =
+mcr.property.motherFirstName.headerInformation =
 
 
 mcr.property.motherBirthDate.help =
 mcr.property.motherBirthDate.validationError =
+mcr.property.motherBirthDate.headerInformation =
 
 
 mcr.property.motherBirthCity.help =
 mcr.property.motherBirthCity.validationError =
+mcr.property.motherBirthCity.headerInformation =
 
 
 mcr.property.motherBirthDepartment.help =
 mcr.property.motherBirthDepartment.validationError =
+mcr.property.motherBirthDepartment.headerInformation =
 
 
 mcr.property.motherBirthCountry.help =
 mcr.property.motherBirthCountry.validationError =
+mcr.property.motherBirthCountry.headerInformation =
 
 
 mcr.property.motherNationality.help =
 mcr.property.motherNationality.validationError =
+mcr.property.motherNationality.headerInformation =
 
 
 mcr.property.familySituationInformation.help =
 mcr.property.familySituationInformation.validationError =
+mcr.property.familySituationInformation.headerInformation =
 
 
 mcr.property.aliveChildren.help =
 mcr.property.aliveChildren.validationError =
+mcr.property.aliveChildren.headerInformation =
 
 
 mcr.property.childStatus.help =
 mcr.property.childStatus.validationError =
+mcr.property.childStatus.headerInformation =
 
 
 mcr.property.childrenInCharge.help =
 mcr.property.childrenInCharge.validationError =
+mcr.property.childrenInCharge.headerInformation =
 
 
 mcr.property.otherSituation.help =
 mcr.property.otherSituation.validationError =
+mcr.property.otherSituation.headerInformation =
 
 
 mcr.property.statePupil.help =
 mcr.property.statePupil.validationError =
+mcr.property.statePupil.headerInformation =
 
 
 mcr.property.prefectPupil.help =
 mcr.property.prefectPupil.validationError =
+mcr.property.prefectPupil.headerInformation =
 
 
 mcr.property.prefectPupilDepartment.help =
 mcr.property.prefectPupilDepartment.validationError =
+mcr.property.prefectPupilDepartment.headerInformation =
 
 
 mcr.property.professionalSituationInformation.help =
 mcr.property.professionalSituationInformation.validationError =
+mcr.property.professionalSituationInformation.headerInformation =
 
 
 mcr.property.childSituation.help =
 mcr.property.childSituation.validationError =
+mcr.property.childSituation.headerInformation =
 
 
 mcr.property.childDiploma.help =
 mcr.property.childDiploma.validationError =
+mcr.property.childDiploma.headerInformation =
 
 
 mcr.property.childSpeciality.help =
 mcr.property.childSpeciality.validationError =
+mcr.property.childSpeciality.headerInformation =
 
 
 mcr.property.childProfession.help =
 mcr.property.childProfession.validationError =
+mcr.property.childProfession.headerInformation =
 
 
 mcr.property.japdExemption.help =
 mcr.property.japdExemption.validationError =
+mcr.property.japdExemption.headerInformation =
 
 
 mcr.property.highlyInfirm.help =
 mcr.property.highlyInfirm.validationError =
+mcr.property.highlyInfirm.headerInformation =
 
 
 mcr.property.affectionOrDisease.help =
 mcr.property.affectionOrDisease.validationError =
+mcr.property.affectionOrDisease.headerInformation =
 
 
 

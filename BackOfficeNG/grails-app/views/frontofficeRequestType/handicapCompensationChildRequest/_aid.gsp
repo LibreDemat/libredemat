@@ -2,9 +2,10 @@
 
 
   
-    <fieldset class="">
+    <fieldset class="" id="FamilyAssistance">
     <legend><g:message code="hccr.property.familyAssistance.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.isFamilyAssistance.label" /> *  <span><g:message code="hccr.property.isFamilyAssistance.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('isFamilyAssistance') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -25,12 +26,15 @@
       <h4 class="required condition-isFamilyAssistance-filled"><g:message code="hccr.property.familyAssistanceMembers.label" /> 
         <span><g:message code="hccr.property.familyAssistanceMembers.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'familyAssistanceMembers', 'collectionIndex':(rqt.familyAssistanceMembers ? rqt.familyAssistanceMembers.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.familyAssistanceMembers}" status="index">
       <div class="item">
         <dl>
@@ -60,9 +64,10 @@
   
 
   
-    <fieldset class="">
+    <fieldset class="" id="HomeIntervention">
     <legend><g:message code="hccr.property.homeIntervention.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.homeInterventionHomeIntervenant.label" /> *  <span><g:message code="hccr.property.homeInterventionHomeIntervenant.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('homeInterventionHomeIntervenant') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -83,12 +88,15 @@
       <h4 class="condition-isHomeIntervenant-filled"><g:message code="hccr.property.homeIntervenants.label" /> 
         <span><g:message code="hccr.property.homeIntervenants.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'homeIntervenants', 'collectionIndex':(rqt.homeIntervenants ? rqt.homeIntervenants.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.homeIntervenants}" status="index">
       <div class="item">
         <dl>
@@ -121,9 +129,10 @@
   
 
   
-    <fieldset class="">
+    <fieldset class="" id="Care">
     <legend><g:message code="hccr.property.care.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.careCareServices.label" /> *  <span><g:message code="hccr.property.careCareServices.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('careCareServices') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -144,12 +153,15 @@
       <h4 class="required condition-isCareServices-filled"><g:message code="hccr.property.careServices.label" /> 
         <span><g:message code="hccr.property.careServices.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'careServices', 'collectionIndex':(rqt.careServices ? rqt.careServices.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.careServices}" status="index">
       <div class="item">
         <dl>
@@ -193,9 +205,10 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="Facilities">
     <legend><g:message code="hccr.property.facilities.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.facilitiesHousing.label" /> *  <span><g:message code="hccr.property.facilitiesHousing.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('facilitiesHousing') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -208,12 +221,14 @@
             
 
     
+      
       <label for="facilitiesHousingDetails" class="required condition-isHousing-filled"><g:message code="hccr.property.facilitiesHousingDetails.label" /> *  <span><g:message code="hccr.property.facilitiesHousingDetails.help" /></span></label>
-            <input type="text" id="facilitiesHousingDetails" name="facilitiesHousingDetails" value="${rqt.facilitiesHousingDetails?.toString()}" 
+            <input  type="text" id="facilitiesHousingDetails" name="facilitiesHousingDetails" value="${rqt.facilitiesHousingDetails?.toString()}" 
                     class="required condition-isHousing-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesHousingDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.facilitiesHousingDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.facilitiesTechnicalAssistance.label" /> *  <span><g:message code="hccr.property.facilitiesTechnicalAssistance.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('facilitiesTechnicalAssistance') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -226,12 +241,14 @@
             
 
     
+      
       <label for="facilitiesTechnicalAssistanceDetails" class="required condition-isTechnicalAssistance-filled"><g:message code="hccr.property.facilitiesTechnicalAssistanceDetails.label" /> *  <span><g:message code="hccr.property.facilitiesTechnicalAssistanceDetails.help" /></span></label>
-            <input type="text" id="facilitiesTechnicalAssistanceDetails" name="facilitiesTechnicalAssistanceDetails" value="${rqt.facilitiesTechnicalAssistanceDetails?.toString()}" 
+            <input  type="text" id="facilitiesTechnicalAssistanceDetails" name="facilitiesTechnicalAssistanceDetails" value="${rqt.facilitiesTechnicalAssistanceDetails?.toString()}" 
                     class="required condition-isTechnicalAssistance-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesTechnicalAssistanceDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.facilitiesTechnicalAssistanceDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.facilitiesCustomCar.label" /> *  <span><g:message code="hccr.property.facilitiesCustomCar.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('facilitiesCustomCar') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -244,12 +261,14 @@
             
 
     
+      
       <label for="facilitiesCustomCarDetails" class="required condition-isCustomCar-filled"><g:message code="hccr.property.facilitiesCustomCarDetails.label" /> *  <span><g:message code="hccr.property.facilitiesCustomCarDetails.help" /></span></label>
-            <input type="text" id="facilitiesCustomCarDetails" name="facilitiesCustomCarDetails" value="${rqt.facilitiesCustomCarDetails?.toString()}" 
+            <input  type="text" id="facilitiesCustomCarDetails" name="facilitiesCustomCarDetails" value="${rqt.facilitiesCustomCarDetails?.toString()}" 
                     class="required condition-isCustomCar-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesCustomCarDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.facilitiesCustomCarDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.facilitiesAnimalAid.label" /> *  <span><g:message code="hccr.property.facilitiesAnimalAid.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('facilitiesAnimalAid') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -262,12 +281,14 @@
             
 
     
+      
       <label for="facilitiesAnimalAidDetails" class="required condition-isAnimalAid-filled"><g:message code="hccr.property.facilitiesAnimalAidDetails.label" /> *  <span><g:message code="hccr.property.facilitiesAnimalAidDetails.help" /></span></label>
-            <input type="text" id="facilitiesAnimalAidDetails" name="facilitiesAnimalAidDetails" value="${rqt.facilitiesAnimalAidDetails?.toString()}" 
+            <input  type="text" id="facilitiesAnimalAidDetails" name="facilitiesAnimalAidDetails" value="${rqt.facilitiesAnimalAidDetails?.toString()}" 
                     class="required condition-isAnimalAid-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesAnimalAidDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.facilitiesAnimalAidDetails.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required"><g:message code="hccr.property.facilitiesSpecializedTransport.label" /> *  <span><g:message code="hccr.property.facilitiesSpecializedTransport.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('facilitiesSpecializedTransport') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -280,8 +301,9 @@
             
 
     
+      
       <label for="facilitiesSpecializedTransportDetails" class="required condition-isSpecializedTransport-filled"><g:message code="hccr.property.facilitiesSpecializedTransportDetails.label" /> *  <span><g:message code="hccr.property.facilitiesSpecializedTransportDetails.help" /></span></label>
-            <input type="text" id="facilitiesSpecializedTransportDetails" name="facilitiesSpecializedTransportDetails" value="${rqt.facilitiesSpecializedTransportDetails?.toString()}" 
+            <input  type="text" id="facilitiesSpecializedTransportDetails" name="facilitiesSpecializedTransportDetails" value="${rqt.facilitiesSpecializedTransportDetails?.toString()}" 
                     class="required condition-isSpecializedTransport-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesSpecializedTransportDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.facilitiesSpecializedTransportDetails.validationError" />"  maxlength="60" />
             
 
@@ -290,9 +312,10 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="ProfessionalSupport">
     <legend><g:message code="hccr.property.professionalSupport.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.professionalSupportProfessionals.label" /> *  <span><g:message code="hccr.property.professionalSupportProfessionals.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('professionalSupportProfessionals') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -305,6 +328,7 @@
             
 
     
+      
       <label class="required condition-isProfessionals-filled"><g:message code="hccr.property.professionalSupportDealsWithSameProfessional.label" /> *  <span><g:message code="hccr.property.professionalSupportDealsWithSameProfessional.help" /></span></label>
             <ul class="yes-no required condition-isProfessionals-filled ${rqt.stepStates['aid'].invalidFields.contains('professionalSupportDealsWithSameProfessional') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -325,12 +349,15 @@
       <h4 class="condition-isProfessionals-filled"><g:message code="hccr.property.professionals.label" /> 
         <span><g:message code="hccr.property.professionals.help" /></span>
       </h4>
+
+    <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
         <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'professionals', 'collectionIndex':(rqt.professionals ? rqt.professionals.size() : 0)])}" style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
+    </g:if>
     <g:each var="it" in="${rqt.professionals}" status="index">
       <div class="item">
         <dl>
@@ -371,9 +398,10 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="SocialService">
     <legend><g:message code="hccr.property.socialService.label" /></legend>
     
+      
       <label class="required"><g:message code="hccr.property.socialServiceSupport.label" /> *  <span><g:message code="hccr.property.socialServiceSupport.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['aid'].invalidFields.contains('socialServiceSupport') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -386,33 +414,35 @@
             
 
     
+      
       <label for="socialServiceName" class="required condition-isSocialServiceSupport-filled"><g:message code="hccr.property.socialServiceName.label" /> *  <span><g:message code="hccr.property.socialServiceName.help" /></span></label>
-            <input type="text" id="socialServiceName" name="socialServiceName" value="${rqt.socialServiceName?.toString()}" 
+            <input  type="text" id="socialServiceName" name="socialServiceName" value="${rqt.socialServiceName?.toString()}" 
                     class="required condition-isSocialServiceSupport-filled   ${rqt.stepStates['aid'].invalidFields.contains('socialServiceName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.socialServiceName.validationError" />"  maxlength="60" />
             
 
     
+      
       <label class="required condition-isSocialServiceSupport-filled"><g:message code="hccr.property.socialServiceAddress.label" /> *  <span><g:message code="hccr.property.socialServiceAddress.help" /></span></label>
             <div id="socialServiceAddress" class="address required condition-isSocialServiceSupport-filled  ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress') ? 'validation-failed' : ''}">
             <label for="socialServiceAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.additionalDeliveryInformation}" maxlength="38" id="socialServiceAddress.additionalDeliveryInformation" name="socialServiceAddress.additionalDeliveryInformation" />  
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.additionalDeliveryInformation}" maxlength="38" id="socialServiceAddress.additionalDeliveryInformation" name="socialServiceAddress.additionalDeliveryInformation" />  
             <label for="socialServiceAddress.additionalGeographicalInformation"><g:message code="address.property.additionalGeographicalInformation" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.additionalGeographicalInformation}" maxlength="38" id="socialServiceAddress.additionalGeographicalInformation" name="socialServiceAddress.additionalGeographicalInformation" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.additionalGeographicalInformation}" maxlength="38" id="socialServiceAddress.additionalGeographicalInformation" name="socialServiceAddress.additionalGeographicalInformation" />
             <label for="socialServiceAddress_streetNumber"><g:message code="address.property.streetNumber" /></label> - 
             <label for="socialServiceAddress_streetName" class="required"><g:message code="address.property.streetName" /> *</label><br />
-            <input type="text" class="line1 validate-streetNumber ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.streetNumber}" size="5" maxlength="5" id="socialServiceAddress_streetNumber" name="socialServiceAddress.streetNumber" />
-            <input type="text" class="line2 required validate-streetName ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.streetName}" maxlength="32" id="socialServiceAddress_streetName" name="socialServiceAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
-            <input type="hidden" value="${rqt.socialServiceAddress?.streetMatriculation}" id="socialServiceAddress_streetMatriculation" name="socialServiceAddress.streetMatriculation" />
-            <input type="hidden" value="${rqt.socialServiceAddress?.streetRivoliCode}" id="socialServiceAddress_streetRivoliCode" name="socialServiceAddress.streetRivoliCode" />
+            <input  type="text" class="line1 validate-streetNumber ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.streetNumber}" size="5" maxlength="5" id="socialServiceAddress_streetNumber" name="socialServiceAddress.streetNumber" />
+            <input  type="text" class="line2 required validate-streetName ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.streetName}" maxlength="32" id="socialServiceAddress_streetName" name="socialServiceAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
+            <input  type="hidden" value="${rqt.socialServiceAddress?.streetMatriculation}" id="socialServiceAddress_streetMatriculation" name="socialServiceAddress.streetMatriculation" />
+            <input  type="hidden" value="${rqt.socialServiceAddress?.streetRivoliCode}" id="socialServiceAddress_streetRivoliCode" name="socialServiceAddress.streetRivoliCode" />
             <label for="socialServiceAddress.placeNameOrService"><g:message code="address.property.placeNameOrService" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.placeNameOrService}" maxlength="38" id="socialServiceAddress.placeNameOrService" name="socialServiceAddress.placeNameOrService" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.placeNameOrService}" maxlength="38" id="socialServiceAddress.placeNameOrService" name="socialServiceAddress.placeNameOrService" />
             <label for="socialServiceAddress_postalCode" class="required"><g:message code="address.property.postalCode" /> * </label> - 
             <label for="socialServiceAddress_city" class="required"><g:message code="address.property.city" /> *</label><br />
-            <input type="text" class="line1 required validate-postalCode ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.postalCode}" size="5" maxlength="5" id="socialServiceAddress_postalCode" name="socialServiceAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
-            <input type="text" class="line2 required validate-city ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.city') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.city}" maxlength="32" id="socialServiceAddress_city" name="socialServiceAddress.city" title="<g:message code="address.property.city.validationError" />" />
-            <input type="hidden" value="${rqt.socialServiceAddress?.cityInseeCode}" id="socialServiceAddress_cityInseeCode" name="socialServiceAddress.cityInseeCode" />
+            <input  type="text" class="line1 required validate-postalCode ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.postalCode}" size="5" maxlength="5" id="socialServiceAddress_postalCode" name="socialServiceAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
+            <input  type="text" class="line2 required validate-city ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.city') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.city}" maxlength="32" id="socialServiceAddress_city" name="socialServiceAddress.city" title="<g:message code="address.property.city.validationError" />" />
+            <input  type="hidden" value="${rqt.socialServiceAddress?.cityInseeCode}" id="socialServiceAddress_cityInseeCode" name="socialServiceAddress.cityInseeCode" />
             <label for="socialServiceAddress.countryName"><g:message code="address.property.countryName" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.countryName}" maxlength="38" id="socialServiceAddress.countryName" name="socialServiceAddress.countryName" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['aid'].invalidFields.contains('socialServiceAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.socialServiceAddress?.countryName}" maxlength="38" id="socialServiceAddress.countryName" name="socialServiceAddress.countryName" />
             </div>
             
 

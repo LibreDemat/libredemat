@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="hsr.property.alarm.label" /> *  <span><g:message code="hsr.property.alarm.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['additional'].invalidFields.contains('alarm') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label class="required"><g:message code="hsr.property.light.label" /> *  <span><g:message code="hsr.property.light.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['additional'].invalidFields.contains('light') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -255,8 +256,9 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['situation'].test(_this.situation.toString());" +
-                
+                "active &= _this.conditions['situation'].test(_this.situation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -271,8 +273,9 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['situation'].test(_this.situation.toString());" +
-                
+                "active &= _this.conditions['situation'].test(_this.situation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -287,8 +290,9 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['situation'].test(_this.situation.toString());" +
-                
+                "active &= _this.conditions['situation'].test(_this.situation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -318,12 +322,14 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['typeElection'].test(_this.typeElection.toString());" +
-                
+                "active &= _this.conditions['typeElection'].test(_this.typeElection.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
-                
+                "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
+                    
+                  
               
             
             "return active",
@@ -373,8 +379,9 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['situation'].test(_this.situation.toString());" +
-                
+                "active &= _this.conditions['situation'].test(_this.situation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -480,8 +487,9 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['sexe'].test(_this.sexe.toString());" +
-                
+                "active &= _this.conditions['sexe'].test(_this.sexe.toString());" +
+                    
+                  
               
             
             
@@ -577,12 +585,14 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
-                
+                "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
-                
+                "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
+                    
+                  
               
             
             "return active",
@@ -729,12 +739,14 @@ public class StandardElectoralRollRegistrationRequestData implements Serializabl
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
-                
+                "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
+                    
+                  
               
             
-            "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
-                
+                "active &= _this.conditions['nationalite'].test(_this.nationalite.toString());" +
+                    
+                  
               
             
             "return active",

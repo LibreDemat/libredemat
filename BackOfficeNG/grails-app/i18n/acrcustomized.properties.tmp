@@ -4,38 +4,48 @@ acr.property.subject.label = Sujet
 
 acr.step.cadastre.label =
 acr.step.cadastre.desc =
+acr.step.cadastre.header.help =
+acr.step.cadastre.footer.help =
 
 
 acr.property.requesterQuality.help =
 acr.property.requesterQuality.validationError =
+acr.property.requesterQuality.headerInformation =
 
 
 acr.property.ownerLastName.help =
 acr.property.ownerLastName.validationError =
+acr.property.ownerLastName.headerInformation =
 
 
 acr.property.ownerFirstNames.help =
 acr.property.ownerFirstNames.validationError =
+acr.property.ownerFirstNames.headerInformation =
 
 
 acr.property.ownerAddress.help =
 acr.property.ownerAddress.validationError =
+acr.property.ownerAddress.headerInformation =
 
 
 acr.property.section.help =
 acr.property.section.validationError =
+acr.property.section.headerInformation =
 
 
 acr.property.number.help =
 acr.property.number.validationError =
+acr.property.number.headerInformation =
 
 
 acr.property.locality.help =
 acr.property.locality.validationError =
+acr.property.locality.headerInformation =
 
 
 acr.property.transportationRoute.help =
 acr.property.transportationRoute.validationError =
+acr.property.transportationRoute.headerInformation =
 
 
 

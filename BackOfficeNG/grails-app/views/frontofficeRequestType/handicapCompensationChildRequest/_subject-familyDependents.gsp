@@ -12,18 +12,21 @@
     </span>
   </h4>
   
+    
     <label for="familyDependents.${collectionIndex}.referentFamilyDependentLastName" class="required"><g:message code="hccr.property.referentFamilyDependentLastName.label" /> *  <span><g:message code="hccr.property.referentFamilyDependentLastName.help" /></span></label>
-            <input type="text" id="familyDependents.${collectionIndex}.referentFamilyDependentLastName" name="familyDependents[${collectionIndex}].referentFamilyDependentLastName" value="${currentCollectionItem?.referentFamilyDependentLastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].referentFamilyDependentLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentFamilyDependentLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="familyDependents.${collectionIndex}.referentFamilyDependentLastName" name="familyDependents[${collectionIndex}].referentFamilyDependentLastName" value="${currentCollectionItem?.referentFamilyDependentLastName?.toString()}" 
+                    class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].referentFamilyDependentLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentFamilyDependentLastName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label for="familyDependents.${collectionIndex}.referentFamilyDependentFirstName" class="required"><g:message code="hccr.property.referentFamilyDependentFirstName.label" /> *  <span><g:message code="hccr.property.referentFamilyDependentFirstName.help" /></span></label>
-            <input type="text" id="familyDependents.${collectionIndex}.referentFamilyDependentFirstName" name="familyDependents[${collectionIndex}].referentFamilyDependentFirstName" value="${currentCollectionItem?.referentFamilyDependentFirstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].referentFamilyDependentFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentFamilyDependentFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="familyDependents.${collectionIndex}.referentFamilyDependentFirstName" name="familyDependents[${collectionIndex}].referentFamilyDependentFirstName" value="${currentCollectionItem?.referentFamilyDependentFirstName?.toString()}" 
+                    class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].referentFamilyDependentFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentFamilyDependentFirstName.validationError" />"  maxlength="38" style="width:99%" />
             
 
   
+    
     <label class="required"><g:message code="hccr.property.referentFamilyDependentBirthDate.label" />&nbsp;* <span><g:message code="hccr.property.referentFamilyDependentBirthDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].referentFamilyDependentBirthDate') ? 'validation-failed' : ''}"
@@ -64,6 +67,7 @@
             
 
   
+    
     <label for="familyDependents.${collectionIndex}.referentFamilyDependentActualSituation" class="required"><g:message code="hccr.property.referentFamilyDependentActualSituation.label" /> *  <span><g:message code="hccr.property.referentFamilyDependentActualSituation.help" /></span></label>
             <select id="familyDependents.${collectionIndex}.referentFamilyDependentActualSituation" name="familyDependents[${collectionIndex}].referentFamilyDependentActualSituation" class="required  validate-not-first ${rqt.stepStates['subject'].invalidFields.contains('familyDependents['+collectionIndex+'].referentFamilyDependentActualSituation') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentFamilyDependentActualSituation.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>

@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="rpar.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="rpar.property.estRestauration.label" /> *  <span><g:message code="rpar.property.estRestauration.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['enfant'].invalidFields.contains('estRestauration') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -47,6 +49,7 @@
   
 
   
+    
     <label class="required"><g:message code="rpar.property.estPeriscolaire.label" /> *  <span><g:message code="rpar.property.estPeriscolaire.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['enfant'].invalidFields.contains('estPeriscolaire') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

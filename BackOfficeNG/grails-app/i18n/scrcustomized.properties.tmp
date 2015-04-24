@@ -4,42 +4,53 @@ scr.property.subject.label = Sujet
 
 scr.step.cadastre.label =
 scr.step.cadastre.desc =
+scr.step.cadastre.header.help =
+scr.step.cadastre.footer.help =
 
 
 scr.property.requesterQuality.help =
 scr.property.requesterQuality.validationError =
+scr.property.requesterQuality.headerInformation =
 
 
 scr.property.ownerLastName.help =
 scr.property.ownerLastName.validationError =
+scr.property.ownerLastName.headerInformation =
 
 
 scr.property.ownerFirstNames.help =
 scr.property.ownerFirstNames.validationError =
+scr.property.ownerFirstNames.headerInformation =
 
 
 scr.property.ownerAddress.help =
 scr.property.ownerAddress.validationError =
+scr.property.ownerAddress.headerInformation =
 
 
 scr.property.section.help =
 scr.property.section.validationError =
+scr.property.section.headerInformation =
 
 
 scr.property.number.help =
 scr.property.number.validationError =
+scr.property.number.headerInformation =
 
 
 scr.property.locality.help =
 scr.property.locality.validationError =
+scr.property.locality.headerInformation =
 
 
 scr.property.transportationRoute.help =
 scr.property.transportationRoute.validationError =
+scr.property.transportationRoute.headerInformation =
 
 
 scr.property.moreThanTwoYears.help =
 scr.property.moreThanTwoYears.validationError =
+scr.property.moreThanTwoYears.headerInformation =
 
 
 

@@ -2,15 +2,17 @@
 
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="FamilySituationInformation">
     <legend><g:message code="mcr.property.familySituationInformation.label" /></legend>
     
+      
       <label for="aliveChildren" class="required"><g:message code="mcr.property.aliveChildren.label" /> *  <span><g:message code="mcr.property.aliveChildren.help" /></span></label>
-            <input type="text" id="aliveChildren" name="aliveChildren" value="${rqt.aliveChildren?.toString()}" 
+            <input  type="text" id="aliveChildren" name="aliveChildren" value="${rqt.aliveChildren?.toString()}" 
                     class="required  validate-positiveInteger ${rqt.stepStates['situation'].invalidFields.contains('aliveChildren') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.aliveChildren.validationError" />"   />
             
 
     
+      
       <label for="childStatus" class="required"><g:message code="mcr.property.childStatus.label" /> *  <span><g:message code="mcr.property.childStatus.help" /></span></label>
             <select id="childStatus" name="childStatus" class="required  validate-not-first ${rqt.stepStates['situation'].invalidFields.contains('childStatus') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childStatus.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -21,18 +23,21 @@
             
 
     
+      
       <label for="childrenInCharge" class="required"><g:message code="mcr.property.childrenInCharge.label" /> *  <span><g:message code="mcr.property.childrenInCharge.help" /></span></label>
-            <input type="text" id="childrenInCharge" name="childrenInCharge" value="${rqt.childrenInCharge?.toString()}" 
+            <input  type="text" id="childrenInCharge" name="childrenInCharge" value="${rqt.childrenInCharge?.toString()}" 
                     class="required  validate-positiveInteger ${rqt.stepStates['situation'].invalidFields.contains('childrenInCharge') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childrenInCharge.validationError" />"   />
             
 
     
+      
       <label for="otherSituation" class=""><g:message code="mcr.property.otherSituation.label" />   <span><g:message code="mcr.property.otherSituation.help" /></span></label>
-            <input type="text" id="otherSituation" name="otherSituation" value="${rqt.otherSituation?.toString()}" 
+            <input  type="text" id="otherSituation" name="otherSituation" value="${rqt.otherSituation?.toString()}" 
                     class="  validate-string ${rqt.stepStates['situation'].invalidFields.contains('otherSituation') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.otherSituation.validationError" />"   />
             
 
     
+      
       <label class="required"><g:message code="mcr.property.statePupil.label" /> *  <span><g:message code="mcr.property.statePupil.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['situation'].invalidFields.contains('statePupil') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -45,6 +50,7 @@
             
 
     
+      
       <label class="required"><g:message code="mcr.property.prefectPupil.label" /> *  <span><g:message code="mcr.property.prefectPupil.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['situation'].invalidFields.contains('prefectPupil') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -57,6 +63,7 @@
             
 
     
+      
       <label for="prefectPupilDepartment" class="required condition-isPrefectPupil-filled"><g:message code="mcr.property.prefectPupilDepartment.label" /> *  <span><g:message code="mcr.property.prefectPupilDepartment.help" /></span></label>
             <select id="prefectPupilDepartment" name="prefectPupilDepartment" class="required condition-isPrefectPupil-filled  validate-not-first ${rqt.stepStates['situation'].invalidFields.contains('prefectPupilDepartment') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.prefectPupilDepartment.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -71,9 +78,10 @@
   
 
   
-    <fieldset class="required">
+    <fieldset class="required" id="ProfessionalSituationInformation">
     <legend><g:message code="mcr.property.professionalSituationInformation.label" /></legend>
     
+      
       <label for="childSituation" class="required"><g:message code="mcr.property.childSituation.label" /> *  <span><g:message code="mcr.property.childSituation.help" /></span></label>
             <select id="childSituation" name="childSituation" class="required  validate-not-first ${rqt.stepStates['situation'].invalidFields.contains('childSituation') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childSituation.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -84,6 +92,7 @@
             
 
     
+      
       <label for="childDiploma" class="required"><g:message code="mcr.property.childDiploma.label" /> *  <span><g:message code="mcr.property.childDiploma.help" /></span></label>
             <select id="childDiploma" name="childDiploma" class="required  validate-not-first ${rqt.stepStates['situation'].invalidFields.contains('childDiploma') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childDiploma.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -94,14 +103,16 @@
             
 
     
+      
       <label for="childSpeciality" class=""><g:message code="mcr.property.childSpeciality.label" />   <span><g:message code="mcr.property.childSpeciality.help" /></span></label>
-            <input type="text" id="childSpeciality" name="childSpeciality" value="${rqt.childSpeciality?.toString()}" 
+            <input  type="text" id="childSpeciality" name="childSpeciality" value="${rqt.childSpeciality?.toString()}" 
                     class="  validate-string ${rqt.stepStates['situation'].invalidFields.contains('childSpeciality') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childSpeciality.validationError" />"   />
             
 
     
+      
       <label for="childProfession" class=""><g:message code="mcr.property.childProfession.label" />   <span><g:message code="mcr.property.childProfession.help" /></span></label>
-            <input type="text" id="childProfession" name="childProfession" value="${rqt.childProfession?.toString()}" 
+            <input  type="text" id="childProfession" name="childProfession" value="${rqt.childProfession?.toString()}" 
                     class="  validate-string ${rqt.stepStates['situation'].invalidFields.contains('childProfession') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childProfession.validationError" />"   />
             
 

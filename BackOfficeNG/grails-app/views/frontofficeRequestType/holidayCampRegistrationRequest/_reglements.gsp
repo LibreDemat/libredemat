@@ -3,12 +3,13 @@
 
   
     
+    
             <ul ${rqt.stepStates['reglements'].invalidFields.contains('acceptationReglementInterieur') ? 'class="validation-failed"' : ''}>
               <li>
                 <input type="hidden" name="_acceptationReglementInterieur" /><!-- Grails 1.2.x convention to bind checkboxes. -->
                 <input type="checkbox" id="acceptationReglementInterieur" name="acceptationReglementInterieur"
-                       class="required  validate-acceptance"
-                       title="${message(code:'hcrr.property.acceptationReglementInterieur.validationError')}"
+                           class="required  validate-acceptance"
+                           title="${message(code:'hcrr.property.acceptationReglementInterieur.validationError')}"
                        ${rqt.acceptationReglementInterieur ? 'checked="checked"' : ''} value="true" />
                 <label for="acceptationReglementInterieur" class="required">
                   ${message(code:'hcrr.property.acceptationReglementInterieur.label')}&nbsp;*

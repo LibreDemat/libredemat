@@ -3,6 +3,7 @@
 
   
     
+    
               <label class="required">
                 <g:message code="raprr.property.rulesAndRegulationsPolyAcceptance.label" /> *
                 <g:if test="${availableRules.contains('rulesAndRegulationsPolyAcceptance')}">
@@ -23,6 +24,7 @@
   
 
   
+    
     
               <label class="">
                 <g:message code="raprr.property.classTripPolyPermission.label" /> 
@@ -45,6 +47,7 @@
 
   
     
+    
               <label class="">
                 <g:message code="raprr.property.childPhotoExploitationPolyPermission.label" /> 
                 <g:if test="${availableRules.contains('childPhotoExploitationPolyPermission')}">
@@ -65,6 +68,7 @@
   
 
   
+    
     
               <label class="">
                 <g:message code="raprr.property.hospitalizationPolyPermission.label" /> 

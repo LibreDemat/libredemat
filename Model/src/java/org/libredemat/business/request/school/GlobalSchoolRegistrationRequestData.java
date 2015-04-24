@@ -14,6 +14,7 @@ import java.util.Map;
 
 import net.sf.oval.constraint.*;
 import org.libredemat.business.authority.*;
+import org.libredemat.business.payment.*;
 import org.libredemat.business.request.*;
 import org.libredemat.business.users.*;
 import org.libredemat.service.request.LocalReferential;
@@ -212,8 +213,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -228,8 +230,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -258,8 +261,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -274,8 +278,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -305,8 +310,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             
@@ -323,8 +329,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             
@@ -354,8 +361,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -370,8 +378,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -400,8 +409,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -416,8 +426,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
           when = "groovy:def active = true;" +
           
             
-            "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= !_this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             "return active",
@@ -445,8 +456,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             
@@ -463,8 +475,9 @@ public class GlobalSchoolRegistrationRequestData implements Serializable {
         
           when = "groovy:def active = true;" +
           
-            "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
-                
+                "active &= _this.conditions['estDerogation'].test(_this.estDerogation.toString());" +
+                    
+                  
               
             
             

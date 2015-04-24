@@ -4,106 +4,133 @@ cmwr.property.subject.label = Sujet
 
 cmwr.step.informations.label =
 cmwr.step.informations.desc =
+cmwr.step.informations.header.help =
+cmwr.step.informations.footer.help =
 
 
 cmwr.property.profilDemandeur.help =
 cmwr.property.profilDemandeur.validationError =
+cmwr.property.profilDemandeur.headerInformation =
 
 
 cmwr.property.nomOrganisation.help =
 cmwr.property.nomOrganisation.validationError =
+cmwr.property.nomOrganisation.headerInformation =
 
 
 cmwr.property.adresseOrganisation.help =
 cmwr.property.adresseOrganisation.validationError =
+cmwr.property.adresseOrganisation.headerInformation =
 
 
 cmwr.property.nombreResidants.help =
 cmwr.property.nombreResidants.validationError =
+cmwr.property.nombreResidants.headerInformation =
 
 
 cmwr.property.typeHabitation.help =
 cmwr.property.typeHabitation.validationError =
+cmwr.property.typeHabitation.headerInformation =
 
 
 cmwr.property.conteneur.help =
 cmwr.property.conteneur.validationError =
+cmwr.property.conteneur.headerInformation =
 
 
 cmwr.property.precisionsReparation.help =
 cmwr.property.precisionsReparation.validationError =
+cmwr.property.precisionsReparation.headerInformation =
 
 
 cmwr.property.quartier.help =
 cmwr.property.quartier.validationError =
+cmwr.property.quartier.headerInformation =
 
 
 cmwr.property.volumesOm.help =
 cmwr.property.volumesOm.validationError =
+cmwr.property.volumesOm.headerInformation =
 
 
 cmwr.property.omCentVingtLitres.help =
 cmwr.property.omCentVingtLitres.validationError =
+cmwr.property.omCentVingtLitres.headerInformation =
 
 
 cmwr.property.omDeuxCentQuaranteLitres.help =
 cmwr.property.omDeuxCentQuaranteLitres.validationError =
+cmwr.property.omDeuxCentQuaranteLitres.headerInformation =
 
 
 cmwr.property.omTroisCentQuaranteLitres.help =
 cmwr.property.omTroisCentQuaranteLitres.validationError =
+cmwr.property.omTroisCentQuaranteLitres.headerInformation =
 
 
 cmwr.property.omSixCentSoixanteLitres.help =
 cmwr.property.omSixCentSoixanteLitres.validationError =
+cmwr.property.omSixCentSoixanteLitres.headerInformation =
 
 
 cmwr.property.volumesTri.help =
 cmwr.property.volumesTri.validationError =
+cmwr.property.volumesTri.headerInformation =
 
 
 cmwr.property.triCentVingtLitres.help =
 cmwr.property.triCentVingtLitres.validationError =
+cmwr.property.triCentVingtLitres.headerInformation =
 
 
 cmwr.property.triDeuxCentQuaranteLitres.help =
 cmwr.property.triDeuxCentQuaranteLitres.validationError =
+cmwr.property.triDeuxCentQuaranteLitres.headerInformation =
 
 
 cmwr.property.triTroisCentQuaranteLitres.help =
 cmwr.property.triTroisCentQuaranteLitres.validationError =
+cmwr.property.triTroisCentQuaranteLitres.headerInformation =
 
 
 cmwr.property.triSixCentSoixanteLitres.help =
 cmwr.property.triSixCentSoixanteLitres.validationError =
+cmwr.property.triSixCentSoixanteLitres.headerInformation =
 
 
 cmwr.property.volumesVerre.help =
 cmwr.property.volumesVerre.validationError =
+cmwr.property.volumesVerre.headerInformation =
 
 
 cmwr.property.verreTrenteCinqLitres.help =
 cmwr.property.verreTrenteCinqLitres.validationError =
+cmwr.property.verreTrenteCinqLitres.headerInformation =
 
 
 cmwr.property.verreCentVingtLitres.help =
 cmwr.property.verreCentVingtLitres.validationError =
+cmwr.property.verreCentVingtLitres.headerInformation =
 
 
 cmwr.property.verreDeuxCentQuaranteLitres.help =
 cmwr.property.verreDeuxCentQuaranteLitres.validationError =
+cmwr.property.verreDeuxCentQuaranteLitres.headerInformation =
 
 
 cmwr.property.tailleComposteur.help =
 cmwr.property.tailleComposteur.validationError =
+cmwr.property.tailleComposteur.headerInformation =
 
 
 cmwr.property.composteurPetit.help =
 cmwr.property.composteurPetit.validationError =
+cmwr.property.composteurPetit.headerInformation =
 
 
 cmwr.property.composteurGrand.help =
 cmwr.property.composteurGrand.validationError =
+cmwr.property.composteurGrand.headerInformation =
 
 
 

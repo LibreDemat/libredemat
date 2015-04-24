@@ -4,129 +4,163 @@ rsr.property.subject.label = Sujet
 
 rsr.step.subject.label =
 rsr.step.subject.desc =
+rsr.step.subject.header.help =
+rsr.step.subject.footer.help =
 
 rsr.step.contact.label =
 rsr.step.contact.desc =
+rsr.step.contact.header.help =
+rsr.step.contact.footer.help =
 
 
 rsr.property.rsrSubject.help =
 rsr.property.rsrSubject.validationError =
+rsr.property.rsrSubject.headerInformation =
 
 
 rsr.property.subjectTitle.help =
 rsr.property.subjectTitle.validationError =
+rsr.property.subjectTitle.headerInformation =
 
 
 rsr.property.subjectBirthDate.help =
 rsr.property.subjectBirthDate.validationError =
+rsr.property.subjectBirthDate.headerInformation =
 
 
 rsr.property.subjectResideWith.help =
 rsr.property.subjectResideWith.validationError =
+rsr.property.subjectResideWith.headerInformation =
 
 
 rsr.property.subjectIsTaxable.help =
 rsr.property.subjectIsTaxable.validationError =
+rsr.property.subjectIsTaxable.headerInformation =
 
 
 rsr.property.subjectIsAPABeneficiary.help =
 rsr.property.subjectIsAPABeneficiary.validationError =
+rsr.property.subjectIsAPABeneficiary.headerInformation =
 
 
 rsr.property.subjectIsDisabledPerson.help =
 rsr.property.subjectIsDisabledPerson.validationError =
+rsr.property.subjectIsDisabledPerson.headerInformation =
 
 
 rsr.property.requestInformation.help =
 rsr.property.requestInformation.validationError =
+rsr.property.requestInformation.headerInformation =
 
 
 rsr.property.requestInformationRequestKind.help =
 rsr.property.requestInformationRequestKind.validationError =
+rsr.property.requestInformationRequestKind.headerInformation =
 
 
 rsr.property.requestInformationEmergency.help =
 rsr.property.requestInformationEmergency.validationError =
+rsr.property.requestInformationEmergency.headerInformation =
 
 
 rsr.property.requestInformationEmergencyMotive.help =
 rsr.property.requestInformationEmergencyMotive.validationError =
+rsr.property.requestInformationEmergencyMotive.headerInformation =
 
 
 rsr.property.spouse.help =
 rsr.property.spouse.validationError =
+rsr.property.spouse.headerInformation =
 
 
 rsr.property.spouseLastName.help =
 rsr.property.spouseLastName.validationError =
+rsr.property.spouseLastName.headerInformation =
 
 
 rsr.property.spouseFirstName.help =
 rsr.property.spouseFirstName.validationError =
+rsr.property.spouseFirstName.headerInformation =
 
 
 rsr.property.spouseTitle.help =
 rsr.property.spouseTitle.validationError =
+rsr.property.spouseTitle.headerInformation =
 
 
 rsr.property.spouseBirthDate.help =
 rsr.property.spouseBirthDate.validationError =
+rsr.property.spouseBirthDate.headerInformation =
 
 
 rsr.property.spouseIsDisabledPerson.help =
 rsr.property.spouseIsDisabledPerson.validationError =
+rsr.property.spouseIsDisabledPerson.headerInformation =
 
 
 rsr.property.contactKind.help =
 rsr.property.contactKind.validationError =
+rsr.property.contactKind.headerInformation =
 
 
 rsr.property.firstContact.help =
 rsr.property.firstContact.validationError =
+rsr.property.firstContact.headerInformation =
 
 
 rsr.property.contactLastName.help =
 rsr.property.contactLastName.validationError =
+rsr.property.contactLastName.headerInformation =
 
 
 rsr.property.contactFirstName.help =
 rsr.property.contactFirstName.validationError =
+rsr.property.contactFirstName.headerInformation =
 
 
 rsr.property.contactPhone.help =
 rsr.property.contactPhone.validationError =
+rsr.property.contactPhone.headerInformation =
 
 
 rsr.property.secondContact.help =
 rsr.property.secondContact.validationError =
+rsr.property.secondContact.headerInformation =
 
 
 rsr.property.secondContactLastName.help =
 rsr.property.secondContactLastName.validationError =
+rsr.property.secondContactLastName.headerInformation =
 
 
 rsr.property.secondContactFirstName.help =
 rsr.property.secondContactFirstName.validationError =
+rsr.property.secondContactFirstName.headerInformation =
 
 
 rsr.property.secondContactPhone.help =
 rsr.property.secondContactPhone.validationError =
+rsr.property.secondContactPhone.headerInformation =
 
 
 rsr.property.trustee.help =
 rsr.property.trustee.validationError =
+rsr.property.trustee.headerInformation =
 
 
 rsr.property.trusteeLastName.help =
 rsr.property.trusteeLastName.validationError =
+rsr.property.trusteeLastName.headerInformation =
 
 
 rsr.property.trusteeFirstName.help =
 rsr.property.trusteeFirstName.validationError =
+rsr.property.trusteeFirstName.headerInformation =
 
 
 rsr.property.trusteePhone.help =
 rsr.property.trusteePhone.validationError =
+rsr.property.trusteePhone.headerInformation =
 
 
 

@@ -3,6 +3,7 @@
 
   
     
+    
             <ul ${rqt.stepStates['rules'].invalidFields.contains('rulesAndRegulationsAcceptance') ? 'class="validation-failed"' : ''}>
               <li>
                 <input type="hidden" name="_rulesAndRegulationsAcceptance" /><!-- Grails 1.2.x convention to bind checkboxes. -->

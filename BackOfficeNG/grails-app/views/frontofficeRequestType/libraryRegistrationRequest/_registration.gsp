@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="lrr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="lrr.property.subscription.label" /> *  <span><g:message code="lrr.property.subscription.help" /></span></label>
             <g:set var="subscriptionIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -43,8 +45,9 @@
   
 
   
+    
     <label for="registrationNumber" class=""><g:message code="lrr.property.registrationNumber.label" />   <span><g:message code="lrr.property.registrationNumber.help" /></span></label>
-            <input type="text" id="registrationNumber" name="registrationNumber" value="${rqt.registrationNumber?.toString()}" 
+            <input  type="text" id="registrationNumber" name="registrationNumber" value="${rqt.registrationNumber?.toString()}" 
                     class="  validate-string ${rqt.stepStates['registration'].invalidFields.contains('registrationNumber') ? 'validation-failed' : ''}" title="<g:message code="lrr.property.registrationNumber.validationError" />"   />
             
 

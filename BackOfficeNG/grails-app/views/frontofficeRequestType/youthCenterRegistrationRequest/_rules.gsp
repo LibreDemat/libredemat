@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="ycrr.property.childAlone.label" /> *  <span><g:message code="ycrr.property.childAlone.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['rules'].invalidFields.contains('childAlone') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label class="required"><g:message code="ycrr.property.multiActivities.label" /> *  <span><g:message code="ycrr.property.multiActivities.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['rules'].invalidFields.contains('multiActivities') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -30,6 +32,7 @@
   
 
   
+    
     <label class="required"><g:message code="ycrr.property.rulesAcceptance.label" /> *  <span><g:message code="ycrr.property.rulesAcceptance.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['rules'].invalidFields.contains('rulesAcceptance') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">

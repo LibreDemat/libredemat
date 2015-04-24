@@ -3,6 +3,7 @@
 
   
     
+    
             <label for="subjectId" class="required">
               <g:message code="parr.property.subject.label" /> *
               <span><g:message code="request.property.subject.help" /></span>
@@ -33,6 +34,7 @@
   
 
   
+    
     <label class="required"><g:message code="parr.property.perischoolActivity.label" /> *  <span><g:message code="parr.property.perischoolActivity.help" /></span></label>
             <g:set var="perischoolActivityIndex" value="${0}" scope="flash" />
             <g:render template="/frontofficeRequestType/widget/localReferentialData" 
@@ -43,8 +45,9 @@
   
 
   
+    
     <label for="urgencyPhone" class="required"><g:message code="parr.property.urgencyPhone.label" /> *  <span><g:message code="parr.property.urgencyPhone.help" /></span></label>
-            <input type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
+            <input  type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
                     class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}" title="<g:message code="parr.property.urgencyPhone.validationError" />"  maxlength="10" />
             
 

@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="bgr.property.internshipStartDate.label" /> *  <span><g:message code="bgr.property.internshipStartDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['internship'].invalidFields.contains('internshipStartDate') ? 'validation-failed' : ''}"
@@ -44,6 +45,7 @@
   
 
   
+    
     <label class="required"><g:message code="bgr.property.internshipEndDate.label" /> *  <span><g:message code="bgr.property.internshipEndDate.help" /></span></label>
             <div class="date required  validate-date required ">
               <select class="day ${rqt.stepStates['internship'].invalidFields.contains('internshipEndDate') ? 'validation-failed' : ''}"
@@ -86,35 +88,37 @@
   
 
   
+    
     <label for="internshipInstituteName" class="required"><g:message code="bgr.property.internshipInstituteName.label" /> *  <span><g:message code="bgr.property.internshipInstituteName.help" /></span></label>
-            <input type="text" id="internshipInstituteName" name="internshipInstituteName" value="${rqt.internshipInstituteName?.toString()}" 
+            <input  type="text" id="internshipInstituteName" name="internshipInstituteName" value="${rqt.internshipInstituteName?.toString()}" 
                     class="required  validate-string ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteName') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.internshipInstituteName.validationError" />"   />
             
 
   
 
   
+    
     <label class="required"><g:message code="bgr.property.internshipInstituteAddress.label" /> *  <span><g:message code="bgr.property.internshipInstituteAddress.help" /></span></label>
             <div id="internshipInstituteAddress" class="address required  ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress') ? 'validation-failed' : ''}">
             <label for="internshipInstituteAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.additionalDeliveryInformation}" maxlength="38" id="internshipInstituteAddress.additionalDeliveryInformation" name="internshipInstituteAddress.additionalDeliveryInformation" />  
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.additionalDeliveryInformation') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.additionalDeliveryInformation}" maxlength="38" id="internshipInstituteAddress.additionalDeliveryInformation" name="internshipInstituteAddress.additionalDeliveryInformation" />  
             <label for="internshipInstituteAddress.additionalGeographicalInformation"><g:message code="address.property.additionalGeographicalInformation" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.additionalGeographicalInformation}" maxlength="38" id="internshipInstituteAddress.additionalGeographicalInformation" name="internshipInstituteAddress.additionalGeographicalInformation" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.additionalGeographicalInformation') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.additionalGeographicalInformation}" maxlength="38" id="internshipInstituteAddress.additionalGeographicalInformation" name="internshipInstituteAddress.additionalGeographicalInformation" />
             <label for="internshipInstituteAddress_streetNumber"><g:message code="address.property.streetNumber" /></label> - 
             <label for="internshipInstituteAddress_streetName" class="required"><g:message code="address.property.streetName" /> *</label><br />
-            <input type="text" class="line1 validate-streetNumber ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.streetNumber}" size="5" maxlength="5" id="internshipInstituteAddress_streetNumber" name="internshipInstituteAddress.streetNumber" />
-            <input type="text" class="line2 required validate-streetName ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.streetName}" maxlength="32" id="internshipInstituteAddress_streetName" name="internshipInstituteAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
-            <input type="hidden" value="${rqt.internshipInstituteAddress?.streetMatriculation}" id="internshipInstituteAddress_streetMatriculation" name="internshipInstituteAddress.streetMatriculation" />
-            <input type="hidden" value="${rqt.internshipInstituteAddress?.streetRivoliCode}" id="internshipInstituteAddress_streetRivoliCode" name="internshipInstituteAddress.streetRivoliCode" />
+            <input  type="text" class="line1 validate-streetNumber ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.streetNumber') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.streetNumber}" size="5" maxlength="5" id="internshipInstituteAddress_streetNumber" name="internshipInstituteAddress.streetNumber" />
+            <input  type="text" class="line2 required validate-streetName ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.streetName') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.streetName}" maxlength="32" id="internshipInstituteAddress_streetName" name="internshipInstituteAddress.streetName" title="<g:message code="address.property.streetName.validationError" />" />
+            <input  type="hidden" value="${rqt.internshipInstituteAddress?.streetMatriculation}" id="internshipInstituteAddress_streetMatriculation" name="internshipInstituteAddress.streetMatriculation" />
+            <input  type="hidden" value="${rqt.internshipInstituteAddress?.streetRivoliCode}" id="internshipInstituteAddress_streetRivoliCode" name="internshipInstituteAddress.streetRivoliCode" />
             <label for="internshipInstituteAddress.placeNameOrService"><g:message code="address.property.placeNameOrService" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.placeNameOrService}" maxlength="38" id="internshipInstituteAddress.placeNameOrService" name="internshipInstituteAddress.placeNameOrService" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.placeNameOrService') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.placeNameOrService}" maxlength="38" id="internshipInstituteAddress.placeNameOrService" name="internshipInstituteAddress.placeNameOrService" />
             <label for="internshipInstituteAddress_postalCode" class="required"><g:message code="address.property.postalCode" /> * </label> - 
             <label for="internshipInstituteAddress_city" class="required"><g:message code="address.property.city" /> *</label><br />
-            <input type="text" class="line1 required validate-postalCode ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.postalCode}" size="5" maxlength="5" id="internshipInstituteAddress_postalCode" name="internshipInstituteAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
-            <input type="text" class="line2 required validate-city ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.city') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.city}" maxlength="32" id="internshipInstituteAddress_city" name="internshipInstituteAddress.city" title="<g:message code="address.property.city.validationError" />" />
-            <input type="hidden" value="${rqt.internshipInstituteAddress?.cityInseeCode}" id="internshipInstituteAddress_cityInseeCode" name="internshipInstituteAddress.cityInseeCode" />
+            <input  type="text" class="line1 required validate-postalCode ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.postalCode') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.postalCode}" size="5" maxlength="5" id="internshipInstituteAddress_postalCode" name="internshipInstituteAddress.postalCode" title="<g:message code="address.property.postalCode.validationError" />" />
+            <input  type="text" class="line2 required validate-city ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.city') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.city}" maxlength="32" id="internshipInstituteAddress_city" name="internshipInstituteAddress.city" title="<g:message code="address.property.city.validationError" />" />
+            <input  type="hidden" value="${rqt.internshipInstituteAddress?.cityInseeCode}" id="internshipInstituteAddress_cityInseeCode" name="internshipInstituteAddress.cityInseeCode" />
             <label for="internshipInstituteAddress.countryName"><g:message code="address.property.countryName" /></label>
-            <input type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.countryName}" maxlength="38" id="internshipInstituteAddress.countryName" name="internshipInstituteAddress.countryName" />
+            <input  type="text" class="validate-addressLine38 ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteAddress.countryName') ? 'validation-failed' : ''}" value="${rqt.internshipInstituteAddress?.countryName}" maxlength="38" id="internshipInstituteAddress.countryName" name="internshipInstituteAddress.countryName" />
             </div>
             
 

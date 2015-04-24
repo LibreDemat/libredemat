@@ -12,6 +12,7 @@
     </span>
   </h4>
   
+    
     <label class="required"><g:message code="dhr.property.dhrRealAssetAddress.label" />&nbsp;* <span><g:message code="dhr.property.dhrRealAssetAddress.help" /></span></label>
             <div class="address required  ${rqt.stepStates['resources'].invalidFields.contains('dhrRealAsset['+collectionIndex+'].dhrRealAssetAddress') ? 'validation-failed' : ''}">
             <label for="dhrRealAsset.${collectionIndex}.dhrRealAssetAddress.additionalDeliveryInformation"><g:message code="address.property.additionalDeliveryInformation" /></label>
@@ -34,15 +35,17 @@
             
 
   
+    
     <label for="dhrRealAsset.${collectionIndex}.dhrRealAssetValue" class="required"><g:message code="dhr.property.dhrRealAssetValue.label" /> *  <span><g:message code="dhr.property.dhrRealAssetValue.help" /></span></label>
-            <input type="text" id="dhrRealAsset.${collectionIndex}.dhrRealAssetValue" name="dhrRealAsset[${collectionIndex}].dhrRealAssetValue" value="${currentCollectionItem?.dhrRealAssetValue?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrRealAsset['+collectionIndex+'].dhrRealAssetValue') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrRealAssetValue.validationError" />"   />
+            <input  type="text" id="dhrRealAsset.${collectionIndex}.dhrRealAssetValue" name="dhrRealAsset[${collectionIndex}].dhrRealAssetValue" value="${currentCollectionItem?.dhrRealAssetValue?.toString()}" 
+                    class="required  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrRealAsset['+collectionIndex+'].dhrRealAssetValue') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrRealAssetValue.validationError" />"   style="width:99%" />
             
 
   
+    
     <label for="dhrRealAsset.${collectionIndex}.realAssetNetFloorArea" class="required"><g:message code="dhr.property.realAssetNetFloorArea.label" /> *  <span><g:message code="dhr.property.realAssetNetFloorArea.help" /></span></label>
-            <input type="text" id="dhrRealAsset.${collectionIndex}.realAssetNetFloorArea" name="dhrRealAsset[${collectionIndex}].realAssetNetFloorArea" value="${currentCollectionItem?.realAssetNetFloorArea?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrRealAsset['+collectionIndex+'].realAssetNetFloorArea') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.realAssetNetFloorArea.validationError" />"   />
+            <input  type="text" id="dhrRealAsset.${collectionIndex}.realAssetNetFloorArea" name="dhrRealAsset[${collectionIndex}].realAssetNetFloorArea" value="${currentCollectionItem?.realAssetNetFloorArea?.toString()}" 
+                    class="required  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrRealAsset['+collectionIndex+'].realAssetNetFloorArea') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.realAssetNetFloorArea.validationError" />"   style="width:99%" />
             
 
   

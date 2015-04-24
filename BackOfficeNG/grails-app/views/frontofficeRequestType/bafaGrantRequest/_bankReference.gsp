@@ -2,6 +2,7 @@
 
 
   
+    
     <label class="required"><g:message code="bgr.property.isSubjectAccountHolder.label" /> *  <span><g:message code="bgr.property.isSubjectAccountHolder.help" /></span></label>
             <ul class="yes-no required ${rqt.stepStates['bankReference'].invalidFields.contains('isSubjectAccountHolder') ? 'validation-failed' : ''}">
               <g:each in="${[true,false]}">
@@ -16,6 +17,7 @@
   
 
   
+    
     <label for="accountHolderTitle" class="required condition-isSubjectAccountHolder-unfilled"><g:message code="bgr.property.accountHolderTitle.label" /> *  <span><g:message code="bgr.property.accountHolderTitle.help" /></span></label>
             <select id="accountHolderTitle" name="accountHolderTitle" class="required condition-isSubjectAccountHolder-unfilled  validate-not-first ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderTitle') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.accountHolderTitle.validationError" />">
               <option value=""><g:message code="message.select.defaultOption" /></option>
@@ -28,22 +30,25 @@
   
 
   
+    
     <label for="accountHolderLastName" class="required condition-isSubjectAccountHolder-unfilled"><g:message code="bgr.property.accountHolderLastName.label" /> *  <span><g:message code="bgr.property.accountHolderLastName.help" /></span></label>
-            <input type="text" id="accountHolderLastName" name="accountHolderLastName" value="${rqt.accountHolderLastName?.toString()}" 
+            <input  type="text" id="accountHolderLastName" name="accountHolderLastName" value="${rqt.accountHolderLastName?.toString()}" 
                     class="required condition-isSubjectAccountHolder-unfilled  validate-lastName ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderLastName') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.accountHolderLastName.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label for="accountHolderFirstName" class="required condition-isSubjectAccountHolder-unfilled"><g:message code="bgr.property.accountHolderFirstName.label" /> *  <span><g:message code="bgr.property.accountHolderFirstName.help" /></span></label>
-            <input type="text" id="accountHolderFirstName" name="accountHolderFirstName" value="${rqt.accountHolderFirstName?.toString()}" 
+            <input  type="text" id="accountHolderFirstName" name="accountHolderFirstName" value="${rqt.accountHolderFirstName?.toString()}" 
                     class="required condition-isSubjectAccountHolder-unfilled  validate-firstName ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderFirstName') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.accountHolderFirstName.validationError" />"  maxlength="38" />
             
 
   
 
   
+    
     <label class="required condition-isSubjectAccountHolder-unfilled"><g:message code="bgr.property.accountHolderBirthDate.label" /> *  <span><g:message code="bgr.property.accountHolderBirthDate.help" /></span></label>
             <div class="date required condition-isSubjectAccountHolder-unfilled  validate-date required condition-isSubjectAccountHolder-unfilled ">
               <select class="day ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderBirthDate') ? 'validation-failed' : ''}"
@@ -86,6 +91,7 @@
   
 
   
+    
     <label for="bankAccount" class="required"><g:message code="bgr.property.bankAccount.label" /> *  <span><g:message code="bgr.property.bankAccount.help" /></span></label>
             <div class="address required  ${rqt.stepStates['bankReference'].invalidFields.contains('bankAccount') ? 'validation-failed' : ''}">
             <label for="bankAccount.BIC"><g:message code="bankAccount.property.BIC" /></label>
