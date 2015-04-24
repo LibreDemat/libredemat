@@ -207,24 +207,12 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         disabledFields('scaffoldingEndDate');
         disabledFields('occupationEndDate');
 
-        yue.on(yud.get("scaffoldingLength"), 'change', function(e) {
-          updateScaffoldingPrice();
-        });
-        yue.on(yud.get("scaffoldingStartDate"), 'change', function(e) {
-          updateScaffoldingPrice();
-        });
-        yue.on(yud.get("scaffoldingEndDate"), 'change', function(e) {
+        yue.on(['scaffoldingLength', 'scaffoldingStartDate', 'scaffoldingEndDate'], 'change', function() {
           updateScaffoldingPrice();
         });
         updateScaffoldingPrice();
 
-        yue.on(yud.get("occupation"), 'change', function(e) {
-          updateOccupationPrice();
-        });
-        yue.on(yud.get("occupationStartDate"), 'change', function(e) {
-          updateOccupationPrice();
-        });
-        yue.on(yud.get("occupationEndDate"), 'change', function(e) {
+        yue.on(['occupation', 'occupationStartDate', 'occupationEndDate'], 'change', function() {
           updateOccupationPrice();
         });
         updateOccupationPrice();
