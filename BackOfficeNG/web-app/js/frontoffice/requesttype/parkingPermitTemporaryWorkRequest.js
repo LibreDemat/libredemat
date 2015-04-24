@@ -96,7 +96,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice + " €</span> " +
           "x <span id='scaffoldingLengthInformation'>0</span> ml " +
           "x <span id='scaffoldingDurationInformation'>0</span> jours " +
-          "= <span id='scaffoldingTotalPrice'>0</span> € TTC";
+          "= <span id='scaffoldingTotalPrice'>0</span> <span class='price-display'>€</span> TTC";
         yud.insertAfter(newNode, elem);
       }
 
@@ -115,9 +115,9 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       }
 
       yud.get('scaffoldingTotalPrice').innerHTML =
-          parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice.replace(",", ".")) *
-          parseFloat(yud.get('scaffoldingLengthInformation').innerHTML) *
-          parseFloat(yud.get('scaffoldingDurationInformation').innerHTML);
+          (parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice.replace(",", ".")) *
+          parseFloat(yud.get('scaffoldingLengthInformation').innerHTML.replace(',','.')) *
+          parseFloat(yud.get('scaffoldingDurationInformation').innerHTML)).toFixed(2);
 
       displayTotalPriceInformation();
     };
@@ -133,7 +133,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             zenexity.libredemat.pptwrSpecificConfigurationData.floorOccupationPrice + " €</span> " +
             "x <span id='occupationSurfaceInformation'>0</span> m² " +
             "x <span id='occupationDurationInformation'>0</span> jours " +
-            "= <span id='occupationTotalPrice'>0</span> € TTC";
+            "= <span id='occupationTotalPrice'>0</span> <span class='price-display'>€</span> TTC";
         yud.insertAfter(newNode, elem);
       }
 
@@ -152,9 +152,9 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       }
 
       yud.get('occupationTotalPrice').innerHTML =
-          parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.floorOccupationPrice.replace(",", ".")) *
-          parseFloat(yud.get('occupationSurfaceInformation').innerHTML) *
-          parseFloat(yud.get('occupationDurationInformation').innerHTML);
+          (parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.floorOccupationPrice.replace(",", ".")) *
+          parseFloat(yud.get('occupationSurfaceInformation').innerHTML.replace(',','.')) *
+          parseFloat(yud.get('occupationDurationInformation').innerHTML)).toFixed(2);
 
       displayTotalPriceInformation();
     };
