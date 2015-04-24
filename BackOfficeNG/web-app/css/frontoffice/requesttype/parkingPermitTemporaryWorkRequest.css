@@ -16,3 +16,11 @@
 #occupationTotalPrice {
     color: red;
 }
+
+#totalPriceInformation {
+    color: red;
+}
+
+#totalPrice {
+    margin-top: 1em;
+}

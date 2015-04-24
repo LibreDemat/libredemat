@@ -118,6 +118,8 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.scaffoldingPrice.replace(",", ".")) *
           parseFloat(yud.get('scaffoldingLengthInformation').innerHTML) *
           parseFloat(yud.get('scaffoldingDurationInformation').innerHTML);
+
+      displayTotalPriceInformation();
     };
 
     var updateOccupationPrice = function() {
@@ -153,19 +155,47 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.floorOccupationPrice.replace(",", ".")) *
           parseFloat(yud.get('occupationSurfaceInformation').innerHTML) *
           parseFloat(yud.get('occupationDurationInformation').innerHTML);
+
+      displayTotalPriceInformation();
     };
 
-    var displayPricesInformation = function() {
+    var displayTotalPriceInformation = function() {
       var elem = yud.get('Observations-header-information');
-      var newNode = document.createElement('div');
-      newNode.setAttribute('class', 'prices-information');
-      newNode.innerHTML = "Un droit fixe de <span class='price-display'>" +
-          zenexity.libredemat.pptwrSpecificConfigurationData.fixedChargePrice + " €</span> " +
-          "est dû pour l'établissement de toute autorisation. Tout dépassement des surfaces ou durées autorisées " +
-          "sera facturé par la ville au taux de <span class='price-display'>" +
-          zenexity.libredemat.pptwrSpecificConfigurationData.exceedingPrice + " €</span> " +
-          "par m² et par semaine (minimum de durée).";
-      yud.insertBefore(newNode, elem);
+
+      var pricesInformationNode;
+      if (!yud.get('pricesInformation')) {
+        pricesInformationNode = document.createElement('div');
+        pricesInformationNode.id = 'pricesInformation';
+        pricesInformationNode.setAttribute('class', 'prices-information');
+        pricesInformationNode.innerHTML = "Un droit fixe de <span class='price-display'>" +
+            zenexity.libredemat.pptwrSpecificConfigurationData.fixedChargePrice + " €</span> " +
+            "est dû pour l'établissement de toute autorisation. Tout dépassement des surfaces ou durées autorisées " +
+            "sera facturé par la ville au taux de <span class='price-display'>" +
+            zenexity.libredemat.pptwrSpecificConfigurationData.exceedingPrice + " €</span> " +
+            "par m² et par semaine (minimum de durée).";
+        yud.insertBefore(pricesInformationNode, elem);
+      } else {
+        pricesInformationNode = yud.get('pricesInformation');
+      }
+
+      if (!yud.get('totalPrice')) {
+        var newNode = document.createElement('div');
+        newNode.id = 'totalPrice';
+        newNode.setAttribute('class', 'prices-information');
+        newNode.innerHTML = "Soit une estimation de <span id='totalPriceInformation'> 0 €</span> " +
+            "qui sera à régler via ce télé-service par carte bleue après validation et confirmation par nos services.";
+        yud.insertAfter(newNode, pricesInformationNode);
+      }
+
+      var scaffoldingTotalPrice = (yud.inDocument('scaffoldingTotalPrice') ? yud.get('scaffoldingTotalPrice').innerHTML : 0) *
+          yud.get('scaffolding_yes').checked;
+      var occupationTotalPrice = (yud.inDocument('occupationTotalPrice') ? yud.get('occupationTotalPrice').innerHTML : 0) *
+          yud.get('vehicleParkingOrFloorOccupation_yes').checked;
+      var totalPrice =
+          parseFloat(zenexity.libredemat.pptwrSpecificConfigurationData.fixedChargePrice.replace(",", ".")) +
+          parseFloat(scaffoldingTotalPrice) +
+          parseFloat(occupationTotalPrice);
+      yud.get('totalPriceInformation').innerHTML = totalPrice.toFixed(2) + ' €';
     };
 
     return {
@@ -199,7 +229,11 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         });
         updateOccupationPrice();
 
-        displayPricesInformation();
+        yue.on(['scaffolding_yes', 'scaffolding_no', 'vehicleParkingOrFloorOccupation_yes', 'vehicleParkingOrFloorOccupation_no'],
+            'click', function() {
+          displayTotalPriceInformation();
+        });
+        displayTotalPriceInformation();
       },
       /**
        * @description The name of the method to call is the first part of the
@@ -236,6 +270,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
         disabledFields('occupationEndDate');
         updateScaffoldingPrice();
         updateOccupationPrice();
+        displayTotalPriceInformation();
       }
     }
   }();
