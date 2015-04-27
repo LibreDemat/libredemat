@@ -1,4 +1,6 @@
-    create table parking_permit_temporary_work_request (
+drop table if exists parking_permit_temporary_work_request cascade;
+
+create table parking_permit_temporary_work_request (
         id int8 not null,
         acceptation_reglement_interieur bool,
         ape_code varchar(5),
@@ -47,8 +49,3 @@
         add constraint FKB6DF04BD3188D675 
         foreign key (parking_permit_temporary_work_request_id) 
         references parking_permit_temporary_work_request;
-
-    alter table perischool_activity_registration_request 
-        add constraint FK76BAA59A37A0DD36 
-        foreign key (school_id) 
-        references school;

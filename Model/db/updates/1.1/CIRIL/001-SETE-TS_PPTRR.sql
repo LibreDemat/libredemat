@@ -1,3 +1,6 @@
+alter table parking_permit_temporary_relocation_request
+    drop constraint FK826DD839DBF56A6;
+
 alter table parking_permit_temporary_relocation_request_equipment_used 
     drop constraint FK1775820ADCF45D04;
 
@@ -20,15 +23,18 @@ alter table parking_permit_temporary_relocation_request
     add column observations varchar(255),
     add column observations_reglement varchar(255),
     add column other varchar(255),
+    add column payment_indicative_amount varchar(255),
+    add column requester_address varchar(255),
     add column siret_number varchar(14),
     add column vehicle_type varchar(255);
 
 alter table parking_permit_temporary_relocation_request 
-    drop column largeur bytea,
-    drop column marque varchar(255),
-    drop column tonnage bytea,
-    drop column volume bytea;
-    
+    drop column largeur,
+    drop column marque,
+    drop column tonnage,
+    drop column volume,
+    drop column requester_address_id;
+
 create table parking_permit_temporary_relocation_request_desired_service (
     parking_permit_temporary_relocation_request_id int8 not null,
     desired_service_id int8 not null,
@@ -45,9 +51,5 @@ alter table parking_permit_temporary_relocation_request_desired_service
     add constraint FKBC299F54801C7F07 
     foreign key (parking_permit_temporary_relocation_request_id) 
     references parking_permit_temporary_relocation_request;
-
-alter table parking_permit_temporary_relocation_request drop constraint FK826DD839DBF56A6;
-alter table parking_permit_temporary_relocation_request drop column requester_address_id ;
-alter table parking_permit_temporary_relocation_request add column requester_address varchar(255);
 
 alter table request_type add column specific_configuration_data TEXT;
