@@ -58,6 +58,12 @@
                         </xs:element>
                         <xs:element name="CompanyInformation" type="pptrr:PptrrCompanyInformationType">
                             <xs:annotation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                                    Informations relatives à l'entreprise
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                                    Informations relatives à l'entreprise
+                                </xs:documentation>
                                 <xs:appinfo>
                                     <common>
                                         <step name="relocation" />
