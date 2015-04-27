@@ -6,7 +6,6 @@ Le règlement d'un télé-service vous est demandé.
 INFO PAIEMENT
 --------------------------------------------------
 Régie : ${broker}
-Identifiant de la demande : ${requestId}
 Mode de paiement : ${paymentMode}
 --------------------------------------------------
 

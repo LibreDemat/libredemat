@@ -845,8 +845,6 @@ public final class PaymentService implements IPaymentService,
         // Mail body variable
         mailBody = mailBody.replace("${broker}", payment.getBroker() != null ? payment.getBroker() : "");
         mailBody = mailBody.replace("${url}", lacb.getDefaultServerName() != null ? lacb.getDefaultServerName() : "");
-        mailBody = mailBody.replace("${requestId}", payment.getRequesterId() != null ? payment.getRequesterId() + ""
-                : "");
         mailBody = mailBody.replace("${cvqReference}", payment.getCvqReference() != null ? payment.getCvqReference()
                 : "");
         mailBody = mailBody.replace("${paymentMode}", payment.getPaymentMode() != null ? payment.getPaymentMode()
