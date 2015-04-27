@@ -243,6 +243,9 @@
             <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" alt="${message(code:'homeFolder.header.synchronise.title')}" title="${message(code:'homeFolder.header.synchronise.title')}">
               ${message(code:'homeFolder.header.synchronise')}
             </a>
+            <a href="${createLink(controller: 'backofficeHomeFolder',action:'findDuplicates', id : homeFolderResponsible.id)}">
+              ${message(code:'homeFolder.header.findDuplicates')}
+            </a>
           </div>
         </div>
       </g:if>

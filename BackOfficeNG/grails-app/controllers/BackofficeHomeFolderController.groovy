@@ -96,7 +96,13 @@ class BackofficeHomeFolderController {
     }
 
     def help = {}
-    
+
+    def findDuplicates = {
+        Adult adult = userSearchService.getAdultById(params.id.toLong())
+        userDeduplicationService.findAdultDuplicates(adult)
+        redirect(action:'details', params:['id': adult.homeFolder.id])
+    }
+
     def search = {
         def state = [:], records = [], count = 0
         if (params.pageState) state = JSON.parse(params.pageState)

@@ -191,7 +191,8 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         }
     }
 
-    private void findAdultDuplicates(Adult adult) {
+    @Override
+    public void findAdultDuplicates(Adult adult) {
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("lastName", formatData(adult.getLastName()));
         parameters.put("firstName", formatData(adult.getFirstName()));
