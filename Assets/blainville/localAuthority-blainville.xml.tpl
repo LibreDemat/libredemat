@@ -20,7 +20,7 @@
         <!-- builtin,cas -->
         <property name="authenticationMethodFront" value="builtin"/>
         <!-- builtin,oauth2-->
-        <property name="accountValidationRequired" value="true"/>
+        <property name="accountValidationRequired" value="false"/>
         <property name="viewDocumentInPanelInBO" value="false"/>
         <property name="informationSheetDisplayed" value="true"/>
         <property name="informationSheetRequired" value="false"/>
