@@ -965,7 +965,7 @@ class BackofficeHomeFolderController {
     def synchronise = {
       Adult adult = userSearchService.getAdultById(params.id.toLong())
         try {
-          userDeduplicationService.createMapping(adult.getHomeFolder());
+          userDeduplicationService.createCirilMapping(adult.getHomeFolder());
           userWorkflowService.synchronise(adult);
         }
       catch (Exception ex)

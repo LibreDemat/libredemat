@@ -571,16 +571,12 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
     }
 
     @Override
-    public void createMapping(HomeFolder homeFolderTarget) {
+    public void createCirilMapping(HomeFolder homeFolderTarget) {
         // Génère service externe vide pour tous les individus...
-        List<String> externalServiceByLabels = externalService.getExternalServiceByLabels();
-        List<HomeFolderMapping> homeFolderMappings = externalHomeFolderService.getHomeFolderMappings(homeFolderTarget
-                .getId());
-        for (String externalServiceLabel : externalServiceByLabels)
-        {
-            if (!userCoherenceService.existHomeFolderMappingByExternalLabel(homeFolderMappings, externalServiceLabel)) externalHomeFolderService
-                    .addHomeFolderMapping(externalServiceLabel, homeFolderTarget.getId(), null);
-        }
+        List<HomeFolderMapping> homeFolderMappings =
+                externalHomeFolderService.getHomeFolderMappings(homeFolderTarget.getId());
+        if (!userCoherenceService.existHomeFolderMappingByExternalLabel(homeFolderMappings, "CirilNetEnfance"))
+            externalHomeFolderService.addHomeFolderMapping("CirilNetEnfance", homeFolderTarget.getId(), null);
         userCoherenceService.verifyConcordenceMappings(homeFolderTarget);
     }
 
