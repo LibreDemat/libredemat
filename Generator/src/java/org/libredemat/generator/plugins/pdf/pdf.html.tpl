@@ -385,7 +385,7 @@ ${endGT()}
           <% displayWidget(subElement, "rqt") %>
         <% } %>
       </div>
-    <% } else { %>
+    <% } else if (element.widget != 'requester') { %>
       <% displayWidget(element, "rqt") %>
     <% } %>
   <% } %>

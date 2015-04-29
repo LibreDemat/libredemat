@@ -102,41 +102,6 @@
   <h2>${i18n.translate('pptwr.step.work.label')}</h2>
   
     
-      
-          <p class="label">
-            ${i18n.translate('homeFolder.adult.property.title')}
-            ${i18n.translate('homeFolder.individual.property.firstName')}
-            ${i18n.translate('homeFolder.individual.property.lastName')}
-          </p>
-          <div class="response">
-            <% if(requester?.title) { %>
-              ${i18n.translate('homeFolder.adult.title.' + StringUtils.lowerCase(requester?.title.toString()))}
-            <% } %>
-            ${esc(requester?.firstName)}
-            ${esc(requester?.lastName)}
-          </div>
-          <p class="label">${i18n.translate('homeFolder.individual.property.address')}</p>
-          <div class="response">
-            <% if (requester?.address) { %>
-              <p>${esc(StringUtils.defaultString(requester?.address?.additionalDeliveryInformation))}</p>
-              <p>${esc(StringUtils.defaultString(requester?.address?.additionalGeographicalInformation))}</p>
-              <p>${esc(StringUtils.defaultString(requester?.address?.streetNumber))} ${esc(StringUtils.defaultString(requester?.address?.streetName))}</p>
-              <p>${esc(StringUtils.defaultString(requester?.address?.placeNameOrService))}</p>
-              <p>${esc(StringUtils.defaultString(requester?.address?.postalCode))} ${esc(StringUtils.defaultString(requester?.address?.city))}</p>
-              <p>${esc(StringUtils.defaultString(requester?.address?.countryName))}</p>
-            <% } %>
-          </div>
-          <p class="label">${i18n.translate('homeFolder.adult.property.email')}</p>
-          <div class="response">${esc(StringUtils.defaultString(requester?.email))}</div>
-          <p class="label">${i18n.translate('homeFolder.adult.property.homePhone')}</p>
-          <div class="response">${esc(StringUtils.defaultString(requester?.homePhone))}</div>
-          <p class="label">${i18n.translate('homeFolder.adult.property.mobilePhone')}</p>
-          <div class="response">${esc(StringUtils.defaultString(requester?.mobilePhone))}</div>
-          <p class="label">${i18n.translate('homeFolder.adult.property.officePhone')}</p>
-          <div class="response">${esc(StringUtils.defaultString(requester?.officePhone))}</div>
-          
-
-    
   
     
       <p class="label">${esc(i18n.translate('pptwr.property.isCompany.label'))}</p>
