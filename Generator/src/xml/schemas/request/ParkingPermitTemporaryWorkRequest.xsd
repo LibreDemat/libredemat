@@ -663,12 +663,10 @@
             <xs:element name="OccupationOtherAddress" type="xs:string" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                        Si le stationnement ne se situe pas au droit immédiat du chantier (en face ou plus loin), indiquez
-                        l'adresse demandée
+                        Si le stationnement ne se situe pas au droit immédiat du chantier (en face ou plus loin), indiquez l'adresse demandée
                     </xs:documentation>
                     <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                        Si le stationnement ne se situe pas au droit immédiat du chantier (en face ou plus loin), indiquez
-                        l'adresse demandée
+                        Si le stationnement ne se situe pas au droit immédiat du chantier (en face ou plus loin), indiquez l'adresse demandée
                     </xs:documentation>
                     <xs:appinfo>
                         <common>
