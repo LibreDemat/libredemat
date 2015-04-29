@@ -183,7 +183,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'pptrr.property.payment.label')}(<g:message code="system.paiement" />) &nbsp;:</dt><dd id="payment" class="${rqt.payment != null && rqt.payment.state.name == 'Validated' ? '' : 'action-editField'} validate-payment i18n-pptrr.property.payment" ><span><g:if test="${rqt.payment != null}"><g:formatNumber number="${(rqt.payment.amount.toDouble())/100}" type="number" maxFractionDigits="2" /></g:if><g:else>${rqt.paymentIndicativeAmount}</g:else></span></dd>
+                <dt class="">${message(code:'pptrr.property.payment.label')}(<g:message code="system.paiement" />) &nbsp;:</dt><dd id="payment" class="${rqt.payment != null && rqt.payment.state.name == 'Validated' ? '' : 'action-editField'} validate-payment i18n-pptrr.property.payment" ><span><g:if test="${rqt.payment != null}"><g:formatNumber number="${(rqt.payment.amount.toDouble())/100}" type="number" minFractionDigits="2" maxFractionDigits="2" /></g:if><g:else><g:formatNumber number="${rqt.paymentIndicativeAmount}" type="number" minFractionDigits="2" maxFractionDigits="2" />${rqt.paymentIndicativeAmount}</g:else></span></dd>
               </dl>
               
             

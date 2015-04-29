@@ -333,7 +333,7 @@ class BackofficeRequestInstructionController {
             def requestPaymentService = requestServiceRegistry.getRequestPaymentService(rqt);
             if (requestPaymentService != null)
             {
-                def amount = (Math.round(Double.valueOf(params.amount) * 100 ) / 100) * 100
+                def amount = (Math.round(Double.valueOf(params.amount.replace(',','.')) * 100 ) / 100) * 100
                 if (amount > 0)
                 {
                     Payment payment = requestPaymentService.buildPayment(rqt, amount.toDouble());
