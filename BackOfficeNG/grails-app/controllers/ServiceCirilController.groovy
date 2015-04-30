@@ -61,7 +61,7 @@ class ServiceCirilController {
 						//((IActivityReservationProviderService)service).getCancelReservation(session.activityId);
 					}
 				}
-				parametersMap.put("withoutMail", true);
+				parametersMap.put("withoutMail", "true");
 				paymentService.commitPayment(parametersMap);
 			}
 			
