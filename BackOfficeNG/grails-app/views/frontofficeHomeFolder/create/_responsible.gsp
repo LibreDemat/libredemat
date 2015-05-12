@@ -41,7 +41,7 @@
       </g:else>
       <div id="loginInformations" class="${params.boolean == null || params.boolean('temporary') ? 'hidden' : ''}">
     </g:if>
-    
+
     <label for="password" class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'}">
       ${message(code:'request.step.validation.label.choosePassword')} *
       <span>(${message(code:'request.step.validation.help.choosePassword')})</span>
@@ -49,13 +49,13 @@
     <input type="password" id="password" name="password" value="${adult?.password}" autocomplete="off"
       class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'} ${invalidFields?.contains('password') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.adult.property.password.validationError')}" />
-    <label for="confirmPassword" class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'}">${message(code:'request.step.validation.label.confirmPassword')}</label>
+    <label for="confirmPassword" class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'}">${message(code:'request.step.validation.label.confirmPassword')} *</label>
     <input type="password" id="confirmPassword" name="confirmPassword" value="${adult?.confirmPassword}" autocomplete="off"
       class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'} ${invalidFields?.contains('confirmPassword') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.adult.property.password.validationError')}" />
     <p>${message(code:'homeFolder.adult.help.question')}</p>
     <label for="question" class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'}">
-      ${message(code:'homeFolder.adult.property.question')}
+      ${message(code:'homeFolder.adult.property.question')} *
     </label>
     <select id="question" name="question"
       class="${temporary && !createOnlyTemporaryAccountInTS ? 'required validate-not-first' : ''} ${invalidFields?.contains('question') ? 'validation-failed' : ''}"
@@ -70,7 +70,7 @@
         </option>
       </g:each>
     </select>
-    <label for="answer" class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'}">${message(code:'homeFolder.adult.property.answer')}</label>
+    <label for="answer" class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'}">${message(code:'homeFolder.adult.property.answer')} *</label>
     <input type="text" id="answer" name="answer" value="${adult?.answer}"
       class="${temporary && createOnlyTemporaryAccountInTS ? '' : 'required'} ${invalidFields?.contains('answer') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.adult.property.answer.validationError')}" />
