@@ -61,6 +61,13 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
         
           stepState = new HashMap<String, Object>(4);
           stepState.put("state", "unavailable");
+          stepState.put("required", false);
+          stepState.put("errorMsg", null);
+          stepState.put("invalidFields", new ArrayList<String>());
+          getStepStates().put("document", stepState);
+        
+          stepState = new HashMap<String, Object>(4);
+          stepState.put("state", "unavailable");
           stepState.put("required", true);
           stepState.put("errorMsg", null);
           stepState.put("invalidFields", new ArrayList<String>());
@@ -293,6 +300,13 @@ public class ParkingPermitTemporaryWorkRequest extends Request implements Serial
           stepState.put("errorMsg", null);
           stepState.put("invalidFields", new ArrayList<String>());
           clone.getStepStates().put("reglements", stepState);
+        
+          stepState = new HashMap<String, Object>(4);
+          stepState.put("state", "unavailable");
+          stepState.put("required", false);
+          stepState.put("errorMsg", null);
+          stepState.put("invalidFields", new ArrayList<String>());
+          clone.getStepStates().put("document", stepState);
         
           stepState = new HashMap<String, Object>(4);
           stepState.put("state", "unavailable");

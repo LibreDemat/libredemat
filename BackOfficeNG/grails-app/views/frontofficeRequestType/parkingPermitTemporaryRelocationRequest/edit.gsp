@@ -182,6 +182,40 @@
   
 
   
+        <g:if test="${!documentTypes.isEmpty()}">
+  
+
+  
+
+        <li class="${currentStep == 'document' ? 'current ' : ''}
+          
+            ${rqt.stepStates['document'].state}
+          "
+          >
+          <span class="number">${stepNumber++}</span>
+          <a
+            <g:if test="${currentStep != 'document' && rqt.stepStates['document'].state != 'unavailable'}">
+              href="${createLink(controller:'frontofficeRequest', action : 'edit', params:['id':rqt.id,'currentStep':'document'])}"
+            </g:if>
+          >
+            
+              <g:message code="request.step.document.label" />
+              <span class="help">
+                
+                  <g:message code="request.step.message.${rqt.stepStates['document'].state}" />
+                
+              </span>
+            
+          </a>
+        </li>
+
+  
+
+  
+        </g:if>
+  
+
+  
 
   
 

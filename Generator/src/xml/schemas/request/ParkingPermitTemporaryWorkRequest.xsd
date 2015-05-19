@@ -34,8 +34,9 @@
                             </conditions>
                         </step>
                         <step index="1" name="reglements" />
-                        <step index="2" ref="validation" />
-                        <step index="3" ref="paiement" />
+                        <step index="2" ref="document" />
+                        <step index="3" ref="validation" />
+                        <step index="4" ref="paiement" />
                     </steps>
                 </common>
             </xs:appinfo>

@@ -13,7 +13,7 @@
     </li>
   
     <li class="paiement ">
-      <a href="#page3"><em><g:message code="request.step.paiement.label" /></em></a>
+      <a href="#page4"><em><g:message code="request.step.paiement.label" /></em></a>
     </li>
   
   </ul>
@@ -190,7 +190,7 @@
       <!-- step end -->
       
       <!-- step start -->
-      <div id="page3">
+      <div id="page4">
         <h2><g:message code="property.form" />
           <span><g:message code="request.step.paiement.label" /></span>
         </h2>
