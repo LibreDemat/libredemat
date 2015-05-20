@@ -62,9 +62,9 @@ public class ParkingPermitTemporaryRelocationRequestService extends RequestServi
         String desiredServiceName = desiredServiceData.get(0).getName();
         RequestType rt = pptrRequest.getRequestType();
         if (desiredServiceName.equals("De-me-nagement-avec-prestations"))
-            pptrRequest.setPaymentIndicativeAmount(rt.getSpecificConfigurationDataValue("relocationWithPrestation"));
+            pptrRequest.setPaymentIndicativeAmount(rt.getSpecificConfigurationDataValue("relocationWithPrestation").replace(',', '.'));
         else if (desiredServiceName.equals("Autorisation-sans-prestation"))
-            pptrRequest.setPaymentIndicativeAmount(rt.getSpecificConfigurationDataValue("authorizationWithoutPrestation"));
+            pptrRequest.setPaymentIndicativeAmount(rt.getSpecificConfigurationDataValue("authorizationWithoutPrestation").replace(',','.'));
     }
 
     @Override
