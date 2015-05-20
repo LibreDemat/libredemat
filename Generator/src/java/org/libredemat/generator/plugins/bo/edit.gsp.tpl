@@ -38,7 +38,7 @@
           ].join()
         ,'payment' :
           ["<span>"
-          ,"<g:if test=\"\${${wrapper}.${element.javaFieldName} != null}\"><g:formatNumber number=\"\${(${wrapper}.${element.javaFieldName}.amount.toDouble())/100}\" type=\"number\" minFractionDigits=\"2\" maxFractionDigits=\"2\" /></g:if><g:else><g:formatNumber number=\"\${${wrapper}.paymentIndicativeAmount}\" type=\"number\" minFractionDigits=\"2\" maxFractionDigits=\"2\" /></g:else>"
+          ,"<g:if test=\"\${${wrapper}.${element.javaFieldName} != null}\"><g:formatNumber number=\"\${(${wrapper}.${element.javaFieldName}.amount.toDouble())/100}\" type=\"number\" minFractionDigits=\"2\" maxFractionDigits=\"2\" /></g:if><g:else><g:formatNumber number=\"\${Double.valueOf(${wrapper}.paymentIndicativeAmount)}\" type=\"number\" minFractionDigits=\"2\" maxFractionDigits=\"2\" /></g:else>"
           ,"</span>"
           ].join()
         ,'frenchRIB' :
