@@ -62,7 +62,7 @@ public class ParkingPermitTemporaryWorkRequestService  extends RequestService im
         if (pptwRequest.getScaffolding()) {
             int daysBetweenStartAndEnd = Days.daysBetween(new LocalDate(pptwRequest.getScaffoldingStartDate()),
                     new LocalDate(pptwRequest.getScaffoldingEndDate())).getDays() + 1;
-            totalPrice += pptwRequest.getScaffoldingLength().floatValue() *
+            totalPrice += (pptwRequest.getScaffoldingLength() != null ? pptwRequest.getScaffoldingLength().floatValue() : 0) *
                     Float.valueOf(rt.getSpecificConfigurationDataValue("scaffoldingPrice").replace(',', '.')) *
                     daysBetweenStartAndEnd;
         }
@@ -70,7 +70,7 @@ public class ParkingPermitTemporaryWorkRequestService  extends RequestService im
         if (pptwRequest.getVehicleParkingOrFloorOccupation()) {
             int daysBetweenStartAndEnd = Days.daysBetween(new LocalDate(pptwRequest.getOccupationStartDate()),
                     new LocalDate(pptwRequest.getOccupationEndDate())).getDays() + 1;
-            totalPrice += pptwRequest.getOccupation().floatValue() *
+            totalPrice += (pptwRequest.getOccupation() != null ? pptwRequest.getOccupation().floatValue() : 0) *
                     Float.valueOf(rt.getSpecificConfigurationDataValue("floorOccupationPrice").replace(',','.')) *
                     daysBetweenStartAndEnd;
         }
