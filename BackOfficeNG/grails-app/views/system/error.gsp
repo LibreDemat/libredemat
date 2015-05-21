@@ -7,7 +7,12 @@
     <div id="yui-main">
       <div class="error-box">
         <p>
-          <g:message code="${i18nKey}" args="${i18nArgs}" />
+          <g:if test="${i18nKey}">
+            <g:message code="${i18nKey}" args="${i18nArgs}" />
+          </g:if>
+          <g:else>
+            <g:message code="error.unexpected" />
+          </g:else>
         </p>
         <div class="links">
           <g:if test="${context == 'bo'}">

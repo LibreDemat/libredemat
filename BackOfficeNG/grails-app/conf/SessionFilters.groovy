@@ -173,6 +173,11 @@ class SessionFilters {
 
         setupFrontUser(uri: '/frontoffice/**') {
             before = {
+                // Avoid looping in this filter, go out if we detect that we are dealing with an error
+                // Still could not figure out how we entered in ...
+                if (controllerName == 'system' && actionName == 'error')
+                    return true
+
                 if (params.owner) {
                     session.setAttribute(
                         'templatePath',
@@ -219,7 +224,6 @@ class SessionFilters {
                 	log.error "Unexpected error while setting current ecitizen : ${ce.message}"
                 	response.setStatus(500)
                 	render "Unexpected error while setting current ecitizen : ${ce.message}"
-                    ce.printStackTrace()
 					return false
                 }
             }

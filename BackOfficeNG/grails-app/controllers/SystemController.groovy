@@ -2,7 +2,6 @@ import org.libredemat.security.SecurityContext
 import grails.converters.JSON
 
 public class SystemController {
-    def securityService
 
     def error = {
         def exception = request.exception
