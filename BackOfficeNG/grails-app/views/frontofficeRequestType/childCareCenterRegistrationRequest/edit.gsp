@@ -121,10 +121,45 @@
   
 
   
+        <g:if test="${rqt.requestType.getStepAccountCompletion() && !session.proxyAgent}">
+  
+
+        <li class="${currentStep == 'homeFolder' ? 'current ' : ''}
+          
+            ${individual ? rqt.stepStates['homeFolder-' + params.type].state : rqt.stepStates['homeFolder'].state}
+          "
+          >
+          <span class="number">${stepNumber++}</span>
+          <a
+            <g:if test="${currentStep != 'homeFolder' && rqt.stepStates['homeFolder'].state != 'unavailable'}">
+              href="${createLink(controller:'frontofficeRequest', action : 'edit', params:['id':rqt.id,'currentStep':'homeFolder'])}"
+            </g:if>
+          >
+            
+              <g:message code="${individual ? 'homeFolder.action.add' + org.apache.commons.lang.StringUtils.capitalize(params.type) : 'request.step.homeFolder.label'}" />
+
+              
+
+              <span class="help">
+                <g:message code="request.step.message.${rqt.stepStates['homeFolder' + (individual ? '-' + params.type : '')].state}" />
+              </span>
+            
+          </a>
+        </li>
+
+  
+        </g:if>
+  
+
+  
+
+  
+
+  
 
         <li class="${currentStep == 'registrationSubject' ? 'current ' : ''}
           
-            ${individual ? rqt.stepStates['registrationSubject-' + params.type].state : rqt.stepStates['registrationSubject'].state}
+            ${rqt.stepStates['registrationSubject'].state}
           "
           >
           <span class="number">${stepNumber++}</span>
@@ -134,14 +169,11 @@
             </g:if>
           >
             
-              <g:message code="${individual ? 'homeFolder.action.add' + org.apache.commons.lang.StringUtils.capitalize(params.type) : 'cccrr.step.registrationSubject.label'}" />
-
-              
-                ${individual ? '' : '*'}
-              
-
+              <g:message code="cccrr.step.registrationSubject.label" /> *
               <span class="help">
-                <g:message code="request.step.message.${rqt.stepStates['registrationSubject' + (individual ? '-' + params.type : '')].state}" />
+                
+                  <g:message code="request.step.message.${rqt.stepStates['registrationSubject'].state}" />
+                
               </span>
             
           </a>
