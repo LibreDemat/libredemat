@@ -49,18 +49,18 @@
   <label for="adultAddress_streetNumber">${message(code:'address.property.streetNumber')}</label> -
   <label for="adultAddress_streetName" class="required">${message(code:'address.property.streetName')} *</label><br />
   <input type="text" class="line1 validate-streetNumber ${invalidFields?.contains('address.streetNumber') ? 'validation-failed' : ''}" size="5" maxlength="5" id="adultAddress_streetNumber" name="address.streetNumber"
-      value="${adult?.address?.streetNumber}" />
+      value="${adult?.address?.streetNumber}" autocomplete="off" />
   <input type="text" class="line2 required ${isAddresseReferentialCityRestriction != null && isAddresseReferentialCityRestriction ? 'validate-streetNameReferential' : 'validate-streetName'} ${invalidFields?.contains('address.streetName') ? 'validation-failed' : ''}" maxlength="32" id="adultAddress_streetName" name="address.streetName" title="${message(code:'address.property.streetName.validationError')}"
-      value="${adult?.address?.streetName}" />
+      value="${adult?.address?.streetName}" autocomplete="off" />
   <label for="adultAddress_placeNameOrService">${message(code:'address.property.placeNameOrService')}</label>
   <input type="text" class="validate-addressLine38 ${invalidFields?.contains('address.placeNameOrService') ? 'validation-failed' : ''}" maxlength="38" id="adultAddress_placeNameOrService" name="address.placeNameOrService"
       value="${adult?.address?.placeNameOrService}" />
   <label for="adultAddress_postalCode" class="required">${message(code:'address.property.postalCode')} * </label> -
   <label for="adultAddress_city" class="required">${message(code:'address.property.city')} *</label><br />
   <input type="text" class="line1 required validate-postalCode ${invalidFields?.contains('address.postalCode') ? 'validation-failed' : ''}" size="5" maxlength="5" id="adultAddress_postalCode" name="address.postalCode" title="${message(code:'address.property.postalCode.validationError')}"
-      value="${adult?.address?.postalCode}" />
+      value="${adult?.address?.postalCode}" autocomplete="off" />
   <input type="text" class="line2 required validate-city ${invalidFields?.contains('address.city') ? 'validation-failed' : ''}" maxlength="32" id="adultAddress_city" name="address.city" title="${message(code:'address.property.city.validationError')}"
-      value="${adult?.address?.city}" />
+      value="${adult?.address?.city}" autocomplete="off" />
   <label for="adultAddress_countryName">${message(code:'address.property.countryName')}</label>
   <input type="text" class="validate-addressLine38 ${invalidFields?.contains('address.countryName') ? 'validation-failed' : ''}" maxlength="38" id="adultAddress_countryName" name="address.countryName"
       value="${adult?.address?.countryName}" />
