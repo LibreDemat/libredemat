@@ -16,6 +16,7 @@
     <script type="text/javascript" src="${resource(dir:'js/common',file:'editor.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/common',file:'calendar.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'requestType' + org.apache.commons.lang3.StringUtils.capitalize(params.action) + '.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js/backoffice', file:'requestTypeDocuments.js')}"></script>
     <script type="text/javascript">
       zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
       <!-- Hack Inexine -->
