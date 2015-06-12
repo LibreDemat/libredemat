@@ -240,9 +240,14 @@
         <div class="nobox taskstate">
           <h3>${message(code:'header.subMenus')}</h3>
           <div class="body">
-            <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" alt="${message(code:'homeFolder.header.synchronise.title')}" title="${message(code:'homeFolder.header.synchronise.title')}">
-              ${message(code:'homeFolder.header.synchronise')}
-            </a>
+            <g:if test="${homeFolderState == 'valid'}">
+              <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" title="${message(code:'homeFolder.header.synchronise.title')}">
+                ${message(code:'homeFolder.header.synchronise')}
+              </a>
+            </g:if>
+            <g:else>
+              <span style="text-decoration: underline;">${message(code:'homeFolder.header.synchronise')}</span> (${message(code:'homeFolder.header.synchronise.help')})
+            </g:else>
             <a href="${createLink(controller: 'backofficeHomeFolder',action:'findDuplicates', id : homeFolderResponsible.id)}">
               ${message(code:'homeFolder.header.findDuplicates')}
             </a>
