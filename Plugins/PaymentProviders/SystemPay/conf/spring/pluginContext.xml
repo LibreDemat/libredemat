@@ -12,6 +12,33 @@
     <property name="genericDAO" ref="genericDAO" />
   </bean>
 
+  <bean id="systemPayPaymentProviderYerresStationnement"
+    class="org.libredemat.plugins.paymentproviders.systempay.service.SystemPayService"
+    init-method="init">
+    <property name="label" value="SystemPay"></property>
+    <!-- Insert services you need here -->
+    <property name="paymentUrl" value="${plugins.paymentproviders.systempay.payment_url}" />
+    <property name="genericDAO" ref="genericDAO" />
+  </bean>
+
+  <bean id="systemPayPaymentProviderYerresGuichetFamille"
+    class="org.libredemat.plugins.paymentproviders.systempay.service.SystemPayService"
+    init-method="init">
+    <property name="label" value="SystemPay"></property>
+    <!-- Insert services you need here -->
+    <property name="paymentUrl" value="${plugins.paymentproviders.systempay.payment_url}" />
+    <property name="genericDAO" ref="genericDAO" />
+  </bean>
+
+  <bean id="systemPayPaymentProviderYerresScolaire"
+    class="org.libredemat.plugins.paymentproviders.systempay.service.SystemPayService"
+    init-method="init">
+    <property name="label" value="SystemPay"></property>
+    <!-- Insert services you need here -->
+    <property name="paymentUrl" value="${plugins.paymentproviders.systempay.payment_url}" />
+    <property name="genericDAO" ref="genericDAO" />
+  </bean>
+
   
   
 </beans>
