@@ -176,7 +176,7 @@ class FrontofficeRequestController {
 
                     if (requestServiceRegistry.getRequestService(rqt) instanceof IRequestPaymentService
                         && requestService.isPayableAtValidateTS(rqt)) {
-                        def payment = requestServiceRegistry.getRequestService(rqt).buildPayment(rqt)
+                        def payment = requestServiceRegistry.getRequestService(rqt).buildPayment(rqt, 0)
                         payment.addPaymentSpecificData('scheme',request.scheme)
                         payment.addPaymentSpecificData('domainName',request.serverName)
                         payment.addPaymentSpecificData('port',request.serverPort.toString())
