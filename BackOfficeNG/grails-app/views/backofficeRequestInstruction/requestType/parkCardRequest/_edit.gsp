@@ -69,13 +69,13 @@
             
               
               <dl>
-                <dt class="">${message(code:'pcr.property.parkResident.label')} &nbsp;:</dt><dd id="parkResident" class="action-editField validate-string i18n-pcr.property.parkResident" ><span>${rqt?.parkResident}</span></dd>
+                <dt class="">${message(code:'pcr.property.parkResident.label')} &nbsp;:</dt><dd id="parkResident" class=" validate-string i18n-pcr.property.parkResident" ><span >${message(code:'pcr.property.' + rqt.parkResident)}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'pcr.property.informationCardLimitRest.label')} &nbsp;:</dt><dd id="informationCardLimitRest" class="action-editField validate-string i18n-pcr.property.informationCardLimitRest" ><span>${rqt?.informationCardLimitRest}</span></dd>
+                <dt class="">${message(code:'pcr.property.informationCardLimitRest.label')} &nbsp;:</dt><dd id="informationCardLimitRest" class=" validate-string i18n-pcr.property.informationCardLimitRest" ><span >${rqt?.informationCardLimitRest}</span></dd>
               </dl>
               
             
@@ -87,13 +87,13 @@
             
               
               <dl>
-                <dt class="">${message(code:'pcr.property.paymentTotal.label')} &nbsp;:</dt><dd id="paymentTotal" class="action-editField validate-string i18n-pcr.property.paymentTotal" ><span>${rqt?.paymentTotal}</span></dd>
+                <dt class="">${message(code:'pcr.property.paymentTotal.label')} &nbsp;:</dt><dd id="paymentTotal" class="action-editField validate-string i18n-pcr.property.paymentTotal" ><span >${rqt?.paymentTotal}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'pcr.property.paymentReference.label')} &nbsp;:</dt><dd id="paymentReference" class="action-editField validate-string i18n-pcr.property.paymentReference" ><span>${rqt?.paymentReference}</span></dd>
+                <dt class="">${message(code:'pcr.property.paymentReference.label')} &nbsp;:</dt><dd id="paymentReference" class=" validate-string i18n-pcr.property.paymentReference" ><span >${rqt?.paymentReference}</span></dd>
               </dl>
               
             

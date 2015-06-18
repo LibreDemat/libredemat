@@ -4,8 +4,11 @@
   
     
     <label for="parkResident" class=""><g:message code="pcr.property.parkResident.label" />   <span><g:message code="pcr.property.parkResident.help" /></span></label>
-            <input disabled=disabled type="text" id="parkResident" name="parkResident" value="${rqt.parkResident?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('parkResident') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.parkResident.validationError" />"   />
+            <input disabled=disabled type="text" id="parkResident"
+                   name="parkResident"
+                   value="${message(code:'pcr.property.' + rqt.parkResident?.toString())}"
+                   class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('parkResident') ? 'validation-failed' : ''}"
+                   title="<g:message code="pcr.property.parkResident.validationError" />"   />
             
 
   
@@ -13,8 +16,11 @@
   
     
     <label for="informationCardLimitRest" class=""><g:message code="pcr.property.informationCardLimitRest.label" />   <span><g:message code="pcr.property.informationCardLimitRest.help" /></span></label>
-            <input disabled=disabled type="text" id="informationCardLimitRest" name="informationCardLimitRest" value="${rqt.informationCardLimitRest?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('informationCardLimitRest') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.informationCardLimitRest.validationError" />"   />
+            <input disabled=disabled type="text" id="informationCardLimitRest"
+                   name="informationCardLimitRest"
+                   value="${message(code:'pcr.property.rest.' + rqt.informationCardLimitRest?.toString())}"
+                   class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('informationCardLimitRest') ? 'validation-failed' : ''}"
+                   title="<g:message code="pcr.property.informationCardLimitRest.validationError" />"   />
             
 
   
@@ -28,7 +34,10 @@
     <g:if test="${rqt.getCardNumberLimit() > (collectionIndexAdded + rqt.getParkImatriculation()?.size()) && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'car', 'currentCollection':'parkImatriculation', 'collectionIndex':(rqt.parkImatriculation ? rqt.parkImatriculation.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'car', 'currentCollection':'parkImatriculation',
+                    'collectionIndex':(rqt.parkImatriculation ? rqt.parkImatriculation.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -38,7 +47,7 @@
         <dl>
         <dt class="head"><g:message code="pcr.property.parkImatriculation.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'car', 'currentCollection':'parkImatriculation', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'car', 'currentCollection':'parkImatriculation', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'car', 'currentCollection':'parkImatriculation', 'collectionIndex':index])}">
@@ -50,7 +59,7 @@
         <dd class="${rqt.stepStates['car'].invalidFields.contains('parkImatriculation[' + index + '].immatriculation') ? 'validation-failed' : ''}">${it.immatriculation?.toString()}</dd>
     
         <dt><g:message code="pcr.property.tarif.label" /></dt>
-        <dd class="${rqt.stepStates['car'].invalidFields.contains('parkImatriculation[' + index + '].tarif') ? 'validation-failed' : ''}">${it.tarif?.toString()}</dd>
+        <dd class="${rqt.stepStates['car'].invalidFields.contains('parkImatriculation[' + index + '].tarif') ? 'validation-failed' : ''}">${collectionSpecific['tarifImatriculation'][index + collectionIndexAdded]}</dd>
     
         </dl>
       </div>
@@ -61,8 +70,11 @@
   
     
     <label for="paymentTotal" class=""><g:message code="pcr.property.paymentTotal.label" />   <span><g:message code="pcr.property.paymentTotal.help" /></span></label>
-            <input disabled=disabled type="text" id="paymentTotal" name="paymentTotal" value="${rqt.paymentTotal?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('paymentTotal') ? 'validation-failed' : ''}" title="<g:message code="pcr.property.paymentTotal.validationError" />"   />
+            <input disabled=disabled type="text" id="paymentTotal"
+                   name="paymentTotal"
+                   value="${rqt.paymentTotal?.toString()}"
+                   class="  validate-string ${rqt.stepStates['car'].invalidFields.contains('paymentTotal') ? 'validation-failed' : ''}"
+                   title="<g:message code="pcr.property.paymentTotal.validationError" />"   />
             
 
   

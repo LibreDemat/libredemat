@@ -205,6 +205,9 @@ public class FoPlugin implements IPluginGenerator {
                 String collectionSpecific = ApplicationDocumentation.getNodeAttributeValue(node, "collectionSpecific");
                 if (collectionSpecific != null && !collectionSpecific.equals("")) elementFo.setCollectionSpecific(collectionSpecific);
 
+                String i18nPrefixContent = ApplicationDocumentation.getNodeAttributeValue(node, "i18nPrefixContent");
+                if (i18nPrefixContent != null && !i18nPrefixContent.equals(""))
+                    elementFo.setI18nPrefixContent(i18nPrefixContent);
 
                 if (appDoc.hasChildNode("select"))
                     elementFo.setWidget("select");

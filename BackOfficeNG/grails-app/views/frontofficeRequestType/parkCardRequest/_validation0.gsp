@@ -38,14 +38,18 @@
     
       
       <dl>
-        <dt><g:message code="pcr.property.parkResident.label" /></dt><dd>${rqt.parkResident?.toString()}</dd>
+        <dt><g:message code="pcr.property.parkResident.label" /></dt>
+          <dd>${message(code:'pcr.property.' + rqt.parkResident?.toString())}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="pcr.property.informationCardLimitRest.label" /></dt><dd>${rqt.informationCardLimitRest?.toString()}</dd>
+        <dt><g:message code="pcr.property.informationCardLimitRest.label" /></dt>
+          <dd>${message(code:'pcr.property.rest.' + rqt.informationCardLimitRest?.toString())}</dd>
+          
 
       </dl>
       
@@ -55,10 +59,14 @@
       <g:each var="it" in="${rqt.parkImatriculation}" status="index">
       <dl>
         
-          <dt><g:message code="pcr.property.immatriculation.label" /></dt><dd>${it.immatriculation?.toString()}</dd>
+          <dt><g:message code="pcr.property.immatriculation.label" /></dt>
+          <dd>${it.immatriculation?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pcr.property.tarif.label" /></dt><dd>${it.tarif?.toString()}</dd>
+          <dt><g:message code="pcr.property.tarif.label" /></dt>
+          <dd>${it.tarif?.toString()}</dd>
+          
 
         
       </dl>
@@ -67,7 +75,9 @@
     
       
       <dl>
-        <dt><g:message code="pcr.property.paymentTotal.label" /></dt><dd>${rqt.paymentTotal?.toString()}</dd>
+        <dt><g:message code="pcr.property.paymentTotal.label" /></dt>
+          <dd>${rqt.paymentTotal?.toString()}</dd>
+          
 
       </dl>
       

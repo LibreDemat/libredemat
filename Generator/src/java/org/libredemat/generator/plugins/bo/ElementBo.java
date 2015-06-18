@@ -30,6 +30,7 @@ public class ElementBo extends ElementSpecific<ElementBo> {
     private int maxLength;
     
     private String i18nPrefixCode;
+    private String i18nPrefixContent;
     private String htmlClass;
     private String widget;
     private int rows;
@@ -37,6 +38,7 @@ public class ElementBo extends ElementSpecific<ElementBo> {
     private ElementTypeClass typeClass;
  
     private boolean display;
+    private boolean disabled = false;
 
     private int column;
     private String after;
@@ -126,8 +128,7 @@ public class ElementBo extends ElementSpecific<ElementBo> {
     
     private void setHtmlClass() {
         this.htmlClass = StringUtils.join(new String[] {
-            "action-editField"
-            , " " , "validate-", (jsRegexp != null ? "regex" : widget)
+             !this.isDisabled() ? "action-editField" : "", " ", "validate-", (jsRegexp != null ? "regex" : widget)
             ,(mandatory ? " required-true" : "")
             , " " , "i18n-" +i18nPrefixCode
             ,(widget != null && widget.equals("libredematEnum") ? " " + "javatype-" + getQualifiedType() : "" )
@@ -252,5 +253,21 @@ public class ElementBo extends ElementSpecific<ElementBo> {
 
     public void setSpecificEditField(String specificEditField) {
         this.specificEditField = specificEditField;
+    }
+
+    public String getI18nPrefixContent() {
+        return i18nPrefixContent;
+    }
+
+    public void setI18nPrefixContent(String i18nPrefixContent) {
+        this.i18nPrefixContent = i18nPrefixContent;
+    }
+
+    public boolean isDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
     }
 }

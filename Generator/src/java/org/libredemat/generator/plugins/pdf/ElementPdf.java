@@ -21,6 +21,7 @@ public class ElementPdf extends ElementSpecific<ElementPdf> {
     private boolean mandatory = true;
     
     private String i18nPrefixCode;
+    private String i18nPrefixContent;
     private String htmlClass;
     private String widget;
     private String[] enumValues;
@@ -185,5 +186,13 @@ public class ElementPdf extends ElementSpecific<ElementPdf> {
 
     public void setConditionListener(ConditionListener conditionListener) {
         this.conditionListener = conditionListener;
+    }
+
+    public String getI18nPrefixContent() {
+        return i18nPrefixContent;
+    }
+
+    public void setI18nPrefixContent(String i18nPrefixContent) {
+        this.i18nPrefixContent = i18nPrefixContent;
     }
 }

@@ -215,8 +215,11 @@
             
          ,'text' :
             """
-            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" id="${IdRefNamePrefix}${element.javaFieldName}" name="${namePrefix}${element.javaFieldName}" value="\${${valuePrefix}.${element.javaFieldName}?.toString()}" 
-                    class="${element.htmlClass} \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}" title="<g:message code="${element.i18nPrefixCode}.validationError" />" ${element.jsRegexp} ${element.lengthLimits} />
+            <input ${element.disabled ? 'disabled=disabled' : ''} type="text" id="${IdRefNamePrefix}${element.javaFieldName}"
+                   name="${namePrefix}${element.javaFieldName}"
+                   ${element.collectionSpecific != null ? "value=\"\${collectionSpecific['${element.collectionSpecific}'][index]}\"" : "${element.i18nPrefixContent != null ? "value=\"\${message(code:'${element.i18nPrefixContent}' + ${valuePrefix}.${element.javaFieldName}?.toString())}\"" : "value=\"\${${valuePrefix}.${element.javaFieldName}?.toString()}\""}"}
+                   class="${element.htmlClass} \${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}"
+                   title="<g:message code="${element.i18nPrefixCode}.validationError" />" ${element.jsRegexp} ${element.lengthLimits} />
             """
          ,'number' :
             """
@@ -345,8 +348,8 @@
               """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}"><g:formatDate formatName="dd/MM/yyyy" date="\${${valuePrefix}.${element.javaFieldName}}"/></dd>"""
           ,'time' :
               """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}"><g:formatDate formatName="format.time" date="\${${valuePrefix}.${element.javaFieldName}}" type="time"/></dd>"""
-          ,'text' : 
-              """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}">\${${valuePrefix}.${element.javaFieldName}?.toString()}</dd>"""
+          ,'text' :
+              """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}">${element.collectionSpecific != null ? "\${collectionSpecific['${element.collectionSpecific}'][index + collectionIndexAdded]}" : "\${${valuePrefix}.${element.javaFieldName}?.toString()}"}</dd>"""
           ,'number' :
               """<dd class="\${rqt.stepStates['${step.name}'].invalidFields.contains('$validationNamePrefix${element.javaFieldName}') ? 'validation-failed' : ''}">\${formatNumber(number: ${valuePrefix}.${element.javaFieldName}, type: 'number')}</dd>"""
       ]
@@ -376,7 +379,11 @@
     <g:if test="\${${element.specificTestCodeToAddItemInCollection} && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="\${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'${step.name}', 'currentCollection':'${element.javaFieldName}', 'collectionIndex':(rqt.${element.javaFieldName} ? rqt.${element.javaFieldName}.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="\${createLink(controller : 'frontofficeRequest', action : 'edit',
+            params:['id':rqt.id, 'currentStep':'${step.name}', 'currentCollection':'${element.javaFieldName}',
+                    'collectionIndex':(rqt.${element.javaFieldName} ? rqt.${element.javaFieldName}.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           \${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -386,7 +393,7 @@
         <dl>
         <dt class="head"><g:message code="${element.i18nPrefixCode}.label" /> : \${index + 1}</dt>
         <dd class="head">
-          <a href="\${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'${step.name}', 'currentCollection':'${element.javaFieldName}', 'collectionIndex':index])}">
+          <a href="\${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'${step.name}', 'currentCollection':'${element.javaFieldName}', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            \${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="\${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'${step.name}', 'currentCollection':'${element.javaFieldName}', 'collectionIndex':index])}">

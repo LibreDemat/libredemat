@@ -132,6 +132,8 @@ public class PdfPlugin implements IPluginGenerator {
 
             if (appDoc.getNodeName().equals("pdf")) {
                 Node node = appDoc.getXmlNode();
+                String i18nPrefixContent = ApplicationDocumentation.getNodeAttributeValue(node, "i18nPrefixContent");
+                if (i18nPrefixContent != null) elementPdf.setI18nPrefixContent(i18nPrefixContent);
                 elementPdf.setElementToDisplay(ApplicationDocumentation.getNodeAttributeValue(node, "element"));
                 elementPdf.setAfter(ApplicationDocumentation.getNodeAttributeValue(node, "after"));
                 elementPdf.setModifier(ApplicationDocumentation.getNodeAttributeValue(node, "modifier"));

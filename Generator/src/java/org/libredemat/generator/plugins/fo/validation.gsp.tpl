@@ -87,7 +87,9 @@
           </dd>
           """
       ,'text' :
-          """<dd>\${${wrapper}.${element.javaFieldName}?.toString()}</dd>"""
+          """
+          <dd>${element.i18nPrefixContent != null ? "\${message(code:'${element.i18nPrefixContent}' + ${wrapper}.${element.javaFieldName}?.toString())}" : "\${${wrapper}.${element.javaFieldName}?.toString()}"}</dd>
+          """
       ,'number' :
           "<dd>\${formatNumber(number: ${wrapper}.${element.javaFieldName}, type: 'number')}</dd>"
       ,'subject' :

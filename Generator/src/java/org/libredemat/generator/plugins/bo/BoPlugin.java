@@ -167,8 +167,12 @@ public class BoPlugin implements IPluginGenerator {
             
             if (appDoc.getNodeName().equals("bo")) {
                 Node node = appDoc.getXmlNode();
+                String disabled = ApplicationDocumentation.getNodeAttributeValue(node, "disabled");
+                if (disabled != null) elementBo.setDisabled(Boolean.valueOf(disabled));
                 elementBo.setColumn(ApplicationDocumentation.getNodeAttributeValue(node, "column"));
                 elementBo.setAfter(ApplicationDocumentation.getNodeAttributeValue(node, "after"));
+                String i18nPrefixContent = ApplicationDocumentation.getNodeAttributeValue(node, "i18nPrefixContent");
+                if (i18nPrefixContent != null) elementBo.setI18nPrefixContent(i18nPrefixContent);
                 String specificEditField = ApplicationDocumentation.getNodeAttributeValue(node, "specificEditField");
                 if (specificEditField != null) elementBo.setSpecificEditField(specificEditField);
 

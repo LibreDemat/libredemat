@@ -101,7 +101,7 @@
           </div>
           """
       ,'text' :
-          """<div class="response">\${esc(StringUtils.defaultString(${wrapper}.${element.javaFieldName}?.toString()))}</div>"""
+          """<div class="response">${element.i18nPrefixContent != null ? "\${esc(i18n.translate('${element.i18nPrefixContent}' + StringUtils.defaultString(${wrapper}.${element.javaFieldName}?.toString())))}" : "\${esc(StringUtils.defaultString(${wrapper}.${element.javaFieldName}?.toString()))}"}</div>"""
       ,'number' :
           "<div class=\"response\">\${esc(StringUtils.defaultString(NumberFormat.getInstance().format((${wrapper}.${element.javaFieldName})?.doubleValue()?: 0).toString()))}</div>"
       ,'subject' :

@@ -71,7 +71,7 @@
       ,'recreationCenter' :
           """<span class="value-\${${wrapper}?.${element.javaFieldName}?.id}">\${${wrapper}?.${element.javaFieldName}?.name}</span>"""
       ,'text' :
-          "<span>\${${wrapper}?.${element.javaFieldName}}</span>"
+          "<span >${element.i18nPrefixContent != null ? "\${message(code:'${element.i18nPrefixContent}' + ${wrapper}.${element.javaFieldName})}" : "\${${wrapper}?.${element.javaFieldName}}"}</span>"
       ,'number' :
           "<span>\${formatNumber(number: ${wrapper}?.${element.javaFieldName}, type: 'number')}</span>"
       ,'subject' :
