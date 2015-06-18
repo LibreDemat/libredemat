@@ -76,6 +76,19 @@
             
 
     
+      
+      <label class="required"><g:message code="hsr.property.otherContactDuplicateKey.label" /> *  <span><g:message code="hsr.property.otherContactDuplicateKey.help" /></span></label>
+            <ul class="yes-no required ${rqt.stepStates['contact'].invalidFields.contains('otherContactDuplicateKey') ? 'validation-failed' : ''}">
+              <g:each in="${[true,false]}">
+              <li>
+                <input type="radio" id="otherContactDuplicateKey_${it ? 'yes' : 'no'}" class="required  validate-one-required boolean" title="" value="${it}" name="otherContactDuplicateKey" ${it == rqt.otherContactDuplicateKey ? 'checked="checked"': ''} />
+                <label for="otherContactDuplicateKey_${it ? 'yes' : 'no'}"><g:message code="message.${it ? 'yes' : 'no'}" /></label>
+              </li>
+              </g:each>
+            </ul>
+            
+
+    
     </fieldset>
   
 

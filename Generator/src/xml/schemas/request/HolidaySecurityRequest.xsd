@@ -1,362 +1,626 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.libredemat.org/schema/hsr" 
-  xmlns:hsr="http://www.libredemat.org/schema/hsr"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:cvq="http://www.libredemat.org/schema/common"
-  elementFormDefault="qualified" 
-  attributeFormDefault="unqualified">
-  
-  <xs:import namespace="http://www.libredemat.org/schema/common" 
-    schemaLocation="../common/CVQCommonElements.xsd" />
-    
-  <xs:element name="HolidaySecurityRequest">
-    <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-        Demande de sécurité vacances
-      </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-        Security service on holidays
-      </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-        Sécurité vacances
-      </xs:documentation>
-      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-        Holiday security
-      </xs:documentation>
-      <xs:appinfo>
-        <model namespace="localpolice" />
-         <common>
-          <namespace name="localpolice" />
-          <steps>
-            <step index="-1" ref="homeFolder">
-              <widget>
-                <homeFolder />
-              </widget>
-            </step>
-            <step index="0" name="registration" >
-              <widgets>
-                <subject />
-              </widgets>
-             </step>
-            <step index="1" name="rules" />
-            <step index="2" name="contactphone" />
-            <step index="3" name="contact">
-                <conditions>
-                    <condition name="isOtherContact" />
-                </conditions>
-            </step>
-            <step index="4" name="additional" required="false"/>
-            <step index="5" ref="document" />
-            <step index="6" ref="validation" />
-          </steps>
-        </common>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="cvq:RequestType">
-          <xs:sequence>
-            <xs:element name="AbsenceStartDate" type="xs:date">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Date de début d'absence du domicile
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Date début d'absence
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Start date of holiday's absence
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Absence start date
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="registration" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="AbsenceEndDate" type="xs:date">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Date de fin d'absence du domicile
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Date fin d'absence
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  End date of holiday's absence
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Absence end date
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="registration" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Réglementation du service à accepter
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  J'accepte les conditions réglementaire de ce service
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Rules and regulation to accept
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Rules
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="rules" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="AlertPhone" type="cvq:PhoneType">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Numéro de téléphone d'alerte
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Numéro de téléphone en cas d'alerte
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Alert phone number
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Alert phone number
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="contactphone" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="OtherContact" type="xs:boolean" default="false">
+<xs:schema targetNamespace="http://www.libredemat.org/schema/hsr" xmlns:hsr="http://www.libredemat.org/schema/hsr"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cvq="http://www.libredemat.org/schema/common"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://www.libredemat.org/schema/common" schemaLocation="../common/CVQCommonElements.xsd" />
+
+    <xs:element name="HolidaySecurityRequest">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/longdesc">
+                Demande de sécurité vacances
+            </xs:documentation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/shortdesc">
+                Sécurité vacances
+            </xs:documentation>
+            <xs:appinfo>
+                <model namespace="localpolice"/>
+                <common>
+                    <namespace name="localpolice"/>
+                    <steps>
+                        <step index="-1" ref="homeFolder">
+                            <widget>
+                                <homeFolder />
+                            </widget>
+                        </step>
+                        <step index="0" name="registration">
+                            <widgets>
+                                <subject/>
+                            </widgets>
+                        </step>
+                        <step index="1" name="rules"/>
+                        <step index="2" name="contactphone"/>
+                        <step index="3" name="contact">
+                            <conditions>
+                                <condition name="isOtherContact"/>
+                            </conditions>
+                        </step>
+                        <step index="4" name="additional" required="false">
+                            <conditions>
+                                <condition name="isAnimalOwner"/>
+                                <condition name="isSecurityCompany"/>
+                            </conditions>
+                        </step>
+                        <step index="5" ref="document"/>
+                        <step index="6" ref="validation"/>
+                    </steps>
+                </common>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="cvq:RequestType">
+                    <xs:sequence>
+                        <xs:element name="AbsenceStartDate" type="xs:date">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Date de début d'absence du domicile (jour/mois/année)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Date début d'absence (jour/mois/année)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Start date of holiday's absence
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Absence start date
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="registration"/>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AbsenceEndDate" type="xs:date">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Date de fin d'absence du domicile (jour/mois/année)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Date fin d'absence (jour/mois/année)
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    End date of holiday's absence
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Absence end date
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="registration"/>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType"
+                                    default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Réglementation du service à accepter
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    J'accepte les conditions réglementaires de ce service
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="rules"/>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AlertPhone" type="cvq:PhoneType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Numéro de téléphone d'alerte
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Numéro de téléphone en cas d'alerte
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Alert phone number
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Alert phone number
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="contactphone"/>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="OtherContact" type="xs:boolean"
+                                    default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Souhaitez-vous renseigner un autre contact à prévenir en cas d'alerte ?
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Souhaitez-vous renseigner un autre contact à prévenir en cas d'alerte ?
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="contact"/>
+                                        <conditions>
+                                            <condition name="isOtherContact" type="trigger"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element name="OtherContactInformations" type="hsr:HsrOtherContactType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Informations conçernant l'autre contact
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Autre contact
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="contact"/>
+                                        <conditions>
+                                            <condition name="isOtherContact" type="filled"
+                                                       required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="2"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Alarm" type="xs:boolean" default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Système d'alarme
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Alarme
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Alarm system
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Alarm
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Light" type="xs:boolean" default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Système d'éclairage automatique
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Eclairage automatique
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Automatic light system
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Automatic light
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <!-- Présence d'animaux -->
+                        <xs:element name="IsAnimalOwner" type="xs:boolean" default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Présence d'animaux
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Présence d'animaux
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Animals
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Animals
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                        <conditions>
+                                            <condition name="isAnimalOwner" type="trigger"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AnimalInformation" type="xs:string">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Nombre et type d'animaux
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Nombre et type d'animaux
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Number and kind of animals
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Number and kind of animals
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                        <conditions>
+                                            <condition name="isAnimalOwner" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="2"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <!-- Société de télésurveillance -->
+                        <xs:element name="IsSecurityCompany" type="xs:boolean"
+                                    default="false">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Société de télésurveillance
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Société de télésurveillance
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Security company
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Security company
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                        <conditions>
+                                            <condition name="isSecurityCompany" type="trigger"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="1"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="SecurityCompanyName" type="xs:string">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Nom de la société
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Nom de la société
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Company name
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Company name
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                        <conditions>
+                                            <condition name="isSecurityCompany" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="2"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="SecurityCompanyAddress" type="xs:string">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Adresse de la société
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Adresse de la société
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Company address
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Company address
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                        <conditions>
+                                            <condition name="isSecurityCompany" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="2"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="SecurityCompanyTelephone" type="cvq:PhoneType">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Téléphone de la société
+                                </xs:documentation>
+                                <xs:documentation xml:lang="fr"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Téléphone de la société
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/longdesc">
+                                    Company Telephone
+                                </xs:documentation>
+                                <xs:documentation xml:lang="en"
+                                                  source="http://www.libredemat.org/schema/shortdesc">
+                                    Company Telephone
+                                </xs:documentation>
+                                <xs:appinfo>
+                                    <common>
+                                        <step name="additional"/>
+                                        <conditions>
+                                            <condition name="isSecurityCompany" type="filled" required="true"/>
+                                        </conditions>
+                                    </common>
+                                    <fo/>
+                                    <bo column="2"/>
+                                    <pdf/>
+                                </xs:appinfo>
+                            </xs:annotation>
+                        </xs:element>
+
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="HsrOtherContactType">
+        <xs:annotation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/longdesc">
+                Informations sur l'autre contact
+            </xs:documentation>
+            <xs:documentation xml:lang="fr"
+                              source="http://www.libredemat.org/schema/shortdesc">
+                Informations sur l'autre contact
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+
+            <xs:element name="OtherContactLastName" type="cvq:LastNameType">
                 <xs:annotation>
-                  <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                    Souhaitez-vous renseigner un autre contact à prévenir en cas d'alerte ?
-                  </xs:documentation>
-                  <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                    Souhaitez-vous renseigner un autre contact à prévenir en cas d'alerte ?
-                  </xs:documentation>
-                  <xs:appinfo>
-                    <common>
-                      <step name="contact" />
-                      <conditions>
-                        <condition name="isOtherContact" type="trigger" />
-                      </conditions>
-                    </common>
-                    <fo />
-                    <bo column="1" />
-                    <pdf />
-                  </xs:appinfo>
-               </xs:annotation>
-            </xs:element>
-            <xs:element name="OtherContactInformations" type="hsr:HsrOtherContactType">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                   Informations conçernant l'autre contact
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Autre contact
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="contact" />
-                    <conditions>
-                      <condition name="isOtherContact" type="filled" required="true" />
-                    </conditions>
-                  </common>
-                  <fo />
-                  <bo column="2" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Alarm" type="xs:boolean" default="false" >
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Système d'alarme
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Alarme
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Alarm system
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Alarm
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="additional" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Light" type="xs:boolean" default="false" >
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Système d'éclairage automatique
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Eclairage automatique
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Automatic light system
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Automatic light
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="additional" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:complexType name="HsrOtherContactType">
-    <xs:annotation>
-      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-        Informations sur l'autre contact
-      </xs:documentation>
-      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-        Informations sur l'autre contact
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-    
-    <xs:element name="OtherContactLastName" type="cvq:LastNameType">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Nom de l'autre personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Nom de la personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Other contact lastname
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Other contact lastname
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="contact" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Nom de l'autre personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Nom de la personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Other contact lastname
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Other contact lastname
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="contact"/>
+                        </common>
+                        <fo/>
+                        <bo column="1"/>
+                        <pdf/>
+                    </xs:appinfo>
+                </xs:annotation>
             </xs:element>
             <xs:element name="OtherContactFirstName" type="cvq:FirstNameType">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Prénom de l'autre personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Prénom de la personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Other contact firstname
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Other contact firstname
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="contact" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Prénom de l'autre personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Prénom de la personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Other contact firstname
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Other contact firstname
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="contact"/>
+                        </common>
+                        <fo/>
+                        <bo column="1"/>
+                        <pdf/>
+                    </xs:appinfo>
+                </xs:annotation>
             </xs:element>
             <xs:element name="OtherContactAddress" type="cvq:AddressType">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Adresse de l'autre personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Adresse de la personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Other contact address
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Other contact address
-                </xs:documentation>
-                <xs:appinfo>
-                <model namespace="users" isTiedToRequest="true" />
-                  <common>
-                    <step name="contact" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Adresse de l'autre personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Adresse de la personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Other contact address
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Other contact address
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <model namespace="users" isTiedToRequest="true"/>
+                        <common>
+                            <step name="contact"/>
+                        </common>
+                        <fo/>
+                        <bo column="1"/>
+                        <pdf/>
+                    </xs:appinfo>
+                </xs:annotation>
             </xs:element>
+
             <xs:element name="OtherContactPhone" type="cvq:PhoneType">
-              <xs:annotation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
-                  Téléphone de l'autre personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Téléphone de la personne à contacter
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
-                  Other contact phone number
-                </xs:documentation>
-                <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
-                  Other contact phone
-                </xs:documentation>
-                <xs:appinfo>
-                  <common>
-                    <step name="contact" />
-                  </common>
-                  <fo />
-                  <bo column="1" />
-                  <pdf />
-                </xs:appinfo>
-              </xs:annotation>
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Téléphone de l'autre personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Téléphone de la personne à contacter
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Other contact phone number
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Other contact phone
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="contact"/>
+                        </common>
+                        <fo/>
+                        <bo column="1"/>
+                        <pdf/>
+                    </xs:appinfo>
+                </xs:annotation>
             </xs:element>
-       </xs:sequence>
+
+            <!-- Double des clés -->
+            <xs:element name="OtherContactDuplicateKey" type="xs:boolean"
+                        default="false">
+                <xs:annotation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Cette personne possède un double des clés
+                    </xs:documentation>
+                    <xs:documentation xml:lang="fr"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Cette personne possède un double des clés
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/longdesc">
+                        Other contact have a duplicate key
+                    </xs:documentation>
+                    <xs:documentation xml:lang="en"
+                                      source="http://www.libredemat.org/schema/shortdesc">
+                        Other contact have a duplicate key
+                    </xs:documentation>
+                    <xs:appinfo>
+                        <common>
+                            <step name="contact"/>
+                        </common>
+                        <fo/>
+                        <bo column="1"/>
+                        <pdf/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+
+        </xs:sequence>
     </xs:complexType>
-    
+
 </xs:schema>

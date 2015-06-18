@@ -157,6 +157,14 @@ public class HolidaySecurityRequest extends Request implements Serializable {
       
         holidaySecurityRequest.setAlertPhone(getAlertPhone());
       
+        holidaySecurityRequest.setAnimalInformation(getAnimalInformation());
+      
+        if (getIsAnimalOwner() != null)
+            holidaySecurityRequest.setIsAnimalOwner(getIsAnimalOwner().booleanValue());
+      
+        if (getIsSecurityCompany() != null)
+            holidaySecurityRequest.setIsSecurityCompany(getIsSecurityCompany().booleanValue());
+      
         if (getLight() != null)
             holidaySecurityRequest.setLight(getLight().booleanValue());
       
@@ -166,6 +174,9 @@ public class HolidaySecurityRequest extends Request implements Serializable {
         if (getOtherContactAddress() != null)
             hsrOtherContactTypeOtherContactInformations.setOtherContactAddress(Address.modelToXml(getOtherContactAddress()));
       
+        if (getOtherContactDuplicateKey() != null)
+            hsrOtherContactTypeOtherContactInformations.setOtherContactDuplicateKey(getOtherContactDuplicateKey().booleanValue());
+      
         hsrOtherContactTypeOtherContactInformations.setOtherContactFirstName(getOtherContactFirstName());
       
         hsrOtherContactTypeOtherContactInformations.setOtherContactLastName(getOtherContactLastName());
@@ -174,6 +185,12 @@ public class HolidaySecurityRequest extends Request implements Serializable {
       
         if (getRulesAndRegulationsAcceptance() != null)
             holidaySecurityRequest.setRulesAndRegulationsAcceptance(getRulesAndRegulationsAcceptance().booleanValue());
+      
+        holidaySecurityRequest.setSecurityCompanyAddress(getSecurityCompanyAddress());
+      
+        holidaySecurityRequest.setSecurityCompanyName(getSecurityCompanyName());
+      
+        holidaySecurityRequest.setSecurityCompanyTelephone(getSecurityCompanyTelephone());
       
         return holidaySecurityRequestDoc;
     }
@@ -205,12 +222,20 @@ public class HolidaySecurityRequest extends Request implements Serializable {
       
         holidaySecurityRequest.setAlertPhone(holidaySecurityRequestXml.getAlertPhone());
       
+        holidaySecurityRequest.setAnimalInformation(holidaySecurityRequestXml.getAnimalInformation());
+      
+        holidaySecurityRequest.setIsAnimalOwner(Boolean.valueOf(holidaySecurityRequestXml.getIsAnimalOwner()));
+      
+        holidaySecurityRequest.setIsSecurityCompany(Boolean.valueOf(holidaySecurityRequestXml.getIsSecurityCompany()));
+      
         holidaySecurityRequest.setLight(Boolean.valueOf(holidaySecurityRequestXml.getLight()));
       
         holidaySecurityRequest.setOtherContact(Boolean.valueOf(holidaySecurityRequestXml.getOtherContact()));
       
         if (holidaySecurityRequestXml.getOtherContactInformations().getOtherContactAddress() != null)
             holidaySecurityRequest.setOtherContactAddress(Address.xmlToModel(holidaySecurityRequestXml.getOtherContactInformations().getOtherContactAddress()));
+      
+        holidaySecurityRequest.setOtherContactDuplicateKey(Boolean.valueOf(holidaySecurityRequestXml.getOtherContactInformations().getOtherContactDuplicateKey()));
       
         holidaySecurityRequest.setOtherContactFirstName(holidaySecurityRequestXml.getOtherContactInformations().getOtherContactFirstName());
       
@@ -219,6 +244,12 @@ public class HolidaySecurityRequest extends Request implements Serializable {
         holidaySecurityRequest.setOtherContactPhone(holidaySecurityRequestXml.getOtherContactInformations().getOtherContactPhone());
       
         holidaySecurityRequest.setRulesAndRegulationsAcceptance(Boolean.valueOf(holidaySecurityRequestXml.getRulesAndRegulationsAcceptance()));
+      
+        holidaySecurityRequest.setSecurityCompanyAddress(holidaySecurityRequestXml.getSecurityCompanyAddress());
+      
+        holidaySecurityRequest.setSecurityCompanyName(holidaySecurityRequestXml.getSecurityCompanyName());
+      
+        holidaySecurityRequest.setSecurityCompanyTelephone(holidaySecurityRequestXml.getSecurityCompanyTelephone());
       
         return holidaySecurityRequest;
     }
@@ -324,6 +355,33 @@ public class HolidaySecurityRequest extends Request implements Serializable {
         return holidaySecurityRequestData.getAlertPhone();
     }
   
+    public final void setAnimalInformation(final String animalInformation) {
+        holidaySecurityRequestData.setAnimalInformation(animalInformation);
+    }
+
+    
+    public final String getAnimalInformation() {
+        return holidaySecurityRequestData.getAnimalInformation();
+    }
+  
+    public final void setIsAnimalOwner(final Boolean isAnimalOwner) {
+        holidaySecurityRequestData.setIsAnimalOwner(isAnimalOwner);
+    }
+
+    
+    public final Boolean getIsAnimalOwner() {
+        return holidaySecurityRequestData.getIsAnimalOwner();
+    }
+  
+    public final void setIsSecurityCompany(final Boolean isSecurityCompany) {
+        holidaySecurityRequestData.setIsSecurityCompany(isSecurityCompany);
+    }
+
+    
+    public final Boolean getIsSecurityCompany() {
+        return holidaySecurityRequestData.getIsSecurityCompany();
+    }
+  
     public final void setLight(final Boolean light) {
         holidaySecurityRequestData.setLight(light);
     }
@@ -349,6 +407,15 @@ public class HolidaySecurityRequest extends Request implements Serializable {
     
     public final org.libredemat.business.users.Address getOtherContactAddress() {
         return holidaySecurityRequestData.getOtherContactAddress();
+    }
+  
+    public final void setOtherContactDuplicateKey(final Boolean otherContactDuplicateKey) {
+        holidaySecurityRequestData.setOtherContactDuplicateKey(otherContactDuplicateKey);
+    }
+
+    
+    public final Boolean getOtherContactDuplicateKey() {
+        return holidaySecurityRequestData.getOtherContactDuplicateKey();
     }
   
     public final void setOtherContactFirstName(final String otherContactFirstName) {
@@ -385,6 +452,33 @@ public class HolidaySecurityRequest extends Request implements Serializable {
     @IsRulesAcceptance
     public final Boolean getRulesAndRegulationsAcceptance() {
         return holidaySecurityRequestData.getRulesAndRegulationsAcceptance();
+    }
+  
+    public final void setSecurityCompanyAddress(final String securityCompanyAddress) {
+        holidaySecurityRequestData.setSecurityCompanyAddress(securityCompanyAddress);
+    }
+
+    
+    public final String getSecurityCompanyAddress() {
+        return holidaySecurityRequestData.getSecurityCompanyAddress();
+    }
+  
+    public final void setSecurityCompanyName(final String securityCompanyName) {
+        holidaySecurityRequestData.setSecurityCompanyName(securityCompanyName);
+    }
+
+    
+    public final String getSecurityCompanyName() {
+        return holidaySecurityRequestData.getSecurityCompanyName();
+    }
+  
+    public final void setSecurityCompanyTelephone(final String securityCompanyTelephone) {
+        holidaySecurityRequestData.setSecurityCompanyTelephone(securityCompanyTelephone);
+    }
+
+    
+    public final String getSecurityCompanyTelephone() {
+        return holidaySecurityRequestData.getSecurityCompanyTelephone();
     }
   
 }

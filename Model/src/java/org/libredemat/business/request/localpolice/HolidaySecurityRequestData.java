@@ -42,9 +42,15 @@ public class HolidaySecurityRequestData implements Serializable {
       
         alarm = Boolean.valueOf(false);
       
+        isAnimalOwner = Boolean.valueOf(false);
+      
+        isSecurityCompany = Boolean.valueOf(false);
+      
         light = Boolean.valueOf(false);
       
         otherContact = Boolean.valueOf(false);
+      
+        otherContactDuplicateKey = Boolean.valueOf(false);
       
         rulesAndRegulationsAcceptance = Boolean.valueOf(false);
       
@@ -80,6 +86,24 @@ public class HolidaySecurityRequestData implements Serializable {
         
           
             
+        result.setAnimalInformation(animalInformation);
+      
+          
+        
+          
+            
+        result.setIsAnimalOwner(isAnimalOwner);
+      
+          
+        
+          
+            
+        result.setIsSecurityCompany(isSecurityCompany);
+      
+          
+        
+          
+            
         result.setLight(light);
       
           
@@ -94,6 +118,12 @@ public class HolidaySecurityRequestData implements Serializable {
             
         if (otherContactAddress != null)
             result.setOtherContactAddress(otherContactAddress.clone());
+      
+          
+        
+          
+            
+        result.setOtherContactDuplicateKey(otherContactDuplicateKey);
       
           
         
@@ -118,6 +148,24 @@ public class HolidaySecurityRequestData implements Serializable {
           
             
         result.setRulesAndRegulationsAcceptance(rulesAndRegulationsAcceptance);
+      
+          
+        
+          
+            
+        result.setSecurityCompanyAddress(securityCompanyAddress);
+      
+          
+        
+          
+            
+        result.setSecurityCompanyName(securityCompanyName);
+      
+          
+        
+          
+            
+        result.setSecurityCompanyTelephone(securityCompanyTelephone);
       
           
         
@@ -239,6 +287,96 @@ public class HolidaySecurityRequestData implements Serializable {
       @NotNull(
         
         
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isAnimalOwner'].test(_this.isAnimalOwner.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "animalInformation"
+      )
+    
+      @NotBlank(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isAnimalOwner'].test(_this.isAnimalOwner.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "animalInformation"
+      )
+    
+    private String animalInformation;
+
+    public void setAnimalInformation(final String animalInformation) {
+        this.animalInformation = animalInformation;
+    }
+
+ 
+    @Column(name="animal_information"  )
+      
+    public String getAnimalInformation() {
+        return this.animalInformation;
+    }
+  
+    
+      @NotNull(
+        
+        
+        profiles = {"additional"},
+        message = "isAnimalOwner"
+      )
+    
+    private Boolean isAnimalOwner;
+
+    public void setIsAnimalOwner(final Boolean isAnimalOwner) {
+        this.isAnimalOwner = isAnimalOwner;
+    }
+
+ 
+    @Column(name="is_animal_owner"  )
+      
+    public Boolean getIsAnimalOwner() {
+        return this.isAnimalOwner;
+    }
+  
+    
+      @NotNull(
+        
+        
+        profiles = {"additional"},
+        message = "isSecurityCompany"
+      )
+    
+    private Boolean isSecurityCompany;
+
+    public void setIsSecurityCompany(final Boolean isSecurityCompany) {
+        this.isSecurityCompany = isSecurityCompany;
+    }
+
+ 
+    @Column(name="is_security_company"  )
+      
+    public Boolean getIsSecurityCompany() {
+        return this.isSecurityCompany;
+    }
+  
+    
+      @NotNull(
+        
+        
         profiles = {"additional"},
         message = "light"
       )
@@ -324,6 +462,37 @@ public class HolidaySecurityRequestData implements Serializable {
       
     public org.libredemat.business.users.Address getOtherContactAddress() {
         return this.otherContactAddress;
+    }
+  
+    
+      @NotNull(
+        
+        
+          when = "groovy:def active = true;" +
+          
+            
+                "active &= _this.conditions['otherContact'].test(_this.otherContact.toString());" +
+                    
+                  
+              
+            
+            "return active",
+        
+        profiles = {"contact"},
+        message = "otherContactDuplicateKey"
+      )
+    
+    private Boolean otherContactDuplicateKey;
+
+    public void setOtherContactDuplicateKey(final Boolean otherContactDuplicateKey) {
+        this.otherContactDuplicateKey = otherContactDuplicateKey;
+    }
+
+ 
+    @Column(name="other_contact_duplicate_key"  )
+      
+    public Boolean getOtherContactDuplicateKey() {
+        return this.otherContactDuplicateKey;
     }
   
     
@@ -528,6 +697,20 @@ public class HolidaySecurityRequestData implements Serializable {
     }
   
     
+      @NotNull(
+        
+        
+        profiles = {"rules"},
+        message = "rulesAndRegulationsAcceptance"
+      )
+    
+      @AssertTrue(
+        
+        
+        profiles = {"rules"},
+        message = "rulesAndRegulationsAcceptance"
+      )
+    
     private Boolean rulesAndRegulationsAcceptance;
 
     public void setRulesAndRegulationsAcceptance(final Boolean rulesAndRegulationsAcceptance) {
@@ -539,6 +722,169 @@ public class HolidaySecurityRequestData implements Serializable {
       
     public Boolean getRulesAndRegulationsAcceptance() {
         return this.rulesAndRegulationsAcceptance;
+    }
+  
+    
+      @NotNull(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyAddress"
+      )
+    
+      @NotBlank(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyAddress"
+      )
+    
+    private String securityCompanyAddress;
+
+    public void setSecurityCompanyAddress(final String securityCompanyAddress) {
+        this.securityCompanyAddress = securityCompanyAddress;
+    }
+
+ 
+    @Column(name="security_company_address"  )
+      
+    public String getSecurityCompanyAddress() {
+        return this.securityCompanyAddress;
+    }
+  
+    
+      @NotNull(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyName"
+      )
+    
+      @NotBlank(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyName"
+      )
+    
+    private String securityCompanyName;
+
+    public void setSecurityCompanyName(final String securityCompanyName) {
+        this.securityCompanyName = securityCompanyName;
+    }
+
+ 
+    @Column(name="security_company_name"  )
+      
+    public String getSecurityCompanyName() {
+        return this.securityCompanyName;
+    }
+  
+    
+      @MaxLength(
+        
+          value = 10,
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyTelephone"
+      )
+    
+      @NotNull(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyTelephone"
+      )
+    
+      @NotBlank(
+        
+        
+          when = "groovy:def active = true;" +
+          
+                "active &= _this.conditions['isSecurityCompany'].test(_this.isSecurityCompany.toString());" +
+                    
+                  
+              
+            
+            
+            "return active",
+        
+        profiles = {"additional"},
+        message = "securityCompanyTelephone"
+      )
+    
+    private String securityCompanyTelephone;
+
+    public void setSecurityCompanyTelephone(final String securityCompanyTelephone) {
+        this.securityCompanyTelephone = securityCompanyTelephone;
+    }
+
+ 
+    @Column(name="security_company_telephone" , length=10 )
+      
+    public String getSecurityCompanyTelephone() {
+        return this.securityCompanyTelephone;
     }
   
 }

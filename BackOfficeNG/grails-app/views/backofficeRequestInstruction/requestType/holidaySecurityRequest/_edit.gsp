@@ -87,7 +87,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'hsr.property.rulesAndRegulationsAcceptance.label')} &nbsp;:</dt><dd id="rulesAndRegulationsAcceptance" class="action-editField validate-acceptance i18n-hsr.property.rulesAndRegulationsAcceptance" ><span class="value-${rqt?.rulesAndRegulationsAcceptance}"><g:message code="message.${rqt?.rulesAndRegulationsAcceptance ? 'yes' : 'no'}" /></span></dd>
+                <dt class="required">${message(code:'hsr.property.rulesAndRegulationsAcceptance.label')} &nbsp;*&nbsp;:</dt><dd id="rulesAndRegulationsAcceptance" class="action-editField validate-acceptance required-true i18n-hsr.property.rulesAndRegulationsAcceptance" ><span class="value-${rqt?.rulesAndRegulationsAcceptance}"><g:message code="message.${rqt?.rulesAndRegulationsAcceptance ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
             
@@ -171,6 +171,8 @@
                 
                   <dt class="required">${message(code:'hsr.property.otherContactPhone.label')} &nbsp;*&nbsp;:</dt><dd id="otherContactPhone" class="action-editField validate-phone required-true i18n-hsr.property.otherContactPhone maxLength-10" ><span >${rqt?.otherContactPhone}</span></dd>
                 
+                  <dt class="required">${message(code:'hsr.property.otherContactDuplicateKey.label')} &nbsp;*&nbsp;:</dt><dd id="otherContactDuplicateKey" class="action-editField validate-boolean required-true i18n-hsr.property.otherContactDuplicateKey" ><span class="value-${rqt?.otherContactDuplicateKey}"><g:message code="${rqt?.otherContactDuplicateKey ? 'message.yes' : rqt?.otherContactDuplicateKey==null ? '' : 'message.no'}" /></span></dd>
+                
               </dl>
               
             
@@ -205,11 +207,47 @@
               </dl>
               
             
+              
+              <dl>
+                <dt class="required condition-isAnimalOwner-trigger">${message(code:'hsr.property.isAnimalOwner.label')} &nbsp;*&nbsp;:</dt><dd id="isAnimalOwner" class="action-editField validate-boolean required-true i18n-hsr.property.isAnimalOwner" ><span class="value-${rqt?.isAnimalOwner}"><g:message code="${rqt?.isAnimalOwner ? 'message.yes' : rqt?.isAnimalOwner==null ? '' : 'message.no'}" /></span></dd>
+              </dl>
+              
+            
+              
+              <dl>
+                <dt class="required condition-isSecurityCompany-trigger">${message(code:'hsr.property.isSecurityCompany.label')} &nbsp;*&nbsp;:</dt><dd id="isSecurityCompany" class="action-editField validate-boolean required-true i18n-hsr.property.isSecurityCompany" ><span class="value-${rqt?.isSecurityCompany}"><g:message code="${rqt?.isSecurityCompany ? 'message.yes' : rqt?.isSecurityCompany==null ? '' : 'message.no'}" /></span></dd>
+              </dl>
+              
+            
           </div>
           <!-- column end -->
           
           <!-- column start -->
           <div class="yui-u">
+            
+              
+              <dl>
+                <dt class="required condition-isAnimalOwner-filled">${message(code:'hsr.property.animalInformation.label')} &nbsp;*&nbsp;:</dt><dd id="animalInformation" class="action-editField validate-string required-true i18n-hsr.property.animalInformation" ><span >${rqt?.animalInformation}</span></dd>
+              </dl>
+              
+            
+              
+              <dl>
+                <dt class="required condition-isSecurityCompany-filled">${message(code:'hsr.property.securityCompanyName.label')} &nbsp;*&nbsp;:</dt><dd id="securityCompanyName" class="action-editField validate-string required-true i18n-hsr.property.securityCompanyName" ><span >${rqt?.securityCompanyName}</span></dd>
+              </dl>
+              
+            
+              
+              <dl>
+                <dt class="required condition-isSecurityCompany-filled">${message(code:'hsr.property.securityCompanyAddress.label')} &nbsp;*&nbsp;:</dt><dd id="securityCompanyAddress" class="action-editField validate-string required-true i18n-hsr.property.securityCompanyAddress" ><span >${rqt?.securityCompanyAddress}</span></dd>
+              </dl>
+              
+            
+              
+              <dl>
+                <dt class="required condition-isSecurityCompany-filled">${message(code:'hsr.property.securityCompanyTelephone.label')} &nbsp;*&nbsp;:</dt><dd id="securityCompanyTelephone" class="action-editField validate-phone required-true i18n-hsr.property.securityCompanyTelephone maxLength-10" ><span >${rqt?.securityCompanyTelephone}</span></dd>
+              </dl>
+              
             
           </div>
           <!-- column end -->

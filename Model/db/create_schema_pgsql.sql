@@ -18,31 +18,31 @@
         drop constraint FKEBD131104496AA92;
 
     alter table bafa_grant_request 
+        drop constraint FK50AFA827228322EA;
+
+    alter table bafa_grant_request 
         drop constraint FK50AFA827E5F289BE;
 
     alter table bafa_grant_request 
         drop constraint FK50AFA82758B2AF6;
 
-    alter table bafa_grant_request 
-        drop constraint FK50AFA827228322EA;
-
     alter table bulky_waste_collection_request 
         drop constraint FK1F104ECB98B9D644;
 
     alter table bulky_waste_collection_request_bulky_waste_type 
-        drop constraint FK7E2C4DCB92B4272C;
+        drop constraint FK7E2C4DCB1C43715B;
 
     alter table bulky_waste_collection_request_bulky_waste_type 
-        drop constraint FK7E2C4DCB1C43715B;
+        drop constraint FK7E2C4DCB92B4272C;
 
     alter table category_emails 
         drop constraint FKB9136EB8746D646A;
 
     alter table child 
-        drop constraint FK5A3F51CA73DAE4B;
+        drop constraint FK5A3F51C1A5D42C9;
 
     alter table child 
-        drop constraint FK5A3F51C1A5D42C9;
+        drop constraint FK5A3F51CA73DAE4B;
 
     alter table child_care_center_registration_request_welcoming_choice 
         drop constraint FK48474858C87E52FA;
@@ -63,34 +63,34 @@
         drop constraint FK49CC15BC79FCFCD;
 
     alter table conflans_municipal_waste_request_conteneur 
-        drop constraint FK2465E5C483DA04E6;
-
-    alter table conflans_municipal_waste_request_conteneur 
         drop constraint FK2465E5C4D3F8ADAB;
 
-    alter table conflans_municipal_waste_request_quartier 
-        drop constraint FK20F08FDA83DA04E6;
+    alter table conflans_municipal_waste_request_conteneur 
+        drop constraint FK2465E5C483DA04E6;
 
     alter table conflans_municipal_waste_request_quartier 
         drop constraint FK20F08FDA3AC38F7B;
 
-    alter table dhr_not_real_asset 
-        drop constraint FK2BA9F1ECEB2E1636;
+    alter table conflans_municipal_waste_request_quartier 
+        drop constraint FK20F08FDA83DA04E6;
 
     alter table dhr_not_real_asset 
-        drop constraint FK2BA9F1ECF7AB1E3A;
+        drop constraint FK2BA9F1ECBB85E2F1;
 
     alter table dhr_not_real_asset 
         drop constraint FK2BA9F1EC9D6CAF50;
 
     alter table dhr_not_real_asset 
-        drop constraint FK2BA9F1ECBB85E2F1;
+        drop constraint FK2BA9F1ECF7AB1E3A;
 
-    alter table dhr_previous_dwelling 
-        drop constraint FKB0B96E27C8CA371B;
+    alter table dhr_not_real_asset 
+        drop constraint FK2BA9F1ECEB2E1636;
 
     alter table dhr_previous_dwelling 
         drop constraint FKB0B96E27BB85E2F1;
+
+    alter table dhr_previous_dwelling 
+        drop constraint FKB0B96E27C8CA371B;
 
     alter table dhr_real_asset 
         drop constraint FK6AA7D9801AFD6A22;
@@ -114,16 +114,16 @@
         drop constraint FKA62BD3A5F8445EBC;
 
     alter table domestic_help_request 
-        drop constraint FK3C00811278E1506;
-
-    alter table domestic_help_request 
         drop constraint FK3C008112AE171420;
 
     alter table domestic_help_request 
-        drop constraint FK3C0081124E17D05C;
+        drop constraint FK3C00811254BECE1B;
 
     alter table domestic_help_request 
-        drop constraint FK3C00811254BECE1B;
+        drop constraint FK3C00811278E1506;
+
+    alter table domestic_help_request 
+        drop constraint FK3C0081124E17D05C;
 
     alter table external_application_broker 
         drop constraint FK839CD69CFC2C6659;
@@ -141,22 +141,16 @@
         drop constraint FKFB8FF277FDCEA1DD;
 
     alter table forms 
-        drop constraint FK5D18C2F2DA59F89;
-
-    alter table forms 
         drop constraint FK5D18C2F38173B49;
 
-    alter table global_school_registration_request_motifs_derogation_ecole 
-        drop constraint FKCC5E50BAF19CF81;
+    alter table forms 
+        drop constraint FK5D18C2F2DA59F89;
 
     alter table global_school_registration_request_motifs_derogation_ecole 
         drop constraint FKCC5E50B170C060;
 
-    alter table handicap_compensation_adult_request 
-        drop constraint FK73D0EACCA9975D69;
-
-    alter table handicap_compensation_adult_request 
-        drop constraint FK73D0EACC2706C750;
+    alter table global_school_registration_request_motifs_derogation_ecole 
+        drop constraint FKCC5E50BAF19CF81;
 
     alter table handicap_compensation_adult_request 
         drop constraint FK73D0EACCAD524458;
@@ -165,49 +159,55 @@
         drop constraint FK73D0EACCA8C33EB6;
 
     alter table handicap_compensation_adult_request 
-        drop constraint FK73D0EACCA4068AE2;
+        drop constraint FK73D0EACC403EF57;
 
     alter table handicap_compensation_adult_request 
         drop constraint FK73D0EACC75E6B884;
 
     alter table handicap_compensation_adult_request 
-        drop constraint FK73D0EACC403EF57;
+        drop constraint FK73D0EACCA4068AE2;
 
-    alter table handicap_compensation_child_request 
-        drop constraint FK309E3C2EA9975D69;
+    alter table handicap_compensation_adult_request 
+        drop constraint FK73D0EACC2706C750;
 
-    alter table handicap_compensation_child_request 
-        drop constraint FK309E3C2E2706C750;
-
-    alter table handicap_compensation_child_request 
-        drop constraint FK309E3C2E5FE889B6;
+    alter table handicap_compensation_adult_request 
+        drop constraint FK73D0EACCA9975D69;
 
     alter table handicap_compensation_child_request 
         drop constraint FK309E3C2EAD524458;
 
     alter table handicap_compensation_child_request 
-        drop constraint FK309E3C2EB33FAFDF;
-
-    alter table handicap_compensation_child_request 
         drop constraint FK309E3C2EA8C33EB6;
-
-    alter table handicap_compensation_child_request 
-        drop constraint FK309E3C2EA4068AE2;
 
     alter table handicap_compensation_child_request 
         drop constraint FK309E3C2E75E6B884;
 
     alter table handicap_compensation_child_request 
+        drop constraint FK309E3C2E5FE889B6;
+
+    alter table handicap_compensation_child_request 
         drop constraint FK309E3C2EC670099D;
+
+    alter table handicap_compensation_child_request 
+        drop constraint FK309E3C2EA4068AE2;
+
+    alter table handicap_compensation_child_request 
+        drop constraint FK309E3C2EB33FAFDF;
+
+    alter table handicap_compensation_child_request 
+        drop constraint FK309E3C2E2706C750;
+
+    alter table handicap_compensation_child_request 
+        drop constraint FK309E3C2EA9975D69;
 
     alter table hcar_additional_fee 
         drop constraint FKB357C9A16E4C4D30;
 
     alter table hcar_care_service 
-        drop constraint FKD2D3BA7AF8888859;
+        drop constraint FKD2D3BA7A6E4C4D30;
 
     alter table hcar_care_service 
-        drop constraint FKD2D3BA7A6E4C4D30;
+        drop constraint FKD2D3BA7AF8888859;
 
     alter table hcar_family_assistance_member 
         drop constraint FKF63BE3D96E4C4D30;
@@ -225,10 +225,10 @@
         drop constraint FK4681FB706E4C4D30;
 
     alter table hcar_professional 
-        drop constraint FK581A111A68FD071B;
+        drop constraint FK581A111A6E4C4D30;
 
     alter table hcar_professional 
-        drop constraint FK581A111A6E4C4D30;
+        drop constraint FK581A111A68FD071B;
 
     alter table hccr_additional_fee 
         drop constraint FK54AB85A3A06F83EC;
@@ -273,10 +273,10 @@
         drop constraint FK1C339C7DC2541920;
 
     alter table individual 
-        drop constraint FKFD3DA2993525DE03;
+        drop constraint FKFD3DA299C17313F0;
 
     alter table individual 
-        drop constraint FKFD3DA299C17313F0;
+        drop constraint FKFD3DA2993525DE03;
 
     alter table individual_mapping 
         drop constraint FK19DDB928A8EEE212;
@@ -291,16 +291,16 @@
         drop constraint FK6631159E6ABAC29E;
 
     alter table leisure_center_registration_request_motifs_derogation_centre_loisirs 
-        drop constraint FK6899CCB79BCEDCB1;
-
-    alter table leisure_center_registration_request_motifs_derogation_centre_loisirs 
         drop constraint FK6899CCB72864C921;
 
-    alter table library_registration_request_subscription 
-        drop constraint FK56C4BE0F4F6ED14B;
+    alter table leisure_center_registration_request_motifs_derogation_centre_loisirs 
+        drop constraint FK6899CCB79BCEDCB1;
 
     alter table library_registration_request_subscription 
         drop constraint FK56C4BE0F67355555;
+
+    alter table library_registration_request_subscription 
+        drop constraint FK56C4BE0F4F6ED14B;
 
     alter table local_referential_association 
         drop constraint FK6B28F677DE794BFB;
@@ -345,22 +345,22 @@
         drop constraint FK76BAA59A37A0DD36;
 
     alter table perischool_activity_registration_request_perischool_activity 
-        drop constraint FK2007A4E9D9BCA5E7;
-
-    alter table perischool_activity_registration_request_perischool_activity 
         drop constraint FK2007A4E959E559C4;
 
-    alter table perischool_authorized_individual 
-        drop constraint FKEE33EA1ED9BCA5E7;
+    alter table perischool_activity_registration_request_perischool_activity 
+        drop constraint FK2007A4E9D9BCA5E7;
 
     alter table perischool_authorized_individual 
         drop constraint FKEE33EA1E3525DE03;
 
-    alter table perischool_contact_individual 
-        drop constraint FK5B659D57D9BCA5E7;
+    alter table perischool_authorized_individual 
+        drop constraint FKEE33EA1ED9BCA5E7;
 
     alter table perischool_contact_individual 
         drop constraint FK5B659D573525DE03;
+
+    alter table perischool_contact_individual 
+        drop constraint FK5B659D57D9BCA5E7;
 
     alter table purchase_item 
         drop constraint FKB1132791FC859B01;
@@ -381,16 +381,16 @@
         drop constraint FKD1F8ECC79CC315B;
 
     alter table recreation_activity_registration_request_recreation_activity 
-        drop constraint FK54117CA92DC8B76;
-
-    alter table recreation_activity_registration_request_recreation_activity 
         drop constraint FK54117CA999121483;
 
-    alter table recreation_authorized_individual 
-        drop constraint FK5BA625503525DE03;
+    alter table recreation_activity_registration_request_recreation_activity 
+        drop constraint FK54117CA92DC8B76;
 
     alter table recreation_authorized_individual 
         drop constraint FK5BA6255099121483;
+
+    alter table recreation_authorized_individual 
+        drop constraint FK5BA625503525DE03;
 
     alter table recreation_authorized_poly_individual 
         drop constraint FK306260953525DE03;
@@ -399,10 +399,10 @@
         drop constraint FK3062609587E8988A;
 
     alter table recreation_contact_individual 
-        drop constraint FK52B67F653525DE03;
+        drop constraint FK52B67F6599121483;
 
     alter table recreation_contact_individual 
-        drop constraint FK52B67F6599121483;
+        drop constraint FK52B67F653525DE03;
 
     alter table recreation_contact_poly_individual 
         drop constraint FKDB500BA03525DE03;
@@ -483,25 +483,25 @@
         drop constraint FKCE60DA2BFFEFCBE7;
 
     alter table sports_associations_grant_request 
-        drop constraint FKB93535BF3EF61F66;
+        drop constraint FKB93535BFE8BDD6C0;
 
     alter table sports_associations_grant_request 
-        drop constraint FKB93535BFE8BDD6C0;
+        drop constraint FKB93535BF3EF61F66;
 
     alter table sports_associations_grant_request 
         drop constraint FKB93535BF8B09D896;
 
     alter table study_grant_request 
-        drop constraint FK7D2F0A76E80C8268;
-
-    alter table study_grant_request 
         drop constraint FK7D2F0A76228322EA;
 
-    alter table study_grant_request_current_school_name 
-        drop constraint FK49484F67E95273C0;
+    alter table study_grant_request 
+        drop constraint FK7D2F0A76E80C8268;
 
     alter table study_grant_request_current_school_name 
         drop constraint FK49484F67D1F3D2E2;
+
+    alter table study_grant_request_current_school_name 
+        drop constraint FK49484F67E95273C0;
 
     alter table study_grant_request_tax_household_city 
         drop constraint FK1B56894827B24253;
@@ -516,10 +516,10 @@
         drop constraint FKC051B8C9F2253878;
 
     alter table technical_intervention_request_intervention_type 
-        drop constraint FK5ADF79ACA54CB0;
+        drop constraint FK5ADF79AC6D2A8B97;
 
     alter table technical_intervention_request_intervention_type 
-        drop constraint FK5ADF79AC6D2A8B97;
+        drop constraint FK5ADF79ACA54CB0;
 
     alter table ticket_event 
         drop constraint FK9B59C7A7B398855B;
@@ -2022,12 +2022,19 @@
         absence_start_date timestamp,
         alarm bool,
         alert_phone varchar(10),
+        animal_information varchar(255),
+        is_animal_owner bool,
+        is_security_company bool,
         light bool,
         other_contact bool,
+        other_contact_duplicate_key bool,
         other_contact_first_name varchar(38),
         other_contact_last_name varchar(38),
         other_contact_phone varchar(10),
         rules_and_regulations_acceptance bool,
+        security_company_address varchar(255),
+        security_company_name varchar(255),
+        security_company_telephone varchar(10),
         other_contact_address_id int8,
         primary key (id)
     );
@@ -2447,10 +2454,6 @@
         external_item_id varchar(255),
         external_notification_status varchar(32),
         external_service_label varchar(255),
-        key varchar(255),
-        key_owner varchar(255),
-        quantity int4,
-        unit_price float8,
         old_value float8,
         old_value_date timestamp,
         expiration_date timestamp,
@@ -2462,7 +2465,11 @@
         max_buy int4,
         min_buy int4,
         old_quantity int4,
+        quantity int4,
         subject_id int8,
+        unit_price float8,
+        key varchar(255),
+        key_owner varchar(255),
         primary key (id)
     );
 
@@ -3203,6 +3210,11 @@
         references address;
 
     alter table bafa_grant_request 
+        add constraint FK50AFA827228322EA 
+        foreign key (bank_account_id) 
+        references bank_account;
+
+    alter table bafa_grant_request 
         add constraint FK50AFA827E5F289BE 
         foreign key (internship_institute_address_id) 
         references address;
@@ -3212,25 +3224,20 @@
         foreign key (subject_address_id) 
         references address;
 
-    alter table bafa_grant_request 
-        add constraint FK50AFA827228322EA 
-        foreign key (bank_account_id) 
-        references bank_account;
-
     alter table bulky_waste_collection_request 
         add constraint FK1F104ECB98B9D644 
         foreign key (collection_address_id) 
         references address;
 
     alter table bulky_waste_collection_request_bulky_waste_type 
-        add constraint FK7E2C4DCB92B4272C 
-        foreign key (bulky_waste_collection_request_id) 
-        references bulky_waste_collection_request;
-
-    alter table bulky_waste_collection_request_bulky_waste_type 
         add constraint FK7E2C4DCB1C43715B 
         foreign key (bulky_waste_type_id) 
         references local_referential_data;
+
+    alter table bulky_waste_collection_request_bulky_waste_type 
+        add constraint FK7E2C4DCB92B4272C 
+        foreign key (bulky_waste_collection_request_id) 
+        references bulky_waste_collection_request;
 
     alter table category_emails 
         add constraint FKB9136EB8746D646A 
@@ -3238,14 +3245,14 @@
         references category;
 
     alter table child 
-        add constraint FK5A3F51CA73DAE4B 
-        foreign key (id) 
-        references individual;
-
-    alter table child 
         add constraint FK5A3F51C1A5D42C9 
         foreign key (child_information_sheet_id) 
         references child_information_sheet;
+
+    alter table child 
+        add constraint FK5A3F51CA73DAE4B 
+        foreign key (id) 
+        references individual;
 
     alter table child_care_center_registration_request_welcoming_choice 
         add constraint FK48474858C87E52FA 
@@ -3278,17 +3285,12 @@
         references address;
 
     alter table conflans_municipal_waste_request_conteneur 
-        add constraint FK2465E5C483DA04E6 
-        foreign key (conflans_municipal_waste_request_id) 
-        references conflans_municipal_waste_request;
-
-    alter table conflans_municipal_waste_request_conteneur 
         add constraint FK2465E5C4D3F8ADAB 
         foreign key (conteneur_id) 
         references local_referential_data;
 
-    alter table conflans_municipal_waste_request_quartier 
-        add constraint FK20F08FDA83DA04E6 
+    alter table conflans_municipal_waste_request_conteneur 
+        add constraint FK2465E5C483DA04E6 
         foreign key (conflans_municipal_waste_request_id) 
         references conflans_municipal_waste_request;
 
@@ -3297,9 +3299,19 @@
         foreign key (quartier_id) 
         references local_referential_data;
 
+    alter table conflans_municipal_waste_request_quartier 
+        add constraint FK20F08FDA83DA04E6 
+        foreign key (conflans_municipal_waste_request_id) 
+        references conflans_municipal_waste_request;
+
     alter table dhr_not_real_asset 
-        add constraint FK2BA9F1ECEB2E1636 
-        foreign key (dhr_not_real_asset_address_id) 
+        add constraint FK2BA9F1ECBB85E2F1 
+        foreign key (domestic_help_request_id) 
+        references domestic_help_request;
+
+    alter table dhr_not_real_asset 
+        add constraint FK2BA9F1EC9D6CAF50 
+        foreign key (dhr_not_real_asset_beneficiary_address_id) 
         references address;
 
     alter table dhr_not_real_asset 
@@ -3308,12 +3320,12 @@
         references address;
 
     alter table dhr_not_real_asset 
-        add constraint FK2BA9F1EC9D6CAF50 
-        foreign key (dhr_not_real_asset_beneficiary_address_id) 
+        add constraint FK2BA9F1ECEB2E1636 
+        foreign key (dhr_not_real_asset_address_id) 
         references address;
 
-    alter table dhr_not_real_asset 
-        add constraint FK2BA9F1ECBB85E2F1 
+    alter table dhr_previous_dwelling 
+        add constraint FKB0B96E27BB85E2F1 
         foreign key (domestic_help_request_id) 
         references domestic_help_request;
 
@@ -3321,11 +3333,6 @@
         add constraint FKB0B96E27C8CA371B 
         foreign key (dhr_previous_dwelling_address_id) 
         references address;
-
-    alter table dhr_previous_dwelling 
-        add constraint FKB0B96E27BB85E2F1 
-        foreign key (domestic_help_request_id) 
-        references domestic_help_request;
 
     alter table dhr_real_asset 
         add constraint FK6AA7D9801AFD6A22 
@@ -3363,23 +3370,23 @@
         references document;
 
     alter table domestic_help_request 
-        add constraint FK3C00811278E1506 
-        foreign key (dhr_referent_address_id) 
-        references address;
-
-    alter table domestic_help_request 
         add constraint FK3C008112AE171420 
         foreign key (dhr_guardian_address_id) 
         references address;
 
     alter table domestic_help_request 
-        add constraint FK3C0081124E17D05C 
-        foreign key (dhr_spouse_address_id) 
+        add constraint FK3C00811254BECE1B 
+        foreign key (dhr_current_dwelling_address_id) 
         references address;
 
     alter table domestic_help_request 
-        add constraint FK3C00811254BECE1B 
-        foreign key (dhr_current_dwelling_address_id) 
+        add constraint FK3C00811278E1506 
+        foreign key (dhr_referent_address_id) 
+        references address;
+
+    alter table domestic_help_request 
+        add constraint FK3C0081124E17D05C 
+        foreign key (dhr_spouse_address_id) 
         references address;
 
     alter table external_application_broker 
@@ -3408,34 +3415,24 @@
         references purchase_item;
 
     alter table forms 
-        add constraint FK5D18C2F2DA59F89 
-        foreign key (request_type_id) 
-        references request_type;
-
-    alter table forms 
         add constraint FK5D18C2F38173B49 
         foreign key (request_form_id) 
         references request_form;
 
-    alter table global_school_registration_request_motifs_derogation_ecole 
-        add constraint FKCC5E50BAF19CF81 
-        foreign key (global_school_registration_request_id) 
-        references global_school_registration_request;
+    alter table forms 
+        add constraint FK5D18C2F2DA59F89 
+        foreign key (request_type_id) 
+        references request_type;
 
     alter table global_school_registration_request_motifs_derogation_ecole 
         add constraint FKCC5E50B170C060 
         foreign key (motifs_derogation_ecole_id) 
         references local_referential_data;
 
-    alter table handicap_compensation_adult_request 
-        add constraint FK73D0EACCA9975D69 
-        foreign key (studies_high_school_address_id) 
-        references address;
-
-    alter table handicap_compensation_adult_request 
-        add constraint FK73D0EACC2706C750 
-        foreign key (social_security_agency_address_id) 
-        references address;
+    alter table global_school_registration_request_motifs_derogation_ecole 
+        add constraint FKCC5E50BAF19CF81 
+        foreign key (global_school_registration_request_id) 
+        references global_school_registration_request;
 
     alter table handicap_compensation_adult_request 
         add constraint FK73D0EACCAD524458 
@@ -3448,8 +3445,8 @@
         references address;
 
     alter table handicap_compensation_adult_request 
-        add constraint FK73D0EACCA4068AE2 
-        foreign key (dwelling_reception_address_id) 
+        add constraint FK73D0EACC403EF57 
+        foreign key (professional_support_social_service_address_id) 
         references address;
 
     alter table handicap_compensation_adult_request 
@@ -3458,23 +3455,18 @@
         references address;
 
     alter table handicap_compensation_adult_request 
-        add constraint FK73D0EACC403EF57 
-        foreign key (professional_support_social_service_address_id) 
+        add constraint FK73D0EACCA4068AE2 
+        foreign key (dwelling_reception_address_id) 
         references address;
 
-    alter table handicap_compensation_child_request 
-        add constraint FK309E3C2EA9975D69 
-        foreign key (studies_high_school_address_id) 
-        references address;
-
-    alter table handicap_compensation_child_request 
-        add constraint FK309E3C2E2706C750 
+    alter table handicap_compensation_adult_request 
+        add constraint FK73D0EACC2706C750 
         foreign key (social_security_agency_address_id) 
         references address;
 
-    alter table handicap_compensation_child_request 
-        add constraint FK309E3C2E5FE889B6 
-        foreign key (schooling_home_schooling_accompanist_address_id) 
+    alter table handicap_compensation_adult_request 
+        add constraint FK73D0EACCA9975D69 
+        foreign key (studies_high_school_address_id) 
         references address;
 
     alter table handicap_compensation_child_request 
@@ -3483,18 +3475,8 @@
         references address;
 
     alter table handicap_compensation_child_request 
-        add constraint FK309E3C2EB33FAFDF 
-        foreign key (social_service_address_id) 
-        references address;
-
-    alter table handicap_compensation_child_request 
         add constraint FK309E3C2EA8C33EB6 
         foreign key (dwelling_social_reception_address_id) 
-        references address;
-
-    alter table handicap_compensation_child_request 
-        add constraint FK309E3C2EA4068AE2 
-        foreign key (dwelling_reception_address_id) 
         references address;
 
     alter table handicap_compensation_child_request 
@@ -3503,8 +3485,33 @@
         references address;
 
     alter table handicap_compensation_child_request 
+        add constraint FK309E3C2E5FE889B6 
+        foreign key (schooling_home_schooling_accompanist_address_id) 
+        references address;
+
+    alter table handicap_compensation_child_request 
         add constraint FK309E3C2EC670099D 
         foreign key (schooling_school_address_id) 
+        references address;
+
+    alter table handicap_compensation_child_request 
+        add constraint FK309E3C2EA4068AE2 
+        foreign key (dwelling_reception_address_id) 
+        references address;
+
+    alter table handicap_compensation_child_request 
+        add constraint FK309E3C2EB33FAFDF 
+        foreign key (social_service_address_id) 
+        references address;
+
+    alter table handicap_compensation_child_request 
+        add constraint FK309E3C2E2706C750 
+        foreign key (social_security_agency_address_id) 
+        references address;
+
+    alter table handicap_compensation_child_request 
+        add constraint FK309E3C2EA9975D69 
+        foreign key (studies_high_school_address_id) 
         references address;
 
     alter table hcar_additional_fee 
@@ -3513,14 +3520,14 @@
         references handicap_compensation_adult_request;
 
     alter table hcar_care_service 
-        add constraint FKD2D3BA7AF8888859 
-        foreign key (care_service_provider_address_id) 
-        references address;
-
-    alter table hcar_care_service 
         add constraint FKD2D3BA7A6E4C4D30 
         foreign key (handicap_compensation_adult_request_id) 
         references handicap_compensation_adult_request;
+
+    alter table hcar_care_service 
+        add constraint FKD2D3BA7AF8888859 
+        foreign key (care_service_provider_address_id) 
+        references address;
 
     alter table hcar_family_assistance_member 
         add constraint FKF63BE3D96E4C4D30 
@@ -3548,14 +3555,14 @@
         references handicap_compensation_adult_request;
 
     alter table hcar_professional 
-        add constraint FK581A111A68FD071B 
-        foreign key (professional_address_id) 
-        references address;
-
-    alter table hcar_professional 
         add constraint FK581A111A6E4C4D30 
         foreign key (handicap_compensation_adult_request_id) 
         references handicap_compensation_adult_request;
+
+    alter table hcar_professional 
+        add constraint FK581A111A68FD071B 
+        foreign key (professional_address_id) 
+        references address;
 
     alter table hccr_additional_fee 
         add constraint FK54AB85A3A06F83EC 
@@ -3628,14 +3635,14 @@
         references global_home_folder_configuration;
 
     alter table individual 
-        add constraint FKFD3DA2993525DE03 
-        foreign key (address_id) 
-        references address;
-
-    alter table individual 
         add constraint FKFD3DA299C17313F0 
         foreign key (home_folder_id) 
         references home_folder;
+
+    alter table individual 
+        add constraint FKFD3DA2993525DE03 
+        foreign key (address_id) 
+        references address;
 
     alter table individual_mapping 
         add constraint FK19DDB928A8EEE212 
@@ -3658,24 +3665,24 @@
         references local_referential_data;
 
     alter table leisure_center_registration_request_motifs_derogation_centre_loisirs 
+        add constraint FK6899CCB72864C921 
+        foreign key (motifs_derogation_centre_loisirs_id) 
+        references local_referential_data;
+
+    alter table leisure_center_registration_request_motifs_derogation_centre_loisirs 
         add constraint FK6899CCB79BCEDCB1 
         foreign key (leisure_center_registration_request_id) 
         references leisure_center_registration_request;
 
-    alter table leisure_center_registration_request_motifs_derogation_centre_loisirs 
-        add constraint FK6899CCB72864C921 
-        foreign key (motifs_derogation_centre_loisirs_id) 
+    alter table library_registration_request_subscription 
+        add constraint FK56C4BE0F67355555 
+        foreign key (subscription_id) 
         references local_referential_data;
 
     alter table library_registration_request_subscription 
         add constraint FK56C4BE0F4F6ED14B 
         foreign key (library_registration_request_id) 
         references library_registration_request;
-
-    alter table library_registration_request_subscription 
-        add constraint FK56C4BE0F67355555 
-        foreign key (subscription_id) 
-        references local_referential_data;
 
     alter table local_referential_association 
         add constraint FK6B28F677DE794BFB 
@@ -3748,17 +3755,12 @@
         references school;
 
     alter table perischool_activity_registration_request_perischool_activity 
-        add constraint FK2007A4E9D9BCA5E7 
-        foreign key (perischool_activity_registration_request_id) 
-        references perischool_activity_registration_request;
-
-    alter table perischool_activity_registration_request_perischool_activity 
         add constraint FK2007A4E959E559C4 
         foreign key (perischool_activity_id) 
         references local_referential_data;
 
-    alter table perischool_authorized_individual 
-        add constraint FKEE33EA1ED9BCA5E7 
+    alter table perischool_activity_registration_request_perischool_activity 
+        add constraint FK2007A4E9D9BCA5E7 
         foreign key (perischool_activity_registration_request_id) 
         references perischool_activity_registration_request;
 
@@ -3767,8 +3769,8 @@
         foreign key (address_id) 
         references address;
 
-    alter table perischool_contact_individual 
-        add constraint FK5B659D57D9BCA5E7 
+    alter table perischool_authorized_individual 
+        add constraint FKEE33EA1ED9BCA5E7 
         foreign key (perischool_activity_registration_request_id) 
         references perischool_activity_registration_request;
 
@@ -3776,6 +3778,11 @@
         add constraint FK5B659D573525DE03 
         foreign key (address_id) 
         references address;
+
+    alter table perischool_contact_individual 
+        add constraint FK5B659D57D9BCA5E7 
+        foreign key (perischool_activity_registration_request_id) 
+        references perischool_activity_registration_request;
 
     alter table purchase_item 
         add constraint FKB1132791FC859B01 
@@ -3808,12 +3815,17 @@
         references recreation_center;
 
     alter table recreation_activity_registration_request_recreation_activity 
+        add constraint FK54117CA999121483 
+        foreign key (recreation_activity_registration_request_id) 
+        references recreation_activity_registration_request;
+
+    alter table recreation_activity_registration_request_recreation_activity 
         add constraint FK54117CA92DC8B76 
         foreign key (recreation_activity_id) 
         references local_referential_data;
 
-    alter table recreation_activity_registration_request_recreation_activity 
-        add constraint FK54117CA999121483 
+    alter table recreation_authorized_individual 
+        add constraint FK5BA6255099121483 
         foreign key (recreation_activity_registration_request_id) 
         references recreation_activity_registration_request;
 
@@ -3821,11 +3833,6 @@
         add constraint FK5BA625503525DE03 
         foreign key (address_id) 
         references address;
-
-    alter table recreation_authorized_individual 
-        add constraint FK5BA6255099121483 
-        foreign key (recreation_activity_registration_request_id) 
-        references recreation_activity_registration_request;
 
     alter table recreation_authorized_poly_individual 
         add constraint FK306260953525DE03 
@@ -3838,14 +3845,14 @@
         references recreation_activity_poly_registration_request;
 
     alter table recreation_contact_individual 
-        add constraint FK52B67F653525DE03 
-        foreign key (address_id) 
-        references address;
-
-    alter table recreation_contact_individual 
         add constraint FK52B67F6599121483 
         foreign key (recreation_activity_registration_request_id) 
         references recreation_activity_registration_request;
+
+    alter table recreation_contact_individual 
+        add constraint FK52B67F653525DE03 
+        foreign key (address_id) 
+        references address;
 
     alter table recreation_contact_poly_individual 
         add constraint FKDB500BA03525DE03 
@@ -3978,14 +3985,14 @@
         references sms_notification_request;
 
     alter table sports_associations_grant_request 
-        add constraint FKB93535BF3EF61F66 
-        foreign key (compte_bancaire_id) 
-        references bank_account;
-
-    alter table sports_associations_grant_request 
         add constraint FKB93535BFE8BDD6C0 
         foreign key (adresse_correspondant_principal_id) 
         references address;
+
+    alter table sports_associations_grant_request 
+        add constraint FKB93535BF3EF61F66 
+        foreign key (compte_bancaire_id) 
+        references bank_account;
 
     alter table sports_associations_grant_request 
         add constraint FKB93535BF8B09D896 
@@ -3993,24 +4000,24 @@
         references address;
 
     alter table study_grant_request 
-        add constraint FK7D2F0A76E80C8268 
-        foreign key (current_school_address_id) 
-        references address;
-
-    alter table study_grant_request 
         add constraint FK7D2F0A76228322EA 
         foreign key (bank_account_id) 
         references bank_account;
 
-    alter table study_grant_request_current_school_name 
-        add constraint FK49484F67E95273C0 
-        foreign key (study_grant_request_id) 
-        references study_grant_request;
+    alter table study_grant_request 
+        add constraint FK7D2F0A76E80C8268 
+        foreign key (current_school_address_id) 
+        references address;
 
     alter table study_grant_request_current_school_name 
         add constraint FK49484F67D1F3D2E2 
         foreign key (current_school_name_id) 
         references local_referential_data;
+
+    alter table study_grant_request_current_school_name 
+        add constraint FK49484F67E95273C0 
+        foreign key (study_grant_request_id) 
+        references study_grant_request;
 
     alter table study_grant_request_tax_household_city 
         add constraint FK1B56894827B24253 
@@ -4033,14 +4040,14 @@
         references address;
 
     alter table technical_intervention_request_intervention_type 
-        add constraint FK5ADF79ACA54CB0 
-        foreign key (intervention_type_id) 
-        references local_referential_data;
-
-    alter table technical_intervention_request_intervention_type 
         add constraint FK5ADF79AC6D2A8B97 
         foreign key (technical_intervention_request_id) 
         references technical_intervention_request;
+
+    alter table technical_intervention_request_intervention_type 
+        add constraint FK5ADF79ACA54CB0 
+        foreign key (intervention_type_id) 
+        references local_referential_data;
 
     alter table ticket_event 
         add constraint FK9B59C7A7B398855B 

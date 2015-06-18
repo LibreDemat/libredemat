@@ -78,6 +78,11 @@ hsr.property.otherContactPhone.validationError =
 hsr.property.otherContactPhone.headerInformation =
 
 
+hsr.property.otherContactDuplicateKey.help =
+hsr.property.otherContactDuplicateKey.validationError =
+hsr.property.otherContactDuplicateKey.headerInformation =
+
+
 hsr.property.alarm.help =
 hsr.property.alarm.validationError =
 hsr.property.alarm.headerInformation =
@@ -86,6 +91,36 @@ hsr.property.alarm.headerInformation =
 hsr.property.light.help =
 hsr.property.light.validationError =
 hsr.property.light.headerInformation =
+
+
+hsr.property.isAnimalOwner.help =
+hsr.property.isAnimalOwner.validationError =
+hsr.property.isAnimalOwner.headerInformation =
+
+
+hsr.property.animalInformation.help =
+hsr.property.animalInformation.validationError =
+hsr.property.animalInformation.headerInformation =
+
+
+hsr.property.isSecurityCompany.help =
+hsr.property.isSecurityCompany.validationError =
+hsr.property.isSecurityCompany.headerInformation =
+
+
+hsr.property.securityCompanyName.help =
+hsr.property.securityCompanyName.validationError =
+hsr.property.securityCompanyName.headerInformation =
+
+
+hsr.property.securityCompanyAddress.help =
+hsr.property.securityCompanyAddress.validationError =
+hsr.property.securityCompanyAddress.headerInformation =
+
+
+hsr.property.securityCompanyTelephone.help =
+hsr.property.securityCompanyTelephone.validationError =
+hsr.property.securityCompanyTelephone.headerInformation =
 
 
 

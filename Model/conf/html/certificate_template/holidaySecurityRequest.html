@@ -196,6 +196,17 @@
           <p class="label">${esc(i18n.translate('hsr.property.otherContactPhone.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.otherContactPhone?.toString()))}</div>
 
         
+          <p class="label">${esc(i18n.translate('hsr.property.otherContactDuplicateKey.label'))}</p>
+          <div class="response choice">
+            <% [true,false].each { %>
+              <span ${it == rqt.otherContactDuplicateKey ? 'class="checked"': 'class="unchecked"'}>
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
+              </span>
+            <% } %>
+          </div>
+          
+
+        
       </div>
     
   
@@ -227,6 +238,52 @@
             <% } %>
           </div>
           
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('hsr.property.isAnimalOwner.label'))}</p>
+          <div class="response choice">
+            <% [true,false].each { %>
+              <span ${it == rqt.isAnimalOwner ? 'class="checked"': 'class="unchecked"'}>
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
+              </span>
+            <% } %>
+          </div>
+          
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('hsr.property.animalInformation.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.animalInformation?.toString()))}</div>
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('hsr.property.isSecurityCompany.label'))}</p>
+          <div class="response choice">
+            <% [true,false].each { %>
+              <span ${it == rqt.isSecurityCompany ? 'class="checked"': 'class="unchecked"'}>
+                ${esc(i18n.translate('message.' + (it ? 'yes' : 'no')))}
+              </span>
+            <% } %>
+          </div>
+          
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('hsr.property.securityCompanyName.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.securityCompanyName?.toString()))}</div>
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('hsr.property.securityCompanyAddress.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.securityCompanyAddress?.toString()))}</div>
+
+    
+  
+    
+      <p class="label">${esc(i18n.translate('hsr.property.securityCompanyTelephone.label'))}</p><div class="response">${esc(StringUtils.defaultString(rqt.securityCompanyTelephone?.toString()))}</div>
 
     
   

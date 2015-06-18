@@ -183,6 +183,11 @@
           
 
         
+          <dt><g:message code="hsr.property.otherContactDuplicateKey.label" /></dt>
+          <dd><g:message code="message.${rqt.otherContactDuplicateKey ? 'yes' : 'no'}" /></dd>
+          
+
+        
       </dl>
       
     
@@ -205,6 +210,60 @@
       <dl>
         <dt><g:message code="hsr.property.light.label" /></dt>
           <dd><g:message code="message.${rqt.light ? 'yes' : 'no'}" /></dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="hsr.property.isAnimalOwner.label" /></dt>
+          <dd><g:message code="message.${rqt.isAnimalOwner ? 'yes' : 'no'}" /></dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="hsr.property.animalInformation.label" /></dt>
+          <dd>${rqt.animalInformation?.toString()}</dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="hsr.property.isSecurityCompany.label" /></dt>
+          <dd><g:message code="message.${rqt.isSecurityCompany ? 'yes' : 'no'}" /></dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="hsr.property.securityCompanyName.label" /></dt>
+          <dd>${rqt.securityCompanyName?.toString()}</dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="hsr.property.securityCompanyAddress.label" /></dt>
+          <dd>${rqt.securityCompanyAddress?.toString()}</dd>
+          
+
+      </dl>
+      
+    
+      
+      <dl>
+        <dt><g:message code="hsr.property.securityCompanyTelephone.label" /></dt>
+          <dd>${rqt.securityCompanyTelephone?.toString()}</dd>
           
 
       </dl>
