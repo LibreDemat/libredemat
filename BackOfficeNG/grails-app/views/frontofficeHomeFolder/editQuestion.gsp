@@ -11,7 +11,7 @@
         <h2><g:message code="account.header.editQuestion"/></h2>
         <form action="${createLink(action:'editQuestion')}" method="post">
 
-          <label class="required" for="password"><g:message code="homeFolder.adult.property.password"/> * :</label>
+          <label class="required" for="password"><g:message code="homeFolder.adult.property.oldPassword"/> * :</label>
           <input type="password" id="password" name="password" value="" class="required" />
 
           <label for="question" class="required"><g:message code="homeFolder.adult.property.question" /> * :</label>
