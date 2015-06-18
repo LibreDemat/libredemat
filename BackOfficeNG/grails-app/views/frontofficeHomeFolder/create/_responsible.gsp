@@ -82,8 +82,7 @@
     </label>
     <jcaptcha:jpeg name="captchaImage" alt="captcha" />
     <input type="text" id="captchaText" name="captchaText" autocomplete="off"
-      class="required ${invalidFields?.contains('captchaText') ? 'validation-failed' : ''}"
-      title="${message(code:'request.step.validation.error.captcha')}" />
+      class="required ${invalidFields?.contains('captchaText') ? 'validation-failed' : ''}" />
     <input type="hidden" name="currentStep" value="${currentStep}"/>
     <p style="text-align: center;">
       <input type="submit" style="font-size:1.2em;" value="${message(code : submitCode)}" />

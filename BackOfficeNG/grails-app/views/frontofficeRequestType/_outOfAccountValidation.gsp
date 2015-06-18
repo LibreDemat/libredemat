@@ -43,5 +43,5 @@
   <label for="captchaText" class="required">${message(code:'request.step.validation.label.typeTextInImage')}*</label>
   <div class="captcha">
     <jcaptcha:jpeg name="captchaImage" alt="captcha" />
-    <input type="text" id="captchaText" name="captchaText" class="required" title="${message(code:'request.step.validation.error.captcha')}" />
+    <input type="text" id="captchaText" name="captchaText" class="required" />
   </div>
