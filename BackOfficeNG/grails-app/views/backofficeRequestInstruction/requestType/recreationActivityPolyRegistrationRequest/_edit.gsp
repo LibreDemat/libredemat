@@ -73,7 +73,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'raprr.property.recreationPolyCenter.label')} &nbsp;:</dt><dd id="recreationPolyCenter" class="action-editField validate-recreationCenter i18n-raprr.property.recreationPolyCenter" ><span class="value-${rqt?.recreationPolyCenter?.id}">${rqt?.recreationPolyCenter?.name}</span></dd>
+                <dt class="">${message(code:'raprr.property.recreationPolyCenter.label')} &nbsp;:</dt><dd id="recreationPolyCenter" class="action-editField validate-recreationPolyCenter i18n-raprr.property.recreationPolyCenter" ><span class="value-${rqt?.recreationPolyCenter?.id}">${rqt?.recreationPolyCenter?.name}</span></dd>
               </dl>
               
             
