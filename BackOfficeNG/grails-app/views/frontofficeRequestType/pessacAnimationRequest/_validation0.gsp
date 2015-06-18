@@ -89,14 +89,18 @@
     
       
       <dl>
-        <dt><g:message code="par.property.telephoneSujet.label" /></dt><dd>${rqt.telephoneSujet?.toString()}</dd>
+        <dt><g:message code="par.property.telephoneSujet.label" /></dt>
+          <dd>${rqt.telephoneSujet?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="par.property.emailSujet.label" /></dt><dd>${rqt.emailSujet?.toString()}</dd>
+        <dt><g:message code="par.property.emailSujet.label" /></dt>
+          <dd>${rqt.emailSujet?.toString()}</dd>
+          
 
       </dl>
       

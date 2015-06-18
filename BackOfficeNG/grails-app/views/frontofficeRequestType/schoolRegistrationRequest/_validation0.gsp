@@ -102,7 +102,9 @@
     
       
       <dl>
-        <dt><g:message code="srr.property.urgencyPhone.label" /></dt><dd>${rqt.urgencyPhone?.toString()}</dd>
+        <dt><g:message code="srr.property.urgencyPhone.label" /></dt>
+          <dd>${rqt.urgencyPhone?.toString()}</dd>
+          
 
       </dl>
       
@@ -111,10 +113,14 @@
       <h4><g:message code="srr.property.currentSchool.label" /></h4>
       <dl>
         
-          <dt><g:message code="srr.property.currentSchoolName.label" /></dt><dd>${rqt.currentSchoolName?.toString()}</dd>
+          <dt><g:message code="srr.property.currentSchoolName.label" /></dt>
+          <dd>${rqt.currentSchoolName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="srr.property.currentSchoolAddress.label" /></dt><dd>${rqt.currentSchoolAddress?.toString()}</dd>
+          <dt><g:message code="srr.property.currentSchoolAddress.label" /></dt>
+          <dd>${rqt.currentSchoolAddress?.toString()}</dd>
+          
 
         
           <dt><g:message code="srr.property.currentSection.label" /></dt>

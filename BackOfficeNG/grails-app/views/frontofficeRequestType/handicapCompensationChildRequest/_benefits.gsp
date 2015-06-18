@@ -20,8 +20,11 @@
     
       
       <label for="benefitsDisabilityRatio" class="required condition-isDisabilityRecognition-filled"><g:message code="hccr.property.benefitsDisabilityRatio.label" /> *  <span><g:message code="hccr.property.benefitsDisabilityRatio.help" /></span></label>
-            <input  type="text" id="benefitsDisabilityRatio" name="benefitsDisabilityRatio" value="${rqt.benefitsDisabilityRatio?.toString()}" 
-                    class="required condition-isDisabilityRecognition-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityRatio') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.benefitsDisabilityRatio.validationError" />"  maxlength="3" />
+            <input  type="text" id="benefitsDisabilityRatio"
+                   name="benefitsDisabilityRatio"
+                   value="${rqt.benefitsDisabilityRatio?.toString()}"
+                   class="required condition-isDisabilityRecognition-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityRatio') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.benefitsDisabilityRatio.validationError" />"  maxlength="3" />
             
 
     
@@ -92,8 +95,11 @@
     
       
       <label for="benefitsProfessionalOrientationDetails" class="required condition-isProfessionalOrientation-filled"><g:message code="hccr.property.benefitsProfessionalOrientationDetails.label" /> *  <span><g:message code="hccr.property.benefitsProfessionalOrientationDetails.help" /></span></label>
-            <input  type="text" id="benefitsProfessionalOrientationDetails" name="benefitsProfessionalOrientationDetails" value="${rqt.benefitsProfessionalOrientationDetails?.toString()}" 
-                    class="required condition-isProfessionalOrientation-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsProfessionalOrientationDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.benefitsProfessionalOrientationDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="benefitsProfessionalOrientationDetails"
+                   name="benefitsProfessionalOrientationDetails"
+                   value="${rqt.benefitsProfessionalOrientationDetails?.toString()}"
+                   class="required condition-isProfessionalOrientation-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsProfessionalOrientationDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.benefitsProfessionalOrientationDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -151,8 +157,11 @@
     
       
       <label for="benefitsEducationOfDisabledChildrenDetails" class="required condition-isEducationOfDisabledChildren-filled"><g:message code="hccr.property.benefitsEducationOfDisabledChildrenDetails.label" /> *  <span><g:message code="hccr.property.benefitsEducationOfDisabledChildrenDetails.help" /></span></label>
-            <input  type="text" id="benefitsEducationOfDisabledChildrenDetails" name="benefitsEducationOfDisabledChildrenDetails" value="${rqt.benefitsEducationOfDisabledChildrenDetails?.toString()}" 
-                    class="required condition-isEducationOfDisabledChildren-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsEducationOfDisabledChildrenDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.benefitsEducationOfDisabledChildrenDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="benefitsEducationOfDisabledChildrenDetails"
+                   name="benefitsEducationOfDisabledChildrenDetails"
+                   value="${rqt.benefitsEducationOfDisabledChildrenDetails?.toString()}"
+                   class="required condition-isEducationOfDisabledChildren-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsEducationOfDisabledChildrenDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.benefitsEducationOfDisabledChildrenDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -236,8 +245,11 @@
     
       
       <label for="benefitsDisabilityPensionCategory" class="required condition-isDisabilityPension-filled"><g:message code="hccr.property.benefitsDisabilityPensionCategory.label" /> *  <span><g:message code="hccr.property.benefitsDisabilityPensionCategory.help" /></span></label>
-            <input  type="text" id="benefitsDisabilityPensionCategory" name="benefitsDisabilityPensionCategory" value="${rqt.benefitsDisabilityPensionCategory?.toString()}" 
-                    class="required condition-isDisabilityPension-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityPensionCategory') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.benefitsDisabilityPensionCategory.validationError" />"  maxlength="60" />
+            <input  type="text" id="benefitsDisabilityPensionCategory"
+                   name="benefitsDisabilityPensionCategory"
+                   value="${rqt.benefitsDisabilityPensionCategory?.toString()}"
+                   class="required condition-isDisabilityPension-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsDisabilityPensionCategory') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.benefitsDisabilityPensionCategory.validationError" />"  maxlength="60" />
             
 
     
@@ -256,8 +268,11 @@
     
       
       <label for="benefitsWorkAccidentAnnuityRatio" class="required condition-isWorkAccidentAnnuity-filled"><g:message code="hccr.property.benefitsWorkAccidentAnnuityRatio.label" /> *  <span><g:message code="hccr.property.benefitsWorkAccidentAnnuityRatio.help" /></span></label>
-            <input  type="text" id="benefitsWorkAccidentAnnuityRatio" name="benefitsWorkAccidentAnnuityRatio" value="${rqt.benefitsWorkAccidentAnnuityRatio?.toString()}" 
-                    class="required condition-isWorkAccidentAnnuity-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsWorkAccidentAnnuityRatio') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.benefitsWorkAccidentAnnuityRatio.validationError" />"  maxlength="3" />
+            <input  type="text" id="benefitsWorkAccidentAnnuityRatio"
+                   name="benefitsWorkAccidentAnnuityRatio"
+                   value="${rqt.benefitsWorkAccidentAnnuityRatio?.toString()}"
+                   class="required condition-isWorkAccidentAnnuity-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsWorkAccidentAnnuityRatio') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.benefitsWorkAccidentAnnuityRatio.validationError" />"  maxlength="3" />
             
 
     
@@ -328,8 +343,11 @@
     
       
       <label for="benefitsSupportedByAnInstitutionDetails" class="required condition-isSupportedByAnInstitution-filled"><g:message code="hccr.property.benefitsSupportedByAnInstitutionDetails.label" /> *  <span><g:message code="hccr.property.benefitsSupportedByAnInstitutionDetails.help" /></span></label>
-            <input  type="text" id="benefitsSupportedByAnInstitutionDetails" name="benefitsSupportedByAnInstitutionDetails" value="${rqt.benefitsSupportedByAnInstitutionDetails?.toString()}" 
-                    class="required condition-isSupportedByAnInstitution-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsSupportedByAnInstitutionDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.benefitsSupportedByAnInstitutionDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="benefitsSupportedByAnInstitutionDetails"
+                   name="benefitsSupportedByAnInstitutionDetails"
+                   value="${rqt.benefitsSupportedByAnInstitutionDetails?.toString()}"
+                   class="required condition-isSupportedByAnInstitution-filled   ${rqt.stepStates['benefits'].invalidFields.contains('benefitsSupportedByAnInstitutionDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.benefitsSupportedByAnInstitutionDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -358,7 +376,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'otherBenefits', 'collectionIndex':(rqt.otherBenefits ? rqt.otherBenefits.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'otherBenefits',
+                    'collectionIndex':(rqt.otherBenefits ? rqt.otherBenefits.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -368,7 +389,7 @@
         <dl>
         <dt class="head"><g:message code="hccr.property.otherBenefits.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'otherBenefits', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'otherBenefits', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'otherBenefits', 'collectionIndex':index])}">
@@ -394,7 +415,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'additionalFee', 'collectionIndex':(rqt.additionalFee ? rqt.additionalFee.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'additionalFee',
+                    'collectionIndex':(rqt.additionalFee ? rqt.additionalFee.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -404,7 +428,7 @@
         <dl>
         <dt class="head"><g:message code="hccr.property.additionalFee.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'additionalFee', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'additionalFee', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'benefits', 'currentCollection':'additionalFee', 'collectionIndex':index])}">

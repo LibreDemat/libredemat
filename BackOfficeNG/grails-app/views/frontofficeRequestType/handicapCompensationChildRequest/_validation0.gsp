@@ -92,10 +92,14 @@
           
 
         
-          <dt><g:message code="hccr.property.subjectBirthCity.label" /></dt><dd>${rqt.subjectBirthCity?.toString()}</dd>
+          <dt><g:message code="hccr.property.subjectBirthCity.label" /></dt>
+          <dd>${rqt.subjectBirthCity?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.subjectBirthCountry.label" /></dt><dd>${rqt.subjectBirthCountry?.toString()}</dd>
+          <dt><g:message code="hccr.property.subjectBirthCountry.label" /></dt>
+          <dd>${rqt.subjectBirthCountry?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.subjectParentalAuthorityHolder.label" /></dt>
@@ -114,13 +118,19 @@
       <h4><g:message code="hccr.property.father.label" /></h4>
       <dl>
         
-          <dt><g:message code="hccr.property.fatherLastName.label" /></dt><dd>${rqt.fatherLastName?.toString()}</dd>
+          <dt><g:message code="hccr.property.fatherLastName.label" /></dt>
+          <dd>${rqt.fatherLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.fatherFirstName.label" /></dt><dd>${rqt.fatherFirstName?.toString()}</dd>
+          <dt><g:message code="hccr.property.fatherFirstName.label" /></dt>
+          <dd>${rqt.fatherFirstName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.fatherJob.label" /></dt><dd>${rqt.fatherJob?.toString()}</dd>
+          <dt><g:message code="hccr.property.fatherJob.label" /></dt>
+          <dd>${rqt.fatherJob?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.fatherActivityReduction.label" /></dt>
@@ -128,7 +138,9 @@
           
 
         
-          <dt><g:message code="hccr.property.fatherActivityReductionRatio.label" /></dt><dd>${rqt.fatherActivityReductionRatio?.toString()}</dd>
+          <dt><g:message code="hccr.property.fatherActivityReductionRatio.label" /></dt>
+          <dd>${rqt.fatherActivityReductionRatio?.toString()}</dd>
+          
 
         
       </dl>
@@ -138,13 +150,19 @@
       <h4><g:message code="hccr.property.mother.label" /></h4>
       <dl>
         
-          <dt><g:message code="hccr.property.motherLastName.label" /></dt><dd>${rqt.motherLastName?.toString()}</dd>
+          <dt><g:message code="hccr.property.motherLastName.label" /></dt>
+          <dd>${rqt.motherLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.motherFirstName.label" /></dt><dd>${rqt.motherFirstName?.toString()}</dd>
+          <dt><g:message code="hccr.property.motherFirstName.label" /></dt>
+          <dd>${rqt.motherFirstName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.motherJob.label" /></dt><dd>${rqt.motherJob?.toString()}</dd>
+          <dt><g:message code="hccr.property.motherJob.label" /></dt>
+          <dd>${rqt.motherJob?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.motherActivityReduction.label" /></dt>
@@ -152,7 +170,9 @@
           
 
         
-          <dt><g:message code="hccr.property.motherActivityReductionRatio.label" /></dt><dd>${rqt.motherActivityReductionRatio?.toString()}</dd>
+          <dt><g:message code="hccr.property.motherActivityReductionRatio.label" /></dt>
+          <dd>${rqt.motherActivityReductionRatio?.toString()}</dd>
+          
 
         
       </dl>
@@ -162,10 +182,14 @@
       <h4><g:message code="hccr.property.aseReferent.label" /></h4>
       <dl>
         
-          <dt><g:message code="hccr.property.aseReferentLastName.label" /></dt><dd>${rqt.aseReferentLastName?.toString()}</dd>
+          <dt><g:message code="hccr.property.aseReferentLastName.label" /></dt>
+          <dd>${rqt.aseReferentLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.aseReferentDepartment.label" /></dt><dd>${rqt.aseReferentDepartment?.toString()}</dd>
+          <dt><g:message code="hccr.property.aseReferentDepartment.label" /></dt>
+          <dd>${rqt.aseReferentDepartment?.toString()}</dd>
+          
 
         
       </dl>
@@ -175,10 +199,14 @@
       <h4><g:message code="hccr.property.referent.label" /></h4>
       <dl>
         
-          <dt><g:message code="hccr.property.referentLastName.label" /></dt><dd>${rqt.referentLastName?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentLastName.label" /></dt>
+          <dd>${rqt.referentLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.referentFirstName.label" /></dt><dd>${rqt.referentFirstName?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentFirstName.label" /></dt>
+          <dd>${rqt.referentFirstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.referentTitle.label" /></dt>
@@ -190,7 +218,9 @@
           
 
         
-          <dt><g:message code="hccr.property.referentMaidenName.label" /></dt><dd>${rqt.referentMaidenName?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentMaidenName.label" /></dt>
+          <dd>${rqt.referentMaidenName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.referentBirthDate.label" /></dt>
@@ -198,10 +228,14 @@
           
 
         
-          <dt><g:message code="hccr.property.referentBirthCity.label" /></dt><dd>${rqt.referentBirthCity?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentBirthCity.label" /></dt>
+          <dd>${rqt.referentBirthCity?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.referentBirthCountry.label" /></dt><dd>${rqt.referentBirthCountry?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentBirthCountry.label" /></dt>
+          <dd>${rqt.referentBirthCountry?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.referentFamilyStatus.label" /></dt>
@@ -226,10 +260,14 @@
       <g:each var="it" in="${rqt.familyDependents}" status="index">
       <dl>
         
-          <dt><g:message code="hccr.property.referentFamilyDependentLastName.label" /></dt><dd>${it.referentFamilyDependentLastName?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentFamilyDependentLastName.label" /></dt>
+          <dd>${it.referentFamilyDependentLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.referentFamilyDependentFirstName.label" /></dt><dd>${it.referentFamilyDependentFirstName?.toString()}</dd>
+          <dt><g:message code="hccr.property.referentFamilyDependentFirstName.label" /></dt>
+          <dd>${it.referentFamilyDependentFirstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.referentFamilyDependentBirthDate.label" /></dt>
@@ -269,7 +307,9 @@
           
 
         
-          <dt><g:message code="hccr.property.dwellingPrecision.label" /></dt><dd>${rqt.dwellingPrecision?.toString()}</dd>
+          <dt><g:message code="hccr.property.dwellingPrecision.label" /></dt>
+          <dd>${rqt.dwellingPrecision?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.dwellingEstablishmentReception.label" /></dt>
@@ -286,7 +326,9 @@
           
 
         
-          <dt><g:message code="hccr.property.dwellingReceptionNaming.label" /></dt><dd>${rqt.dwellingReceptionNaming?.toString()}</dd>
+          <dt><g:message code="hccr.property.dwellingReceptionNaming.label" /></dt>
+          <dd>${rqt.dwellingReceptionNaming?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.dwellingReceptionAddress.label" /></dt>
@@ -308,7 +350,9 @@
           
 
         
-          <dt><g:message code="hccr.property.dwellingSocialReceptionNaming.label" /></dt><dd>${rqt.dwellingSocialReceptionNaming?.toString()}</dd>
+          <dt><g:message code="hccr.property.dwellingSocialReceptionNaming.label" /></dt>
+          <dd>${rqt.dwellingSocialReceptionNaming?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.dwellingSocialReceptionAddress.label" /></dt>
@@ -347,10 +391,14 @@
           
 
         
-          <dt><g:message code="hccr.property.socialSecurityNumber.label" /></dt><dd>${rqt.socialSecurityNumber?.toString()}</dd>
+          <dt><g:message code="hccr.property.socialSecurityNumber.label" /></dt>
+          <dd>${rqt.socialSecurityNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.socialSecurityAgencyName.label" /></dt><dd>${rqt.socialSecurityAgencyName?.toString()}</dd>
+          <dt><g:message code="hccr.property.socialSecurityAgencyName.label" /></dt>
+          <dd>${rqt.socialSecurityAgencyName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.socialSecurityAgencyAddress.label" /></dt>
@@ -383,10 +431,14 @@
           
 
         
-          <dt><g:message code="hccr.property.paymentAgencyBeneficiaryNumber.label" /></dt><dd>${rqt.paymentAgencyBeneficiaryNumber?.toString()}</dd>
+          <dt><g:message code="hccr.property.paymentAgencyBeneficiaryNumber.label" /></dt>
+          <dd>${rqt.paymentAgencyBeneficiaryNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.paymentAgencyName.label" /></dt><dd>${rqt.paymentAgencyName?.toString()}</dd>
+          <dt><g:message code="hccr.property.paymentAgencyName.label" /></dt>
+          <dd>${rqt.paymentAgencyName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.paymentAgencyAddress.label" /></dt>
@@ -421,7 +473,9 @@
           
 
         
-          <dt><g:message code="hccr.property.schoolingSchoolName.label" /></dt><dd>${rqt.schoolingSchoolName?.toString()}</dd>
+          <dt><g:message code="hccr.property.schoolingSchoolName.label" /></dt>
+          <dd>${rqt.schoolingSchoolName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.schoolingSchoolAddress.label" /></dt>
@@ -457,7 +511,9 @@
           
 
         
-          <dt><g:message code="hccr.property.schoolingSpecializedGradeDetails.label" /></dt><dd>${rqt.schoolingSpecializedGradeDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.schoolingSpecializedGradeDetails.label" /></dt>
+          <dd>${rqt.schoolingSpecializedGradeDetails?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.schoolingSchoolingKind.label" /></dt>
@@ -469,7 +525,9 @@
           
 
         
-          <dt><g:message code="hccr.property.schoolingTime.label" /></dt><dd>${rqt.schoolingTime?.toString()}</dd>
+          <dt><g:message code="hccr.property.schoolingTime.label" /></dt>
+          <dd>${rqt.schoolingTime?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.schoolingHomeSchooling.label" /></dt>
@@ -491,10 +549,14 @@
           
 
         
-          <dt><g:message code="hccr.property.schoolingHomeSchoolingAccompanistLastName.label" /></dt><dd>${rqt.schoolingHomeSchoolingAccompanistLastName?.toString()}</dd>
+          <dt><g:message code="hccr.property.schoolingHomeSchoolingAccompanistLastName.label" /></dt>
+          <dd>${rqt.schoolingHomeSchoolingAccompanistLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.schoolingHomeSchoolingAccompanistFirstName.label" /></dt><dd>${rqt.schoolingHomeSchoolingAccompanistFirstName?.toString()}</dd>
+          <dt><g:message code="hccr.property.schoolingHomeSchoolingAccompanistFirstName.label" /></dt>
+          <dd>${rqt.schoolingHomeSchoolingAccompanistFirstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.schoolingHomeSchoolingAccompanistAddress.label" /></dt>
@@ -516,7 +578,9 @@
           
 
         
-          <dt><g:message code="hccr.property.schoolingExtraCurricularDetails.label" /></dt><dd>${rqt.schoolingExtraCurricularDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.schoolingExtraCurricularDetails.label" /></dt>
+          <dd>${rqt.schoolingExtraCurricularDetails?.toString()}</dd>
+          
 
         
       </dl>
@@ -531,10 +595,14 @@
           
 
         
-          <dt><g:message code="hccr.property.studiesHighSchoolGrade.label" /></dt><dd>${rqt.studiesHighSchoolGrade?.toString()}</dd>
+          <dt><g:message code="hccr.property.studiesHighSchoolGrade.label" /></dt>
+          <dd>${rqt.studiesHighSchoolGrade?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.studiesHighSchoolName.label" /></dt><dd>${rqt.studiesHighSchoolName?.toString()}</dd>
+          <dt><g:message code="hccr.property.studiesHighSchoolName.label" /></dt>
+          <dd>${rqt.studiesHighSchoolName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.studiesHighSchoolAddress.label" /></dt>
@@ -556,7 +624,9 @@
           
 
         
-          <dt><g:message code="hccr.property.studiesAssistanceUnderDisabilityDetails.label" /></dt><dd>${rqt.studiesAssistanceUnderDisabilityDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.studiesAssistanceUnderDisabilityDetails.label" /></dt>
+          <dd>${rqt.studiesAssistanceUnderDisabilityDetails?.toString()}</dd>
+          
 
         
       </dl>
@@ -566,16 +636,24 @@
       <h4><g:message code="hccr.property.formation.label" /></h4>
       <dl>
         
-          <dt><g:message code="hccr.property.formationStudiesLevel.label" /></dt><dd>${rqt.formationStudiesLevel?.toString()}</dd>
+          <dt><g:message code="hccr.property.formationStudiesLevel.label" /></dt>
+          <dd>${rqt.formationStudiesLevel?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.formationDiploma.label" /></dt><dd>${rqt.formationDiploma?.toString()}</dd>
+          <dt><g:message code="hccr.property.formationDiploma.label" /></dt>
+          <dd>${rqt.formationDiploma?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.formationPreviousFormation.label" /></dt><dd>${rqt.formationPreviousFormation?.toString()}</dd>
+          <dt><g:message code="hccr.property.formationPreviousFormation.label" /></dt>
+          <dd>${rqt.formationPreviousFormation?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.formationCurrentFormation.label" /></dt><dd>${rqt.formationCurrentFormation?.toString()}</dd>
+          <dt><g:message code="hccr.property.formationCurrentFormation.label" /></dt>
+          <dd>${rqt.formationCurrentFormation?.toString()}</dd>
+          
 
         
       </dl>
@@ -608,10 +686,14 @@
           
 
         
-          <dt><g:message code="hccr.property.professionalStatusProfession.label" /></dt><dd>${rqt.professionalStatusProfession?.toString()}</dd>
+          <dt><g:message code="hccr.property.professionalStatusProfession.label" /></dt>
+          <dd>${rqt.professionalStatusProfession?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.professionalStatusEmployerName.label" /></dt><dd>${rqt.professionalStatusEmployerName?.toString()}</dd>
+          <dt><g:message code="hccr.property.professionalStatusEmployerName.label" /></dt>
+          <dd>${rqt.professionalStatusEmployerName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.professionalStatusAddress.label" /></dt>
@@ -653,7 +735,9 @@
           
 
         
-          <dt><g:message code="hccr.property.professionalStatusElectiveFunctionDetails.label" /></dt><dd>${rqt.professionalStatusElectiveFunctionDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.professionalStatusElectiveFunctionDetails.label" /></dt>
+          <dd>${rqt.professionalStatusElectiveFunctionDetails?.toString()}</dd>
+          
 
         
       </dl>
@@ -674,10 +758,14 @@
           
 
         
-          <dt><g:message code="hccr.property.foldersMdphNumber.label" /></dt><dd>${rqt.foldersMdphNumber?.toString()}</dd>
+          <dt><g:message code="hccr.property.foldersMdphNumber.label" /></dt>
+          <dd>${rqt.foldersMdphNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.foldersMdphDepartment.label" /></dt><dd>${rqt.foldersMdphDepartment?.toString()}</dd>
+          <dt><g:message code="hccr.property.foldersMdphDepartment.label" /></dt>
+          <dd>${rqt.foldersMdphDepartment?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.foldersCotorep.label" /></dt>
@@ -685,10 +773,14 @@
           
 
         
-          <dt><g:message code="hccr.property.foldersCotorepNumber.label" /></dt><dd>${rqt.foldersCotorepNumber?.toString()}</dd>
+          <dt><g:message code="hccr.property.foldersCotorepNumber.label" /></dt>
+          <dd>${rqt.foldersCotorepNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.foldersCotorepDepartment.label" /></dt><dd>${rqt.foldersCotorepDepartment?.toString()}</dd>
+          <dt><g:message code="hccr.property.foldersCotorepDepartment.label" /></dt>
+          <dd>${rqt.foldersCotorepDepartment?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.foldersCdes.label" /></dt>
@@ -696,10 +788,14 @@
           
 
         
-          <dt><g:message code="hccr.property.foldersCdesNumber.label" /></dt><dd>${rqt.foldersCdesNumber?.toString()}</dd>
+          <dt><g:message code="hccr.property.foldersCdesNumber.label" /></dt>
+          <dd>${rqt.foldersCdesNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.foldersCdesDepartment.label" /></dt><dd>${rqt.foldersCdesDepartment?.toString()}</dd>
+          <dt><g:message code="hccr.property.foldersCdesDepartment.label" /></dt>
+          <dd>${rqt.foldersCdesDepartment?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.foldersOtherFolders.label" /></dt>
@@ -715,13 +811,19 @@
       <g:each var="it" in="${rqt.otherFolders}" status="index">
       <dl>
         
-          <dt><g:message code="hccr.property.otherFolderName.label" /></dt><dd>${it.otherFolderName?.toString()}</dd>
+          <dt><g:message code="hccr.property.otherFolderName.label" /></dt>
+          <dd>${it.otherFolderName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.otherFolderNumber.label" /></dt><dd>${it.otherFolderNumber?.toString()}</dd>
+          <dt><g:message code="hccr.property.otherFolderNumber.label" /></dt>
+          <dd>${it.otherFolderNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.otherFolderDepartment.label" /></dt><dd>${it.otherFolderDepartment?.toString()}</dd>
+          <dt><g:message code="hccr.property.otherFolderDepartment.label" /></dt>
+          <dd>${it.otherFolderDepartment?.toString()}</dd>
+          
 
         
       </dl>
@@ -743,7 +845,9 @@
           
 
         
-          <dt><g:message code="hccr.property.benefitsDisabilityRatio.label" /></dt><dd>${rqt.benefitsDisabilityRatio?.toString()}</dd>
+          <dt><g:message code="hccr.property.benefitsDisabilityRatio.label" /></dt>
+          <dd>${rqt.benefitsDisabilityRatio?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.benefitsDisabilityCard.label" /></dt>
@@ -771,7 +875,9 @@
           
 
         
-          <dt><g:message code="hccr.property.benefitsProfessionalOrientationDetails.label" /></dt><dd>${rqt.benefitsProfessionalOrientationDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.benefitsProfessionalOrientationDetails.label" /></dt>
+          <dd>${rqt.benefitsProfessionalOrientationDetails?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.benefitsDisabledAdultAllocation.label" /></dt>
@@ -794,7 +900,9 @@
           
 
         
-          <dt><g:message code="hccr.property.benefitsEducationOfDisabledChildrenDetails.label" /></dt><dd>${rqt.benefitsEducationOfDisabledChildrenDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.benefitsEducationOfDisabledChildrenDetails.label" /></dt>
+          <dd>${rqt.benefitsEducationOfDisabledChildrenDetails?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.benefitsSupplementForSingleParents.label" /></dt>
@@ -827,7 +935,9 @@
           
 
         
-          <dt><g:message code="hccr.property.benefitsDisabilityPensionCategory.label" /></dt><dd>${rqt.benefitsDisabilityPensionCategory?.toString()}</dd>
+          <dt><g:message code="hccr.property.benefitsDisabilityPensionCategory.label" /></dt>
+          <dd>${rqt.benefitsDisabilityPensionCategory?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.benefitsWorkAccidentAnnuity.label" /></dt>
@@ -835,7 +945,9 @@
           
 
         
-          <dt><g:message code="hccr.property.benefitsWorkAccidentAnnuityRatio.label" /></dt><dd>${rqt.benefitsWorkAccidentAnnuityRatio?.toString()}</dd>
+          <dt><g:message code="hccr.property.benefitsWorkAccidentAnnuityRatio.label" /></dt>
+          <dd>${rqt.benefitsWorkAccidentAnnuityRatio?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.benefitsSocialWelfare.label" /></dt>
@@ -863,7 +975,9 @@
           
 
         
-          <dt><g:message code="hccr.property.benefitsSupportedByAnInstitutionDetails.label" /></dt><dd>${rqt.benefitsSupportedByAnInstitutionDetails?.toString()}</dd>
+          <dt><g:message code="hccr.property.benefitsSupportedByAnInstitutionDetails.label" /></dt>
+          <dd>${rqt.benefitsSupportedByAnInstitutionDetails?.toString()}</dd>
+          
 
         
           <dt><g:message code="hccr.property.benefitsOtherBenefits.label" /></dt>
@@ -879,7 +993,9 @@
       <g:each var="it" in="${rqt.otherBenefits}" status="index">
       <dl>
         
-          <dt><g:message code="hccr.property.otherBenefitName.label" /></dt><dd>${it.otherBenefitName?.toString()}</dd>
+          <dt><g:message code="hccr.property.otherBenefitName.label" /></dt>
+          <dd>${it.otherBenefitName?.toString()}</dd>
+          
 
         
       </dl>
@@ -891,13 +1007,19 @@
       <g:each var="it" in="${rqt.additionalFee}" status="index">
       <dl>
         
-          <dt><g:message code="hccr.property.additionalFeeKind.label" /></dt><dd>${it.additionalFeeKind?.toString()}</dd>
+          <dt><g:message code="hccr.property.additionalFeeKind.label" /></dt>
+          <dd>${it.additionalFeeKind?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.additionalFeeCost.label" /></dt><dd>${it.additionalFeeCost?.toString()}</dd>
+          <dt><g:message code="hccr.property.additionalFeeCost.label" /></dt>
+          <dd>${it.additionalFeeCost?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hccr.property.additionalFeePeriodicity.label" /></dt><dd>${it.additionalFeePeriodicity?.toString()}</dd>
+          <dt><g:message code="hccr.property.additionalFeePeriodicity.label" /></dt>
+          <dd>${it.additionalFeePeriodicity?.toString()}</dd>
+          
 
         
       </dl>

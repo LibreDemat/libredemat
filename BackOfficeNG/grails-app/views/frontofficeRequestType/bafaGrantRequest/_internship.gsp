@@ -90,8 +90,11 @@
   
     
     <label for="internshipInstituteName" class="required"><g:message code="bgr.property.internshipInstituteName.label" /> *  <span><g:message code="bgr.property.internshipInstituteName.help" /></span></label>
-            <input  type="text" id="internshipInstituteName" name="internshipInstituteName" value="${rqt.internshipInstituteName?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteName') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.internshipInstituteName.validationError" />"   />
+            <input  type="text" id="internshipInstituteName"
+                   name="internshipInstituteName"
+                   value="${rqt.internshipInstituteName?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['internship'].invalidFields.contains('internshipInstituteName') ? 'validation-failed' : ''}"
+                   title="<g:message code="bgr.property.internshipInstituteName.validationError" />"   />
             
 
   

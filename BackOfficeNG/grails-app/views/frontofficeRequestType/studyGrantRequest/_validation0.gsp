@@ -108,14 +108,18 @@
     
       
       <dl>
-        <dt><g:message code="sgr.property.taxHouseholdLastName.label" /></dt><dd>${rqt.taxHouseholdLastName?.toString()}</dd>
+        <dt><g:message code="sgr.property.taxHouseholdLastName.label" /></dt>
+          <dd>${rqt.taxHouseholdLastName?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="sgr.property.taxHouseholdFirstName.label" /></dt><dd>${rqt.taxHouseholdFirstName?.toString()}</dd>
+        <dt><g:message code="sgr.property.taxHouseholdFirstName.label" /></dt>
+          <dd>${rqt.taxHouseholdFirstName?.toString()}</dd>
+          
 
       </dl>
       
@@ -134,7 +138,9 @@
     
       
       <dl>
-        <dt><g:message code="sgr.property.taxHouseholdCityPrecision.label" /></dt><dd>${rqt.taxHouseholdCityPrecision?.toString()}</dd>
+        <dt><g:message code="sgr.property.taxHouseholdCityPrecision.label" /></dt>
+          <dd>${rqt.taxHouseholdCityPrecision?.toString()}</dd>
+          
 
       </dl>
       
@@ -206,7 +212,9 @@
           
 
         
-          <dt><g:message code="sgr.property.currentSchoolNamePrecision.label" /></dt><dd>${rqt.currentSchoolNamePrecision?.toString()}</dd>
+          <dt><g:message code="sgr.property.currentSchoolNamePrecision.label" /></dt>
+          <dd>${rqt.currentSchoolNamePrecision?.toString()}</dd>
+          
 
         
           <dt><g:message code="sgr.property.currentSchoolAddress.label" /></dt>
@@ -230,7 +238,9 @@
       <h4><g:message code="sgr.property.aLevelsInformations.label" /></h4>
       <dl>
         
-          <dt><g:message code="sgr.property.alevelsDate.label" /></dt><dd>${rqt.alevelsDate?.toString()}</dd>
+          <dt><g:message code="sgr.property.alevelsDate.label" /></dt>
+          <dd>${rqt.alevelsDate?.toString()}</dd>
+          
 
         
           <dt><g:message code="sgr.property.alevels.label" /></dt>
@@ -258,7 +268,9 @@
           
 
         
-          <dt><g:message code="sgr.property.otherStudiesLabel.label" /></dt><dd>${rqt.otherStudiesLabel?.toString()}</dd>
+          <dt><g:message code="sgr.property.otherStudiesLabel.label" /></dt>
+          <dd>${rqt.otherStudiesLabel?.toString()}</dd>
+          
 
         
           <dt><g:message code="sgr.property.currentStudiesLevel.label" /></dt>
@@ -290,7 +302,9 @@
           
 
         
-          <dt><g:message code="sgr.property.abroadInternshipSchoolName.label" /></dt><dd>${rqt.abroadInternshipSchoolName?.toString()}</dd>
+          <dt><g:message code="sgr.property.abroadInternshipSchoolName.label" /></dt>
+          <dd>${rqt.abroadInternshipSchoolName?.toString()}</dd>
+          
 
         
           <dt><g:message code="sgr.property.abroadInternshipSchoolCountry.label" /></dt>
@@ -335,14 +349,18 @@
     
       
       <dl>
-        <dt><g:message code="sgr.property.accountHolderLastName.label" /></dt><dd>${rqt.accountHolderLastName?.toString()}</dd>
+        <dt><g:message code="sgr.property.accountHolderLastName.label" /></dt>
+          <dd>${rqt.accountHolderLastName?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="sgr.property.accountHolderFirstName.label" /></dt><dd>${rqt.accountHolderFirstName?.toString()}</dd>
+        <dt><g:message code="sgr.property.accountHolderFirstName.label" /></dt>
+          <dd>${rqt.accountHolderFirstName?.toString()}</dd>
+          
 
       </dl>
       

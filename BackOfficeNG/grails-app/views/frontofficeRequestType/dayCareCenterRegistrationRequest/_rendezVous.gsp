@@ -17,8 +17,11 @@
   
     
     <label for="telephoneContact" class="required"><g:message code="dccrr.property.telephoneContact.label" /> *  <span><g:message code="dccrr.property.telephoneContact.help" /></span></label>
-            <input  type="text" id="telephoneContact" name="telephoneContact" value="${rqt.telephoneContact?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['rendezVous'].invalidFields.contains('telephoneContact') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.telephoneContact.validationError" />"  maxlength="10" />
+            <input  type="text" id="telephoneContact"
+                   name="telephoneContact"
+                   value="${rqt.telephoneContact?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['rendezVous'].invalidFields.contains('telephoneContact') ? 'validation-failed' : ''}"
+                   title="<g:message code="dccrr.property.telephoneContact.validationError" />"  maxlength="10" />
             
 
   

@@ -42,22 +42,31 @@
     
       
       <label for="dhrSpouseName" class="required condition-isCoupleRequest-filled"><g:message code="dhr.property.dhrSpouseName.label" /> *  <span><g:message code="dhr.property.dhrSpouseName.help" /></span></label>
-            <input  type="text" id="dhrSpouseName" name="dhrSpouseName" value="${rqt.dhrSpouseName?.toString()}" 
-                    class="required condition-isCoupleRequest-filled  validate-lastName ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrSpouseName"
+                   name="dhrSpouseName"
+                   value="${rqt.dhrSpouseName?.toString()}"
+                   class="required condition-isCoupleRequest-filled  validate-lastName ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseName') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="dhrSpouseFirstName" class="required condition-isCoupleRequest-filled"><g:message code="dhr.property.dhrSpouseFirstName.label" /> *  <span><g:message code="dhr.property.dhrSpouseFirstName.help" /></span></label>
-            <input  type="text" id="dhrSpouseFirstName" name="dhrSpouseFirstName" value="${rqt.dhrSpouseFirstName?.toString()}" 
-                    class="required condition-isCoupleRequest-filled  validate-firstName ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseFirstName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrSpouseFirstName"
+                   name="dhrSpouseFirstName"
+                   value="${rqt.dhrSpouseFirstName?.toString()}"
+                   class="required condition-isCoupleRequest-filled  validate-firstName ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseFirstName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="dhrSpouseMaidenName" class="required condition-isSpouseMadam-filled"><g:message code="dhr.property.dhrSpouseMaidenName.label" /> *  <span><g:message code="dhr.property.dhrSpouseMaidenName.help" /></span></label>
-            <input  type="text" id="dhrSpouseMaidenName" name="dhrSpouseMaidenName" value="${rqt.dhrSpouseMaidenName?.toString()}" 
-                    class="required condition-isSpouseMadam-filled  validate-lastName ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseMaidenName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseMaidenName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrSpouseMaidenName"
+                   name="dhrSpouseMaidenName"
+                   value="${rqt.dhrSpouseMaidenName?.toString()}"
+                   class="required condition-isSpouseMadam-filled  validate-lastName ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseMaidenName') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseMaidenName.validationError" />"  maxlength="38" />
             
 
     
@@ -104,8 +113,11 @@
     
       
       <label for="dhrSpouseBirthPlace" class="required condition-isCoupleRequest-filled"><g:message code="dhr.property.dhrSpouseBirthPlace.label" /> *  <span><g:message code="dhr.property.dhrSpouseBirthPlace.help" /></span></label>
-            <input  type="text" id="dhrSpouseBirthPlace" name="dhrSpouseBirthPlace" value="${rqt.dhrSpouseBirthPlace?.toString()}" 
-                    class="required condition-isCoupleRequest-filled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseBirthPlace') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseBirthPlace.validationError" />"   />
+            <input  type="text" id="dhrSpouseBirthPlace"
+                   name="dhrSpouseBirthPlace"
+                   value="${rqt.dhrSpouseBirthPlace?.toString()}"
+                   class="required condition-isCoupleRequest-filled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseBirthPlace') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseBirthPlace.validationError" />"   />
             
 
     
@@ -207,29 +219,41 @@
     
       
       <label for="dhrSpousePensionPlanDetail" class="required condition-isSpouseOtherPensionPlan-filled"><g:message code="dhr.property.dhrSpousePensionPlanDetail.label" /> *  <span><g:message code="dhr.property.dhrSpousePensionPlanDetail.help" /></span></label>
-            <input  type="text" id="dhrSpousePensionPlanDetail" name="dhrSpousePensionPlanDetail" value="${rqt.dhrSpousePensionPlanDetail?.toString()}" 
-                    class="required condition-isSpouseOtherPensionPlan-filled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpousePensionPlanDetail') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpousePensionPlanDetail.validationError" />"   />
+            <input  type="text" id="dhrSpousePensionPlanDetail"
+                   name="dhrSpousePensionPlanDetail"
+                   value="${rqt.dhrSpousePensionPlanDetail?.toString()}"
+                   class="required condition-isSpouseOtherPensionPlan-filled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpousePensionPlanDetail') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpousePensionPlanDetail.validationError" />"   />
             
 
     
       
       <label for="dhrSpouseComplementaryPensionPlan" class="required condition-isSpouseRetired-filled"><g:message code="dhr.property.dhrSpouseComplementaryPensionPlan.label" /> *  <span><g:message code="dhr.property.dhrSpouseComplementaryPensionPlan.help" /></span></label>
-            <input  type="text" id="dhrSpouseComplementaryPensionPlan" name="dhrSpouseComplementaryPensionPlan" value="${rqt.dhrSpouseComplementaryPensionPlan?.toString()}" 
-                    class="required condition-isSpouseRetired-filled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseComplementaryPensionPlan') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseComplementaryPensionPlan.validationError" />"   />
+            <input  type="text" id="dhrSpouseComplementaryPensionPlan"
+                   name="dhrSpouseComplementaryPensionPlan"
+                   value="${rqt.dhrSpouseComplementaryPensionPlan?.toString()}"
+                   class="required condition-isSpouseRetired-filled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseComplementaryPensionPlan') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseComplementaryPensionPlan.validationError" />"   />
             
 
     
       
       <label for="dhrSpouseProfession" class="required condition-isSpouseRetired-unfilled"><g:message code="dhr.property.dhrSpouseProfession.label" /> *  <span><g:message code="dhr.property.dhrSpouseProfession.help" /></span></label>
-            <input  type="text" id="dhrSpouseProfession" name="dhrSpouseProfession" value="${rqt.dhrSpouseProfession?.toString()}" 
-                    class="required condition-isSpouseRetired-unfilled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseProfession') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseProfession.validationError" />"   />
+            <input  type="text" id="dhrSpouseProfession"
+                   name="dhrSpouseProfession"
+                   value="${rqt.dhrSpouseProfession?.toString()}"
+                   class="required condition-isSpouseRetired-unfilled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseProfession') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseProfession.validationError" />"   />
             
 
     
       
       <label for="dhrSpouseEmployer" class="required condition-isSpouseRetired-unfilled"><g:message code="dhr.property.dhrSpouseEmployer.label" /> *  <span><g:message code="dhr.property.dhrSpouseEmployer.help" /></span></label>
-            <input  type="text" id="dhrSpouseEmployer" name="dhrSpouseEmployer" value="${rqt.dhrSpouseEmployer?.toString()}" 
-                    class="required condition-isSpouseRetired-unfilled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseEmployer') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrSpouseEmployer.validationError" />"   />
+            <input  type="text" id="dhrSpouseEmployer"
+                   name="dhrSpouseEmployer"
+                   value="${rqt.dhrSpouseEmployer?.toString()}"
+                   class="required condition-isSpouseRetired-unfilled  validate-string ${rqt.stepStates['spouse'].invalidFields.contains('dhrSpouseEmployer') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrSpouseEmployer.validationError" />"   />
             
 
     
@@ -268,36 +292,51 @@
     
       
       <label for="pensions" class=""><g:message code="dhr.property.pensions.label" />   <span><g:message code="dhr.property.pensions.help" /></span></label>
-            <input  type="text" id="pensions" name="pensions" value="${rqt.pensions?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('pensions') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.pensions.validationError" />"   />
+            <input  type="text" id="pensions"
+                   name="pensions"
+                   value="${rqt.pensions?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('pensions') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.pensions.validationError" />"   />
             
 
     
       
       <label for="dhrAllowances" class=""><g:message code="dhr.property.dhrAllowances.label" />   <span><g:message code="dhr.property.dhrAllowances.help" /></span></label>
-            <input  type="text" id="dhrAllowances" name="dhrAllowances" value="${rqt.dhrAllowances?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrAllowances') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrAllowances.validationError" />"   />
+            <input  type="text" id="dhrAllowances"
+                   name="dhrAllowances"
+                   value="${rqt.dhrAllowances?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrAllowances') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrAllowances.validationError" />"   />
             
 
     
       
       <label for="dhrFurnitureInvestmentIncome" class=""><g:message code="dhr.property.dhrFurnitureInvestmentIncome.label" />   <span><g:message code="dhr.property.dhrFurnitureInvestmentIncome.help" /></span></label>
-            <input  type="text" id="dhrFurnitureInvestmentIncome" name="dhrFurnitureInvestmentIncome" value="${rqt.dhrFurnitureInvestmentIncome?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrFurnitureInvestmentIncome') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrFurnitureInvestmentIncome.validationError" />"   />
+            <input  type="text" id="dhrFurnitureInvestmentIncome"
+                   name="dhrFurnitureInvestmentIncome"
+                   value="${rqt.dhrFurnitureInvestmentIncome?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrFurnitureInvestmentIncome') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrFurnitureInvestmentIncome.validationError" />"   />
             
 
     
       
       <label for="dhrRealEstateInvestmentIncome" class=""><g:message code="dhr.property.dhrRealEstateInvestmentIncome.label" />   <span><g:message code="dhr.property.dhrRealEstateInvestmentIncome.help" /></span></label>
-            <input  type="text" id="dhrRealEstateInvestmentIncome" name="dhrRealEstateInvestmentIncome" value="${rqt.dhrRealEstateInvestmentIncome?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrRealEstateInvestmentIncome') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrRealEstateInvestmentIncome.validationError" />"   />
+            <input  type="text" id="dhrRealEstateInvestmentIncome"
+                   name="dhrRealEstateInvestmentIncome"
+                   value="${rqt.dhrRealEstateInvestmentIncome?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrRealEstateInvestmentIncome') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrRealEstateInvestmentIncome.validationError" />"   />
             
 
     
       
       <label for="dhrNetIncome" class=""><g:message code="dhr.property.dhrNetIncome.label" />   <span><g:message code="dhr.property.dhrNetIncome.help" /></span></label>
-            <input  type="text" id="dhrNetIncome" name="dhrNetIncome" value="${rqt.dhrNetIncome?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrNetIncome') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNetIncome.validationError" />"   />
+            <input  type="text" id="dhrNetIncome"
+                   name="dhrNetIncome"
+                   value="${rqt.dhrNetIncome?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['spouse'].invalidFields.contains('dhrNetIncome') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrNetIncome.validationError" />"   />
             
 
     

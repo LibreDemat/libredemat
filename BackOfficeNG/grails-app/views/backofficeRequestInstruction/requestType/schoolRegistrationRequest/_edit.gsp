@@ -48,7 +48,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'srr.property.urgencyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPhone" class="action-editField validate-phone required-true i18n-srr.property.urgencyPhone maxLength-10" ><span>${rqt?.urgencyPhone}</span></dd>
+                <dt class="required">${message(code:'srr.property.urgencyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPhone" class="action-editField validate-phone required-true i18n-srr.property.urgencyPhone maxLength-10" ><span >${rqt?.urgencyPhone}</span></dd>
               </dl>
               
             
@@ -62,9 +62,9 @@
               <h3><g:message code="srr.property.currentSchool.label" /></h3>
               <dl class="required">
                 
-                  <dt class="">${message(code:'srr.property.currentSchoolName.label')} &nbsp;:</dt><dd id="currentSchoolName" class="action-editField validate-string i18n-srr.property.currentSchoolName" ><span>${rqt?.currentSchoolName}</span></dd>
+                  <dt class="">${message(code:'srr.property.currentSchoolName.label')} &nbsp;:</dt><dd id="currentSchoolName" class="action-editField validate-string i18n-srr.property.currentSchoolName" ><span >${rqt?.currentSchoolName}</span></dd>
                 
-                  <dt class="">${message(code:'srr.property.currentSchoolAddress.label')} &nbsp;:</dt><dd id="currentSchoolAddress" class="action-editField validate-string i18n-srr.property.currentSchoolAddress" ><span>${rqt?.currentSchoolAddress}</span></dd>
+                  <dt class="">${message(code:'srr.property.currentSchoolAddress.label')} &nbsp;:</dt><dd id="currentSchoolAddress" class="action-editField validate-string i18n-srr.property.currentSchoolAddress" ><span >${rqt?.currentSchoolAddress}</span></dd>
                 
                   <dt class="">${message(code:'srr.property.currentSection.label')} &nbsp;:</dt><dd id="currentSection" class="action-editField validate-libredematEnum i18n-srr.property.currentSection javatype-org.libredemat.business.users.SectionType maxLength-32" ><g:libredematEnumToField var="${rqt?.currentSection}" i18nKeyPrefix="srr.property.currentSection" /></dd>
                 

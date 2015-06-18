@@ -306,8 +306,11 @@
     
       
       <label for="projectRequestsOtherDetails" class="required condition-isOtherRequest-filled"><g:message code="hcar.property.projectRequestsOtherDetails.label" /> *  <span><g:message code="hcar.property.projectRequestsOtherDetails.help" /></span></label>
-            <input  type="text" id="projectRequestsOtherDetails" name="projectRequestsOtherDetails" value="${rqt.projectRequestsOtherDetails?.toString()}" 
-                    class="required condition-isOtherRequest-filled   ${rqt.stepStates['project'].invalidFields.contains('projectRequestsOtherDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.projectRequestsOtherDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="projectRequestsOtherDetails"
+                   name="projectRequestsOtherDetails"
+                   value="${rqt.projectRequestsOtherDetails?.toString()}"
+                   class="required condition-isOtherRequest-filled   ${rqt.stepStates['project'].invalidFields.contains('projectRequestsOtherDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.projectRequestsOtherDetails.validationError" />"  maxlength="60" />
             
 
     

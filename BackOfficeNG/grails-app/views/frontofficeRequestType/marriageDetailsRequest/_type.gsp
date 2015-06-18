@@ -19,8 +19,11 @@
   
     
     <label for="copies" class="required"><g:message code="mdr.property.copies.label" /> *  <span><g:message code="mdr.property.copies.help" /></span></label>
-            <input  type="text" id="copies" name="copies" value="${rqt.copies?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['type'].invalidFields.contains('copies') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.copies.validationError" />"   />
+            <input  type="text" id="copies"
+                   name="copies"
+                   value="${rqt.copies?.toString()}"
+                   class="required  validate-positiveInteger ${rqt.stepStates['type'].invalidFields.contains('copies') ? 'validation-failed' : ''}"
+                   title="<g:message code="mdr.property.copies.validationError" />"   />
             
 
   
@@ -65,15 +68,21 @@
     
       
       <label for="fatherLastName" class="required"><g:message code="mdr.property.fatherLastName.label" /> *  <span><g:message code="mdr.property.fatherLastName.help" /></span></label>
-            <input  type="text" id="fatherLastName" name="fatherLastName" value="${rqt.fatherLastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['type'].invalidFields.contains('fatherLastName') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.fatherLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="fatherLastName"
+                   name="fatherLastName"
+                   value="${rqt.fatherLastName?.toString()}"
+                   class="required  validate-lastName ${rqt.stepStates['type'].invalidFields.contains('fatherLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="mdr.property.fatherLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="fatherFirstNames" class="required"><g:message code="mdr.property.fatherFirstNames.label" /> *  <span><g:message code="mdr.property.fatherFirstNames.help" /></span></label>
-            <input  type="text" id="fatherFirstNames" name="fatherFirstNames" value="${rqt.fatherFirstNames?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['type'].invalidFields.contains('fatherFirstNames') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.fatherFirstNames.validationError" />"   />
+            <input  type="text" id="fatherFirstNames"
+                   name="fatherFirstNames"
+                   value="${rqt.fatherFirstNames?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['type'].invalidFields.contains('fatherFirstNames') ? 'validation-failed' : ''}"
+                   title="<g:message code="mdr.property.fatherFirstNames.validationError" />"   />
             
 
     
@@ -86,15 +95,21 @@
     
       
       <label for="motherMaidenName" class="required"><g:message code="mdr.property.motherMaidenName.label" /> *  <span><g:message code="mdr.property.motherMaidenName.help" /></span></label>
-            <input  type="text" id="motherMaidenName" name="motherMaidenName" value="${rqt.motherMaidenName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['type'].invalidFields.contains('motherMaidenName') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.motherMaidenName.validationError" />"  maxlength="38" />
+            <input  type="text" id="motherMaidenName"
+                   name="motherMaidenName"
+                   value="${rqt.motherMaidenName?.toString()}"
+                   class="required  validate-lastName ${rqt.stepStates['type'].invalidFields.contains('motherMaidenName') ? 'validation-failed' : ''}"
+                   title="<g:message code="mdr.property.motherMaidenName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="motherFirstNames" class="required"><g:message code="mdr.property.motherFirstNames.label" /> *  <span><g:message code="mdr.property.motherFirstNames.help" /></span></label>
-            <input  type="text" id="motherFirstNames" name="motherFirstNames" value="${rqt.motherFirstNames?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['type'].invalidFields.contains('motherFirstNames') ? 'validation-failed' : ''}" title="<g:message code="mdr.property.motherFirstNames.validationError" />"   />
+            <input  type="text" id="motherFirstNames"
+                   name="motherFirstNames"
+                   value="${rqt.motherFirstNames?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['type'].invalidFields.contains('motherFirstNames') ? 'validation-failed' : ''}"
+                   title="<g:message code="mdr.property.motherFirstNames.validationError" />"   />
             
 
     

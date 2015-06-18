@@ -4,8 +4,11 @@
   
     
     <label for="nomAssociation" class="required"><g:message code="sagr.property.nomAssociation.label" /> *  <span><g:message code="sagr.property.nomAssociation.help" /></span></label>
-            <input  type="text" id="nomAssociation" name="nomAssociation" value="${rqt.nomAssociation?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['association'].invalidFields.contains('nomAssociation') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.nomAssociation.validationError" />"   />
+            <input  type="text" id="nomAssociation"
+                   name="nomAssociation"
+                   value="${rqt.nomAssociation?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['association'].invalidFields.contains('nomAssociation') ? 'validation-failed' : ''}"
+                   title="<g:message code="sagr.property.nomAssociation.validationError" />"   />
             
 
   
@@ -44,15 +47,21 @@
     
       
       <label for="numeroSiretAssociation" class="required"><g:message code="sagr.property.numeroSiretAssociation.label" /> *  <span><g:message code="sagr.property.numeroSiretAssociation.help" /></span></label>
-            <input  type="text" id="numeroSiretAssociation" name="numeroSiretAssociation" value="${rqt.numeroSiretAssociation?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['association'].invalidFields.contains('numeroSiretAssociation') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.numeroSiretAssociation.validationError" />" regex="^[\w\W]{0,14}$" maxlength="14" />
+            <input  type="text" id="numeroSiretAssociation"
+                   name="numeroSiretAssociation"
+                   value="${rqt.numeroSiretAssociation?.toString()}"
+                   class="required  validate-regex ${rqt.stepStates['association'].invalidFields.contains('numeroSiretAssociation') ? 'validation-failed' : ''}"
+                   title="<g:message code="sagr.property.numeroSiretAssociation.validationError" />" regex="^[\w\W]{0,14}$" maxlength="14" />
             
 
     
       
       <label for="numeroEnregistrementPrefectureAssociation" class="required"><g:message code="sagr.property.numeroEnregistrementPrefectureAssociation.label" /> *  <span><g:message code="sagr.property.numeroEnregistrementPrefectureAssociation.help" /></span></label>
-            <input  type="text" id="numeroEnregistrementPrefectureAssociation" name="numeroEnregistrementPrefectureAssociation" value="${rqt.numeroEnregistrementPrefectureAssociation?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['association'].invalidFields.contains('numeroEnregistrementPrefectureAssociation') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.numeroEnregistrementPrefectureAssociation.validationError" />" regex="^[\w\W]{0,9}$" maxlength="9" />
+            <input  type="text" id="numeroEnregistrementPrefectureAssociation"
+                   name="numeroEnregistrementPrefectureAssociation"
+                   value="${rqt.numeroEnregistrementPrefectureAssociation?.toString()}"
+                   class="required  validate-regex ${rqt.stepStates['association'].invalidFields.contains('numeroEnregistrementPrefectureAssociation') ? 'validation-failed' : ''}"
+                   title="<g:message code="sagr.property.numeroEnregistrementPrefectureAssociation.validationError" />" regex="^[\w\W]{0,9}$" maxlength="9" />
             
 
     
@@ -78,8 +87,11 @@
     
       
       <label for="nomCompletCorrespondantPrincipal" class="required condition-estAdresseCorrespondantPrincipal-filled"><g:message code="sagr.property.nomCompletCorrespondantPrincipal.label" /> *  <span><g:message code="sagr.property.nomCompletCorrespondantPrincipal.help" /></span></label>
-            <input  type="text" id="nomCompletCorrespondantPrincipal" name="nomCompletCorrespondantPrincipal" value="${rqt.nomCompletCorrespondantPrincipal?.toString()}" 
-                    class="required condition-estAdresseCorrespondantPrincipal-filled  validate-string ${rqt.stepStates['association'].invalidFields.contains('nomCompletCorrespondantPrincipal') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.nomCompletCorrespondantPrincipal.validationError" />"   />
+            <input  type="text" id="nomCompletCorrespondantPrincipal"
+                   name="nomCompletCorrespondantPrincipal"
+                   value="${rqt.nomCompletCorrespondantPrincipal?.toString()}"
+                   class="required condition-estAdresseCorrespondantPrincipal-filled  validate-string ${rqt.stepStates['association'].invalidFields.contains('nomCompletCorrespondantPrincipal') ? 'validation-failed' : ''}"
+                   title="<g:message code="sagr.property.nomCompletCorrespondantPrincipal.validationError" />"   />
             
 
     
@@ -111,8 +123,11 @@
     
       
       <label for="emailClubOuCorrespondant" class=""><g:message code="sagr.property.emailClubOuCorrespondant.label" />   <span><g:message code="sagr.property.emailClubOuCorrespondant.help" /></span></label>
-            <input  type="text" id="emailClubOuCorrespondant" name="emailClubOuCorrespondant" value="${rqt.emailClubOuCorrespondant?.toString()}" 
-                    class="  validate-email ${rqt.stepStates['association'].invalidFields.contains('emailClubOuCorrespondant') ? 'validation-failed' : ''}" title="<g:message code="sagr.property.emailClubOuCorrespondant.validationError" />"   />
+            <input  type="text" id="emailClubOuCorrespondant"
+                   name="emailClubOuCorrespondant"
+                   value="${rqt.emailClubOuCorrespondant?.toString()}"
+                   class="  validate-email ${rqt.stepStates['association'].invalidFields.contains('emailClubOuCorrespondant') ? 'validation-failed' : ''}"
+                   title="<g:message code="sagr.property.emailClubOuCorrespondant.validationError" />"   />
             
 
     

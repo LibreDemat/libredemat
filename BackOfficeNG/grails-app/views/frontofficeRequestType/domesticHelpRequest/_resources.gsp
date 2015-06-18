@@ -7,36 +7,51 @@
     
       
       <label for="pensions" class=""><g:message code="dhr.property.pensions.label" />   <span><g:message code="dhr.property.pensions.help" /></span></label>
-            <input  type="text" id="pensions" name="pensions" value="${rqt.pensions?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('pensions') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.pensions.validationError" />"   />
+            <input  type="text" id="pensions"
+                   name="pensions"
+                   value="${rqt.pensions?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('pensions') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.pensions.validationError" />"   />
             
 
     
       
       <label for="dhrAllowances" class=""><g:message code="dhr.property.dhrAllowances.label" />   <span><g:message code="dhr.property.dhrAllowances.help" /></span></label>
-            <input  type="text" id="dhrAllowances" name="dhrAllowances" value="${rqt.dhrAllowances?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrAllowances') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrAllowances.validationError" />"   />
+            <input  type="text" id="dhrAllowances"
+                   name="dhrAllowances"
+                   value="${rqt.dhrAllowances?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrAllowances') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrAllowances.validationError" />"   />
             
 
     
       
       <label for="dhrFurnitureInvestmentIncome" class=""><g:message code="dhr.property.dhrFurnitureInvestmentIncome.label" />   <span><g:message code="dhr.property.dhrFurnitureInvestmentIncome.help" /></span></label>
-            <input  type="text" id="dhrFurnitureInvestmentIncome" name="dhrFurnitureInvestmentIncome" value="${rqt.dhrFurnitureInvestmentIncome?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrFurnitureInvestmentIncome') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrFurnitureInvestmentIncome.validationError" />"   />
+            <input  type="text" id="dhrFurnitureInvestmentIncome"
+                   name="dhrFurnitureInvestmentIncome"
+                   value="${rqt.dhrFurnitureInvestmentIncome?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrFurnitureInvestmentIncome') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrFurnitureInvestmentIncome.validationError" />"   />
             
 
     
       
       <label for="dhrRealEstateInvestmentIncome" class=""><g:message code="dhr.property.dhrRealEstateInvestmentIncome.label" />   <span><g:message code="dhr.property.dhrRealEstateInvestmentIncome.help" /></span></label>
-            <input  type="text" id="dhrRealEstateInvestmentIncome" name="dhrRealEstateInvestmentIncome" value="${rqt.dhrRealEstateInvestmentIncome?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrRealEstateInvestmentIncome') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrRealEstateInvestmentIncome.validationError" />"   />
+            <input  type="text" id="dhrRealEstateInvestmentIncome"
+                   name="dhrRealEstateInvestmentIncome"
+                   value="${rqt.dhrRealEstateInvestmentIncome?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrRealEstateInvestmentIncome') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrRealEstateInvestmentIncome.validationError" />"   />
             
 
     
       
       <label for="dhrNetIncome" class=""><g:message code="dhr.property.dhrNetIncome.label" />   <span><g:message code="dhr.property.dhrNetIncome.help" /></span></label>
-            <input  type="text" id="dhrNetIncome" name="dhrNetIncome" value="${rqt.dhrNetIncome?.toString()}" 
-                    class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrNetIncome') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrNetIncome.validationError" />"   />
+            <input  type="text" id="dhrNetIncome"
+                   name="dhrNetIncome"
+                   value="${rqt.dhrNetIncome?.toString()}"
+                   class="  validate-positiveInteger ${rqt.stepStates['resources'].invalidFields.contains('dhrNetIncome') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrNetIncome.validationError" />"   />
             
 
     
@@ -52,7 +67,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrRealAsset', 'collectionIndex':(rqt.dhrRealAsset ? rqt.dhrRealAsset.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrRealAsset',
+                    'collectionIndex':(rqt.dhrRealAsset ? rqt.dhrRealAsset.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -62,7 +80,7 @@
         <dl>
         <dt class="head"><g:message code="dhr.property.dhrRealAsset.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrRealAsset', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrRealAsset', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrRealAsset', 'collectionIndex':index])}">
@@ -105,7 +123,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrNotRealAsset', 'collectionIndex':(rqt.dhrNotRealAsset ? rqt.dhrNotRealAsset.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrNotRealAsset',
+                    'collectionIndex':(rqt.dhrNotRealAsset ? rqt.dhrNotRealAsset.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -115,7 +136,7 @@
         <dl>
         <dt class="head"><g:message code="dhr.property.dhrNotRealAsset.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrNotRealAsset', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrNotRealAsset', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'resources', 'currentCollection':'dhrNotRealAsset', 'collectionIndex':index])}">

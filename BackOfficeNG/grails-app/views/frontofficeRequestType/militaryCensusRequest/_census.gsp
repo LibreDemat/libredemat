@@ -49,8 +49,11 @@
   
     
     <label for="maidenName" class=""><g:message code="mcr.property.maidenName.label" />   <span><g:message code="mcr.property.maidenName.help" /></span></label>
-            <input  type="text" id="maidenName" name="maidenName" value="${rqt.maidenName?.toString()}" 
-                    class=" autofill-subjectFilling-listener-LastName validate-lastName ${rqt.stepStates['census'].invalidFields.contains('maidenName') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.maidenName.validationError" />"  maxlength="38" />
+            <input  type="text" id="maidenName"
+                   name="maidenName"
+                   value="${rqt.maidenName?.toString()}"
+                   class=" autofill-subjectFilling-listener-LastName validate-lastName ${rqt.stepStates['census'].invalidFields.contains('maidenName') ? 'validation-failed' : ''}"
+                   title="<g:message code="mcr.property.maidenName.validationError" />"  maxlength="38" />
             
 
   
@@ -84,8 +87,11 @@
   
     
     <label for="childPhone" class="required"><g:message code="mcr.property.childPhone.label" /> *  <span><g:message code="mcr.property.childPhone.help" /></span></label>
-            <input  type="text" id="childPhone" name="childPhone" value="${rqt.childPhone?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['census'].invalidFields.contains('childPhone') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="childPhone"
+                   name="childPhone"
+                   value="${rqt.childPhone?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['census'].invalidFields.contains('childPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="mcr.property.childPhone.validationError" />"  maxlength="10" />
             
 
   
@@ -93,8 +99,11 @@
   
     
     <label for="childMail" class=""><g:message code="mcr.property.childMail.label" />   <span><g:message code="mcr.property.childMail.help" /></span></label>
-            <input  type="text" id="childMail" name="childMail" value="${rqt.childMail?.toString()}" 
-                    class="  validate-email ${rqt.stepStates['census'].invalidFields.contains('childMail') ? 'validation-failed' : ''}" title="<g:message code="mcr.property.childMail.validationError" />"   />
+            <input  type="text" id="childMail"
+                   name="childMail"
+                   value="${rqt.childMail?.toString()}"
+                   class="  validate-email ${rqt.stepStates['census'].invalidFields.contains('childMail') ? 'validation-failed' : ''}"
+                   title="<g:message code="mcr.property.childMail.validationError" />"   />
             
 
   

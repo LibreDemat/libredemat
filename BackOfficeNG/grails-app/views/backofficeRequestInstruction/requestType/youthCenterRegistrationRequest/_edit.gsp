@@ -48,13 +48,13 @@
             
               
               <dl>
-                <dt class="">${message(code:'ycrr.property.subjectChoiceMobilePhone.label')} &nbsp;:</dt><dd id="subjectChoiceMobilePhone" class="action-editField validate-phone i18n-ycrr.property.subjectChoiceMobilePhone maxLength-10" ><span>${rqt?.subjectChoiceMobilePhone}</span></dd>
+                <dt class="">${message(code:'ycrr.property.subjectChoiceMobilePhone.label')} &nbsp;:</dt><dd id="subjectChoiceMobilePhone" class="action-editField validate-phone i18n-ycrr.property.subjectChoiceMobilePhone maxLength-10" ><span >${rqt?.subjectChoiceMobilePhone}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'ycrr.property.subjectChoiceEmail.label')} &nbsp;:</dt><dd id="subjectChoiceEmail" class="action-editField validate-email i18n-ycrr.property.subjectChoiceEmail" ><span>${rqt?.subjectChoiceEmail}</span></dd>
+                <dt class="">${message(code:'ycrr.property.subjectChoiceEmail.label')} &nbsp;:</dt><dd id="subjectChoiceEmail" class="action-editField validate-email i18n-ycrr.property.subjectChoiceEmail" ><span >${rqt?.subjectChoiceEmail}</span></dd>
               </dl>
               
             
@@ -72,7 +72,7 @@
             
               
               <dl>
-                <dt class="required condition-isFirstRegistration-filled">${message(code:'ycrr.property.firstRegistrationNumeroAdherent.label')} &nbsp;*&nbsp;:</dt><dd id="firstRegistrationNumeroAdherent" class="action-editField validate-string required-true i18n-ycrr.property.firstRegistrationNumeroAdherent" ><span>${rqt?.firstRegistrationNumeroAdherent}</span></dd>
+                <dt class="required condition-isFirstRegistration-filled">${message(code:'ycrr.property.firstRegistrationNumeroAdherent.label')} &nbsp;*&nbsp;:</dt><dd id="firstRegistrationNumeroAdherent" class="action-editField validate-string required-true i18n-ycrr.property.firstRegistrationNumeroAdherent" ><span >${rqt?.firstRegistrationNumeroAdherent}</span></dd>
               </dl>
               
             

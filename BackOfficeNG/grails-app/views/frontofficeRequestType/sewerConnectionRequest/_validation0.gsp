@@ -94,14 +94,18 @@
     
       
       <dl>
-        <dt><g:message code="scr.property.ownerLastName.label" /></dt><dd>${rqt.ownerLastName?.toString()}</dd>
+        <dt><g:message code="scr.property.ownerLastName.label" /></dt>
+          <dd>${rqt.ownerLastName?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="scr.property.ownerFirstNames.label" /></dt><dd>${rqt.ownerFirstNames?.toString()}</dd>
+        <dt><g:message code="scr.property.ownerFirstNames.label" /></dt>
+          <dd>${rqt.ownerFirstNames?.toString()}</dd>
+          
 
       </dl>
       
@@ -126,28 +130,36 @@
     
       
       <dl>
-        <dt><g:message code="scr.property.section.label" /></dt><dd>${rqt.section?.toString()}</dd>
+        <dt><g:message code="scr.property.section.label" /></dt>
+          <dd>${rqt.section?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="scr.property.number.label" /></dt><dd>${rqt.number?.toString()}</dd>
+        <dt><g:message code="scr.property.number.label" /></dt>
+          <dd>${rqt.number?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="scr.property.locality.label" /></dt><dd>${rqt.locality?.toString()}</dd>
+        <dt><g:message code="scr.property.locality.label" /></dt>
+          <dd>${rqt.locality?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="scr.property.transportationRoute.label" /></dt><dd>${rqt.transportationRoute?.toString()}</dd>
+        <dt><g:message code="scr.property.transportationRoute.label" /></dt>
+          <dd>${rqt.transportationRoute?.toString()}</dd>
+          
 
       </dl>
       

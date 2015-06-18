@@ -101,7 +101,9 @@
     
       
       <dl>
-        <dt><g:message code="rarr.property.urgencyPhone.label" /></dt><dd>${rqt.urgencyPhone?.toString()}</dd>
+        <dt><g:message code="rarr.property.urgencyPhone.label" /></dt>
+          <dd>${rqt.urgencyPhone?.toString()}</dd>
+          
 
       </dl>
       
@@ -117,10 +119,14 @@
       <g:each var="it" in="${rqt.contactIndividuals}" status="index">
       <dl>
         
-          <dt><g:message code="rarr.property.lastName.label" /></dt><dd>${it.lastName?.toString()}</dd>
+          <dt><g:message code="rarr.property.lastName.label" /></dt>
+          <dd>${it.lastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="rarr.property.firstName.label" /></dt><dd>${it.firstName?.toString()}</dd>
+          <dt><g:message code="rarr.property.firstName.label" /></dt>
+          <dd>${it.firstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="rarr.property.address.label" /></dt>
@@ -137,10 +143,14 @@
           
 
         
-          <dt><g:message code="rarr.property.homePhone.label" /></dt><dd>${it.homePhone?.toString()}</dd>
+          <dt><g:message code="rarr.property.homePhone.label" /></dt>
+          <dd>${it.homePhone?.toString()}</dd>
+          
 
         
-          <dt><g:message code="rarr.property.officePhone.label" /></dt><dd>${it.officePhone?.toString()}</dd>
+          <dt><g:message code="rarr.property.officePhone.label" /></dt>
+          <dd>${it.officePhone?.toString()}</dd>
+          
 
         
       </dl>
@@ -158,10 +168,14 @@
       <g:each var="it" in="${rqt.authorizedIndividuals}" status="index">
       <dl>
         
-          <dt><g:message code="rarr.property.lastName.label" /></dt><dd>${it.lastName?.toString()}</dd>
+          <dt><g:message code="rarr.property.lastName.label" /></dt>
+          <dd>${it.lastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="rarr.property.firstName.label" /></dt><dd>${it.firstName?.toString()}</dd>
+          <dt><g:message code="rarr.property.firstName.label" /></dt>
+          <dd>${it.firstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="rarr.property.address.label" /></dt>
@@ -178,10 +192,14 @@
           
 
         
-          <dt><g:message code="rarr.property.homePhone.label" /></dt><dd>${it.homePhone?.toString()}</dd>
+          <dt><g:message code="rarr.property.homePhone.label" /></dt>
+          <dd>${it.homePhone?.toString()}</dd>
+          
 
         
-          <dt><g:message code="rarr.property.officePhone.label" /></dt><dd>${it.officePhone?.toString()}</dd>
+          <dt><g:message code="rarr.property.officePhone.label" /></dt>
+          <dd>${it.officePhone?.toString()}</dd>
+          
 
         
       </dl>

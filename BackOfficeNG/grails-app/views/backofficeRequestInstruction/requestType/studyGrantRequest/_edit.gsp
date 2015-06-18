@@ -86,13 +86,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'sgr.property.taxHouseholdLastName.label')} &nbsp;*&nbsp;:</dt><dd id="taxHouseholdLastName" class="action-editField validate-lastName required-true i18n-sgr.property.taxHouseholdLastName maxLength-38" ><span>${rqt?.taxHouseholdLastName}</span></dd>
+                <dt class="required">${message(code:'sgr.property.taxHouseholdLastName.label')} &nbsp;*&nbsp;:</dt><dd id="taxHouseholdLastName" class="action-editField validate-lastName required-true i18n-sgr.property.taxHouseholdLastName maxLength-38" ><span >${rqt?.taxHouseholdLastName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'sgr.property.taxHouseholdFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="taxHouseholdFirstName" class="action-editField validate-firstName required-true i18n-sgr.property.taxHouseholdFirstName maxLength-38" ><span>${rqt?.taxHouseholdFirstName}</span></dd>
+                <dt class="required">${message(code:'sgr.property.taxHouseholdFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="taxHouseholdFirstName" class="action-editField validate-firstName required-true i18n-sgr.property.taxHouseholdFirstName maxLength-38" ><span >${rqt?.taxHouseholdFirstName}</span></dd>
               </dl>
               
             
@@ -109,7 +109,7 @@
             
               
               <dl>
-                <dt class="required condition-isTaxHouseholdCityOther-filled">${message(code:'sgr.property.taxHouseholdCityPrecision.label')} &nbsp;*&nbsp;:</dt><dd id="taxHouseholdCityPrecision" class="action-editField validate-string required-true i18n-sgr.property.taxHouseholdCityPrecision" ><span>${rqt?.taxHouseholdCityPrecision}</span></dd>
+                <dt class="required condition-isTaxHouseholdCityOther-filled">${message(code:'sgr.property.taxHouseholdCityPrecision.label')} &nbsp;*&nbsp;:</dt><dd id="taxHouseholdCityPrecision" class="action-editField validate-string required-true i18n-sgr.property.taxHouseholdCityPrecision" ><span >${rqt?.taxHouseholdCityPrecision}</span></dd>
               </dl>
               
             
@@ -204,7 +204,7 @@
  
           </dd>
                 
-                  <dt class="required condition-isCurrentSchoolNameOther-filled">${message(code:'sgr.property.currentSchoolNamePrecision.label')} &nbsp;*&nbsp;:</dt><dd id="currentSchoolNamePrecision" class="action-editField validate-string required-true i18n-sgr.property.currentSchoolNamePrecision" ><span>${rqt?.currentSchoolNamePrecision}</span></dd>
+                  <dt class="required condition-isCurrentSchoolNameOther-filled">${message(code:'sgr.property.currentSchoolNamePrecision.label')} &nbsp;*&nbsp;:</dt><dd id="currentSchoolNamePrecision" class="action-editField validate-string required-true i18n-sgr.property.currentSchoolNamePrecision" ><span >${rqt?.currentSchoolNamePrecision}</span></dd>
                 
                   <dt class="required condition-isCurrentSchoolNameOther-filled">${message(code:'sgr.property.currentSchoolAddress.label')} &nbsp;*&nbsp;:</dt><dd id="currentSchoolAddress" class="action-editField validate-address required-true i18n-sgr.property.currentSchoolAddress" ><div><p class="additionalDeliveryInformation">${rqt?.currentSchoolAddress?.additionalDeliveryInformation}</p><p class="additionalGeographicalInformation">${rqt?.currentSchoolAddress?.additionalGeographicalInformation}</p><span class="streetNumber">${rqt?.currentSchoolAddress?.streetNumber}</span> <span class="streetName">${rqt?.currentSchoolAddress?.streetName}</span><g:if test="${!!rqt?.currentSchoolAddress?.streetMatriculation}"><br /><em><g:message code="address.property.streetMatriculation" /></em><span class="streetMatriculation">${rqt?.currentSchoolAddress?.streetMatriculation}</span></g:if><g:if test="${!!rqt?.currentSchoolAddress?.streetRivoliCode}"><br /><em><g:message code="address.property.streetRivoliCode" /></em><span class="streetRivoliCode">${rqt?.currentSchoolAddress?.streetRivoliCode}</span></g:if><p class="placeNameOrService">${rqt?.currentSchoolAddress?.placeNameOrService}</p><span class="postalCode">${rqt?.currentSchoolAddress?.postalCode}</span> <span class="city">${rqt?.currentSchoolAddress?.city}</span><p class="countryName">${rqt?.currentSchoolAddress?.countryName}</p><g:if test="${!!rqt?.currentSchoolAddress?.cityInseeCode}"><em><g:message code="address.property.cityInseeCode" /></em><span class="cityInseeCode">${rqt?.currentSchoolAddress?.cityInseeCode}</span></g:if></div></dd>
                 
@@ -215,7 +215,7 @@
               <h3><g:message code="sgr.property.aLevelsInformations.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'sgr.property.alevelsDate.label')} &nbsp;*&nbsp;:</dt><dd id="alevelsDate" class="action-editField validate-regex required-true i18n-sgr.property.alevelsDate maxLength-4" regex="^\d{2,4}$"><span>${rqt?.alevelsDate}</span></dd>
+                  <dt class="required">${message(code:'sgr.property.alevelsDate.label')} &nbsp;*&nbsp;:</dt><dd id="alevelsDate" class="action-editField validate-regex required-true i18n-sgr.property.alevelsDate maxLength-4" regex="^\d{2,4}$"><span >${rqt?.alevelsDate}</span></dd>
                 
                   <dt class="required">${message(code:'sgr.property.alevels.label')} &nbsp;*&nbsp;:</dt><dd id="alevels" class="action-editField validate-libredematEnum required-true i18n-sgr.property.alevels javatype-org.libredemat.business.request.school.ALevelsType" ><g:libredematEnumToField var="${rqt?.alevels}" i18nKeyPrefix="sgr.property.alevels" /></dd>
                 
@@ -234,7 +234,7 @@
                 
                   <dt class="required condition-isInOtherStudies-trigger">${message(code:'sgr.property.currentStudiesDiploma.label')} &nbsp;*&nbsp;:</dt><dd id="currentStudiesDiploma" class="action-editField validate-libredematEnum required-true i18n-sgr.property.currentStudiesDiploma javatype-org.libredemat.business.request.school.CurrentStudiesType" ><g:libredematEnumToField var="${rqt?.currentStudiesDiploma}" i18nKeyPrefix="sgr.property.currentStudiesDiploma" /></dd>
                 
-                  <dt class="required condition-isInOtherStudies-filled">${message(code:'sgr.property.otherStudiesLabel.label')} &nbsp;*&nbsp;:</dt><dd id="otherStudiesLabel" class="action-editField validate-string required-true i18n-sgr.property.otherStudiesLabel" ><span>${rqt?.otherStudiesLabel}</span></dd>
+                  <dt class="required condition-isInOtherStudies-filled">${message(code:'sgr.property.otherStudiesLabel.label')} &nbsp;*&nbsp;:</dt><dd id="otherStudiesLabel" class="action-editField validate-string required-true i18n-sgr.property.otherStudiesLabel" ><span >${rqt?.otherStudiesLabel}</span></dd>
                 
                   <dt class="required">${message(code:'sgr.property.currentStudiesLevel.label')} &nbsp;*&nbsp;:</dt><dd id="currentStudiesLevel" class="action-editField validate-libredematEnum required-true i18n-sgr.property.currentStudiesLevel javatype-org.libredemat.business.request.school.CurrentStudiesLevelType" ><g:libredematEnumToField var="${rqt?.currentStudiesLevel}" i18nKeyPrefix="sgr.property.currentStudiesLevel" /></dd>
                 
@@ -246,7 +246,7 @@
                 
                   <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipEndDate.label')} &nbsp;*&nbsp;:</dt><dd id="abroadInternshipEndDate" class="action-editField validate-date required-true i18n-sgr.property.abroadInternshipEndDate" ><span><g:formatDate formatName="format.date" date="${rqt?.abroadInternshipEndDate}"/></span></dd>
                 
-                  <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="abroadInternshipSchoolName" class="action-editField validate-string required-true i18n-sgr.property.abroadInternshipSchoolName" ><span>${rqt?.abroadInternshipSchoolName}</span></dd>
+                  <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="abroadInternshipSchoolName" class="action-editField validate-string required-true i18n-sgr.property.abroadInternshipSchoolName" ><span >${rqt?.abroadInternshipSchoolName}</span></dd>
                 
                   <dt class="required condition-makesAbroadInternship-filled">${message(code:'sgr.property.abroadInternshipSchoolCountry.label')} &nbsp;*&nbsp;:</dt><dd id="abroadInternshipSchoolCountry" class="action-editField validate-libredematEnum required-true i18n-sgr.property.abroadInternshipSchoolCountry javatype-org.libredemat.business.users.CountryType" ><g:libredematEnumToField var="${rqt?.abroadInternshipSchoolCountry}" i18nKeyPrefix="sgr.property.abroadInternshipSchoolCountry" /></dd>
                 
@@ -286,13 +286,13 @@
             
               
               <dl>
-                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'sgr.property.accountHolderLastName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderLastName" class="action-editField validate-lastName required-true i18n-sgr.property.accountHolderLastName maxLength-38" ><span>${rqt?.accountHolderLastName}</span></dd>
+                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'sgr.property.accountHolderLastName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderLastName" class="action-editField validate-lastName required-true i18n-sgr.property.accountHolderLastName maxLength-38" ><span >${rqt?.accountHolderLastName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'sgr.property.accountHolderFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderFirstName" class="action-editField validate-firstName required-true i18n-sgr.property.accountHolderFirstName maxLength-38" ><span>${rqt?.accountHolderFirstName}</span></dd>
+                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'sgr.property.accountHolderFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderFirstName" class="action-editField validate-firstName required-true i18n-sgr.property.accountHolderFirstName maxLength-38" ><span >${rqt?.accountHolderFirstName}</span></dd>
               </dl>
               
             
@@ -345,13 +345,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'sgr.property.accountHolderEdemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderEdemandeId" class="action-editField validate-string required-true i18n-sgr.property.accountHolderEdemandeId" ><span>${rqt?.accountHolderEdemandeId}</span></dd>
+                <dt class="required">${message(code:'sgr.property.accountHolderEdemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderEdemandeId" class="action-editField validate-string required-true i18n-sgr.property.accountHolderEdemandeId" ><span >${rqt?.accountHolderEdemandeId}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'sgr.property.edemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="edemandeId" class="action-editField validate-string required-true i18n-sgr.property.edemandeId" ><span>${rqt?.edemandeId}</span></dd>
+                <dt class="required">${message(code:'sgr.property.edemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="edemandeId" class="action-editField validate-string required-true i18n-sgr.property.edemandeId" ><span >${rqt?.edemandeId}</span></dd>
               </dl>
               
             

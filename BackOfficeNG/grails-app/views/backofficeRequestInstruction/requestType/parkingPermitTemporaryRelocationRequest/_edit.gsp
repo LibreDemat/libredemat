@@ -48,9 +48,9 @@
               <h3><g:message code="pptrr.property.companyInformation.label" /></h3>
               <dl class="required condition-isCompany-filled">
                 
-                  <dt class="required condition-isCompany-filled">${message(code:'pptrr.property.siretNumber.label')} &nbsp;*&nbsp;:</dt><dd id="siretNumber" class="action-editField validate-regex required-true i18n-pptrr.property.siretNumber maxLength-14" regex="^[0-9]{14}$"><span>${rqt?.siretNumber}</span></dd>
+                  <dt class="required condition-isCompany-filled">${message(code:'pptrr.property.siretNumber.label')} &nbsp;*&nbsp;:</dt><dd id="siretNumber" class="action-editField validate-regex required-true i18n-pptrr.property.siretNumber maxLength-14" regex="^[0-9]{14}$"><span >${rqt?.siretNumber}</span></dd>
                 
-                  <dt class="required condition-isCompany-filled">${message(code:'pptrr.property.apeCode.label')} &nbsp;*&nbsp;:</dt><dd id="apeCode" class="action-editField validate-regex required-true i18n-pptrr.property.apeCode maxLength-5" regex="^[0-9]{4}[a-zA-Z]{1}$"><span>${rqt?.apeCode}</span></dd>
+                  <dt class="required condition-isCompany-filled">${message(code:'pptrr.property.apeCode.label')} &nbsp;*&nbsp;:</dt><dd id="apeCode" class="action-editField validate-regex required-true i18n-pptrr.property.apeCode maxLength-5" regex="^[0-9]{4}[a-zA-Z]{1}$"><span >${rqt?.apeCode}</span></dd>
                 
               </dl>
               
@@ -70,15 +70,15 @@
               <h3><g:message code="pptrr.property.equipmentUsed.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'pptrr.property.vehicleType.label')} &nbsp;*&nbsp;:</dt><dd id="vehicleType" class="action-editField validate-string required-true i18n-pptrr.property.vehicleType" ><span>${rqt?.vehicleType}</span></dd>
+                  <dt class="required">${message(code:'pptrr.property.vehicleType.label')} &nbsp;*&nbsp;:</dt><dd id="vehicleType" class="action-editField validate-string required-true i18n-pptrr.property.vehicleType" ><span >${rqt?.vehicleType}</span></dd>
                 
-                  <dt class="required">${message(code:'pptrr.property.longeur.label')} &nbsp;*&nbsp;:</dt><dd id="longeur" class="action-editField validate-positiveInteger required-true i18n-pptrr.property.longeur" ><span>${rqt?.longeur}</span></dd>
+                  <dt class="required">${message(code:'pptrr.property.longeur.label')} &nbsp;*&nbsp;:</dt><dd id="longeur" class="action-editField validate-positiveInteger required-true i18n-pptrr.property.longeur" ><span >${rqt?.longeur}</span></dd>
                 
-                  <dt class="">${message(code:'pptrr.property.immatriculation.label')} &nbsp;:</dt><dd id="immatriculation" class="action-editField validate-regex i18n-pptrr.property.immatriculation maxLength-255" regex="^[\w\W]{0,255}$"><span>${rqt?.immatriculation}</span></dd>
+                  <dt class="">${message(code:'pptrr.property.immatriculation.label')} &nbsp;:</dt><dd id="immatriculation" class="action-editField validate-regex i18n-pptrr.property.immatriculation maxLength-255" regex="^[\w\W]{0,255}$"><span >${rqt?.immatriculation}</span></dd>
                 
                   <dt class="required">${message(code:'pptrr.property.furnitureLifting.label')} &nbsp;*&nbsp;:</dt><dd id="furnitureLifting" class="action-editField validate-boolean required-true i18n-pptrr.property.furnitureLifting" ><span class="value-${rqt?.furnitureLifting}"><g:message code="${rqt?.furnitureLifting ? 'message.yes' : rqt?.furnitureLifting==null ? '' : 'message.no'}" /></span></dd>
                 
-                  <dt class="">${message(code:'pptrr.property.other.label')} &nbsp;:</dt><dd id="other" class="action-editField validate-string i18n-pptrr.property.other" ><span>${rqt?.other}</span></dd>
+                  <dt class="">${message(code:'pptrr.property.other.label')} &nbsp;:</dt><dd id="other" class="action-editField validate-string i18n-pptrr.property.other" ><span >${rqt?.other}</span></dd>
                 
               </dl>
               
@@ -91,7 +91,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'pptrr.property.requesterAddress.label')} &nbsp;*&nbsp;:</dt><dd id="requesterAddress" class="action-editField validate-textarea required-true i18n-pptrr.property.requesterAddress rows-3" ><span>${rqt?.requesterAddress}</span></dd>
+                <dt class="required">${message(code:'pptrr.property.requesterAddress.label')} &nbsp;*&nbsp;:</dt><dd id="requesterAddress" class="action-editField validate-textarea required-true i18n-pptrr.property.requesterAddress rows-3" ><span >${rqt?.requesterAddress}</span></dd>
               </dl>
               
             
@@ -121,7 +121,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'pptrr.property.observations.label')} &nbsp;:</dt><dd id="observations" class="action-editField validate-textarea i18n-pptrr.property.observations rows-3" ><span>${rqt?.observations}</span></dd>
+                <dt class="">${message(code:'pptrr.property.observations.label')} &nbsp;:</dt><dd id="observations" class="action-editField validate-textarea i18n-pptrr.property.observations rows-3" ><span >${rqt?.observations}</span></dd>
               </dl>
               
             
@@ -158,7 +158,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'pptrr.property.observationsReglement.label')} &nbsp;:</dt><dd id="observationsReglement" class="action-editField validate-textarea i18n-pptrr.property.observationsReglement rows-3" ><span>${rqt?.observationsReglement}</span></dd>
+                <dt class="">${message(code:'pptrr.property.observationsReglement.label')} &nbsp;:</dt><dd id="observationsReglement" class="action-editField validate-textarea i18n-pptrr.property.observationsReglement rows-3" ><span >${rqt?.observationsReglement}</span></dd>
               </dl>
               
             

@@ -89,7 +89,9 @@
     
       
       <dl>
-        <dt><g:message code="snr.property.mobilePhone.label" /></dt><dd>${rqt.mobilePhone?.toString()}</dd>
+        <dt><g:message code="snr.property.mobilePhone.label" /></dt>
+          <dd>${rqt.mobilePhone?.toString()}</dd>
+          
 
       </dl>
       

@@ -26,10 +26,14 @@
       <h4><g:message code="pptrr.property.companyInformation.label" /></h4>
       <dl>
         
-          <dt><g:message code="pptrr.property.siretNumber.label" /></dt><dd>${rqt.siretNumber?.toString()}</dd>
+          <dt><g:message code="pptrr.property.siretNumber.label" /></dt>
+          <dd>${rqt.siretNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pptrr.property.apeCode.label" /></dt><dd>${rqt.apeCode?.toString()}</dd>
+          <dt><g:message code="pptrr.property.apeCode.label" /></dt>
+          <dd>${rqt.apeCode?.toString()}</dd>
+          
 
         
       </dl>
@@ -49,7 +53,9 @@
     
       
       <dl>
-        <dt><g:message code="pptrr.property.requesterAddress.label" /></dt><dd>${rqt.requesterAddress?.toString()}</dd>
+        <dt><g:message code="pptrr.property.requesterAddress.label" /></dt>
+          <dd>${rqt.requesterAddress?.toString()}</dd>
+          
 
       </dl>
       
@@ -102,13 +108,19 @@
       <h4><g:message code="pptrr.property.equipmentUsed.label" /></h4>
       <dl>
         
-          <dt><g:message code="pptrr.property.vehicleType.label" /></dt><dd>${rqt.vehicleType?.toString()}</dd>
+          <dt><g:message code="pptrr.property.vehicleType.label" /></dt>
+          <dd>${rqt.vehicleType?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pptrr.property.longeur.label" /></dt><dd>${rqt.longeur?.toString()}</dd>
+          <dt><g:message code="pptrr.property.longeur.label" /></dt>
+          <dd>${rqt.longeur?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pptrr.property.immatriculation.label" /></dt><dd>${rqt.immatriculation?.toString()}</dd>
+          <dt><g:message code="pptrr.property.immatriculation.label" /></dt>
+          <dd>${rqt.immatriculation?.toString()}</dd>
+          
 
         
           <dt><g:message code="pptrr.property.furnitureLifting.label" /></dt>
@@ -116,7 +128,9 @@
           
 
         
-          <dt><g:message code="pptrr.property.other.label" /></dt><dd>${rqt.other?.toString()}</dd>
+          <dt><g:message code="pptrr.property.other.label" /></dt>
+          <dd>${rqt.other?.toString()}</dd>
+          
 
         
       </dl>
@@ -124,7 +138,9 @@
     
       
       <dl>
-        <dt><g:message code="pptrr.property.observations.label" /></dt><dd>${rqt.observations?.toString()}</dd>
+        <dt><g:message code="pptrr.property.observations.label" /></dt>
+          <dd>${rqt.observations?.toString()}</dd>
+          
 
       </dl>
       
@@ -146,7 +162,9 @@
     
       
       <dl>
-        <dt><g:message code="pptrr.property.observationsReglement.label" /></dt><dd>${rqt.observationsReglement?.toString()}</dd>
+        <dt><g:message code="pptrr.property.observationsReglement.label" /></dt>
+          <dd>${rqt.observationsReglement?.toString()}</dd>
+          
 
       </dl>
       

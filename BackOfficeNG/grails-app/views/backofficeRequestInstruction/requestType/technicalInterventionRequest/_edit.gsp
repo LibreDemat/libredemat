@@ -37,7 +37,7 @@
             
               
               <dl>
-                <dt class="required condition-otherIntervention-filled">${message(code:'tir.property.otherInterventionLabel.label')} &nbsp;*&nbsp;:</dt><dd id="otherInterventionLabel" class="action-editField validate-string required-true i18n-tir.property.otherInterventionLabel" ><span>${rqt?.otherInterventionLabel}</span></dd>
+                <dt class="required condition-otherIntervention-filled">${message(code:'tir.property.otherInterventionLabel.label')} &nbsp;*&nbsp;:</dt><dd id="otherInterventionLabel" class="action-editField validate-string required-true i18n-tir.property.otherInterventionLabel" ><span >${rqt?.otherInterventionLabel}</span></dd>
               </dl>
               
             
@@ -49,7 +49,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'tir.property.interventionDescription.label')} &nbsp;*&nbsp;:</dt><dd id="interventionDescription" class="action-editField validate-textarea required-true i18n-tir.property.interventionDescription rows-3" ><span>${rqt?.interventionDescription}</span></dd>
+                <dt class="required">${message(code:'tir.property.interventionDescription.label')} &nbsp;*&nbsp;:</dt><dd id="interventionDescription" class="action-editField validate-textarea required-true i18n-tir.property.interventionDescription rows-3" ><span >${rqt?.interventionDescription}</span></dd>
               </dl>
               
             

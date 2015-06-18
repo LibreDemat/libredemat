@@ -59,7 +59,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'lrr.property.registrationNumber.label')} &nbsp;:</dt><dd id="registrationNumber" class="action-editField validate-string i18n-lrr.property.registrationNumber" ><span>${rqt?.registrationNumber}</span></dd>
+                <dt class="">${message(code:'lrr.property.registrationNumber.label')} &nbsp;:</dt><dd id="registrationNumber" class="action-editField validate-string i18n-lrr.property.registrationNumber" ><span >${rqt?.registrationNumber}</span></dd>
               </dl>
               
             
@@ -131,7 +131,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'lrr.property.subscriptionPrice.label')} &nbsp;*&nbsp;:</dt><dd id="subscriptionPrice" class="action-editField validate-subscriptionPrice required-true i18n-lrr.property.subscriptionPrice" ><span>${rqt?.subscriptionPrice}</span></dd>
+                <dt class="required">${message(code:'lrr.property.subscriptionPrice.label')} &nbsp;*&nbsp;:</dt><dd id="subscriptionPrice" class="action-editField validate-subscriptionPrice required-true i18n-lrr.property.subscriptionPrice" ><span >${rqt?.subscriptionPrice}</span></dd>
               </dl>
               
             

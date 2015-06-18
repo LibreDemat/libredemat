@@ -48,8 +48,11 @@
     
       
       <label for="dwellingReceptionNaming" class="required condition-isInEstablishmentReception-filled"><g:message code="hccr.property.dwellingReceptionNaming.label" /> *  <span><g:message code="hccr.property.dwellingReceptionNaming.help" /></span></label>
-            <input  type="text" id="dwellingReceptionNaming" name="dwellingReceptionNaming" value="${rqt.dwellingReceptionNaming?.toString()}" 
-                    class="required condition-isInEstablishmentReception-filled   ${rqt.stepStates['dwelling'].invalidFields.contains('dwellingReceptionNaming') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.dwellingReceptionNaming.validationError" />"  maxlength="80" />
+            <input  type="text" id="dwellingReceptionNaming"
+                   name="dwellingReceptionNaming"
+                   value="${rqt.dwellingReceptionNaming?.toString()}"
+                   class="required condition-isInEstablishmentReception-filled   ${rqt.stepStates['dwelling'].invalidFields.contains('dwellingReceptionNaming') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.dwellingReceptionNaming.validationError" />"  maxlength="80" />
             
 
     
@@ -94,8 +97,11 @@
     
       
       <label for="dwellingSocialReceptionNaming" class="required condition-isInSocialReception-filled"><g:message code="hccr.property.dwellingSocialReceptionNaming.label" /> *  <span><g:message code="hccr.property.dwellingSocialReceptionNaming.help" /></span></label>
-            <input  type="text" id="dwellingSocialReceptionNaming" name="dwellingSocialReceptionNaming" value="${rqt.dwellingSocialReceptionNaming?.toString()}" 
-                    class="required condition-isInSocialReception-filled   ${rqt.stepStates['dwelling'].invalidFields.contains('dwellingSocialReceptionNaming') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.dwellingSocialReceptionNaming.validationError" />"  maxlength="80" />
+            <input  type="text" id="dwellingSocialReceptionNaming"
+                   name="dwellingSocialReceptionNaming"
+                   value="${rqt.dwellingSocialReceptionNaming?.toString()}"
+                   class="required condition-isInSocialReception-filled   ${rqt.stepStates['dwelling'].invalidFields.contains('dwellingSocialReceptionNaming') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.dwellingSocialReceptionNaming.validationError" />"  maxlength="80" />
             
 
     

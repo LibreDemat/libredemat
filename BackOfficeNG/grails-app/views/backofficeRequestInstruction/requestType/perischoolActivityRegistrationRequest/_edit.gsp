@@ -61,7 +61,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'parr.property.urgencyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPhone" class="action-editField validate-phone required-true i18n-parr.property.urgencyPhone maxLength-10" ><span>${rqt?.urgencyPhone}</span></dd>
+                <dt class="required">${message(code:'parr.property.urgencyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPhone" class="action-editField validate-phone required-true i18n-parr.property.urgencyPhone maxLength-10" ><span >${rqt?.urgencyPhone}</span></dd>
               </dl>
               
             

@@ -31,15 +31,21 @@
     
       
       <label for="siretNumber" class="required condition-isCompany-filled"><g:message code="pptwr.property.siretNumber.label" /> *  <span><g:message code="pptwr.property.siretNumber.help" /></span></label>
-            <input  type="text" id="siretNumber" name="siretNumber" value="${rqt.siretNumber?.toString()}" 
-                    class="required condition-isCompany-filled  validate-regex ${rqt.stepStates['work'].invalidFields.contains('siretNumber') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.siretNumber.validationError" />" regex="^[0-9]{14}$" maxlength="14" />
+            <input  type="text" id="siretNumber"
+                   name="siretNumber"
+                   value="${rqt.siretNumber?.toString()}"
+                   class="required condition-isCompany-filled  validate-regex ${rqt.stepStates['work'].invalidFields.contains('siretNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="pptwr.property.siretNumber.validationError" />" regex="^[0-9]{14}$" maxlength="14" />
             
 
     
       
       <label for="apeCode" class="required condition-isCompany-filled"><g:message code="pptwr.property.apeCode.label" /> *  <span><g:message code="pptwr.property.apeCode.help" /></span></label>
-            <input  type="text" id="apeCode" name="apeCode" value="${rqt.apeCode?.toString()}" 
-                    class="required condition-isCompany-filled  validate-regex ${rqt.stepStates['work'].invalidFields.contains('apeCode') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.apeCode.validationError" />" regex="^[0-9]{4}[a-zA-Z]{1}$" maxlength="5" />
+            <input  type="text" id="apeCode"
+                   name="apeCode"
+                   value="${rqt.apeCode?.toString()}"
+                   class="required condition-isCompany-filled  validate-regex ${rqt.stepStates['work'].invalidFields.contains('apeCode') ? 'validation-failed' : ''}"
+                   title="<g:message code="pptwr.property.apeCode.validationError" />" regex="^[0-9]{4}[a-zA-Z]{1}$" maxlength="5" />
             
 
     
@@ -88,15 +94,21 @@
     
       
       <label for="constructLicenseNumber" class="required condition-workOnBuilding-filled"><g:message code="pptwr.property.constructLicenseNumber.label" /> *  <span><g:message code="pptwr.property.constructLicenseNumber.help" /></span></label>
-            <input  type="text" id="constructLicenseNumber" name="constructLicenseNumber" value="${rqt.constructLicenseNumber?.toString()}" 
-                    class="required condition-workOnBuilding-filled  validate-string ${rqt.stepStates['work'].invalidFields.contains('constructLicenseNumber') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.constructLicenseNumber.validationError" />"   />
+            <input  type="text" id="constructLicenseNumber"
+                   name="constructLicenseNumber"
+                   value="${rqt.constructLicenseNumber?.toString()}"
+                   class="required condition-workOnBuilding-filled  validate-string ${rqt.stepStates['work'].invalidFields.contains('constructLicenseNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="pptwr.property.constructLicenseNumber.validationError" />"   />
             
 
     
       
       <label for="usedVehicles" class=""><g:message code="pptwr.property.usedVehicles.label" />   <span><g:message code="pptwr.property.usedVehicles.help" /></span></label>
-            <input  type="text" id="usedVehicles" name="usedVehicles" value="${rqt.usedVehicles?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['work'].invalidFields.contains('usedVehicles') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.usedVehicles.validationError" />"   />
+            <input  type="text" id="usedVehicles"
+                   name="usedVehicles"
+                   value="${rqt.usedVehicles?.toString()}"
+                   class="  validate-string ${rqt.stepStates['work'].invalidFields.contains('usedVehicles') ? 'validation-failed' : ''}"
+                   title="<g:message code="pptwr.property.usedVehicles.validationError" />"   />
             
 
     
@@ -109,8 +121,11 @@
     
       
       <label for="referenceNumber" class="required"><g:message code="pptwr.property.referenceNumber.label" /> *  <span><g:message code="pptwr.property.referenceNumber.help" /></span></label>
-            <input  type="text" id="referenceNumber" name="referenceNumber" value="${rqt.referenceNumber?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['work'].invalidFields.contains('referenceNumber') ? 'validation-failed' : ''}" title="<g:message code="pptwr.property.referenceNumber.validationError" />"   />
+            <input  type="text" id="referenceNumber"
+                   name="referenceNumber"
+                   value="${rqt.referenceNumber?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['work'].invalidFields.contains('referenceNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="pptwr.property.referenceNumber.validationError" />"   />
             
 
     

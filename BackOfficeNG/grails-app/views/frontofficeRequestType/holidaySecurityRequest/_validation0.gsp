@@ -128,7 +128,9 @@
     
       
       <dl>
-        <dt><g:message code="hsr.property.alertPhone.label" /></dt><dd>${rqt.alertPhone?.toString()}</dd>
+        <dt><g:message code="hsr.property.alertPhone.label" /></dt>
+          <dd>${rqt.alertPhone?.toString()}</dd>
+          
 
       </dl>
       
@@ -152,10 +154,14 @@
       <h4><g:message code="hsr.property.otherContactInformations.label" /></h4>
       <dl>
         
-          <dt><g:message code="hsr.property.otherContactLastName.label" /></dt><dd>${rqt.otherContactLastName?.toString()}</dd>
+          <dt><g:message code="hsr.property.otherContactLastName.label" /></dt>
+          <dd>${rqt.otherContactLastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="hsr.property.otherContactFirstName.label" /></dt><dd>${rqt.otherContactFirstName?.toString()}</dd>
+          <dt><g:message code="hsr.property.otherContactFirstName.label" /></dt>
+          <dd>${rqt.otherContactFirstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="hsr.property.otherContactAddress.label" /></dt>
@@ -172,7 +178,9 @@
           
 
         
-          <dt><g:message code="hsr.property.otherContactPhone.label" /></dt><dd>${rqt.otherContactPhone?.toString()}</dd>
+          <dt><g:message code="hsr.property.otherContactPhone.label" /></dt>
+          <dd>${rqt.otherContactPhone?.toString()}</dd>
+          
 
         
       </dl>

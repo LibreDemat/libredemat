@@ -48,8 +48,11 @@
     
       
       <label for="subjectMaidenName" class="required condition-isMadam-filled"><g:message code="hcar.property.subjectMaidenName.label" /> *  <span><g:message code="hcar.property.subjectMaidenName.help" /></span></label>
-            <input  type="text" id="subjectMaidenName" name="subjectMaidenName" value="${rqt.subjectMaidenName?.toString()}" 
-                    class="required condition-isMadam-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('subjectMaidenName') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.subjectMaidenName.validationError" />"  maxlength="38" />
+            <input  type="text" id="subjectMaidenName"
+                   name="subjectMaidenName"
+                   value="${rqt.subjectMaidenName?.toString()}"
+                   class="required condition-isMadam-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('subjectMaidenName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.subjectMaidenName.validationError" />"  maxlength="38" />
             
 
     
@@ -96,15 +99,21 @@
     
       
       <label for="subjectBirthCity" class="required"><g:message code="hcar.property.subjectBirthCity.label" /> *  <span><g:message code="hcar.property.subjectBirthCity.help" /></span></label>
-            <input  type="text" id="subjectBirthCity" name="subjectBirthCity" value="${rqt.subjectBirthCity?.toString()}" 
-                    class="required  validate-city ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCity') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.subjectBirthCity.validationError" />"  maxlength="32" />
+            <input  type="text" id="subjectBirthCity"
+                   name="subjectBirthCity"
+                   value="${rqt.subjectBirthCity?.toString()}"
+                   class="required  validate-city ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCity') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.subjectBirthCity.validationError" />"  maxlength="32" />
             
 
     
       
       <label for="subjectBirthCountry" class="required"><g:message code="hcar.property.subjectBirthCountry.label" /> *  <span><g:message code="hcar.property.subjectBirthCountry.help" /></span></label>
-            <input  type="text" id="subjectBirthCountry" name="subjectBirthCountry" value="${rqt.subjectBirthCountry?.toString()}" 
-                    class="required   ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCountry') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.subjectBirthCountry.validationError" />"  maxlength="50" />
+            <input  type="text" id="subjectBirthCountry"
+                   name="subjectBirthCountry"
+                   value="${rqt.subjectBirthCountry?.toString()}"
+                   class="required   ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCountry') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.subjectBirthCountry.validationError" />"  maxlength="50" />
             
 
     
@@ -152,22 +161,31 @@
     
       
       <label for="legalAccessRepresentativeKindDetail" class="required condition-isOtherLegalAccessRepresentative-filled"><g:message code="hcar.property.legalAccessRepresentativeKindDetail.label" /> *  <span><g:message code="hcar.property.legalAccessRepresentativeKindDetail.help" /></span></label>
-            <input  type="text" id="legalAccessRepresentativeKindDetail" name="legalAccessRepresentativeKindDetail" value="${rqt.legalAccessRepresentativeKindDetail?.toString()}" 
-                    class="required condition-isOtherLegalAccessRepresentative-filled   ${rqt.stepStates['subject'].invalidFields.contains('legalAccessRepresentativeKindDetail') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.legalAccessRepresentativeKindDetail.validationError" />"  maxlength="80" />
+            <input  type="text" id="legalAccessRepresentativeKindDetail"
+                   name="legalAccessRepresentativeKindDetail"
+                   value="${rqt.legalAccessRepresentativeKindDetail?.toString()}"
+                   class="required condition-isOtherLegalAccessRepresentative-filled   ${rqt.stepStates['subject'].invalidFields.contains('legalAccessRepresentativeKindDetail') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.legalAccessRepresentativeKindDetail.validationError" />"  maxlength="80" />
             
 
     
       
       <label for="legalAccessRepresentativeName" class="required condition-isLegalAccessPresence-filled"><g:message code="hcar.property.legalAccessRepresentativeName.label" /> *  <span><g:message code="hcar.property.legalAccessRepresentativeName.help" /></span></label>
-            <input  type="text" id="legalAccessRepresentativeName" name="legalAccessRepresentativeName" value="${rqt.legalAccessRepresentativeName?.toString()}" 
-                    class="required condition-isLegalAccessPresence-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('legalAccessRepresentativeName') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.legalAccessRepresentativeName.validationError" />"  maxlength="38" />
+            <input  type="text" id="legalAccessRepresentativeName"
+                   name="legalAccessRepresentativeName"
+                   value="${rqt.legalAccessRepresentativeName?.toString()}"
+                   class="required condition-isLegalAccessPresence-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('legalAccessRepresentativeName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.legalAccessRepresentativeName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="legalAccessRepresentativeFirstName" class="required condition-isLegalAccessPresence-filled"><g:message code="hcar.property.legalAccessRepresentativeFirstName.label" /> *  <span><g:message code="hcar.property.legalAccessRepresentativeFirstName.help" /></span></label>
-            <input  type="text" id="legalAccessRepresentativeFirstName" name="legalAccessRepresentativeFirstName" value="${rqt.legalAccessRepresentativeFirstName?.toString()}" 
-                    class="required condition-isLegalAccessPresence-filled  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('legalAccessRepresentativeFirstName') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.legalAccessRepresentativeFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="legalAccessRepresentativeFirstName"
+                   name="legalAccessRepresentativeFirstName"
+                   value="${rqt.legalAccessRepresentativeFirstName?.toString()}"
+                   class="required condition-isLegalAccessPresence-filled  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('legalAccessRepresentativeFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.legalAccessRepresentativeFirstName.validationError" />"  maxlength="38" />
             
 
     
@@ -214,7 +232,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':(rqt.familyDependents ? rqt.familyDependents.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents',
+                    'collectionIndex':(rqt.familyDependents ? rqt.familyDependents.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -224,7 +245,7 @@
         <dl>
         <dt class="head"><g:message code="hcar.property.familyDependents.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':index])}">

@@ -42,7 +42,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'scrr.property.urgencyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPhone" class="action-editField validate-phone required-true i18n-scrr.property.urgencyPhone maxLength-10" ><span>${rqt?.urgencyPhone}</span></dd>
+                <dt class="required">${message(code:'scrr.property.urgencyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPhone" class="action-editField validate-phone required-true i18n-scrr.property.urgencyPhone maxLength-10" ><span >${rqt?.urgencyPhone}</span></dd>
               </dl>
               
             
@@ -76,19 +76,19 @@
             
               
               <dl>
-                <dt class="required condition-foodAllergy-filled">${message(code:'scrr.property.whichFoodAllergy.label')} &nbsp;*&nbsp;:</dt><dd id="whichFoodAllergy" class="action-editField validate-string required-true i18n-scrr.property.whichFoodAllergy" ><span>${rqt?.whichFoodAllergy}</span></dd>
+                <dt class="required condition-foodAllergy-filled">${message(code:'scrr.property.whichFoodAllergy.label')} &nbsp;*&nbsp;:</dt><dd id="whichFoodAllergy" class="action-editField validate-string required-true i18n-scrr.property.whichFoodAllergy" ><span >${rqt?.whichFoodAllergy}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'scrr.property.doctorName.label')} &nbsp;:</dt><dd id="doctorName" class="action-editField validate-string i18n-scrr.property.doctorName" ><span>${rqt?.doctorName}</span></dd>
+                <dt class="">${message(code:'scrr.property.doctorName.label')} &nbsp;:</dt><dd id="doctorName" class="action-editField validate-string i18n-scrr.property.doctorName" ><span >${rqt?.doctorName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'scrr.property.doctorPhone.label')} &nbsp;:</dt><dd id="doctorPhone" class="action-editField validate-phone i18n-scrr.property.doctorPhone maxLength-10" ><span>${rqt?.doctorPhone}</span></dd>
+                <dt class="">${message(code:'scrr.property.doctorPhone.label')} &nbsp;:</dt><dd id="doctorPhone" class="action-editField validate-phone i18n-scrr.property.doctorPhone maxLength-10" ><span >${rqt?.doctorPhone}</span></dd>
               </dl>
               
             

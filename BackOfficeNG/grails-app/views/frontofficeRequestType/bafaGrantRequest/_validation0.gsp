@@ -98,7 +98,9 @@
     
       
       <dl>
-        <dt><g:message code="bgr.property.subjectBirthCity.label" /></dt><dd>${rqt.subjectBirthCity?.toString()}</dd>
+        <dt><g:message code="bgr.property.subjectBirthCity.label" /></dt>
+          <dd>${rqt.subjectBirthCity?.toString()}</dd>
+          
 
       </dl>
       
@@ -123,14 +125,18 @@
     
       
       <dl>
-        <dt><g:message code="bgr.property.subjectPhone.label" /></dt><dd>${rqt.subjectPhone?.toString()}</dd>
+        <dt><g:message code="bgr.property.subjectPhone.label" /></dt>
+          <dd>${rqt.subjectPhone?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="bgr.property.subjectEmail.label" /></dt><dd>${rqt.subjectEmail?.toString()}</dd>
+        <dt><g:message code="bgr.property.subjectEmail.label" /></dt>
+          <dd>${rqt.subjectEmail?.toString()}</dd>
+          
 
       </dl>
       
@@ -161,7 +167,9 @@
     
       
       <dl>
-        <dt><g:message code="bgr.property.internshipInstituteName.label" /></dt><dd>${rqt.internshipInstituteName?.toString()}</dd>
+        <dt><g:message code="bgr.property.internshipInstituteName.label" /></dt>
+          <dd>${rqt.internshipInstituteName?.toString()}</dd>
+          
 
       </dl>
       
@@ -214,14 +222,18 @@
     
       
       <dl>
-        <dt><g:message code="bgr.property.accountHolderLastName.label" /></dt><dd>${rqt.accountHolderLastName?.toString()}</dd>
+        <dt><g:message code="bgr.property.accountHolderLastName.label" /></dt>
+          <dd>${rqt.accountHolderLastName?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="bgr.property.accountHolderFirstName.label" /></dt><dd>${rqt.accountHolderFirstName?.toString()}</dd>
+        <dt><g:message code="bgr.property.accountHolderFirstName.label" /></dt>
+          <dd>${rqt.accountHolderFirstName?.toString()}</dd>
+          
 
       </dl>
       

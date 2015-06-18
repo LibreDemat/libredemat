@@ -52,7 +52,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'mcr.property.maidenName.label')} &nbsp;:</dt><dd id="maidenName" class="action-editField validate-lastName i18n-mcr.property.maidenName maxLength-38" ><span>${rqt?.maidenName}</span></dd>
+                <dt class="">${message(code:'mcr.property.maidenName.label')} &nbsp;:</dt><dd id="maidenName" class="action-editField validate-lastName i18n-mcr.property.maidenName maxLength-38" ><span >${rqt?.maidenName}</span></dd>
               </dl>
               
             
@@ -70,13 +70,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'mcr.property.childPhone.label')} &nbsp;*&nbsp;:</dt><dd id="childPhone" class="action-editField validate-phone required-true i18n-mcr.property.childPhone maxLength-10" ><span>${rqt?.childPhone}</span></dd>
+                <dt class="required">${message(code:'mcr.property.childPhone.label')} &nbsp;*&nbsp;:</dt><dd id="childPhone" class="action-editField validate-phone required-true i18n-mcr.property.childPhone maxLength-10" ><span >${rqt?.childPhone}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'mcr.property.childMail.label')} &nbsp;:</dt><dd id="childMail" class="action-editField validate-email i18n-mcr.property.childMail" ><span>${rqt?.childMail}</span></dd>
+                <dt class="">${message(code:'mcr.property.childMail.label')} &nbsp;:</dt><dd id="childMail" class="action-editField validate-email i18n-mcr.property.childMail" ><span >${rqt?.childMail}</span></dd>
               </dl>
               
             
@@ -94,7 +94,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'mcr.property.childConvention.label')} &nbsp;:</dt><dd id="childConvention" class="action-editField validate-regex i18n-mcr.property.childConvention rows-3 maxLength-255" regex="^[\w\W]{0,255}$"><span>${rqt?.childConvention}</span></dd>
+                <dt class="">${message(code:'mcr.property.childConvention.label')} &nbsp;:</dt><dd id="childConvention" class="action-editField validate-regex i18n-mcr.property.childConvention rows-3 maxLength-255" regex="^[\w\W]{0,255}$"><span >${rqt?.childConvention}</span></dd>
               </dl>
               
             
@@ -127,13 +127,13 @@
               <h3><g:message code="mcr.property.fatherInformation.label" /></h3>
               <dl class="required">
                 
-                  <dt class="">${message(code:'mcr.property.fatherLastName.label')} &nbsp;:</dt><dd id="fatherLastName" class="action-editField validate-lastName i18n-mcr.property.fatherLastName maxLength-38" ><span>${rqt?.fatherLastName}</span></dd>
+                  <dt class="">${message(code:'mcr.property.fatherLastName.label')} &nbsp;:</dt><dd id="fatherLastName" class="action-editField validate-lastName i18n-mcr.property.fatherLastName maxLength-38" ><span >${rqt?.fatherLastName}</span></dd>
                 
-                  <dt class="">${message(code:'mcr.property.fatherFirstName.label')} &nbsp;:</dt><dd id="fatherFirstName" class="action-editField validate-firstName i18n-mcr.property.fatherFirstName maxLength-38" ><span>${rqt?.fatherFirstName}</span></dd>
+                  <dt class="">${message(code:'mcr.property.fatherFirstName.label')} &nbsp;:</dt><dd id="fatherFirstName" class="action-editField validate-firstName i18n-mcr.property.fatherFirstName maxLength-38" ><span >${rqt?.fatherFirstName}</span></dd>
                 
                   <dt class="">${message(code:'mcr.property.fatherBirthDate.label')} &nbsp;:</dt><dd id="fatherBirthDate" class="action-editField validate-date i18n-mcr.property.fatherBirthDate" ><span><g:formatDate formatName="format.date" date="${rqt?.fatherBirthDate}"/></span></dd>
                 
-                  <dt class="">${message(code:'mcr.property.fatherBirthCity.label')} &nbsp;:</dt><dd id="fatherBirthCity" class="action-editField validate-string i18n-mcr.property.fatherBirthCity" ><span>${rqt?.fatherBirthCity}</span></dd>
+                  <dt class="">${message(code:'mcr.property.fatherBirthCity.label')} &nbsp;:</dt><dd id="fatherBirthCity" class="action-editField validate-string i18n-mcr.property.fatherBirthCity" ><span >${rqt?.fatherBirthCity}</span></dd>
                 
                   <dt class="">${message(code:'mcr.property.fatherBirthDepartment.label')} &nbsp;:</dt><dd id="fatherBirthDepartment" class="action-editField validate-libredematEnum i18n-mcr.property.fatherBirthDepartment javatype-org.libredemat.business.users.InseeDepartementCodeType" ><g:libredematEnumToField var="${rqt?.fatherBirthDepartment}" i18nKeyPrefix="mcr.property.fatherBirthDepartment" /></dd>
                 
@@ -154,13 +154,13 @@
               <h3><g:message code="mcr.property.motherInformation.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'mcr.property.motherLastName.label')} &nbsp;*&nbsp;:</dt><dd id="motherLastName" class="action-editField validate-lastName required-true i18n-mcr.property.motherLastName maxLength-38" ><span>${rqt?.motherLastName}</span></dd>
+                  <dt class="required">${message(code:'mcr.property.motherLastName.label')} &nbsp;*&nbsp;:</dt><dd id="motherLastName" class="action-editField validate-lastName required-true i18n-mcr.property.motherLastName maxLength-38" ><span >${rqt?.motherLastName}</span></dd>
                 
-                  <dt class="required">${message(code:'mcr.property.motherFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="motherFirstName" class="action-editField validate-firstName required-true i18n-mcr.property.motherFirstName maxLength-38" ><span>${rqt?.motherFirstName}</span></dd>
+                  <dt class="required">${message(code:'mcr.property.motherFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="motherFirstName" class="action-editField validate-firstName required-true i18n-mcr.property.motherFirstName maxLength-38" ><span >${rqt?.motherFirstName}</span></dd>
                 
                   <dt class="required">${message(code:'mcr.property.motherBirthDate.label')} &nbsp;*&nbsp;:</dt><dd id="motherBirthDate" class="action-editField validate-date required-true i18n-mcr.property.motherBirthDate" ><span><g:formatDate formatName="format.date" date="${rqt?.motherBirthDate}"/></span></dd>
                 
-                  <dt class="required">${message(code:'mcr.property.motherBirthCity.label')} &nbsp;*&nbsp;:</dt><dd id="motherBirthCity" class="action-editField validate-string required-true i18n-mcr.property.motherBirthCity" ><span>${rqt?.motherBirthCity}</span></dd>
+                  <dt class="required">${message(code:'mcr.property.motherBirthCity.label')} &nbsp;*&nbsp;:</dt><dd id="motherBirthCity" class="action-editField validate-string required-true i18n-mcr.property.motherBirthCity" ><span >${rqt?.motherBirthCity}</span></dd>
                 
                   <dt class="">${message(code:'mcr.property.motherBirthDepartment.label')} &nbsp;:</dt><dd id="motherBirthDepartment" class="action-editField validate-libredematEnum i18n-mcr.property.motherBirthDepartment javatype-org.libredemat.business.users.InseeDepartementCodeType" ><g:libredematEnumToField var="${rqt?.motherBirthDepartment}" i18nKeyPrefix="mcr.property.motherBirthDepartment" /></dd>
                 
@@ -194,13 +194,13 @@
               <h3><g:message code="mcr.property.familySituationInformation.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'mcr.property.aliveChildren.label')} &nbsp;*&nbsp;:</dt><dd id="aliveChildren" class="action-editField validate-positiveInteger required-true i18n-mcr.property.aliveChildren" ><span>${rqt?.aliveChildren}</span></dd>
+                  <dt class="required">${message(code:'mcr.property.aliveChildren.label')} &nbsp;*&nbsp;:</dt><dd id="aliveChildren" class="action-editField validate-positiveInteger required-true i18n-mcr.property.aliveChildren" ><span >${rqt?.aliveChildren}</span></dd>
                 
                   <dt class="required">${message(code:'mcr.property.childStatus.label')} &nbsp;*&nbsp;:</dt><dd id="childStatus" class="action-editField validate-libredematEnum required-true i18n-mcr.property.childStatus javatype-org.libredemat.business.users.FamilyStatusType" ><g:libredematEnumToField var="${rqt?.childStatus}" i18nKeyPrefix="mcr.property.childStatus" /></dd>
                 
-                  <dt class="required">${message(code:'mcr.property.childrenInCharge.label')} &nbsp;*&nbsp;:</dt><dd id="childrenInCharge" class="action-editField validate-positiveInteger required-true i18n-mcr.property.childrenInCharge" ><span>${rqt?.childrenInCharge}</span></dd>
+                  <dt class="required">${message(code:'mcr.property.childrenInCharge.label')} &nbsp;*&nbsp;:</dt><dd id="childrenInCharge" class="action-editField validate-positiveInteger required-true i18n-mcr.property.childrenInCharge" ><span >${rqt?.childrenInCharge}</span></dd>
                 
-                  <dt class="">${message(code:'mcr.property.otherSituation.label')} &nbsp;:</dt><dd id="otherSituation" class="action-editField validate-string i18n-mcr.property.otherSituation" ><span>${rqt?.otherSituation}</span></dd>
+                  <dt class="">${message(code:'mcr.property.otherSituation.label')} &nbsp;:</dt><dd id="otherSituation" class="action-editField validate-string i18n-mcr.property.otherSituation" ><span >${rqt?.otherSituation}</span></dd>
                 
                   <dt class="required">${message(code:'mcr.property.statePupil.label')} &nbsp;*&nbsp;:</dt><dd id="statePupil" class="action-editField validate-boolean required-true i18n-mcr.property.statePupil" ><span class="value-${rqt?.statePupil}"><g:message code="${rqt?.statePupil ? 'message.yes' : rqt?.statePupil==null ? '' : 'message.no'}" /></span></dd>
                 
@@ -225,9 +225,9 @@
                 
                   <dt class="required">${message(code:'mcr.property.childDiploma.label')} &nbsp;*&nbsp;:</dt><dd id="childDiploma" class="action-editField validate-libredematEnum required-true i18n-mcr.property.childDiploma javatype-org.libredemat.business.request.military.ChildDiplomaType" ><g:libredematEnumToField var="${rqt?.childDiploma}" i18nKeyPrefix="mcr.property.childDiploma" /></dd>
                 
-                  <dt class="">${message(code:'mcr.property.childSpeciality.label')} &nbsp;:</dt><dd id="childSpeciality" class="action-editField validate-string i18n-mcr.property.childSpeciality" ><span>${rqt?.childSpeciality}</span></dd>
+                  <dt class="">${message(code:'mcr.property.childSpeciality.label')} &nbsp;:</dt><dd id="childSpeciality" class="action-editField validate-string i18n-mcr.property.childSpeciality" ><span >${rqt?.childSpeciality}</span></dd>
                 
-                  <dt class="">${message(code:'mcr.property.childProfession.label')} &nbsp;:</dt><dd id="childProfession" class="action-editField validate-string i18n-mcr.property.childProfession" ><span>${rqt?.childProfession}</span></dd>
+                  <dt class="">${message(code:'mcr.property.childProfession.label')} &nbsp;:</dt><dd id="childProfession" class="action-editField validate-string i18n-mcr.property.childProfession" ><span >${rqt?.childProfession}</span></dd>
                 
               </dl>
               

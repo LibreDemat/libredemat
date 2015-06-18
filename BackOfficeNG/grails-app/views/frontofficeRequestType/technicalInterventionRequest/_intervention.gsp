@@ -15,8 +15,11 @@
   
     
     <label for="otherInterventionLabel" class="required condition-otherIntervention-filled"><g:message code="tir.property.otherInterventionLabel.label" /> *  <span><g:message code="tir.property.otherInterventionLabel.help" /></span></label>
-            <input  type="text" id="otherInterventionLabel" name="otherInterventionLabel" value="${rqt.otherInterventionLabel?.toString()}" 
-                    class="required condition-otherIntervention-filled  validate-string ${rqt.stepStates['intervention'].invalidFields.contains('otherInterventionLabel') ? 'validation-failed' : ''}" title="<g:message code="tir.property.otherInterventionLabel.validationError" />"   />
+            <input  type="text" id="otherInterventionLabel"
+                   name="otherInterventionLabel"
+                   value="${rqt.otherInterventionLabel?.toString()}"
+                   class="required condition-otherIntervention-filled  validate-string ${rqt.stepStates['intervention'].invalidFields.contains('otherInterventionLabel') ? 'validation-failed' : ''}"
+                   title="<g:message code="tir.property.otherInterventionLabel.validationError" />"   />
             
 
   

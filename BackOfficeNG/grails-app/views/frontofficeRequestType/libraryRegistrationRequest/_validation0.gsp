@@ -101,7 +101,9 @@
     
       
       <dl>
-        <dt><g:message code="lrr.property.registrationNumber.label" /></dt><dd>${rqt.registrationNumber?.toString()}</dd>
+        <dt><g:message code="lrr.property.registrationNumber.label" /></dt>
+          <dd>${rqt.registrationNumber?.toString()}</dd>
+          
 
       </dl>
       

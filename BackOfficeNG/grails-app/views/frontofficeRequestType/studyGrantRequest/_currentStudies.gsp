@@ -16,8 +16,11 @@
     
       
       <label for="currentSchoolNamePrecision" class="required condition-isCurrentSchoolNameOther-filled"><g:message code="sgr.property.currentSchoolNamePrecision.label" /> *  <span><g:message code="sgr.property.currentSchoolNamePrecision.help" /></span></label>
-            <input  type="text" id="currentSchoolNamePrecision" name="currentSchoolNamePrecision" value="${rqt.currentSchoolNamePrecision?.toString()}" 
-                    class="required condition-isCurrentSchoolNameOther-filled  validate-string ${rqt.stepStates['currentStudies'].invalidFields.contains('currentSchoolNamePrecision') ? 'validation-failed' : ''}" title="<g:message code="sgr.property.currentSchoolNamePrecision.validationError" />"   />
+            <input  type="text" id="currentSchoolNamePrecision"
+                   name="currentSchoolNamePrecision"
+                   value="${rqt.currentSchoolNamePrecision?.toString()}"
+                   class="required condition-isCurrentSchoolNameOther-filled  validate-string ${rqt.stepStates['currentStudies'].invalidFields.contains('currentSchoolNamePrecision') ? 'validation-failed' : ''}"
+                   title="<g:message code="sgr.property.currentSchoolNamePrecision.validationError" />"   />
             
 
     
@@ -56,8 +59,11 @@
     
       
       <label for="alevelsDate" class="required"><g:message code="sgr.property.alevelsDate.label" /> *  <span><g:message code="sgr.property.alevelsDate.help" /></span></label>
-            <input  type="text" id="alevelsDate" name="alevelsDate" value="${rqt.alevelsDate?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['currentStudies'].invalidFields.contains('alevelsDate') ? 'validation-failed' : ''}" title="<g:message code="sgr.property.alevelsDate.validationError" />" regex="^\d{2,4}$" maxlength="4" />
+            <input  type="text" id="alevelsDate"
+                   name="alevelsDate"
+                   value="${rqt.alevelsDate?.toString()}"
+                   class="required  validate-regex ${rqt.stepStates['currentStudies'].invalidFields.contains('alevelsDate') ? 'validation-failed' : ''}"
+                   title="<g:message code="sgr.property.alevelsDate.validationError" />" regex="^\d{2,4}$" maxlength="4" />
             
 
     
@@ -92,8 +98,11 @@
     
       
       <label for="otherStudiesLabel" class="required condition-isInOtherStudies-filled"><g:message code="sgr.property.otherStudiesLabel.label" /> *  <span><g:message code="sgr.property.otherStudiesLabel.help" /></span></label>
-            <input  type="text" id="otherStudiesLabel" name="otherStudiesLabel" value="${rqt.otherStudiesLabel?.toString()}" 
-                    class="required condition-isInOtherStudies-filled  validate-string ${rqt.stepStates['currentStudies'].invalidFields.contains('otherStudiesLabel') ? 'validation-failed' : ''}" title="<g:message code="sgr.property.otherStudiesLabel.validationError" />"   />
+            <input  type="text" id="otherStudiesLabel"
+                   name="otherStudiesLabel"
+                   value="${rqt.otherStudiesLabel?.toString()}"
+                   class="required condition-isInOtherStudies-filled  validate-string ${rqt.stepStates['currentStudies'].invalidFields.contains('otherStudiesLabel') ? 'validation-failed' : ''}"
+                   title="<g:message code="sgr.property.otherStudiesLabel.validationError" />"   />
             
 
     
@@ -218,8 +227,11 @@
     
       
       <label for="abroadInternshipSchoolName" class="required condition-makesAbroadInternship-filled"><g:message code="sgr.property.abroadInternshipSchoolName.label" /> *  <span><g:message code="sgr.property.abroadInternshipSchoolName.help" /></span></label>
-            <input  type="text" id="abroadInternshipSchoolName" name="abroadInternshipSchoolName" value="${rqt.abroadInternshipSchoolName?.toString()}" 
-                    class="required condition-makesAbroadInternship-filled  validate-string ${rqt.stepStates['currentStudies'].invalidFields.contains('abroadInternshipSchoolName') ? 'validation-failed' : ''}" title="<g:message code="sgr.property.abroadInternshipSchoolName.validationError" />"   />
+            <input  type="text" id="abroadInternshipSchoolName"
+                   name="abroadInternshipSchoolName"
+                   value="${rqt.abroadInternshipSchoolName?.toString()}"
+                   class="required condition-makesAbroadInternship-filled  validate-string ${rqt.stepStates['currentStudies'].invalidFields.contains('abroadInternshipSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="sgr.property.abroadInternshipSchoolName.validationError" />"   />
             
 
     

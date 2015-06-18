@@ -40,9 +40,9 @@
               <h3><g:message code="lcrr.property.centresLoisirs.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'lcrr.property.idCentreLoisirs.label')} &nbsp;*&nbsp;:</dt><dd id="idCentreLoisirs" class="action-editField validate-string required-true i18n-lcrr.property.idCentreLoisirs" ><span>${rqt?.idCentreLoisirs}</span></dd>
+                  <dt class="required">${message(code:'lcrr.property.idCentreLoisirs.label')} &nbsp;*&nbsp;:</dt><dd id="idCentreLoisirs" class="action-editField validate-string required-true i18n-lcrr.property.idCentreLoisirs" ><span >${rqt?.idCentreLoisirs}</span></dd>
                 
-                  <dt class="required">${message(code:'lcrr.property.labelCentreLoisirs.label')} &nbsp;*&nbsp;:</dt><dd id="labelCentreLoisirs" class="action-editField validate-string required-true i18n-lcrr.property.labelCentreLoisirs" ><span>${rqt?.labelCentreLoisirs}</span></dd>
+                  <dt class="required">${message(code:'lcrr.property.labelCentreLoisirs.label')} &nbsp;*&nbsp;:</dt><dd id="labelCentreLoisirs" class="action-editField validate-string required-true i18n-lcrr.property.labelCentreLoisirs" ><span >${rqt?.labelCentreLoisirs}</span></dd>
                 
               </dl>
               
@@ -57,13 +57,13 @@
               <h3><g:message code="lcrr.property.transports.label" /></h3>
               <dl class="required condition-estTransport-filled">
                 
-                  <dt class="required">${message(code:'lcrr.property.idLigne.label')} &nbsp;*&nbsp;:</dt><dd id="idLigne" class="action-editField validate-string required-true i18n-lcrr.property.idLigne" ><span>${rqt?.idLigne}</span></dd>
+                  <dt class="required">${message(code:'lcrr.property.idLigne.label')} &nbsp;*&nbsp;:</dt><dd id="idLigne" class="action-editField validate-string required-true i18n-lcrr.property.idLigne" ><span >${rqt?.idLigne}</span></dd>
                 
-                  <dt class="required">${message(code:'lcrr.property.labelLigne.label')} &nbsp;*&nbsp;:</dt><dd id="labelLigne" class="action-editField validate-string required-true i18n-lcrr.property.labelLigne" ><span>${rqt?.labelLigne}</span></dd>
+                  <dt class="required">${message(code:'lcrr.property.labelLigne.label')} &nbsp;*&nbsp;:</dt><dd id="labelLigne" class="action-editField validate-string required-true i18n-lcrr.property.labelLigne" ><span >${rqt?.labelLigne}</span></dd>
                 
-                  <dt class="required">${message(code:'lcrr.property.idArret.label')} &nbsp;*&nbsp;:</dt><dd id="idArret" class="action-editField validate-string required-true i18n-lcrr.property.idArret" ><span>${rqt?.idArret}</span></dd>
+                  <dt class="required">${message(code:'lcrr.property.idArret.label')} &nbsp;*&nbsp;:</dt><dd id="idArret" class="action-editField validate-string required-true i18n-lcrr.property.idArret" ><span >${rqt?.idArret}</span></dd>
                 
-                  <dt class="required">${message(code:'lcrr.property.labelArret.label')} &nbsp;*&nbsp;:</dt><dd id="labelArret" class="action-editField validate-string required-true i18n-lcrr.property.labelArret" ><span>${rqt?.labelArret}</span></dd>
+                  <dt class="required">${message(code:'lcrr.property.labelArret.label')} &nbsp;*&nbsp;:</dt><dd id="labelArret" class="action-editField validate-string required-true i18n-lcrr.property.labelArret" ><span >${rqt?.labelArret}</span></dd>
                 
               </dl>
               

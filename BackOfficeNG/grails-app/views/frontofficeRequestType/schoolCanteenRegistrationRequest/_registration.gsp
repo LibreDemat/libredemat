@@ -36,8 +36,11 @@
   
     
     <label for="urgencyPhone" class="required"><g:message code="scrr.property.urgencyPhone.label" /> *  <span><g:message code="scrr.property.urgencyPhone.help" /></span></label>
-            <input  type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.urgencyPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="urgencyPhone"
+                   name="urgencyPhone"
+                   value="${rqt.urgencyPhone?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="scrr.property.urgencyPhone.validationError" />"  maxlength="10" />
             
 
   
@@ -82,8 +85,11 @@
   
     
     <label for="whichFoodAllergy" class="required condition-foodAllergy-filled"><g:message code="scrr.property.whichFoodAllergy.label" /> *  <span><g:message code="scrr.property.whichFoodAllergy.help" /></span></label>
-            <input  type="text" id="whichFoodAllergy" name="whichFoodAllergy" value="${rqt.whichFoodAllergy?.toString()}" 
-                    class="required condition-foodAllergy-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('whichFoodAllergy') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.whichFoodAllergy.validationError" />"   />
+            <input  type="text" id="whichFoodAllergy"
+                   name="whichFoodAllergy"
+                   value="${rqt.whichFoodAllergy?.toString()}"
+                   class="required condition-foodAllergy-filled  validate-string ${rqt.stepStates['registration'].invalidFields.contains('whichFoodAllergy') ? 'validation-failed' : ''}"
+                   title="<g:message code="scrr.property.whichFoodAllergy.validationError" />"   />
             
 
   
@@ -91,8 +97,11 @@
   
     
     <label for="doctorName" class=""><g:message code="scrr.property.doctorName.label" />   <span><g:message code="scrr.property.doctorName.help" /></span></label>
-            <input  type="text" id="doctorName" name="doctorName" value="${rqt.doctorName?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['registration'].invalidFields.contains('doctorName') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.doctorName.validationError" />"   />
+            <input  type="text" id="doctorName"
+                   name="doctorName"
+                   value="${rqt.doctorName?.toString()}"
+                   class="  validate-string ${rqt.stepStates['registration'].invalidFields.contains('doctorName') ? 'validation-failed' : ''}"
+                   title="<g:message code="scrr.property.doctorName.validationError" />"   />
             
 
   
@@ -100,8 +109,11 @@
   
     
     <label for="doctorPhone" class=""><g:message code="scrr.property.doctorPhone.label" />   <span><g:message code="scrr.property.doctorPhone.help" /></span></label>
-            <input  type="text" id="doctorPhone" name="doctorPhone" value="${rqt.doctorPhone?.toString()}" 
-                    class="  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('doctorPhone') ? 'validation-failed' : ''}" title="<g:message code="scrr.property.doctorPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="doctorPhone"
+                   name="doctorPhone"
+                   value="${rqt.doctorPhone?.toString()}"
+                   class="  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('doctorPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="scrr.property.doctorPhone.validationError" />"  maxlength="10" />
             
 
   

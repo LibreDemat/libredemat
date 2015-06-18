@@ -112,10 +112,14 @@
       <h4><g:message code="lcrr.property.centresLoisirs.label" /></h4>
       <dl>
         
-          <dt><g:message code="lcrr.property.idCentreLoisirs.label" /></dt><dd>${rqt.idCentreLoisirs?.toString()}</dd>
+          <dt><g:message code="lcrr.property.idCentreLoisirs.label" /></dt>
+          <dd>${rqt.idCentreLoisirs?.toString()}</dd>
+          
 
         
-          <dt><g:message code="lcrr.property.labelCentreLoisirs.label" /></dt><dd>${rqt.labelCentreLoisirs?.toString()}</dd>
+          <dt><g:message code="lcrr.property.labelCentreLoisirs.label" /></dt>
+          <dd>${rqt.labelCentreLoisirs?.toString()}</dd>
+          
 
         
       </dl>
@@ -134,16 +138,24 @@
       <h4><g:message code="lcrr.property.transports.label" /></h4>
       <dl>
         
-          <dt><g:message code="lcrr.property.idLigne.label" /></dt><dd>${rqt.idLigne?.toString()}</dd>
+          <dt><g:message code="lcrr.property.idLigne.label" /></dt>
+          <dd>${rqt.idLigne?.toString()}</dd>
+          
 
         
-          <dt><g:message code="lcrr.property.labelLigne.label" /></dt><dd>${rqt.labelLigne?.toString()}</dd>
+          <dt><g:message code="lcrr.property.labelLigne.label" /></dt>
+          <dd>${rqt.labelLigne?.toString()}</dd>
+          
 
         
-          <dt><g:message code="lcrr.property.idArret.label" /></dt><dd>${rqt.idArret?.toString()}</dd>
+          <dt><g:message code="lcrr.property.idArret.label" /></dt>
+          <dd>${rqt.idArret?.toString()}</dd>
+          
 
         
-          <dt><g:message code="lcrr.property.labelArret.label" /></dt><dd>${rqt.labelArret?.toString()}</dd>
+          <dt><g:message code="lcrr.property.labelArret.label" /></dt>
+          <dd>${rqt.labelArret?.toString()}</dd>
+          
 
         
       </dl>

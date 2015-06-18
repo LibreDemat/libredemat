@@ -79,8 +79,11 @@
   
     
     <label for="duree" class="required"><g:message code="herr.property.duree.label" /> *  <span><g:message code="herr.property.duree.help" /></span></label>
-            <input  type="text" id="duree" name="duree" value="${rqt.duree?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['subject'].invalidFields.contains('duree') ? 'validation-failed' : ''}" title="<g:message code="herr.property.duree.validationError" />" regex="[0-9]{1,2}$" maxlength="2" />
+            <input  type="text" id="duree"
+                   name="duree"
+                   value="${rqt.duree?.toString()}"
+                   class="required  validate-regex ${rqt.stepStates['subject'].invalidFields.contains('duree') ? 'validation-failed' : ''}"
+                   title="<g:message code="herr.property.duree.validationError" />" regex="[0-9]{1,2}$" maxlength="2" />
             
 
   
@@ -88,8 +91,11 @@
   
     
     <label for="telephone" class="required"><g:message code="herr.property.telephone.label" /> *  <span><g:message code="herr.property.telephone.help" /></span></label>
-            <input  type="text" id="telephone" name="telephone" value="${rqt.telephone?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['subject'].invalidFields.contains('telephone') ? 'validation-failed' : ''}" title="<g:message code="herr.property.telephone.validationError" />"  maxlength="10" />
+            <input  type="text" id="telephone"
+                   name="telephone"
+                   value="${rqt.telephone?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['subject'].invalidFields.contains('telephone') ? 'validation-failed' : ''}"
+                   title="<g:message code="herr.property.telephone.validationError" />"  maxlength="10" />
             
 
   

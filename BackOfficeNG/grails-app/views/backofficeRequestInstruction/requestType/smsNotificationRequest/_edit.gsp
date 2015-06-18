@@ -38,7 +38,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'snr.property.mobilePhone.label')} &nbsp;:</dt><dd id="mobilePhone" class="action-editField validate-mobilePhone i18n-snr.property.mobilePhone maxLength-10" ><span>${rqt?.mobilePhone}</span></dd>
+                <dt class="">${message(code:'snr.property.mobilePhone.label')} &nbsp;:</dt><dd id="mobilePhone" class="action-editField validate-mobilePhone i18n-snr.property.mobilePhone maxLength-10" ><span >${rqt?.mobilePhone}</span></dd>
               </dl>
               
             
@@ -90,7 +90,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'snr.property.cleverSmsContactId.label')} &nbsp;*&nbsp;:</dt><dd id="cleverSmsContactId" class="action-editField validate-string required-true i18n-snr.property.cleverSmsContactId" ><span>${rqt?.cleverSmsContactId}</span></dd>
+                <dt class="required">${message(code:'snr.property.cleverSmsContactId.label')} &nbsp;*&nbsp;:</dt><dd id="cleverSmsContactId" class="action-editField validate-string required-true i18n-snr.property.cleverSmsContactId" ><span >${rqt?.cleverSmsContactId}</span></dd>
               </dl>
               
             

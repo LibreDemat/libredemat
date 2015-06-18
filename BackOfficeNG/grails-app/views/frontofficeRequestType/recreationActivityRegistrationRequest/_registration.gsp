@@ -47,8 +47,11 @@
   
     
     <label for="urgencyPhone" class="required"><g:message code="rarr.property.urgencyPhone.label" /> *  <span><g:message code="rarr.property.urgencyPhone.help" /></span></label>
-            <input  type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}" title="<g:message code="rarr.property.urgencyPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="urgencyPhone"
+                   name="urgencyPhone"
+                   value="${rqt.urgencyPhone?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="rarr.property.urgencyPhone.validationError" />"  maxlength="10" />
             
 
   

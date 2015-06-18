@@ -4,8 +4,11 @@
   
     
     <label for="ambassadeOuPosteConsulaire" class=""><g:message code="serrr.property.ambassadeOuPosteConsulaire.label" />   <span><g:message code="serrr.property.ambassadeOuPosteConsulaire.help" /></span></label>
-            <input  type="text" id="ambassadeOuPosteConsulaire" name="ambassadeOuPosteConsulaire" value="${rqt.ambassadeOuPosteConsulaire?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['radiation'].invalidFields.contains('ambassadeOuPosteConsulaire') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.ambassadeOuPosteConsulaire.validationError" />"   />
+            <input  type="text" id="ambassadeOuPosteConsulaire"
+                   name="ambassadeOuPosteConsulaire"
+                   value="${rqt.ambassadeOuPosteConsulaire?.toString()}"
+                   class="  validate-string ${rqt.stepStates['radiation'].invalidFields.contains('ambassadeOuPosteConsulaire') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.ambassadeOuPosteConsulaire.validationError" />"   />
             
 
   

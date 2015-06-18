@@ -45,7 +45,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'ladrr.property.atelierEveilPrecisionChoix.label')} &nbsp;:</dt><dd id="atelierEveilPrecisionChoix" class="action-editField validate-regex i18n-ladrr.property.atelierEveilPrecisionChoix rows-3 maxLength-255" regex="^[\w\W]{0,255}$"><span>${rqt?.atelierEveilPrecisionChoix}</span></dd>
+                <dt class="">${message(code:'ladrr.property.atelierEveilPrecisionChoix.label')} &nbsp;:</dt><dd id="atelierEveilPrecisionChoix" class="action-editField validate-regex i18n-ladrr.property.atelierEveilPrecisionChoix rows-3 maxLength-255" regex="^[\w\W]{0,255}$"><span >${rqt?.atelierEveilPrecisionChoix}</span></dd>
               </dl>
               
             

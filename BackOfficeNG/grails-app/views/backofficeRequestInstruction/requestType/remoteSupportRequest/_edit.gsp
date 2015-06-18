@@ -59,7 +59,7 @@
                 
                   <dt class="required condition-isEmergency-trigger">${message(code:'rsr.property.requestInformationEmergency.label')} &nbsp;*&nbsp;:</dt><dd id="requestInformationEmergency" class="action-editField validate-boolean required-true i18n-rsr.property.requestInformationEmergency" ><span class="value-${rqt?.requestInformationEmergency}"><g:message code="${rqt?.requestInformationEmergency ? 'message.yes' : rqt?.requestInformationEmergency==null ? '' : 'message.no'}" /></span></dd>
                 
-                  <dt class="required condition-isEmergency-filled">${message(code:'rsr.property.requestInformationEmergencyMotive.label')} &nbsp;*&nbsp;:</dt><dd id="requestInformationEmergencyMotive" class="action-editField validate-textarea required-true i18n-rsr.property.requestInformationEmergencyMotive rows-3 maxLength-180" ><span>${rqt?.requestInformationEmergencyMotive}</span></dd>
+                  <dt class="required condition-isEmergency-filled">${message(code:'rsr.property.requestInformationEmergencyMotive.label')} &nbsp;*&nbsp;:</dt><dd id="requestInformationEmergencyMotive" class="action-editField validate-textarea required-true i18n-rsr.property.requestInformationEmergencyMotive rows-3 maxLength-180" ><span >${rqt?.requestInformationEmergencyMotive}</span></dd>
                 
               </dl>
               
@@ -74,9 +74,9 @@
               <h3><g:message code="rsr.property.spouse.label" /></h3>
               <dl class="required condition-isCoupleRequest-filled">
                 
-                  <dt class="required">${message(code:'rsr.property.spouseLastName.label')} &nbsp;*&nbsp;:</dt><dd id="spouseLastName" class="action-editField validate-lastName required-true i18n-rsr.property.spouseLastName maxLength-38" ><span>${rqt?.spouseLastName}</span></dd>
+                  <dt class="required">${message(code:'rsr.property.spouseLastName.label')} &nbsp;*&nbsp;:</dt><dd id="spouseLastName" class="action-editField validate-lastName required-true i18n-rsr.property.spouseLastName maxLength-38" ><span >${rqt?.spouseLastName}</span></dd>
                 
-                  <dt class="required">${message(code:'rsr.property.spouseFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="spouseFirstName" class="action-editField validate-firstName required-true i18n-rsr.property.spouseFirstName maxLength-38" ><span>${rqt?.spouseFirstName}</span></dd>
+                  <dt class="required">${message(code:'rsr.property.spouseFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="spouseFirstName" class="action-editField validate-firstName required-true i18n-rsr.property.spouseFirstName maxLength-38" ><span >${rqt?.spouseFirstName}</span></dd>
                 
                   <dt class="required">${message(code:'rsr.property.spouseTitle.label')} &nbsp;*&nbsp;:</dt><dd id="spouseTitle" class="action-editField validate-libredematEnum required-true i18n-rsr.property.spouseTitle javatype-org.libredemat.business.users.TitleType" ><g:libredematEnumToField var="${rqt?.spouseTitle}" i18nKeyPrefix="rsr.property.spouseTitle" /></dd>
                 
@@ -116,11 +116,11 @@
               <h3><g:message code="rsr.property.firstContact.label" /></h3>
               <dl class="required condition-isOtherContact-filled">
                 
-                  <dt class="required">${message(code:'rsr.property.contactLastName.label')} &nbsp;*&nbsp;:</dt><dd id="contactLastName" class="action-editField validate-lastName required-true i18n-rsr.property.contactLastName maxLength-38" ><span>${rqt?.contactLastName}</span></dd>
+                  <dt class="required">${message(code:'rsr.property.contactLastName.label')} &nbsp;*&nbsp;:</dt><dd id="contactLastName" class="action-editField validate-lastName required-true i18n-rsr.property.contactLastName maxLength-38" ><span >${rqt?.contactLastName}</span></dd>
                 
-                  <dt class="required">${message(code:'rsr.property.contactFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="contactFirstName" class="action-editField validate-firstName required-true i18n-rsr.property.contactFirstName maxLength-38" ><span>${rqt?.contactFirstName}</span></dd>
+                  <dt class="required">${message(code:'rsr.property.contactFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="contactFirstName" class="action-editField validate-firstName required-true i18n-rsr.property.contactFirstName maxLength-38" ><span >${rqt?.contactFirstName}</span></dd>
                 
-                  <dt class="required">${message(code:'rsr.property.contactPhone.label')} &nbsp;*&nbsp;:</dt><dd id="contactPhone" class="action-editField validate-phone required-true i18n-rsr.property.contactPhone maxLength-10" ><span>${rqt?.contactPhone}</span></dd>
+                  <dt class="required">${message(code:'rsr.property.contactPhone.label')} &nbsp;*&nbsp;:</dt><dd id="contactPhone" class="action-editField validate-phone required-true i18n-rsr.property.contactPhone maxLength-10" ><span >${rqt?.contactPhone}</span></dd>
                 
               </dl>
               
@@ -135,11 +135,11 @@
               <h3><g:message code="rsr.property.secondContact.label" /></h3>
               <dl class="required condition-isOtherContact-filled">
                 
-                  <dt class="">${message(code:'rsr.property.secondContactLastName.label')} &nbsp;:</dt><dd id="secondContactLastName" class="action-editField validate-lastName i18n-rsr.property.secondContactLastName maxLength-38" ><span>${rqt?.secondContactLastName}</span></dd>
+                  <dt class="">${message(code:'rsr.property.secondContactLastName.label')} &nbsp;:</dt><dd id="secondContactLastName" class="action-editField validate-lastName i18n-rsr.property.secondContactLastName maxLength-38" ><span >${rqt?.secondContactLastName}</span></dd>
                 
-                  <dt class="">${message(code:'rsr.property.secondContactFirstName.label')} &nbsp;:</dt><dd id="secondContactFirstName" class="action-editField validate-firstName i18n-rsr.property.secondContactFirstName maxLength-38" ><span>${rqt?.secondContactFirstName}</span></dd>
+                  <dt class="">${message(code:'rsr.property.secondContactFirstName.label')} &nbsp;:</dt><dd id="secondContactFirstName" class="action-editField validate-firstName i18n-rsr.property.secondContactFirstName maxLength-38" ><span >${rqt?.secondContactFirstName}</span></dd>
                 
-                  <dt class="">${message(code:'rsr.property.secondContactPhone.label')} &nbsp;:</dt><dd id="secondContactPhone" class="action-editField validate-phone i18n-rsr.property.secondContactPhone maxLength-10" ><span>${rqt?.secondContactPhone}</span></dd>
+                  <dt class="">${message(code:'rsr.property.secondContactPhone.label')} &nbsp;:</dt><dd id="secondContactPhone" class="action-editField validate-phone i18n-rsr.property.secondContactPhone maxLength-10" ><span >${rqt?.secondContactPhone}</span></dd>
                 
               </dl>
               
@@ -148,11 +148,11 @@
               <h3><g:message code="rsr.property.trustee.label" /></h3>
               <dl class="required">
                 
-                  <dt class="">${message(code:'rsr.property.trusteeLastName.label')} &nbsp;:</dt><dd id="trusteeLastName" class="action-editField validate-lastName i18n-rsr.property.trusteeLastName maxLength-38" ><span>${rqt?.trusteeLastName}</span></dd>
+                  <dt class="">${message(code:'rsr.property.trusteeLastName.label')} &nbsp;:</dt><dd id="trusteeLastName" class="action-editField validate-lastName i18n-rsr.property.trusteeLastName maxLength-38" ><span >${rqt?.trusteeLastName}</span></dd>
                 
-                  <dt class="">${message(code:'rsr.property.trusteeFirstName.label')} &nbsp;:</dt><dd id="trusteeFirstName" class="action-editField validate-firstName i18n-rsr.property.trusteeFirstName maxLength-38" ><span>${rqt?.trusteeFirstName}</span></dd>
+                  <dt class="">${message(code:'rsr.property.trusteeFirstName.label')} &nbsp;:</dt><dd id="trusteeFirstName" class="action-editField validate-firstName i18n-rsr.property.trusteeFirstName maxLength-38" ><span >${rqt?.trusteeFirstName}</span></dd>
                 
-                  <dt class="">${message(code:'rsr.property.trusteePhone.label')} &nbsp;:</dt><dd id="trusteePhone" class="action-editField validate-phone i18n-rsr.property.trusteePhone maxLength-10" ><span>${rqt?.trusteePhone}</span></dd>
+                  <dt class="">${message(code:'rsr.property.trusteePhone.label')} &nbsp;:</dt><dd id="trusteePhone" class="action-editField validate-phone i18n-rsr.property.trusteePhone maxLength-10" ><span >${rqt?.trusteePhone}</span></dd>
                 
               </dl>
               

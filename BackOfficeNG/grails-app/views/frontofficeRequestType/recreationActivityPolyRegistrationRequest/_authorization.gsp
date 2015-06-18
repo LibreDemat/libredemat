@@ -10,7 +10,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'authorization', 'currentCollection':'authorizedPolyIndividuals', 'collectionIndex':(rqt.authorizedPolyIndividuals ? rqt.authorizedPolyIndividuals.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'authorization', 'currentCollection':'authorizedPolyIndividuals',
+                    'collectionIndex':(rqt.authorizedPolyIndividuals ? rqt.authorizedPolyIndividuals.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -20,7 +23,7 @@
         <dl>
         <dt class="head"><g:message code="raprr.property.authorizedPolyIndividuals.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'authorization', 'currentCollection':'authorizedPolyIndividuals', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'authorization', 'currentCollection':'authorizedPolyIndividuals', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'authorization', 'currentCollection':'authorizedPolyIndividuals', 'collectionIndex':index])}">

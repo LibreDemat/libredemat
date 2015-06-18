@@ -23,14 +23,18 @@
     
       
       <dl>
-        <dt><g:message code="ycrr.property.subjectChoiceMobilePhone.label" /></dt><dd>${rqt.subjectChoiceMobilePhone?.toString()}</dd>
+        <dt><g:message code="ycrr.property.subjectChoiceMobilePhone.label" /></dt>
+          <dd>${rqt.subjectChoiceMobilePhone?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="ycrr.property.subjectChoiceEmail.label" /></dt><dd>${rqt.subjectChoiceEmail?.toString()}</dd>
+        <dt><g:message code="ycrr.property.subjectChoiceEmail.label" /></dt>
+          <dd>${rqt.subjectChoiceEmail?.toString()}</dd>
+          
 
       </dl>
       
@@ -55,7 +59,9 @@
     
       
       <dl>
-        <dt><g:message code="ycrr.property.firstRegistrationNumeroAdherent.label" /></dt><dd>${rqt.firstRegistrationNumeroAdherent?.toString()}</dd>
+        <dt><g:message code="ycrr.property.firstRegistrationNumeroAdherent.label" /></dt>
+          <dd>${rqt.firstRegistrationNumeroAdherent?.toString()}</dd>
+          
 
       </dl>
       

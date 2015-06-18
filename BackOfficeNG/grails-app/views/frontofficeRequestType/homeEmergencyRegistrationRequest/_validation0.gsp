@@ -98,14 +98,18 @@
     
       
       <dl>
-        <dt><g:message code="herr.property.duree.label" /></dt><dd>${rqt.duree?.toString()}</dd>
+        <dt><g:message code="herr.property.duree.label" /></dt>
+          <dd>${rqt.duree?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="herr.property.telephone.label" /></dt><dd>${rqt.telephone?.toString()}</dd>
+        <dt><g:message code="herr.property.telephone.label" /></dt>
+          <dd>${rqt.telephone?.toString()}</dd>
+          
 
       </dl>
       

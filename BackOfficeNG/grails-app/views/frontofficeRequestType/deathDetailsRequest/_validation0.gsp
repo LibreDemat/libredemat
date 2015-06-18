@@ -81,14 +81,18 @@
     
       
       <dl>
-        <dt><g:message code="ddr.property.deathLastName.label" /></dt><dd>${rqt.deathLastName?.toString()}</dd>
+        <dt><g:message code="ddr.property.deathLastName.label" /></dt>
+          <dd>${rqt.deathLastName?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="ddr.property.deathFirstNames.label" /></dt><dd>${rqt.deathFirstNames?.toString()}</dd>
+        <dt><g:message code="ddr.property.deathFirstNames.label" /></dt>
+          <dd>${rqt.deathFirstNames?.toString()}</dd>
+          
 
       </dl>
       
@@ -104,14 +108,18 @@
     
       
       <dl>
-        <dt><g:message code="ddr.property.deathCity.label" /></dt><dd>${rqt.deathCity?.toString()}</dd>
+        <dt><g:message code="ddr.property.deathCity.label" /></dt>
+          <dd>${rqt.deathCity?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="ddr.property.deathPostalCode.label" /></dt><dd>${rqt.deathPostalCode?.toString()}</dd>
+        <dt><g:message code="ddr.property.deathPostalCode.label" /></dt>
+          <dd>${rqt.deathPostalCode?.toString()}</dd>
+          
 
       </dl>
       
@@ -137,7 +145,9 @@
     
       
       <dl>
-        <dt><g:message code="ddr.property.copies.label" /></dt><dd>${rqt.copies?.toString()}</dd>
+        <dt><g:message code="ddr.property.copies.label" /></dt>
+          <dd>${rqt.copies?.toString()}</dd>
+          
 
       </dl>
       
@@ -157,7 +167,9 @@
     
       
       <dl>
-        <dt><g:message code="ddr.property.comment.label" /></dt><dd>${rqt.comment?.toString()}</dd>
+        <dt><g:message code="ddr.property.comment.label" /></dt>
+          <dd>${rqt.comment?.toString()}</dd>
+          
 
       </dl>
       

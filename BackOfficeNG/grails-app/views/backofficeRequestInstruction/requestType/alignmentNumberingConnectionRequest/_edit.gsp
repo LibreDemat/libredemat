@@ -73,13 +73,13 @@
             
               
               <dl>
-                <dt class="required condition-isOwner-unfilled">${message(code:'ancr.property.ownerLastName.label')} &nbsp;*&nbsp;:</dt><dd id="ownerLastName" class="action-editField validate-lastName required-true i18n-ancr.property.ownerLastName maxLength-38" ><span>${rqt?.ownerLastName}</span></dd>
+                <dt class="required condition-isOwner-unfilled">${message(code:'ancr.property.ownerLastName.label')} &nbsp;*&nbsp;:</dt><dd id="ownerLastName" class="action-editField validate-lastName required-true i18n-ancr.property.ownerLastName maxLength-38" ><span >${rqt?.ownerLastName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required condition-isOwner-unfilled">${message(code:'ancr.property.ownerFirstNames.label')} &nbsp;*&nbsp;:</dt><dd id="ownerFirstNames" class="action-editField validate-string required-true i18n-ancr.property.ownerFirstNames" ><span>${rqt?.ownerFirstNames}</span></dd>
+                <dt class="required condition-isOwner-unfilled">${message(code:'ancr.property.ownerFirstNames.label')} &nbsp;*&nbsp;:</dt><dd id="ownerFirstNames" class="action-editField validate-string required-true i18n-ancr.property.ownerFirstNames" ><span >${rqt?.ownerFirstNames}</span></dd>
               </dl>
               
             
@@ -115,25 +115,25 @@
             
               
               <dl>
-                <dt class="required">${message(code:'ancr.property.section.label')} &nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-string required-true i18n-ancr.property.section" ><span>${rqt?.section}</span></dd>
+                <dt class="required">${message(code:'ancr.property.section.label')} &nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-string required-true i18n-ancr.property.section" ><span >${rqt?.section}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'ancr.property.number.label')} &nbsp;*&nbsp;:</dt><dd id="number" class="action-editField validate-positiveInteger required-true i18n-ancr.property.number" ><span>${rqt?.number}</span></dd>
+                <dt class="required">${message(code:'ancr.property.number.label')} &nbsp;*&nbsp;:</dt><dd id="number" class="action-editField validate-positiveInteger required-true i18n-ancr.property.number" ><span >${rqt?.number}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'ancr.property.locality.label')} &nbsp;:</dt><dd id="locality" class="action-editField validate-string i18n-ancr.property.locality" ><span>${rqt?.locality}</span></dd>
+                <dt class="">${message(code:'ancr.property.locality.label')} &nbsp;:</dt><dd id="locality" class="action-editField validate-string i18n-ancr.property.locality" ><span >${rqt?.locality}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'ancr.property.transportationRoute.label')} &nbsp;:</dt><dd id="transportationRoute" class="action-editField validate-string i18n-ancr.property.transportationRoute" ><span>${rqt?.transportationRoute}</span></dd>
+                <dt class="">${message(code:'ancr.property.transportationRoute.label')} &nbsp;:</dt><dd id="transportationRoute" class="action-editField validate-string i18n-ancr.property.transportationRoute" ><span >${rqt?.transportationRoute}</span></dd>
               </dl>
               
             
@@ -145,7 +145,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'ancr.property.area.label')} &nbsp;:</dt><dd id="area" class="action-editField validate-positiveInteger i18n-ancr.property.area" ><span>${rqt?.area}</span></dd>
+                <dt class="">${message(code:'ancr.property.area.label')} &nbsp;:</dt><dd id="area" class="action-editField validate-positiveInteger i18n-ancr.property.area" ><span >${rqt?.area}</span></dd>
               </dl>
               
             

@@ -52,7 +52,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'bgr.property.subjectBirthCity.label')} &nbsp;*&nbsp;:</dt><dd id="subjectBirthCity" class="action-editField validate-city required-true i18n-bgr.property.subjectBirthCity maxLength-32" ><span>${rqt?.subjectBirthCity}</span></dd>
+                <dt class="required">${message(code:'bgr.property.subjectBirthCity.label')} &nbsp;*&nbsp;:</dt><dd id="subjectBirthCity" class="action-editField validate-city required-true i18n-bgr.property.subjectBirthCity maxLength-32" ><span >${rqt?.subjectBirthCity}</span></dd>
               </dl>
               
             
@@ -70,13 +70,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'bgr.property.subjectPhone.label')} &nbsp;*&nbsp;:</dt><dd id="subjectPhone" class="action-editField validate-phone required-true i18n-bgr.property.subjectPhone maxLength-10" ><span>${rqt?.subjectPhone}</span></dd>
+                <dt class="required">${message(code:'bgr.property.subjectPhone.label')} &nbsp;*&nbsp;:</dt><dd id="subjectPhone" class="action-editField validate-phone required-true i18n-bgr.property.subjectPhone maxLength-10" ><span >${rqt?.subjectPhone}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'bgr.property.subjectEmail.label')} &nbsp;*&nbsp;:</dt><dd id="subjectEmail" class="action-editField validate-email required-true i18n-bgr.property.subjectEmail" ><span>${rqt?.subjectEmail}</span></dd>
+                <dt class="required">${message(code:'bgr.property.subjectEmail.label')} &nbsp;*&nbsp;:</dt><dd id="subjectEmail" class="action-editField validate-email required-true i18n-bgr.property.subjectEmail" ><span >${rqt?.subjectEmail}</span></dd>
               </dl>
               
             
@@ -119,7 +119,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'bgr.property.internshipInstituteName.label')} &nbsp;*&nbsp;:</dt><dd id="internshipInstituteName" class="action-editField validate-string required-true i18n-bgr.property.internshipInstituteName" ><span>${rqt?.internshipInstituteName}</span></dd>
+                <dt class="required">${message(code:'bgr.property.internshipInstituteName.label')} &nbsp;*&nbsp;:</dt><dd id="internshipInstituteName" class="action-editField validate-string required-true i18n-bgr.property.internshipInstituteName" ><span >${rqt?.internshipInstituteName}</span></dd>
               </dl>
               
             
@@ -174,13 +174,13 @@
             
               
               <dl>
-                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'bgr.property.accountHolderLastName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderLastName" class="action-editField validate-lastName required-true i18n-bgr.property.accountHolderLastName maxLength-38" ><span>${rqt?.accountHolderLastName}</span></dd>
+                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'bgr.property.accountHolderLastName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderLastName" class="action-editField validate-lastName required-true i18n-bgr.property.accountHolderLastName maxLength-38" ><span >${rqt?.accountHolderLastName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'bgr.property.accountHolderFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderFirstName" class="action-editField validate-firstName required-true i18n-bgr.property.accountHolderFirstName maxLength-38" ><span>${rqt?.accountHolderFirstName}</span></dd>
+                <dt class="required condition-isSubjectAccountHolder-unfilled">${message(code:'bgr.property.accountHolderFirstName.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderFirstName" class="action-editField validate-firstName required-true i18n-bgr.property.accountHolderFirstName maxLength-38" ><span >${rqt?.accountHolderFirstName}</span></dd>
               </dl>
               
             
@@ -215,7 +215,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'bgr.property.edemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="edemandeId" class="action-editField validate-string required-true i18n-bgr.property.edemandeId" ><span>${rqt?.edemandeId}</span></dd>
+                <dt class="required">${message(code:'bgr.property.edemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="edemandeId" class="action-editField validate-string required-true i18n-bgr.property.edemandeId" ><span >${rqt?.edemandeId}</span></dd>
               </dl>
               
             
@@ -227,7 +227,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'bgr.property.accountHolderEdemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderEdemandeId" class="action-editField validate-string required-true i18n-bgr.property.accountHolderEdemandeId" ><span>${rqt?.accountHolderEdemandeId}</span></dd>
+                <dt class="required">${message(code:'bgr.property.accountHolderEdemandeId.label')} &nbsp;*&nbsp;:</dt><dd id="accountHolderEdemandeId" class="action-editField validate-string required-true i18n-bgr.property.accountHolderEdemandeId" ><span >${rqt?.accountHolderEdemandeId}</span></dd>
               </dl>
               
             

@@ -20,15 +20,21 @@
     
       
       <label for="studiesHighSchoolGrade" class="required condition-isHighSchool-filled"><g:message code="hcar.property.studiesHighSchoolGrade.label" /> *  <span><g:message code="hcar.property.studiesHighSchoolGrade.help" /></span></label>
-            <input  type="text" id="studiesHighSchoolGrade" name="studiesHighSchoolGrade" value="${rqt.studiesHighSchoolGrade?.toString()}" 
-                    class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolGrade') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.studiesHighSchoolGrade.validationError" />"  maxlength="60" />
+            <input  type="text" id="studiesHighSchoolGrade"
+                   name="studiesHighSchoolGrade"
+                   value="${rqt.studiesHighSchoolGrade?.toString()}"
+                   class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolGrade') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.studiesHighSchoolGrade.validationError" />"  maxlength="60" />
             
 
     
       
       <label for="studiesHighSchoolName" class="required condition-isHighSchool-filled"><g:message code="hcar.property.studiesHighSchoolName.label" /> *  <span><g:message code="hcar.property.studiesHighSchoolName.help" /></span></label>
-            <input  type="text" id="studiesHighSchoolName" name="studiesHighSchoolName" value="${rqt.studiesHighSchoolName?.toString()}" 
-                    class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolName') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.studiesHighSchoolName.validationError" />"  maxlength="60" />
+            <input  type="text" id="studiesHighSchoolName"
+                   name="studiesHighSchoolName"
+                   value="${rqt.studiesHighSchoolName?.toString()}"
+                   class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.studiesHighSchoolName.validationError" />"  maxlength="60" />
             
 
     
@@ -73,8 +79,11 @@
     
       
       <label for="studiesAssistanceUnderDisabilityDetails" class="required condition-isAssistanceUnderDisability-filled"><g:message code="hcar.property.studiesAssistanceUnderDisabilityDetails.label" /> *  <span><g:message code="hcar.property.studiesAssistanceUnderDisabilityDetails.help" /></span></label>
-            <input  type="text" id="studiesAssistanceUnderDisabilityDetails" name="studiesAssistanceUnderDisabilityDetails" value="${rqt.studiesAssistanceUnderDisabilityDetails?.toString()}" 
-                    class="required condition-isAssistanceUnderDisability-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesAssistanceUnderDisabilityDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.studiesAssistanceUnderDisabilityDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="studiesAssistanceUnderDisabilityDetails"
+                   name="studiesAssistanceUnderDisabilityDetails"
+                   value="${rqt.studiesAssistanceUnderDisabilityDetails?.toString()}"
+                   class="required condition-isAssistanceUnderDisability-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesAssistanceUnderDisabilityDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.studiesAssistanceUnderDisabilityDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -87,8 +96,11 @@
     
       
       <label for="formationStudiesLevel" class=""><g:message code="hcar.property.formationStudiesLevel.label" />   <span><g:message code="hcar.property.formationStudiesLevel.help" /></span></label>
-            <input  type="text" id="formationStudiesLevel" name="formationStudiesLevel" value="${rqt.formationStudiesLevel?.toString()}" 
-                    class="   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('formationStudiesLevel') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.formationStudiesLevel.validationError" />"  maxlength="30" />
+            <input  type="text" id="formationStudiesLevel"
+                   name="formationStudiesLevel"
+                   value="${rqt.formationStudiesLevel?.toString()}"
+                   class="   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('formationStudiesLevel') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.formationStudiesLevel.validationError" />"  maxlength="30" />
             
 
     
@@ -182,15 +194,21 @@
     
       
       <label for="professionalStatusProfession" class="required condition-isEmployed-filled"><g:message code="hcar.property.professionalStatusProfession.label" /> *  <span><g:message code="hcar.property.professionalStatusProfession.help" /></span></label>
-            <input  type="text" id="professionalStatusProfession" name="professionalStatusProfession" value="${rqt.professionalStatusProfession?.toString()}" 
-                    class="required condition-isEmployed-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusProfession') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.professionalStatusProfession.validationError" />"  maxlength="60" />
+            <input  type="text" id="professionalStatusProfession"
+                   name="professionalStatusProfession"
+                   value="${rqt.professionalStatusProfession?.toString()}"
+                   class="required condition-isEmployed-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusProfession') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.professionalStatusProfession.validationError" />"  maxlength="60" />
             
 
     
       
       <label for="professionalStatusEmployerName" class="required condition-isEmployed-filled"><g:message code="hcar.property.professionalStatusEmployerName.label" /> *  <span><g:message code="hcar.property.professionalStatusEmployerName.help" /></span></label>
-            <input  type="text" id="professionalStatusEmployerName" name="professionalStatusEmployerName" value="${rqt.professionalStatusEmployerName?.toString()}" 
-                    class="required condition-isEmployed-filled  validate-lastName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusEmployerName') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.professionalStatusEmployerName.validationError" />"  maxlength="38" />
+            <input  type="text" id="professionalStatusEmployerName"
+                   name="professionalStatusEmployerName"
+                   value="${rqt.professionalStatusEmployerName?.toString()}"
+                   class="required condition-isEmployed-filled  validate-lastName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusEmployerName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.professionalStatusEmployerName.validationError" />"  maxlength="38" />
             
 
     
@@ -343,8 +361,11 @@
     
       
       <label for="professionalStatusElectiveFunctionDetails" class="required condition-isElectiveFunction-filled"><g:message code="hcar.property.professionalStatusElectiveFunctionDetails.label" /> *  <span><g:message code="hcar.property.professionalStatusElectiveFunctionDetails.help" /></span></label>
-            <input  type="text" id="professionalStatusElectiveFunctionDetails" name="professionalStatusElectiveFunctionDetails" value="${rqt.professionalStatusElectiveFunctionDetails?.toString()}" 
-                    class="required condition-isElectiveFunction-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusElectiveFunctionDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.professionalStatusElectiveFunctionDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="professionalStatusElectiveFunctionDetails"
+                   name="professionalStatusElectiveFunctionDetails"
+                   value="${rqt.professionalStatusElectiveFunctionDetails?.toString()}"
+                   class="required condition-isElectiveFunction-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusElectiveFunctionDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.professionalStatusElectiveFunctionDetails.validationError" />"  maxlength="60" />
             
 
     

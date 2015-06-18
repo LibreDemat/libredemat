@@ -52,15 +52,21 @@
     
       
       <label for="idSchoolName" class="required"><g:message code="srwrcr.property.idSchoolName.label" /> *  <span><g:message code="srwrcr.property.idSchoolName.help" /></span></label>
-            <input  type="text" id="idSchoolName" name="idSchoolName" value="${rqt.idSchoolName?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('idSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.idSchoolName.validationError" />"   />
+            <input  type="text" id="idSchoolName"
+                   name="idSchoolName"
+                   value="${rqt.idSchoolName?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('idSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="srwrcr.property.idSchoolName.validationError" />"   />
             
 
     
       
       <label for="labelSchoolName" class="required"><g:message code="srwrcr.property.labelSchoolName.label" /> *  <span><g:message code="srwrcr.property.labelSchoolName.help" /></span></label>
-            <input  type="text" id="labelSchoolName" name="labelSchoolName" value="${rqt.labelSchoolName?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('labelSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srwrcr.property.labelSchoolName.validationError" />"   />
+            <input  type="text" id="labelSchoolName"
+                   name="labelSchoolName"
+                   value="${rqt.labelSchoolName?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['registration'].invalidFields.contains('labelSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="srwrcr.property.labelSchoolName.validationError" />"   />
             
 
     

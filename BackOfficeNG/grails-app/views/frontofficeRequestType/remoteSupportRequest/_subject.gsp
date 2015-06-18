@@ -187,15 +187,21 @@
     
       
       <label for="spouseLastName" class="required"><g:message code="rsr.property.spouseLastName.label" /> *  <span><g:message code="rsr.property.spouseLastName.help" /></span></label>
-            <input  type="text" id="spouseLastName" name="spouseLastName" value="${rqt.spouseLastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('spouseLastName') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.spouseLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="spouseLastName"
+                   name="spouseLastName"
+                   value="${rqt.spouseLastName?.toString()}"
+                   class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('spouseLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="rsr.property.spouseLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="spouseFirstName" class="required"><g:message code="rsr.property.spouseFirstName.label" /> *  <span><g:message code="rsr.property.spouseFirstName.help" /></span></label>
-            <input  type="text" id="spouseFirstName" name="spouseFirstName" value="${rqt.spouseFirstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('spouseFirstName') ? 'validation-failed' : ''}" title="<g:message code="rsr.property.spouseFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="spouseFirstName"
+                   name="spouseFirstName"
+                   value="${rqt.spouseFirstName?.toString()}"
+                   class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('spouseFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="rsr.property.spouseFirstName.validationError" />"  maxlength="38" />
             
 
     

@@ -100,10 +100,14 @@
           
 
         
-          <dt><g:message code="dccrr.property.precisionAutreSituationActuelleMere.label" /></dt><dd>${rqt.precisionAutreSituationActuelleMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.precisionAutreSituationActuelleMere.label" /></dt>
+          <dd>${rqt.precisionAutreSituationActuelleMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.professionMere.label" /></dt><dd>${rqt.professionMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.professionMere.label" /></dt>
+          <dd>${rqt.professionMere?.toString()}</dd>
+          
 
         
           <dt><g:message code="dccrr.property.estHorairesReguliersMere.label" /></dt>
@@ -111,25 +115,39 @@
           
 
         
-          <dt><g:message code="dccrr.property.horairesReguliersMere.label" /></dt><dd>${rqt.horairesReguliersMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesReguliersMere.label" /></dt>
+          <dd>${rqt.horairesReguliersMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailLundiMere.label" /></dt><dd>${rqt.horairesTravailLundiMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailLundiMere.label" /></dt>
+          <dd>${rqt.horairesTravailLundiMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailMardiMere.label" /></dt><dd>${rqt.horairesTravailMardiMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailMardiMere.label" /></dt>
+          <dd>${rqt.horairesTravailMardiMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailMercrediMere.label" /></dt><dd>${rqt.horairesTravailMercrediMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailMercrediMere.label" /></dt>
+          <dd>${rqt.horairesTravailMercrediMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailJeudiMere.label" /></dt><dd>${rqt.horairesTravailJeudiMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailJeudiMere.label" /></dt>
+          <dd>${rqt.horairesTravailJeudiMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailVendrediMere.label" /></dt><dd>${rqt.horairesTravailVendrediMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailVendrediMere.label" /></dt>
+          <dd>${rqt.horairesTravailVendrediMere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.communeLieuTravailMere.label" /></dt><dd>${rqt.communeLieuTravailMere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.communeLieuTravailMere.label" /></dt>
+          <dd>${rqt.communeLieuTravailMere?.toString()}</dd>
+          
 
         
       </dl>
@@ -148,10 +166,14 @@
           
 
         
-          <dt><g:message code="dccrr.property.precisionAutreSituationActuellePere.label" /></dt><dd>${rqt.precisionAutreSituationActuellePere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.precisionAutreSituationActuellePere.label" /></dt>
+          <dd>${rqt.precisionAutreSituationActuellePere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.professionPere.label" /></dt><dd>${rqt.professionPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.professionPere.label" /></dt>
+          <dd>${rqt.professionPere?.toString()}</dd>
+          
 
         
           <dt><g:message code="dccrr.property.estHorairesReguliersPere.label" /></dt>
@@ -159,25 +181,39 @@
           
 
         
-          <dt><g:message code="dccrr.property.horairesReguliersPere.label" /></dt><dd>${rqt.horairesReguliersPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesReguliersPere.label" /></dt>
+          <dd>${rqt.horairesReguliersPere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailLundiPere.label" /></dt><dd>${rqt.horairesTravailLundiPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailLundiPere.label" /></dt>
+          <dd>${rqt.horairesTravailLundiPere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailMardiPere.label" /></dt><dd>${rqt.horairesTravailMardiPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailMardiPere.label" /></dt>
+          <dd>${rqt.horairesTravailMardiPere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailMercrediPere.label" /></dt><dd>${rqt.horairesTravailMercrediPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailMercrediPere.label" /></dt>
+          <dd>${rqt.horairesTravailMercrediPere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailJeudiPere.label" /></dt><dd>${rqt.horairesTravailJeudiPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailJeudiPere.label" /></dt>
+          <dd>${rqt.horairesTravailJeudiPere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.horairesTravailVendrediPere.label" /></dt><dd>${rqt.horairesTravailVendrediPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.horairesTravailVendrediPere.label" /></dt>
+          <dd>${rqt.horairesTravailVendrediPere?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dccrr.property.communeLieuTravailPere.label" /></dt><dd>${rqt.communeLieuTravailPere?.toString()}</dd>
+          <dt><g:message code="dccrr.property.communeLieuTravailPere.label" /></dt>
+          <dd>${rqt.communeLieuTravailPere?.toString()}</dd>
+          
 
         
       </dl>
@@ -226,7 +262,9 @@
     
       
       <dl>
-        <dt><g:message code="dccrr.property.accueilAnterieur.label" /></dt><dd>${rqt.accueilAnterieur?.toString()}</dd>
+        <dt><g:message code="dccrr.property.accueilAnterieur.label" /></dt>
+          <dd>${rqt.accueilAnterieur?.toString()}</dd>
+          
 
       </dl>
       
@@ -544,7 +582,9 @@
     
       
       <dl>
-        <dt><g:message code="dccrr.property.telephoneContact.label" /></dt><dd>${rqt.telephoneContact?.toString()}</dd>
+        <dt><g:message code="dccrr.property.telephoneContact.label" /></dt>
+          <dd>${rqt.telephoneContact?.toString()}</dd>
+          
 
       </dl>
       
@@ -564,7 +604,9 @@
     
       
       <dl>
-        <dt><g:message code="dccrr.property.commentaireCitoyen.label" /></dt><dd>${rqt.commentaireCitoyen?.toString()}</dd>
+        <dt><g:message code="dccrr.property.commentaireCitoyen.label" /></dt>
+          <dd>${rqt.commentaireCitoyen?.toString()}</dd>
+          
 
       </dl>
       

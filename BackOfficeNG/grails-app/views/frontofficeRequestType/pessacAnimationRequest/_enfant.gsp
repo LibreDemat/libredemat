@@ -36,8 +36,11 @@
   
     
     <label for="telephoneSujet" class=""><g:message code="par.property.telephoneSujet.label" />   <span><g:message code="par.property.telephoneSujet.help" /></span></label>
-            <input  type="text" id="telephoneSujet" name="telephoneSujet" value="${rqt.telephoneSujet?.toString()}" 
-                    class="  validate-mobilePhone ${rqt.stepStates['enfant'].invalidFields.contains('telephoneSujet') ? 'validation-failed' : ''}" title="<g:message code="par.property.telephoneSujet.validationError" />"  maxlength="10" />
+            <input  type="text" id="telephoneSujet"
+                   name="telephoneSujet"
+                   value="${rqt.telephoneSujet?.toString()}"
+                   class="  validate-mobilePhone ${rqt.stepStates['enfant'].invalidFields.contains('telephoneSujet') ? 'validation-failed' : ''}"
+                   title="<g:message code="par.property.telephoneSujet.validationError" />"  maxlength="10" />
             
 
   
@@ -45,8 +48,11 @@
   
     
     <label for="emailSujet" class=""><g:message code="par.property.emailSujet.label" />   <span><g:message code="par.property.emailSujet.help" /></span></label>
-            <input  type="text" id="emailSujet" name="emailSujet" value="${rqt.emailSujet?.toString()}" 
-                    class="  validate-email ${rqt.stepStates['enfant'].invalidFields.contains('emailSujet') ? 'validation-failed' : ''}" title="<g:message code="par.property.emailSujet.validationError" />"   />
+            <input  type="text" id="emailSujet"
+                   name="emailSujet"
+                   value="${rqt.emailSujet?.toString()}"
+                   class="  validate-email ${rqt.stepStates['enfant'].invalidFields.contains('emailSujet') ? 'validation-failed' : ''}"
+                   title="<g:message code="par.property.emailSujet.validationError" />"   />
             
 
   

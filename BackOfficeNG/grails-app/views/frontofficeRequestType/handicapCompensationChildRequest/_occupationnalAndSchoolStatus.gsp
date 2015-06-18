@@ -20,8 +20,11 @@
     
       
       <label for="schoolingSchoolName" class="required condition-isSchoolingEnrolment-filled"><g:message code="hccr.property.schoolingSchoolName.label" /> *  <span><g:message code="hccr.property.schoolingSchoolName.help" /></span></label>
-            <input  type="text" id="schoolingSchoolName" name="schoolingSchoolName" value="${rqt.schoolingSchoolName?.toString()}" 
-                    class="required condition-isSchoolingEnrolment-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingSchoolName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.schoolingSchoolName.validationError" />"  maxlength="80" />
+            <input  type="text" id="schoolingSchoolName"
+                   name="schoolingSchoolName"
+                   value="${rqt.schoolingSchoolName?.toString()}"
+                   class="required condition-isSchoolingEnrolment-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.schoolingSchoolName.validationError" />"  maxlength="80" />
             
 
     
@@ -90,8 +93,11 @@
     
       
       <label for="schoolingSpecializedGradeDetails" class="required condition-isSpecializedGrade-filled"><g:message code="hccr.property.schoolingSpecializedGradeDetails.label" /> *  <span><g:message code="hccr.property.schoolingSpecializedGradeDetails.help" /></span></label>
-            <input  type="text" id="schoolingSpecializedGradeDetails" name="schoolingSpecializedGradeDetails" value="${rqt.schoolingSpecializedGradeDetails?.toString()}" 
-                    class="required condition-isSpecializedGrade-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingSpecializedGradeDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.schoolingSpecializedGradeDetails.validationError" />"  maxlength="30" />
+            <input  type="text" id="schoolingSpecializedGradeDetails"
+                   name="schoolingSpecializedGradeDetails"
+                   value="${rqt.schoolingSpecializedGradeDetails?.toString()}"
+                   class="required condition-isSpecializedGrade-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingSpecializedGradeDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.schoolingSpecializedGradeDetails.validationError" />"  maxlength="30" />
             
 
     
@@ -108,8 +114,11 @@
     
       
       <label for="schoolingTime" class="required condition-isPartTimeSchooling-filled"><g:message code="hccr.property.schoolingTime.label" /> *  <span><g:message code="hccr.property.schoolingTime.help" /></span></label>
-            <input  type="text" id="schoolingTime" name="schoolingTime" value="${rqt.schoolingTime?.toString()}" 
-                    class="required condition-isPartTimeSchooling-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingTime') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.schoolingTime.validationError" />"   />
+            <input  type="text" id="schoolingTime"
+                   name="schoolingTime"
+                   value="${rqt.schoolingTime?.toString()}"
+                   class="required condition-isPartTimeSchooling-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingTime') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.schoolingTime.validationError" />"   />
             
 
     
@@ -152,15 +161,21 @@
     
       
       <label for="schoolingHomeSchoolingAccompanistLastName" class="required condition-isAccompaniedHomeSchooling-filled"><g:message code="hccr.property.schoolingHomeSchoolingAccompanistLastName.label" /> *  <span><g:message code="hccr.property.schoolingHomeSchoolingAccompanistLastName.help" /></span></label>
-            <input  type="text" id="schoolingHomeSchoolingAccompanistLastName" name="schoolingHomeSchoolingAccompanistLastName" value="${rqt.schoolingHomeSchoolingAccompanistLastName?.toString()}" 
-                    class="required condition-isAccompaniedHomeSchooling-filled  validate-lastName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingHomeSchoolingAccompanistLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.schoolingHomeSchoolingAccompanistLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="schoolingHomeSchoolingAccompanistLastName"
+                   name="schoolingHomeSchoolingAccompanistLastName"
+                   value="${rqt.schoolingHomeSchoolingAccompanistLastName?.toString()}"
+                   class="required condition-isAccompaniedHomeSchooling-filled  validate-lastName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingHomeSchoolingAccompanistLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.schoolingHomeSchoolingAccompanistLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="schoolingHomeSchoolingAccompanistFirstName" class="required condition-isAccompaniedHomeSchooling-filled"><g:message code="hccr.property.schoolingHomeSchoolingAccompanistFirstName.label" /> *  <span><g:message code="hccr.property.schoolingHomeSchoolingAccompanistFirstName.help" /></span></label>
-            <input  type="text" id="schoolingHomeSchoolingAccompanistFirstName" name="schoolingHomeSchoolingAccompanistFirstName" value="${rqt.schoolingHomeSchoolingAccompanistFirstName?.toString()}" 
-                    class="required condition-isAccompaniedHomeSchooling-filled  validate-firstName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingHomeSchoolingAccompanistFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.schoolingHomeSchoolingAccompanistFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="schoolingHomeSchoolingAccompanistFirstName"
+                   name="schoolingHomeSchoolingAccompanistFirstName"
+                   value="${rqt.schoolingHomeSchoolingAccompanistFirstName?.toString()}"
+                   class="required condition-isAccompaniedHomeSchooling-filled  validate-firstName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingHomeSchoolingAccompanistFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.schoolingHomeSchoolingAccompanistFirstName.validationError" />"  maxlength="38" />
             
 
     
@@ -205,8 +220,11 @@
     
       
       <label for="schoolingExtraCurricularDetails" class="required condition-isExtraCurricular-filled"><g:message code="hccr.property.schoolingExtraCurricularDetails.label" /> *  <span><g:message code="hccr.property.schoolingExtraCurricularDetails.help" /></span></label>
-            <input  type="text" id="schoolingExtraCurricularDetails" name="schoolingExtraCurricularDetails" value="${rqt.schoolingExtraCurricularDetails?.toString()}" 
-                    class="required condition-isExtraCurricular-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingExtraCurricularDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.schoolingExtraCurricularDetails.validationError" />"  maxlength="50" />
+            <input  type="text" id="schoolingExtraCurricularDetails"
+                   name="schoolingExtraCurricularDetails"
+                   value="${rqt.schoolingExtraCurricularDetails?.toString()}"
+                   class="required condition-isExtraCurricular-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('schoolingExtraCurricularDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.schoolingExtraCurricularDetails.validationError" />"  maxlength="50" />
             
 
     
@@ -232,15 +250,21 @@
     
       
       <label for="studiesHighSchoolGrade" class="required condition-isHighSchool-filled"><g:message code="hccr.property.studiesHighSchoolGrade.label" /> *  <span><g:message code="hccr.property.studiesHighSchoolGrade.help" /></span></label>
-            <input  type="text" id="studiesHighSchoolGrade" name="studiesHighSchoolGrade" value="${rqt.studiesHighSchoolGrade?.toString()}" 
-                    class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolGrade') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.studiesHighSchoolGrade.validationError" />"  maxlength="60" />
+            <input  type="text" id="studiesHighSchoolGrade"
+                   name="studiesHighSchoolGrade"
+                   value="${rqt.studiesHighSchoolGrade?.toString()}"
+                   class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolGrade') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.studiesHighSchoolGrade.validationError" />"  maxlength="60" />
             
 
     
       
       <label for="studiesHighSchoolName" class="required condition-isHighSchool-filled"><g:message code="hccr.property.studiesHighSchoolName.label" /> *  <span><g:message code="hccr.property.studiesHighSchoolName.help" /></span></label>
-            <input  type="text" id="studiesHighSchoolName" name="studiesHighSchoolName" value="${rqt.studiesHighSchoolName?.toString()}" 
-                    class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.studiesHighSchoolName.validationError" />"  maxlength="60" />
+            <input  type="text" id="studiesHighSchoolName"
+                   name="studiesHighSchoolName"
+                   value="${rqt.studiesHighSchoolName?.toString()}"
+                   class="required condition-isHighSchool-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesHighSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.studiesHighSchoolName.validationError" />"  maxlength="60" />
             
 
     
@@ -285,8 +309,11 @@
     
       
       <label for="studiesAssistanceUnderDisabilityDetails" class="required condition-isAssistanceUnderDisability-filled"><g:message code="hccr.property.studiesAssistanceUnderDisabilityDetails.label" /> *  <span><g:message code="hccr.property.studiesAssistanceUnderDisabilityDetails.help" /></span></label>
-            <input  type="text" id="studiesAssistanceUnderDisabilityDetails" name="studiesAssistanceUnderDisabilityDetails" value="${rqt.studiesAssistanceUnderDisabilityDetails?.toString()}" 
-                    class="required condition-isAssistanceUnderDisability-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesAssistanceUnderDisabilityDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.studiesAssistanceUnderDisabilityDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="studiesAssistanceUnderDisabilityDetails"
+                   name="studiesAssistanceUnderDisabilityDetails"
+                   value="${rqt.studiesAssistanceUnderDisabilityDetails?.toString()}"
+                   class="required condition-isAssistanceUnderDisability-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('studiesAssistanceUnderDisabilityDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.studiesAssistanceUnderDisabilityDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -299,8 +326,11 @@
     
       
       <label for="formationStudiesLevel" class=""><g:message code="hccr.property.formationStudiesLevel.label" />   <span><g:message code="hccr.property.formationStudiesLevel.help" /></span></label>
-            <input  type="text" id="formationStudiesLevel" name="formationStudiesLevel" value="${rqt.formationStudiesLevel?.toString()}" 
-                    class="   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('formationStudiesLevel') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.formationStudiesLevel.validationError" />"  maxlength="30" />
+            <input  type="text" id="formationStudiesLevel"
+                   name="formationStudiesLevel"
+                   value="${rqt.formationStudiesLevel?.toString()}"
+                   class="   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('formationStudiesLevel') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.formationStudiesLevel.validationError" />"  maxlength="30" />
             
 
     
@@ -394,15 +424,21 @@
     
       
       <label for="professionalStatusProfession" class="required condition-isEmployed-filled"><g:message code="hccr.property.professionalStatusProfession.label" /> *  <span><g:message code="hccr.property.professionalStatusProfession.help" /></span></label>
-            <input  type="text" id="professionalStatusProfession" name="professionalStatusProfession" value="${rqt.professionalStatusProfession?.toString()}" 
-                    class="required condition-isEmployed-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusProfession') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalStatusProfession.validationError" />"  maxlength="60" />
+            <input  type="text" id="professionalStatusProfession"
+                   name="professionalStatusProfession"
+                   value="${rqt.professionalStatusProfession?.toString()}"
+                   class="required condition-isEmployed-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusProfession') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.professionalStatusProfession.validationError" />"  maxlength="60" />
             
 
     
       
       <label for="professionalStatusEmployerName" class="required condition-isEmployed-filled"><g:message code="hccr.property.professionalStatusEmployerName.label" /> *  <span><g:message code="hccr.property.professionalStatusEmployerName.help" /></span></label>
-            <input  type="text" id="professionalStatusEmployerName" name="professionalStatusEmployerName" value="${rqt.professionalStatusEmployerName?.toString()}" 
-                    class="required condition-isEmployed-filled  validate-lastName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusEmployerName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalStatusEmployerName.validationError" />"  maxlength="38" />
+            <input  type="text" id="professionalStatusEmployerName"
+                   name="professionalStatusEmployerName"
+                   value="${rqt.professionalStatusEmployerName?.toString()}"
+                   class="required condition-isEmployed-filled  validate-lastName ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusEmployerName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.professionalStatusEmployerName.validationError" />"  maxlength="38" />
             
 
     
@@ -555,8 +591,11 @@
     
       
       <label for="professionalStatusElectiveFunctionDetails" class="required condition-isElectiveFunction-filled"><g:message code="hccr.property.professionalStatusElectiveFunctionDetails.label" /> *  <span><g:message code="hccr.property.professionalStatusElectiveFunctionDetails.help" /></span></label>
-            <input  type="text" id="professionalStatusElectiveFunctionDetails" name="professionalStatusElectiveFunctionDetails" value="${rqt.professionalStatusElectiveFunctionDetails?.toString()}" 
-                    class="required condition-isElectiveFunction-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusElectiveFunctionDetails') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.professionalStatusElectiveFunctionDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="professionalStatusElectiveFunctionDetails"
+                   name="professionalStatusElectiveFunctionDetails"
+                   value="${rqt.professionalStatusElectiveFunctionDetails?.toString()}"
+                   class="required condition-isElectiveFunction-filled   ${rqt.stepStates['occupationnalAndSchoolStatus'].invalidFields.contains('professionalStatusElectiveFunctionDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.professionalStatusElectiveFunctionDetails.validationError" />"  maxlength="60" />
             
 
     

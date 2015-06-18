@@ -45,8 +45,11 @@
   
     
     <label for="accueilAnterieur" class=""><g:message code="dccrr.property.accueilAnterieur.label" />   <span><g:message code="dccrr.property.accueilAnterieur.help" /></span></label>
-            <input  type="text" id="accueilAnterieur" name="accueilAnterieur" value="${rqt.accueilAnterieur?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['accueil'].invalidFields.contains('accueilAnterieur') ? 'validation-failed' : ''}" title="<g:message code="dccrr.property.accueilAnterieur.validationError" />"   />
+            <input  type="text" id="accueilAnterieur"
+                   name="accueilAnterieur"
+                   value="${rqt.accueilAnterieur?.toString()}"
+                   class="  validate-string ${rqt.stepStates['accueil'].invalidFields.contains('accueilAnterieur') ? 'validation-failed' : ''}"
+                   title="<g:message code="dccrr.property.accueilAnterieur.validationError" />"   />
             
 
   

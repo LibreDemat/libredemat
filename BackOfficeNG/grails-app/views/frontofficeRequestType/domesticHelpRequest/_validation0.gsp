@@ -92,7 +92,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrRequesterBirthPlace.label" /></dt><dd>${rqt.dhrRequesterBirthPlace?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrRequesterBirthPlace.label" /></dt>
+          <dd>${rqt.dhrRequesterBirthPlace?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrRequesterNationality.label" /></dt>
@@ -130,10 +132,14 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrPensionPlanDetail.label" /></dt><dd>${rqt.dhrPensionPlanDetail?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrPensionPlanDetail.label" /></dt>
+          <dd>${rqt.dhrPensionPlanDetail?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrComplementaryPensionPlan.label" /></dt><dd>${rqt.dhrComplementaryPensionPlan?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrComplementaryPensionPlan.label" /></dt>
+          <dd>${rqt.dhrComplementaryPensionPlan?.toString()}</dd>
+          
 
         
       </dl>
@@ -157,7 +163,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrGuardianName.label" /></dt><dd>${rqt.dhrGuardianName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrGuardianName.label" /></dt>
+          <dd>${rqt.dhrGuardianName?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrGuardianAddress.label" /></dt>
@@ -192,10 +200,14 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrReferentName.label" /></dt><dd>${rqt.dhrReferentName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrReferentName.label" /></dt>
+          <dd>${rqt.dhrReferentName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrReferentFirstName.label" /></dt><dd>${rqt.dhrReferentFirstName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrReferentFirstName.label" /></dt>
+          <dd>${rqt.dhrReferentFirstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrReferentAddress.label" /></dt>
@@ -252,13 +264,19 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrSpouseName.label" /></dt><dd>${rqt.dhrSpouseName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseName.label" /></dt>
+          <dd>${rqt.dhrSpouseName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrSpouseFirstName.label" /></dt><dd>${rqt.dhrSpouseFirstName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseFirstName.label" /></dt>
+          <dd>${rqt.dhrSpouseFirstName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrSpouseMaidenName.label" /></dt><dd>${rqt.dhrSpouseMaidenName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseMaidenName.label" /></dt>
+          <dd>${rqt.dhrSpouseMaidenName?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrSpouseBirthDate.label" /></dt>
@@ -266,7 +284,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrSpouseBirthPlace.label" /></dt><dd>${rqt.dhrSpouseBirthPlace?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseBirthPlace.label" /></dt>
+          <dd>${rqt.dhrSpouseBirthPlace?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrSpouseNationality.label" /></dt>
@@ -309,16 +329,24 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrSpousePensionPlanDetail.label" /></dt><dd>${rqt.dhrSpousePensionPlanDetail?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpousePensionPlanDetail.label" /></dt>
+          <dd>${rqt.dhrSpousePensionPlanDetail?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrSpouseComplementaryPensionPlan.label" /></dt><dd>${rqt.dhrSpouseComplementaryPensionPlan?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseComplementaryPensionPlan.label" /></dt>
+          <dd>${rqt.dhrSpouseComplementaryPensionPlan?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrSpouseProfession.label" /></dt><dd>${rqt.dhrSpouseProfession?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseProfession.label" /></dt>
+          <dd>${rqt.dhrSpouseProfession?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrSpouseEmployer.label" /></dt><dd>${rqt.dhrSpouseEmployer?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrSpouseEmployer.label" /></dt>
+          <dd>${rqt.dhrSpouseEmployer?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrSpouseAddress.label" /></dt>
@@ -342,19 +370,29 @@
       <h4><g:message code="dhr.property.dhrSpouseIncomes.label" /></h4>
       <dl>
         
-          <dt><g:message code="dhr.property.pensions.label" /></dt><dd>${rqt.pensions?.toString()}</dd>
+          <dt><g:message code="dhr.property.pensions.label" /></dt>
+          <dd>${rqt.pensions?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrAllowances.label" /></dt><dd>${rqt.dhrAllowances?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrAllowances.label" /></dt>
+          <dd>${rqt.dhrAllowances?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrFurnitureInvestmentIncome.label" /></dt><dd>${rqt.dhrFurnitureInvestmentIncome?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrFurnitureInvestmentIncome.label" /></dt>
+          <dd>${rqt.dhrFurnitureInvestmentIncome?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrRealEstateInvestmentIncome.label" /></dt><dd>${rqt.dhrRealEstateInvestmentIncome?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrRealEstateInvestmentIncome.label" /></dt>
+          <dd>${rqt.dhrRealEstateInvestmentIncome?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrNetIncome.label" /></dt><dd>${rqt.dhrNetIncome?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrNetIncome.label" /></dt>
+          <dd>${rqt.dhrNetIncome?.toString()}</dd>
+          
 
         
       </dl>
@@ -384,7 +422,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrCurrentDwellingPhone.label" /></dt><dd>${rqt.dhrCurrentDwellingPhone?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrCurrentDwellingPhone.label" /></dt>
+          <dd>${rqt.dhrCurrentDwellingPhone?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrCurrentDwellingKind.label" /></dt>
@@ -410,10 +450,14 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrCurrentDwellingNumberOfRoom.label" /></dt><dd>${rqt.dhrCurrentDwellingNumberOfRoom?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrCurrentDwellingNumberOfRoom.label" /></dt>
+          <dd>${rqt.dhrCurrentDwellingNumberOfRoom?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrCurrentDwellingNetArea.label" /></dt><dd>${rqt.dhrCurrentDwellingNetArea?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrCurrentDwellingNetArea.label" /></dt>
+          <dd>${rqt.dhrCurrentDwellingNetArea?.toString()}</dd>
+          
 
         
       </dl>
@@ -466,7 +510,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrPreviousDwellingComment.label" /></dt><dd>${it.dhrPreviousDwellingComment?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrPreviousDwellingComment.label" /></dt>
+          <dd>${it.dhrPreviousDwellingComment?.toString()}</dd>
+          
 
         
       </dl>
@@ -483,19 +529,29 @@
       <h4><g:message code="dhr.property.dhrRequesterIncomes.label" /></h4>
       <dl>
         
-          <dt><g:message code="dhr.property.pensions.label" /></dt><dd>${rqt.pensions?.toString()}</dd>
+          <dt><g:message code="dhr.property.pensions.label" /></dt>
+          <dd>${rqt.pensions?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrAllowances.label" /></dt><dd>${rqt.dhrAllowances?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrAllowances.label" /></dt>
+          <dd>${rqt.dhrAllowances?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrFurnitureInvestmentIncome.label" /></dt><dd>${rqt.dhrFurnitureInvestmentIncome?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrFurnitureInvestmentIncome.label" /></dt>
+          <dd>${rqt.dhrFurnitureInvestmentIncome?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrRealEstateInvestmentIncome.label" /></dt><dd>${rqt.dhrRealEstateInvestmentIncome?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrRealEstateInvestmentIncome.label" /></dt>
+          <dd>${rqt.dhrRealEstateInvestmentIncome?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrNetIncome.label" /></dt><dd>${rqt.dhrNetIncome?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrNetIncome.label" /></dt>
+          <dd>${rqt.dhrNetIncome?.toString()}</dd>
+          
 
         
       </dl>
@@ -520,10 +576,14 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrRealAssetValue.label" /></dt><dd>${it.dhrRealAssetValue?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrRealAssetValue.label" /></dt>
+          <dd>${it.dhrRealAssetValue?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.realAssetNetFloorArea.label" /></dt><dd>${it.realAssetNetFloorArea?.toString()}</dd>
+          <dt><g:message code="dhr.property.realAssetNetFloorArea.label" /></dt>
+          <dd>${it.realAssetNetFloorArea?.toString()}</dd>
+          
 
         
       </dl>
@@ -567,10 +627,14 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrNotRealAssetBeneficiaryName.label" /></dt><dd>${it.dhrNotRealAssetBeneficiaryName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrNotRealAssetBeneficiaryName.label" /></dt>
+          <dd>${it.dhrNotRealAssetBeneficiaryName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.dhrNotRealAssetBeneficiaryFirstName.label" /></dt><dd>${it.dhrNotRealAssetBeneficiaryFirstName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrNotRealAssetBeneficiaryFirstName.label" /></dt>
+          <dd>${it.dhrNotRealAssetBeneficiaryFirstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrNotRealAssetBeneficiaryAddress.label" /></dt>
@@ -587,7 +651,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrNotRealAssetValue.label" /></dt><dd>${it.dhrNotRealAssetValue?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrNotRealAssetValue.label" /></dt>
+          <dd>${it.dhrNotRealAssetValue?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrNotRealAssetDate.label" /></dt>
@@ -595,7 +661,9 @@
           
 
         
-          <dt><g:message code="dhr.property.dhrNotRealAssetNotaryName.label" /></dt><dd>${it.dhrNotRealAssetNotaryName?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrNotRealAssetNotaryName.label" /></dt>
+          <dd>${it.dhrNotRealAssetNotaryName?.toString()}</dd>
+          
 
         
           <dt><g:message code="dhr.property.dhrNotRealAssetNotaryAddress.label" /></dt>
@@ -626,16 +694,24 @@
       <h4><g:message code="dhr.property.dhrTaxesAmount.label" /></h4>
       <dl>
         
-          <dt><g:message code="dhr.property.dhrIncomeTax.label" /></dt><dd>${rqt.dhrIncomeTax?.toString()}</dd>
+          <dt><g:message code="dhr.property.dhrIncomeTax.label" /></dt>
+          <dd>${rqt.dhrIncomeTax?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.localRate.label" /></dt><dd>${rqt.localRate?.toString()}</dd>
+          <dt><g:message code="dhr.property.localRate.label" /></dt>
+          <dd>${rqt.localRate?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.propertyTaxes.label" /></dt><dd>${rqt.propertyTaxes?.toString()}</dd>
+          <dt><g:message code="dhr.property.propertyTaxes.label" /></dt>
+          <dd>${rqt.propertyTaxes?.toString()}</dd>
+          
 
         
-          <dt><g:message code="dhr.property.professionalTaxes.label" /></dt><dd>${rqt.professionalTaxes?.toString()}</dd>
+          <dt><g:message code="dhr.property.professionalTaxes.label" /></dt>
+          <dd>${rqt.professionalTaxes?.toString()}</dd>
+          
 
         
       </dl>

@@ -61,7 +61,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'raprr.property.urgencyPolyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPolyPhone" class="action-editField validate-phone required-true i18n-raprr.property.urgencyPolyPhone maxLength-10" ><span>${rqt?.urgencyPolyPhone}</span></dd>
+                <dt class="required">${message(code:'raprr.property.urgencyPolyPhone.label')} &nbsp;*&nbsp;:</dt><dd id="urgencyPolyPhone" class="action-editField validate-phone required-true i18n-raprr.property.urgencyPolyPhone maxLength-10" ><span >${rqt?.urgencyPolyPhone}</span></dd>
               </dl>
               
             

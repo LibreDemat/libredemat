@@ -17,8 +17,11 @@
   
     
     <label for="requesterQualityPrecision" class="condition-isOtherRequesterQuality-filled"><g:message code="bdr.property.requesterQualityPrecision.label" />   <span><g:message code="bdr.property.requesterQualityPrecision.help" /></span></label>
-            <input  type="text" id="requesterQualityPrecision" name="requesterQualityPrecision" value="${rqt.requesterQualityPrecision?.toString()}" 
-                    class="condition-isOtherRequesterQuality-filled  validate-string ${rqt.stepStates['nature'].invalidFields.contains('requesterQualityPrecision') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.requesterQualityPrecision.validationError" />"   />
+            <input  type="text" id="requesterQualityPrecision"
+                   name="requesterQualityPrecision"
+                   value="${rqt.requesterQualityPrecision?.toString()}"
+                   class="condition-isOtherRequesterQuality-filled  validate-string ${rqt.stepStates['nature'].invalidFields.contains('requesterQualityPrecision') ? 'validation-failed' : ''}"
+                   title="<g:message code="bdr.property.requesterQualityPrecision.validationError" />"   />
             
 
   
@@ -26,8 +29,11 @@
   
     
     <label for="birthLastName" class="required"><g:message code="bdr.property.birthLastName.label" /> *  <span><g:message code="bdr.property.birthLastName.help" /></span></label>
-            <input  type="text" id="birthLastName" name="birthLastName" value="${rqt.birthLastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['nature'].invalidFields.contains('birthLastName') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.birthLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="birthLastName"
+                   name="birthLastName"
+                   value="${rqt.birthLastName?.toString()}"
+                   class="required  validate-lastName ${rqt.stepStates['nature'].invalidFields.contains('birthLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="bdr.property.birthLastName.validationError" />"  maxlength="38" />
             
 
   
@@ -35,8 +41,11 @@
   
     
     <label for="birthMarriageName" class=""><g:message code="bdr.property.birthMarriageName.label" />   <span><g:message code="bdr.property.birthMarriageName.help" /></span></label>
-            <input  type="text" id="birthMarriageName" name="birthMarriageName" value="${rqt.birthMarriageName?.toString()}" 
-                    class="  validate-lastName ${rqt.stepStates['nature'].invalidFields.contains('birthMarriageName') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.birthMarriageName.validationError" />"  maxlength="38" />
+            <input  type="text" id="birthMarriageName"
+                   name="birthMarriageName"
+                   value="${rqt.birthMarriageName?.toString()}"
+                   class="  validate-lastName ${rqt.stepStates['nature'].invalidFields.contains('birthMarriageName') ? 'validation-failed' : ''}"
+                   title="<g:message code="bdr.property.birthMarriageName.validationError" />"  maxlength="38" />
             
 
   
@@ -44,8 +53,11 @@
   
     
     <label for="birthFirstNames" class="required"><g:message code="bdr.property.birthFirstNames.label" /> *  <span><g:message code="bdr.property.birthFirstNames.help" /></span></label>
-            <input  type="text" id="birthFirstNames" name="birthFirstNames" value="${rqt.birthFirstNames?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['nature'].invalidFields.contains('birthFirstNames') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.birthFirstNames.validationError" />"   />
+            <input  type="text" id="birthFirstNames"
+                   name="birthFirstNames"
+                   value="${rqt.birthFirstNames?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['nature'].invalidFields.contains('birthFirstNames') ? 'validation-failed' : ''}"
+                   title="<g:message code="bdr.property.birthFirstNames.validationError" />"   />
             
 
   
@@ -96,8 +108,11 @@
   
     
     <label for="birthCity" class="required"><g:message code="bdr.property.birthCity.label" /> *  <span><g:message code="bdr.property.birthCity.help" /></span></label>
-            <input  type="text" id="birthCity" name="birthCity" value="${rqt.birthCity?.toString()}" 
-                    class="required  validate-city ${rqt.stepStates['nature'].invalidFields.contains('birthCity') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.birthCity.validationError" />"  maxlength="32" />
+            <input  type="text" id="birthCity"
+                   name="birthCity"
+                   value="${rqt.birthCity?.toString()}"
+                   class="required  validate-city ${rqt.stepStates['nature'].invalidFields.contains('birthCity') ? 'validation-failed' : ''}"
+                   title="<g:message code="bdr.property.birthCity.validationError" />"  maxlength="32" />
             
 
   
@@ -105,8 +120,11 @@
   
     
     <label for="birthPostalCode" class="required"><g:message code="bdr.property.birthPostalCode.label" /> *  <span><g:message code="bdr.property.birthPostalCode.help" /></span></label>
-            <input  type="text" id="birthPostalCode" name="birthPostalCode" value="${rqt.birthPostalCode?.toString()}" 
-                    class="required  validate-departmentCode ${rqt.stepStates['nature'].invalidFields.contains('birthPostalCode') ? 'validation-failed' : ''}" title="<g:message code="bdr.property.birthPostalCode.validationError" />"  maxlength="2" />
+            <input  type="text" id="birthPostalCode"
+                   name="birthPostalCode"
+                   value="${rqt.birthPostalCode?.toString()}"
+                   class="required  validate-departmentCode ${rqt.stepStates['nature'].invalidFields.contains('birthPostalCode') ? 'validation-failed' : ''}"
+                   title="<g:message code="bdr.property.birthPostalCode.validationError" />"  maxlength="2" />
             
 
   

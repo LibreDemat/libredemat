@@ -19,8 +19,11 @@
   
     
     <label for="nomOrganisation" class="required condition-estParticulier-unfilled"><g:message code="cmwr.property.nomOrganisation.label" /> *  <span><g:message code="cmwr.property.nomOrganisation.help" /></span></label>
-            <input  type="text" id="nomOrganisation" name="nomOrganisation" value="${rqt.nomOrganisation?.toString()}" 
-                    class="required condition-estParticulier-unfilled  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('nomOrganisation') ? 'validation-failed' : ''}" title="<g:message code="cmwr.property.nomOrganisation.validationError" />" regex="^[\w\W]{0,255}$"  />
+            <input  type="text" id="nomOrganisation"
+                   name="nomOrganisation"
+                   value="${rqt.nomOrganisation?.toString()}"
+                   class="required condition-estParticulier-unfilled  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('nomOrganisation') ? 'validation-failed' : ''}"
+                   title="<g:message code="cmwr.property.nomOrganisation.validationError" />" regex="^[\w\W]{0,255}$"  />
             
 
   
@@ -56,8 +59,11 @@
   
     
     <label for="nombreResidants" class="required"><g:message code="cmwr.property.nombreResidants.label" /> *  <span><g:message code="cmwr.property.nombreResidants.help" /></span></label>
-            <input  type="text" id="nombreResidants" name="nombreResidants" value="${rqt.nombreResidants?.toString()}" 
-                    class="required  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('nombreResidants') ? 'validation-failed' : ''}" title="<g:message code="cmwr.property.nombreResidants.validationError" />" regex="^[\w\W]{0,255}$"  />
+            <input  type="text" id="nombreResidants"
+                   name="nombreResidants"
+                   value="${rqt.nombreResidants?.toString()}"
+                   class="required  validate-regex ${rqt.stepStates['informations'].invalidFields.contains('nombreResidants') ? 'validation-failed' : ''}"
+                   title="<g:message code="cmwr.property.nombreResidants.validationError" />" regex="^[\w\W]{0,255}$"  />
             
 
   

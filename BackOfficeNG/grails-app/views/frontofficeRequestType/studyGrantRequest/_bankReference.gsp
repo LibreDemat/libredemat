@@ -32,8 +32,11 @@
   
     
     <label for="accountHolderLastName" class="required condition-isSubjectAccountHolder-unfilled"><g:message code="sgr.property.accountHolderLastName.label" /> *  <span><g:message code="sgr.property.accountHolderLastName.help" /></span></label>
-            <input  type="text" id="accountHolderLastName" name="accountHolderLastName" value="${rqt.accountHolderLastName?.toString()}" 
-                    class="required condition-isSubjectAccountHolder-unfilled  validate-lastName ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderLastName') ? 'validation-failed' : ''}" title="<g:message code="sgr.property.accountHolderLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="accountHolderLastName"
+                   name="accountHolderLastName"
+                   value="${rqt.accountHolderLastName?.toString()}"
+                   class="required condition-isSubjectAccountHolder-unfilled  validate-lastName ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="sgr.property.accountHolderLastName.validationError" />"  maxlength="38" />
             
 
   
@@ -41,8 +44,11 @@
   
     
     <label for="accountHolderFirstName" class="required condition-isSubjectAccountHolder-unfilled"><g:message code="sgr.property.accountHolderFirstName.label" /> *  <span><g:message code="sgr.property.accountHolderFirstName.help" /></span></label>
-            <input  type="text" id="accountHolderFirstName" name="accountHolderFirstName" value="${rqt.accountHolderFirstName?.toString()}" 
-                    class="required condition-isSubjectAccountHolder-unfilled  validate-firstName ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderFirstName') ? 'validation-failed' : ''}" title="<g:message code="sgr.property.accountHolderFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="accountHolderFirstName"
+                   name="accountHolderFirstName"
+                   value="${rqt.accountHolderFirstName?.toString()}"
+                   class="required condition-isSubjectAccountHolder-unfilled  validate-firstName ${rqt.stepStates['bankReference'].invalidFields.contains('accountHolderFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="sgr.property.accountHolderFirstName.validationError" />"  maxlength="38" />
             
 
   

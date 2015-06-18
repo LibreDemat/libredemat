@@ -18,15 +18,21 @@
     
       
       <label for="socialSecurityNumber" class="required condition-isSocialSecurityMemberShip-filled"><g:message code="hccr.property.socialSecurityNumber.label" /> *  <span><g:message code="hccr.property.socialSecurityNumber.help" /></span></label>
-            <input  type="text" id="socialSecurityNumber" name="socialSecurityNumber" value="${rqt.socialSecurityNumber?.toString()}" 
-                    class="required condition-isSocialSecurityMemberShip-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('socialSecurityNumber') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.socialSecurityNumber.validationError" />"   />
+            <input  type="text" id="socialSecurityNumber"
+                   name="socialSecurityNumber"
+                   value="${rqt.socialSecurityNumber?.toString()}"
+                   class="required condition-isSocialSecurityMemberShip-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('socialSecurityNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.socialSecurityNumber.validationError" />"   />
             
 
     
       
       <label for="socialSecurityAgencyName" class="required condition-isSocialSecurityMemberShip-filled"><g:message code="hccr.property.socialSecurityAgencyName.label" /> *  <span><g:message code="hccr.property.socialSecurityAgencyName.help" /></span></label>
-            <input  type="text" id="socialSecurityAgencyName" name="socialSecurityAgencyName" value="${rqt.socialSecurityAgencyName?.toString()}" 
-                    class="required condition-isSocialSecurityMemberShip-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('socialSecurityAgencyName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.socialSecurityAgencyName.validationError" />"  maxlength="50" />
+            <input  type="text" id="socialSecurityAgencyName"
+                   name="socialSecurityAgencyName"
+                   value="${rqt.socialSecurityAgencyName?.toString()}"
+                   class="required condition-isSocialSecurityMemberShip-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('socialSecurityAgencyName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.socialSecurityAgencyName.validationError" />"  maxlength="50" />
             
 
     
@@ -76,15 +82,21 @@
     
       
       <label for="paymentAgencyBeneficiaryNumber" class="required condition-isPaymentAgencyBeneficiary-filled"><g:message code="hccr.property.paymentAgencyBeneficiaryNumber.label" /> *  <span><g:message code="hccr.property.paymentAgencyBeneficiaryNumber.help" /></span></label>
-            <input  type="text" id="paymentAgencyBeneficiaryNumber" name="paymentAgencyBeneficiaryNumber" value="${rqt.paymentAgencyBeneficiaryNumber?.toString()}" 
-                    class="required condition-isPaymentAgencyBeneficiary-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('paymentAgencyBeneficiaryNumber') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.paymentAgencyBeneficiaryNumber.validationError" />"  maxlength="20" />
+            <input  type="text" id="paymentAgencyBeneficiaryNumber"
+                   name="paymentAgencyBeneficiaryNumber"
+                   value="${rqt.paymentAgencyBeneficiaryNumber?.toString()}"
+                   class="required condition-isPaymentAgencyBeneficiary-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('paymentAgencyBeneficiaryNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.paymentAgencyBeneficiaryNumber.validationError" />"  maxlength="20" />
             
 
     
       
       <label for="paymentAgencyName" class="required condition-isPaymentAgencyBeneficiary-filled"><g:message code="hccr.property.paymentAgencyName.label" /> *  <span><g:message code="hccr.property.paymentAgencyName.help" /></span></label>
-            <input  type="text" id="paymentAgencyName" name="paymentAgencyName" value="${rqt.paymentAgencyName?.toString()}" 
-                    class="required condition-isPaymentAgencyBeneficiary-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('paymentAgencyName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.paymentAgencyName.validationError" />"  maxlength="50" />
+            <input  type="text" id="paymentAgencyName"
+                   name="paymentAgencyName"
+                   value="${rqt.paymentAgencyName?.toString()}"
+                   class="required condition-isPaymentAgencyBeneficiary-filled   ${rqt.stepStates['socialSecurityAndPaymentAgency'].invalidFields.contains('paymentAgencyName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.paymentAgencyName.validationError" />"  maxlength="50" />
             
 
     

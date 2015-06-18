@@ -79,8 +79,11 @@
   
     
     <label for="subjectBirthCity" class="required"><g:message code="bgr.property.subjectBirthCity.label" /> *  <span><g:message code="bgr.property.subjectBirthCity.help" /></span></label>
-            <input  type="text" id="subjectBirthCity" name="subjectBirthCity" value="${rqt.subjectBirthCity?.toString()}" 
-                    class="required autofill-subjectFilling-listener-BirthCity validate-city ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCity') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.subjectBirthCity.validationError" />"  maxlength="32" />
+            <input  type="text" id="subjectBirthCity"
+                   name="subjectBirthCity"
+                   value="${rqt.subjectBirthCity?.toString()}"
+                   class="required autofill-subjectFilling-listener-BirthCity validate-city ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCity') ? 'validation-failed' : ''}"
+                   title="<g:message code="bgr.property.subjectBirthCity.validationError" />"  maxlength="32" />
             
 
   
@@ -116,8 +119,11 @@
   
     
     <label for="subjectPhone" class="required"><g:message code="bgr.property.subjectPhone.label" /> *  <span><g:message code="bgr.property.subjectPhone.help" /></span></label>
-            <input  type="text" id="subjectPhone" name="subjectPhone" value="${rqt.subjectPhone?.toString()}" 
-                    class="required autofill-subjectFilling-listener-homePhone validate-phone ${rqt.stepStates['subject'].invalidFields.contains('subjectPhone') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.subjectPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="subjectPhone"
+                   name="subjectPhone"
+                   value="${rqt.subjectPhone?.toString()}"
+                   class="required autofill-subjectFilling-listener-homePhone validate-phone ${rqt.stepStates['subject'].invalidFields.contains('subjectPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="bgr.property.subjectPhone.validationError" />"  maxlength="10" />
             
 
   
@@ -125,8 +131,11 @@
   
     
     <label for="subjectEmail" class="required"><g:message code="bgr.property.subjectEmail.label" /> *  <span><g:message code="bgr.property.subjectEmail.help" /></span></label>
-            <input  type="text" id="subjectEmail" name="subjectEmail" value="${rqt.subjectEmail?.toString()}" 
-                    class="required autofill-subjectFilling-listener-email validate-email ${rqt.stepStates['subject'].invalidFields.contains('subjectEmail') ? 'validation-failed' : ''}" title="<g:message code="bgr.property.subjectEmail.validationError" />"   />
+            <input  type="text" id="subjectEmail"
+                   name="subjectEmail"
+                   value="${rqt.subjectEmail?.toString()}"
+                   class="required autofill-subjectFilling-listener-email validate-email ${rqt.stepStates['subject'].invalidFields.contains('subjectEmail') ? 'validation-failed' : ''}"
+                   title="<g:message code="bgr.property.subjectEmail.validationError" />"   />
             
 
   

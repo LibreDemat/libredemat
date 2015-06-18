@@ -40,16 +40,24 @@
           
 
         
-          <dt><g:message code="cccrr.property.mondayFirstPeriodBegining.label" /></dt><dd>${rqt.mondayFirstPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.mondayFirstPeriodBegining.label" /></dt>
+          <dd>${rqt.mondayFirstPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.mondayFirstPeriodEnding.label" /></dt><dd>${rqt.mondayFirstPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.mondayFirstPeriodEnding.label" /></dt>
+          <dd>${rqt.mondayFirstPeriodEnding?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.mondaySecondPeriodBegining.label" /></dt><dd>${rqt.mondaySecondPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.mondaySecondPeriodBegining.label" /></dt>
+          <dd>${rqt.mondaySecondPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.mondaySecondPeriodEnding.label" /></dt><dd>${rqt.mondaySecondPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.mondaySecondPeriodEnding.label" /></dt>
+          <dd>${rqt.mondaySecondPeriodEnding?.toString()}</dd>
+          
 
         
       </dl>
@@ -68,16 +76,24 @@
           
 
         
-          <dt><g:message code="cccrr.property.tuesdayFirstPeriodBegining.label" /></dt><dd>${rqt.tuesdayFirstPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.tuesdayFirstPeriodBegining.label" /></dt>
+          <dd>${rqt.tuesdayFirstPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.tuesdayFirstPeriodEnding.label" /></dt><dd>${rqt.tuesdayFirstPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.tuesdayFirstPeriodEnding.label" /></dt>
+          <dd>${rqt.tuesdayFirstPeriodEnding?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.tuesdaySecondPeriodBegining.label" /></dt><dd>${rqt.tuesdaySecondPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.tuesdaySecondPeriodBegining.label" /></dt>
+          <dd>${rqt.tuesdaySecondPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.tuesdaySecondPeriodEnding.label" /></dt><dd>${rqt.tuesdaySecondPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.tuesdaySecondPeriodEnding.label" /></dt>
+          <dd>${rqt.tuesdaySecondPeriodEnding?.toString()}</dd>
+          
 
         
       </dl>
@@ -96,16 +112,24 @@
           
 
         
-          <dt><g:message code="cccrr.property.wednesdayFirstPeriodBegining.label" /></dt><dd>${rqt.wednesdayFirstPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.wednesdayFirstPeriodBegining.label" /></dt>
+          <dd>${rqt.wednesdayFirstPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.wednesdayFirstPeriodEnding.label" /></dt><dd>${rqt.wednesdayFirstPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.wednesdayFirstPeriodEnding.label" /></dt>
+          <dd>${rqt.wednesdayFirstPeriodEnding?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.wednesdaySecondPeriodBegining.label" /></dt><dd>${rqt.wednesdaySecondPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.wednesdaySecondPeriodBegining.label" /></dt>
+          <dd>${rqt.wednesdaySecondPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.wednesdaySecondPeriodEnding.label" /></dt><dd>${rqt.wednesdaySecondPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.wednesdaySecondPeriodEnding.label" /></dt>
+          <dd>${rqt.wednesdaySecondPeriodEnding?.toString()}</dd>
+          
 
         
       </dl>
@@ -124,16 +148,24 @@
           
 
         
-          <dt><g:message code="cccrr.property.thursdayFirstPeriodBegining.label" /></dt><dd>${rqt.thursdayFirstPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.thursdayFirstPeriodBegining.label" /></dt>
+          <dd>${rqt.thursdayFirstPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.thursdayFirstPeriodEnding.label" /></dt><dd>${rqt.thursdayFirstPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.thursdayFirstPeriodEnding.label" /></dt>
+          <dd>${rqt.thursdayFirstPeriodEnding?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.thursdaySecondPeriodBegining.label" /></dt><dd>${rqt.thursdaySecondPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.thursdaySecondPeriodBegining.label" /></dt>
+          <dd>${rqt.thursdaySecondPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.thursdaySecondPeriodEnding.label" /></dt><dd>${rqt.thursdaySecondPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.thursdaySecondPeriodEnding.label" /></dt>
+          <dd>${rqt.thursdaySecondPeriodEnding?.toString()}</dd>
+          
 
         
       </dl>
@@ -152,16 +184,24 @@
           
 
         
-          <dt><g:message code="cccrr.property.fridayFirstPeriodBegining.label" /></dt><dd>${rqt.fridayFirstPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.fridayFirstPeriodBegining.label" /></dt>
+          <dd>${rqt.fridayFirstPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.fridayFirstPeriodEnding.label" /></dt><dd>${rqt.fridayFirstPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.fridayFirstPeriodEnding.label" /></dt>
+          <dd>${rqt.fridayFirstPeriodEnding?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.fridaySecondPeriodBegining.label" /></dt><dd>${rqt.fridaySecondPeriodBegining?.toString()}</dd>
+          <dt><g:message code="cccrr.property.fridaySecondPeriodBegining.label" /></dt>
+          <dd>${rqt.fridaySecondPeriodBegining?.toString()}</dd>
+          
 
         
-          <dt><g:message code="cccrr.property.fridaySecondPeriodEnding.label" /></dt><dd>${rqt.fridaySecondPeriodEnding?.toString()}</dd>
+          <dt><g:message code="cccrr.property.fridaySecondPeriodEnding.label" /></dt>
+          <dd>${rqt.fridaySecondPeriodEnding?.toString()}</dd>
+          
 
         
       </dl>

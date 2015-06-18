@@ -26,7 +26,9 @@
     
       
       <dl>
-        <dt><g:message code="raprr.property.urgencyPolyPhone.label" /></dt><dd>${rqt.urgencyPolyPhone?.toString()}</dd>
+        <dt><g:message code="raprr.property.urgencyPolyPhone.label" /></dt>
+          <dd>${rqt.urgencyPolyPhone?.toString()}</dd>
+          
 
       </dl>
       
@@ -42,10 +44,14 @@
       <g:each var="it" in="${rqt.contactPolyIndividuals}" status="index">
       <dl>
         
-          <dt><g:message code="raprr.property.lastName.label" /></dt><dd>${it.lastName?.toString()}</dd>
+          <dt><g:message code="raprr.property.lastName.label" /></dt>
+          <dd>${it.lastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="raprr.property.firstName.label" /></dt><dd>${it.firstName?.toString()}</dd>
+          <dt><g:message code="raprr.property.firstName.label" /></dt>
+          <dd>${it.firstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="raprr.property.address.label" /></dt>
@@ -62,10 +68,14 @@
           
 
         
-          <dt><g:message code="raprr.property.homePhone.label" /></dt><dd>${it.homePhone?.toString()}</dd>
+          <dt><g:message code="raprr.property.homePhone.label" /></dt>
+          <dd>${it.homePhone?.toString()}</dd>
+          
 
         
-          <dt><g:message code="raprr.property.officePhone.label" /></dt><dd>${it.officePhone?.toString()}</dd>
+          <dt><g:message code="raprr.property.officePhone.label" /></dt>
+          <dd>${it.officePhone?.toString()}</dd>
+          
 
         
       </dl>
@@ -83,10 +93,14 @@
       <g:each var="it" in="${rqt.authorizedPolyIndividuals}" status="index">
       <dl>
         
-          <dt><g:message code="raprr.property.lastName.label" /></dt><dd>${it.lastName?.toString()}</dd>
+          <dt><g:message code="raprr.property.lastName.label" /></dt>
+          <dd>${it.lastName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="raprr.property.firstName.label" /></dt><dd>${it.firstName?.toString()}</dd>
+          <dt><g:message code="raprr.property.firstName.label" /></dt>
+          <dd>${it.firstName?.toString()}</dd>
+          
 
         
           <dt><g:message code="raprr.property.address.label" /></dt>
@@ -103,10 +117,14 @@
           
 
         
-          <dt><g:message code="raprr.property.homePhone.label" /></dt><dd>${it.homePhone?.toString()}</dd>
+          <dt><g:message code="raprr.property.homePhone.label" /></dt>
+          <dd>${it.homePhone?.toString()}</dd>
+          
 
         
-          <dt><g:message code="raprr.property.officePhone.label" /></dt><dd>${it.officePhone?.toString()}</dd>
+          <dt><g:message code="raprr.property.officePhone.label" /></dt>
+          <dd>${it.officePhone?.toString()}</dd>
+          
 
         
       </dl>

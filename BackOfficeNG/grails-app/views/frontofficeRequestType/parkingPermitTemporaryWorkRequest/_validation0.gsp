@@ -26,10 +26,14 @@
       <h4><g:message code="pptwr.property.companyInformation.label" /></h4>
       <dl>
         
-          <dt><g:message code="pptwr.property.siretNumber.label" /></dt><dd>${rqt.siretNumber?.toString()}</dd>
+          <dt><g:message code="pptwr.property.siretNumber.label" /></dt>
+          <dd>${rqt.siretNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pptwr.property.apeCode.label" /></dt><dd>${rqt.apeCode?.toString()}</dd>
+          <dt><g:message code="pptwr.property.apeCode.label" /></dt>
+          <dd>${rqt.apeCode?.toString()}</dd>
+          
 
         
       </dl>
@@ -51,10 +55,14 @@
       <h4><g:message code="pptwr.property.parkingPermitForWorkInformation.label" /></h4>
       <dl>
         
-          <dt><g:message code="pptwr.property.siteAddress.label" /></dt><dd>${rqt.siteAddress?.toString()}</dd>
+          <dt><g:message code="pptwr.property.siteAddress.label" /></dt>
+          <dd>${rqt.siteAddress?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pptwr.property.workNature.label" /></dt><dd>${rqt.workNature?.toString()}</dd>
+          <dt><g:message code="pptwr.property.workNature.label" /></dt>
+          <dd>${rqt.workNature?.toString()}</dd>
+          
 
         
           <dt><g:message code="pptwr.property.workOnBuilding.label" /></dt>
@@ -62,10 +70,14 @@
           
 
         
-          <dt><g:message code="pptwr.property.constructLicenseNumber.label" /></dt><dd>${rqt.constructLicenseNumber?.toString()}</dd>
+          <dt><g:message code="pptwr.property.constructLicenseNumber.label" /></dt>
+          <dd>${rqt.constructLicenseNumber?.toString()}</dd>
+          
 
         
-          <dt><g:message code="pptwr.property.usedVehicles.label" /></dt><dd>${rqt.usedVehicles?.toString()}</dd>
+          <dt><g:message code="pptwr.property.usedVehicles.label" /></dt>
+          <dd>${rqt.usedVehicles?.toString()}</dd>
+          
 
         
       </dl>
@@ -75,7 +87,9 @@
       <h4><g:message code="pptwr.property.existingLicenseExtensionInformation.label" /></h4>
       <dl>
         
-          <dt><g:message code="pptwr.property.referenceNumber.label" /></dt><dd>${rqt.referenceNumber?.toString()}</dd>
+          <dt><g:message code="pptwr.property.referenceNumber.label" /></dt>
+          <dd>${rqt.referenceNumber?.toString()}</dd>
+          
 
         
       </dl>
@@ -136,7 +150,9 @@
           
 
         
-          <dt><g:message code="pptwr.property.occupationOtherAddress.label" /></dt><dd>${rqt.occupationOtherAddress?.toString()}</dd>
+          <dt><g:message code="pptwr.property.occupationOtherAddress.label" /></dt>
+          <dd>${rqt.occupationOtherAddress?.toString()}</dd>
+          
 
         
       </dl>
@@ -144,7 +160,9 @@
     
       
       <dl>
-        <dt><g:message code="pptwr.property.observations.label" /></dt><dd>${rqt.observations?.toString()}</dd>
+        <dt><g:message code="pptwr.property.observations.label" /></dt>
+          <dd>${rqt.observations?.toString()}</dd>
+          
 
       </dl>
       
@@ -166,7 +184,9 @@
     
       
       <dl>
-        <dt><g:message code="pptwr.property.observationsReglement.label" /></dt><dd>${rqt.observationsReglement?.toString()}</dd>
+        <dt><g:message code="pptwr.property.observationsReglement.label" /></dt>
+          <dd>${rqt.observationsReglement?.toString()}</dd>
+          
 
       </dl>
       

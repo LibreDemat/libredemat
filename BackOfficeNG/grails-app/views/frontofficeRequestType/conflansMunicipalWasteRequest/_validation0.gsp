@@ -19,7 +19,9 @@
     
       
       <dl>
-        <dt><g:message code="cmwr.property.nomOrganisation.label" /></dt><dd>${rqt.nomOrganisation?.toString()}</dd>
+        <dt><g:message code="cmwr.property.nomOrganisation.label" /></dt>
+          <dd>${rqt.nomOrganisation?.toString()}</dd>
+          
 
       </dl>
       
@@ -44,7 +46,9 @@
     
       
       <dl>
-        <dt><g:message code="cmwr.property.nombreResidants.label" /></dt><dd>${rqt.nombreResidants?.toString()}</dd>
+        <dt><g:message code="cmwr.property.nombreResidants.label" /></dt>
+          <dd>${rqt.nombreResidants?.toString()}</dd>
+          
 
       </dl>
       
@@ -76,7 +80,9 @@
     
       
       <dl>
-        <dt><g:message code="cmwr.property.precisionsReparation.label" /></dt><dd>${rqt.precisionsReparation?.toString()}</dd>
+        <dt><g:message code="cmwr.property.precisionsReparation.label" /></dt>
+          <dd>${rqt.precisionsReparation?.toString()}</dd>
+          
 
       </dl>
       

@@ -30,13 +30,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'ddr.property.deathLastName.label')} &nbsp;*&nbsp;:</dt><dd id="deathLastName" class="action-editField validate-lastName required-true i18n-ddr.property.deathLastName maxLength-38" ><span>${rqt?.deathLastName}</span></dd>
+                <dt class="required">${message(code:'ddr.property.deathLastName.label')} &nbsp;*&nbsp;:</dt><dd id="deathLastName" class="action-editField validate-lastName required-true i18n-ddr.property.deathLastName maxLength-38" ><span >${rqt?.deathLastName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'ddr.property.deathFirstNames.label')} &nbsp;*&nbsp;:</dt><dd id="deathFirstNames" class="action-editField validate-string required-true i18n-ddr.property.deathFirstNames" ><span>${rqt?.deathFirstNames}</span></dd>
+                <dt class="required">${message(code:'ddr.property.deathFirstNames.label')} &nbsp;*&nbsp;:</dt><dd id="deathFirstNames" class="action-editField validate-string required-true i18n-ddr.property.deathFirstNames" ><span >${rqt?.deathFirstNames}</span></dd>
               </dl>
               
             
@@ -48,13 +48,13 @@
             
               
               <dl>
-                <dt class="required">${message(code:'ddr.property.deathCity.label')} &nbsp;*&nbsp;:</dt><dd id="deathCity" class="action-editField validate-city required-true i18n-ddr.property.deathCity maxLength-32" ><span>${rqt?.deathCity}</span></dd>
+                <dt class="required">${message(code:'ddr.property.deathCity.label')} &nbsp;*&nbsp;:</dt><dd id="deathCity" class="action-editField validate-city required-true i18n-ddr.property.deathCity maxLength-32" ><span >${rqt?.deathCity}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'ddr.property.deathPostalCode.label')} &nbsp;*&nbsp;:</dt><dd id="deathPostalCode" class="action-editField validate-departmentCode required-true i18n-ddr.property.deathPostalCode maxLength-2" ><span>${rqt?.deathPostalCode}</span></dd>
+                <dt class="required">${message(code:'ddr.property.deathPostalCode.label')} &nbsp;*&nbsp;:</dt><dd id="deathPostalCode" class="action-editField validate-departmentCode required-true i18n-ddr.property.deathPostalCode maxLength-2" ><span >${rqt?.deathPostalCode}</span></dd>
               </dl>
               
             
@@ -91,7 +91,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'ddr.property.copies.label')} &nbsp;*&nbsp;:</dt><dd id="copies" class="action-editField validate-positiveInteger required-true i18n-ddr.property.copies" ><span>${rqt?.copies}</span></dd>
+                <dt class="required">${message(code:'ddr.property.copies.label')} &nbsp;*&nbsp;:</dt><dd id="copies" class="action-editField validate-positiveInteger required-true i18n-ddr.property.copies" ><span >${rqt?.copies}</span></dd>
               </dl>
               
             
@@ -103,7 +103,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'ddr.property.comment.label')} &nbsp;:</dt><dd id="comment" class="action-editField validate-regex i18n-ddr.property.comment rows-3 maxLength-255" regex="^[\w\W]{0,255}$"><span>${rqt?.comment}</span></dd>
+                <dt class="">${message(code:'ddr.property.comment.label')} &nbsp;:</dt><dd id="comment" class="action-editField validate-regex i18n-ddr.property.comment rows-3 maxLength-255" regex="^[\w\W]{0,255}$"><span >${rqt?.comment}</span></dd>
               </dl>
               
             

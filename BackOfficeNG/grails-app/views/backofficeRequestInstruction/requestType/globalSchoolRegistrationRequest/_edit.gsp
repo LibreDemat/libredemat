@@ -54,9 +54,9 @@
               <h3><g:message code="gsrr.property.ecoleDerogation.label" /></h3>
               <dl class="required condition-estDerogation-filled">
                 
-                  <dt class="required">${message(code:'gsrr.property.idEcoleDerog.label')} &nbsp;*&nbsp;:</dt><dd id="idEcoleDerog" class="action-editField validate-string required-true i18n-gsrr.property.idEcoleDerog" ><span>${rqt?.idEcoleDerog}</span></dd>
+                  <dt class="required">${message(code:'gsrr.property.idEcoleDerog.label')} &nbsp;*&nbsp;:</dt><dd id="idEcoleDerog" class="action-editField validate-string required-true i18n-gsrr.property.idEcoleDerog" ><span >${rqt?.idEcoleDerog}</span></dd>
                 
-                  <dt class="required">${message(code:'gsrr.property.labelEcoleDerog.label')} &nbsp;*&nbsp;:</dt><dd id="labelEcoleDerog" class="action-editField validate-string required-true i18n-gsrr.property.labelEcoleDerog" ><span>${rqt?.labelEcoleDerog}</span></dd>
+                  <dt class="required">${message(code:'gsrr.property.labelEcoleDerog.label')} &nbsp;*&nbsp;:</dt><dd id="labelEcoleDerog" class="action-editField validate-string required-true i18n-gsrr.property.labelEcoleDerog" ><span >${rqt?.labelEcoleDerog}</span></dd>
                 
               </dl>
               
@@ -74,7 +74,7 @@
             
               
               <dl>
-                <dt class="condition-estDerogation-filled">${message(code:'gsrr.property.informationsComplementairesDerogation.label')} &nbsp;:</dt><dd id="informationsComplementairesDerogation" class="action-editField validate-regex i18n-gsrr.property.informationsComplementairesDerogation rows-10 maxLength-1024" regex="^[\w\W]{0,1024}$"><span>${rqt?.informationsComplementairesDerogation}</span></dd>
+                <dt class="condition-estDerogation-filled">${message(code:'gsrr.property.informationsComplementairesDerogation.label')} &nbsp;:</dt><dd id="informationsComplementairesDerogation" class="action-editField validate-regex i18n-gsrr.property.informationsComplementairesDerogation rows-10 maxLength-1024" regex="^[\w\W]{0,1024}$"><span >${rqt?.informationsComplementairesDerogation}</span></dd>
               </dl>
               
             
@@ -88,9 +88,9 @@
               <h3><g:message code="gsrr.property.ecoleSecteur.label" /></h3>
               <dl class="required condition-estDerogation-unfilled">
                 
-                  <dt class="required">${message(code:'gsrr.property.idEcoleSecteur.label')} &nbsp;*&nbsp;:</dt><dd id="idEcoleSecteur" class="action-editField validate-string required-true i18n-gsrr.property.idEcoleSecteur" ><span>${rqt?.idEcoleSecteur}</span></dd>
+                  <dt class="required">${message(code:'gsrr.property.idEcoleSecteur.label')} &nbsp;*&nbsp;:</dt><dd id="idEcoleSecteur" class="action-editField validate-string required-true i18n-gsrr.property.idEcoleSecteur" ><span >${rqt?.idEcoleSecteur}</span></dd>
                 
-                  <dt class="required">${message(code:'gsrr.property.labelEcoleSecteur.label')} &nbsp;*&nbsp;:</dt><dd id="labelEcoleSecteur" class="action-editField validate-string required-true i18n-gsrr.property.labelEcoleSecteur" ><span>${rqt?.labelEcoleSecteur}</span></dd>
+                  <dt class="required">${message(code:'gsrr.property.labelEcoleSecteur.label')} &nbsp;*&nbsp;:</dt><dd id="labelEcoleSecteur" class="action-editField validate-string required-true i18n-gsrr.property.labelEcoleSecteur" ><span >${rqt?.labelEcoleSecteur}</span></dd>
                 
               </dl>
               

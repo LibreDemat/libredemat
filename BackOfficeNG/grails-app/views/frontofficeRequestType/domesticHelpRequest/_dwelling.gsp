@@ -33,8 +33,11 @@
     
       
       <label for="dhrCurrentDwellingPhone" class=""><g:message code="dhr.property.dhrCurrentDwellingPhone.label" />   <span><g:message code="dhr.property.dhrCurrentDwellingPhone.help" /></span></label>
-            <input  type="text" id="dhrCurrentDwellingPhone" name="dhrCurrentDwellingPhone" value="${rqt.dhrCurrentDwellingPhone?.toString()}" 
-                    class="  validate-phone ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingPhone') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrCurrentDwellingPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="dhrCurrentDwellingPhone"
+                   name="dhrCurrentDwellingPhone"
+                   value="${rqt.dhrCurrentDwellingPhone?.toString()}"
+                   class="  validate-phone ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrCurrentDwellingPhone.validationError" />"  maxlength="10" />
             
 
     
@@ -105,15 +108,21 @@
     
       
       <label for="dhrCurrentDwellingNumberOfRoom" class="required condition-isCurrentDwellingPlaceOfResidence-filled"><g:message code="dhr.property.dhrCurrentDwellingNumberOfRoom.label" /> *  <span><g:message code="dhr.property.dhrCurrentDwellingNumberOfRoom.help" /></span></label>
-            <input  type="text" id="dhrCurrentDwellingNumberOfRoom" name="dhrCurrentDwellingNumberOfRoom" value="${rqt.dhrCurrentDwellingNumberOfRoom?.toString()}" 
-                    class="required condition-isCurrentDwellingPlaceOfResidence-filled  validate-dhrDwellingNumberOfRoom ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingNumberOfRoom') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrCurrentDwellingNumberOfRoom.validationError" />"   />
+            <input  type="text" id="dhrCurrentDwellingNumberOfRoom"
+                   name="dhrCurrentDwellingNumberOfRoom"
+                   value="${rqt.dhrCurrentDwellingNumberOfRoom?.toString()}"
+                   class="required condition-isCurrentDwellingPlaceOfResidence-filled  validate-dhrDwellingNumberOfRoom ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingNumberOfRoom') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrCurrentDwellingNumberOfRoom.validationError" />"   />
             
 
     
       
       <label for="dhrCurrentDwellingNetArea" class="required condition-isCurrentDwellingPlaceOfResidence-filled"><g:message code="dhr.property.dhrCurrentDwellingNetArea.label" /> *  <span><g:message code="dhr.property.dhrCurrentDwellingNetArea.help" /></span></label>
-            <input  type="text" id="dhrCurrentDwellingNetArea" name="dhrCurrentDwellingNetArea" value="${rqt.dhrCurrentDwellingNetArea?.toString()}" 
-                    class="required condition-isCurrentDwellingPlaceOfResidence-filled  validate-regex ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingNetArea') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrCurrentDwellingNetArea.validationError" />" regex="^[1-9]$|^[1-9][0-9]$|^[1-4][0-9][0-9]$|^500$"  />
+            <input  type="text" id="dhrCurrentDwellingNetArea"
+                   name="dhrCurrentDwellingNetArea"
+                   value="${rqt.dhrCurrentDwellingNetArea?.toString()}"
+                   class="required condition-isCurrentDwellingPlaceOfResidence-filled  validate-regex ${rqt.stepStates['dwelling'].invalidFields.contains('dhrCurrentDwellingNetArea') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrCurrentDwellingNetArea.validationError" />" regex="^[1-9]$|^[1-9][0-9]$|^[1-4][0-9][0-9]$|^500$"  />
             
 
     
@@ -129,7 +138,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'dwelling', 'currentCollection':'dhrPreviousDwelling', 'collectionIndex':(rqt.dhrPreviousDwelling ? rqt.dhrPreviousDwelling.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'dwelling', 'currentCollection':'dhrPreviousDwelling',
+                    'collectionIndex':(rqt.dhrPreviousDwelling ? rqt.dhrPreviousDwelling.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -139,7 +151,7 @@
         <dl>
         <dt class="head"><g:message code="dhr.property.dhrPreviousDwelling.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'dwelling', 'currentCollection':'dhrPreviousDwelling', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'dwelling', 'currentCollection':'dhrPreviousDwelling', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'dwelling', 'currentCollection':'dhrPreviousDwelling', 'collectionIndex':index])}">

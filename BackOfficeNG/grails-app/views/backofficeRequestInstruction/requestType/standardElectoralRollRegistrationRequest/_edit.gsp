@@ -46,25 +46,25 @@
             
               
               <dl>
-                <dt class="required">${message(code:'serrr.property.nomNaissance.label')} &nbsp;*&nbsp;:</dt><dd id="nomNaissance" class="action-editField validate-lastName required-true i18n-serrr.property.nomNaissance maxLength-38" ><span>${rqt?.nomNaissance}</span></dd>
+                <dt class="required">${message(code:'serrr.property.nomNaissance.label')} &nbsp;*&nbsp;:</dt><dd id="nomNaissance" class="action-editField validate-lastName required-true i18n-serrr.property.nomNaissance maxLength-38" ><span >${rqt?.nomNaissance}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'serrr.property.prenom.label')} &nbsp;*&nbsp;:</dt><dd id="prenom" class="action-editField validate-firstName required-true i18n-serrr.property.prenom maxLength-38" ><span>${rqt?.prenom}</span></dd>
+                <dt class="required">${message(code:'serrr.property.prenom.label')} &nbsp;*&nbsp;:</dt><dd id="prenom" class="action-editField validate-firstName required-true i18n-serrr.property.prenom maxLength-38" ><span >${rqt?.prenom}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'serrr.property.deuxiemePrenom.label')} &nbsp;:</dt><dd id="deuxiemePrenom" class="action-editField validate-firstName i18n-serrr.property.deuxiemePrenom maxLength-38" ><span>${rqt?.deuxiemePrenom}</span></dd>
+                <dt class="">${message(code:'serrr.property.deuxiemePrenom.label')} &nbsp;:</dt><dd id="deuxiemePrenom" class="action-editField validate-firstName i18n-serrr.property.deuxiemePrenom maxLength-38" ><span >${rqt?.deuxiemePrenom}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'serrr.property.troisiemePrenom.label')} &nbsp;:</dt><dd id="troisiemePrenom" class="action-editField validate-firstName i18n-serrr.property.troisiemePrenom maxLength-38" ><span>${rqt?.troisiemePrenom}</span></dd>
+                <dt class="">${message(code:'serrr.property.troisiemePrenom.label')} &nbsp;:</dt><dd id="troisiemePrenom" class="action-editField validate-firstName i18n-serrr.property.troisiemePrenom maxLength-38" ><span >${rqt?.troisiemePrenom}</span></dd>
               </dl>
               
             
@@ -76,7 +76,7 @@
             
               
               <dl>
-                <dt class="condition-estFemme-filled">${message(code:'serrr.property.nomMarital.label')} &nbsp;:</dt><dd id="nomMarital" class="action-editField validate-lastName i18n-serrr.property.nomMarital maxLength-38" ><span>${rqt?.nomMarital}</span></dd>
+                <dt class="condition-estFemme-filled">${message(code:'serrr.property.nomMarital.label')} &nbsp;:</dt><dd id="nomMarital" class="action-editField validate-lastName i18n-serrr.property.nomMarital maxLength-38" ><span >${rqt?.nomMarital}</span></dd>
               </dl>
               
             
@@ -90,7 +90,7 @@
               <h3><g:message code="serrr.property.lieuNaissance.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'serrr.property.villeNaissanceCodePostal.label')} &nbsp;*&nbsp;:</dt><dd id="villeNaissanceCodePostal" class="action-editField validate-city required-true i18n-serrr.property.villeNaissanceCodePostal maxLength-32" ><span>${rqt?.villeNaissanceCodePostal}</span></dd>
+                  <dt class="required">${message(code:'serrr.property.villeNaissanceCodePostal.label')} &nbsp;*&nbsp;:</dt><dd id="villeNaissanceCodePostal" class="action-editField validate-city required-true i18n-serrr.property.villeNaissanceCodePostal maxLength-32" ><span >${rqt?.villeNaissanceCodePostal}</span></dd>
                 
                   <dt class="">${message(code:'serrr.property.lieuNaissanceDepartement.label')} &nbsp;:</dt><dd id="lieuNaissanceDepartement" class="action-editField validate-libredematEnum i18n-serrr.property.lieuNaissanceDepartement javatype-org.libredemat.business.users.InseeDepartementCodeType" ><g:libredematEnumToField var="${rqt?.lieuNaissanceDepartement}" i18nKeyPrefix="serrr.property.lieuNaissanceDepartement" /></dd>
                 
@@ -115,9 +115,9 @@
                 
                   <dt class="condition-estElectionEuropenne-filled">${message(code:'serrr.property.paysPrecedent.label')} &nbsp;:</dt><dd id="paysPrecedent" class="action-editField validate-libredematEnum i18n-serrr.property.paysPrecedent javatype-org.libredemat.business.users.CountryType" ><g:libredematEnumToField var="${rqt?.paysPrecedent}" i18nKeyPrefix="serrr.property.paysPrecedent" /></dd>
                 
-                  <dt class="condition-estElectionEuropenne-filled">${message(code:'serrr.property.subdivisionAdministrativePrecedente.label')} &nbsp;:</dt><dd id="subdivisionAdministrativePrecedente" class="action-editField validate-string i18n-serrr.property.subdivisionAdministrativePrecedente" ><span>${rqt?.subdivisionAdministrativePrecedente}</span></dd>
+                  <dt class="condition-estElectionEuropenne-filled">${message(code:'serrr.property.subdivisionAdministrativePrecedente.label')} &nbsp;:</dt><dd id="subdivisionAdministrativePrecedente" class="action-editField validate-string i18n-serrr.property.subdivisionAdministrativePrecedente" ><span >${rqt?.subdivisionAdministrativePrecedente}</span></dd>
                 
-                  <dt class="condition-estElectionEuropenne-filled">${message(code:'serrr.property.communeOuLocalitePrecedente.label')} &nbsp;:</dt><dd id="communeOuLocalitePrecedente" class="action-editField validate-city i18n-serrr.property.communeOuLocalitePrecedente maxLength-32" ><span>${rqt?.communeOuLocalitePrecedente}</span></dd>
+                  <dt class="condition-estElectionEuropenne-filled">${message(code:'serrr.property.communeOuLocalitePrecedente.label')} &nbsp;:</dt><dd id="communeOuLocalitePrecedente" class="action-editField validate-city i18n-serrr.property.communeOuLocalitePrecedente maxLength-32" ><span >${rqt?.communeOuLocalitePrecedente}</span></dd>
                 
               </dl>
               
@@ -157,7 +157,7 @@
               <h3><g:message code="serrr.property.precedentLieuInscription.label" /></h3>
               <dl class="required condition-estChangementCommune-filled">
                 
-                  <dt class="required">${message(code:'serrr.property.ancienneCommune.label')} &nbsp;*&nbsp;:</dt><dd id="ancienneCommune" class="action-editField validate-city required-true i18n-serrr.property.ancienneCommune maxLength-32" ><span>${rqt?.ancienneCommune}</span></dd>
+                  <dt class="required">${message(code:'serrr.property.ancienneCommune.label')} &nbsp;*&nbsp;:</dt><dd id="ancienneCommune" class="action-editField validate-city required-true i18n-serrr.property.ancienneCommune maxLength-32" ><span >${rqt?.ancienneCommune}</span></dd>
                 
                   <dt class="required">${message(code:'serrr.property.departementAncienneCommune.label')} &nbsp;*&nbsp;:</dt><dd id="departementAncienneCommune" class="action-editField validate-libredematEnum required-true i18n-serrr.property.departementAncienneCommune javatype-org.libredemat.business.users.InseeDepartementCodeType" ><g:libredematEnumToField var="${rqt?.departementAncienneCommune}" i18nKeyPrefix="serrr.property.departementAncienneCommune" /></dd>
                 
@@ -191,7 +191,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'serrr.property.ambassadeOuPosteConsulaire.label')} &nbsp;:</dt><dd id="ambassadeOuPosteConsulaire" class="action-editField validate-string i18n-serrr.property.ambassadeOuPosteConsulaire" ><span>${rqt?.ambassadeOuPosteConsulaire}</span></dd>
+                <dt class="">${message(code:'serrr.property.ambassadeOuPosteConsulaire.label')} &nbsp;:</dt><dd id="ambassadeOuPosteConsulaire" class="action-editField validate-string i18n-serrr.property.ambassadeOuPosteConsulaire" ><span >${rqt?.ambassadeOuPosteConsulaire}</span></dd>
               </dl>
               
             

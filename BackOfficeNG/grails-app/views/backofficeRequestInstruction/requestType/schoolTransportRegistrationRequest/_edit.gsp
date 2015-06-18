@@ -44,9 +44,9 @@
               <h3><g:message code="strr.property.ligne.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'strr.property.idLigne.label')} &nbsp;*&nbsp;:</dt><dd id="idLigne" class="action-editField validate-string required-true i18n-strr.property.idLigne" ><span>${rqt?.idLigne}</span></dd>
+                  <dt class="required">${message(code:'strr.property.idLigne.label')} &nbsp;*&nbsp;:</dt><dd id="idLigne" class="action-editField validate-string required-true i18n-strr.property.idLigne" ><span >${rqt?.idLigne}</span></dd>
                 
-                  <dt class="required">${message(code:'strr.property.labelLigne.label')} &nbsp;*&nbsp;:</dt><dd id="labelLigne" class="action-editField validate-string required-true i18n-strr.property.labelLigne" ><span>${rqt?.labelLigne}</span></dd>
+                  <dt class="required">${message(code:'strr.property.labelLigne.label')} &nbsp;*&nbsp;:</dt><dd id="labelLigne" class="action-editField validate-string required-true i18n-strr.property.labelLigne" ><span >${rqt?.labelLigne}</span></dd>
                 
               </dl>
               
@@ -55,9 +55,9 @@
               <h3><g:message code="strr.property.arret.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'strr.property.idArret.label')} &nbsp;*&nbsp;:</dt><dd id="idArret" class="action-editField validate-string required-true i18n-strr.property.idArret" ><span>${rqt?.idArret}</span></dd>
+                  <dt class="required">${message(code:'strr.property.idArret.label')} &nbsp;*&nbsp;:</dt><dd id="idArret" class="action-editField validate-string required-true i18n-strr.property.idArret" ><span >${rqt?.idArret}</span></dd>
                 
-                  <dt class="required">${message(code:'strr.property.labelArret.label')} &nbsp;*&nbsp;:</dt><dd id="labelArret" class="action-editField validate-string required-true i18n-strr.property.labelArret" ><span>${rqt?.labelArret}</span></dd>
+                  <dt class="required">${message(code:'strr.property.labelArret.label')} &nbsp;*&nbsp;:</dt><dd id="labelArret" class="action-editField validate-string required-true i18n-strr.property.labelArret" ><span >${rqt?.labelArret}</span></dd>
                 
               </dl>
               
@@ -115,13 +115,13 @@
               <h3><g:message code="strr.property.frereOuSoeurAutorise.label" /></h3>
               <dl class="required condition-autoriseFrereOuSoeur-filled">
                 
-                  <dt class="required">${message(code:'strr.property.frereOuSoeurNom.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurNom" class="action-editField validate-lastName required-true i18n-strr.property.frereOuSoeurNom maxLength-38" ><span>${rqt?.frereOuSoeurNom}</span></dd>
+                  <dt class="required">${message(code:'strr.property.frereOuSoeurNom.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurNom" class="action-editField validate-lastName required-true i18n-strr.property.frereOuSoeurNom maxLength-38" ><span >${rqt?.frereOuSoeurNom}</span></dd>
                 
-                  <dt class="required">${message(code:'strr.property.frereOuSoeurPrenom.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurPrenom" class="action-editField validate-firstName required-true i18n-strr.property.frereOuSoeurPrenom maxLength-38" ><span>${rqt?.frereOuSoeurPrenom}</span></dd>
+                  <dt class="required">${message(code:'strr.property.frereOuSoeurPrenom.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurPrenom" class="action-editField validate-firstName required-true i18n-strr.property.frereOuSoeurPrenom maxLength-38" ><span >${rqt?.frereOuSoeurPrenom}</span></dd>
                 
-                  <dt class="required">${message(code:'strr.property.frereOuSoeurEcole.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurEcole" class="action-editField validate-string required-true i18n-strr.property.frereOuSoeurEcole" ><span>${rqt?.frereOuSoeurEcole}</span></dd>
+                  <dt class="required">${message(code:'strr.property.frereOuSoeurEcole.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurEcole" class="action-editField validate-string required-true i18n-strr.property.frereOuSoeurEcole" ><span >${rqt?.frereOuSoeurEcole}</span></dd>
                 
-                  <dt class="required">${message(code:'strr.property.frereOuSoeurClasse.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurClasse" class="action-editField validate-string required-true i18n-strr.property.frereOuSoeurClasse" ><span>${rqt?.frereOuSoeurClasse}</span></dd>
+                  <dt class="required">${message(code:'strr.property.frereOuSoeurClasse.label')} &nbsp;*&nbsp;:</dt><dd id="frereOuSoeurClasse" class="action-editField validate-string required-true i18n-strr.property.frereOuSoeurClasse" ><span >${rqt?.frereOuSoeurClasse}</span></dd>
                 
               </dl>
               

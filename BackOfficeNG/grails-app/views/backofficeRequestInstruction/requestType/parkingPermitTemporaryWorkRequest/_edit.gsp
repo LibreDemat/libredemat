@@ -48,9 +48,9 @@
               <h3><g:message code="pptwr.property.companyInformation.label" /></h3>
               <dl class="required condition-isCompany-filled">
                 
-                  <dt class="required condition-isCompany-filled">${message(code:'pptwr.property.siretNumber.label')} &nbsp;*&nbsp;:</dt><dd id="siretNumber" class="action-editField validate-regex required-true i18n-pptwr.property.siretNumber maxLength-14" regex="^[0-9]{14}$"><span>${rqt?.siretNumber}</span></dd>
+                  <dt class="required condition-isCompany-filled">${message(code:'pptwr.property.siretNumber.label')} &nbsp;*&nbsp;:</dt><dd id="siretNumber" class="action-editField validate-regex required-true i18n-pptwr.property.siretNumber maxLength-14" regex="^[0-9]{14}$"><span >${rqt?.siretNumber}</span></dd>
                 
-                  <dt class="required condition-isCompany-filled">${message(code:'pptwr.property.apeCode.label')} &nbsp;*&nbsp;:</dt><dd id="apeCode" class="action-editField validate-regex required-true i18n-pptwr.property.apeCode maxLength-5" regex="^[0-9]{4}[a-zA-Z]{1}$"><span>${rqt?.apeCode}</span></dd>
+                  <dt class="required condition-isCompany-filled">${message(code:'pptwr.property.apeCode.label')} &nbsp;*&nbsp;:</dt><dd id="apeCode" class="action-editField validate-regex required-true i18n-pptwr.property.apeCode maxLength-5" regex="^[0-9]{4}[a-zA-Z]{1}$"><span >${rqt?.apeCode}</span></dd>
                 
               </dl>
               
@@ -90,7 +90,7 @@
                 
                   <dt class="required">${message(code:'pptwr.property.occupationEndDate.label')} &nbsp;*&nbsp;:</dt><dd id="occupationEndDate" class="action-editField validate-calendar required-true i18n-pptwr.property.occupationEndDate" ><span><g:formatDate format="dd/MM/yyyy" date="${rqt?.occupationEndDate}"/></span></dd>
                 
-                  <dt class="">${message(code:'pptwr.property.occupationOtherAddress.label')} &nbsp;:</dt><dd id="occupationOtherAddress" class="action-editField validate-textarea i18n-pptwr.property.occupationOtherAddress rows-3" ><span>${rqt?.occupationOtherAddress}</span></dd>
+                  <dt class="">${message(code:'pptwr.property.occupationOtherAddress.label')} &nbsp;:</dt><dd id="occupationOtherAddress" class="action-editField validate-textarea i18n-pptwr.property.occupationOtherAddress rows-3" ><span >${rqt?.occupationOtherAddress}</span></dd>
                 
               </dl>
               
@@ -116,15 +116,15 @@
               <h3><g:message code="pptwr.property.parkingPermitForWorkInformation.label" /></h3>
               <dl class="required condition-desiredService-filled">
                 
-                  <dt class="required">${message(code:'pptwr.property.siteAddress.label')} &nbsp;*&nbsp;:</dt><dd id="siteAddress" class="action-editField validate-textarea required-true i18n-pptwr.property.siteAddress rows-3" ><span>${rqt?.siteAddress}</span></dd>
+                  <dt class="required">${message(code:'pptwr.property.siteAddress.label')} &nbsp;*&nbsp;:</dt><dd id="siteAddress" class="action-editField validate-textarea required-true i18n-pptwr.property.siteAddress rows-3" ><span >${rqt?.siteAddress}</span></dd>
                 
-                  <dt class="required">${message(code:'pptwr.property.workNature.label')} &nbsp;*&nbsp;:</dt><dd id="workNature" class="action-editField validate-textarea required-true i18n-pptwr.property.workNature rows-3" ><span>${rqt?.workNature}</span></dd>
+                  <dt class="required">${message(code:'pptwr.property.workNature.label')} &nbsp;*&nbsp;:</dt><dd id="workNature" class="action-editField validate-textarea required-true i18n-pptwr.property.workNature rows-3" ><span >${rqt?.workNature}</span></dd>
                 
                   <dt class="required condition-workOnBuilding-trigger">${message(code:'pptwr.property.workOnBuilding.label')} &nbsp;*&nbsp;:</dt><dd id="workOnBuilding" class="action-editField validate-boolean required-true i18n-pptwr.property.workOnBuilding" ><span class="value-${rqt?.workOnBuilding}"><g:message code="${rqt?.workOnBuilding ? 'message.yes' : rqt?.workOnBuilding==null ? '' : 'message.no'}" /></span></dd>
                 
-                  <dt class="required condition-workOnBuilding-filled">${message(code:'pptwr.property.constructLicenseNumber.label')} &nbsp;*&nbsp;:</dt><dd id="constructLicenseNumber" class="action-editField validate-string required-true i18n-pptwr.property.constructLicenseNumber" ><span>${rqt?.constructLicenseNumber}</span></dd>
+                  <dt class="required condition-workOnBuilding-filled">${message(code:'pptwr.property.constructLicenseNumber.label')} &nbsp;*&nbsp;:</dt><dd id="constructLicenseNumber" class="action-editField validate-string required-true i18n-pptwr.property.constructLicenseNumber" ><span >${rqt?.constructLicenseNumber}</span></dd>
                 
-                  <dt class="">${message(code:'pptwr.property.usedVehicles.label')} &nbsp;:</dt><dd id="usedVehicles" class="action-editField validate-string i18n-pptwr.property.usedVehicles" ><span>${rqt?.usedVehicles}</span></dd>
+                  <dt class="">${message(code:'pptwr.property.usedVehicles.label')} &nbsp;:</dt><dd id="usedVehicles" class="action-editField validate-string i18n-pptwr.property.usedVehicles" ><span >${rqt?.usedVehicles}</span></dd>
                 
               </dl>
               
@@ -133,14 +133,14 @@
               <h3><g:message code="pptwr.property.existingLicenseExtensionInformation.label" /></h3>
               <dl class="required condition-desiredService-unfilled">
                 
-                  <dt class="required">${message(code:'pptwr.property.referenceNumber.label')} &nbsp;*&nbsp;:</dt><dd id="referenceNumber" class="action-editField validate-string required-true i18n-pptwr.property.referenceNumber" ><span>${rqt?.referenceNumber}</span></dd>
+                  <dt class="required">${message(code:'pptwr.property.referenceNumber.label')} &nbsp;*&nbsp;:</dt><dd id="referenceNumber" class="action-editField validate-string required-true i18n-pptwr.property.referenceNumber" ><span >${rqt?.referenceNumber}</span></dd>
                 
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'pptwr.property.observations.label')} &nbsp;:</dt><dd id="observations" class="action-editField validate-textarea i18n-pptwr.property.observations rows-3" ><span>${rqt?.observations}</span></dd>
+                <dt class="">${message(code:'pptwr.property.observations.label')} &nbsp;:</dt><dd id="observations" class="action-editField validate-textarea i18n-pptwr.property.observations rows-3" ><span >${rqt?.observations}</span></dd>
               </dl>
               
             
@@ -177,7 +177,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'pptwr.property.observationsReglement.label')} &nbsp;:</dt><dd id="observationsReglement" class="action-editField validate-textarea i18n-pptwr.property.observationsReglement rows-3" ><span>${rqt?.observationsReglement}</span></dd>
+                <dt class="">${message(code:'pptwr.property.observationsReglement.label')} &nbsp;:</dt><dd id="observationsReglement" class="action-editField validate-textarea i18n-pptwr.property.observationsReglement rows-3" ><span >${rqt?.observationsReglement}</span></dd>
               </dl>
               
             

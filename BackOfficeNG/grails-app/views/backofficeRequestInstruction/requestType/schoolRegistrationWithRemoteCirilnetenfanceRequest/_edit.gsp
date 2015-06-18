@@ -56,9 +56,9 @@
               <h3><g:message code="srwrcr.property.theSchool.label" /></h3>
               <dl class="required">
                 
-                  <dt class="required">${message(code:'srwrcr.property.idSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="idSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.idSchoolName" ><span>${rqt?.idSchoolName}</span></dd>
+                  <dt class="required">${message(code:'srwrcr.property.idSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="idSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.idSchoolName" ><span >${rqt?.idSchoolName}</span></dd>
                 
-                  <dt class="required">${message(code:'srwrcr.property.labelSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="labelSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.labelSchoolName" ><span>${rqt?.labelSchoolName}</span></dd>
+                  <dt class="required">${message(code:'srwrcr.property.labelSchoolName.label')} &nbsp;*&nbsp;:</dt><dd id="labelSchoolName" class="action-editField validate-string required-true i18n-srwrcr.property.labelSchoolName" ><span >${rqt?.labelSchoolName}</span></dd>
                 
               </dl>
               

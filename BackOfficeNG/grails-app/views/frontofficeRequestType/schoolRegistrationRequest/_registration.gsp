@@ -49,8 +49,11 @@
   
     
     <label for="urgencyPhone" class="required"><g:message code="srr.property.urgencyPhone.label" /> *  <span><g:message code="srr.property.urgencyPhone.help" /></span></label>
-            <input  type="text" id="urgencyPhone" name="urgencyPhone" value="${rqt.urgencyPhone?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}" title="<g:message code="srr.property.urgencyPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="urgencyPhone"
+                   name="urgencyPhone"
+                   value="${rqt.urgencyPhone?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['registration'].invalidFields.contains('urgencyPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="srr.property.urgencyPhone.validationError" />"  maxlength="10" />
             
 
   
@@ -61,8 +64,11 @@
     
       
       <label for="currentSchoolName" class=""><g:message code="srr.property.currentSchoolName.label" />   <span><g:message code="srr.property.currentSchoolName.help" /></span></label>
-            <input  type="text" id="currentSchoolName" name="currentSchoolName" value="${rqt.currentSchoolName?.toString()}" 
-                    class="  validate-string ${rqt.stepStates['registration'].invalidFields.contains('currentSchoolName') ? 'validation-failed' : ''}" title="<g:message code="srr.property.currentSchoolName.validationError" />"   />
+            <input  type="text" id="currentSchoolName"
+                   name="currentSchoolName"
+                   value="${rqt.currentSchoolName?.toString()}"
+                   class="  validate-string ${rqt.stepStates['registration'].invalidFields.contains('currentSchoolName') ? 'validation-failed' : ''}"
+                   title="<g:message code="srr.property.currentSchoolName.validationError" />"   />
             
 
     

@@ -29,10 +29,14 @@
       <h4><g:message code="srwrcr.property.theSchool.label" /></h4>
       <dl>
         
-          <dt><g:message code="srwrcr.property.idSchoolName.label" /></dt><dd>${rqt.idSchoolName?.toString()}</dd>
+          <dt><g:message code="srwrcr.property.idSchoolName.label" /></dt>
+          <dd>${rqt.idSchoolName?.toString()}</dd>
+          
 
         
-          <dt><g:message code="srwrcr.property.labelSchoolName.label" /></dt><dd>${rqt.labelSchoolName?.toString()}</dd>
+          <dt><g:message code="srwrcr.property.labelSchoolName.label" /></dt>
+          <dd>${rqt.labelSchoolName?.toString()}</dd>
+          
 
         
       </dl>

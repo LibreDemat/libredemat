@@ -37,7 +37,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'cwcr.property.otherWaste.label')} &nbsp;:</dt><dd id="otherWaste" class="action-editField validate-string i18n-cwcr.property.otherWaste" ><span>${rqt?.otherWaste}</span></dd>
+                <dt class="">${message(code:'cwcr.property.otherWaste.label')} &nbsp;:</dt><dd id="otherWaste" class="action-editField validate-string i18n-cwcr.property.otherWaste" ><span >${rqt?.otherWaste}</span></dd>
               </dl>
               
             

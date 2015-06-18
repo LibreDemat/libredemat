@@ -32,13 +32,13 @@
             
               
               <dl>
-                <dt class="required condition-isTenant-filled">${message(code:'scr.property.ownerLastName.label')} &nbsp;*&nbsp;:</dt><dd id="ownerLastName" class="action-editField validate-lastName required-true i18n-scr.property.ownerLastName maxLength-38" ><span>${rqt?.ownerLastName}</span></dd>
+                <dt class="required condition-isTenant-filled">${message(code:'scr.property.ownerLastName.label')} &nbsp;*&nbsp;:</dt><dd id="ownerLastName" class="action-editField validate-lastName required-true i18n-scr.property.ownerLastName maxLength-38" ><span >${rqt?.ownerLastName}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required condition-isTenant-filled">${message(code:'scr.property.ownerFirstNames.label')} &nbsp;*&nbsp;:</dt><dd id="ownerFirstNames" class="action-editField validate-string required-true i18n-scr.property.ownerFirstNames" ><span>${rqt?.ownerFirstNames}</span></dd>
+                <dt class="required condition-isTenant-filled">${message(code:'scr.property.ownerFirstNames.label')} &nbsp;*&nbsp;:</dt><dd id="ownerFirstNames" class="action-editField validate-string required-true i18n-scr.property.ownerFirstNames" ><span >${rqt?.ownerFirstNames}</span></dd>
               </dl>
               
             
@@ -56,25 +56,25 @@
             
               
               <dl>
-                <dt class="required">${message(code:'scr.property.section.label')} &nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-string required-true i18n-scr.property.section" ><span>${rqt?.section}</span></dd>
+                <dt class="required">${message(code:'scr.property.section.label')} &nbsp;*&nbsp;:</dt><dd id="section" class="action-editField validate-string required-true i18n-scr.property.section" ><span >${rqt?.section}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="required">${message(code:'scr.property.number.label')} &nbsp;*&nbsp;:</dt><dd id="number" class="action-editField validate-positiveInteger required-true i18n-scr.property.number" ><span>${rqt?.number}</span></dd>
+                <dt class="required">${message(code:'scr.property.number.label')} &nbsp;*&nbsp;:</dt><dd id="number" class="action-editField validate-positiveInteger required-true i18n-scr.property.number" ><span >${rqt?.number}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'scr.property.locality.label')} &nbsp;:</dt><dd id="locality" class="action-editField validate-string i18n-scr.property.locality" ><span>${rqt?.locality}</span></dd>
+                <dt class="">${message(code:'scr.property.locality.label')} &nbsp;:</dt><dd id="locality" class="action-editField validate-string i18n-scr.property.locality" ><span >${rqt?.locality}</span></dd>
               </dl>
               
             
               
               <dl>
-                <dt class="">${message(code:'scr.property.transportationRoute.label')} &nbsp;:</dt><dd id="transportationRoute" class="action-editField validate-string i18n-scr.property.transportationRoute" ><span>${rqt?.transportationRoute}</span></dd>
+                <dt class="">${message(code:'scr.property.transportationRoute.label')} &nbsp;:</dt><dd id="transportationRoute" class="action-editField validate-string i18n-scr.property.transportationRoute" ><span >${rqt?.transportationRoute}</span></dd>
               </dl>
               
             

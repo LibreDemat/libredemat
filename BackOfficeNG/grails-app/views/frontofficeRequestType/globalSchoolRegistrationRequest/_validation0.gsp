@@ -100,10 +100,14 @@
       <h4><g:message code="gsrr.property.ecoleDerogation.label" /></h4>
       <dl>
         
-          <dt><g:message code="gsrr.property.idEcoleDerog.label" /></dt><dd>${rqt.idEcoleDerog?.toString()}</dd>
+          <dt><g:message code="gsrr.property.idEcoleDerog.label" /></dt>
+          <dd>${rqt.idEcoleDerog?.toString()}</dd>
+          
 
         
-          <dt><g:message code="gsrr.property.labelEcoleDerog.label" /></dt><dd>${rqt.labelEcoleDerog?.toString()}</dd>
+          <dt><g:message code="gsrr.property.labelEcoleDerog.label" /></dt>
+          <dd>${rqt.labelEcoleDerog?.toString()}</dd>
+          
 
         
       </dl>
@@ -123,7 +127,9 @@
     
       
       <dl>
-        <dt><g:message code="gsrr.property.informationsComplementairesDerogation.label" /></dt><dd>${rqt.informationsComplementairesDerogation?.toString()}</dd>
+        <dt><g:message code="gsrr.property.informationsComplementairesDerogation.label" /></dt>
+          <dd>${rqt.informationsComplementairesDerogation?.toString()}</dd>
+          
 
       </dl>
       
@@ -132,10 +138,14 @@
       <h4><g:message code="gsrr.property.ecoleSecteur.label" /></h4>
       <dl>
         
-          <dt><g:message code="gsrr.property.idEcoleSecteur.label" /></dt><dd>${rqt.idEcoleSecteur?.toString()}</dd>
+          <dt><g:message code="gsrr.property.idEcoleSecteur.label" /></dt>
+          <dd>${rqt.idEcoleSecteur?.toString()}</dd>
+          
 
         
-          <dt><g:message code="gsrr.property.labelEcoleSecteur.label" /></dt><dd>${rqt.labelEcoleSecteur?.toString()}</dd>
+          <dt><g:message code="gsrr.property.labelEcoleSecteur.label" /></dt>
+          <dd>${rqt.labelEcoleSecteur?.toString()}</dd>
+          
 
         
       </dl>

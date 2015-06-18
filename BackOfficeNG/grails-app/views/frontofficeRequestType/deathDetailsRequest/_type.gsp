@@ -19,8 +19,11 @@
   
     
     <label for="copies" class="required"><g:message code="ddr.property.copies.label" /> *  <span><g:message code="ddr.property.copies.help" /></span></label>
-            <input  type="text" id="copies" name="copies" value="${rqt.copies?.toString()}" 
-                    class="required  validate-positiveInteger ${rqt.stepStates['type'].invalidFields.contains('copies') ? 'validation-failed' : ''}" title="<g:message code="ddr.property.copies.validationError" />"   />
+            <input  type="text" id="copies"
+                   name="copies"
+                   value="${rqt.copies?.toString()}"
+                   class="required  validate-positiveInteger ${rqt.stepStates['type'].invalidFields.contains('copies') ? 'validation-failed' : ''}"
+                   title="<g:message code="ddr.property.copies.validationError" />"   />
             
 
   

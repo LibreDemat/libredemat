@@ -78,15 +78,21 @@
     
       
       <label for="subjectBirthCity" class="required"><g:message code="hccr.property.subjectBirthCity.label" /> *  <span><g:message code="hccr.property.subjectBirthCity.help" /></span></label>
-            <input  type="text" id="subjectBirthCity" name="subjectBirthCity" value="${rqt.subjectBirthCity?.toString()}" 
-                    class="required  validate-city ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCity') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.subjectBirthCity.validationError" />"  maxlength="32" />
+            <input  type="text" id="subjectBirthCity"
+                   name="subjectBirthCity"
+                   value="${rqt.subjectBirthCity?.toString()}"
+                   class="required  validate-city ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCity') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.subjectBirthCity.validationError" />"  maxlength="32" />
             
 
     
       
       <label for="subjectBirthCountry" class="required"><g:message code="hccr.property.subjectBirthCountry.label" /> *  <span><g:message code="hccr.property.subjectBirthCountry.help" /></span></label>
-            <input  type="text" id="subjectBirthCountry" name="subjectBirthCountry" value="${rqt.subjectBirthCountry?.toString()}" 
-                    class="required   ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCountry') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.subjectBirthCountry.validationError" />"  maxlength="50" />
+            <input  type="text" id="subjectBirthCountry"
+                   name="subjectBirthCountry"
+                   value="${rqt.subjectBirthCountry?.toString()}"
+                   class="required   ${rqt.stepStates['subject'].invalidFields.contains('subjectBirthCountry') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.subjectBirthCountry.validationError" />"  maxlength="50" />
             
 
     
@@ -110,22 +116,31 @@
     
       
       <label for="fatherLastName" class=""><g:message code="hccr.property.fatherLastName.label" />   <span><g:message code="hccr.property.fatherLastName.help" /></span></label>
-            <input  type="text" id="fatherLastName" name="fatherLastName" value="${rqt.fatherLastName?.toString()}" 
-                    class="  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('fatherLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.fatherLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="fatherLastName"
+                   name="fatherLastName"
+                   value="${rqt.fatherLastName?.toString()}"
+                   class="  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('fatherLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.fatherLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="fatherFirstName" class=""><g:message code="hccr.property.fatherFirstName.label" />   <span><g:message code="hccr.property.fatherFirstName.help" /></span></label>
-            <input  type="text" id="fatherFirstName" name="fatherFirstName" value="${rqt.fatherFirstName?.toString()}" 
-                    class="  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('fatherFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.fatherFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="fatherFirstName"
+                   name="fatherFirstName"
+                   value="${rqt.fatherFirstName?.toString()}"
+                   class="  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('fatherFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.fatherFirstName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="fatherJob" class=""><g:message code="hccr.property.fatherJob.label" />   <span><g:message code="hccr.property.fatherJob.help" /></span></label>
-            <input  type="text" id="fatherJob" name="fatherJob" value="${rqt.fatherJob?.toString()}" 
-                    class="   ${rqt.stepStates['subject'].invalidFields.contains('fatherJob') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.fatherJob.validationError" />"  maxlength="60" />
+            <input  type="text" id="fatherJob"
+                   name="fatherJob"
+                   value="${rqt.fatherJob?.toString()}"
+                   class="   ${rqt.stepStates['subject'].invalidFields.contains('fatherJob') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.fatherJob.validationError" />"  maxlength="60" />
             
 
     
@@ -144,8 +159,11 @@
     
       
       <label for="fatherActivityReductionRatio" class="condition-isFatherActivityReduction-filled"><g:message code="hccr.property.fatherActivityReductionRatio.label" />   <span><g:message code="hccr.property.fatherActivityReductionRatio.help" /></span></label>
-            <input  type="text" id="fatherActivityReductionRatio" name="fatherActivityReductionRatio" value="${rqt.fatherActivityReductionRatio?.toString()}" 
-                    class="condition-isFatherActivityReduction-filled  validate-positiveInteger ${rqt.stepStates['subject'].invalidFields.contains('fatherActivityReductionRatio') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.fatherActivityReductionRatio.validationError" />"   />
+            <input  type="text" id="fatherActivityReductionRatio"
+                   name="fatherActivityReductionRatio"
+                   value="${rqt.fatherActivityReductionRatio?.toString()}"
+                   class="condition-isFatherActivityReduction-filled  validate-positiveInteger ${rqt.stepStates['subject'].invalidFields.contains('fatherActivityReductionRatio') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.fatherActivityReductionRatio.validationError" />"   />
             
 
     
@@ -158,22 +176,31 @@
     
       
       <label for="motherLastName" class=""><g:message code="hccr.property.motherLastName.label" />   <span><g:message code="hccr.property.motherLastName.help" /></span></label>
-            <input  type="text" id="motherLastName" name="motherLastName" value="${rqt.motherLastName?.toString()}" 
-                    class="  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('motherLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.motherLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="motherLastName"
+                   name="motherLastName"
+                   value="${rqt.motherLastName?.toString()}"
+                   class="  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('motherLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.motherLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="motherFirstName" class=""><g:message code="hccr.property.motherFirstName.label" />   <span><g:message code="hccr.property.motherFirstName.help" /></span></label>
-            <input  type="text" id="motherFirstName" name="motherFirstName" value="${rqt.motherFirstName?.toString()}" 
-                    class="  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('motherFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.motherFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="motherFirstName"
+                   name="motherFirstName"
+                   value="${rqt.motherFirstName?.toString()}"
+                   class="  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('motherFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.motherFirstName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="motherJob" class=""><g:message code="hccr.property.motherJob.label" />   <span><g:message code="hccr.property.motherJob.help" /></span></label>
-            <input  type="text" id="motherJob" name="motherJob" value="${rqt.motherJob?.toString()}" 
-                    class="   ${rqt.stepStates['subject'].invalidFields.contains('motherJob') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.motherJob.validationError" />"  maxlength="60" />
+            <input  type="text" id="motherJob"
+                   name="motherJob"
+                   value="${rqt.motherJob?.toString()}"
+                   class="   ${rqt.stepStates['subject'].invalidFields.contains('motherJob') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.motherJob.validationError" />"  maxlength="60" />
             
 
     
@@ -192,8 +219,11 @@
     
       
       <label for="motherActivityReductionRatio" class="condition-isMotherActivityReduction-filled"><g:message code="hccr.property.motherActivityReductionRatio.label" />   <span><g:message code="hccr.property.motherActivityReductionRatio.help" /></span></label>
-            <input  type="text" id="motherActivityReductionRatio" name="motherActivityReductionRatio" value="${rqt.motherActivityReductionRatio?.toString()}" 
-                    class="condition-isMotherActivityReduction-filled  validate-positiveInteger ${rqt.stepStates['subject'].invalidFields.contains('motherActivityReductionRatio') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.motherActivityReductionRatio.validationError" />"   />
+            <input  type="text" id="motherActivityReductionRatio"
+                   name="motherActivityReductionRatio"
+                   value="${rqt.motherActivityReductionRatio?.toString()}"
+                   class="condition-isMotherActivityReduction-filled  validate-positiveInteger ${rqt.stepStates['subject'].invalidFields.contains('motherActivityReductionRatio') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.motherActivityReductionRatio.validationError" />"   />
             
 
     
@@ -206,15 +236,21 @@
     
       
       <label for="aseReferentLastName" class=""><g:message code="hccr.property.aseReferentLastName.label" />   <span><g:message code="hccr.property.aseReferentLastName.help" /></span></label>
-            <input  type="text" id="aseReferentLastName" name="aseReferentLastName" value="${rqt.aseReferentLastName?.toString()}" 
-                    class="  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('aseReferentLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.aseReferentLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="aseReferentLastName"
+                   name="aseReferentLastName"
+                   value="${rqt.aseReferentLastName?.toString()}"
+                   class="  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('aseReferentLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.aseReferentLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="aseReferentDepartment" class=""><g:message code="hccr.property.aseReferentDepartment.label" />   <span><g:message code="hccr.property.aseReferentDepartment.help" /></span></label>
-            <input  type="text" id="aseReferentDepartment" name="aseReferentDepartment" value="${rqt.aseReferentDepartment?.toString()}" 
-                    class="  validate-departmentCode ${rqt.stepStates['subject'].invalidFields.contains('aseReferentDepartment') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.aseReferentDepartment.validationError" />"  maxlength="2" />
+            <input  type="text" id="aseReferentDepartment"
+                   name="aseReferentDepartment"
+                   value="${rqt.aseReferentDepartment?.toString()}"
+                   class="  validate-departmentCode ${rqt.stepStates['subject'].invalidFields.contains('aseReferentDepartment') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.aseReferentDepartment.validationError" />"  maxlength="2" />
             
 
     
@@ -227,15 +263,21 @@
     
       
       <label for="referentLastName" class="required"><g:message code="hccr.property.referentLastName.label" /> *  <span><g:message code="hccr.property.referentLastName.help" /></span></label>
-            <input  type="text" id="referentLastName" name="referentLastName" value="${rqt.referentLastName?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('referentLastName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentLastName.validationError" />"  maxlength="38" />
+            <input  type="text" id="referentLastName"
+                   name="referentLastName"
+                   value="${rqt.referentLastName?.toString()}"
+                   class="required  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('referentLastName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.referentLastName.validationError" />"  maxlength="38" />
             
 
     
       
       <label for="referentFirstName" class="required"><g:message code="hccr.property.referentFirstName.label" /> *  <span><g:message code="hccr.property.referentFirstName.help" /></span></label>
-            <input  type="text" id="referentFirstName" name="referentFirstName" value="${rqt.referentFirstName?.toString()}" 
-                    class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('referentFirstName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentFirstName.validationError" />"  maxlength="38" />
+            <input  type="text" id="referentFirstName"
+                   name="referentFirstName"
+                   value="${rqt.referentFirstName?.toString()}"
+                   class="required  validate-firstName ${rqt.stepStates['subject'].invalidFields.contains('referentFirstName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.referentFirstName.validationError" />"  maxlength="38" />
             
 
     
@@ -252,8 +294,11 @@
     
       
       <label for="referentMaidenName" class="required condition-isReferentMadam-filled"><g:message code="hccr.property.referentMaidenName.label" /> *  <span><g:message code="hccr.property.referentMaidenName.help" /></span></label>
-            <input  type="text" id="referentMaidenName" name="referentMaidenName" value="${rqt.referentMaidenName?.toString()}" 
-                    class="required condition-isReferentMadam-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('referentMaidenName') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentMaidenName.validationError" />"  maxlength="38" />
+            <input  type="text" id="referentMaidenName"
+                   name="referentMaidenName"
+                   value="${rqt.referentMaidenName?.toString()}"
+                   class="required condition-isReferentMadam-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('referentMaidenName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.referentMaidenName.validationError" />"  maxlength="38" />
             
 
     
@@ -300,15 +345,21 @@
     
       
       <label for="referentBirthCity" class="required"><g:message code="hccr.property.referentBirthCity.label" /> *  <span><g:message code="hccr.property.referentBirthCity.help" /></span></label>
-            <input  type="text" id="referentBirthCity" name="referentBirthCity" value="${rqt.referentBirthCity?.toString()}" 
-                    class="required  validate-city ${rqt.stepStates['subject'].invalidFields.contains('referentBirthCity') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentBirthCity.validationError" />"  maxlength="32" />
+            <input  type="text" id="referentBirthCity"
+                   name="referentBirthCity"
+                   value="${rqt.referentBirthCity?.toString()}"
+                   class="required  validate-city ${rqt.stepStates['subject'].invalidFields.contains('referentBirthCity') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.referentBirthCity.validationError" />"  maxlength="32" />
             
 
     
       
       <label for="referentBirthCountry" class="required"><g:message code="hccr.property.referentBirthCountry.label" /> *  <span><g:message code="hccr.property.referentBirthCountry.help" /></span></label>
-            <input  type="text" id="referentBirthCountry" name="referentBirthCountry" value="${rqt.referentBirthCountry?.toString()}" 
-                    class="required   ${rqt.stepStates['subject'].invalidFields.contains('referentBirthCountry') ? 'validation-failed' : ''}" title="<g:message code="hccr.property.referentBirthCountry.validationError" />"  maxlength="50" />
+            <input  type="text" id="referentBirthCountry"
+                   name="referentBirthCountry"
+                   value="${rqt.referentBirthCountry?.toString()}"
+                   class="required   ${rqt.stepStates['subject'].invalidFields.contains('referentBirthCountry') ? 'validation-failed' : ''}"
+                   title="<g:message code="hccr.property.referentBirthCountry.validationError" />"  maxlength="50" />
             
 
     
@@ -348,7 +399,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':(rqt.familyDependents ? rqt.familyDependents.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents',
+                    'collectionIndex':(rqt.familyDependents ? rqt.familyDependents.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -358,7 +412,7 @@
         <dl>
         <dt class="head"><g:message code="hccr.property.familyDependents.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'subject', 'currentCollection':'familyDependents', 'collectionIndex':index])}">

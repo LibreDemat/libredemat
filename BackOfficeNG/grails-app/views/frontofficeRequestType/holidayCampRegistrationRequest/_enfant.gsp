@@ -39,15 +39,21 @@
     
       
       <label for="idCentreSejours" class="required"><g:message code="hcrr.property.idCentreSejours.label" /> *  <span><g:message code="hcrr.property.idCentreSejours.help" /></span></label>
-            <input  type="text" id="idCentreSejours" name="idCentreSejours" value="${rqt.idCentreSejours?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('idCentreSejours') ? 'validation-failed' : ''}" title="<g:message code="hcrr.property.idCentreSejours.validationError" />"   />
+            <input  type="text" id="idCentreSejours"
+                   name="idCentreSejours"
+                   value="${rqt.idCentreSejours?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('idCentreSejours') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcrr.property.idCentreSejours.validationError" />"   />
             
 
     
       
       <label for="labelCentreSejours" class="required"><g:message code="hcrr.property.labelCentreSejours.label" /> *  <span><g:message code="hcrr.property.labelCentreSejours.help" /></span></label>
-            <input  type="text" id="labelCentreSejours" name="labelCentreSejours" value="${rqt.labelCentreSejours?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('labelCentreSejours') ? 'validation-failed' : ''}" title="<g:message code="hcrr.property.labelCentreSejours.validationError" />"   />
+            <input  type="text" id="labelCentreSejours"
+                   name="labelCentreSejours"
+                   value="${rqt.labelCentreSejours?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['enfant'].invalidFields.contains('labelCentreSejours') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcrr.property.labelCentreSejours.validationError" />"   />
             
 
     

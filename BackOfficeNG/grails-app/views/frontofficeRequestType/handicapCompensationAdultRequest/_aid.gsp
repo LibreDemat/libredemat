@@ -30,7 +30,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'familyAssistanceMembers', 'collectionIndex':(rqt.familyAssistanceMembers ? rqt.familyAssistanceMembers.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'familyAssistanceMembers',
+                    'collectionIndex':(rqt.familyAssistanceMembers ? rqt.familyAssistanceMembers.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -40,7 +43,7 @@
         <dl>
         <dt class="head"><g:message code="hcar.property.familyAssistanceMembers.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'familyAssistanceMembers', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'familyAssistanceMembers', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'familyAssistanceMembers', 'collectionIndex':index])}">
@@ -92,7 +95,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'homeIntervenants', 'collectionIndex':(rqt.homeIntervenants ? rqt.homeIntervenants.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'homeIntervenants',
+                    'collectionIndex':(rqt.homeIntervenants ? rqt.homeIntervenants.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -102,7 +108,7 @@
         <dl>
         <dt class="head"><g:message code="hcar.property.homeIntervenants.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'homeIntervenants', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'homeIntervenants', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'homeIntervenants', 'collectionIndex':index])}">
@@ -157,7 +163,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'careServices', 'collectionIndex':(rqt.careServices ? rqt.careServices.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'careServices',
+                    'collectionIndex':(rqt.careServices ? rqt.careServices.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -167,7 +176,7 @@
         <dl>
         <dt class="head"><g:message code="hcar.property.careServices.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'careServices', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'careServices', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'careServices', 'collectionIndex':index])}">
@@ -223,8 +232,11 @@
     
       
       <label for="facilitiesHousingDetails" class="required condition-isHousing-filled"><g:message code="hcar.property.facilitiesHousingDetails.label" /> *  <span><g:message code="hcar.property.facilitiesHousingDetails.help" /></span></label>
-            <input  type="text" id="facilitiesHousingDetails" name="facilitiesHousingDetails" value="${rqt.facilitiesHousingDetails?.toString()}" 
-                    class="required condition-isHousing-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesHousingDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.facilitiesHousingDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="facilitiesHousingDetails"
+                   name="facilitiesHousingDetails"
+                   value="${rqt.facilitiesHousingDetails?.toString()}"
+                   class="required condition-isHousing-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesHousingDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.facilitiesHousingDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -243,8 +255,11 @@
     
       
       <label for="facilitiesTechnicalAssistanceDetails" class="required condition-isTechnicalAssistance-filled"><g:message code="hcar.property.facilitiesTechnicalAssistanceDetails.label" /> *  <span><g:message code="hcar.property.facilitiesTechnicalAssistanceDetails.help" /></span></label>
-            <input  type="text" id="facilitiesTechnicalAssistanceDetails" name="facilitiesTechnicalAssistanceDetails" value="${rqt.facilitiesTechnicalAssistanceDetails?.toString()}" 
-                    class="required condition-isTechnicalAssistance-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesTechnicalAssistanceDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.facilitiesTechnicalAssistanceDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="facilitiesTechnicalAssistanceDetails"
+                   name="facilitiesTechnicalAssistanceDetails"
+                   value="${rqt.facilitiesTechnicalAssistanceDetails?.toString()}"
+                   class="required condition-isTechnicalAssistance-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesTechnicalAssistanceDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.facilitiesTechnicalAssistanceDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -263,8 +278,11 @@
     
       
       <label for="facilitiesCustomCarDetails" class="required condition-isCustomCar-filled"><g:message code="hcar.property.facilitiesCustomCarDetails.label" /> *  <span><g:message code="hcar.property.facilitiesCustomCarDetails.help" /></span></label>
-            <input  type="text" id="facilitiesCustomCarDetails" name="facilitiesCustomCarDetails" value="${rqt.facilitiesCustomCarDetails?.toString()}" 
-                    class="required condition-isCustomCar-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesCustomCarDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.facilitiesCustomCarDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="facilitiesCustomCarDetails"
+                   name="facilitiesCustomCarDetails"
+                   value="${rqt.facilitiesCustomCarDetails?.toString()}"
+                   class="required condition-isCustomCar-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesCustomCarDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.facilitiesCustomCarDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -283,8 +301,11 @@
     
       
       <label for="facilitiesAnimalAidDetails" class="required condition-isAnimalAid-filled"><g:message code="hcar.property.facilitiesAnimalAidDetails.label" /> *  <span><g:message code="hcar.property.facilitiesAnimalAidDetails.help" /></span></label>
-            <input  type="text" id="facilitiesAnimalAidDetails" name="facilitiesAnimalAidDetails" value="${rqt.facilitiesAnimalAidDetails?.toString()}" 
-                    class="required condition-isAnimalAid-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesAnimalAidDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.facilitiesAnimalAidDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="facilitiesAnimalAidDetails"
+                   name="facilitiesAnimalAidDetails"
+                   value="${rqt.facilitiesAnimalAidDetails?.toString()}"
+                   class="required condition-isAnimalAid-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesAnimalAidDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.facilitiesAnimalAidDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -303,8 +324,11 @@
     
       
       <label for="facilitiesSpecializedTransportDetails" class="required condition-isSpecializedTransport-filled"><g:message code="hcar.property.facilitiesSpecializedTransportDetails.label" /> *  <span><g:message code="hcar.property.facilitiesSpecializedTransportDetails.help" /></span></label>
-            <input  type="text" id="facilitiesSpecializedTransportDetails" name="facilitiesSpecializedTransportDetails" value="${rqt.facilitiesSpecializedTransportDetails?.toString()}" 
-                    class="required condition-isSpecializedTransport-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesSpecializedTransportDetails') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.facilitiesSpecializedTransportDetails.validationError" />"  maxlength="60" />
+            <input  type="text" id="facilitiesSpecializedTransportDetails"
+                   name="facilitiesSpecializedTransportDetails"
+                   value="${rqt.facilitiesSpecializedTransportDetails?.toString()}"
+                   class="required condition-isSpecializedTransport-filled   ${rqt.stepStates['aid'].invalidFields.contains('facilitiesSpecializedTransportDetails') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.facilitiesSpecializedTransportDetails.validationError" />"  maxlength="60" />
             
 
     
@@ -353,7 +377,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'professionals', 'collectionIndex':(rqt.professionals ? rqt.professionals.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'professionals',
+                    'collectionIndex':(rqt.professionals ? rqt.professionals.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -363,7 +390,7 @@
         <dl>
         <dt class="head"><g:message code="hcar.property.professionals.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'professionals', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'professionals', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'aid', 'currentCollection':'professionals', 'collectionIndex':index])}">
@@ -416,8 +443,11 @@
     
       
       <label for="professionalSupportSocialServiceName" class="required condition-isSocialServiceSupport-filled"><g:message code="hcar.property.professionalSupportSocialServiceName.label" /> *  <span><g:message code="hcar.property.professionalSupportSocialServiceName.help" /></span></label>
-            <input  type="text" id="professionalSupportSocialServiceName" name="professionalSupportSocialServiceName" value="${rqt.professionalSupportSocialServiceName?.toString()}" 
-                    class="required condition-isSocialServiceSupport-filled   ${rqt.stepStates['aid'].invalidFields.contains('professionalSupportSocialServiceName') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.professionalSupportSocialServiceName.validationError" />"  maxlength="60" />
+            <input  type="text" id="professionalSupportSocialServiceName"
+                   name="professionalSupportSocialServiceName"
+                   value="${rqt.professionalSupportSocialServiceName?.toString()}"
+                   class="required condition-isSocialServiceSupport-filled   ${rqt.stepStates['aid'].invalidFields.contains('professionalSupportSocialServiceName') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.professionalSupportSocialServiceName.validationError" />"  maxlength="60" />
             
 
     

@@ -36,8 +36,11 @@
   
     
     <label for="nomNaissance" class="required"><g:message code="serrr.property.nomNaissance.label" /> *  <span><g:message code="serrr.property.nomNaissance.help" /></span></label>
-            <input  type="text" id="nomNaissance" name="nomNaissance" value="${rqt.nomNaissance?.toString()}" 
-                    class="required  validate-lastName ${rqt.stepStates['inscription'].invalidFields.contains('nomNaissance') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.nomNaissance.validationError" />"  maxlength="38" />
+            <input  type="text" id="nomNaissance"
+                   name="nomNaissance"
+                   value="${rqt.nomNaissance?.toString()}"
+                   class="required  validate-lastName ${rqt.stepStates['inscription'].invalidFields.contains('nomNaissance') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.nomNaissance.validationError" />"  maxlength="38" />
             
 
   
@@ -45,8 +48,11 @@
   
     
     <label for="prenom" class="required"><g:message code="serrr.property.prenom.label" /> *  <span><g:message code="serrr.property.prenom.help" /></span></label>
-            <input  type="text" id="prenom" name="prenom" value="${rqt.prenom?.toString()}" 
-                    class="required autofill-subjectFirstNamesFilling-listener-FirstName validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('prenom') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.prenom.validationError" />"  maxlength="38" />
+            <input  type="text" id="prenom"
+                   name="prenom"
+                   value="${rqt.prenom?.toString()}"
+                   class="required autofill-subjectFirstNamesFilling-listener-FirstName validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('prenom') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.prenom.validationError" />"  maxlength="38" />
             
 
   
@@ -54,8 +60,11 @@
   
     
     <label for="deuxiemePrenom" class=""><g:message code="serrr.property.deuxiemePrenom.label" />   <span><g:message code="serrr.property.deuxiemePrenom.help" /></span></label>
-            <input  type="text" id="deuxiemePrenom" name="deuxiemePrenom" value="${rqt.deuxiemePrenom?.toString()}" 
-                    class=" autofill-subjectFirstNamesFilling-listener-FirstName2 validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('deuxiemePrenom') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.deuxiemePrenom.validationError" />"  maxlength="38" />
+            <input  type="text" id="deuxiemePrenom"
+                   name="deuxiemePrenom"
+                   value="${rqt.deuxiemePrenom?.toString()}"
+                   class=" autofill-subjectFirstNamesFilling-listener-FirstName2 validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('deuxiemePrenom') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.deuxiemePrenom.validationError" />"  maxlength="38" />
             
 
   
@@ -63,8 +72,11 @@
   
     
     <label for="troisiemePrenom" class=""><g:message code="serrr.property.troisiemePrenom.label" />   <span><g:message code="serrr.property.troisiemePrenom.help" /></span></label>
-            <input  type="text" id="troisiemePrenom" name="troisiemePrenom" value="${rqt.troisiemePrenom?.toString()}" 
-                    class=" autofill-subjectFirstNamesFilling-listener-FirstName3 validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('troisiemePrenom') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.troisiemePrenom.validationError" />"  maxlength="38" />
+            <input  type="text" id="troisiemePrenom"
+                   name="troisiemePrenom"
+                   value="${rqt.troisiemePrenom?.toString()}"
+                   class=" autofill-subjectFirstNamesFilling-listener-FirstName3 validate-firstName ${rqt.stepStates['inscription'].invalidFields.contains('troisiemePrenom') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.troisiemePrenom.validationError" />"  maxlength="38" />
             
 
   
@@ -87,8 +99,11 @@
   
     
     <label for="nomMarital" class="condition-estFemme-filled"><g:message code="serrr.property.nomMarital.label" />   <span><g:message code="serrr.property.nomMarital.help" /></span></label>
-            <input  type="text" id="nomMarital" name="nomMarital" value="${rqt.nomMarital?.toString()}" 
-                    class="condition-estFemme-filled  validate-lastName ${rqt.stepStates['inscription'].invalidFields.contains('nomMarital') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.nomMarital.validationError" />"  maxlength="38" />
+            <input  type="text" id="nomMarital"
+                   name="nomMarital"
+                   value="${rqt.nomMarital?.toString()}"
+                   class="condition-estFemme-filled  validate-lastName ${rqt.stepStates['inscription'].invalidFields.contains('nomMarital') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.nomMarital.validationError" />"  maxlength="38" />
             
 
   
@@ -142,8 +157,11 @@
     
       
       <label for="villeNaissanceCodePostal" class="required"><g:message code="serrr.property.villeNaissanceCodePostal.label" /> *  <span><g:message code="serrr.property.villeNaissanceCodePostal.help" /></span></label>
-            <input  type="text" id="villeNaissanceCodePostal" name="villeNaissanceCodePostal" value="${rqt.villeNaissanceCodePostal?.toString()}" 
-                    class="required  validate-city ${rqt.stepStates['inscription'].invalidFields.contains('villeNaissanceCodePostal') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.villeNaissanceCodePostal.validationError" />"  maxlength="32" />
+            <input  type="text" id="villeNaissanceCodePostal"
+                   name="villeNaissanceCodePostal"
+                   value="${rqt.villeNaissanceCodePostal?.toString()}"
+                   class="required  validate-city ${rqt.stepStates['inscription'].invalidFields.contains('villeNaissanceCodePostal') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.villeNaissanceCodePostal.validationError" />"  maxlength="32" />
             
 
     
@@ -228,15 +246,21 @@
     
       
       <label for="subdivisionAdministrativePrecedente" class="condition-estElectionEuropenne-filled"><g:message code="serrr.property.subdivisionAdministrativePrecedente.label" />   <span><g:message code="serrr.property.subdivisionAdministrativePrecedente.help" /></span></label>
-            <input  type="text" id="subdivisionAdministrativePrecedente" name="subdivisionAdministrativePrecedente" value="${rqt.subdivisionAdministrativePrecedente?.toString()}" 
-                    class="condition-estElectionEuropenne-filled  validate-string ${rqt.stepStates['inscription'].invalidFields.contains('subdivisionAdministrativePrecedente') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.subdivisionAdministrativePrecedente.validationError" />"   />
+            <input  type="text" id="subdivisionAdministrativePrecedente"
+                   name="subdivisionAdministrativePrecedente"
+                   value="${rqt.subdivisionAdministrativePrecedente?.toString()}"
+                   class="condition-estElectionEuropenne-filled  validate-string ${rqt.stepStates['inscription'].invalidFields.contains('subdivisionAdministrativePrecedente') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.subdivisionAdministrativePrecedente.validationError" />"   />
             
 
     
       
       <label for="communeOuLocalitePrecedente" class="condition-estElectionEuropenne-filled"><g:message code="serrr.property.communeOuLocalitePrecedente.label" />   <span><g:message code="serrr.property.communeOuLocalitePrecedente.help" /></span></label>
-            <input  type="text" id="communeOuLocalitePrecedente" name="communeOuLocalitePrecedente" value="${rqt.communeOuLocalitePrecedente?.toString()}" 
-                    class="condition-estElectionEuropenne-filled  validate-city ${rqt.stepStates['inscription'].invalidFields.contains('communeOuLocalitePrecedente') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.communeOuLocalitePrecedente.validationError" />"  maxlength="32" />
+            <input  type="text" id="communeOuLocalitePrecedente"
+                   name="communeOuLocalitePrecedente"
+                   value="${rqt.communeOuLocalitePrecedente?.toString()}"
+                   class="condition-estElectionEuropenne-filled  validate-city ${rqt.stepStates['inscription'].invalidFields.contains('communeOuLocalitePrecedente') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.communeOuLocalitePrecedente.validationError" />"  maxlength="32" />
             
 
     

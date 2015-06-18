@@ -89,28 +89,36 @@
     
       
       <dl>
-        <dt><g:message code="serrr.property.nomNaissance.label" /></dt><dd>${rqt.nomNaissance?.toString()}</dd>
+        <dt><g:message code="serrr.property.nomNaissance.label" /></dt>
+          <dd>${rqt.nomNaissance?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="serrr.property.prenom.label" /></dt><dd>${rqt.prenom?.toString()}</dd>
+        <dt><g:message code="serrr.property.prenom.label" /></dt>
+          <dd>${rqt.prenom?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="serrr.property.deuxiemePrenom.label" /></dt><dd>${rqt.deuxiemePrenom?.toString()}</dd>
+        <dt><g:message code="serrr.property.deuxiemePrenom.label" /></dt>
+          <dd>${rqt.deuxiemePrenom?.toString()}</dd>
+          
 
       </dl>
       
     
       
       <dl>
-        <dt><g:message code="serrr.property.troisiemePrenom.label" /></dt><dd>${rqt.troisiemePrenom?.toString()}</dd>
+        <dt><g:message code="serrr.property.troisiemePrenom.label" /></dt>
+          <dd>${rqt.troisiemePrenom?.toString()}</dd>
+          
 
       </dl>
       
@@ -130,7 +138,9 @@
     
       
       <dl>
-        <dt><g:message code="serrr.property.nomMarital.label" /></dt><dd>${rqt.nomMarital?.toString()}</dd>
+        <dt><g:message code="serrr.property.nomMarital.label" /></dt>
+          <dd>${rqt.nomMarital?.toString()}</dd>
+          
 
       </dl>
       
@@ -148,7 +158,9 @@
       <h4><g:message code="serrr.property.lieuNaissance.label" /></h4>
       <dl>
         
-          <dt><g:message code="serrr.property.villeNaissanceCodePostal.label" /></dt><dd>${rqt.villeNaissanceCodePostal?.toString()}</dd>
+          <dt><g:message code="serrr.property.villeNaissanceCodePostal.label" /></dt>
+          <dd>${rqt.villeNaissanceCodePostal?.toString()}</dd>
+          
 
         
           <dt><g:message code="serrr.property.lieuNaissanceDepartement.label" /></dt>
@@ -216,10 +228,14 @@
           
 
         
-          <dt><g:message code="serrr.property.subdivisionAdministrativePrecedente.label" /></dt><dd>${rqt.subdivisionAdministrativePrecedente?.toString()}</dd>
+          <dt><g:message code="serrr.property.subdivisionAdministrativePrecedente.label" /></dt>
+          <dd>${rqt.subdivisionAdministrativePrecedente?.toString()}</dd>
+          
 
         
-          <dt><g:message code="serrr.property.communeOuLocalitePrecedente.label" /></dt><dd>${rqt.communeOuLocalitePrecedente?.toString()}</dd>
+          <dt><g:message code="serrr.property.communeOuLocalitePrecedente.label" /></dt>
+          <dd>${rqt.communeOuLocalitePrecedente?.toString()}</dd>
+          
 
         
       </dl>
@@ -248,7 +264,9 @@
       <h4><g:message code="serrr.property.precedentLieuInscription.label" /></h4>
       <dl>
         
-          <dt><g:message code="serrr.property.ancienneCommune.label" /></dt><dd>${rqt.ancienneCommune?.toString()}</dd>
+          <dt><g:message code="serrr.property.ancienneCommune.label" /></dt>
+          <dd>${rqt.ancienneCommune?.toString()}</dd>
+          
 
         
           <dt><g:message code="serrr.property.departementAncienneCommune.label" /></dt>
@@ -271,7 +289,9 @@
     
       
       <dl>
-        <dt><g:message code="serrr.property.ambassadeOuPosteConsulaire.label" /></dt><dd>${rqt.ambassadeOuPosteConsulaire?.toString()}</dd>
+        <dt><g:message code="serrr.property.ambassadeOuPosteConsulaire.label" /></dt>
+          <dd>${rqt.ambassadeOuPosteConsulaire?.toString()}</dd>
+          
 
       </dl>
       

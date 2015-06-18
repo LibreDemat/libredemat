@@ -20,15 +20,21 @@
     
       
       <label for="foldersMdphNumber" class="condition-isMDPH-filled"><g:message code="hcar.property.foldersMdphNumber.label" />   <span><g:message code="hcar.property.foldersMdphNumber.help" /></span></label>
-            <input  type="text" id="foldersMdphNumber" name="foldersMdphNumber" value="${rqt.foldersMdphNumber?.toString()}" 
-                    class="condition-isMDPH-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersMdphNumber') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.foldersMdphNumber.validationError" />"  maxlength="30" />
+            <input  type="text" id="foldersMdphNumber"
+                   name="foldersMdphNumber"
+                   value="${rqt.foldersMdphNumber?.toString()}"
+                   class="condition-isMDPH-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersMdphNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.foldersMdphNumber.validationError" />"  maxlength="30" />
             
 
     
       
       <label for="foldersMdphDepartment" class="condition-isMDPH-filled"><g:message code="hcar.property.foldersMdphDepartment.label" />   <span><g:message code="hcar.property.foldersMdphDepartment.help" /></span></label>
-            <input  type="text" id="foldersMdphDepartment" name="foldersMdphDepartment" value="${rqt.foldersMdphDepartment?.toString()}" 
-                    class="condition-isMDPH-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersMdphDepartment') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.foldersMdphDepartment.validationError" />"  maxlength="2" />
+            <input  type="text" id="foldersMdphDepartment"
+                   name="foldersMdphDepartment"
+                   value="${rqt.foldersMdphDepartment?.toString()}"
+                   class="condition-isMDPH-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersMdphDepartment') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.foldersMdphDepartment.validationError" />"  maxlength="2" />
             
 
     
@@ -47,15 +53,21 @@
     
       
       <label for="foldersCotorepNumber" class="condition-isCOTOREP-filled"><g:message code="hcar.property.foldersCotorepNumber.label" />   <span><g:message code="hcar.property.foldersCotorepNumber.help" /></span></label>
-            <input  type="text" id="foldersCotorepNumber" name="foldersCotorepNumber" value="${rqt.foldersCotorepNumber?.toString()}" 
-                    class="condition-isCOTOREP-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorepNumber') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.foldersCotorepNumber.validationError" />"  maxlength="30" />
+            <input  type="text" id="foldersCotorepNumber"
+                   name="foldersCotorepNumber"
+                   value="${rqt.foldersCotorepNumber?.toString()}"
+                   class="condition-isCOTOREP-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorepNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.foldersCotorepNumber.validationError" />"  maxlength="30" />
             
 
     
       
       <label for="foldersCotorepDepartment" class="condition-isCOTOREP-filled"><g:message code="hcar.property.foldersCotorepDepartment.label" />   <span><g:message code="hcar.property.foldersCotorepDepartment.help" /></span></label>
-            <input  type="text" id="foldersCotorepDepartment" name="foldersCotorepDepartment" value="${rqt.foldersCotorepDepartment?.toString()}" 
-                    class="condition-isCOTOREP-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorepDepartment') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.foldersCotorepDepartment.validationError" />"  maxlength="2" />
+            <input  type="text" id="foldersCotorepDepartment"
+                   name="foldersCotorepDepartment"
+                   value="${rqt.foldersCotorepDepartment?.toString()}"
+                   class="condition-isCOTOREP-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersCotorepDepartment') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.foldersCotorepDepartment.validationError" />"  maxlength="2" />
             
 
     
@@ -74,15 +86,21 @@
     
       
       <label for="foldersCdesNumber" class="condition-isCDES-filled"><g:message code="hcar.property.foldersCdesNumber.label" />   <span><g:message code="hcar.property.foldersCdesNumber.help" /></span></label>
-            <input  type="text" id="foldersCdesNumber" name="foldersCdesNumber" value="${rqt.foldersCdesNumber?.toString()}" 
-                    class="condition-isCDES-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersCdesNumber') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.foldersCdesNumber.validationError" />"  maxlength="30" />
+            <input  type="text" id="foldersCdesNumber"
+                   name="foldersCdesNumber"
+                   value="${rqt.foldersCdesNumber?.toString()}"
+                   class="condition-isCDES-filled   ${rqt.stepStates['folders'].invalidFields.contains('foldersCdesNumber') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.foldersCdesNumber.validationError" />"  maxlength="30" />
             
 
     
       
       <label for="foldersCdesDepartment" class="condition-isCDES-filled"><g:message code="hcar.property.foldersCdesDepartment.label" />   <span><g:message code="hcar.property.foldersCdesDepartment.help" /></span></label>
-            <input  type="text" id="foldersCdesDepartment" name="foldersCdesDepartment" value="${rqt.foldersCdesDepartment?.toString()}" 
-                    class="condition-isCDES-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersCdesDepartment') ? 'validation-failed' : ''}" title="<g:message code="hcar.property.foldersCdesDepartment.validationError" />"  maxlength="2" />
+            <input  type="text" id="foldersCdesDepartment"
+                   name="foldersCdesDepartment"
+                   value="${rqt.foldersCdesDepartment?.toString()}"
+                   class="condition-isCDES-filled  validate-departmentCode ${rqt.stepStates['folders'].invalidFields.contains('foldersCdesDepartment') ? 'validation-failed' : ''}"
+                   title="<g:message code="hcar.property.foldersCdesDepartment.validationError" />"  maxlength="2" />
             
 
     
@@ -111,7 +129,10 @@
     <g:if test="${true && !isEdition}">
       <p>
         <g:message code="request.message.howToAddCollectionItem" />
-        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'folders', 'currentCollection':'otherFolders', 'collectionIndex':(rqt.otherFolders ? rqt.otherFolders.size() : 0)])}" style="font-size:1.3em;" />
+        <a href="${createLink(controller : 'frontofficeRequest', action : 'edit',            params:['id':rqt.id, 'currentStep':'folders', 'currentCollection':'otherFolders',
+                    'collectionIndex':(rqt.otherFolders ? rqt.otherFolders.size() : 0),
+                    'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}"
+           style="font-size:1.3em;" />
           ${message(code:'request.action.newCollectionItem')}
         </a>
       </p>
@@ -121,7 +142,7 @@
         <dl>
         <dt class="head"><g:message code="hcar.property.otherFolders.label" /> : ${index + 1}</dt>
         <dd class="head">
-          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'folders', 'currentCollection':'otherFolders', 'collectionIndex':index])}">
+          <a href="${createLink(controller : 'frontofficeRequest', action : 'edit', params:['id':rqt.id, 'currentStep':'folders', 'currentCollection':'otherFolders', 'collectionIndex':index, 'collectionIndexAdded':collectionIndexAdded, 'collectionSpecific' : collectionSpecific])}">
            ${message(code:'request.action.editCollectionItem')}
          </a>&nbsp;
          <a href="${createLink(controller : 'frontofficeRequest', action : 'collectionRemove', params:['id':rqt.id, 'currentStep':'folders', 'currentCollection':'otherFolders', 'collectionIndex':index])}">

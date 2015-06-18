@@ -22,8 +22,11 @@
     
       
       <label for="ancienneCommune" class="required"><g:message code="serrr.property.ancienneCommune.label" /> *  <span><g:message code="serrr.property.ancienneCommune.help" /></span></label>
-            <input  type="text" id="ancienneCommune" name="ancienneCommune" value="${rqt.ancienneCommune?.toString()}" 
-                    class="required  validate-city ${rqt.stepStates['situation'].invalidFields.contains('ancienneCommune') ? 'validation-failed' : ''}" title="<g:message code="serrr.property.ancienneCommune.validationError" />"  maxlength="32" />
+            <input  type="text" id="ancienneCommune"
+                   name="ancienneCommune"
+                   value="${rqt.ancienneCommune?.toString()}"
+                   class="required  validate-city ${rqt.stepStates['situation'].invalidFields.contains('ancienneCommune') ? 'validation-failed' : ''}"
+                   title="<g:message code="serrr.property.ancienneCommune.validationError" />"  maxlength="32" />
             
 
     

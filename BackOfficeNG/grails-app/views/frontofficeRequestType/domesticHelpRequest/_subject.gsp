@@ -78,8 +78,11 @@
     
       
       <label for="dhrRequesterBirthPlace" class="required"><g:message code="dhr.property.dhrRequesterBirthPlace.label" /> *  <span><g:message code="dhr.property.dhrRequesterBirthPlace.help" /></span></label>
-            <input  type="text" id="dhrRequesterBirthPlace" name="dhrRequesterBirthPlace" value="${rqt.dhrRequesterBirthPlace?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['subject'].invalidFields.contains('dhrRequesterBirthPlace') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrRequesterBirthPlace.validationError" />"   />
+            <input  type="text" id="dhrRequesterBirthPlace"
+                   name="dhrRequesterBirthPlace"
+                   value="${rqt.dhrRequesterBirthPlace?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['subject'].invalidFields.contains('dhrRequesterBirthPlace') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrRequesterBirthPlace.validationError" />"   />
             
 
     
@@ -168,15 +171,21 @@
     
       
       <label for="dhrPensionPlanDetail" class="required condition-isOtherPensionPlan-filled"><g:message code="dhr.property.dhrPensionPlanDetail.label" /> *  <span><g:message code="dhr.property.dhrPensionPlanDetail.help" /></span></label>
-            <input  type="text" id="dhrPensionPlanDetail" name="dhrPensionPlanDetail" value="${rqt.dhrPensionPlanDetail?.toString()}" 
-                    class="required condition-isOtherPensionPlan-filled  validate-string ${rqt.stepStates['subject'].invalidFields.contains('dhrPensionPlanDetail') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrPensionPlanDetail.validationError" />"   />
+            <input  type="text" id="dhrPensionPlanDetail"
+                   name="dhrPensionPlanDetail"
+                   value="${rqt.dhrPensionPlanDetail?.toString()}"
+                   class="required condition-isOtherPensionPlan-filled  validate-string ${rqt.stepStates['subject'].invalidFields.contains('dhrPensionPlanDetail') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrPensionPlanDetail.validationError" />"   />
             
 
     
       
       <label for="dhrComplementaryPensionPlan" class="required"><g:message code="dhr.property.dhrComplementaryPensionPlan.label" /> *  <span><g:message code="dhr.property.dhrComplementaryPensionPlan.help" /></span></label>
-            <input  type="text" id="dhrComplementaryPensionPlan" name="dhrComplementaryPensionPlan" value="${rqt.dhrComplementaryPensionPlan?.toString()}" 
-                    class="required  validate-string ${rqt.stepStates['subject'].invalidFields.contains('dhrComplementaryPensionPlan') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrComplementaryPensionPlan.validationError" />"   />
+            <input  type="text" id="dhrComplementaryPensionPlan"
+                   name="dhrComplementaryPensionPlan"
+                   value="${rqt.dhrComplementaryPensionPlan?.toString()}"
+                   class="required  validate-string ${rqt.stepStates['subject'].invalidFields.contains('dhrComplementaryPensionPlan') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrComplementaryPensionPlan.validationError" />"   />
             
 
     
@@ -213,8 +222,11 @@
     
       
       <label for="dhrGuardianName" class="required condition-haveGuardian-filled"><g:message code="dhr.property.dhrGuardianName.label" /> *  <span><g:message code="dhr.property.dhrGuardianName.help" /></span></label>
-            <input  type="text" id="dhrGuardianName" name="dhrGuardianName" value="${rqt.dhrGuardianName?.toString()}" 
-                    class="required condition-haveGuardian-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('dhrGuardianName') ? 'validation-failed' : ''}" title="<g:message code="dhr.property.dhrGuardianName.validationError" />"  maxlength="38" />
+            <input  type="text" id="dhrGuardianName"
+                   name="dhrGuardianName"
+                   value="${rqt.dhrGuardianName?.toString()}"
+                   class="required condition-haveGuardian-filled  validate-lastName ${rqt.stepStates['subject'].invalidFields.contains('dhrGuardianName') ? 'validation-failed' : ''}"
+                   title="<g:message code="dhr.property.dhrGuardianName.validationError" />"  maxlength="38" />
             
 
     

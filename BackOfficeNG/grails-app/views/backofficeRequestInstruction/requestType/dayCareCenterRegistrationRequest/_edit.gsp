@@ -58,25 +58,25 @@
                 
                   <dt class="condition-estAutreSituationActuelleMere-trigger">${message(code:'dccrr.property.situationActuelleMere.label')} &nbsp;:</dt><dd id="situationActuelleMere" class="action-editField validate-libredematEnum i18n-dccrr.property.situationActuelleMere javatype-org.libredemat.business.request.school.ChoixSituationActuelle" ><g:libredematEnumToField var="${rqt?.situationActuelleMere}" i18nKeyPrefix="dccrr.property.situationActuelleMere" /></dd>
                 
-                  <dt class="required condition-estAutreSituationActuelleMere-filled">${message(code:'dccrr.property.precisionAutreSituationActuelleMere.label')} &nbsp;*&nbsp;:</dt><dd id="precisionAutreSituationActuelleMere" class="action-editField validate-string required-true i18n-dccrr.property.precisionAutreSituationActuelleMere" ><span>${rqt?.precisionAutreSituationActuelleMere}</span></dd>
+                  <dt class="required condition-estAutreSituationActuelleMere-filled">${message(code:'dccrr.property.precisionAutreSituationActuelleMere.label')} &nbsp;*&nbsp;:</dt><dd id="precisionAutreSituationActuelleMere" class="action-editField validate-string required-true i18n-dccrr.property.precisionAutreSituationActuelleMere" ><span >${rqt?.precisionAutreSituationActuelleMere}</span></dd>
                 
-                  <dt class="">${message(code:'dccrr.property.professionMere.label')} &nbsp;:</dt><dd id="professionMere" class="action-editField validate-string i18n-dccrr.property.professionMere" ><span>${rqt?.professionMere}</span></dd>
+                  <dt class="">${message(code:'dccrr.property.professionMere.label')} &nbsp;:</dt><dd id="professionMere" class="action-editField validate-string i18n-dccrr.property.professionMere" ><span >${rqt?.professionMere}</span></dd>
                 
                   <dt class="condition-estHorairesReguliersMere-trigger">${message(code:'dccrr.property.estHorairesReguliersMere.label')} &nbsp;:</dt><dd id="estHorairesReguliersMere" class="action-editField validate-boolean i18n-dccrr.property.estHorairesReguliersMere" ><span class="value-${rqt?.estHorairesReguliersMere}"><g:message code="${rqt?.estHorairesReguliersMere ? 'message.yes' : rqt?.estHorairesReguliersMere==null ? '' : 'message.no'}" /></span></dd>
                 
-                  <dt class="condition-estHorairesReguliersMere-filled">${message(code:'dccrr.property.horairesReguliersMere.label')} &nbsp;:</dt><dd id="horairesReguliersMere" class="action-editField validate-string i18n-dccrr.property.horairesReguliersMere" ><span>${rqt?.horairesReguliersMere}</span></dd>
+                  <dt class="condition-estHorairesReguliersMere-filled">${message(code:'dccrr.property.horairesReguliersMere.label')} &nbsp;:</dt><dd id="horairesReguliersMere" class="action-editField validate-string i18n-dccrr.property.horairesReguliersMere" ><span >${rqt?.horairesReguliersMere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailLundiMere.label')} &nbsp;:</dt><dd id="horairesTravailLundiMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailLundiMere" ><span>${rqt?.horairesTravailLundiMere}</span></dd>
+                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailLundiMere.label')} &nbsp;:</dt><dd id="horairesTravailLundiMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailLundiMere" ><span >${rqt?.horairesTravailLundiMere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailMardiMere.label')} &nbsp;:</dt><dd id="horairesTravailMardiMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMardiMere" ><span>${rqt?.horairesTravailMardiMere}</span></dd>
+                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailMardiMere.label')} &nbsp;:</dt><dd id="horairesTravailMardiMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMardiMere" ><span >${rqt?.horairesTravailMardiMere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailMercrediMere.label')} &nbsp;:</dt><dd id="horairesTravailMercrediMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMercrediMere" ><span>${rqt?.horairesTravailMercrediMere}</span></dd>
+                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailMercrediMere.label')} &nbsp;:</dt><dd id="horairesTravailMercrediMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMercrediMere" ><span >${rqt?.horairesTravailMercrediMere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailJeudiMere.label')} &nbsp;:</dt><dd id="horairesTravailJeudiMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailJeudiMere" ><span>${rqt?.horairesTravailJeudiMere}</span></dd>
+                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailJeudiMere.label')} &nbsp;:</dt><dd id="horairesTravailJeudiMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailJeudiMere" ><span >${rqt?.horairesTravailJeudiMere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailVendrediMere.label')} &nbsp;:</dt><dd id="horairesTravailVendrediMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailVendrediMere" ><span>${rqt?.horairesTravailVendrediMere}</span></dd>
+                  <dt class="condition-estHorairesReguliersMere-unfilled">${message(code:'dccrr.property.horairesTravailVendrediMere.label')} &nbsp;:</dt><dd id="horairesTravailVendrediMere" class="action-editField validate-string i18n-dccrr.property.horairesTravailVendrediMere" ><span >${rqt?.horairesTravailVendrediMere}</span></dd>
                 
-                  <dt class="">${message(code:'dccrr.property.communeLieuTravailMere.label')} &nbsp;:</dt><dd id="communeLieuTravailMere" class="action-editField validate-string i18n-dccrr.property.communeLieuTravailMere" ><span>${rqt?.communeLieuTravailMere}</span></dd>
+                  <dt class="">${message(code:'dccrr.property.communeLieuTravailMere.label')} &nbsp;:</dt><dd id="communeLieuTravailMere" class="action-editField validate-string i18n-dccrr.property.communeLieuTravailMere" ><span >${rqt?.communeLieuTravailMere}</span></dd>
                 
               </dl>
               
@@ -87,25 +87,25 @@
                 
                   <dt class="condition-estAutreSituationActuellePere-trigger">${message(code:'dccrr.property.situationActuellePere.label')} &nbsp;:</dt><dd id="situationActuellePere" class="action-editField validate-libredematEnum i18n-dccrr.property.situationActuellePere javatype-org.libredemat.business.request.school.ChoixSituationActuelle" ><g:libredematEnumToField var="${rqt?.situationActuellePere}" i18nKeyPrefix="dccrr.property.situationActuellePere" /></dd>
                 
-                  <dt class="required condition-estAutreSituationActuellePere-filled">${message(code:'dccrr.property.precisionAutreSituationActuellePere.label')} &nbsp;*&nbsp;:</dt><dd id="precisionAutreSituationActuellePere" class="action-editField validate-string required-true i18n-dccrr.property.precisionAutreSituationActuellePere" ><span>${rqt?.precisionAutreSituationActuellePere}</span></dd>
+                  <dt class="required condition-estAutreSituationActuellePere-filled">${message(code:'dccrr.property.precisionAutreSituationActuellePere.label')} &nbsp;*&nbsp;:</dt><dd id="precisionAutreSituationActuellePere" class="action-editField validate-string required-true i18n-dccrr.property.precisionAutreSituationActuellePere" ><span >${rqt?.precisionAutreSituationActuellePere}</span></dd>
                 
-                  <dt class="">${message(code:'dccrr.property.professionPere.label')} &nbsp;:</dt><dd id="professionPere" class="action-editField validate-string i18n-dccrr.property.professionPere" ><span>${rqt?.professionPere}</span></dd>
+                  <dt class="">${message(code:'dccrr.property.professionPere.label')} &nbsp;:</dt><dd id="professionPere" class="action-editField validate-string i18n-dccrr.property.professionPere" ><span >${rqt?.professionPere}</span></dd>
                 
                   <dt class="condition-estHorairesReguliersPere-trigger">${message(code:'dccrr.property.estHorairesReguliersPere.label')} &nbsp;:</dt><dd id="estHorairesReguliersPere" class="action-editField validate-boolean i18n-dccrr.property.estHorairesReguliersPere" ><span class="value-${rqt?.estHorairesReguliersPere}"><g:message code="${rqt?.estHorairesReguliersPere ? 'message.yes' : rqt?.estHorairesReguliersPere==null ? '' : 'message.no'}" /></span></dd>
                 
-                  <dt class="condition-estHorairesReguliersPere-filled">${message(code:'dccrr.property.horairesReguliersPere.label')} &nbsp;:</dt><dd id="horairesReguliersPere" class="action-editField validate-string i18n-dccrr.property.horairesReguliersPere" ><span>${rqt?.horairesReguliersPere}</span></dd>
+                  <dt class="condition-estHorairesReguliersPere-filled">${message(code:'dccrr.property.horairesReguliersPere.label')} &nbsp;:</dt><dd id="horairesReguliersPere" class="action-editField validate-string i18n-dccrr.property.horairesReguliersPere" ><span >${rqt?.horairesReguliersPere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailLundiPere.label')} &nbsp;:</dt><dd id="horairesTravailLundiPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailLundiPere" ><span>${rqt?.horairesTravailLundiPere}</span></dd>
+                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailLundiPere.label')} &nbsp;:</dt><dd id="horairesTravailLundiPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailLundiPere" ><span >${rqt?.horairesTravailLundiPere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailMardiPere.label')} &nbsp;:</dt><dd id="horairesTravailMardiPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMardiPere" ><span>${rqt?.horairesTravailMardiPere}</span></dd>
+                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailMardiPere.label')} &nbsp;:</dt><dd id="horairesTravailMardiPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMardiPere" ><span >${rqt?.horairesTravailMardiPere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailMercrediPere.label')} &nbsp;:</dt><dd id="horairesTravailMercrediPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMercrediPere" ><span>${rqt?.horairesTravailMercrediPere}</span></dd>
+                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailMercrediPere.label')} &nbsp;:</dt><dd id="horairesTravailMercrediPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailMercrediPere" ><span >${rqt?.horairesTravailMercrediPere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailJeudiPere.label')} &nbsp;:</dt><dd id="horairesTravailJeudiPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailJeudiPere" ><span>${rqt?.horairesTravailJeudiPere}</span></dd>
+                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailJeudiPere.label')} &nbsp;:</dt><dd id="horairesTravailJeudiPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailJeudiPere" ><span >${rqt?.horairesTravailJeudiPere}</span></dd>
                 
-                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailVendrediPere.label')} &nbsp;:</dt><dd id="horairesTravailVendrediPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailVendrediPere" ><span>${rqt?.horairesTravailVendrediPere}</span></dd>
+                  <dt class="condition-estHorairesReguliersPere-unfilled">${message(code:'dccrr.property.horairesTravailVendrediPere.label')} &nbsp;:</dt><dd id="horairesTravailVendrediPere" class="action-editField validate-string i18n-dccrr.property.horairesTravailVendrediPere" ><span >${rqt?.horairesTravailVendrediPere}</span></dd>
                 
-                  <dt class="">${message(code:'dccrr.property.communeLieuTravailPere.label')} &nbsp;:</dt><dd id="communeLieuTravailPere" class="action-editField validate-string i18n-dccrr.property.communeLieuTravailPere" ><span>${rqt?.communeLieuTravailPere}</span></dd>
+                  <dt class="">${message(code:'dccrr.property.communeLieuTravailPere.label')} &nbsp;:</dt><dd id="communeLieuTravailPere" class="action-editField validate-string i18n-dccrr.property.communeLieuTravailPere" ><span >${rqt?.communeLieuTravailPere}</span></dd>
                 
               </dl>
               
@@ -149,7 +149,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'dccrr.property.accueilAnterieur.label')} &nbsp;:</dt><dd id="accueilAnterieur" class="action-editField validate-string i18n-dccrr.property.accueilAnterieur" ><span>${rqt?.accueilAnterieur}</span></dd>
+                <dt class="">${message(code:'dccrr.property.accueilAnterieur.label')} &nbsp;:</dt><dd id="accueilAnterieur" class="action-editField validate-string i18n-dccrr.property.accueilAnterieur" ><span >${rqt?.accueilAnterieur}</span></dd>
               </dl>
               
             
@@ -293,7 +293,7 @@
             
               
               <dl>
-                <dt class="required">${message(code:'dccrr.property.telephoneContact.label')} &nbsp;*&nbsp;:</dt><dd id="telephoneContact" class="action-editField validate-phone required-true i18n-dccrr.property.telephoneContact maxLength-10" ><span>${rqt?.telephoneContact}</span></dd>
+                <dt class="required">${message(code:'dccrr.property.telephoneContact.label')} &nbsp;*&nbsp;:</dt><dd id="telephoneContact" class="action-editField validate-phone required-true i18n-dccrr.property.telephoneContact maxLength-10" ><span >${rqt?.telephoneContact}</span></dd>
               </dl>
               
             
@@ -311,7 +311,7 @@
             
               
               <dl>
-                <dt class="">${message(code:'dccrr.property.commentaireCitoyen.label')} &nbsp;:</dt><dd id="commentaireCitoyen" class="action-editField validate-textarea i18n-dccrr.property.commentaireCitoyen rows-10 maxLength-600" ><span>${rqt?.commentaireCitoyen}</span></dd>
+                <dt class="">${message(code:'dccrr.property.commentaireCitoyen.label')} &nbsp;:</dt><dd id="commentaireCitoyen" class="action-editField validate-textarea i18n-dccrr.property.commentaireCitoyen rows-10 maxLength-600" ><span >${rqt?.commentaireCitoyen}</span></dd>
               </dl>
               
             

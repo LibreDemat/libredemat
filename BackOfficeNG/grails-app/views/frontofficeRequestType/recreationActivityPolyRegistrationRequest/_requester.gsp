@@ -47,8 +47,11 @@
   
     
     <label for="urgencyPolyPhone" class="required"><g:message code="raprr.property.urgencyPolyPhone.label" /> *  <span><g:message code="raprr.property.urgencyPolyPhone.help" /></span></label>
-            <input  type="text" id="urgencyPolyPhone" name="urgencyPolyPhone" value="${rqt.urgencyPolyPhone?.toString()}" 
-                    class="required  validate-phone ${rqt.stepStates['requester'].invalidFields.contains('urgencyPolyPhone') ? 'validation-failed' : ''}" title="<g:message code="raprr.property.urgencyPolyPhone.validationError" />"  maxlength="10" />
+            <input  type="text" id="urgencyPolyPhone"
+                   name="urgencyPolyPhone"
+                   value="${rqt.urgencyPolyPhone?.toString()}"
+                   class="required  validate-phone ${rqt.stepStates['requester'].invalidFields.contains('urgencyPolyPhone') ? 'validation-failed' : ''}"
+                   title="<g:message code="raprr.property.urgencyPolyPhone.validationError" />"  maxlength="10" />
             
 
   
