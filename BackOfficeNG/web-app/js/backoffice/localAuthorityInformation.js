@@ -12,7 +12,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.localauthority');
           null,
           yud.get("yui-main"),
           function(box) {
-            zcb.Editor.init(/(.*)Box/.exec(box.id)[1]);
+            zcb.Editor.init(/(.*)Box/.exec(box.id)[1], null, /(.*)Box/.exec(box.id)[1] + "Notifier");
           }
         );
       }

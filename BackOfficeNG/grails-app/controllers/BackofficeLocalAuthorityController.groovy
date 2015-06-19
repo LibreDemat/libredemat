@@ -76,14 +76,16 @@ class BackofficeLocalAuthorityController {
     def information = {
         if (request.get) {
             def managedMessages = [
-                LocalAuthorityResource.INFORMATION_MESSAGE_FO
+                LocalAuthorityResource.INFORMATION_MESSAGE_FO,
+                LocalAuthorityResource.INFORMATION_MESSAGE_FO_UNAUTHENTICATED,
+                LocalAuthorityResource.INFORMATION_MESSAGE_INFORMATION_SHEET_FO,
+                LocalAuthorityResource.INFORMATION_MESSAGE_RESERVATION_FO
             ]
             def messages = []
             managedMessages.each {
                 def file = localAuthorityRegistry.getLocalAuthorityResourceFile(it.id)
-                if (!file.exists()) {
-                    localAuthorityRegistry.saveLocalAuthorityResource(it.id,
-                        "".bytes)
+                if (file == null || !file.exists()) {
+                    localAuthorityRegistry.saveLocalAuthorityResource(it.id, "".bytes)
                     file = localAuthorityRegistry.getLocalAuthorityResourceFile(it.id)
                 }
                 messages.add(["id" : it.id, "text" : file.text])

@@ -20,6 +20,7 @@
             <h2><g:message code="localAuthority.header.setup.${currentMessage.id}" /></h2>
             <form method="post" id="${currentMessage.id}Form" class="editor-form"
               action="${createLink(action : 'information')}">
+            <div id="${currentMessage.id}Notifier" class="invisible"></div>
               <p class="field">
                 <textarea id="${currentMessage.id}Editor"
                   name="editor">${currentMessage.text}</textarea>
