@@ -37,6 +37,11 @@
                   name="orderBy" ${state.orderBy == 'creationDate' ? 'checked="checked"' : ''} />
               </li>
               <li>
+                <label for="lastModificationDate"><g:message code="property.lastModificationDate" /></label>
+                <input type="radio" id="lastModificationDate" value="lastModificationDate" class="persistent sort"
+                       name="orderBy" ${state.orderBy == 'lastModificationDate' ? 'checked="checked"' : ''} />
+              </li>
+              <li>
                 <label for="sortLastName"><g:message code="property.individualLastName" /></label>
                 <input type="radio" id="sortLastName" value="lastName" class="persistent sort"
                   name="orderBy" ${state.orderBy == 'lastName' ? 'checked="checked"' : ''} />
