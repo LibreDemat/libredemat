@@ -138,6 +138,13 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         individualDAO.update(individual);
     }
 
+    @Override
+    public void findHomeFolderDuplicates(Long homeFolderId) {
+       HomeFolder homeFolder = userSearchService.getHomeFolderById(homeFolderId);
+       for(Individual ind : homeFolder.getIndividuals()) {
+           calculateDuplicates(ind);
+       }
+    }
 
     private Individual findIndividual(Long targetId) {
         Individual individual =  userSearchService.getById(targetId);

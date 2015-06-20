@@ -24,8 +24,12 @@ public class ChildDAO extends IndividualDAO implements IChildDAO {
     @Override
     public List<Child> findDuplicates(Map<String,Object> parameters) {
         return JpaUtil.getEntityManager().createQuery("from Child c where" +
-                    " lower(c.firstName) = lower(:firstName) and lower(c.lastName) = lower(:lastName)" +
+                    " REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(c.firstName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') "
+                    + " = lower(:firstName) and "
+                    + "REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(c.lastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') "
+                    + " = lower(:lastName)" +
                     " and c.birthDate = :birthDate " +
+                    " and c.state != '" + UserState.ARCHIVED.name() + "'" +
                     " and c.homeFolder.id = :homeFolderId", Child.class)
                     .setParameter("firstName", parameters.get("firstName"))
                     .setParameter("lastName", parameters.get("lastName"))

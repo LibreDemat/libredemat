@@ -99,7 +99,7 @@ class BackofficeHomeFolderController {
 
     def findDuplicates = {
         Adult adult = userSearchService.getAdultById(params.id.toLong())
-        userDeduplicationService.findAdultDuplicates(adult)
+        userDeduplicationService.findHomeFolderDuplicates(adult.homeFolder.id)
         redirect(action:'details', params:['id': adult.homeFolder.id])
     }
 

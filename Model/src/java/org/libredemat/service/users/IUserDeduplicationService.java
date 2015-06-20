@@ -42,4 +42,7 @@ public interface IUserDeduplicationService {
     void findAdultDuplicates(Adult adult);
 
     void createCirilMapping(HomeFolder homeFolderTarget);
+
+    void findHomeFolderDuplicates(Long homeFolderId);
+
 }
