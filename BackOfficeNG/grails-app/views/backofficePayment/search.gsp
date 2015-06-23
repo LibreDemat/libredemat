@@ -85,6 +85,7 @@
           </form>
         </div>
       </div>
+      <!--
       <g:if test="${inSearch && totalRecords > 0}">
         <div class="nobox">
           <h3><g:message code="payment.header.export" /></h3>
@@ -98,8 +99,9 @@
             </form>
           </div>
         </div>
-      </g:if>      
-    </div>    
+      </g:if>
+      -->
+    </div>
   </body>
 </html>
 
