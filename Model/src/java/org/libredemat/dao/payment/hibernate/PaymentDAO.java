@@ -168,7 +168,8 @@ public class PaymentDAO extends JpaTemplate<Payment,Long> implements IPaymentDAO
                 sb.append(" and externalInvoiceItem.externalServiceLabel " + searchCrit.getComparatif() + " ?");
                 values.add(searchCrit.getSqlStringValue());
                 types.add(Hibernate.STRING);
-            } else if (searchCrit.getAttribut().equals(ExternalInvoiceItem.SEARCH_BY_EXTERNAL_INVOICE_ID)) {
+            } else if (searchCrit.getAttribut().equals(ExternalInvoiceItem.SEARCH_BY_EXTERNAL_INVOICE_ID)
+                    || searchCrit.getAttribut().equals(ExternalInvoiceItem.SEARCH_BY_EXTERNAL_ITEM_ID)) {
                 sb.append(" and externalInvoiceItem.externalItemId " + searchCrit.getComparatif() + " ?");
                 values.add(searchCrit.getSqlStringValue());
                 types.add(Hibernate.STRING);
