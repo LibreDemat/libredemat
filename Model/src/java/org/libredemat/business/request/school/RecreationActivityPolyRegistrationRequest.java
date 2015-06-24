@@ -94,13 +94,6 @@ public class RecreationActivityPolyRegistrationRequest extends Request implement
           stepState.put("invalidFields", new ArrayList<String>());
           getStepStates().put("validation", stepState);
         
-          stepState = new HashMap<String, Object>(4);
-          stepState.put("state", "unavailable");
-          stepState.put("required", false);
-          stepState.put("errorMsg", null);
-          stepState.put("invalidFields", new ArrayList<String>());
-          getStepStates().put("administration", stepState);
-        
     }
 
     /**
@@ -287,13 +280,6 @@ public class RecreationActivityPolyRegistrationRequest extends Request implement
           stepState.put("errorMsg", null);
           stepState.put("invalidFields", new ArrayList<String>());
           clone.getStepStates().put("validation", stepState);
-        
-          stepState = new HashMap<String, Object>(4);
-          stepState.put("state", "unavailable");
-          stepState.put("required", false);
-          stepState.put("errorMsg", null);
-          stepState.put("invalidFields", new ArrayList<String>());
-          clone.getStepStates().put("administration", stepState);
         
         return clone;
     }

@@ -20,10 +20,6 @@
       <a href="#page3"><em><g:message code="raprr.step.rules.label" /></em></a>
     </li>
   
-    <li class="administration ">
-      <a href="#page6"><em><g:message code="request.step.administration.label" /></em></a>
-    </li>
-  
   </ul>
    
   <div class="yui-content">
@@ -181,35 +177,6 @@
                 <dt class="">${message(code:'raprr.property.hospitalizationPolyPermission.label')} &nbsp;:</dt><dd id="hospitalizationPolyPermission" class="action-editField validate-acceptance i18n-raprr.property.hospitalizationPolyPermission" ><span class="value-${rqt?.hospitalizationPolyPermission}"><g:message code="message.${rqt?.hospitalizationPolyPermission ? 'yes' : 'no'}" /></span></dd>
               </dl>
               
-            
-          </div>
-          <!-- column end -->
-          
-          <!-- column start -->
-          <div class="yui-u">
-            
-          </div>
-          <!-- column end -->
-          
-        </div>
-        <!-- data step  end -->
-      </div>
-      <!-- step end -->
-      
-      <!-- step start -->
-      <div id="page6">
-        <h2><g:message code="property.form" />
-          <span><g:message code="request.step.administration.label" /></span>
-        </h2>
-        <div class="yui-g">
-          
-            <div class="administration information-message">
-              <g:message code="request.step.administration.desc" />
-            </div>
-          
-          
-          <!-- column start -->
-          <div class="yui-u first">
             
           </div>
           <!-- column end -->
