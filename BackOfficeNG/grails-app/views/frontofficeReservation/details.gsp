@@ -23,7 +23,7 @@
           </g:else>
            <g:message code="message.for" /> ${individual} 
         </h2>
-                <table class="paginate"><!-- two button to navigate between month -->
+        <table class="paginate"><!-- two button to navigate between month -->
           <tr>
             <td class="pre">
                <form action="" method="get">
@@ -86,6 +86,29 @@
   <div id="narrow" class="yui-b">
     <div class="narrow-box">
       <h3>
+        <g:message code="header.planningCart" />
+      </h3>
+      <div class="body">
+        <g:if test="${session.instantPayment != false}">
+          Etat du compte avant validation :
+          <g:formatNumber number="${new BigDecimal(session.amountInCent,2)}" type="currency" currencyCode="EUR"/>
+        </g:if>
+        <!-- todo get the reservation activity during session -->
+        <div id="planingActivity" class="${session.homeFolderId}"></div>
+        <g:if test="${!"0".equals(session.amountInCent)}">
+          <g:if test="${session.instantPayment != false}">
+            <input type="image" src="../../images/icons/confirmer.png" id="pay-${session.homeFolderId}" class="pay"/>
+          </g:if>
+          <g:else>
+            <input type="image" src="../../images/icons/confirmer.png" id="update-${session.homeFolderId}" class="update"/>
+          </g:else>
+        </g:if>
+        <input type="image" src="../../images/icons/detail.png" id="detail-${session.homeFolderId}" class="detail"/>
+        <input type="image" src="../../images/icons/annuler.png" id="cancel-${session.homeFolderId}-${(session.instantPayment != false)?('pre'):('post')}" class="cancel"/>
+      </div>
+    </div>
+    <div class="narrow-box">
+      <h3>
         <g:message code="header.display" />
       </h3>
       <div class="body">
@@ -104,27 +127,6 @@
         	<g:legendService data="${data}" month="${month}" year="${year}" 
         		activityCode="${activityCode}" childId="${childId}" payment="${session.instantPayment}"/>          
         </ul>
-      </div>
-    </div>
-    <div class="narrow-box">
-      <h3>
-        <g:message code="header.planningCart" />
-      </h3>
-      <div class="body">
-        <g:if test="${session.instantPayment != false}">
-          Etat du compte avant validation : 
-          <g:formatNumber number="${new BigDecimal(session.amountInCent,2)}" type="currency" currencyCode="EUR"/>
-        </g:if>
-        <!-- todo get the reservation activity during session -->
-        <div id="planingActivity" class="${session.homeFolderId}"></div>
-        <g:if test="${session.instantPayment != false}">
-        	<input type="image" src="../../images/icons/confirmer.png" id="pay-${session.homeFolderId}" class="pay"/>
-        </g:if>
-        <g:else>
-        	<input type="image" src="../../images/icons/confirmer.png" id="update-${session.homeFolderId}" class="update"/>
-        </g:else>
-		<input type="image" src="../../images/icons/detail.png" id="detail-${session.homeFolderId}" class="detail"/>
-		<input type="image" src="../../images/icons/annuler.png" id="cancel-${session.homeFolderId}-${(session.instantPayment != false)?('pre'):('post')}" class="cancel"/>
       </div>
     </div>
   </div>
