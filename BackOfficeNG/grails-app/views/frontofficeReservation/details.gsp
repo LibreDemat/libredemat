@@ -95,14 +95,14 @@
         </g:if>
         <!-- todo get the reservation activity during session -->
         <div id="planingActivity" class="${session.homeFolderId}"></div>
-        <g:if test="${!BigDecimal.ZERO.equals(new BigDecimal(session.amountInCent))}">
+        <!-- g:if test="${!BigDecimal.ZERO.equals(new BigDecimal(session.amountInCent))}" -->
           <g:if test="${session.instantPayment != false}">
             <input type="image" src="../../images/icons/confirmer.png" id="pay-${session.homeFolderId}" class="pay"/>
           </g:if>
           <g:else>
             <input type="image" src="../../images/icons/confirmer.png" id="update-${session.homeFolderId}" class="update"/>
           </g:else>
-        </g:if>
+        <!-- /g:if -->
         <input type="image" src="../../images/icons/detail.png" id="detail-${session.homeFolderId}" class="detail"/>
         <input type="image" src="../../images/icons/annuler.png" id="cancel-${session.homeFolderId}-${(session.instantPayment != false)?('pre'):('post')}" class="cancel"/>
       </div>
