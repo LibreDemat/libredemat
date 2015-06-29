@@ -5,10 +5,10 @@
     <link rel="stylesheet" type="text/css" href="${resource(dir:'css/frontoffice', file:'reservation.css')}" />
     <script type="text/javascript" src="${resource(dir:'js/frontoffice',file:'reservation.js')}"></script>
   </head>
-  
+
   <body>
   <div id="yui-main">
-  	   
+
     <div id="main" class="yui-b">
     <g:if test="${commonInfo != null}">
       	<div class="information-box"><h2>Information</h2>${commonInfo}</div>
@@ -21,7 +21,7 @@
           <g:else>
           	<g:translateRequestTypeLabel label="${activityCode}"/>
           </g:else>
-           <g:message code="message.for" /> ${individual} 
+           <g:message code="message.for" /> ${individual}
         </h2>
         <table class="paginate"><!-- two button to navigate between month -->
           <tr>
@@ -45,14 +45,14 @@
               </form>
               </td>
           </tr>
-        </table>  
+        </table>
         <div class="icon-legend">
           <span class="legend-reservation-valid">&nbsp;</span><g:message code="reservation.validated" />
           <span class="legend-reservation-en-cours">&nbsp;</span><g:message code="reservation.inprogress" />
           <span class="legend-reservation-report-en-cours">&nbsp;</span><g:message code="report.inprogress" />
         </div>
         <!-- call the tag lib PlanningTagLib to dispaly planing  -->
-        <g:activityPlanning  month="${month}" year="${year}" data="${data}" deadLine="${deadLine}" 
+        <g:activityPlanning  month="${month}" year="${year}" data="${data}" deadLine="${deadLine}"
         	childId="${childId}" activityCode="${activityCode}"/>
         <table class="paginate"><!-- two button to navigate between month -->
           <tr>
@@ -77,10 +77,10 @@
               </td>
           </tr>
         </table>
-          
+
       </div>
     </div>
-  </div> 
+  </div>
   <!-- end of yui-main -->
 
   <div id="narrow" class="yui-b">
@@ -95,7 +95,7 @@
         </g:if>
         <!-- todo get the reservation activity during session -->
         <div id="planingActivity" class="${session.homeFolderId}"></div>
-        <g:if test="${!"0".equals(session.amountInCent)}">
+        <g:if test="${!BigDecimal.ZERO.equals(new BigDecimal(session.amountInCent))}">
           <g:if test="${session.instantPayment != false}">
             <input type="image" src="../../images/icons/confirmer.png" id="pay-${session.homeFolderId}" class="pay"/>
           </g:if>
@@ -124,8 +124,8 @@
       </h3>
       <div class="body">
         <ul id="toolbar" class="legend">
-        	<g:legendService data="${data}" month="${month}" year="${year}" 
-        		activityCode="${activityCode}" childId="${childId}" payment="${session.instantPayment}"/>          
+        	<g:legendService data="${data}" month="${month}" year="${year}"
+        		activityCode="${activityCode}" childId="${childId}" payment="${session.instantPayment}"/>
         </ul>
       </div>
     </div>
