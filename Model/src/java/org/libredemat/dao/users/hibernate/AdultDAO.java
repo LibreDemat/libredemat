@@ -58,7 +58,8 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
     public List<Adult> findDuplicates(Map<String,String> parameters) {
         Query q = HibernateUtil.getSession().createQuery(
                 "from Adult a where" +
-                    " (lower(a.firstName) = lower(:firstName) and lower(a.lastName) = lower(:lastName))" +
+                    " (REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(a.firstName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') = lower(:firstName)" +
+                    " and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(a.lastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') = lower(:lastName))" +
                     " and ( lower(a.email) = lower(:email) " +
                     " or lower(:address) like '%'|| lower(a.address.streetName) || '%' )" +
                     " and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' )" +
