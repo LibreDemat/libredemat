@@ -620,7 +620,7 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
     public void modify(Request request)
         throws CvqException {
 
-        IRequestService requestService = requestServiceRegistry.getRequestService(request);
+        IRequestService requestService = requestServiceRegistry.getRequestService(request.getRequestType().getLabel());
         requestService.onRequestModified(request);
 
         if (SecurityContext.isFrontOfficeContext() && request.getSubjectId() != null
