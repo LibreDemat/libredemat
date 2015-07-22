@@ -49,6 +49,7 @@ import org.libredemat.dao.jpa.JpaUtil;
 import org.libredemat.dao.users.IHomeFolderDAO;
 import org.libredemat.dao.users.IHomeFolderMappingDAO;
 import org.libredemat.dao.users.IIndividualDAO;
+import org.libredemat.dao.users.IIndividualMappingDAO;
 import org.libredemat.exception.CvqAuthenticationFailedException;
 import org.libredemat.exception.CvqBadPasswordException;
 import org.libredemat.exception.CvqDisabledAccountException;
@@ -121,6 +122,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     private IGenericDAO genericDAO;
 
     private IHomeFolderMappingDAO homeFolderMappingDAO;
+
+    private IIndividualMappingDAO individualMappingDAO;
 
     private Map<String, UserWorkflow> workflows = new HashMap<String, UserWorkflow>();
 
@@ -714,8 +717,34 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         UserAction action = new UserAction(UserAction.Type.STATE_CHANGE, individual.getId(), payload);
         action = (UserAction) genericDAO.create(action);
         homeFolder.getActions().add(action);
+
         homeFolderDAO.update(individual.getHomeFolder());
         applicationEventPublisher.publishEvent(new UserEvent(this, action));
+
+        if (UserState.ARCHIVED.equals(state)) {
+            List <HomeFolderMapping> hfMappings = homeFolderMappingDAO.findByHomeFolderId(homeFolder.getId());
+            if (hfMappings!=null && !hfMappings.isEmpty()) {
+                for(HomeFolderMapping hfm : hfMappings) {
+                    List<IndividualMapping> newIndMappings = new ArrayList<IndividualMapping>();
+                    List<IndividualMapping> indMappingsToDelete = new ArrayList<IndividualMapping>();
+                    List <IndividualMapping> indMappings = hfm.getIndividualsMappings();
+                    if(indMappings!=null && !indMappings.isEmpty()) {
+                        for(IndividualMapping indM : indMappings) {
+                            if(indM.getIndividualId().equals(individual.getId())) {
+                                indMappingsToDelete.add(indM);
+                            } else {
+                                newIndMappings.add(indM);
+                            }
+                        }
+                    }
+                    hfm.setIndividualsMappings(newIndMappings);
+                    homeFolderMappingDAO.update(hfm);
+                    for(IndividualMapping ind : indMappingsToDelete) {
+                        individualMappingDAO.delete(ind);
+                    }
+                }
+            }
+        }
 
         // change home folder state if needed
         if (UserState.INVALID.equals(state) && !UserState.INVALID.equals(homeFolder.getState()))
@@ -1256,5 +1285,13 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         adult.getHomeFolder().getActions().add(action);
         homeFolderDAO.update(adult.getHomeFolder());
 
+    }
+
+    public IIndividualMappingDAO getIndividualMappingDAO() {
+        return individualMappingDAO;
+    }
+
+    public void setIndividualMappingDAO(IIndividualMappingDAO individualMappingDAO) {
+        this.individualMappingDAO = individualMappingDAO;
     }
 }
