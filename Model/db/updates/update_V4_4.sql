@@ -148,6 +148,11 @@ insert into user_external_action
     where request_external_action.key = cast(request.id as varchar)
     and request_type_id in (select id from request_type where label = 'VO Card' or label = 'Home Folder Modification');
 
+delete from request_external_action_complementary_data where id in
+  (select id from request_external_action where key in
+      (select cast(id as varchar) from request where request_type_id in
+          (select id from request_type where label = 'VO Card' or label = 'Home Folder Modification')));
+
 delete from request_external_action where key in
     (select cast(id as varchar) from request where request_type_id in
         (select id from request_type where label = 'VO Card' or label = 'Home Folder Modification'));
