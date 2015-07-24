@@ -372,16 +372,38 @@
       </xs:documentation>
       <xs:documentation xml:lang="fr" source="http://www.cg95.fr/cvq/schema/translation/enum">
         <enum key="SANS_PORC" value="Sans porc" />
+        <enum key="SANS_VIANDE" value="Sans viande" />
+        <enum key="PRATIQUE_AUTRE" value="" />
+        <enum key="SANS_SUCRE" value="" />
+        <enum key="SANS_OEUFS" value="" />
+        <enum key="SANS_LAIT" value="" />
+        <enum key="SANS_ARACHIDE" value="" />
+        <enum key="SANS_GLUTEN" value="" />
+        <enum key="SANS_COQUE" value="" />
+        <enum key="SANS_POISSON" value="" />
+        <enum key="ALLERGIE_AUTRE" value="" />
         <enum key="SANS_POISS" value="Sans poisson" />
         <enum key="PAI" value="PAI" />
         <enum key="ALLERGIE" value="Sans allergène" />
+        <enum key="ALLERGIE_LEGUMINEUX" value="" />
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="SANS_PORC" />
+      <xs:enumeration value="SANS_VIANDE" />
+      <xs:enumeration value="PRATIQUE_AUTRE" />
+      <xs:enumeration value="SANS_SUCRE" />
+      <xs:enumeration value="SANS_OEUFS" />
+      <xs:enumeration value="SANS_LAIT" />
+      <xs:enumeration value="SANS_ARACHIDE" />
+      <xs:enumeration value="SANS_GLUTEN" />
+      <xs:enumeration value="SANS_COQUE" />
+      <xs:enumeration value="SANS_POISSON" />
+      <xs:enumeration value="ALLERGIE_AUTRE" />
       <xs:enumeration value="SANS_POISS" />
       <xs:enumeration value="PAI" />
       <xs:enumeration value="ALLERGIE" />
+      <xs:enumeration value="ALLERGIE_LEGUMINEUX" />
     </xs:restriction>
   </xs:simpleType>
     	  
