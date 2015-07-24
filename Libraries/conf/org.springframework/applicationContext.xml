@@ -392,6 +392,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="userSearchService" ref="userSearchService" />
     <property name="homeFolderDAO" ref="homeFolderDAO" />
     <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO" />
+    <property name="individualMappingDAO" ref="individualMappingDAO" />
     <property name="individualDAO" ref="individualDAO" />
     <property name="genericDAO" ref="genericDAO" />
   </bean>
