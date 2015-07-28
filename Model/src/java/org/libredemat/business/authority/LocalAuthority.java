@@ -63,6 +63,9 @@ public class LocalAuthority implements Serializable {
     @Column(name="display_in_progress_payments", nullable=false)
     private boolean displayInProgressPayments;
 
+    @Column(name="google_analytics_id")
+    private String googleAnalyticsId;
+
     /** full constructor */
     public LocalAuthority(String name, String displayTitle) {
         this.name = name;
@@ -195,5 +198,13 @@ public class LocalAuthority implements Serializable {
 
     public void setDisplayInProgressPayments(boolean displayInProgressPayments) {
         this.displayInProgressPayments = displayInProgressPayments;
+    }
+
+    public String getGoogleAnalyticsId() {
+        return googleAnalyticsId;
+    }
+
+    public void setGoogleAnalyticsId(String googleAnalyticsId) {
+        this.googleAnalyticsId = googleAnalyticsId;
     }
 }

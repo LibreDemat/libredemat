@@ -2175,6 +2175,7 @@
         display_in_progress_payments bool not null,
         display_title varchar(100) not null,
         document_digitalization_enabled bool not null,
+        google_analytics_id varchar(255),
         name varchar(32) not null,
         payment_deactivation_end_date timestamp,
         payment_deactivation_start_date timestamp,

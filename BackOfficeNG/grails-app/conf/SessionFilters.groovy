@@ -171,6 +171,15 @@ class SessionFilters {
             }
         }
 
+        includeGoogleAnalytics(uri: '/frontoffice/**') {
+            before = {
+                if (SecurityContext.currentSite.googleAnalyticsId != null
+                && SecurityContext.currentSite.googleAnalyticsId != "") {
+                    session.setAttribute("googleAnalyticsId", SecurityContext.currentSite.googleAnalyticsId)
+                }
+            }
+        }
+
         setupFrontUser(uri: '/frontoffice/**') {
             before = {
                 // Avoid looping in this filter, go out if we detect that we are dealing with an error
