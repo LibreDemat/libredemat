@@ -21,6 +21,7 @@ import org.libredemat.business.payment.PaymentMode
 import org.libredemat.business.reservation.ReservationItem
 import org.libredemat.business.users.Adult
 import org.libredemat.business.users.Child
+import org.libredemat.business.users.Individual
 import org.libredemat.business.users.external.IndividualMapping
 import org.libredemat.exception.CvqException;
 import org.libredemat.external.ExternalServiceBean
@@ -101,14 +102,14 @@ class FrontofficeReservationController
 				LinkedHashMap<Child, Activities[]> getResumee = 											// call the method from external service
 					((IActivityReservationProviderService)service).getReservationResume(ecitizen.homeFolder.id, from, to, session.activityId)
 				
-				Iterator<Child> iter = getResumee.newKeyIterator()
+				Iterator<Individual> iter = getResumee.newKeyIterator()
 				while (iter.hasNext()) {										// parse result map
-					Child child = (Child) iter.next()
+					Individual child = (Individual) iter.next()
 					def childId = child.id.toString()
 					if(!result.reservations[childId]) result.reservations[childId] = [:]
 					result.reservations[childId].ch = child
 					
-					result.reservations[childId].childInformationSheetFilled = userService.isChildInformationSheetFilled(child)
+					result.reservations[childId].childInformationSheetFilled = (child instanceof Adult) ? true : userService.isChildInformationSheetFilled(child)
 					
 					result.reservations[childId].activities = [:]
 					Activities[] activities = getResumee.get(child)
@@ -213,7 +214,7 @@ class FrontofficeReservationController
 		def reservationItems = reservationService.getByHomeFolder(session.activityId, params?.homeFolderId?.toLong())
 		def mapFirstName = [:]
 		reservationItems.each{
-			Child child = userSearchService.getChildById(it.childId.toLong())
+			Individual child = userSearchService.getById(it.childId.toLong())
 			mapFirstName."${it.childId}" = child.firstName
 		}
 		render(template: 'detailShow', model:['items': reservationItems, 'mapFirstName': mapFirstName])
@@ -228,7 +229,7 @@ class FrontofficeReservationController
 			reservationItems = reservationService.getByHomeFolder(session.activityId, params.homeFolderId.toLong())
 			reservationItems.each
 			{
-				Child child = userSearchService.getChildById(it.childId.toLong())
+				Individual child = userSearchService.getById(it.childId.toLong())
 				mapFirstName."${it.childId}" = child.firstName
 			}
     	}
@@ -276,7 +277,7 @@ class FrontofficeReservationController
 		def resaList = [:]
 		def resultResponse = [:]
 		reservationItems.each{
-			Child child = userSearchService.getChildById(it.childId)
+			Individual child = userSearchService.getById(it.childId)
 			def ifm = externalHomeFolderService.getIndividualMapping(hfm, it.childId)
 			if(!resaList."${ifm.getExternalId()}") resaList."${ifm.getExternalId()}" = [:]
 			if(!resaList."${ifm.getExternalId()}"."${it.activityCode}") resaList."${ifm.getExternalId()}"."${it.activityCode}" = [:]
@@ -387,7 +388,7 @@ class FrontofficeReservationController
 		def resaList = [:]
 		def resultResponse = [:]
 		reservationItems.each{
-			Child child = userSearchService.getChildById(it.childId)
+			Individual child = userSearchService.getById(it.childId)
 			def ifm = externalHomeFolderService.getIndividualMapping(hfm, it.childId)
 			if(!resaList."${ifm.getExternalId()}") resaList."${ifm.getExternalId()}" = [:]
 			if(!resaList."${ifm.getExternalId()}"."${it.activityCode}") resaList."${ifm.getExternalId()}"."${it.activityCode}" = [:]
@@ -439,7 +440,7 @@ class FrontofficeReservationController
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".errorCode = it.getErrorCode()
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".errorLabel = it.getErrorLabel()
 						IndividualMapping im = externalHomeFolderService.getIndividualMappingByExternalId(child.getExternalChildId(), "CirilNetEnfance", ecitizen.homeFolder.id)
-						def thisChild = userSearchService.getChildById(im.individualId)
+						def thisChild = userSearchService.getById(im.individualId)
 						def getResaFromTable = reservationService.getByParams(session.activityId, thisChild.id,acti.getActivityCode() , actiServ.getActivityServiceCode(), thisDate)
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".firstName = thisChild.firstName
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".childId = thisChild.id
@@ -492,7 +493,7 @@ class FrontofficeReservationController
 		datas.each{
 			if (it != null) {
 				def elements = it.tokenize("-")
-				Child child = userSearchService.getChildById(elements[0].toLong())
+				Individual child = userSearchService.getById(elements[0].toLong())
 				def invoiceLine = [:]
 				invoiceLine.labelService = elements[5]
 				invoiceLine.lastName = child.lastName
@@ -693,7 +694,7 @@ class FrontofficeReservationController
 			def dayDatas = it.tokenize('-')
 			ReservationItem ri = new ReservationItem()
 			ri.session = session.activityId
-			Child child = userSearchService.getChildById(dayDatas[0].toLong())
+			Individual child = userSearchService.getById(dayDatas[0].toLong())
 			ri.childId = child.getId()
 			ci = child.getId()
 			ri.homeFolderId = child.getHomeFolder().getId()
@@ -840,7 +841,7 @@ class FrontofficeReservationController
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".errorCode = it.getErrorCode()
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".errorLabel = it.getErrorLabel()
 						IndividualMapping im = externalHomeFolderService.getIndividualMappingByExternalId(child.getExternalChildId(), "CirilNetEnfance", ecitizen.homeFolder.id)
-						def thisChild = userSearchService.getChildById(im.individualId)
+						def thisChild = userSearchService.getById(im.individualId)
 	
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".type = "reservationencours"
 						result.children."${child.getExternalChildId()}"."${acti.getActivityCode()}"."${actiServ.getActivityServiceCode()}"."${it.getDate()}".firstName = thisChild.firstName
@@ -888,7 +889,7 @@ class FrontofficeReservationController
 		def dayDatas = it.tokenize('-');
 		ReservationItem ri = new ReservationItem()
 		ri.session = session.activityId
-		Child child = userSearchService.getChildById(dayDatas[0].toLong())
+		Individual child = userSearchService.getById(dayDatas[0].toLong())
 		ri.childId = child.getId()
 		def ci = child.getId()
 		ri.homeFolderId = child.getHomeFolder().getId()
@@ -1082,7 +1083,7 @@ class FrontofficeReservationController
 		def result = [:]
 		def hfm = externalHomeFolderService.getHomeFolderMapping("CirilNetEnfance",	ecitizen.homeFolder.id)
 		def ifm = externalHomeFolderService.getIndividualMapping(hfm, childId.toLong())
-		Child child = userSearchService.getChildById(childId.toLong())
+		Individual child = userSearchService.getById(childId.toLong())
 		if(hfm != null){
 			IExternalProviderService service =
 				SecurityContext.getCurrentConfigurationBean().getExternalServiceConfigurationBean().getExternalServiceByLabel("CirilNetEnfance")

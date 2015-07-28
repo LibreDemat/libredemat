@@ -739,11 +739,11 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 	 * delete reservation on business soft
 	 */
 	@Override
-	public LinkedHashMap<Child, Activities[]> getReservationResume(Long homeFolderId, Date start, Date end,
+	public LinkedHashMap<Individual, Activities[]> getReservationResume(Long homeFolderId, Date start, Date end,
 			String sessionId) throws CvqException, ParseException
 	{
 		// retreive information for 'pivot' page
-		LinkedHashMap<Child, Activities[]> getRes = new LinkedHashMap<Child, Activities[]>();
+		LinkedHashMap<Individual, Activities[]> getRes = new LinkedHashMap<Individual, Activities[]>();
 		// ordering map among the id of child
 		HomeFolderMapping hfm = externalHomeFolderService.getHomeFolderMapping(label, homeFolderId);
 		List<IndividualMapping> individuals = hfm.getIndividualsMappings();
@@ -760,7 +760,7 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 					// only for child with external id
 					if (im.getExternalId() != null && im.getExternalId().equals(child.getExternalChildId()))
 					{
-						Child capChild = userSearchService.getChildById(im.getIndividualId());
+						Individual capChild = userSearchService.getById(im.getIndividualId());
 						getRes.put(capChild, child.getActivitiesArray());
 					}
 				}

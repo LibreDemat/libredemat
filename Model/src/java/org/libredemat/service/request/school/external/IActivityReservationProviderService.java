@@ -6,10 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import enfanceServicesEnfance.Activities;
-import enfanceServicesEnfance.impl.ActivitiesImpl;
 
 import org.jdom.Document;
-import org.libredemat.business.users.Child;
+import org.libredemat.business.users.Individual;
 import org.libredemat.exception.CvqException;
 
 public interface IActivityReservationProviderService {
@@ -23,7 +22,7 @@ public interface IActivityReservationProviderService {
      * @throws CvqException
      * @throws ParseException
      */
-    LinkedHashMap<Child,Activities[]> getReservationResume(Long homeFolderId, Date start, Date end, String sessionId) 
+    LinkedHashMap<Individual,Activities[]> getReservationResume(Long homeFolderId, Date start, Date end, String sessionId)
             throws CvqException, ParseException;
     /**
      * retreive information for one activity of one child during a month
