@@ -1,11 +1,18 @@
 import java.util.Hashtable
 
+import org.apache.xmlbeans.XmlObject
+import org.apache.xmlbeans.XmlOptions
+import org.libredemat.ExportXmlDocument
+import org.libredemat.ExportXmlDocument.ExportXml
 import org.libredemat.business.authority.Agent
+import org.libredemat.business.request.LocalReferentialData;
 import org.libredemat.business.request.Request
 import org.libredemat.business.request.RequestState
 import org.libredemat.business.request.RequestType
+import org.libredemat.external.ExternalServiceUtils;
 import org.libredemat.service.authority.IAgentService
 import org.libredemat.service.request.ICategoryService
+import org.libredemat.service.request.IRequestExportService;
 import org.libredemat.service.request.IRequestSearchService
 import org.libredemat.service.request.IRequestStatisticsService
 import org.libredemat.service.request.IRequestTypeService
@@ -20,7 +27,8 @@ class BackofficeRequestController {
     IRequestSearchService requestSearchService
     IRequestStatisticsService requestStatisticsService
     IRequestTypeService requestTypeService
-    
+    IRequestExportService requestExportService
+
     def translationService
     def requestAdaptorService
     def localAuthorityRegistry
@@ -109,6 +117,41 @@ class BackofficeRequestController {
             response.contentType = "text/csv"
             response.outputStream.withWriter('ISO-8859-1') { writer ->
                 requestCsvAdaptorService.exportRequestAsCsv(requests, writer)
+            }
+        }
+    }
+
+    def exportXml = {
+        def (criteria, parsedFilters, sortBy, sortDir) = prepareSearch(request)
+        def requests = requestSearchService.get(criteria, sortBy, sortDir, -1, 0, true)
+
+        if (requests.empty) {
+            flash.errorMessage = message("code": "request.exportCsv.error.noresult")
+            search()
+        } else if (!checkIfRequestTypeFilterIsFilled(parsedFilters)) {
+            flash.errorMessage = message("code": "request.exportCsv.error.nofilter")
+            search()
+        } else {
+            response.setHeader("Content-disposition", "attachment; filename=export-demandes.xml")
+            response.contentType = "text/xml"
+            ExportXml e = ExportXml.Factory.newInstance();
+            def i = 0;
+            if (requests != null) {
+                XmlObject[] rqts = new XmlObject[requests.size()]
+                for (Request rqt : requests) {
+                    rqts[i++] = ExternalServiceUtils.getRequestTypeFromXmlObject(
+                            requestExportService.fillRequestXml(rqt))
+                }
+                e.setRequestArray(rqts)
+            }
+
+            response.outputStream.withWriter('ISO-8859-1') { writer ->
+                XmlOptions opts = new XmlOptions();
+                opts.setSavePrettyPrint();
+                opts.setSavePrettyPrintIndent(4);
+                opts.setUseDefaultNamespace();
+                opts.setCharacterEncoding("UTF-8");
+                writer.append(e.xmlText(opts))
             }
         }
     }

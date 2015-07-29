@@ -32,9 +32,11 @@
         <h3><g:message code="header.actions" /></h3>
         <g:if test="${requestTypeFilterFilled}">
             <input type="button" value="${message(code:"request.exportCsv.button")}" id="export-csv" class="noform-button" data-action="${createLink(action:'exportCsv')}" />
+            <input type="button" value="${message(code:"request.exportXml.button")}" id="export-xml" class="noform-button" data-action="${createLink(action:'exportXml')}" />
         </g:if>
         <g:if test="${!requestTypeFilterFilled}">
             <input type="button" value="${message(code:"request.exportCsv.button")}" class="noform-button" disabled="disabled" />
+            <input type="button" value="${message(code:"request.exportXml.button")}" class="noform-button" disabled="disabled" />
             <p class="action-help">${message(code:"request.exportCsv.help")}</p>
         </g:if>
       </div>

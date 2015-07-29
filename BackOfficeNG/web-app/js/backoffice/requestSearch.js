@@ -39,7 +39,7 @@
       zcb.Calendar("creationDateTo");
     };
 
-    var initCsvExporter = function() {
+    var initCsvXmlExporter = function() {
       yue.addListener(yud.get("export-csv"), "click", function() {
         var form = yud.get('requestForm');
         var searchAction = yud.getAttribute(form, "action");
@@ -48,6 +48,14 @@
         form.submit();
         yud.setAttribute(form, "action", searchAction);
       });
+      yue.addListener(yud.get("export-xml"), "click", function() {
+          var form = yud.get('requestForm');
+          var searchAction = yud.getAttribute(form, "action");
+          var exportAction = yud.getAttribute(this, "data-action");
+          yud.setAttribute(form, "action", exportAction);
+          form.submit();
+          yud.setAttribute(form, "action", searchAction);
+        });
     };
 
     var sortSearchRequest = function(sortType) {
@@ -75,7 +83,7 @@
       init: function() {
         initCalendars();
         displayPaginator();
-        initCsvExporter();
+        initCsvXmlExporter();
         yue.on(yus.query('#requestSearchSorters input[type*=radio]'), 'click',
           function(e) {
             sortSearchRequest(yue.getTarget(e).id);
