@@ -1,6 +1,6 @@
 <g:if test="${reservations?.keySet()}">
   <g:each in="${reservations}" var="${child}">
-    <div class="main-box data-detail">
+    <div class="main-box data-detail ${child.value.ch instanceof org.libredemat.business.users.Adult ? 'adult' : 'child'}">
       <h2><g:message code="activity.header.briefReviewOf"/>&nbsp;${child.value.ch.firstName}&nbsp; pour ${(month==null)?(monthsNames[currentMonth.toInteger()]):(monthsNames[month.toInteger()])}</h2>
       
       		<g:if test="${child.value.childInformationSheetFilled == false}">				
@@ -19,7 +19,7 @@
       <g:each in="${child.value.activities}" var="activities">
        	<div class="yui-g">       	
 			<g:if test="${activities.value.label != null}">				
-				<h3>${activities.value.label}</h3>				
+				<h3 class="activityLabel">${activities.value.label}</h3>
 			</g:if>
 			<g:else>
 				<h3><g:translateRequestTypeLabel label="${activities.value.code}"/></h3>

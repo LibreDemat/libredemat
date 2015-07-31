@@ -15,12 +15,13 @@
       </g:if>
       <div class="main-box">
         <h2>
-          <g:if test="${activityLabel}">
-          	${activityLabel}
+          <span style="display: inline;line-height: 0.5em;font-size: 1em;" class="activity planning ${isAdult ? 'adult':'child'}"><g:if test="${activityLabel}">
+          ${activityLabel}
           </g:if>
           <g:else>
           	<g:translateRequestTypeLabel label="${activityCode}"/>
           </g:else>
+          </span>
            <g:message code="message.for" /> ${individual}
         </h2>
         <table class="paginate"><!-- two button to navigate between month -->

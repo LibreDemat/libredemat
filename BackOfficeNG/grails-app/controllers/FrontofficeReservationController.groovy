@@ -195,6 +195,7 @@ class FrontofficeReservationController
 		
 		if(infoFile.exists() && !infoFile.text.isEmpty()) result.commonInfo = infoFile.text
 		
+        result.isAdult = userSearchService.getById(params.childId.toLong()) instanceof Adult
 		render(view:'details', model:result)
 	}
 	
