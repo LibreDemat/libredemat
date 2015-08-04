@@ -89,11 +89,7 @@ ul.legend li h4{font-style: italic;}
 ul.legend li ul.under{margin-left: 15px;}
 div.listContainer{height: 250px; overflow: auto;}
 #messagePanelPay .bd div.list, #messagePanel .bd div.list{height: 150px; overflow: auto;}
-.information-box {
-    background: none repeat scroll 0 0 #FFFFCC;
-    border-color: #FFAA00;
-    text-align: left;
-}
+
 
 
 
