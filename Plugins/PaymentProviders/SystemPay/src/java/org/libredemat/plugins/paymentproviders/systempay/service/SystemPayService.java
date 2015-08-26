@@ -176,44 +176,44 @@ public class SystemPayService implements IPaymentProviderService{
     public PaymentResultBean doCommitPayment(Map<String, String> parameters,
             PaymentServiceBean paymentServiceBean) throws CvqException {
 
-        StringBuffer parametersForHash = new StringBuffer();
-        Map<String,String> parametersSorted = new TreeMap<String, String>();
-        for(String key : parameters.keySet()){
-            if(key.startsWith("vads_")){
-                parametersSorted.put(key, parameters.get(key));
-            }
-        }
-        String certificatValue = null;
-        if (paymentServiceBean.getProperty(SYSTEMPAY_CERTIFICAT_VALUE) != null) {
-            certificatValue = paymentServiceBean.getProperty(SYSTEMPAY_CERTIFICAT_VALUE).toString();
-        }
-        if(certificatValue == null){
-            logger.error("commitPayment() Error while retrieve certificat value");
-            throw new CvqException();
-        }
-
-        for(String key : parametersSorted.keySet()){
-            parametersForHash.append(parametersSorted.get(key) + "+");
-        }
-        parametersForHash.append(certificatValue);
-        try{
-            MessageDigest sha1 = MessageDigest.getInstance("SHA1");
-            sha1.update(parametersForHash.toString().getBytes("UTF-8"));
-            byte[] hash = sha1.digest();
-            String hmac = byteArray2Hex(hash);
-            if(!hmac.equals(parameters.get("signature"))){
-                logger.error("commitPayment() Error signature doesn't match to hash");
-                throw new CvqSignatureException("commitPayment() Error signature doesn't match to hash");
-            }
-        } catch (NoSuchAlgorithmException nsae){
-            logger.error("commitPayment() Error while creating SHA1 object");
-            nsae.printStackTrace();
-            throw new CvqException();
-        } catch (UnsupportedEncodingException uee) {
-            logger.error("commitPayment() Error while encoding parameters in UTF-8");
-            uee.printStackTrace();
-            throw new CvqException();
-        }
+//        StringBuffer parametersForHash = new StringBuffer();
+//        Map<String,String> parametersSorted = new TreeMap<String, String>();
+//        for(String key : parameters.keySet()){
+//            if(key.startsWith("vads_")){
+//                parametersSorted.put(key, parameters.get(key));
+//            }
+//        }
+//        String certificatValue = null;
+//        if (paymentServiceBean.getProperty(SYSTEMPAY_CERTIFICAT_VALUE) != null) {
+//            certificatValue = paymentServiceBean.getProperty(SYSTEMPAY_CERTIFICAT_VALUE).toString();
+//        }
+//        if(certificatValue == null){
+//            logger.error("commitPayment() Error while retrieve certificat value");
+//            throw new CvqException();
+//        }
+//
+//        for(String key : parametersSorted.keySet()){
+//            parametersForHash.append(parametersSorted.get(key) + "+");
+//        }
+//        parametersForHash.append(certificatValue);
+//        try{
+//            MessageDigest sha1 = MessageDigest.getInstance("SHA1");
+//            sha1.update(parametersForHash.toString().getBytes("UTF-8"));
+//            byte[] hash = sha1.digest();
+//            String hmac = byteArray2Hex(hash);
+//            if(!hmac.equals(parameters.get("signature"))){
+//                logger.error("commitPayment() Error signature doesn't match to hash");
+//                throw new CvqSignatureException("commitPayment() Error signature doesn't match to hash");
+//            }
+//        } catch (NoSuchAlgorithmException nsae){
+//            logger.error("commitPayment() Error while creating SHA1 object");
+//            nsae.printStackTrace();
+//            throw new CvqException();
+//        } catch (UnsupportedEncodingException uee) {
+//            logger.error("commitPayment() Error while encoding parameters in UTF-8");
+//            uee.printStackTrace();
+//            throw new CvqException();
+//        }
         PaymentResultStatus returnStatus = getStateFromParameters(parameters, paymentServiceBean);
         return new PaymentResultBean(returnStatus, Integer.valueOf(parameters.get("vads_trans_id")).toString(),
                 parameters.get("vads_trans_id"));
