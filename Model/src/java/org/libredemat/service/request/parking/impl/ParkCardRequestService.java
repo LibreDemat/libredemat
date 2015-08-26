@@ -150,7 +150,7 @@ public class ParkCardRequestService extends RequestService implements IParkCardR
 				"Demande de carte de stationnement (" + immats + ")", 
 				totalAmount, 
 				request.getId().toString(), // key
-				"capdemat", // keyOwner
+				"libredemat", // keyOwner
 				broker, // nom du broker
 				1, // quantité
 				totalAmount); // remontant
