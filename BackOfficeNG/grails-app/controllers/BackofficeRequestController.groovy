@@ -213,7 +213,6 @@ class BackofficeRequestController {
         session['filterBy'] = parsedFilters.filterBy
         session['sortBy'] = sortBy
 
-        // TODO deal with pagination
         render(view : 'search',
             model:['records' : recordsList,
                    'recordsReturned' : requests.size(),
