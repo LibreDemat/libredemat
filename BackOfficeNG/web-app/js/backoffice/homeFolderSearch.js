@@ -42,8 +42,11 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
       });
       
       zcbh.Search.paginator.render();
-      
-      yue.on('searchForm','submit',zcbh.Search.doSearch);
+
+      yue.on(yud.get('searchForm'), 'submit', function(e) {
+        yud.get('searchForm').action = yud.get('searchAction').value;
+        zcbh.Search.doSearch(e);
+      });
     };
 
     return {
@@ -61,7 +64,10 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
       init : function() {
         zcbh.Search.pageState = ylj.parse(yud.get('pageState').value);
         yue.on(yus.query('.sort'),'change',zcbh.Search.doSearch);
-        yue.on(yus.query('.filter'),'change',zcbh.Search.doSearch);
+        yue.on(yus.query('.filter'),'change', function(e) {
+          yud.get('searchForm').action = yud.get('searchAction').value;
+          zcbh.Search.doSearch(e);
+        });
         initControls();
         zcbh.Search.initSecurityRule(zcbh.Search.agentCanWrite);
       },

@@ -46,18 +46,19 @@ class BackofficeTasksController {
             ]
         ]
 
+        def sortParams = [ 'lastModificationDate': 'asc']
         taskMap.aboutIndividuals = [
             'late' : [
                 'count' : userSearchService.countTasks(QoS.LATE),
-                'all' : userSearchService.listTasks(QoS.LATE, tasksShownNb)
+                'all' : userSearchService.listTasks(QoS.LATE, sortParams, tasksShownNb, 0)
             ],
             'urgent' : [
                 'count' : userSearchService.countTasks(QoS.URGENT),
-                'all' : userSearchService.listTasks(QoS.URGENT, tasksShownNb)
+                'all' : userSearchService.listTasks(QoS.URGENT, sortParams, tasksShownNb, 0)
             ],
             'good' : [
                 'count' : userSearchService.countTasks(QoS.GOOD),
-                'all' : userSearchService.listTasks(QoS.GOOD, tasksShownNb)
+                'all' : userSearchService.listTasks(QoS.GOOD, sortParams, tasksShownNb, 0)
             ],
             'duplicates' : [
                 'count' : userSearchService.countDuplicates(),

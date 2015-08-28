@@ -35,7 +35,7 @@ public interface IUserSearchService extends IAutofillTriggerService {
 
     Individual getByFederationKey(String federationKey);
 
-    List<Individual> listTasks(QoS qoS, int max);
+    List<Individual> listTasks(QoS qoS, Map<String,String> sortParams, Integer max, Integer offset);
 
     Long countTasks(QoS qoS);
 

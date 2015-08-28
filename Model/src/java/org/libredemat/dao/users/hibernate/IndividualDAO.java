@@ -273,19 +273,22 @@ public class IndividualDAO extends JpaTemplate<Individual,Long> implements IIndi
     }
 
     @Override
-    public List<Individual> listTasks(QoS qoS, int max) {
+    public List<Individual> listTasks(QoS qoS, Map<String,String> sortParams, Integer max, Integer offset) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("from Individual individual where individual.qoS = :qoS")
+                .append(" and individual.state in ('")
+                .append(UserState.MODIFIED.name()).append("','")
+                .append(UserState.NEW.name()).append("','")
+                .append(UserState.INVALID.name()).append("')")
+                .append(" and homeFolder != null and homeFolder.temporary = false ");
+        hUtil.buildSort(sortParams, sb);
+
         Query query = HibernateUtil.getSession()
-            .createQuery("from Individual i where" +
-                    " i.qoS = :qoS" +
-                    " and i.state in ('" 
-                        + UserState.MODIFIED.name() + "','"
-                        + UserState.NEW.name() + "','"
-                        + UserState.INVALID + "')" +
-                    " and homeFolder != null and homeFolder.temporary = false" +
-                    " order by i.lastModificationDate")
+            .createQuery(sb.toString())
             .setString("qoS", qoS.name());
         if (max > 0)
             query.setMaxResults(max);
+        query.setFirstResult(offset != null ? offset : 0);
         return query.list();
     }
 

@@ -100,8 +100,8 @@ public class UserSearchService implements IUserSearchService {
 
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.READ)
-    public List<Individual> listTasks(QoS qoS, int max) {
-        return individualDAO.listTasks(qoS, max);
+    public List<Individual> listTasks(QoS qoS, Map<String,String> sortParams, Integer max, Integer offset) {
+        return individualDAO.listTasks(qoS, sortParams, max, offset);
     }
 
     @Override

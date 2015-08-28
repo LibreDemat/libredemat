@@ -123,7 +123,8 @@ class BackofficeHomeFolderController {
             'homeFolderStatus' : this.buildHomeFolderStatusFilter(),
             'pageState' : (new JSON(state)).toString().encodeAsHTML(),
             'offset' : params.currentOffset ? params.currentOffset : 0,
-            'subMenuEntries': subMenuEntries
+            'subMenuEntries': subMenuEntries,
+            'formActionLink': createLink(action:'search')
         ]);
     }
     
@@ -845,19 +846,22 @@ class BackofficeHomeFolderController {
 
     def listTasks = {
         def state = [:]
+        if (params.pageState) state = JSON.parse(params.pageState)
 
-        // TODO deal with pagination
         render(view : 'search', model: [
+            'agentCanWrite': userSecurityService.canWrite(SecurityContext.currentAgent.id),
             'state': state,
-            'records' : userSearchService.listTasks(QoS.forString(params.qoS), 0),
+            'records' : userSearchService.listTasks(QoS.forString(params.qoS), prepareSort(state), defaultMax,
+                    params.currentOffset ? Integer.parseInt(params.currentOffset) : 0),
             'count' : userSearchService.countTasks(QoS.forString(params.qoS)),
-            'max': 100,
+            'max': this.defaultMax,
             'homeFolderStates': buildHomeFolderStateFilter(),
             'currentSiteName': SecurityContext.currentSite.name,
             'homeFolderStatus' : buildHomeFolderStatusFilter(),
             'pageState' : (new JSON(state)).toString().encodeAsHTML(),
-            'offset' : 0,
-            'subMenuEntries' : subMenuEntries
+            'offset' : params.currentOffset ? params.currentOffset : 0,
+            'subMenuEntries' : subMenuEntries,
+            'formActionLink': createLink(action:'listTasks')
         ]);
     }
 
