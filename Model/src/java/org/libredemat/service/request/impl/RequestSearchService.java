@@ -175,9 +175,10 @@ public class RequestSearchService implements IRequestSearchService, BeanFactoryA
 
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.READ)
-    public List<Request> listTasks(String qoS, String sortBy, int max) throws CvqException {
+    public List<Request> listTasks(String qoS, String sortBy, final String dir, final int recordsReturned, final int startIndex)
+            throws CvqException {
         // FIXME JSB : hack to avoid bypassing aspect security
-        return ((IRequestSearchService)beanFactory.getBean("requestSearchService")).get(composeTasksCriteria(qoS), sortBy, null, max, 0, false);
+        return ((IRequestSearchService)beanFactory.getBean("requestSearchService")).get(composeTasksCriteria(qoS), sortBy, dir, recordsReturned, startIndex, false);
     }
 
     @Override

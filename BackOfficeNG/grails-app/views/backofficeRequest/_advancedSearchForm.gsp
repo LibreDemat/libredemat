@@ -6,7 +6,8 @@
 
 <div id="search-form">
   <h1><g:message code="request.header.search" /></h1>
-  <form method="post" id="requestForm" class="advanced-search" action="${createLink(action:'search')}">
+  <form method="post" id="requestForm" class="advanced-search" action="${qoS != '' ? createLink(action:'listTasks') : createLink(action:'search')}">
+    <input type="hidden" id="searchAction" name="searchAction" value="${createLink(action:'search')}" />
     <input type="hidden" id="totalRecords" name="totalRecords" value="${totalRecords}" />
     <input type="hidden" id="recordsReturned" name="recordsReturned" value="${recordsReturned}" />
     <input type="hidden" id="recordOffset" name="recordOffset" value="${recordOffset}" />
@@ -14,6 +15,7 @@
     <input type="hidden" id="sortBy" name="sortBy" value="${sortBy}" />
     <input type="hidden" id="filterBy" name="filterBy" value="${filterBy}" />
     <input type="hidden" id="sortDir" name="dir" value="${dir}" />
+    <input type="hidden" id="qoS" name="qoS" value="${qoS}" />
 
     <div class="yui-g">
       <div class="yui-u first">

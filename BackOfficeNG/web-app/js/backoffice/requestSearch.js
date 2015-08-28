@@ -31,22 +31,9 @@
         yud.get('requestForm').submit();
       }
       myPaginator.subscribe('changeRequest', handlePaginatorChange);
-      /* 
-      myPaginator.subscribe('rendered', function () { 
-        var pageReport, pageReportNode, report, sortBy; 
-
-        report = yud.get('pagination-top');
-        var el = new YAHOO.util.Element("span");
-        el.addClass("test");
-        sortBy = yud.get('sortBy').value;
-        el.appendChild(sortBy);
-        
-        yud.insertAfter(el, yud.getLastChild(report));
-      });
-      */ 
       myPaginator.render();
     };
-  
+
     var initCalendars = function() {
       zcb.Calendar("creationDateFrom");
       zcb.Calendar("creationDateTo");
@@ -61,7 +48,7 @@
         form.submit();
         yud.setAttribute(form, "action", searchAction);
       });
-    }
+    };
 
     var sortSearchRequest = function(sortType) {
       yud.get('sortBy').value = sortType;
@@ -69,17 +56,18 @@
     };
 
     var orderSearch = function(event) {
-      yud.get('sortDir').value = yue.getTarget(event).id
+      yud.get('sortDir').value = yue.getTarget(event).id;
       yud.get('requestForm').submit()
-    }
+    };
 
     var filterSearchRequest = function(filterType) {
-      yud.get('filterBy').value = [yud.get('filterBy').value, 
+      yud.get('filterBy').value = [yud.get('filterBy').value,
         '@', filterType, '=', yud.get(filterType).value].join('');
       // hack to reset request season filter when we change request type
       if (filterType === "requestTypeIdFilter") {
         yud.get("filterBy").value += "@requestSeasonIdFilter=";
       }
+      yud.get('requestForm').action = yud.get('searchAction').value;
       yud.get('requestForm').submit();
     };
 
@@ -94,13 +82,16 @@
           }
         );
         yue.on(yus.query('#requestSearchOrder input[type="radio"]'), 'click', orderSearch);
-        yue.on(yus.query('select[id*=Filter]'), 'change', 
+        yue.on(yus.query('select[id*=Filter]'), 'change',
           function(e) {
             filterSearchRequest(yue.getTarget(e).id);
           }
         );
+        yue.on(yud.get('requestForm'), 'submit', function(e) {
+          yud.get('requestForm').action = yud.get('searchAction').value;
+        })
       }
-    }; 
+    };
   }();
 
   yue.onDOMReady(zcbr.search.init);

@@ -29,20 +29,17 @@ class BackofficeTasksController {
             'late' : [
                 'count' : requestSearchService.countTasks(Request.QUALITY_TYPE_RED),
                 'all' : requestSearchService.listTasks(Request.QUALITY_TYPE_RED,
-                        Request.SEARCH_BY_CREATION_DATE,
-                        tasksShownNb)
+                        Request.SEARCH_BY_CREATION_DATE, 'desc', tasksShownNb, 0)
             ],
             'urgent' : [
                 'count' : requestSearchService.countTasks(Request.QUALITY_TYPE_ORANGE),
                 'all' : requestSearchService.listTasks(Request.QUALITY_TYPE_ORANGE,
-                        Request.SEARCH_BY_CREATION_DATE,
-                        tasksShownNb)
+                        Request.SEARCH_BY_CREATION_DATE, 'desc', tasksShownNb, 0)
             ],
             'good' : [
                 'count' : requestSearchService.countTasks(Request.QUALITY_TYPE_OK),
                 'all' : requestSearchService.listTasks(Request.QUALITY_TYPE_OK,
-                        Request.SEARCH_BY_CREATION_DATE,
-                        tasksShownNb)
+                        Request.SEARCH_BY_CREATION_DATE, 'desc', tasksShownNb, 0)
             ]
         ]
 

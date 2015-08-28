@@ -199,27 +199,33 @@ class BackofficeRequestController {
     }
 
     def listTasks = {
-        def recordsList = []
-        requestSearchService.listTasks(params.qoS, defaultSortBy, 0).each {
-            def record = requestAdaptorService.prepareRecordForSummaryView(it)
-            recordsList.add(record)
-        }
 
-        session['filterBy'] = [:]
-        session['sortBy'] = defaultSortBy
-        session['sortDir'] = defaultSortDir
+        def (criteria, parsedFilters, sortBy, sortDir) = prepareSearch(request)
+
+        // deal with pagination settings
+        def results = params.results == null ? resultsPerPage : Integer.valueOf(params.results)
+        def recordOffset =
+                (params.recordOffset == "" || params.recordOffset == null) ? 0 : Integer.valueOf(params.recordOffset)
+
+        def requests = requestSearchService.listTasks(params.qoS, sortBy, sortDir, results, recordOffset)
+        def recordsList = requests.collect { requestAdaptorService.prepareRecordForSummaryView(it) }
+
+        session['filterBy'] = parsedFilters.filterBy
+        session['sortBy'] = sortBy
 
         // TODO deal with pagination
-        render(view : 'search', model:['records' : recordsList,
-                   'recordsReturned' : recordsList.size(),
-                   'totalRecords' : recordsList.size(),
+        render(view : 'search',
+            model:['records' : recordsList,
+                   'recordsReturned' : requests.size(),
+                   'totalRecords' : requestSearchService.countTasks(params.qoS),
                    'filters' : [:],
                    'filterBy' : [:],
-                   'recordOffset' : 0,
-                   'sortBy' : defaultSortBy,
-                   'dir': defaultSortDir,
+                   'recordOffset' : recordOffset,
+                   'sortBy' : sortBy,
+                   'dir': sortDir,
                    'inSearch' : true,
-                   'results' : 100
+                   'results' : results,
+                   'qoS' : params.qoS
                    ].plus(initSearchReferential()))
     }
 

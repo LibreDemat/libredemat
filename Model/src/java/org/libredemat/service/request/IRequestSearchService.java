@@ -89,11 +89,11 @@ public interface IRequestSearchService {
      *
      * @param qoS Quality of service to filter by. Value is one of the {@link Request Request}.QUALITY_TYPE_*
      * @param sortBy one of the {@link Request Request}.SEARCH_BY_*
-     * @param max Number of tasks to retrieve
      *
      * @throws CvqException
      */
-    List<Request> listTasks(String qoS, String sortBy, int max) throws CvqException;
+    List<Request> listTasks(String qoS, String sortBy, final String dir, final int recordsReturned, final int startIndex)
+            throws CvqException;
 
     Long countTasks(String qoS) throws CvqException;
 
