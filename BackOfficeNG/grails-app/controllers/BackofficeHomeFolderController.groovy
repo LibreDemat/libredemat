@@ -866,20 +866,24 @@ class BackofficeHomeFolderController {
     }
 
     def listDuplicates = {
-        def state = ['isDuplicateAlert': true]
+        def state = [:]
+        if (params.pageState) state = JSON.parse(params.pageState)
+        state = state.plus(['isDuplicateAlert': true])
 
-        // TODO deal with pagination
         render(view : 'search', model: [
+            'agentCanWrite': userSecurityService.canWrite(SecurityContext.currentAgent.id),
             'state': state,
-            'records' : userSearchService.listDuplicates(-1),
+            'records' : userSearchService.listDuplicates(prepareSort(state), defaultMax,
+                    params.currentOffset ? Integer.parseInt(params.currentOffset) : 0),
             'count' : userSearchService.countDuplicates(),
-            'max': 100,
+            'max': this.defaultMax,
             'homeFolderStates': buildHomeFolderStateFilter(),
             'currentSiteName': SecurityContext.currentSite.name,
             'homeFolderStatus' : buildHomeFolderStatusFilter(),
             'pageState' : (new JSON(state)).toString().encodeAsHTML(),
-            'offset' : 0,
-            'subMenuEntries' : subMenuEntries
+            'offset' : params.currentOffset ? params.currentOffset : 0,
+            'subMenuEntries' : subMenuEntries,
+            'formActionLink': createLink(action:'listDuplicates')
         ]);
     }
     /**

@@ -39,7 +39,7 @@ public interface IUserSearchService extends IAutofillTriggerService {
 
     Long countTasks(QoS qoS);
 
-    List<Adult> listDuplicates(int max);
+    List<Adult> listDuplicates(Map<String,String> sortParams, Integer max, Integer offset);
 
     Long countDuplicates();
 

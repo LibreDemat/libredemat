@@ -77,15 +77,21 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
     }
 
     @Override
-    public List<Adult> listDuplicates(int max) {
-        Query query = HibernateUtil.getSession()
-            .createQuery("from Adult a where a.duplicateAlert is true and homeFolder != null " + 
-                    "and homeFolder.temporary is false and a.state NOT IN ( '" + UserState.ARCHIVED.name() + "',  '" + UserState.PENDING.name() + "' ) order by a.lastModificationDate");
+    public List<Adult> listDuplicates(Map<String,String> sortParams, Integer max, Integer offset) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("from Individual individual where individual.duplicateAlert is true and homeFolder != null ")
+                .append("and homeFolder.temporary is false and individual.state NOT IN ( '")
+                    .append(UserState.ARCHIVED.name()).append("', '")
+                    .append(UserState.PENDING.name()).append("') ");
+        HibernateUtil hUtil = new HibernateUtil();
+        hUtil.buildSort(sortParams, sb);
+
+        Query query = HibernateUtil.getSession().createQuery(sb.toString());
         if (max > 0)
             query.setMaxResults(max);
+        query.setFirstResult(offset != null ? offset : 0);
         return query.list();
     }
-
     @Override
     public List<Adult> findResponsibleDuplicates(Map<String, String> parameters)
     {

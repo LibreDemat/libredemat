@@ -25,7 +25,7 @@ public interface IAdultDAO extends IIndividualDAO {
 
     Long countDuplicates();
 
-    List<Adult> listDuplicates(int max);
+    List<Adult> listDuplicates(Map<String,String> sortParams, Integer max, Integer offset);
 
     List<Adult> findResponsibleDuplicates(Map<String, String> parameters);
 }

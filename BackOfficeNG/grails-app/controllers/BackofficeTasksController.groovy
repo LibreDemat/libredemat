@@ -59,7 +59,7 @@ class BackofficeTasksController {
             ],
             'duplicates' : [
                 'count' : userSearchService.countDuplicates(),
-                'all' : userSearchService.listDuplicates(tasksShownNb)
+                'all' : userSearchService.listDuplicates(sortParams, tasksShownNb, 0)
             ]
         ]
 

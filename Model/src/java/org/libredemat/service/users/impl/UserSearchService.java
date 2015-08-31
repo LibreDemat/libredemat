@@ -118,8 +118,8 @@ public class UserSearchService implements IUserSearchService {
 
     @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.READ)
-    public List<Adult> listDuplicates(int max) {
-        return adultDAO.listDuplicates(max);
+    public List<Adult> listDuplicates(Map<String,String> sortParams, Integer max, Integer offset) {
+        return adultDAO.listDuplicates(sortParams, max, offset);
     }
 
     @Override
