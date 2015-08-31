@@ -550,11 +550,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             if(xmlAdult.getFirstName3() != null && xmlAdult.getFirstName3() != "") adult.setFirstName3(xmlAdult.getFirstName3());
 
             adult.setCreationDate(xmlAdult.getCreationDate().getTime());
-            
-            try { if(xmlAdult.getBirthDate() != null) adult.setBirthDate(xmlAdult.getBirthDate().getTime()); } catch(Exception e) { /* Got a BirthDate auto closed tag */ }
-            if(xmlAdult.getBirthPlace() != null) adult.setBirthCity(xmlAdult.getBirthPlace().getCity());
-            if(xmlAdult.getBirthPlace() != null) adult.setBirthPostalCode(xmlAdult.getBirthPlace().getPostalCode());
-            
+
             adult.setTitle(TitleType.forString(StringUtils.upperCase(xmlAdult.getTitle().toString())));
             
             String maidenName = xmlAdult.getMaidenName();
