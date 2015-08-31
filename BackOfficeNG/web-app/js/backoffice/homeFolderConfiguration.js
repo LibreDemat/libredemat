@@ -32,7 +32,18 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
             zct.Notifier.processMessage('success', ylj.parse(o.responseText).success_msg, yud.get('notification'), target);
           });
         }
-      }
+      },
+
+      blockDuplicateCreationInput: function(e) {
+          var cont = yud.get("blockDuplicateCreationErrors");
+          cont.innerHTML = "";
+          if (zcv.check(yud.get("blockDuplicateCreationForm"), cont)) {
+            var target = yue.getTarget(e);
+            zct.doAjaxFormSubmitCall("blockDuplicateCreationForm", [], function(o) {
+              zct.Notifier.processMessage('success', ylj.parse(o.responseText).success_msg, yud.get('notification'), target);
+            });
+          }
+        }
     }
   }();
   YAHOO.util.Event.onDOMReady(zcbhf.Configuration.init);

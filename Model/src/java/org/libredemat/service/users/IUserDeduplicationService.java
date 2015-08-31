@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.HomeFolder;
+import org.libredemat.business.users.Individual;
 import org.libredemat.exception.CvqInvalidTransitionException;
 import org.libredemat.exception.CvqModelException;
 import org.libredemat.security.annotation.IsUser;
@@ -44,5 +45,7 @@ public interface IUserDeduplicationService {
     void createCirilMapping(HomeFolder homeFolderTarget);
 
     void findHomeFolderDuplicates(Long homeFolderId);
+
+    boolean findResponsibleDuplicatesWithoutHomeFolder(Individual individu);
 
 }

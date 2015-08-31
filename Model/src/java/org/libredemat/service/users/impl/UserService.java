@@ -224,4 +224,24 @@ public class UserService implements IUserService {
     public void setAdultDAO(IAdultDAO adultDAO) {
         this.adultDAO = adultDAO;
     }
+
+    @Override
+    public Boolean blockDuplicateCreationEnabled() {
+        return getGlobalHomeFolderConfiguration().getBlockDuplicateCreation();
+    }
+
+    @Override
+    public void enableBlockDuplicateCreation() {
+        GlobalHomeFolderConfiguration conf = getGlobalHomeFolderConfiguration();
+        conf.setBlockDuplicateCreation(true);
+        genericDAO.update(conf);
+    }
+
+    @Override
+    public void disableBlockDuplicateCreation() {
+        GlobalHomeFolderConfiguration conf = getGlobalHomeFolderConfiguration();
+        conf.setBlockDuplicateCreation(false);
+        genericDAO.update(conf);
+    }
+
 }

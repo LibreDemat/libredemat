@@ -890,7 +890,21 @@ class BackofficeHomeFolderController {
     def configure = {
         try {
             def bool = userService.homeFolderIndependentCreationEnabled();
-            return (['subMenuEntries': subMenuEntries, 'independentCreationEnabled': bool])
+            def blockDuplicateCreation = userService.blockDuplicateCreationEnabled();
+            return (['subMenuEntries': subMenuEntries, 'independentCreationEnabled': bool,
+                'blockDuplicateCreationEnabled': blockDuplicateCreation])
+        } catch (PermissionException pe) {
+            render(text: message(code: pe.message), status: 403)
+        }
+    }
+
+    def setBlockDuplicateCreation = {
+        try {
+            if (params.blockDuplicateCreation == "1")
+                userService.enableBlockDuplicateCreation()
+            else
+                userService.disableBlockDuplicateCreation()
+            render ([status:"success", success_msg:message(code:"message.updateDone")] as JSON)
         } catch (PermissionException pe) {
             render(text: message(code: pe.message), status: 403)
         }

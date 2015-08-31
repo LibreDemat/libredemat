@@ -49,6 +49,12 @@ public interface IUserService {
      */
     void disableHomeFolderIndependentCreation();
 
+    Boolean blockDuplicateCreationEnabled();
+
+    void enableBlockDuplicateCreation();
+
+    void disableBlockDuplicateCreation();
+
     /**
      * Activate user account after email verification
      * @param login

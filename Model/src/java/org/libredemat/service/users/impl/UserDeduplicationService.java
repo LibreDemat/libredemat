@@ -665,4 +665,17 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
         this.externalService = externalService;
     }
 
+    @Override
+    public boolean findResponsibleDuplicatesWithoutHomeFolder(Individual individu) {
+        Map<String, String> parameters = new HashMap<String, String>();
+        parameters.put("lastName", formatData(individu.getLastName()));
+        parameters.put("firstName", formatData(individu.getFirstName()));
+        parameters.put("email", formatData(((Adult) individu).getEmail()));
+        parameters.put("address", formatDataForText(individu.getAddress().getStreetName()));
+        parameters.put("homeFolderId", "0");
+        List<Adult> duplicates = adultDAO.findResponsibleDuplicates(parameters);
+        if (duplicates != null && !duplicates.isEmpty() && individu.getState() != UserState.ARCHIVED) return true;
+        return false;
+    }
+
 }

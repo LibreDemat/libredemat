@@ -8,6 +8,7 @@ import org.libredemat.business.authority.LocalAuthorityResource
 import org.libredemat.exception.CvqAuthenticationFailedException
 import org.libredemat.exception.CvqBadPasswordException
 import org.libredemat.exception.CvqValidationException
+import org.libredemat.exception.CvqException
 import org.libredemat.security.SecurityContext
 import org.libredemat.service.request.IRequestServiceRegistry
 import org.libredemat.service.request.IRequestSearchService
@@ -16,6 +17,7 @@ import org.libredemat.service.users.IUserSearchService
 import org.libredemat.service.users.IUserWorkflowService
 import org.libredemat.service.request.IRequestSearchService
 import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.users.IUserDeduplicationService
 import org.libredemat.util.Critere
 import org.libredemat.exception.CvqModelException
 import com.octo.captcha.service.CaptchaServiceException
@@ -34,6 +36,7 @@ class FrontofficeHomeFolderController {
     IUserWorkflowService userWorkflowService
     IRequestSearchService requestSearchService
     ILocalAuthorityRegistry localAuthorityRegistry
+    IUserDeduplicationService userDeduplicationService
 
     def homeFolderAdaptorService
     def individualAdaptorService
@@ -128,7 +131,7 @@ class FrontofficeHomeFolderController {
         /*
          * Initialize model
          */
-        def model = [ 'callback' : callback() ]
+        def model = ['findDuplicate' : '', 'callback' : callback() ]
         def flow = flow()
         if (flow == 'onTheFly') {
                 def temporary = requestServiceRegistry
@@ -293,7 +296,7 @@ class FrontofficeHomeFolderController {
      * - flash.adult
      * - flash.invalidFields
      */
-    private handleResponsiblePost(model) {
+    private handleResponsiblePost(model) throws CvqException {
         Adult adult = new Adult()
         DataBindingUtils.initBind(adult, params)
         bind(adult)
@@ -310,6 +313,9 @@ class FrontofficeHomeFolderController {
         }
         if (!captchaIsValid) {
             flash.invalidFields.add('captchaText')
+        }
+        if (userService.blockDuplicateCreationEnabled() && userDeduplicationService.findResponsibleDuplicatesWithoutHomeFolder(adult)) {
+            flash.invalidFields.add('user.duplicate.finding')
         }
         if (flash.invalidFields.isEmpty()) {
             session["registerCallback"] = params.callback;

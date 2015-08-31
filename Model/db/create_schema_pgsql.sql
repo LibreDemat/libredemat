@@ -1481,6 +1481,7 @@
 
     create table global_home_folder_configuration (
         id int8 not null,
+        block_duplicate_creation bool not null,
         independentCreation bool not null,
         pending_users_notification_purge int4 not null,
         pending_users_live_duration int4 not null,

@@ -5,9 +5,15 @@
 %>
 <form action="${createLink(controller : 'frontofficeHomeFolder', action : 'create', params :callback.params ) }" method="post">
   <div>
+  
     <input type="hidden" name="callback" value="${params.callback}" />
     <g:if test="${invalidFields?.any()}">
+      <g:if test="${invalidFields?.contains('user.duplicate.finding')}">
+      <p class="error">${message(code:'user.duplicate.finding')}</p>
+      </g:if>
+      <g:else>
       <p class="error">${message(code:'form.error.invalidFields')}</p>
+      </g:else>
     </g:if>
     <g:render template="/frontofficeHomeFolder/edit/adultCommonFields" />
     <g:if test="${temporary}">

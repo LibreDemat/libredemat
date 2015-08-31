@@ -86,4 +86,21 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
         return query.list();
     }
 
+    @Override
+    public List<Adult> findResponsibleDuplicates(Map<String, String> parameters)
+    {
+        Query q = HibernateUtil
+                .getSession()
+                .createQuery(
+                        "from Adult a where"
+                                + " (REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(a.firstName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') = :firstName "
+                                + " and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(a.lastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') = :lastName) "
+                                + " and (REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(a.email), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i') = :email "
+                                + " or lower(:address) like '%'||lower(a.address.streetName)||'%')" + " and a.state != '"
+                                + UserState.ARCHIVED.name() + "'" + " and a.homeFolder.temporary is false"
+                                + " and a.homeFolder.id != " + Long.valueOf(parameters.get("homeFolderId")) // HACK
+                                                                                                            // INEXINE
+                );
+        return q.setProperties(parameters).list();
+    }
 }

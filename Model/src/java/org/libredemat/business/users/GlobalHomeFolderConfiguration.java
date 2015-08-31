@@ -36,6 +36,12 @@ public class GlobalHomeFolderConfiguration implements Serializable {
     private Boolean independentCreation = false;
 
     /**
+     * Block new account if it's a duplicate
+     */
+    @Column(name="block_duplicate_creation", nullable=false)
+    private Boolean blockDuplicateCreation = false;
+
+    /**
      * After how many days a non-validated account is deleted
      */
     @Column(name="pending_users_live_duration", nullable=false)
@@ -96,5 +102,13 @@ public class GlobalHomeFolderConfiguration implements Serializable {
 
     public void setPendingUsersLiveDuration(Integer pendingUsersLiveDuration) {
         this.pendingUsersLiveDuration = pendingUsersLiveDuration;
+    }
+
+    public Boolean getBlockDuplicateCreation() {
+        return blockDuplicateCreation;
+    }
+
+    public void setBlockDuplicateCreation(Boolean blockDuplicateCreation) {
+        this.blockDuplicateCreation = blockDuplicateCreation;
     }
 }

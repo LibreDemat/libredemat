@@ -56,6 +56,20 @@
                 </p>
               </form>
 
+              <h2>Blocage des doublons<span> à la création de compte</span></h2>
+              <form method="post" id="blockDuplicateCreationForm" action="${createLink(action:'setBlockDuplicateCreation')}">
+                <div class="error" id="blockDuplicateCreationErrors"></div>
+                <p class="field">
+                  <label>
+                    Activer :
+                  </label>
+                  <input id="blockDuplicateCreationInput" type="radio" ${blockDuplicateCreationEnabled ? 'checked="checked"' : ''} value="1" name="blockDuplicateCreation" class="required validate-one-required"/>
+                    oui
+                  <input id="blockDuplicateCreationInput" type="radio" ${blockDuplicateCreationEnabled ? '' : 'checked="checked"'} value="0" name="blockDuplicateCreation" class="required validate-one-required"/>
+                    non
+                </p>
+              </form>
+
               <h2>Pièces justificatives<span> à associer lors d'une création de compte</span></h2>
               <div id="mainPanel">
                 <div id="documentTypeFilterPanel" class="editableListSwithcher">
