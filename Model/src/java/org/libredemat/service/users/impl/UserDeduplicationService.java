@@ -358,11 +358,9 @@ public class UserDeduplicationService implements ApplicationListener<UserEvent>,
 
         for (Individual owner : homeFolder.getIndividuals()) {
             boolean ownerMoved = moved.contains(owner.getId());
-            boolean targetMoved = false;
             List<IndividualRole> rolesToRemove = new ArrayList<IndividualRole>();
             for (IndividualRole role : owner.getIndividualRoles()) {
-                if (moved.contains(role.getIndividualId()))
-                    targetMoved = true;
+                boolean targetMoved = moved.contains(role.getIndividualId());
                 if (ownerMoved && !targetMoved) {
                     role.setIndividualId(merged.get(role.getIndividualId()));
                 } else if (!ownerMoved && targetMoved) {
