@@ -6,7 +6,7 @@
 
 <div id="search-form">
   <h1><g:message code="request.header.search" /></h1>
-  <form method="post" id="requestForm" class="advanced-search" action="${qoS != '' ? createLink(action:'listTasks') : createLink(action:'search')}">
+  <form method="post" id="requestForm" class="advanced-search" action="${qoS ? createLink(action:'listTasks') : createLink(action:'search')}">
     <input type="hidden" id="searchAction" name="searchAction" value="${createLink(action:'search')}" />
     <input type="hidden" id="totalRecords" name="totalRecords" value="${totalRecords}" />
     <input type="hidden" id="recordsReturned" name="recordsReturned" value="${recordsReturned}" />
