@@ -1,5 +1,7 @@
 import enfanceServicesEnfance.ReturnType;
+
 import org.libredemat.business.payment.ExternalInvoiceItem;
+import org.libredemat.business.payment.InternalInvoiceItem;
 import org.libredemat.business.payment.Payment
 import org.libredemat.business.payment.PaymentState;
 import org.libredemat.business.payment.PurchaseItem;
@@ -39,14 +41,7 @@ class ServicePayboxController {
         def lisPayment = paymentService.get(criteriaSet, null, null, 1, 0)
         if(!lisPayment.isEmpty()){
           Payment payment = (Payment)lisPayment[0]
-            Set<PurchaseItem> pi = payment.getPurchaseItems()
-            Iterator iter = pi.iterator()
-            def sessionId
-            def returnType
-            while(iter.hasNext()){
-              ExternalInvoiceItem eii = (ExternalInvoiceItem) iter.next()
-                sessionId = eii.getExternalItemId()
-            }
+          def returnType
 
           if(payment.getState() == PaymentState.VALIDATED){
             returnType = ReturnType.SUCCESS.toString()
@@ -56,20 +51,30 @@ class ServicePayboxController {
             returnType = ReturnType.REFUSED.toString()
           }
 
-          def hfm = externalHomeFolderService.getHomeFolderMapping("CirilNetEnfance",	payment.getHomeFolderId())
-            if(hfm != null){
-              IExternalProviderService service =
-                SecurityContext.getCurrentConfigurationBean().getExternalServiceConfigurationBean().getExternalServiceByLabel("CirilNetEnfance")
-                if (service instanceof IActivityReservationProviderService) {
-                  ((IActivityReservationProviderService)service).getPaymentValidation(String.valueOf(hfm.homeFolderId), 
-                    hfm.externalId, returnType, sessionId);
+          Set<PurchaseItem> pi = payment.getPurchaseItems()
+          Iterator iter = pi.iterator()
+          if(iter.hasNext() && !(iter.next() instanceof InternalInvoiceItem)) {
+              iter = pi.iterator()
+              def sessionId
+              while(iter.hasNext()){
+                ExternalInvoiceItem eii = (ExternalInvoiceItem) iter.next()
+                  sessionId = eii.getExternalItemId()
+              }
+              def hfm = externalHomeFolderService.getHomeFolderMapping("CirilNetEnfance", payment.getHomeFolderId())
+                if(hfm != null){
+                  IExternalProviderService service =
+                    SecurityContext.getCurrentConfigurationBean().getExternalServiceConfigurationBean().getExternalServiceByLabel("CirilNetEnfance")
+                    if (service instanceof IActivityReservationProviderService) {
+                      ((IActivityReservationProviderService)service).getPaymentValidation(String.valueOf(hfm.homeFolderId),
+                        hfm.externalId, returnType, sessionId);
 
-                  def reservationItems = reservationService.getByHomeFolder(sessionId, hfm.homeFolderId)
-                    if(returnType == ReturnType.SUCCESS.toString()){
-                      reservationItems.each{res ->
-                        reservationService.delete(sessionId, res.id);
-                      }
-                      ((IActivityReservationProviderService)service).getCancelReservation(sessionId);
+                      def reservationItems = reservationService.getByHomeFolder(sessionId, hfm.homeFolderId)
+                        if(returnType == ReturnType.SUCCESS.toString()){
+                          reservationItems.each{res ->
+                            reservationService.delete(sessionId, res.id);
+                          }
+                          ((IActivityReservationProviderService)service).getCancelReservation(sessionId);
+                        }
                     }
                 }
             }
