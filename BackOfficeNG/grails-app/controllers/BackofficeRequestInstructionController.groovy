@@ -348,7 +348,7 @@ class BackofficeRequestInstructionController {
                 else if (requestPaymentService.getPayment(rqt) != null)
                 {
                     // Annulation du paiement
-                    Payment payment = requestPaymentService.buildPayment(rqt);
+                    Payment payment = requestPaymentService.buildPayment(rqt, 0.0);
                     payment.setAmount(0.0);
                     payment.setState(PaymentState.CANCELLED);
                     requestPaymentService.setPayment(rqt, payment);
