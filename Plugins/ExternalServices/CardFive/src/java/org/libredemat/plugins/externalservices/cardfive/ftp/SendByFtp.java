@@ -105,6 +105,8 @@ public class SendByFtp
 			// FileInputStream fileInputStream = new FileInputStream(file);
 			InputStream theRequest = new FileInputStream(filePath);
 			ftp.setFileType(FTP.BINARY_FILE_TYPE);
+			ftp.setFileTransferMode(FTP.BINARY_FILE_TYPE);
+			ftp.enterLocalPassiveMode();
 			// ftp.storeFileStream(filePath);
 			ftp.storeFile(name, theRequest);
 			fileOutputStream.close();
