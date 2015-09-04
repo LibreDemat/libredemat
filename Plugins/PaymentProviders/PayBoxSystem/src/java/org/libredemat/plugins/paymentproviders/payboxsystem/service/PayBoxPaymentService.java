@@ -190,7 +190,11 @@ public class PayBoxPaymentService implements IPaymentProviderService {
                 bankTransactionStatus.equals("00015") ||
                 bankTransactionStatus.equals("00021") ||
                 bankTransactionStatus.equals("00029") ||
-                bankTransactionStatus.equals("00030")) {
+                bankTransactionStatus.equals("00030") ||
+                bankTransactionStatus.equals("00159") ||
+                bankTransactionStatus.equals("00151") ||
+                bankTransactionStatus.equals("00040") ||
+                bankTransactionStatus.equals("00105")) {
             return PaymentResultStatus.REFUSED;
         } else if (bankTransactionStatus.equals("00000")) {
             return PaymentResultStatus.OK;
