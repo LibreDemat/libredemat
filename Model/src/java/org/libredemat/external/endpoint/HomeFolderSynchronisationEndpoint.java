@@ -177,7 +177,7 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                 {
                     for (Individual individual : homefolderFound.getIndividuals())
                     {
-                        if (isMatchIndividuByName(individual, individualSend))
+                        if (isMatchIndividuByName(individual, individualSend) && !UserState.ARCHIVED.equals(individual.getState()))
                         {
                             // This is the same individual
                             this.externalHomeFolderService.setExternalId("CirilNetEnfance", homefolderFound.getId(),
