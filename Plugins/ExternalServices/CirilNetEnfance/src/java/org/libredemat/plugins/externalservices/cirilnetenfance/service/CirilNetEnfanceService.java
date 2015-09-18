@@ -183,7 +183,8 @@ public class CirilNetEnfanceService extends ExternalProviderServiceAdapter imple
 		}
 		catch (ParseException e)
 		{
-			logger.fatal(e.getMessage());
+			logger.error("error treating request : " + e.getMessage());
+			throw new CvqException("Le connecteur a rencontré un problème.");
 		}
 	}
 
