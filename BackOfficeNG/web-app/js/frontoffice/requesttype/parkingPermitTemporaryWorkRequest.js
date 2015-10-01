@@ -9,11 +9,13 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
   var yu = YAHOO.util;
   var yud = yu.Dom;
   var yue = YAHOO.util.Event;
+  var yl = YAHOO.lang;
 
   zcfr.ParkingPermitTemporaryWorkRequest = function () {
 
     var getDate = function (dayAdded, date) {
       var d = new Date();
+      d.setHours(0,0,0,0);
       if (date != null) {
         var dates = date.split("/");
         d = new Date(dates[2] + "/" + dates[1] + "/" + dates[0]);
@@ -39,42 +41,42 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       return mindate;
     };
 
-    var isDisabled = function (target) {
-      var classes = yud.getAttribute(target, "class");
-      classes = classes.split(" ");
-      for (var i = 0; i < classes.length; i++) {
-        if (classes[i].indexOf('disabledWith_') > -1) {
-          if (classes[i].split("_").length > 1) {
-            var inputLabel = classes[i].split("_")[1];
-            if (inputLabel != undefined && inputLabel != "null" && yud.get(inputLabel) != null) {
-              var inputValue = yud.get(inputLabel).value;
-              return !(inputValue != undefined && inputValue != "");
-
-            }
-          }
-        }
-      }
-      return false;
-    };
-
-    var disabledFields = function (targetElementName) {
-      if (yud.get('work') === null)
-        return;
-      var periodeEnd = yud.get(targetElementName);
-      var periodeEndShow = yud.get(targetElementName + "Show");
-      if (isDisabled(periodeEndShow)) {
-        periodeEnd.disabled = true;
-        yud.setStyle(targetElementName + "Show", "cursor", "default");
-        periodeEndShow.disabled = true;
-      }
-      else {
-        yue.on(periodeEndShow, 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd,
-            zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd, true);
-        periodeEnd.disabled = false;
-        yud.setStyle(targetElementName + "Show", "cursor", "pointer");
-        periodeEndShow.disabled = false;
-      }
-    };
+//    var isDisabled = function (target) {
+//      var classes = yud.getAttribute(target, "class");
+//      classes = classes.split(" ");
+//      for (var i = 0; i < classes.length; i++) {
+//        if (classes[i].indexOf('disabledWith_') > -1) {
+//          if (classes[i].split("_").length > 1) {
+//            var inputLabel = classes[i].split("_")[1];
+//            if (inputLabel != undefined && inputLabel != "null" && yud.get(inputLabel) != null) {
+//              var inputValue = yud.get(inputLabel).value;
+//              return !(inputValue != undefined && inputValue != "");
+//
+//            }
+//          }
+//        }
+//      }
+//      return false;
+//    };
+//
+//    var disabledFields = function (targetElementName) {
+//      if (yud.get('work') === null)
+//        return;
+//      var periodeEnd = yud.get(targetElementName);
+//      var periodeEndShow = yud.get(targetElementName + "Show");
+//      if (isDisabled(periodeEndShow)) {
+//        periodeEnd.disabled = true;
+//        yud.setStyle(targetElementName + "Show", "cursor", "default");
+//        periodeEndShow.disabled = true;
+//      }
+//      else {
+//        yue.on(periodeEndShow, 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd,
+//            zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd, true);
+//        periodeEnd.disabled = false;
+//        yud.setStyle(targetElementName + "Show", "cursor", "pointer");
+//        periodeEndShow.disabled = false;
+//      }
+//    };
 
     var parseDate = function(str) {
       var mdy = str.split('/');
@@ -198,14 +200,35 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       yud.get('totalPriceInformation').innerHTML = totalPrice.toFixed(2) + ' €';
     };
 
+    var createErrorField = function(elem, date, start) {
+        var error = document.createElement('p');
+        error.id= elem.name + 'Error';
+        error.className = 'error';
+        if(start) {
+          error.innerHTML = 'La date minimum autorisée est le ' + date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear();
+        } else {
+          error.innerHTML = 'La date de fin de période ne peut être antérieure à la date de début';
+        }
+        elem.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(error,elem.parentNode.parentNode.parentNode.parentNode.nextSibling);
+      };
+
+    var removeErrorField = function(elem) {
+      var error = yud.get(elem.name + 'Error');
+      if( !yl.isNull(error)) {
+        error.parentNode.removeChild(error)
+      }
+    };
+
     return {
       init: function () {
         yue.on(yud.get('scaffoldingStartDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickStart,
             zcfr.ParkingPermitTemporaryWorkRequest.processClickStart, true);
         yue.on(yud.get('occupationStartDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickStart,
             zcfr.ParkingPermitTemporaryWorkRequest.processClickStart, true);
-        disabledFields('scaffoldingEndDate');
-        disabledFields('occupationEndDate');
+        yue.on(yud.get('scaffoldingEndDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd,
+                zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd, true);
+        yue.on(yud.get('occupationEndDateShow'), 'click', zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd,
+                zcfr.ParkingPermitTemporaryWorkRequest.processClickEnd, true);
 
         yue.on(['scaffoldingLength', 'scaffoldingStartDate', 'scaffoldingEndDate'], 'change', function() {
           updateScaffoldingPrice();
@@ -222,6 +245,58 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
           displayTotalPriceInformation();
         });
         displayTotalPriceInformation();
+        yud.removeClass(yud.get('occupationStartDate'),'validate-calendar');
+        yud.removeClass(yud.get('occupationEndDate'),'validate-calendar');
+        yud.addClass(yud.get('occupationStartDate'),'validate-checkDateStartOccupation');
+        yud.addClass(yud.get('occupationEndDate'),'validate-checkDateEndOccupation');
+
+        yud.removeClass(yud.get('scaffoldingStartDate'),'validate-calendar');
+        yud.removeClass(yud.get('scaffoldingEndDate'),'validate-calendar');
+        yud.addClass(yud.get('scaffoldingStartDate'),'validate-checkDateStartScaffolding');
+        yud.addClass(yud.get('scaffoldingEndDate'),'validate-checkDateEndScaffolding');
+
+        zcv.putRules({
+            "checkDateStartOccupation" : new zcv.rule("func", function(f) {
+              var minDate = getDate(zenexity.libredemat.pptwrSpecificConfigurationData.minDaysBeforeFloorOccupation);
+              var startDate = getDate(0,yud.get('occupationStartDate').value);
+              if(minDate > startDate && yl.isNull(yud.get('occupationStartDateError'))) {
+                  createErrorField(yud.get('occupationStartDate'), minDate, true);
+                } else if(minDate <= startDate) {
+                  removeErrorField(yud.get('occupationStartDate'));
+                }
+              return (minDate <= startDate);
+            }),
+            "checkDateEndOccupation" : new zcv.rule("func", function(f) {
+                var startDate = getDate(0,yud.get('occupationStartDate').value);
+                var endDate = getDate(0,yud.get('occupationEndDate').value);
+                if(startDate > endDate && yl.isNull(yud.get('occupationEndDateError'))) {
+                  createErrorField(yud.get('occupationEndDate'), startDate)
+                } else if(startDate <= endDate) {
+                  removeErrorField(yud.get('occupationEndDate'));
+                }
+                return (startDate <= endDate);
+            }),
+            "checkDateStartScaffolding" : new zcv.rule("func", function(f) {
+                var minDate = getDate(zenexity.libredemat.pptwrSpecificConfigurationData.minDaysBeforeScaffolding);
+                var startDate = getDate(0,yud.get('scaffoldingStartDate').value);
+                if(minDate > startDate && yl.isNull(yud.get('scaffoldingStartDateError'))) {
+                    createErrorField(yud.get('scaffoldingStartDate'), minDate, true);
+                  } else if(minDate <= startDate) {
+                    removeErrorField(yud.get('scaffoldingStartDate'));
+                  }
+                return (minDate <= startDate);
+            }),
+            "checkDateEndScaffolding" : new zcv.rule("func", function(f) {
+                var startDate = getDate(0,yud.get('scaffoldingStartDate').value);
+                var endDate = getDate(0,yud.get('scaffoldingEndDate').value);
+                if(startDate > endDate && yl.isNull(yud.get('scaffoldingEndDateError'))) {
+                  createErrorField(yud.get('scaffoldingEndDate'), startDate)
+                } else if(startDate <= endDate) {
+                  removeErrorField(yud.get('scaffoldingEndDate'));
+                }
+                return (startDate <= endDate);
+             })
+            });
       },
       /**
        * @description The name of the method to call is the first part of the
@@ -254,8 +329,6 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
       },
 
       callBack: function () {
-        disabledFields('scaffoldingEndDate');
-        disabledFields('occupationEndDate');
         updateScaffoldingPrice();
         updateOccupationPrice();
         displayTotalPriceInformation();
