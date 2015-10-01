@@ -96,6 +96,10 @@
           }
         );
         yue.on(yud.get('requestForm'), 'submit', function(e) {
+          yud.get('requestForm')['requesterLastName'].value=yud.get('requestForm')['requesterLastName'].value.trim()
+          yud.get('requestForm')['subjectLastName'].value=yud.get('requestForm')['subjectLastName'].value.trim()
+          yud.get('requestForm')['id'].value=yud.get('requestForm')['id'].value.trim()
+          yud.get('requestForm')['homeFolderId'].value=yud.get('requestForm')['homeFolderId'].value.trim()
           yud.get('requestForm').action = yud.get('searchAction').value;
         })
       }

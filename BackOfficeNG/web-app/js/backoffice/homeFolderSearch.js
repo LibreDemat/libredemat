@@ -112,6 +112,10 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
        * @description Produce home folder search
        */
       doSearch : function(e) {
+        yud.get('searchForm')['homeFolderId'].value=yud.get('searchForm')['homeFolderId'].value.trim();
+        yud.get('searchForm')['lastName'].value=yud.get('searchForm')['lastName'].value.trim();
+        yud.get('searchForm')['firstName'].value=yud.get('searchForm')['firstName'].value.trim();
+
         zcbh.Search.saveState();
         if(!e || yue.getTarget(e).nodeName != 'form') yud.get('searchForm').submit();
       }
