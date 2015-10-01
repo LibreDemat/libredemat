@@ -4,16 +4,19 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
 
     var zcf = zenexity.libredemat.fong;
     var zcfr = zcf.requesttype;
+    var zcv = zenexity.libredemat.Validation;
 
     var yu = YAHOO.util;
     var yud = yu.Dom;
     var yue = YAHOO.util.Event;
     var ylj = YAHOO.lang.JSON;
+    var yl = YAHOO.lang;
 
     zcfr.ParkingPermitTemporaryRelocationRequest = function () {
 
         var getDate = function (dayAdded, date) {
             var d = new Date();
+            d.setHours(0,0,0,0);
             if (date != null) {
                 var dates = date.split("/");
                 d = new Date(dates[2] + "/" + dates[1] + "/" + dates[0]);
@@ -37,46 +40,54 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             return mindate;
         };
 
-        var isDisabled = function (target) {
-            var classes = yud.getAttribute(target, "class");
-            classes = classes.split(" ");
-            for (var i = 0; i < classes.length; i++) {
-                if (classes[i].indexOf('disabledWith_') > -1) {
-                    if (classes[i].split("_").length > 1) {
-                        var inputLabel = classes[i].split("_")[1];
-                        if (inputLabel != undefined && inputLabel != "null" && yud.get(inputLabel) != null) {
-                            var inputValue = yud.get(inputLabel).value;
-                            return !(inputValue != undefined && inputValue != "");
-
-                        }
-                    }
-                }
-            }
-            return false;
+        var createErrorField = function(elem, date) {
+          var error = document.createElement('p');
+          error.id= elem.name + 'Error';
+          error.className = 'error';
+          if(elem.name == 'periodeStart') {
+            error.innerHTML = 'La date minimum autorisée est le ' + date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear();
+          } else {
+            error.innerHTML = 'La date de fin de période ne peut être antérieure à la date de début';
+          }
+          elem.parentNode.parentNode.parentNode.parentNode.parentNode.insertBefore(error,elem.parentNode.parentNode.parentNode.parentNode.nextSibling);
         };
 
-        var disabledFields = function () {
-            if (yud.get('relocation') === null)
-                return;
-            var periodeEnd = yud.get("periodeEnd");
-            var periodeEndShow = yud.get("periodeEndShow");
-            if (isDisabled(periodeEndShow)) {
-                periodeEnd.disabled = true;
-                yud.setStyle("periodeEndShow", "cursor", "default");
-                periodeEndShow.disabled = true;
-            }
-            else {
-                yue.on(periodeEndShow, 'click', zcfr.ParkingPermitTemporaryRelocationRequest.processClickEnd, zcfr.ParkingPermitTemporaryRelocationRequest.processClickEnd, true);
-                periodeEnd.disabled = false;
-                yud.setStyle("periodeEndShow", "cursor", "pointer");
-                periodeEndShow.disabled = false;
-            }
-        };
-
+        var removeErrorField = function(elem) {
+          var error = yud.get(elem.name + 'Error');
+          if( !yl.isNull(error)) {
+            error.parentNode.removeChild(error)
+          }
+        }
         return {
             init: function () {
                 yue.on(yud.get('periodeStartShow'), 'click', zcfr.ParkingPermitTemporaryRelocationRequest.processClickStart, zcfr.ParkingPermitTemporaryRelocationRequest.processClickStart, true);
-                disabledFields();
+                yue.on(yud.get('periodeEndShow'), 'click', zcfr.ParkingPermitTemporaryRelocationRequest.processClickEnd, zcfr.ParkingPermitTemporaryRelocationRequest.processClickEnd, true);
+                yud.removeClass(yud.get('periodeEnd'),'validate-calendar');
+                yud.removeClass(yud.get('periodeStart'),'validate-calendar');
+                yud.addClass(yud.get('periodeStart'),'validate-checkDateStart');
+                yud.addClass(yud.get('periodeEnd'),'validate-checkDateEnd');
+                zcv.putRules({
+                "checkDateStart" : new zcv.rule("func", function(f) {
+                  var minDate = getDate(zenexity.libredemat.pptrrSpecificConfigurationData.minDaysBeforeRelocation);
+                  var startDate = getDate(0,yud.get('periodeStart').value);
+                  if(minDate > startDate && yl.isNull(yud.get('periodeStartError'))) {
+                    createErrorField(yud.get('periodeStart'), minDate);
+                  } else if(minDate <= startDate) {
+                    removeErrorField(yud.get('periodeStart'));
+                  }
+                  return (minDate <= startDate);
+                }),
+                "checkDateEnd" : new zcv.rule("func", function(f) {
+                    var startDate = getDate(0,yud.get('periodeStart').value);
+                    var endDate = getDate(0,yud.get('periodeEnd').value);
+                    if(startDate > endDate && yl.isNull(yud.get('periodeEndError'))) {
+                        createErrorField(yud.get('periodeEnd'), startDate)
+                      } else if(startDate <= endDate) {
+                        removeErrorField(yud.get('periodeEnd'));
+                      }
+                    return (startDate <= endDate);
+                  })
+                });
             },
             /**
              * @description The name of the method to call is the first part of the
@@ -107,7 +118,6 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
             },
 
             callBack: function () {
-                disabledFields();
             }
         }
     }();
