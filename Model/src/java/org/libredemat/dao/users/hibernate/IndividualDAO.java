@@ -214,15 +214,15 @@ public class IndividualDAO extends JpaTemplate<Individual,Long> implements IIndi
         // go through all the criteria and create the query
         for (Critere criteria : criterias) {
             if (criteria.getAttribut().equals(Individual.SEARCH_BY_LASTNAME)) {
-                sb.append(" and lower(individual.lastName) ")
+                sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(individual.lastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') ")
                     .append(criteria.getSqlComparatif())
-                    .append(" lower(?)");
+                    .append(" REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
                 objectList.add(criteria.getSqlStringValue());
                 typeList.add(Hibernate.STRING);
             } else if(criteria.getAttribut().equals(Individual.SEARCH_BY_FIRSTNAME)) {
-                sb.append(" and lower(individual.firstName) ")
+                sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(individual.firstName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') ")
                     .append(criteria.getSqlComparatif())
-                    .append(" lower(?)");
+                    .append(" REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
                 objectList.add(criteria.getSqlStringValue());
                 typeList.add(Hibernate.STRING);
             } else if (criteria.getAttribut().equals(Individual.SEARCH_BY_HOME_FOLDER_ID)) {
