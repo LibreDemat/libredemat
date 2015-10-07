@@ -282,21 +282,24 @@ public final class PaymentService implements IPaymentService,
         if (paymentStatus.equals(PaymentResultStatus.OK)) {
             payment.setState(PaymentState.VALIDATED);
             event = PaymentEvent.EVENT_TYPE.PAYMENT_VALIDATED;
-        } else if (paymentStatus.equals(PaymentResultStatus.CANCELLED)) {
+        } else if (paymentStatus.equals(PaymentResultStatus.CANCELLED) && !PaymentState.VALIDATED.equals(payment.getState())) {
             payment.setState(PaymentState.CANCELLED);
             event = PaymentEvent.EVENT_TYPE.PAYMENT_CANCELLED;
-        } else if (paymentStatus.equals(PaymentResultStatus.REFUSED)) {
+        } else if (paymentStatus.equals(PaymentResultStatus.REFUSED) && !PaymentState.VALIDATED.equals(payment.getState())) {
             payment.setState(PaymentState.REFUSED);
             event = PaymentEvent.EVENT_TYPE.PAYMENT_REFUSED;
         }
-        paymentDAO.update(payment);
-        
-        PaymentEvent paymentEvent = new PaymentEvent(this, event, payment);
-        applicationContext.publishEvent(paymentEvent);
-        
-        if (paymentStatus.equals(PaymentResultStatus.OK))
-            notifyPaymentByMail(payment);
-        
+
+        if(event != null) {
+            paymentDAO.update(payment);
+
+            PaymentEvent paymentEvent = new PaymentEvent(this, event, payment);
+            applicationContext.publishEvent(paymentEvent);
+
+            if (paymentStatus.equals(PaymentResultStatus.OK))
+                notifyPaymentByMail(payment);
+
+        }
         return paymentStatus;
     }
 
