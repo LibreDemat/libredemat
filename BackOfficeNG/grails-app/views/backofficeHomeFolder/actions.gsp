@@ -58,6 +58,16 @@
             </dl>
           </dd>
         </g:if>
+        <g:if test="${action.message}">
+                    <dt>
+                        ${message(code:'user.atom.message')}
+                    </dt>
+                    <dd>
+                        <span>
+                            ${action.message.value}
+                        </span>
+                    </dd>
+                </g:if>
         <g:if test="${action.contact}">
           <dt>${message(code : "contact.property.meansOfContact")}</dt>
           <dd><g:libredematEnumToText var="${action.contact.meansOfContact}" i18nKeyPrefix="meansOfContact" /></dd>

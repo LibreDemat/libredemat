@@ -46,7 +46,7 @@ invoice : paid, no_paid
 /*  request creation */
 .tag-required,
 /* external services traces */
-.tag-sent, .tag-inprogress, .tag-notsent, .tag-acknowledged, .tag-error, .tag-accepted, .tag-rejected, .tag-returned,
+.tag-sent, .tag-receive, .tag-errorinterne, .tag-inprogress, .tag-notsent, .tag-acknowledged, .tag-error, .tag-accepted, .tag-rejected, .tag-returned,
 .tag-external, 
 /* request note type */
 .tag-note, .tag-internal, .tag-public,
@@ -86,6 +86,7 @@ invoice : paid, no_paid
 .tag-pending,
 .tag-initialized,
 .tag-sent,
+.tag-receive,
 .tag-statechange,
 .tag-rectified,
 .tag-waiting_notification,
@@ -118,6 +119,7 @@ invoice : paid, no_paid
 .tag-paymentrefused,
 .tag-outdated,
 .tag-error,
+.tag-errorinterne,
 .tag-rejected,
 .tag-locked,
 .tag-notification_error,
