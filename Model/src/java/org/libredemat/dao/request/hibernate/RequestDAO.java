@@ -83,13 +83,13 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_REQUESTER_LASTNAME)) {
                 sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(request.requesterLastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') "
                         + searchCrit.getSqlComparatif() + " REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
-                parametersValues.add(searchCrit.getSqlStringValue());
+                parametersValues.add("%" + searchCrit.getSqlStringValue());
                 parametersTypes.add(Hibernate.STRING);
 
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_SUBJECT_LASTNAME)) {
                 sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(request.subjectLastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') "
                         + searchCrit.getSqlComparatif() + " REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
-                parametersValues.add(searchCrit.getSqlStringValue());
+                parametersValues.add("%" + searchCrit.getSqlStringValue());
                 parametersTypes.add(Hibernate.STRING);
 
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_SUBJECT_ID)) {
@@ -282,13 +282,13 @@ public class RequestDAO extends JpaTemplate<Request, Long> implements IRequestDA
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_REQUESTER_LASTNAME)) {
                 sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(request.requesterLastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') "
                         + searchCrit.getSqlComparatif() + " REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
-                objectList.add(searchCrit.getSqlStringValue());
+                objectList.add("%" + searchCrit.getSqlStringValue());
                 typeList.add(Hibernate.STRING);
 
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_SUBJECT_LASTNAME)) {
                 sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(request.subjectLastName), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') "
                         + searchCrit.getSqlComparatif() + " REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
-                objectList.add(searchCrit.getSqlStringValue());
+                objectList.add("%" + searchCrit.getSqlStringValue());
                 typeList.add(Hibernate.STRING);
 
             } else if (searchCrit.getAttribut().equals(Request.SEARCH_BY_SUBJECT_ID)) {
