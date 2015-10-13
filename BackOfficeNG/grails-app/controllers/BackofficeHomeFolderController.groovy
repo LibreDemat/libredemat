@@ -778,6 +778,7 @@ class BackofficeHomeFolderController {
         def mapper =[:]
         mapper.lastName = Critere.STARTSWITH
         mapper.firstName = Critere.STARTSWITH
+        mapper.email = Critere.STARTSWITH
         mapper.homeFolderId = Critere.EQUALS
         mapper.homeFolderState = Critere.EQUALS 
         mapper.isHomeFolderResponsible = Critere.EQUALS

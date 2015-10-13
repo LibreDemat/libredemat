@@ -29,6 +29,8 @@
         <input type="text" name="lastName" class="persistent" size="40" value="${state?.lastName}" />
         <label for="firstName"><g:message code="property.individualFirstName" /> :</label>
         <input type="text" name="firstName" class="persistent" size="40" value="${state?.firstName}" />
+        <label for="email"><g:message code="property.individualEmail" /> : </label>
+        <input type="text" name="email" class="persistent" size="40" value="${state?.email}" />
       </div>
     </div>
     <div class="form-button">

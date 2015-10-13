@@ -20,6 +20,9 @@
           <g:if test="${currentSiteName != record.address.city}">
             ${record.address.postalCode} ${record.address.city}
           </g:if>
+          <g:if test="${record instanceof org.libredemat.business.users.Adult}">
+            - ${record.email}
+          </g:if>
           <g:if test="${record.birthDate}">
             - <g:message code="homeFolder.header.born"/>
             <g:message code="homeFolder.header.on"/> 

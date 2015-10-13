@@ -225,7 +225,14 @@ public class IndividualDAO extends JpaTemplate<Individual,Long> implements IIndi
                     .append(" REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
                 objectList.add("%" + criteria.getSqlStringValue());
                 typeList.add(Hibernate.STRING);
-            } else if (criteria.getAttribut().equals(Individual.SEARCH_BY_HOME_FOLDER_ID)) {
+            } else if(criteria.getAttribut().equals(Individual.SEARCH_BY_EMAIL)) {
+                sb.append(" and REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(individual.email), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ') ")
+                    .append(criteria.getSqlComparatif())
+                    .append(" REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ltrim(rtrim(lower(?), ' '), ' '), 'é', 'e'), 'è', 'e'), 'ê', 'e'), 'ë', 'e'), 'à', 'a'), 'â', 'a'), 'ä', 'a'), 'î', 'i'), 'ï', 'i'), '-', ' ')");
+                objectList.add("%" + criteria.getSqlStringValue());
+                typeList.add(Hibernate.STRING);
+            }
+            else if (criteria.getAttribut().equals(Individual.SEARCH_BY_HOME_FOLDER_ID)) {
                 sb.append(" and individual.homeFolder.id ")
                     .append(criteria.getSqlComparatif())
                     .append(" ?");

@@ -55,6 +55,7 @@ public abstract class Individual implements Serializable {
 
     public static final String SEARCH_BY_FIRSTNAME = "firstName";
     public static final String SEARCH_BY_LASTNAME = "lastName";
+    public static final String SEARCH_BY_EMAIL = "email";
     public static final String SEARCH_BY_STREET_NAME = "streetName";
     public static final String SEARCH_BY_STREET_NUMBER = "streetNumber";
     public static final String SEARCH_BY_BIRTHDATE = "birthDate";
