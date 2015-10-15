@@ -255,6 +255,14 @@ public class RequestTypeService implements IRequestTypeService, ILocalAuthorityL
     }
 
     @Override
+    public void setRequestTypeWeight(final Long requestTypeId, final Long requestTypeWeight)
+        throws CvqException {
+        RequestType requestType = getRequestTypeById(requestTypeId);
+        requestType.setWeight(requestTypeWeight);
+        requestTypeDAO.update(requestType);
+    }
+
+    @Override
     @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.MANAGE)
     public void modifyRequestType(RequestType requestType) {
         requestTypeDAO.update(requestType);

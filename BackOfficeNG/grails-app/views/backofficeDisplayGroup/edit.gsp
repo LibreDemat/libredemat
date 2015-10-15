@@ -5,6 +5,8 @@
   </title>
   <meta name="layout" content="main" />
   <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" />
+  <script type="text/javascript" src="${resource(dir:'js/common',file:'jquery.min.js')}"></script>
+  <script type="text/javascript" src="${resource(dir:'js/common',file:'jquery-sortable.min.js')}"></script>
   <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'displayGroupEdit.js')}"></script>
   <script type="text/javascript">
     zenexity.libredemat.bong.DisplayGroupEdit.displayGroupId = '${displayGroup?.id}';

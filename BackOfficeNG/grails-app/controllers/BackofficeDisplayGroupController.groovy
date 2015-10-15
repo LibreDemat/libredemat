@@ -29,7 +29,7 @@ class BackofficeDisplayGroupController {
         	  dg.requestTypes?.each { rt ->
         	      requestTypesByDisplayGroup[dg.id].add(LibredematUtils.adaptRequestType(translationService, rt))
         	  }
-        	  requestTypesByDisplayGroup[dg.id] = requestTypesByDisplayGroup[dg.id].sort {it.label}
+        	  requestTypesByDisplayGroup[dg.id] = requestTypesByDisplayGroup[dg.id].sort{it.weight!=null ? it.weight : it.label}
         }
         def orphanRequestTypes = []
         requestTypeService.getAllRequestTypes().each {
@@ -51,7 +51,7 @@ class BackofficeDisplayGroupController {
         displayGroup.requestTypes.each { 
             requestTypes.add(LibredematUtils.adaptRequestType(translationService,it))
         }
-        requestTypes = requestTypes.sort{ it.label.toLowerCase() }
+        requestTypes = requestTypes.sort{it.weight!=null ? it.weight : it.label}
 
         return ['subMenuEntries':subMenuEntries,
                 'editMode':'edit', 
@@ -141,6 +141,12 @@ class BackofficeDisplayGroupController {
         render( template:"requestTypes",
                 model:[ displayGroupId: new Long(params.id), requestTypes: requestTypes, 
                         orderRequestTypeBy: orderRequestTypeBy, scope:params.scope ])
+    }
+
+    def displayOrder = {
+        def toto = JSON.parse(params.json)
+        toto.each{ requestTypeService.setRequestTypeWeight(it.id, it.weight)}
+        render([status:'success', success_msg:message(code:"message.updateDone")] as JSON)
     }
 
     def associateRequestType = {

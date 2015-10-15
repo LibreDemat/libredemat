@@ -74,12 +74,20 @@
         var scopeEl = yud.get("scope");
         scopeEl.value = yue.getTarget(e).id.split('_')[1]
         zct.doAjaxFormSubmitCall ("sortRequestTypeForm",[scopeEl.value] , zcb.DisplayGroupEdit.displayRequestTypes);
+        setTimeout(function(){
+          initDragAndDrop();
+        },500);
       },
 
       sortRequestTypes: function(e) {
         if (yue.getTarget(e).value != "")
+        {
           zct.doAjaxFormSubmitCall("sortRequestTypeForm", [yud.get("scope").value],zcb.DisplayGroupEdit.displayRequestTypes);
-      },
+          setTimeout(function(){
+            initDragAndDrop();
+          },500);
+        }
+        },
 
       saveDisplayGroup: function(e) {
         yue.preventDefault(e);
@@ -115,3 +123,72 @@
   YAHOO.util.Event.onDOMReady(zcb.DisplayGroupEdit.init);
 
 }());
+
+/// Chargement de jquery
+
+$(document).ready(function()
+{
+	initDragAndDrop();
+});
+
+function initDragAndDrop()
+{
+	var adjustment;
+
+	$("ul#displayGroupRequestTypes").sortable({
+	  group: 'displayGroupRequestTypes',
+	  pullPlaceholder: false,
+	  // animation on drop
+	  onDrop: function  ($item, container, _super) {
+	    var $clonedItem = $('<li/>').css({height: 0});
+	    $item.before($clonedItem);
+	    $clonedItem.animate({'height': $item.height()},150);
+
+	    $item.animate($clonedItem.position(), function  () {
+	      $clonedItem.detach();
+	      _super($item, container);
+	    });
+	    sendPosition();
+	  },
+
+	  // set $item relative to cursor position
+	  onDragStart: function ($item, container, _super) {
+	    var offset = $item.offset(),
+	        pointer = container.rootGroup.pointer;
+
+	    adjustment = {
+	      left: pointer.left - offset.left,
+	      top: pointer.top - offset.top
+	    };
+
+	    _super($item, container);
+	  },
+	  onDrag: function ($item, position) {
+	    $item.css({
+	      'position' : 'absolute',
+	      'height' : '15px',
+	      left: position.left - adjustment.left,
+	      top: position.top - adjustment.top
+	    });
+	  }
+	});
+}
+
+function sendPosition()
+{
+	var tab  = [];
+	var i = 0;
+	$("ul#displayGroupRequestTypes li.item").each(function()
+	{
+		tab.push({
+			'id' : $(this).data("id"),
+			'weight' : i
+		});
+		i++;
+	});
+	$.ajax({
+		url : zenexity.libredemat.baseUrl+'/displayOrder',
+		type : 'POST',
+		data : 'json='+JSON.stringify(tab)
+	});
+}

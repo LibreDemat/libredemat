@@ -39,6 +39,8 @@ public class RequestType implements Serializable {
 
     private String label;
 
+    private Long weight;
+
     /** whether or not this request type is activated for the current local authority */
     private Boolean active;
 
@@ -126,6 +128,14 @@ public class RequestType implements Serializable {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public Long getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Long weight) {
+        this.weight = weight;
     }
 
     public Boolean getActive() {

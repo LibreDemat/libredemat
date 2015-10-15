@@ -2768,6 +2768,7 @@
         subject_policy varchar(255),
         support_multiple bool,
         support_unregistered_creation bool,
+        weight int8,
         category_id int8,
         display_group_id int8,
         primary key (id)

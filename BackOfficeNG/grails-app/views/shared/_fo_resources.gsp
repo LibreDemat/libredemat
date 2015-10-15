@@ -22,6 +22,7 @@
 <script src="${resource(dir:'js/yui/tabview', file:'tabview-min.js')}"></script>
 <script type="text/javascript" src="${resource(dir:'js/yui/calendar',file:'calendar-min.js')}"></script>
 
+<script type="text/javascript" src="${resource(dir:'js/common', file:'jquery.min.js')}"></script>
 <script type="text/javascript" src="${resource(dir:'js/common', file:'tools.js')}"></script>
 <script type="text/javascript">
   zenexity.libredemat.tools.namespace('zenexity.libredemat.fong')

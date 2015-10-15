@@ -53,7 +53,7 @@ public class RequestTypeAdaptorService {
             if(!result.keySet().contains(dg.name))
                 result[dg.name] = ['label':dg.label,'requests':[]]
             
-            for(RequestType rt : dg.requestTypes) {
+            for(RequestType rt : dg.requestTypes.sort{it.weight!=null ? it.weight : it.label}) {
                 if (!rt.active) 
                     continue
                 def i18nError = null
@@ -71,7 +71,7 @@ public class RequestTypeAdaptorService {
                                              ])
             }
             
-            result[dg.name].requests = result[dg.name].requests.sort{it -> it.label}
+            result[dg.name].requests = result[dg.name].requests
         }
 
         // filter groups with no requests

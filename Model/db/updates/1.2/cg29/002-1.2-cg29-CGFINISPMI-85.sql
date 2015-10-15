@@ -1,0 +1,1 @@
+ALTER TABLE request_type ADD COLUMN weight int8;

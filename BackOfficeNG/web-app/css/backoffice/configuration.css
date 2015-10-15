@@ -469,3 +469,6 @@ select { display: block; }
   margin: 5px 0;
   font-size: 1.2em;
 }
+
+ul#displayGroupRequestTypes li{cursor: move;}
+ul#displayGroupRequestTypes li.placeholder{padding: 15px;}

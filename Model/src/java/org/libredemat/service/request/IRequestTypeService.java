@@ -55,6 +55,9 @@ public interface IRequestTypeService {
     RequestType getRequestTypeByLabel(final String requestLabel)
         throws CvqException;
 
+
+    void setRequestTypeWeight(final Long requestTypeId, final Long requestTypeWeight)
+            throws CvqException;
     /**
      * Modify a request type properties.
      */

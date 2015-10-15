@@ -33,7 +33,8 @@ class LibredematUtils {
             categoryId: requestType.category?.id, 
             categoryName: requestType.category?.name,
             displayGroupId: requestType.displayGroup?.id, 
-            displayGroupLabel: requestType.displayGroup?.label
+            displayGroupLabel: requestType.displayGroup?.label,
+            weight : requestType.weight
         ]
     }
 
