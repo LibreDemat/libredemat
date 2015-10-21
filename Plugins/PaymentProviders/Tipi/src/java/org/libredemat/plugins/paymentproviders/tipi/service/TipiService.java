@@ -72,7 +72,7 @@ public class TipiService implements IPaymentProviderService {
             urlParameters.append("&mel=").append(homeFolderResponsibleEmail);
         }
 
-        String tipiUrlCl = "https://"+SecurityContext.getCurrentConfigurationBean().getDefaultServerName()+this.callbackUrl;
+        String tipiUrlCl = "http://"+SecurityContext.getCurrentConfigurationBean().getDefaultServerName()+this.callbackUrl;
         urlParameters.append("&urlcl="+tipiUrlCl);
         
         urlParameters.append("&openInPopUp=true");
