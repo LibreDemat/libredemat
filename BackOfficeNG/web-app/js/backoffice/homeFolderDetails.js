@@ -168,7 +168,10 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
       },
       edit : function(e) {
         if (yud.getAncestorByTagName(yue.getTarget(e), 'form')) return;
+        if(yud.getElementsBy(function(e){return true },'form',yue.getTarget(e)).length > 0) return;
+
         zcbh.Details.individual(e,'edit');
+
       },
       cancel : function(e) { zcbh.Details.individual(e,'static'); },
 
