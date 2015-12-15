@@ -171,12 +171,12 @@ public final class PaymentService implements IPaymentService,
     @Context(types = {ContextType.ECITIZEN}, privilege = ContextPrivilege.WRITE)
     public final void removePurchaseItemFromPayment(Payment payment, PurchaseItem purchaseItem) {
 
+        payment.getPurchaseItems().remove(purchaseItem);
         double newAmount = 0;
         for(PurchaseItem pit : payment.getPurchaseItems())
             newAmount = newAmount + pit.getAmount();
 
         payment.setAmount(Double.valueOf(newAmount));
-        payment.getPurchaseItems().remove(purchaseItem);
         if (payment.getPurchaseItems().isEmpty()) 
             payment.setBroker("");
     }
