@@ -26,6 +26,8 @@ import org.libredemat.util.web.filter.CASFilter
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 import org.libredemat.service.users.IUserSearchService
 
+import org.apache.log4j.MDC
+
 class SessionFilters {
 
     def securityService
@@ -76,7 +78,7 @@ class SessionFilters {
                         render "No LACB found for local authority : ${la.name}"
                         return false
                     }
-                    
+                    MDC.put("local_authority", la.getName())
                     SecurityContext.setCurrentSite(la, SecurityContext.BACK_OFFICE_CONTEXT)
                     
                 } catch (Throwable t) {
@@ -134,7 +136,7 @@ class SessionFilters {
                     Store.init(new File(localAuthorityRegistry.assetsBase + la.name, "zdb"))
                     SecurityContext.setCurrentSite(la, SecurityContext.BACK_OFFICE_CONTEXT)
                     SecurityContext.setCurrentLocale(Locale.FRENCH)
-
+                    MDC.put("local_authority", la.getName())
                     session.setAttribute("currentSiteName", la.name.toLowerCase())
                     session.setAttribute("currentSiteDisplayTitle", la.displayTitle)
                     session.setAttribute("additionalTabs", lacb.getAdditionalTabs())
