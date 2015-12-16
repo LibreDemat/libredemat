@@ -61,16 +61,22 @@ class LocalAuthorityResourceController {
             resource = localAuthorityRegistry.getLocalAuthorityResourceFile(
                 params.id,
                 params.version != null ? LocalAuthorityResource.Version.valueOf(params.version) : LocalAuthorityResource.Version.CURRENT)
-            if (resource != null)
+            if (resource != null) {
                 renderResponse(resource, params.id, localAuthorityResource.type.contentType)
+            } else {
+                render(text: '', status: 404)
+            }
         } else {
             resource = localAuthorityRegistry.getLocalAuthorityResourceFile(
                 Type.valueOf(params.type),
-                params.filename,
+                java.net.URLEncoder.encode(params.filename),
                 params.version != null ? LocalAuthorityResource.Version.valueOf(params.version) : LocalAuthorityResource.Version.CURRENT,
                 true)
-            if (resource != null && resource.exists())
+            if (resource != null && resource.exists()) {
                 renderResponse(resource, params.filename, Type.valueOf(params.type).contentType)
+            } else {
+                render(text: '', status: 404)
+            }
         }
 
     }
