@@ -15,6 +15,7 @@
         <property name="defaultServerName" value="localhost"/>
         <property name="defaultEmail" value="libredemat-dev@zengularity.com"/>
         <property name="defaultPassword" value="bienvenue"/>
+        <property name="superAdminPassword" value="superAdminPassword"/>
         <property name="autotransition" value="true"/>
         <property name="authenticationMethod" value="builtin"/>
         <!-- builtin,cas -->

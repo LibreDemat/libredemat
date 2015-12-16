@@ -39,6 +39,7 @@ public final class LocalAuthorityConfigurationBean {
     private String defaultPassword = "bienvenue";
     private String authenticationMethod;
     private String authenticationMethodFront;
+    private String superAdminPassword;
     private boolean accountValidationRequired = false;
 
     private Map<String, String> authorizations;
@@ -462,5 +463,13 @@ public final class LocalAuthorityConfigurationBean {
 
     public void setCreateOnlyTemporaryAccountInTS(boolean createOnlyTemporaryAccountInTS) {
         this.createOnlyTemporaryAccountInTS = createOnlyTemporaryAccountInTS;
+    }
+
+    public String getSuperAdminPassword() {
+        return superAdminPassword;
+    }
+
+    public void setSuperAdminPassword(String superAdminPassword) {
+        this.superAdminPassword = superAdminPassword;
     }
 }
