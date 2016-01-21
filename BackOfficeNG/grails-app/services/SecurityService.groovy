@@ -169,5 +169,6 @@ public class SecurityService {
         session.currentCredentialBean = null
         session.currentAgentName = null;
         session.currentAgentId = null;
+        session.payment = null;
     }
 }
