@@ -11,17 +11,6 @@
       </g:each>
     </dd>
   </g:if>
-  <g:if test="${!ownerRoles.individual.isEmpty()}">
-    <dt>${message(code:'homeFolder.adult.property.individualRoles')} : </dt>
-    <dd>
-      <g:each var="ownerRole" in="${ownerRoles.individual}">
-        <p>
-          <g:libredematEnumToFlag var="${ownerRole.role}" i18nKeyPrefix="homeFolder.role" />
-          ${ownerRole.subjectName}
-        </p>
-      </g:each>
-    </dd>
-  </g:if>
 </dl>
 
 <dl>

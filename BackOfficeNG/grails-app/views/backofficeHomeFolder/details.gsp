@@ -170,6 +170,11 @@
                 <dl class="required collapse">
                   <g:render template="static/connexion" model="['adult':homeFolderResponsible]" />
                 </dl>
+                <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
+                <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} individual-adultResponsibles collapse">
+                  <g:render template="static/adultResponsibles" model="['adult':homeFolderResponsible, 'roles': adultsRoles.get(homeFolderResponsible.id)]" />
+                </dl>
+
 
               </div>
               <div class="yui-u">
@@ -221,7 +226,7 @@
               </h2>
               <div class="new"></div>
               <g:each var="child" in="${children}">
-                <g:render template="static/child" model="['child':child, 'roleOwners': responsibles[child.id], 'homeMappings' : homeMappings,'unarchivable': unarchivableIndividuals.contains(child.id)]" />
+                <g:render template="static/child" model="['child':child, 'roleOwners': responsibles[child.id], 'roles': childsRoles, 'homeMappings' : homeMappings,'unarchivable': unarchivableIndividuals.contains(child.id)]" />
               </g:each>
             </div>
           </div>

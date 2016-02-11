@@ -23,12 +23,18 @@
   <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} adult-contact collapse">
     <g:render template="static/contact" model="['adult':adult]" />
   </dl>
+
+  <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
+  <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} individual-adultResponsibles collapse">
+    <g:render template="static/adultResponsibles" model="['adult':adult, 'roles':adultsRoles.get(adult.id)]" />
+  </dl>
+
   <h3>${message(code:'homeFolder.individual.header.connexion')}</h3>
   <dl class="collapse">
     <g:render template="static/connexion" model="['adult':adult]" />
   </dl>
   <g:each var="homeMapping" in="${homeMappings}">
-  
+
    <g:set var="individualsMappings" value="${homeMapping.individualsMappings.groupBy { it.individualId }}" />
     <g:each var="mapping" in="${individualsMappings[adult.id]}">
      <h3>${homeMapping.externalServiceLabel}</h3>

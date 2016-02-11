@@ -15,7 +15,7 @@
   </dl>
   <h3>${message(code:'homeFolder.individual.header.responsibles')}</h3>
   <dl class="${child?.state?.toString() != 'Archived' ? 'edit' : ''} child-responsibles required collapse">
-    <g:render template="static/responsibles" model="['child':child, 'roleOwners': roleOwners]" />
+    <g:render template="static/responsibles" model="['child':child, 'roleOwners': roleOwners, 'roles': roles]" />
   </dl>
   <g:each var="homeMapping" in="${homeMappings}">
    <g:set var="individualsMappings" value="${homeMapping.individualsMappings.groupBy { it.individualId }}" />

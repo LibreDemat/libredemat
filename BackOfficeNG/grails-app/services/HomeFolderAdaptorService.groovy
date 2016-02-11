@@ -26,7 +26,8 @@ class HomeFolderAdaptorService {
         individual.individualRoles.each { individualRole ->
             if (individualRole.individualId) {
                 def subject = userSearchService.getById(individualRole.individualId)
-                ownerRoles.individual.add(['role':individualRole.role, 
+                ownerRoles.individual.add(['role':individualRole.role,
+                                           'id' : individualRole.individualId,
                                            'subjectName':subject.firstName + " " + subject.lastName])
             } else {
                 ownerRoles.homeFolder.add(['role':individualRole.role])                

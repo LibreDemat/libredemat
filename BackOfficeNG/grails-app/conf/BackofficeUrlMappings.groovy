@@ -19,6 +19,7 @@ class BackofficeUrlMappings {
     "/backoffice/homeFolder/$id/state" (controller : "backofficeHomeFolder", action : "state")
     "/backoffice/homeFolder/individual/$id/state" (controller : "backofficeHomeFolder", action : "state")
     "/backoffice/homeFolder/individual/$id/identity" (controller : "backofficeHomeFolder", action : "identity")
+    "/backoffice/homeFolder/individual/$id/adultResponsibles" (controller : "backofficeHomeFolder", action : "adultResponsibles")
     "/backoffice/homeFolder/individual/$id/$externalServiceLabel/mapping" (controller : "backofficeHomeFolder", action : "mapping")
     "/backoffice/homeFolder/individual/$id/$externalServiceLabel/homeFolderMapping" (controller : "backofficeHomeFolder", action : "homeFolderMapping")
     "/backoffice/homeFolder/adult/$id/address" (controller : "backofficeHomeFolder", action : "address")

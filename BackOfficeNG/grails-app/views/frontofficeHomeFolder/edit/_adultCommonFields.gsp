@@ -1,3 +1,6 @@
+<style>
+label.label_child{ display:initial; }
+</style>
 <%
   //Hack:
   if (flash.invalidFields) invalidFields = flash.invalidFields
@@ -115,3 +118,20 @@
       class="validate-phone ${invalidFields?.contains('officePhone') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.adult.property.officePhone.validationError')}" />
 </div>
+
+<label for="relation">
+    ${message(code:'homeFolder.adult.property.relation')}
+</label>
+<g:each var="child" in="${children}">
+    <p>
+        ${message(code:'homeFolder.adult.property.relation.label')}
+        <g:each var="role" in="${org.libredemat.business.users.RoleType.childRoleTypes}">
+            <input type="radio" name="roleType_${child.id}" value="${role}"/>
+            ${g.libredematEnumToFlag(var:role, i18nKeyPrefix:'homeFolder.role.adult')}
+        </g:each>
+        ${message(code:'layout.from')}
+        <label class="label_child">
+            ${child.fullName}
+        </label>
+    </p>
+</g:each>

@@ -339,6 +339,8 @@ class FrontofficeHomeFolderController {
     def adult = {
         def model = [:]
         def individual
+        def children = userSearchService.getChildren(currentEcitizen.homeFolder.id)
+        model['children'] = children
         if (params.id) {
             individual = userSearchService.getAdultById(Long.valueOf(params.id))
         } else {
@@ -352,7 +354,10 @@ class FrontofficeHomeFolderController {
                 def creation = false
                 if (individual.id) {
                     if (params.fragment == 'address' && !ServiceAutocompletionController.wayExistAddressReferential(params.cityInseeCode, params.city, params.streetName)) {
-                      throw new CvqValidationException(['address.streetName'])
+                        throw new CvqValidationException(['address.streetName'])
+                    }
+                    if (params.fragment == 'responsibles') {
+                        linkChildrenByAdult(individual, children, params)
                     }
                     historize(params.fragment, individual)
                     if (individual.id == currentEcitizen.id && params.fragment == 'identity') {
@@ -361,6 +366,7 @@ class FrontofficeHomeFolderController {
                 } else {
                     creation = true
                     addAdult(individual)
+                    linkChildrenByAdult(individual, children, params)
                 }
                 redirect(action : "adult", params : ["id" : individual.id, 'creation' : creation])
                 return false
@@ -381,6 +387,22 @@ class FrontofficeHomeFolderController {
         model['adult'] = individual
         if (individual.id) {
             model['ownerRoles'] = homeFolderAdaptorService.prepareOwnerRoles(individual)
+            def childrenModfied = []
+            for(Child child : children) {
+                def roleOnChild = individual.individualRoles.find{ it.individualId == child.id}
+                if (roleOnChild) {
+                    childrenModfied.add([
+                        'id': child.id,
+                        'fullName': child.fullName,
+                        'role': roleOnChild.role])
+                } else {
+                childrenModfied.add([
+                    'id': child.id,
+                    'fullName': child.fullName,
+                    'role': false])
+                }
+            }
+            model['childrenModfied'] = childrenModfied
         }
         return model
     }
@@ -420,7 +442,7 @@ class FrontofficeHomeFolderController {
                     if (!params.roleType)
                         throw new CvqValidationException(['legalResponsibles'])
                     def owner = userSearchService.getById(Long.valueOf(params.roleOwnerId))
-                    userWorkflowService.link(owner, individual, [RoleType.forString(params.roleType)])
+                    link(owner, individual, [RoleType.forString(params.roleType)])
                     redirect(url:createLink(action:'child', params:['id':individual.id, 'fragment':params.fragment]) + '#' + params.fragment)
                     return false
                 } else if (individual.id) {
@@ -501,16 +523,40 @@ class FrontofficeHomeFolderController {
         return model
     }
 
+    private linkChildrenByAdult(individual, children, params) {
+        for(Child child : children) {
+            if(params.get('roleType_'+child.id) != null) {
+                link(individual, child, [RoleType.forString(params.get('roleType_'+child.id))])
+            }
+        }
+    }
+
+    private link(owner, individual, roleType) {
+        userWorkflowService.link(owner, individual, roleType)
+        def invalidFields = userService.validate(individual)
+        flash['invalidFields'] = invalidFields
+        if (!invalidFields.isEmpty())
+            throw new CvqValidationException(invalidFields)
+    }
+
     def unlink = {
         def child = userSearchService.getById(Long.valueOf(params.id))
         def owner = userSearchService.getById(Long.valueOf(params.roleOwnerId))
+
         userWorkflowService.unlink(owner, child)
+
         def invalidFields = userService.validate(child)
+
         if (!invalidFields.isEmpty()) {
             flash['invalidFields'] = invalidFields
             session.doRollback = true
         }
-        redirect(url:createLink(action:'child', params:['id':params.id, 'fragment':params.fragment]) + '#' + params.fragment)
+
+        if(params.page == 'adult') {
+            redirect(url:createLink(action:'adult', params:['id':params.roleOwnerId, 'fragment':params.fragment]) + '#' + params.fragment)
+        } else {
+            redirect(url:createLink(action:'child', params:['id':params.id, 'fragment':params.fragment]) + '#' + params.fragment)
+        }
     }
 
     private addAdult(individual) throws CvqValidationException {

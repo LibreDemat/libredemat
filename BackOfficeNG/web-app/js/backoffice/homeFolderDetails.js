@@ -224,7 +224,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
                 div.removeChild(individual);
               }
               if (formId[0] === 'responsibles') {
-                zct.doAjaxCall('/child/' + formId[1] + '/responsibles?mode=static', null,function(o) {
+                zct.doAjaxCall('/child/' + formId[1] + '/responsibles?mode=static'+ '&homeFolderId=' + zcbh.Details.homeFolderId, null,function(o) {
                   dl.innerHTML = o.responseText;
                 });
               }
@@ -232,7 +232,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
               isSavingAdult = false;
             } else {
               json = ylj.parse(o.responseText);
-              zct.doAjaxCall('/' + json.type + '/' + json.id + '/?mode=static' , null,function(o) {
+              zct.doAjaxCall('/' + json.type + '/' + json.id + '/?mode=static' + '&homeFolderId=' + zcbh.Details.homeFolderId, null,function(o) {
                 var individual = yud.getAncestorByClassName(dl, 'individual');
                 var div = individual.parentNode;
                 div.removeChild(individual);
@@ -269,7 +269,9 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
       isValid : function(o, form) {
         // hack : if response type is JSON, some fields are invalid
         if (!ylj.isValid(o.responseText)) return true;
-        json = ylj.parse(o.responseText)
+        if(o.responseText !== null || o.responseText != "") {
+            json = ylj.parse(o.responseText)
+        }
         if (!json.invalidFields) return true;
         zct.each(form.elements, function(){
           yud.removeClass(this,'validation-failed');
@@ -292,7 +294,6 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
             var cacheData = this.get("cacheData");
             var contentVisible = this.get("contentVisible");
             //Force cache update on IE.
-            console.log(this.get("dataSrc"))
             this.set('dataSrc', this.get('dataSrc').replace(/rnd.*/, 'rnd=' + new Date().valueOf()));
 
             this.set("cacheData", false);
