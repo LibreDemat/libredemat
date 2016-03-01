@@ -75,7 +75,12 @@ class FrontofficePaymentController {
 
         result.invalid = flash.invalid
         result.paymentPopUp = params.paymentPopUp
-        
+        result.errorMessageKey = flash.errorMessageKey
+        if (session?.payment?.id) {
+            session.payment=null
+            result.errorMessageKey= "payment.error.return.message"
+        }
+
         return result
     }
     
@@ -270,11 +275,13 @@ class FrontofficePaymentController {
     }
     
     def pay = {
-        if (!session.payment) {
+        if (!session.payment || session.payment.id) {
+            session.payment=null
+            flash.errorMessageKey="payment.error.return.message"
             redirect(action:'index')
             return false
         }
-        
+
         def payment = session.payment
         payment.addPaymentSpecificData('scheme',request.scheme)
         payment.addPaymentSpecificData('domainName',request.serverName)

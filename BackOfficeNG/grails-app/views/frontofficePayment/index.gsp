@@ -9,6 +9,9 @@
   <body>
     <div id="yui-main">
       <div id="main" class="yui-b">
+        <g:if test="${errorMessageKey}">
+            <div class="error-box"><g:message code="${errorMessageKey}" /></div>
+        </g:if>
         <g:if test="${paymentPopUp}">
             <div class="information-box">
                 <g:message code="payment.message.checkPopup" />
