@@ -9,9 +9,6 @@
   <body>
     <div id="yui-main">
       <div id="main" class="yui-b">
-        <g:if test="${errorMessageKey}">
-            <div class="error-box"><g:message code="${errorMessageKey}" /></div>
-        </g:if>
         <g:if test="${paymentPopUp}">
             <div class="information-box">
                 <g:message code="payment.message.checkPopup" />
@@ -21,38 +18,43 @@
           <div class="information-box">${displayedMessage}</div>
         </g:if>
         <g:else>
-          <g:if test="${!invoices.isEmpty()}">
-            <div id="invoices" class="list-box">
-              <h2><g:message code="payment.header.invoices"/></h2>
-              <g:render template="invoices"/>
-            </div>
-          </g:if>
-          <g:if test="${!depositAccounts.isEmpty()}">
-            <div id="depositAccounts" class="list-box">
-              <h2><g:message code="payment.header.depositAccounts"/></h2>
-              <g:render template="depositAccounts"/>
-            </div>
-          </g:if>
-          <g:if test="${!ticketingContracts.isEmpty()}">
-            <div id="ticketingContracts" class="list-box">
-              <h2><g:message code="payment.header.ticketingContracts"/></h2>
-              <g:render template="ticketingContracts" />
-            </div>
-          </g:if>
-          <g:if test="${!paymentsToPay.isEmpty()}">
-            <div id="paymentsToPay">
-              <g:render template="paymentList"
-                        model="${[payments : paymentsToPay, paginate : false,
-                                  title : 'payment.header.topay',
-                                  noPaymentsMsg : 'payment.message.topay']}" />
-            </div>
-          </g:if>
-          <g:if test="${invoices.isEmpty() && depositAccounts.isEmpty() && ticketingContracts.isEmpty()
-                        && paymentsToPay.isEmpty()}">
-            <div class="information-box">
-              <g:message code="payment.message.noElementsToPay" />
-            </div>
-          </g:if>
+            <g:if test="${errorMessageKey}">
+                <div class="error-box"><g:message code="${errorMessageKey}" /></div>
+            </g:if>
+            <g:else>
+              <g:if test="${!invoices.isEmpty()}">
+                <div id="invoices" class="list-box">
+                  <h2><g:message code="payment.header.invoices"/></h2>
+                  <g:render template="invoices"/>
+                </div>
+              </g:if>
+              <g:if test="${!depositAccounts.isEmpty()}">
+                <div id="depositAccounts" class="list-box">
+                  <h2><g:message code="payment.header.depositAccounts"/></h2>
+                  <g:render template="depositAccounts"/>
+                </div>
+              </g:if>
+              <g:if test="${!ticketingContracts.isEmpty()}">
+                <div id="ticketingContracts" class="list-box">
+                  <h2><g:message code="payment.header.ticketingContracts"/></h2>
+                  <g:render template="ticketingContracts" />
+                </div>
+              </g:if>
+              <g:if test="${!paymentsToPay.isEmpty()}">
+                <div id="paymentsToPay">
+                  <g:render template="paymentList"
+                            model="${[payments : paymentsToPay, paginate : false,
+                                      title : 'payment.header.topay',
+                                      noPaymentsMsg : 'payment.message.topay']}" />
+                </div>
+              </g:if>
+              <g:if test="${invoices.isEmpty() && depositAccounts.isEmpty() && ticketingContracts.isEmpty()
+                            && paymentsToPay.isEmpty()}">
+                <div class="information-box">
+                  <g:message code="payment.message.noElementsToPay" />
+                </div>
+              </g:if>
+            </g:else>
         </g:else>
         <g:if test="${paymentPopUp && params.paymentUrl}">
           <script type="text/javascript">
