@@ -1,11 +1,13 @@
 package org.libredemat.util.mail.impl;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
 
 import org.apache.log4j.Logger;
 import org.libredemat.business.authority.LocalAuthorityResource.Type;
@@ -72,7 +74,14 @@ public final class MailService implements IMailService {
                     if (attachments != null) {
                         for (Map.Entry<String, byte[]> attachment : attachments.entrySet()) {
                             if (attachment.getValue() != null) {
-                                message.addAttachment(attachment.getKey(),
+                                String attachmentName;
+                                try {
+                                    attachmentName = MimeUtility.encodeText(attachment.getKey());
+                                } catch (UnsupportedEncodingException e) {
+                                    logger.error("Encoding atachment error", e);
+                                    attachmentName = attachment.getKey();
+                                }
+                                message.addAttachment(attachmentName,
                                     new ByteArrayResource(attachment.getValue()));
                             }
                         }
