@@ -139,7 +139,7 @@
         <span class="error">${rqt.stepStates[currentStep]?.errorMsg}</span>
       </h3>
       <p class="required-fields-notice">${message(code:'request.message.requiredFieldsNotice')}</p>
-      <g:if test="${message(code:requestTypeAcronym + '.step.' + currentStep + '.header.help') != requestTypeAcronym + '.step.' + currentStep + '.header.help'}">
+      <g:if test="${(!message(code:requestTypeAcronym + '.step.' + currentStep + '.header.help').equals(requestTypeAcronym + '.step.' + currentStep + '.header.help') && !message(code:requestTypeAcronym + '.step.' + currentStep + '.header.help').trim().isEmpty())}">
         <div class="header-information">
           ${message(code:requestTypeAcronym + '.step.' + currentStep + '.header.help')}
         </div>
@@ -151,7 +151,7 @@
         <form method="post" id="stepForm" action="${createLink(controller:'frontofficeRequest', action:'edit')}">
       </g:if>
       <div class="error" id="stepForm-error"> </div>
-      <g:if test="${message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help') != requestTypeAcronym + '.step.' + currentStep + '.footer.help'}">
+      <g:if test="${(!message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help').equals(requestTypeAcronym + '.step.' + currentStep + '.footer.help') && !message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help').trim().isEmpty())}">
         <div class="footer-information">
           ${message(code:requestTypeAcronym + '.step.' + currentStep + '.footer.help')}
         </div>
