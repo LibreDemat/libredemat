@@ -43,7 +43,6 @@
     <xb:package>org.libredemat.xml.request.school</xb:package>
   </xb:namespace>
 
-
   <!-- Renewal Perischool Activities Request -->
   <xb:namespace uri="http://www.libredemat.org/schema/rpar">
     <xb:package>org.libredemat.xml.request.school</xb:package>
@@ -243,5 +242,10 @@
   <xb:namespace uri="http://www.libredemat.org/schema/pptwr">
     <xb:package>org.libredemat.xml.request.permit</xb:package>
   </xb:namespace>
-   
+
+  <!-- Global Information Request -->
+  <xb:namespace uri="http://www.libredemat.org/schema/ir">
+    <xb:package>org.libredemat.xml.request.information</xb:package>
+  </xb:namespace>
+ 
 </xb:config>

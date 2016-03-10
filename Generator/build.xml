@@ -45,6 +45,7 @@
       <include name="HandicapCompensationChildRequest.xsd" />
       <include name="HolidayCampRegistrationRequest.xsd" />
       <include name="HolidaySecurityRequest.xsd" />
+      <include name="InformationRequest.xsd" />
       <include name="LearningActivitiesDiscoveryRegistrationRequest.xsd" />
       <include name="HomeEmergencyRegistrationRequest.xsd" />
       <include name="LeisureCenterRegistrationRequest.xsd" />

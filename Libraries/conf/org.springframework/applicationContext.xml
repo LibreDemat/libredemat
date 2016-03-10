@@ -1029,4 +1029,10 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
       <property name="translationService" ref="translationService" />
   </bean>
 
+  <bean id="informationRequestService" class=" org.libredemat.service.request.impl.InformationRequestService" parent="requestService">
+      <property name="localReferentialFilename" value="local_referential_ir" />
+      <property name="supportUnregisteredCreation" value="true" />
+      <property name="label" value="Information"/>
+</bean>
+
 </beans>
