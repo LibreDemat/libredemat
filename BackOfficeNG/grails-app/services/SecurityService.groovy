@@ -49,6 +49,7 @@ public class SecurityService {
             (SecurityContext.FRONT_OFFICE_CONTEXT) : [
                 "frontofficeTechnocarte" : /.*/,
                 "frontofficeRequest" : /.*/,
+                "frontofficeRequestContact" : /.*/,
                 "frontofficeRequestDocument" : /.*/,
                 "frontofficeRequestType" : /.*/,
                 "frontofficePlanning" : /.*/,

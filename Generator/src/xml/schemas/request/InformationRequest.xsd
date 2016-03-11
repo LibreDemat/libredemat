@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.libredemat.org/schema/ir" 
+  xmlns:ir="http://www.libredemat.org/schema/ir"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:cvq="http://www.libredemat.org/schema/common"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://www.libredemat.org/schema/common" 
+    schemaLocation="../common/CVQCommonElements.xsd" />
+
+  <xs:element name="InformationRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+        Demande d'information</xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/longdesc">
+        Information request</xs:documentation>
+      <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+        Information</xs:documentation>
+      <xs:documentation xml:lang="en" source="http://www.libredemat.org/schema/shortdesc">
+        Information</xs:documentation>
+      <xs:appinfo>
+        <model namespace="information" />
+        <common>
+          <namespace name="information" />
+          <steps>
+            <step index="0" name="reason" />
+            <step index="1" ref="document" />
+            <step index="2" ref="validation" />
+          </steps>
+        </common>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="cvq:RequestType">
+          <xs:sequence>
+            <xs:element name="Motive" type="cvq:LocalReferentialDataType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Motif de la demande
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Motif
+                </xs:documentation>
+                <xs:appinfo>
+                  <model namespace="request" isTiedToRequest="true" />
+                  <common>
+                    <step name="reason" />
+                  </common>
+                  <fo />
+                  <bo column="1" />
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Message">
+              <xs:annotation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
+                  Message
+                </xs:documentation>
+                <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
+                  Message
+                </xs:documentation>
+                <xs:appinfo>
+                  <common>
+                    <step name="reason" />
+                    <validation jsregexp="^.{0,255}$" />
+                  </common>
+                  <fo>
+                    <textarea rows="8" />
+                  </fo>
+                  <bo column="1">
+                    <textarea rows="8" />
+                  </bo>
+                  <pdf />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

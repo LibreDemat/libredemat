@@ -562,6 +562,16 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.request');
           });
           historyTab.addListener("contentChange", function() {
             zcb.Contact.show({"target" : yud.get("contactLink"), "event" : "click"});
+            yue.addListener(yud.get("contactLink"), "click", function(e) {
+              yud.get('replyParentId').value='';
+            });
+
+            yus.query('.replyNote').forEach(function(elem) {
+              zcb.Contact.show({"target" : elem, "event" : "click"});
+              yue.addListener(elem, "click", function(e) {
+                yud.get('replyParentId').value= yud.getAttribute(elem,'data-parent');
+              });
+            })
             yue.addListener(yud.get("noteLink"), "click", function(e) {
               yue.preventDefault(e);
               notePanel.show();

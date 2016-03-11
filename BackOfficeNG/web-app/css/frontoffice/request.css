@@ -353,3 +353,76 @@ div.error, span.error, p.error {
 	margin-left: 2.5%;
 	font-size: 1.2em;
 }
+
+
+.main.action { padding: 1em 1em 0 1em; font-size: 1.5em; text-align: right; }
+.main.action a { padding: 0 1.3em; }
+
+.contact { background: #fff; }
+
+.contact .reply          { height: 1.6em; overflow: hidden; }
+.contact .reply q        { font-size: 1.3em; font-style: italic; color: #666; }
+.contact .reply:hover q  { cursor: pointer; color: #000; }
+.contact .reply.expand   { height: auto !important; padding: .5em; clear:right; border: 3px solid #59C3DE; }
+.contact .reply.expand q { color: #000; }
+
+.contact .reply .action   { display: none; padding: .5em; }
+.contact .reply .action a { padding: 0 .3em; }
+.contact .reply.expand .action { display: block; }
+
+.contact li          { padding: .5em 1.2em !important; border-bottom: 2px dotted #C1CFE2 !important; }
+.contact li.Internal { background: #ffffed; }
+
+.contact dl { background: transparent; overflow: auto; }
+
+.contact dt          { width : 20%; float : left; }
+.contact dt strong   { font-size: 1.1em; }
+.contact dt .agent   { color: #59C3DE; }
+.contact dt .eCitizen { color: #59C3DE; }
+
+.contact .tag { float: left; margin: .1em .5em .1em 0; font-size: 1em; font-weight: bold; }
+.contact .reply .tag.channel { display: none; margin-right: 1em; font-weight: bold; font-size: .9em; }
+.contact .reply.expand .tag.channel { display: inline; font-weight: bold; font-size: .9em; }
+
+.contact dd       { margin : 0 0 0 21.5%; padding : 0 0 0 .5em; }
+.contact dd .date { float: right; padding: .2em; background: #f3f8ff; }
+
+.contact a.doc            { margin:.2em 0 .2em .2em; text-decoration:none; }
+.contact a.doc:hover      { background: transparent; }
+.contact a.doc:hover span { background: #0000FF; }
+
+
+.contact .replies    { margin: .5em auto 0 3em !important; font-size: .9em; }
+.contact .replies li {
+  padding-right: 0 !important; ;
+  border-top: 2px dotted #C1CFE2 !important; border-bottom: 0 !important;
+}
+
+.contact form input[type="submit"] { margin: 0; }
+.contact form textarea             { width: 99%; margin: 0 0 .5em 0; }
+
+.summary-contact.created { border-top: 2px solid #59C3DE; }
+
+.summary-contact       { margin: 0 0 1em 0;  background: #fff; }
+.summary-contact .body { padding : 10px; }
+.summary-contact h2    { margin: .1em .5em; color: #59C3DE; border-bottom: 1px dashed #59C3DE; }
+.summary-contact h3    { margin: 1em 0; padding: 0 0 .5em 0; font-size: 1.5em; border-bottom: 1px solid #59C3DE; }
+.summary-contact h4    { margin: 1em 0 0 0; font-size: 1.2em; }
+
+.summary-contact dl {
+  margin : 10px 0;
+  border-bottom: 1px dashed #59C3DE;
+  color: #333; background: #fff;
+  overflow: auto;
+}
+
+.summary-contact dl dt,
+.summary-contact dl dd    { float: left; margin: 0; padding: 0.4em 2%; border-top: 1px dashed #59C3DE !important;}
+.summary-contact dl dt    { width : 13%; min-height: 1.5em; text-align: right; clear: both; }
+.summary-contact dl dd    { width : 79%; font-size: 1.15em; }
+.summary-contact dl dd p  { margin: 0; padding: 0.1em; }
+.summary-contact dl dd li { display:block; }
+
+#attachField{ margin-bottom: 10px; }
+
+dt.reverse{float: right !important;}

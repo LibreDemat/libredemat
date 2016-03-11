@@ -15,5 +15,7 @@ class FrontofficeUrlMappings {
     "/frontoffice/ciril/$action/$id?" (controller : "frontofficeCiril")
     "/frontoffice/planning/$action?" (controller : "frontofficePlanning")
     "/frontoffice/reservation/$action?/$id?" (controller : "frontofficeReservation" )
+    "/frontoffice/requestContact/viewAttachment/$id?"(controller : "frontofficeRequestContact" ){action = [GET : "viewAttachment"]}
+    "/frontoffice/requestContact/$action/$id?"(controller : "frontofficeRequestContact" ){action = [GET : "reply", POST : "reply"]}
   }
 }

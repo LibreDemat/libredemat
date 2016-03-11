@@ -2655,12 +2655,15 @@
     create table request_action (
         id int8 not null,
         agent_id int8,
+        attachment bytea,
+        attachment_name varchar(255),
         date timestamp,
         external_service varchar(255),
         file bytea,
         filename varchar(255),
         message varchar(1024),
         note varchar(1024),
+        reply_parent_id int8,
         resulting_state varchar(16),
         type varchar(255),
         request_id int8,
@@ -2727,8 +2730,11 @@
 
     create table request_note (
         id int8 not null,
+        attachment bytea,
+        attachment_name varchar(255),
         date timestamp,
         note varchar(1024),
+        parent_id int8,
         type varchar(32),
         user_id int8,
         request_id int8,

@@ -10,7 +10,7 @@
 <ul id="requestHistory">
   <g:each var="action" in="${actions}">
     <li>
-      <g:render template="${action.template}" model="['action' : action]" />
+      <g:render template="${action.template}" model="['action' : action,'requestId': requestId]" />
     </li>
   </g:each>
 </ul>

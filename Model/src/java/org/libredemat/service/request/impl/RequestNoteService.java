@@ -110,7 +110,54 @@ public class RequestNoteService implements IRequestNoteService, ApplicationConte
                 new RequestEvent(this, EVENT_TYPE.NOTE_ADDED, request);
             requestEvent.addComplementaryData(COMP_DATA.REQUEST_NOTE, requestNote);
             applicationContext.publishEvent(requestEvent);
+        } else {
+            RequestEvent requestEvent = new RequestEvent(this, EVENT_TYPE.USER_NOTE_ADDED, request);
+            requestEvent.addComplementaryData(COMP_DATA.REQUEST_NOTE, requestNote);
+            applicationContext.publishEvent(requestEvent);
         }
+    }
+
+    @Override
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT}, privilege = ContextPrivilege.WRITE)
+    public void addNote(Long requestId, RequestNoteType rnt, String note, byte[] attachment,
+            String attachmentName, Long parentId) {
+        Long userId = SecurityContext.getCurrentUserId();
+
+        RequestNote requestNote = new RequestNote();
+        requestNote.setType(rnt);
+        requestNote.setNote(note);
+        requestNote.setUserId(userId);
+        requestNote.setDate(new Date());
+        requestNote.setAttachment(attachment);
+        requestNote.setAttachmentName(attachmentName);
+        requestNote.setParentId(parentId);
+
+        Request request = requestDAO.findById(requestId);
+        if (request.getNotes() == null) {
+            Set<RequestNote> notes = new HashSet<RequestNote>();
+            notes.add(requestNote);
+            request.setNotes(notes);
+        } else {
+            request.getNotes().add(requestNote);
+        }
+
+        updateLastModificationInformation(request);
+        if (agentService.exists(userId)) {
+            RequestEvent requestEvent =
+                new RequestEvent(this, EVENT_TYPE.NOTE_ADDED, request);
+            requestEvent.addComplementaryData(COMP_DATA.REQUEST_NOTE, requestNote);
+            applicationContext.publishEvent(requestEvent);
+        } else {
+            RequestEvent requestEvent =
+                    new RequestEvent(this, EVENT_TYPE.USER_NOTE_ADDED, request);
+                requestEvent.addComplementaryData(COMP_DATA.REQUEST_NOTE, requestNote);
+                applicationContext.publishEvent(requestEvent);
+         }
+     }
+
+    @Override
+    public RequestNote getNote(Long requestId, Long requestNoteId) throws CvqException {
+        return requestNoteDAO.getNote(requestId, requestNoteId);
     }
 
     private void updateLastModificationInformation(Request request) {

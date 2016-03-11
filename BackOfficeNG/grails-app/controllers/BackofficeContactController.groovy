@@ -11,6 +11,7 @@ import org.libredemat.service.users.IUserNotificationService
 import org.libredemat.service.users.IUserSearchService
 import org.libredemat.security.SecurityContext
 import org.libredemat.util.UserUtils
+import org.libredemat.business.request.RequestNoteType;
 
 import grails.converters.JSON
 
@@ -42,6 +43,7 @@ class BackofficeContactController {
     def messageSource
     def requestActionService
 	def translationService
+    def requestNoteService
 
     def beforeInterceptor = {
         if (params.requestId) requestLockService.tryToLock(Long.valueOf(params.requestId))
@@ -152,6 +154,20 @@ class BackofficeContactController {
         response.outputStream.flush()
     }
 
+    def viewNote = {
+        if (!request.get) return false
+
+        def document = requestNoteService.getNote(Long.valueOf(params.requestId),
+            Long.valueOf(params.requestNoteId))
+        response.contentType = "application/pdf"
+        response.setHeader("Content-disposition",
+            "attachment; filename=${document.attachmentName == null ? 'letter.pdf' : document.attachmentName}")
+        def data = document.attachment
+        response.contentLength = data.length
+        response.outputStream << data
+        response.outputStream.flush()
+    }
+
     def contact = {
         if (!request.post) return false
         def notification
@@ -190,10 +206,15 @@ class BackofficeContactController {
                 if (params.requestFormId)
                     pdf = preparePdf(requestId, params.id, requestFormId,
                         params.templateMessage, params.meansOfContact)
-                requestActionService.addAction(
+                  requestActionService.addAction(
                     requestId,
                     RequestActionType.CONTACT_CITIZEN,
-                    params.templateMessage, params.note, pdf, requestFormLabel)
+                    params.templateMessage,
+                    params.note,
+                    pdf,
+                    requestFormLabel,
+                    params.replyParentId ? params.replyParentId.toInteger() : null
+                )
                 userNotificationService.notifyByEmail(
                     requestSearchService.getById(requestId, false).requestType
                         .category.primaryEmail,

@@ -1,4 +1,5 @@
 import org.libredemat.business.request.RequestState
+import org.libredemat.business.request.RequestNote;
 import org.libredemat.security.SecurityContext
 import org.libredemat.service.request.ICategoryService
 import org.libredemat.service.request.IRequestDocumentService
@@ -100,13 +101,47 @@ class RequestAdaptorService {
             'type':LibredematUtils.adaptLibredematEnum(requestNote.type, "request.note.type"),
             'note':requestNote.note,
             'date':requestNote.date,
-            'template' : 'requestNote'
+            'template' : 'requestNote',
+            'attachment' : requestNote.attachment,
+            'attachmentName' : requestNote.attachmentName,
+            'replies' : requestNote.children.collect{ prepareNote(it) }
         ]
     }
 
+    public prepareActionToNote(requestAction) {
+        if (!requestAction) return null
+        return [
+            'id': requestAction.id,
+            'user': UserUtils.getUserDetails(requestAction.agentId),
+            'type': LibredematUtils.adaptLibredematEnum(requestAction.type, "request.action.type"),
+            'note': requestAction.note,
+            'date': requestAction.date,
+            'template' : 'requestNote',
+            'css' : 'reverse',
+            'attachment' : requestAction.attachment,
+            'attachmentName' : requestAction.attachmentName,
+            'replies' : []
+        ]
+    }
+    
     public prepareNotes(requestNotes) {
         if (!requestNotes) requestNotes = []
         return requestNotes.collect{ prepareNote(it) }
+    }
+
+    public prepareNotes(requestNotes, repliesActions) {
+        if (!requestNotes) requestNotes = []
+        return requestNotes.collect{
+            def note = prepareNote(it)
+            def repActions = repliesActions.findAll{t -> it.id.equals(t.replyParentId)}
+            if(repActions && !repActions.empty){
+               repActions.each{
+                   note.replies.add(prepareActionToNote(it))
+                   }
+            }
+            note.replies = note.replies.sort{ t -> t.date}
+            note
+        }
     }
 
     public stepState(step, state, errorMsg, invalidFields = []) {

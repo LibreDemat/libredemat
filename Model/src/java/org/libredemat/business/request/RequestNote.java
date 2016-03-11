@@ -2,6 +2,7 @@ package org.libredemat.business.request;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
@@ -35,6 +41,20 @@ public class RequestNote implements Serializable {
     private String note;
 
     private Date date;
+
+    @Column(name="attachment_name")
+    private String attachmentName;
+
+    @Column(name="attachment")
+    private byte[] attachment;
+
+    @Column(name="parent_id")
+    private Long parentId;
+
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @OrderBy("date desc")
+    @JoinColumn(name="parent_id")
+    private Set<RequestNote> children;
 
     /** default constructor */
     public RequestNote() {
@@ -85,6 +105,38 @@ public class RequestNote implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getAttachmentName() {
+        return attachmentName;
+    }
+
+    public void setAttachmentName(String attachmentName) {
+        this.attachmentName = attachmentName;
+    }
+
+    public byte[] getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(byte[] attachment) {
+        this.attachment = attachment;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+
+    public Set<RequestNote> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Set<RequestNote> children) {
+        this.children = children;
     }
 
 }

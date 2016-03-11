@@ -282,6 +282,23 @@ public class RequestNotificationService implements ApplicationListener<LibreDema
         }
     }
 
+    private void notifyUserNote(Long requestId, RequestNote note) throws CvqException {
+        if (note.getType().equals(RequestNoteType.PUBLIC)) {
+            Request request = requestDAO.findById(requestId);
+            Adult requester = userSearchService.getAdultById(request.getRequesterId());
+            if (requester.getEmail() != null) {
+                mailService.send(requester.getEmail(),
+                        request.getRequestType().getCategory().getPrimaryEmail(), null,
+                    translationService.translate("request.notification.userNote.subject",
+                        new Object[]{SecurityContext.getCurrentSite().getDisplayTitle(),request.getId()}),
+                    translationService.translate("request.notification.userNote.body",
+                        new Object[] {
+                            requester.getFirstName(), requester.getLastName(), request.getId(), note.getNote()
+                        }));
+            }
+        }
+    }
+
     public void setRequestDAO(IRequestDAO requestDAO) {
         this.requestDAO = requestDAO;
     }
@@ -384,6 +401,10 @@ public class RequestNotificationService implements ApplicationListener<LibreDema
                     break;
                 case SEASONS_DRAFT_EXPIRATION :
                     notifySeasonsDraftExpiration(requestEvent.getRequest());
+                    break;
+                case USER_NOTE_ADDED :
+                    notifyUserNote(requestEvent.getRequest().getId(),
+                            ((RequestNote)requestEvent.getComplementaryData(COMP_DATA.REQUEST_NOTE)));
                     break;
             }
         } catch (CvqException e) {

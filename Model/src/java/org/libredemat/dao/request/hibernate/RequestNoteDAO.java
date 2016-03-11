@@ -10,6 +10,8 @@ import org.libredemat.business.request.RequestNoteType;
 import org.libredemat.dao.hibernate.HibernateUtil;
 import org.libredemat.dao.jpa.JpaTemplate;
 import org.libredemat.dao.request.IRequestNoteDAO;
+import org.libredemat.business.request.RequestAction;
+import org.libredemat.dao.jpa.JpaUtil;
 
 
 /**
@@ -31,6 +33,8 @@ public class RequestNoteDAO extends JpaTemplate<RequestNote, Long> implements IR
         objectList.add(requestId);
         typeList.add(Hibernate.LONG);
 
+        sb.append(" and parent_id is null");
+
         if (type != null) {
             sb.append(" and type = ?");
             objectList.add(type.toString());
@@ -46,4 +50,12 @@ public class RequestNoteDAO extends JpaTemplate<RequestNote, Long> implements IR
             .createQuery(sb.toString())
             .setParameters(objectTab, typeTab).list();
     }
+
+    public RequestNote getNote(final Long requestId, Long requestNoteId) {
+        return (RequestNote) JpaUtil.getEntityManager()
+               .createQuery("select requestNote from RequestNote as requestNote where " + "request_id = :requestId and id = :id")
+               .setParameter("requestId", requestId)
+               .setParameter("id", requestNoteId)
+               .getSingleResult();
+        }
 }

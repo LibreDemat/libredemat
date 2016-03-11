@@ -133,6 +133,7 @@
         <input type="hidden" name="id" value="${user.id}" />
       </g:else>
     </div>
+    <input type="hidden" name="replyParentId" id="replyParentId" value=""/>
     <p id="validationField" class="field">
       <span id="sendWidget">
         <input type="button" id="send_contact" class="form-button"

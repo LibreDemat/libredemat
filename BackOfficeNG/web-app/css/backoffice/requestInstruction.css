@@ -427,3 +427,36 @@ dl.account a { float: none !important; }
 .alert em {
   font-style: italic;
 }
+
+dl.title {
+  border-left: none !important;
+}
+
+dt.title {
+  padding-bottom:15px;
+}
+.reply {
+  padding-top:10px !important;
+}
+
+.noDashBorder {
+  border: none !important;
+}
+
+.name {
+  margin-top:33px;
+}
+
+.date {
+  float: right; padding: .2em; background: #f3f8ff; margin-right: 1em;
+  border: 2px solid #C1CFE2 !important ;
+}
+.replyBot {
+  padding-top: 24px !important;
+  padding-bottom: 20px !important;
+  margin-right:0.5em !important;
+  border: 2px solid #C1CFE2 !important ;
+}
+
+dt.note-reverse{float: right !important; padding-right:10px;}
+dd.note-reverse{margin-left: 0px !important; margin-right: 26% !important;}

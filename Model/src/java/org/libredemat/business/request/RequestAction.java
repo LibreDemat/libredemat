@@ -58,6 +58,15 @@ public class RequestAction implements Serializable {
     @Column
     private String filename;
 
+    @Column(name="attachment_name")
+    private String attachmentName;
+
+    @Column(name="attachment")
+    private byte[] attachment;
+
+    @Column(name="reply_parent_id")
+    private Long replyParentId;
+
     public Long getId() {
         return this.id;
     }
@@ -141,5 +150,29 @@ public class RequestAction implements Serializable {
 
     public void setType(RequestActionType type) {
         this.type = type;
+    }
+
+    public String getAttachmentName() {
+        return attachmentName;
+    }
+
+    public void setAttachmentName(String attachmentName) {
+        this.attachmentName = attachmentName;
+    }
+
+    public byte[] getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(byte[] attachment) {
+        this.attachment = attachment;
+    }
+
+    public Long getReplyParentId() {
+        return replyParentId;
+    }
+
+    public void setReplyParentId(Long replyParentId) {
+        this.replyParentId = replyParentId;
     }
 }

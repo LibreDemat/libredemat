@@ -42,4 +42,17 @@ public interface IRequestNoteService {
      */
     void addNote(@IsRequest final Long requestId, final RequestNoteType rnt, final String note);
 
+    RequestNote getNote(@IsRequest final Long requestId, final Long requestNoteId)
+                throws CvqException;
+
+    /**
+    * Add a note to a request.
+    *
+    * @param requestId the request to which note has to be added
+    * @param rnt the type of the note
+    * @param note the body of the note itself
+    */
+    void addNote(@IsRequest final Long requestId, final RequestNoteType rnt, final String note,
+            byte[] attachment, String attachmentName, Long parentId);
+
 }

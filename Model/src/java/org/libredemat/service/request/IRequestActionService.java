@@ -76,4 +76,12 @@ public interface IRequestActionService {
         final RequestActionType type);
 
     List<RequestAdminAction> getAdminActions();
+
+    void addAction(@IsRequest final Long requestId, final RequestActionType type,
+            final String message, final String note, final byte[] pdfData, String filename,
+            byte[] attachment, String attachmentName);
+
+    void addAction(@IsRequest final Long requestId, final RequestActionType type,
+            final String message, final String note, final byte[] pdfData, String filename, final Long replyParentId);
+
 }

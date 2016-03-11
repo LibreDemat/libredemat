@@ -67,7 +67,7 @@ public class RequestActionService implements IRequestActionService {
     public void addAction(final Long requestId, final RequestActionType type,
         final String message, final String note, final byte[] pdfData, String filename) {
 
-        addActionTrace(type, message, note, new Date(), null, requestId, pdfData, filename);
+        addActionTrace(type, message, note, new Date(), null, requestId, pdfData, filename, null, null, null);
     }
 
     @Override
@@ -75,20 +75,20 @@ public class RequestActionService implements IRequestActionService {
     public void addSystemAction(final Long requestId,
         final RequestActionType type) {
 
-        addActionTrace(type, null, null, new Date(), null, requestId, null, null);
+        addActionTrace(type, null, null, new Date(), null, requestId, null, null, null, null, null);
     }
 
     @Override
     @Context(types = {ContextType.ECITIZEN}, privilege = ContextPrivilege.WRITE)
     public void addDraftCreationAction(Long requestId, Date date) {
         addActionTrace(RequestActionType.CREATION, null, null, date,
-            RequestState.DRAFT, requestId, null, null);
+            RequestState.DRAFT, requestId, null, null, null, null, null);
     }
 
     @Override
     public void addCreationAction(Long requestId, Date date, byte[] pdfData, String note) {
         addActionTrace(RequestActionType.CREATION, null, note, date,
-            RequestState.PENDING, requestId, pdfData, null);
+            RequestState.PENDING, requestId, pdfData, null, null, null, null);
     }
 
     @Override
@@ -98,16 +98,24 @@ public class RequestActionService implements IRequestActionService {
             final RequestState resultingState, final byte[] pdfData) {
 
         addActionTrace(RequestActionType.STATE_CHANGE, null, note, date,
-            resultingState, requestId, pdfData, null);
+            resultingState, requestId, pdfData, null, null, null, null);
 
         Log.logger(SecurityContext.getCurrentSite().getName()).info("CHANGE STATE : " 
                 + "[" + requestId + "]" 
                 + " to " + resultingState.name());
     }
 
+    @Override
+    @Context(types = { ContextType.AGENT, ContextType.EXTERNAL_SERVICE }, privilege = ContextPrivilege.WRITE)
+    public void addAction(final Long requestId, final RequestActionType type, final String message,
+            final String note, final byte[] pdfData, String filename, byte[] attachment,
+            String attachmentName) {
+        addActionTrace(type, message, note, new Date(), null, requestId, pdfData, filename, attachment, attachmentName, null);
+    }
+
     private void addActionTrace(final RequestActionType type, final String message,
         final String note, final Date date, final RequestState resultingState,
-        final Long requestId, final byte[] pdfData, String filename) {
+        final Long requestId, final byte[] pdfData, String filename, byte[] attachment, String attachmentName, final Long replyParentId) {
 
         Request request = requestDAO.findById(requestId);
 
@@ -123,6 +131,9 @@ public class RequestActionService implements IRequestActionService {
         requestAction.setResultingState(resultingState);
         requestAction.setFile(pdfData);
         requestAction.setFilename(filename);
+        requestAction.setAttachment(attachment);
+        requestAction.setAttachmentName(attachmentName);
+        requestAction.setReplyParentId(replyParentId);
 
         if (request.getActions() == null) {
             Set<RequestAction> actionsSet = new HashSet<RequestAction>();
@@ -139,6 +150,13 @@ public class RequestActionService implements IRequestActionService {
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.READ)
     public List<RequestAdminAction> getAdminActions() {
         return requestActionDAO.getAdminActions();
+    }
+
+    @Override
+    @Context(types = {ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
+    public void addAction(final Long requestId, final RequestActionType type, final String message, final String note, final byte[] pdfData, String filename, final Long replyParentId) {
+
+        addActionTrace(type, message, note, new Date(), null, requestId, pdfData, filename, null, null, replyParentId);
     }
 
     public void setRequestActionDAO(IRequestActionDAO requestActionDAO) {

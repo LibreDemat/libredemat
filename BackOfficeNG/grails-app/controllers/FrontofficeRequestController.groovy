@@ -3,6 +3,7 @@ import org.libredemat.business.users.Child;
 import org.libredemat.business.users.MeansOfContactEnum
 import org.libredemat.business.users.RoleType
 import org.libredemat.business.request.Request
+import org.libredemat.business.request.RequestActionType
 import org.libredemat.business.request.RequestNoteType
 import org.libredemat.business.request.RequestState
 import org.libredemat.business.request.parking.ParkCardRequest
@@ -37,6 +38,7 @@ import org.libredemat.util.UserUtils
 import org.libredemat.util.translation.ITranslationService
 import org.libredemat.service.payment.IRequestPaymentService
 import org.libredemat.service.payment.IPaymentService
+import org.libredemat.service.request.impl.RequestNoteService;
 
 import grails.converters.JSON
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
@@ -581,6 +583,40 @@ class FrontofficeRequestController {
         def subject = rqt.subjectId != null ? userSearchService.getById(rqt.subjectId) : null
         def subjects = [:]
         subjects[rqt.subjectId] = subject instanceof Child && !subject.born ? message(code:'request.subject.childNoBorn', args:[subject.getFullName()]) : UserUtils.getDisplayName(rqt.subjectId)
+
+        def actions = []
+        def repliesActions = []
+        requestSearchService.getById(Long.parseLong(params.id), false).actions.each {
+            if (RequestState.DRAFT.equals(it.resultingState))
+                return
+            def resultingState = null
+            if (it.type.equals(RequestActionType.STATE_CHANGE)) {
+                resultingState = LibredematUtils.adaptLibredematEnum(it.resultingState, "request.state")
+            }
+            if(it.replyParentId == null) {
+                def requestAction = [
+                    'id':it.id,
+                    "requestId" : Long.parseLong(params.id),
+                    "user" : UserUtils.getUserDetails(it.agentId),
+                    "type" : LibredematUtils.adaptLibredematEnum(it.type, "requestAction.type"),
+                    'note':it.note,
+                    "message" : it.message,
+                    'date':it.date,
+                    'resulting_state':resultingState,
+                    "hasFile" : it.file != null,
+                    "fileType" :
+                        [RequestActionType.CREATION, RequestActionType.STATE_CHANGE]
+                            .contains(it.type) ?
+                            "requestAction.property.requestCertificate" : "requestAction.property.file",
+                    "filename" : it.filename,
+                    "template" : "requestAction",
+                    "replyParentId" : it.replyParentId
+                ]
+                actions.add(requestAction)
+            } else {
+              repliesActions.add(it)
+            }
+        }
         return ['rqt': rqt,
                 'requestTypeLabel':requestTypeLabel,
                 'requester':requester,
@@ -590,7 +626,8 @@ class FrontofficeRequestController {
                 'externalInformations' : requestExternalService.loadExternalInformations(rqt),
                 "documentsByTypes" : documentAdaptorService.getDocumentsByType(rqt),
                 "lrTypes" : requestTypeAdaptorService.getLocalReferentialTypes(rqt.requestType.label),
-                'validationTemplateDirectory':LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label)
+                'validationTemplateDirectory':LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label),
+                'contacts': requestAdaptorService.prepareNotes(requestNoteService.getNotes(Long.parseLong(params.id), null),repliesActions)
         ]
     }
 

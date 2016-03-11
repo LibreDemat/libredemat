@@ -17,4 +17,6 @@ public interface IRequestNoteDAO extends IJpaTemplate<RequestNote, Long> {
      * filtered with the specified type if it is not null.
      */
     List<RequestNote> listByRequestAndType(final Long requestId, final RequestNoteType type);
+
+    RequestNote getNote(final Long requestId, Long requestNoteId);
 }

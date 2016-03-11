@@ -538,6 +538,7 @@ class BackofficeRequestInstructionController {
     def history = {
         def id = params.long("id")
         def actions = []
+        def repliesActions = []
         requestSearchService.getById(id, false).actions.each {
             if (RequestState.DRAFT.equals(it.resultingState))
                 return
@@ -545,24 +546,29 @@ class BackofficeRequestInstructionController {
             if (it.type.equals(RequestActionType.STATE_CHANGE)) {
                 resultingState = LibredematUtils.adaptLibredematEnum(it.resultingState, "request.state")
             }
-            def requestAction = [
-                'id':it.id,
-                "requestId" : id,
-                "user" : UserUtils.getUserDetails(it.agentId),
-                "type" : LibredematUtils.adaptLibredematEnum(it.type, "requestAction.type"),
-                'note':it.note,
-                "message" : it.message,
-                'date':it.date,
-                'resulting_state':resultingState,
-                "hasFile" : it.file != null,
-                "fileType" :
-                    [RequestActionType.CREATION, RequestActionType.STATE_CHANGE]
-                        .contains(it.type) ?
-                        "requestAction.property.requestCertificate" : "requestAction.property.file",
-                "filename" : it.filename,
-                "template" : "requestAction"
-            ]
-            actions.add(requestAction)
+            if(it.replyParentId == null) {
+                def requestAction = [
+                    'id':it.id,
+                    "requestId" : id,
+                    "user" : UserUtils.getUserDetails(it.agentId),
+                    "type" : LibredematUtils.adaptLibredematEnum(it.type, "requestAction.type"),
+                    'note':it.note,
+                    "message" : it.message,
+                    'date':it.date,
+                    'resulting_state':resultingState,
+                    "hasFile" : it.file != null,
+                    "fileType" :
+                        [RequestActionType.CREATION, RequestActionType.STATE_CHANGE]
+                            .contains(it.type) ?
+                            "requestAction.property.requestCertificate" : "requestAction.property.file",
+                    "filename" : it.filename,
+                    "template" : "requestAction",
+                    "replyParentId" : it.replyParentId
+                ]
+                actions.add(requestAction)
+            } else {
+              repliesActions.add(it)
+            }
         }
         def customTemplates = [:]
         Set criteriaSet = new HashSet<Critere>(1)
@@ -588,7 +594,8 @@ class BackofficeRequestInstructionController {
                 "customTemplate" : customTemplates[it.name]
             ])
         }
-        actions.addAll(requestAdaptorService.prepareNotes(requestNoteService.getNotes(id, null)))
+
+        actions.addAll(requestAdaptorService.prepareNotes(requestNoteService.getNotes(id, null),repliesActions))
         render(template : "requestHistory", model : [
             "requestId" : params.id,
             "actions" : actions.sort { it.date }.reverse()
