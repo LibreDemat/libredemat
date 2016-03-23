@@ -14,6 +14,11 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
 
     zcfr.ParkingPermitTemporaryRelocationRequest = function () {
 
+    Date.prototype.addDays = function(days) {
+      this.setDate(this.getDate() + parseInt(days));
+      return this;
+    };
+
         var getDate = function (dayAdded, date) {
             var d = new Date();
             d.setHours(0,0,0,0);
@@ -21,7 +26,8 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.fong.requesttype');
                 var dates = date.split("/");
                 d = new Date(dates[2] + "/" + dates[1] + "/" + dates[0]);
             }
-            return new Date(d.getTime() + (1000 * 60 * 60 * 24 * dayAdded));
+            d.addDays(dayAdded);
+            return d ;
         };
 
         var getMinDate = function (target) {
