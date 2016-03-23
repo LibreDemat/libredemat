@@ -32,6 +32,10 @@
       <div class="success-box"><p>${flash.successMessage}</p></div>
     </g:if>
 
+    <div id="syncMessage" class="invisible">
+        <div class="information-box"><p><g:message code="homeFolder.synchronisation.posted" /></p></div>
+    </div>
+
     <div id="yui-main">
       <div class="yui-b">
         <div class="head">
@@ -240,17 +244,30 @@
         <div class="nobox taskstate">
           <h3>${message(code:'header.subMenus')}</h3>
           <div class="body">
+            <a href="${createLink(controller: 'backofficeHomeFolder',action:'findDuplicates', id : homeFolderResponsible.id)}">
+              ${message(code:'homeFolder.header.findDuplicates')}
+            </a>
+          </div>
+        </div>
+      </g:if>
+
+    <g:if test="${homeFolderState != 'archived'}">
+        <div class="nobox taskstate">
+          <h3>${message(code:'header.synchronize')}</h3>
+          <div class="body">
             <g:if test="${homeFolderState == 'valid'}">
-              <a href="${createLink(controller: 'backofficeHomeFolder',action:'synchronise', id : homeFolderResponsible.id)}" title="${message(code:'homeFolder.header.synchronise.title')}">
-                ${message(code:'homeFolder.header.synchronise')}
-              </a>
+              <form method="post" id="synchronisation" action="${createLink(action : "synchronise")}">
+                <div class="form-group">
+                  <label>Veuillez sélectionner un ou plusieurs services :</label>
+                  <g:select name="services" multiple="yes" from="${externalProviders}" require="required"/>
+                </div>
+                <input type="hidden" name="id" value="${homeFolderResponsible.id}" />
+                <input id="initialisation" type="submit" value="${message(code:'action.sync')}" disabled />
+              </form>
             </g:if>
             <g:else>
               <span style="text-decoration: underline;">${message(code:'homeFolder.header.synchronise')}</span> (${message(code:'homeFolder.header.synchronise.help')})
             </g:else>
-            <a href="${createLink(controller: 'backofficeHomeFolder',action:'findDuplicates', id : homeFolderResponsible.id)}">
-              ${message(code:'homeFolder.header.findDuplicates')}
-            </a>
           </div>
         </div>
       </g:if>

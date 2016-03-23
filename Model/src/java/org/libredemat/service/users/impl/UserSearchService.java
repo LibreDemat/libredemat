@@ -67,14 +67,14 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.UNAUTH_ECITIZEN, ContextType.EXTERNAL_SERVICE},
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN, ContextType.UNAUTH_ECITIZEN, ContextType.EXTERNAL_SERVICE},
             privilege = ContextPrivilege.READ)
     public Individual getById(Long id) {
         return individualDAO.findById(id);
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE},
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN, ContextType.EXTERNAL_SERVICE},
             privilege = ContextPrivilege.READ)
     public Adult getAdultById(Long id) {
         Individual individual = adultDAO.findById(id);
@@ -123,13 +123,13 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.AGENT}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.AGENT, ContextType.ADMIN}, privilege = ContextPrivilege.READ)
     public final List<HomeFolder> getAll(boolean filterArchived, boolean filterTemporary) {
         return homeFolderDAO.listAll(filterArchived, filterTemporary);
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE, ContextType.UNAUTH_ECITIZEN}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN, ContextType.EXTERNAL_SERVICE, ContextType.UNAUTH_ECITIZEN}, privilege = ContextPrivilege.READ)
     public final HomeFolder getHomeFolderById(final Long id) {
         return homeFolderDAO.findById(id);
     }
@@ -163,7 +163,7 @@ public class UserSearchService implements IUserSearchService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
+    @Context(types = {ContextType.ECITIZEN, ContextType.ADMIN,ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.READ)
     public Adult getHomeFolderResponsible(Long homeFolderId) {
         List<Individual> individuals =
             individualDAO.listByHomeFolderRole(homeFolderId, RoleType.HOME_FOLDER_RESPONSIBLE);

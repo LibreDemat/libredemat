@@ -9,8 +9,8 @@ import java.util.Set;
 import org.apache.xmlbeans.XmlObject;
 import org.libredemat.business.request.Request;
 import org.libredemat.business.request.workflow.event.impl.WorkflowGenericEvent;
+import org.libredemat.business.users.HomeFolder;
 import org.libredemat.exception.CvqException;
-import org.libredemat.exception.CvqModelException;
 import org.libredemat.external.IExternalProviderService;
 import org.libredemat.service.request.annotation.IsRequest;
 import org.libredemat.util.Critere;
@@ -105,4 +105,8 @@ public interface IRequestExternalService {
     public RequestType getRequestPayload(@IsRequest Request request, IExternalProviderService externalProviderService) throws CvqException;
 
     boolean isAgentCreatorRequest(Request request);
+
+    void synchronizeHomefolder(HomeFolder homeFolder, String serviceLabel) throws CvqException;
+
+    void synchronizeHomefolderWithTrace(HomeFolder homeFolder, String serviceLabel) throws CvqException;
 }

@@ -8,6 +8,7 @@ import java.util.Collections
 import org.libredemat.schema.ximport.HomeFolderImportDocument
 import org.libredemat.service.users.IHomeFolderDocumentService
 import org.libredemat.service.users.IUserService
+import org.libredemat.service.users.IUserSynchronisationService;
 import org.libredemat.service.users.IUserSearchService
 import org.libredemat.service.users.IUserWorkflowService
 import org.libredemat.service.users.IUserSecurityService
@@ -51,6 +52,8 @@ import org.libredemat.business.request.RequestFormType
 import org.libredemat.business.request.RequestType
 import org.libredemat.business.request.RequestForm
 import org.libredemat.service.authority.ILocalAuthorityRegistry
+import org.libredemat.service.users.IUserNotificationService
+import org.libredemat.service.users.IUserSynchronisationService
 
 class BackofficeHomeFolderController {
 
@@ -69,6 +72,8 @@ class BackofficeHomeFolderController {
     ICategoryService categoryService
     GroovyPagesTemplateEngine groovyPagesTemplateEngine
     ILocalAuthorityRegistry localAuthorityRegistry
+    IUserNotificationService userNotificationService
+    IUserSynchronisationService userSynchronisationService
 
     def translationService
     def homeFolderAdaptorService
@@ -83,7 +88,7 @@ class BackofficeHomeFolderController {
     def beforeInterceptor = {
         session["currentMenu"] = "users"
         if (SecurityContext.currentCredentialBean.hasSiteAdminRole()) {
-            subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders", "homeFolder.childInformationSheetDateInitialisation"]
+            subMenuEntries = ["userAdmin.index", "userSecurity.index", "homeFolder.meansOfContact", "homeFolder.importHomeFolders", "homeFolder.childInformationSheetDateInitialisation", "homeFolder.synchronisation"]
         } else {
             if (userSecurityService.can(SecurityContext.getCurrentAgent(), ContextPrivilege.MANAGE))
                 subMenuEntries = ["homeFolder.search", "homeFolder.configure", "homeFolder.create"]
@@ -205,6 +210,7 @@ class BackofficeHomeFolderController {
                 }
             }
         }
+        result.externalProviders = SecurityContext.getCurrentConfigurationBean().getExternalServices().entrySet().collect{ it.getKey().label }
         result.adults = adults.findAll{it.id != result.homeFolderResponsible.id}
         result.children = children
         result.homeFolderState = homeFolder.state.toString().toLowerCase()
@@ -769,6 +775,29 @@ class BackofficeHomeFolderController {
         	}
         }
 
+    def synchronisation = {
+        if(request.get) {
+            def externalProvider = SecurityContext.getCurrentConfigurationBean().getExternalServices().entrySet().collect{ it.getKey().label }
+
+            render(view : "synchronisation", model : [
+                        "subMenuEntries" : subMenuEntries,
+                        "isInformationSheetDisplayed" : SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed(),
+                        "posted" : false,
+                        "externalProviders" : externalProvider,
+                        "defaultEmail" : SecurityContext.getCurrentAgent().email
+                        ])
+            return false
+        } else if(request.post) {
+            try { 
+                userSynchronisationService.synchroniseAll(params.list("services"), params.email)
+            } catch (Exception e) {
+                render (new JSON([status : "error", msg : e.message]).toString())
+                return false
+            }
+            render (new JSON([status : "success", msg :message(code:"homeFolder.synchronisation.notification.subject")]).toString())
+            return false
+        }
+    }
     protected List doSearch(state) {
         return userSearchService.get(prepareCriterias(state), prepareSort(state), defaultMax,
             params.currentOffset ? Integer.parseInt(params.currentOffset) : 0, true)
@@ -986,21 +1015,19 @@ class BackofficeHomeFolderController {
     }
 
     def synchronise = {
-      Adult adult = userSearchService.getAdultById(params.id.toLong())
+        def individual = userSearchService.getById(params.id.toLong());
         try {
-          userDeduplicationService.createCirilMapping(adult.getHomeFolder());
-          userWorkflowService.synchronise(adult);
+          userSynchronisationService.synchronise(params.list("services"), individual)
         }
-      catch (Exception ex)
-      {
-        def message = ex.getMessage();
-        if (message == null || message.trim().equals("")) flash.errorMessage = "Une erreur interne s'est produite"
-        else flash.errorMessage = message
-        redirect(action:'details', params:['id': adult.homeFolder.id]);
-        return false;
-      }
-      flash.successMessage = message('code' : 'homefolder.adult.success.synchronise')
-      redirect(action:'details', params:['id': adult.homeFolder.id]);
+        catch (Exception ex)
+        {
+            def message = ex.getMessage();
+            if (message == null || message.trim().equals("")) message = "Une erreur interne s'est produite"
+            render (new JSON([status : "error", msg : message]).toString())
+            return false
+        }
+        render (new JSON([status : "success", msg : message('code' : 'homeFolder.synchronisation.notification.body.success')]).toString())
+        return false
     }
 
     /**

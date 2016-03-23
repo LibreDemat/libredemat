@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -66,6 +67,8 @@ import org.libredemat.security.annotation.IsUser;
 import org.libredemat.service.authority.ILocalAuthorityLifecycleAware;
 import org.libredemat.service.authority.ILocalAuthorityRegistry;
 import org.libredemat.service.authority.impl.LocalAuthorityRegistry;
+import org.libredemat.service.request.external.IRequestExternalService;
+import org.libredemat.service.users.IUserDeduplicationService;
 import org.libredemat.service.users.IUserNotificationService;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.IUserService;
@@ -124,6 +127,8 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     private IHomeFolderMappingDAO homeFolderMappingDAO;
 
     private IIndividualMappingDAO individualMappingDAO;
+    private IRequestExternalService requestExternalService;
+    private IUserDeduplicationService userDeduplicationService;
 
     private Map<String, UserWorkflow> workflows = new HashMap<String, UserWorkflow>();
 
@@ -1227,8 +1232,34 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     }
 
     @Override
+    @Context(types = { ContextType.ADMIN }, privilege = ContextPrivilege.NONE)
+    public void synchronise(HomeFolder homeFolder, String servicesLabel) throws CvqException {
+        if (homeFolder == null) throw new CvqException("No homeFolder object provided");
+        else if (homeFolder.getId() == null) throw new CvqException("Cannot modify a transient homeFolder");
+        List<HomeFolderMapping> findByHomeFolderId = homeFolderMappingDAO.findByHomeFolderId(homeFolder.getId());
+        for (HomeFolderMapping homeFolderMapping : findByHomeFolderId)
+        {
+            if (homeFolderMapping.getExternalServiceLabel().equals("CirilNetEnfance"))
+            {
+                homeFolder.setExternalId(homeFolderMapping.getExternalId());
+            }
+        }
+        if ((UserState.ARCHIVED.equals(homeFolder.getState())
+                && SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived())
+                || !UserState.ARCHIVED.equals(homeFolder.getState())) {
+            requestExternalService.synchronizeHomefolder(homeFolder, servicesLabel);
+        }
+    }
+
+    @Override
     @Context(types = { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
     public void synchronise(Individual individual) throws CvqException {
+        synchronise(individual, null);
+    }
+
+    @Override
+    @Context(types = { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
+    public void synchronise(Individual individual, String servicesLabel) throws CvqException {
         if (individual == null) throw new CvqException("No adult object provided");
         else if (individual.getId() == null) throw new CvqException("Cannot modify a transient individual");
         HomeFolder homeFolder = individual.getHomeFolder();
@@ -1240,7 +1271,15 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 homeFolder.setExternalId(homeFolderMapping.getExternalId());
             }
         }
-        publishHomeFolder(homeFolder, new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId()));
+        if(servicesLabel == null) {
+            publishHomeFolder(homeFolder, new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId()));
+        } else {
+            if ((UserState.ARCHIVED.equals(homeFolder.getState())
+                    && SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived())
+                    || !UserState.ARCHIVED.equals(homeFolder.getState())) {
+                requestExternalService.synchronizeHomefolderWithTrace(homeFolder, servicesLabel);
+            }
+        }
     }
 
     private void publishHomeFolder(HomeFolder homeFolder, UserAction action) {
@@ -1293,5 +1332,13 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     public void setIndividualMappingDAO(IIndividualMappingDAO individualMappingDAO) {
         this.individualMappingDAO = individualMappingDAO;
+    }
+
+    public void setRequestExternalService(IRequestExternalService requestExternalService) {
+        this.requestExternalService = requestExternalService;
+    }
+
+    public void setUserDeduplicationService(IUserDeduplicationService userDeduplicationService) {
+        this.userDeduplicationService = userDeduplicationService;
     }
 }

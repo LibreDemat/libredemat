@@ -395,6 +395,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="individualMappingDAO" ref="individualMappingDAO" />
     <property name="individualDAO" ref="individualDAO" />
     <property name="genericDAO" ref="genericDAO" />
+    <property name="requestExternalService" ref="requestExternalService" />
   </bean>
 
   <bean id="userSearchService" class="org.libredemat.service.users.impl.UserSearchService">
@@ -418,6 +419,14 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="homeFolderMappingDAO" ref="homeFolderMappingDAO" />
     <property name="externalHomeFolderService" ref="externalHomeFolderService" />
     <property name="externalService" ref="externalService" />
+  </bean>
+
+  <bean id="userSynchronisationService" class="org.libredemat.service.users.impl.UserSynchronisationService">
+    <property name="userSearchService" ref="userSearchService" />
+    <property name="userWorkflowService" ref="userWorkflowService" />
+    <property name="translationService" ref="translationService" />
+    <property name="userDeduplicationService" ref="userDeduplicationService" />
+    <property name="userNotificationService" ref="userNotificationService" />
   </bean>
 
   <bean id="userCoherenceService" class="org.libredemat.service.users.impl.UserCoherenceService">

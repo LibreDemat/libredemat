@@ -48,7 +48,7 @@ public class ExternalHomeFolderService implements IExternalHomeFolderService {
     }
 
     @Override
-    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.EXTERNAL_SERVICE},
+    @Context(types = {ContextType.ECITIZEN, ContextType.AGENT, ContextType.ADMIN, ContextType.EXTERNAL_SERVICE},
             privilege = ContextPrivilege.READ)
     public HomeFolderMapping getHomeFolderMapping(String externalServiceLabel, Long homeFolderId) {
         return genericDAO.simpleSelect(HomeFolderMapping.class)
@@ -129,7 +129,7 @@ public class ExternalHomeFolderService implements IExternalHomeFolderService {
     }
 
     @Override
-    @Context(types = {ContextType.AGENT, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
+    @Context(types = {ContextType.AGENT, ContextType.ADMIN, ContextType.EXTERNAL_SERVICE}, privilege = ContextPrivilege.WRITE)
     public void addHomeFolderMapping(String externalServiceLabel, Long homeFolderId,
             String externalId) {
 

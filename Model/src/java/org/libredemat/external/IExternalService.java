@@ -2,6 +2,8 @@ package org.libredemat.external;
 
 import java.util.List;
 
+import org.libredemat.business.users.HomeFolder;
+
 
 public interface IExternalService {
 

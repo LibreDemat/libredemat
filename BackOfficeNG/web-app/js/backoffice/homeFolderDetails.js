@@ -83,6 +83,30 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.homeFolder');
         yue.on(yud.get("no-email"), "click", zcbh.Details.switchNoEmail);
 
         zcbh.Details.attachResetPwdEvent();
+
+        yue.on(yus.query("#synchronisation select")[0], "change", function() {
+            yud.get("initialisation").disabled = false;
+        });
+        //AJAX Synchronize
+        yue.addListener(yud.get("synchronisation"), "submit", function(e) {
+            if(yus.query("#synchronisation select")[0].value != "") {
+                yud.get("initialisation").disabled = true;
+                yud.removeClass("syncMessage","invisible");
+                var boxSyncMessage = yus.query("#syncMessage div")[0];
+                zct.doAjaxFormSubmitCall("synchronisation", [], function(d){
+                    var json = JSON.parse(d.responseText);
+                    yud.removeClass(boxSyncMessage,"information-box");
+                    if(json.status == "error") {
+                        yud.addClass(boxSyncMessage,"error-box");
+                    } else {
+                        yud.addClass(boxSyncMessage,"success-box");
+                    }
+                    boxSyncMessage.innerHTML = "<p>"+json.msg+"</p>";
+                    zcbh.Details.refreshActions();
+                }, null);
+            }
+            e.preventDefault();
+        });
       },
 
       attachResetPwdEvent: function() {

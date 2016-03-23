@@ -2,12 +2,16 @@ package org.libredemat.service.users.aspect;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.libredemat.business.authority.SiteProfile;
+import org.libredemat.business.authority.SiteRoles;
 import org.libredemat.business.users.HomeFolder;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.UserSecurityProfile;
@@ -92,11 +96,23 @@ public class UsersContextAspect implements Ordered {
                         + " / individual " + individualId);
 
         if (SecurityContext.isBackOfficeContext()) {
-            UserSecurityRule rule = genericDAO.simpleSelect(UserSecurityRule.class).and("agentId", SecurityContext.getCurrentUserId()).unique();
-            if (!can(rule, context.privilege()))
-                throw new PermissionException(joinPoint.getSignature().getDeclaringType(), joinPoint.getSignature().getName(), context.types(), context.privilege(),
-                    "current agent does not have "+ context.privilege() +" prvilege on user referential");
+            List<SiteRoles> siteRoles = Arrays
+                    .asList(SecurityContext.getCurrentCredentialBean().getSiteRoles());
+            Boolean isAdmin = false;
+            int j = 0;
+            while (!isAdmin && j < siteRoles.size()) {
+                if (siteRoles.get(j).getProfile().equals(SiteProfile.ADMIN)) {
+                    isAdmin = true;
+                }
+                j++;
+            }
 
+            if(!isAdmin) {
+                UserSecurityRule rule = genericDAO.simpleSelect(UserSecurityRule.class).and("agentId", SecurityContext.getCurrentUserId()).unique();
+                if (!can(rule, context.privilege()))
+                    throw new PermissionException(joinPoint.getSignature().getDeclaringType(), joinPoint.getSignature().getName(), context.types(), context.privilege(),
+                        "current agent does not have "+ context.privilege() +" prvilege on user referential");
+            }
         }
     }
 

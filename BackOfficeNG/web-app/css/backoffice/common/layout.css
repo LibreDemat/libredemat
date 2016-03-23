@@ -208,3 +208,4 @@ strong { font-weight: bold !important; }
 .confirmation-box,
 .error-box         { border-color: #ff5555; background: #ffeeee; }
 .success-box       { border-color: #20CC20; background: #ECFDEC; }
+p.padding{ padding-left: 40px;}

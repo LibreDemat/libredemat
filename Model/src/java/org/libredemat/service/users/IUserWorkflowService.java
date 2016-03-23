@@ -2,6 +2,7 @@ package org.libredemat.service.users;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
@@ -123,8 +124,11 @@ public interface IUserWorkflowService {
 	 */
 	public int childInformationSheetDateInitialisation();
 
+    public void synchronise(Individual individual, String servicesLabel) throws CvqException;
+
     public void synchronise(Individual individual) throws CvqException;
 
+    public void synchronise(HomeFolder homeFolder, String servicesLabel) throws CvqException;
     /**
     *
     * Add a homefolder action
