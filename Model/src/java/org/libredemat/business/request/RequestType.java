@@ -105,6 +105,9 @@ public class RequestType implements Serializable {
     @Column(name="specific_configuration_data", columnDefinition="TEXT")
     private String specificConfigurationData;
 
+    @Column(name="is_mandatory_document_step")
+    private boolean isMandatoryDocumentStep;
+
     public RequestType() {
         setSeasons(new TreeSet<RequestSeason>());
     }
@@ -281,5 +284,13 @@ public class RequestType implements Serializable {
         return new ToStringBuilder(this)
             .append("id", getId())
             .toString();
+    }
+
+    public boolean getIsMandatoryDocumentStep() {
+        return isMandatoryDocumentStep;
+    }
+
+    public void setIsMandatoryDocumentStep(boolean isMandatoryDocumentStep) {
+        this.isMandatoryDocumentStep = isMandatoryDocumentStep;
     }
 }

@@ -698,6 +698,22 @@ public class RequestTypeService implements IRequestTypeService, ILocalAuthorityL
         return names;
     }
 
+    @Override
+    public void setRequestTypeMandatoryDocumentStep(Long requestTypeId,
+            boolean isMandatoryDocumentStep) {
+        RequestType requestType = getRequestTypeById(requestTypeId);
+        if (requestType.getIsMandatoryDocumentStep() != isMandatoryDocumentStep) {
+            requestType.setIsMandatoryDocumentStep(isMandatoryDocumentStep);
+            requestTypeDAO.update(requestType);
+        }
+    }
+
+    @Override
+    public boolean getRequestTypeMandatoryDocumentStep(Long requestTypeId) {
+        RequestType requestType = getRequestTypeById(requestTypeId);
+        return requestType.getIsMandatoryDocumentStep();
+    }
+
     /**
      * Check requestForm's labels uniqueness for given RequestFormType
      *

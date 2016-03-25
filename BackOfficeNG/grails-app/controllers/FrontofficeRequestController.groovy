@@ -147,6 +147,7 @@ class FrontofficeRequestController {
                 // clean empty collections elements
                 DataBindingUtils.cleanBind(rqt, params)
                 if (params.currentStep == 'validation' && params.send) {
+                    requestWorkflowService.validateDocuments(rqt)
                     if (!params.useAcceptance) {
                         rqt.stepStates.get('validation').invalidFields = ['useAcceptance']
                         throw new CvqValidationException('request.error.useAcceptanceRequired')
@@ -221,6 +222,9 @@ class FrontofficeRequestController {
 
                     requestWorkflowService.modify(rqt)
                     requestWorkflowService.validate(rqt, [params.currentStep])
+                    if (params.currentStep == 'document' || params.currentStep == 'validation'){
+                        requestWorkflowService.validateDocuments(rqt)
+                    }
                     if (params.currentCollection != null) {
                         // hack : reset step to uncomplete,
                         // to force step validation irrespective of collection elements manipulation
@@ -377,6 +381,9 @@ class FrontofficeRequestController {
     }
 
     def updateStepState(rqt, step) {
+        if(rqt.requestType.isMandatoryDocumentStep) {
+            rqt.stepStates.document.required = true
+        }
         def afterCurrentStep = false
         def it = rqt.stepStates.entrySet().iterator()
         while (it.hasNext()) {

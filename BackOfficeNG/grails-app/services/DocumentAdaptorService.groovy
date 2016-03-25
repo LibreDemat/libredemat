@@ -63,9 +63,11 @@ public class DocumentAdaptorService {
         documentTypeList = documentTypeList.sort { it.name }
         documentTypeList.each {
             result[it.id] = it
-            if (it.associated.isEmpty() && rqt.stepStates.get('document') != null) {
-                rqt.stepStates.document.state = "uncomplete"
-                rqt.stepStates.document.errorMsg = null
+            if(rqt.stepStates.document.state != "invalid"){
+                if (it.associated.isEmpty() && rqt.stepStates.get('document') != null) {
+                    rqt.stepStates.document.state = "uncomplete"
+                    rqt.stepStates.document.errorMsg = null
+                }
             }
         }
         return result

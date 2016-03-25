@@ -158,7 +158,11 @@
                 <g:message code="request.step.message.\${rqt.stepStates['${step.name}' + (individual ? '-' + params.type : '')].state}" />
               </span>
             <% } else { %>
-              <g:message code="${step.i18nPrefix()}.step.${step.name}.label" />${step.required ? ' *' :''}
+              <% if (step.name == 'document') { %>
+                <g:message code="${step.i18nPrefix()}.step.${step.name}.label" />\${rqt.requestType.isMandatoryDocumentStep ? ' *' :''}
+              <% } else { %>
+                <g:message code="${step.i18nPrefix()}.step.${step.name}.label" />${step.required ? ' *' :''}
+              <% } %>
               <span class="help">
                 <% if (step.name == 'validation') { %>
                 <g:if test="\${rqt.stepStates.validation.state == 'unavailable'}">

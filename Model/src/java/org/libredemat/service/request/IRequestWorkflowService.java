@@ -204,5 +204,7 @@ public interface IRequestWorkflowService {
         throws ClassNotFoundException, IllegalAccessException, CvqValidationException,
             InvocationTargetException, NoSuchMethodException;
 
+    void validateDocuments(Request request) throws CvqValidationException;
+
     byte[] createInvoiceForRequest(Request request) throws CvqException;
 }

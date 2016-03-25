@@ -55,6 +55,8 @@ import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.UserAction;
 import org.libredemat.business.users.UserEvent;
 import org.libredemat.business.users.UserState;
+import org.libredemat.business.document.DocumentType;
+import org.libredemat.business.request.Requirement;
 import org.libredemat.dao.hibernate.HibernateUtil;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.exception.CvqException;
@@ -1311,6 +1313,26 @@ public class RequestWorkflowService implements IRequestWorkflowService, Applicat
     @Override
     public void setApplicationContext(ApplicationContext arg0) throws BeansException {
         this.applicationContext = arg0;
+    }
+
+    @Override
+    public void validateDocuments(Request request) throws CvqValidationException {
+        boolean isManadatoryDocumentStep = request.getRequestType().getIsMandatoryDocumentStep();
+        if (isManadatoryDocumentStep) {
+            List<DocumentType> listDT = new ArrayList<DocumentType>();
+            if(!request.getDocuments().isEmpty()){
+                for (RequestDocument d : request.getDocuments()) {
+                    listDT.add(documentService.getById(d.getDocumentId()).getDocumentType());
+                }
+            }
+            if(!request.getRequestType().getRequirements().isEmpty()){
+                for (Requirement r : request.getRequestType().getRequirements()) {
+                    if (!(listDT.contains(r.getDocumentType()))) {
+                        throw new CvqValidationException("request.error.documentRequired");
+                    }
+                }
+            }
+        }
     }
 
     public void setPaymentService(IPaymentService paymentService) {

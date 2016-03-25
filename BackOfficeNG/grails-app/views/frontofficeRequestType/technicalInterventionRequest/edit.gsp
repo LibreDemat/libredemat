@@ -169,7 +169,9 @@
             </g:if>
           >
             
-              <g:message code="tir.step.intervention.label" /> *
+              
+                <g:message code="tir.step.intervention.label" /> *
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['intervention'].state}" />
@@ -201,7 +203,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.document.label" />
+              
+                <g:message code="request.step.document.label" />${rqt.requestType.isMandatoryDocumentStep ? ' *' :''}
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['document'].state}" />
@@ -233,7 +237,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.validation.label" /> *
+              
+                <g:message code="request.step.validation.label" /> *
+              
               <span class="help">
                 
                 <g:if test="${rqt.stepStates.validation.state == 'unavailable'}">

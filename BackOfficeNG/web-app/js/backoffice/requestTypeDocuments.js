@@ -9,6 +9,7 @@
 zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
 
 (function(){
+  var zcv = zenexity.libredemat.Validation;
   var zct = zenexity.libredemat.tools;
   var zcbrt = zenexity.libredemat.bong.requesttype;
   
@@ -21,6 +22,7 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
   zcbrt.Documents = function() {
     return {
       init: function() {
+        yue.on(yud.get('mandatoryDocumentStepInputDiv'), 'click',zcbrt.Documents.toggleMandatoryDocumentStep);
         zcbrt.Conf.showAllDocuments = zcbrt.Documents.showAllDocuments;
         zct.doAjaxCall(["/documentList/",(zcbrt.currentId||0)].join(''),[],function(o){
           zct.html(yud.get('documentList'),o.responseText);
@@ -46,6 +48,17 @@ zenexity.libredemat.tools.namespace('zenexity.libredemat.bong.requesttype');
           var div = yud.get('documentList');
           zct.html(div,o.responseText);
         });
+      },
+      // emplacement à voir
+      toggleMandatoryDocumentStep: function(e) {
+        var cont = yud.get("mandatoryDocumentStepErrors");
+        cont.innerHTML = "";
+        if (zcv.check(yud.get("mandatoryDocumentStepForm"), cont)) {
+          var target = yue.getTarget(e);
+          zct.doAjaxFormSubmitCall("mandatoryDocumentStepForm", [], function(o) {
+            zct.Notifier.processMessage('success', ylj.parse(o.responseText).success_msg, yud.get('notification'), target);
+          },false);
+        }
       }
     }
   }()

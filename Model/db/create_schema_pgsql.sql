@@ -2741,6 +2741,7 @@
         filing_delay int4,
         instruction_alert_delay int4,
         instruction_max_delay int4,
+        is_mandatory_document_step bool,
         is_of_registration_kind bool,
         label varchar(255),
         specific_configuration_data TEXT,

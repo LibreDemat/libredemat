@@ -101,13 +101,26 @@ class BackofficeRequestTypeController {
     }
 
     private getCommonModel(requestType) {
-        def result = [
-            "requestType" : requestType,
-            "requestTypeLabel" :
-                translationService.translateRequestTypeLabel(requestType.label).encodeAsHTML(),
-            "requestTypes" : requestAdaptorService.translateAndSortRequestTypes()
-        ]
+        def result
         def requestService = requestServiceRegistry.getRequestService(requestType.label)
+        boolean isMandatoryDocumentStep = requestTypeService.getRequestTypeMandatoryDocumentStep(requestType.id)
+        if(isMandatoryDocumentStep){
+            result = [
+                "requestType" : requestType,
+                "requestTypeLabel" :
+                    translationService.translateRequestTypeLabel(requestType.label).encodeAsHTML(),
+                "requestTypes" : requestAdaptorService.translateAndSortRequestTypes(),
+                "isMandatoryDocumentStep" : isMandatoryDocumentStep
+            ]
+        }
+        else{
+            result = [
+                "requestType" : requestType,
+                "requestTypeLabel" :
+                    translationService.translateRequestTypeLabel(requestType.label).encodeAsHTML(),
+                "requestTypes" : requestAdaptorService.translateAndSortRequestTypes()
+            ]
+        }
         result["configurationItems"] = [
             "requestProperty" : ["requestType.configuration.requestProperty", false],
             "forms" : ["requestType.configuration.forms", false],
@@ -733,4 +746,14 @@ class BackofficeRequestTypeController {
 
         render([status:"ok", success_msg:message(code:"message.updateDone")] as JSON)
     }
+
+    def setMandatoryDocumentStep = {
+    if (params.mandatoryDocumentStep == "1"){
+        requestTypeService.setRequestTypeMandatoryDocumentStep(Long.valueOf(params.id),true);
+    }
+    else{
+        requestTypeService.setRequestTypeMandatoryDocumentStep(Long.valueOf(params.id),false);
+    }
+    render ([status:"success", success_msg:message(code:"message.updateDone")] as JSON)
+}
 }

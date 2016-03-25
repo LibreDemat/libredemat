@@ -227,4 +227,8 @@ public interface IRequestTypeService {
      *
      */
     public List<RequestForm> getRequestFormsByRequestFormType(RequestFormType requestFormType) throws CvqException;
+
+    void setRequestTypeMandatoryDocumentStep(Long requestTypeId,boolean isMandatoryDocumentStep);
+
+    boolean getRequestTypeMandatoryDocumentStep(Long requestTypeId);
 }
