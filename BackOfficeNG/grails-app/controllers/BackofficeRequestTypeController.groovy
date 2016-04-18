@@ -564,6 +564,10 @@ class BackofficeRequestTypeController {
             render (new JSON(['status':'warning', 'message':message(code:'requestType.message.noRulesFile')]).toString())
             return false
         }
+        if (!file.getContentType().equals("application/pdf")) {
+            render (new JSON(['status':'warning', 'message':message(code:'requestType.message.noPdfRulesFile')]).toString())
+            return false
+        }
         def rulesDir = new File (localAuthorityRegistry.getAssetsBase() + '/' + session.currentSiteName + '/' + Type.PDF.folder + '/' + requestTypeLabelAsDir)
         if (!rulesDir.exists()) rulesDir.mkdir()
 
