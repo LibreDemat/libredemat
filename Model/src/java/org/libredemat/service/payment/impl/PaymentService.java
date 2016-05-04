@@ -373,7 +373,7 @@ public final class PaymentService implements IPaymentService,
     }    
 
     @Override
-    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    @Context(types = {ContextType.ADMIN, ContextType.AGENT}, privilege = ContextPrivilege.NONE)
     public List<Long> getIds(Set<Critere> criteriaSet) {
         List<Payment> payments = paymentDAO.search(criteriaSet, null, null, -1, 0);
         if (payments == null || payments.isEmpty())
@@ -386,7 +386,7 @@ public final class PaymentService implements IPaymentService,
     }
 
     @Override
-    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    @Context(types = {ContextType.ADMIN, ContextType.AGENT}, privilege = ContextPrivilege.NONE)
     public File exportPayments(List<Long> paymentsIds) throws CvqException {
         List<Payment> payments = paymentDAO.findByIds(paymentsIds);
         String[] header = new String[15];

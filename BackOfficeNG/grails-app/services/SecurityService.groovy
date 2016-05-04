@@ -44,6 +44,8 @@ public class SecurityService {
                 "backofficeTasks" : /.*/,
                 "backofficeTicketBooking" : /.*/,
                 "backofficeEmail" : /.*/,
+                "backofficePayment" : /.*/,
+                "backofficeExternalApplication" : /.*/,
                 "system" : /error/
             ],
             (SecurityContext.FRONT_OFFICE_CONTEXT) : [

@@ -26,6 +26,11 @@
           <g:message code="menu.statistics" />
         </a>
       </g:if>
+      <g:if test="${session.isViewPayment}">
+        <a id="paymentMenuItem" href="${createLink(controller:'backofficePayment')}">
+            <g:message code="menu.payments" />
+        </a>
+      </g:if>
     </g:if>
     <g:if test="${session.currentCredentialBean.hasSiteAdminRole()}">
       <a id="localAuthorityMenuItem" href="${createLink(controller:'backofficeLocalAuthority')}">

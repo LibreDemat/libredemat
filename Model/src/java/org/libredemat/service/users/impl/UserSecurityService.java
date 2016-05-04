@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.libredemat.business.authority.Agent;
+import org.libredemat.business.request.DisplayGroup;
+import org.libredemat.business.request.RequestType;
 import org.libredemat.business.users.UserSecurityProfile;
 import org.libredemat.business.users.UserSecurityRule;
 import org.libredemat.dao.jpa.IGenericDAO;
@@ -105,6 +107,16 @@ public class UserSecurityService implements IUserSecurityService {
             default:
                 return false;
         }
+    }
+
+    @Override
+    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    public Agent changePermissionAgentPayment(Long agentId, boolean permission) {
+
+        Agent agent = agentService.getById(agentId);
+        agent.setViewPayment(permission);
+        genericDAO.update(agent);
+        return agent;
     }
 
     public void setGenericDAO(IGenericDAO genericDAO) {

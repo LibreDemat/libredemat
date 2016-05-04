@@ -147,6 +147,7 @@ class BackofficeLoginController {
         SecurityContext.setCurrentAgent(agent)
         session.currentUser = agent.login
         session.currentCredentialBean = SecurityContext.currentCredentialBean
+        session.isViewPayment = agent.isViewPayment
 
         def accessPoint = securityService.defaultAccessPoint(
             session.currentCredentialBean.hasSiteAdminRole() ? ContextType.ADMIN : ContextType.AGENT,

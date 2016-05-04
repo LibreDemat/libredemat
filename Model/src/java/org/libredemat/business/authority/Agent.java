@@ -66,6 +66,9 @@ public class Agent implements Serializable {
     @Column(name="validation_code_expiration")
     private Date validationCodeExpiration;
 
+    @Column(name="is_view_payment")
+    private boolean isViewPayment;
+
     public Long getId() {
         return this.id;
     }
@@ -164,5 +167,13 @@ public class Agent implements Serializable {
             .append("login", getLogin())
             .append("id", getId())
             .toString();
+    }
+
+    public boolean isViewPayment() {
+        return isViewPayment;
+    }
+
+    public void setViewPayment(boolean isViewPayment) {
+        this.isViewPayment = isViewPayment;
     }
 }

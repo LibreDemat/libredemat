@@ -1,4 +1,5 @@
 <div class="txt-right" id="requestSearchSwitcher">
+<g:if test="${!(org.libredemat.security.SecurityContext.currentCredentialBean.hasSiteAgentRole() && session.isViewPayment)}">
   <g:message code="action.goToPaymentSearch" /> |
   <a href="${createLink(controller:'backofficeExternalApplication', action:'searchInvoice')}"
      class="simple">
@@ -9,6 +10,7 @@
   <a href="${createLink(controller:'backofficeExternalApplication', action:'searchTicketingContract')}"
      class="simple">
     <g:message code="action.goToTicketingContractSearch" /></a>
+</g:if>
 </div>
 
 <div id="search-form">
