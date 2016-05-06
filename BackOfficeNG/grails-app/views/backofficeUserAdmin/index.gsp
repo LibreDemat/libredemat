@@ -39,6 +39,74 @@
             </div>
           </form>
         </div>
+
+        <div id="platformConfigurationBox" class="mainbox mainbox-yellow">
+          <h2><g:message code="localAuthority.header.userQosConfiguration" /></h2>
+          <form method="post" id="platformConfigurationForm" action="${createLink(action : 'index')}">
+            <div class="error" id="platformConfigurationFormErrors"></div>
+  
+            <p class="field">
+              <label>
+                <g:message code="requestAdmin.property.instructionAlertsEnabled" /> :
+              </label>
+              <input type="radio" class="required validate-one-required"
+                name="instructionAlertsEnabled" value="1"
+                <g:if test="${globalConfiguration.instructionAlertsEnabled == true}">
+                  checked="checked"
+                </g:if> />
+              <g:message code="message.yes" />
+              <input type="radio" class="required validate-one-required"
+                name="instructionAlertsEnabled" value="0"
+                <g:if test="${globalConfiguration.instructionAlertsEnabled == false}">
+                  checked="checked"
+                </g:if> />
+              <g:message code="message.no" />
+            </p>
+
+            <p class="field">
+              <label>
+                <g:message code="requestAdmin.property.instructionAlertsDetailed" /> :
+              </label>
+              <input type="radio" class="required validate-one-required"
+                name="instructionAlertsDetailed" value="1"
+                <g:if test="${globalConfiguration.instructionAlertsDetailed == true}">
+                  checked="checked"
+                </g:if> />
+              <g:message code="message.yes" />
+              <input type="radio" class="required validate-one-required"
+                name="instructionAlertsDetailed" value="0"
+                <g:if test="${globalConfiguration.instructionAlertsDetailed == false}">
+                  checked="checked"
+                </g:if> />
+              <g:message code="message.no" />
+            </p>
+
+            <p class="field">
+              <label for="instructionAlertDelay">
+                <g:message code="requestType.property.instructionAlertDelay" /> :
+              </label>
+              <input type="text" class="required validate-number" size="3"
+                name="instructionAlertDelay" id="instructionAlertDelay"
+                value="${globalConfiguration.instructionAlertDelay}" />
+              <g:message code="property.days" />
+            </p>
+
+            <p class="field">
+              <label for="instructionMaxDelay">
+                <g:message code="requestType.property.instructionMaxDelay" /> :
+              </label>
+              <input type="text" class="required validate-number" name="instructionMaxDelay"
+                id="instructionMaxDelay" size="3"
+                value="${globalConfiguration.instructionMaxDelay}" />
+              <g:message code="property.days" />
+            </p>
+
+            <div class="form-button">
+              <input id="save_platformConfiguration" type="button" value="${message(code:'action.save')}" />
+            </div>
+          </form>
+        </div>
+
       </div>
     </div>
     <div id="narrow" class="yui-b">

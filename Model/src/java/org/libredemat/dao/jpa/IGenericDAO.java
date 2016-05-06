@@ -2,6 +2,7 @@ package org.libredemat.dao.jpa;
 
 import java.util.List;
 
+import org.libredemat.business.users.GlobalUserConfiguration;
 import org.libredemat.dao.hibernate.SimpleQuery;
 
 

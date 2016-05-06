@@ -6,6 +6,7 @@ import java.util.List;
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
 import org.libredemat.business.users.GlobalHomeFolderConfiguration;
+import org.libredemat.business.users.GlobalUserConfiguration;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.ChildInformationSheet;
@@ -105,4 +106,6 @@ public interface IUserService {
     List<String> validate(ChildInformationSheet childInformationSheet, boolean informationSheetRequired) throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, NoSuchMethodException;
 
     boolean isChildInformationSheetFilled(Child child);
+
+    GlobalUserConfiguration getGlobalUserConfiguration();
 }

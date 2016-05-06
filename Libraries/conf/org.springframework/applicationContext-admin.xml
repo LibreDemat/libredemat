@@ -55,7 +55,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <property name="mailService" ref="mailService" />
     <property name="individualDAO" ref="individualDAO" />
     <property name="homeFolderDAO" ref="homeFolderDAO" />
-    <property name="requestTypeService" ref="requestTypeService" />
+    <property name="userService" ref="userService" />
   </bean>
 
   <bean id="userInstructionDurationCheckerJobInvoker"

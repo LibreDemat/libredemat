@@ -633,6 +633,8 @@
 
     drop table global_school_registration_request_motifs_derogation_ecole cascade;
 
+    drop table global_user_configuration cascade;
+
     drop table handicap_compensation_adult_request cascade;
 
     drop table handicap_compensation_child_request cascade;
@@ -1522,6 +1524,15 @@
         motifs_derogation_ecole_id int8 not null,
         motifs_derogation_ecole_index int4 not null,
         primary key (global_school_registration_request_id, motifs_derogation_ecole_index)
+    );
+
+    create table global_user_configuration (
+        id int8 not null,
+        instruction_alert_delay int4 default 3 not null,
+        instruction_alerts_detailed bool default false not null,
+        instruction_alerts_enabled bool default false not null,
+        instruction_max_delay int4 default 10 not null,
+        primary key (id)
     );
 
     create table handicap_compensation_adult_request (

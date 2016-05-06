@@ -26,11 +26,13 @@ class BackofficeUserAdminController {
         if (request.get) {
             return [
                 "subMenuEntries" : subMenuEntries,
-                "globalUserConfiguration" : userService.getGlobalHomeFolderConfiguration()
+                "globalUserConfiguration" : userService.getGlobalHomeFolderConfiguration(),
+                "globalConfiguration" : userService.getGlobalUserConfiguration()
             ]
         } else if (request.post) {
             bind(SecurityContext.getCurrentSite())
             bind(userService.getGlobalHomeFolderConfiguration())
+            bind(userService.getGlobalUserConfiguration())
             render ([status:"success", success_msg:message(code:"message.updateDone")] as JSON)
             return false
         }

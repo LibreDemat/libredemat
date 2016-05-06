@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.libredemat.business.users.Adult;
+import org.libredemat.business.users.GlobalUserConfiguration;
 import org.libredemat.business.users.UserState;
 
 
@@ -28,4 +29,6 @@ public interface IAdultDAO extends IIndividualDAO {
     List<Adult> listDuplicates(Map<String,String> sortParams, Integer max, Integer offset);
 
     List<Adult> findResponsibleDuplicates(Map<String, String> parameters);
+
+    GlobalUserConfiguration getGlobalUserConfiguration();
 }

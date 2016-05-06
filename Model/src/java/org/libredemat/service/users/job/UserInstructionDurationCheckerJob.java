@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.libredemat.business.QoS;
 import org.libredemat.business.authority.LocalAuthority;
-import org.libredemat.business.request.GlobalRequestTypeConfiguration;
+import org.libredemat.business.users.GlobalUserConfiguration;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.UserAction;
 import org.libredemat.dao.users.IHomeFolderDAO;
@@ -18,7 +18,7 @@ import org.libredemat.security.SecurityContext;
 import org.libredemat.security.annotation.Context;
 import org.libredemat.security.annotation.ContextType;
 import org.libredemat.service.authority.ILocalAuthorityRegistry;
-import org.libredemat.service.request.IRequestTypeService;
+import org.libredemat.service.users.IUserService;
 import org.libredemat.util.DateUtils;
 import org.libredemat.util.mail.IMailService;
 
@@ -37,7 +37,7 @@ public class UserInstructionDurationCheckerJob {
 
     private IHomeFolderDAO homeFolderDAO;
 
-    private IRequestTypeService requestTypeService;
+    private IUserService userService;
 
     @Context(types = {ContextType.SUPER_ADMIN})
     public void launchJob() {
@@ -48,13 +48,9 @@ public class UserInstructionDurationCheckerJob {
     public void check() {
         LocalAuthority la = SecurityContext.getCurrentSite();
         // FIXME : we're still relying on request configuration
-        GlobalRequestTypeConfiguration config = requestTypeService.getGlobalRequestTypeConfiguration();
+        GlobalUserConfiguration config = userService.getGlobalUserConfiguration();
         logger.info("UserInstructionDurationCheckerJob : dealing with " + la.getName());
-        if (!config.isInstructionAlertsEnabled()) {
-            logger.info("UserInstructionDurationCheckerJob : requests instruction alerts are disabled for "
-                + SecurityContext.getCurrentSite().getName() + ", returning");
-            return;
-        }
+
         Date now = new Date();
         List<Individual> individuals = individualDAO.searchTasks(now);
         List<Individual> urgent = new ArrayList<Individual>();
@@ -68,7 +64,7 @@ public class UserInstructionDurationCheckerJob {
                 late.add(individual);
                 tasks.add(individual);
             } else if (config.getInstructionAlertDelay() > 0
-                && delay >= config.getInstructionAlertDelay()
+                && delay >= (config.getInstructionMaxDelay() - config.getInstructionAlertDelay())
                 && QoS.GOOD.equals(individual.getQoS())) {
                 individual.setQoS(QoS.URGENT);
                 urgent.add(individual);
@@ -76,35 +72,37 @@ public class UserInstructionDurationCheckerJob {
             }
         }
         boolean notified = false;
-        if (!StringUtils.isBlank(la.getAdminEmail()) && !tasks.isEmpty()) {
-            StringBuffer body = new StringBuffer();
-            body.append("Bonjour,\n\n")
-                .append("Voici le récapitulatif des alertes sur les usagers :\n")
-                .append("\tAlertes oranges : ").append(urgent.size()).append("\n")
-                .append("\tAlertes rouges : ").append(late.size()).append("\n");
-            if (config.isInstructionAlertsDetailed()) {
-                if (!urgent.isEmpty()) {
-                    body.append("\n").append("Détail des alertes oranges :\n");
-                    for (Individual individual : urgent) {
-                        body.append("\t").append(individual.getFullName())
-                            .append(" (").append(individual.getId()).append(")\n");
+        if (config.isInstructionAlertsEnabled()) {
+            if (!StringUtils.isBlank(la.getAdminEmail()) && !tasks.isEmpty()) {
+                StringBuffer body = new StringBuffer();
+                body.append("Bonjour,\n\n")
+                    .append("Voici le récapitulatif des alertes sur les usagers :\n")
+                    .append("\tAlertes oranges : ").append(urgent.size()).append("\n")
+                    .append("\tAlertes rouges : ").append(late.size()).append("\n");
+                if (config.isInstructionAlertsDetailed()) {
+                    if (!urgent.isEmpty()) {
+                        body.append("\n").append("Détail des alertes oranges :\n");
+                        for (Individual individual : urgent) {
+                            body.append("\t").append(individual.getFullName())
+                                .append(" (").append(individual.getId()).append(")\n");
+                        }
+                    }
+                    if (!late.isEmpty()) {
+                        body.append("\n\n").append("Détail des alertes rouges :\n");
+                        for (Individual individual : late) {
+                            body.append("\t").append(individual.getFullName())
+                                .append(" (").append(individual.getId()).append(")\n");
+                        }
                     }
                 }
-                if (!late.isEmpty()) {
-                    body.append("\n\n").append("Détail des alertes rouges :\n");
-                    for (Individual individual : late) {
-                        body.append("\t").append(individual.getFullName())
-                            .append(" (").append(individual.getId()).append(")\n");
-                    }
+                try {
+                    mailService.send(null, la.getAdminEmail(), null,
+                        "[LibreDémat] Alerte traitement comptes", body.toString());
+                    notified = true;
+                } catch (CvqException e) {
+                    logger.error("checkLocalAuthRequestsInstructionDelay() got an error while "
+                            + "sending email alert : " + e.getMessage());
                 }
-            }
-            try {
-                mailService.send(null, la.getAdminEmail(), null,
-                    "[LibreDémat] Alerte traitement comptes", body.toString());
-                notified = true;
-            } catch (CvqException e) {
-                logger.error("checkLocalAuthRequestsInstructionDelay() got an error while "
-                        + "sending email alert : " + e.getMessage());
             }
         }
         for (Individual i : tasks) {
@@ -132,7 +130,7 @@ public class UserInstructionDurationCheckerJob {
         this.homeFolderDAO = homeFolderDAO;
     }
 
-    public void setRequestTypeService(IRequestTypeService requestTypeService) {
-        this.requestTypeService = requestTypeService;
+    public void setUserService(IUserService userService) {
+        this.userService = userService;
     }
 }

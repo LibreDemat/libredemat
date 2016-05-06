@@ -10,21 +10,23 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-
 import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.Child;
 import org.libredemat.business.users.GlobalHomeFolderConfiguration;
+import org.libredemat.business.users.GlobalUserConfiguration;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.IndividualRole;
 import org.libredemat.business.users.RoleType;
 import org.libredemat.business.users.UserState;
 import org.libredemat.business.users.ChildInformationSheet;
+import org.libredemat.dao.hibernate.HibernateUtil;
 import org.libredemat.dao.jpa.IGenericDAO;
 import org.libredemat.dao.users.IAdultDAO;
 import org.libredemat.security.SecurityContext;
 import org.libredemat.security.annotation.Context;
 import org.libredemat.security.annotation.ContextPrivilege;
 import org.libredemat.security.annotation.ContextType;
+import org.libredemat.service.authority.ILocalAuthorityLifecycleAware;
 import org.libredemat.service.users.IUserSearchService;
 import org.libredemat.service.users.IUserService;
 import org.libredemat.util.DateUtils;
@@ -33,7 +35,7 @@ import org.libredemat.util.ValidationUtils;
 import net.sf.oval.ConstraintViolation;
 import net.sf.oval.Validator;
 
-public class UserService implements IUserService {
+public class UserService implements IUserService, ILocalAuthorityLifecycleAware {
     private static Logger logger = Logger.getLogger(UserService.class);
 
     private IUserSearchService userSearchService;
@@ -244,4 +246,20 @@ public class UserService implements IUserService {
         genericDAO.update(conf);
     }
 
+    public GlobalUserConfiguration getGlobalUserConfiguration() {
+        return adultDAO.getGlobalUserConfiguration();
+    }
+
+    @Override
+    public void addLocalAuthority(String localAuthorityName) {
+        if ( getGlobalUserConfiguration() == null) {
+            genericDAO.saveOrUpdate(new GlobalUserConfiguration());
+            HibernateUtil.getSession().flush();
+        }
+    }
+
+    @Override
+    public void removeLocalAuthority(String localAuthorityName) {
+        // nothing to do
+    }
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.libredemat.business.users.Adult;
+import org.libredemat.business.users.GlobalUserConfiguration;
 import org.libredemat.business.users.UserState;
 import org.libredemat.dao.hibernate.HibernateUtil;
 import org.libredemat.dao.users.IAdultDAO;
@@ -108,5 +109,10 @@ public class AdultDAO extends IndividualDAO implements IAdultDAO {
                                                                                                             // INEXINE
                 );
         return q.setProperties(parameters).list();
+    }
+
+    public GlobalUserConfiguration getGlobalUserConfiguration() {
+        return (GlobalUserConfiguration)HibernateUtil.getSession()
+            .createCriteria(GlobalUserConfiguration.class).uniqueResult();
     }
 }
