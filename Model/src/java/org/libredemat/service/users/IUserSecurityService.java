@@ -30,4 +30,7 @@ public interface IUserSecurityService {
     public boolean can(Agent agent, ContextPrivilege privilege);
 
     Agent changePermissionAgentPayment(Long agentId, boolean permission);
+
+    Agent changePermissionAccessAgent(Long agentId, boolean permission);
+
 }

@@ -119,6 +119,15 @@ public class UserSecurityService implements IUserSecurityService {
         return agent;
     }
 
+    @Override
+    @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
+    public Agent changePermissionAccessAgent(Long agentId, boolean permission) {
+        Agent agent = agentService.getById(agentId);
+        agent.setIsSanitaire(permission);
+        genericDAO.update(agent);
+        return agent;
+    }
+
     public void setGenericDAO(IGenericDAO genericDAO) {
         this.genericDAO = genericDAO;
     }

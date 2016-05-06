@@ -4,6 +4,7 @@
     <meta name="layout" content="main" />
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" >
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'userSecurity.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'userAccess.js')}"></script>
     <style>
       .editableList li a.configure          { background-image: url(../../images/icons/16-edit.png); }
       .editableList li a.disallow           { background-image: url(../../images/icons/16-delete.png); }
@@ -48,6 +49,24 @@
 
         <div id="agents" class="mainbox mainbox-yellow">
            <g:render template="agents" />
+        </div>
+
+        <div id="displayGroupAgentsBox" class="mainbox mainbox-yellow">
+            <h2>${message(code:'user.header.accessConfiguration')}</h2>
+            <g:if test="${isInformationSheetDisplayed}">
+            <div class="editableListSwithcher">
+                <form id="sortAgentForm" method="post" action="${createLink(action:'filterAccessAgents')}" />
+                    <input type="hidden" name="scope" id="scope" value="${scope}" />
+                    <a id="viewAgents_bounded" class="current">${message(code:'filter.viewBounded')}</a> / <a id="viewAgents_all">${message(code:'filter.viewAll')}</a>
+                </form>
+            </div>
+            <div id="displayGroupAgentsWrapper">
+                <g:render template="agentsAccess" model="['agents':agentsAccess]" />
+            </div>
+            </g:if>
+            <g:else>
+            <p class="message"><g:message code="homeFolder.childInformationSheetDateInitialisation.error.notDisplayed" /></p>
+          </g:else>
         </div>
 
       </div>

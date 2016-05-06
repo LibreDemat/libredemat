@@ -249,7 +249,7 @@ class BackofficeHomeFolderController {
         result.unarchivableIndividuals = unarchivableIndividuals
 
         result.canResetPassword = isAllowedToResetPassword(homeFolder, result.homeFolderResponsible)
-
+        result.isAccessSanitaire = SecurityContext.getCurrentAgent().getIsSanitaire()
         return result
     }
 

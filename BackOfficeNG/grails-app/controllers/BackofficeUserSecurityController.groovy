@@ -1,3 +1,4 @@
+import org.libredemat.security.SecurityContext;
 import org.libredemat.service.users.IUserSecurityService
 import org.libredemat.business.users.UserSecurityProfile
 import org.libredemat.business.users.UserSecurityRule
@@ -20,8 +21,39 @@ class BackofficeUserSecurityController {
             "subMenuEntries" : subMenuEntries,
             "view": "allowed",
             "agents": userSecurityService.listAgents(true),
-            "mapRules" : userSecurityService.mapRules()
+            "agentsAccess" : userSecurityService.listAgents(false).toArray().findAll{ agent ->
+                agent.getIsSanitaire() == true
+            },
+            "mapRules" : userSecurityService.mapRules(),
+            "isInformationSheetDisplayed" : SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
         ]
+    }
+
+    def filterAccessAgents = {
+        def agents = []
+
+        if ((request.post && params.scope == null) || params.scope == 'all') {
+            agents = userSecurityService.listAgents(false)
+        } else if (params.scope == 'bounded') {
+            agents = userSecurityService.listAgents(false).toArray().findAll{ agent ->
+                agent.getIsSanitaire() == true
+            }
+        }
+
+        render( template:"agentsAccess",
+                model:[ agents: agents, scope:params.scope ])
+    }
+
+    def unassociateAgent = {
+        def agent = userSecurityService.changePermissionAccessAgent(Long.valueOf(params.agentId), false)
+         render ([ agent:agent.getIsSanitaire(),
+            status:'success', success_msg:message(code:"message.updateDone")] as JSON)
+    }
+
+    def associateAgent = {
+        def agent = userSecurityService.changePermissionAccessAgent(Long.valueOf(params.agentId), true)
+         render ([ agent:agent.getIsSanitaire(),
+            status:'success', success_msg:message(code:"message.updateDone")] as JSON)
     }
 
     def agents = {

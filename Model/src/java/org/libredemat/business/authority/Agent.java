@@ -69,6 +69,10 @@ public class Agent implements Serializable {
     @Column(name="is_view_payment")
     private boolean isViewPayment;
 
+    @Column(name="is_sanitaire")
+    private boolean isSanitaire;
+
+
     public Long getId() {
         return this.id;
     }
@@ -175,5 +179,13 @@ public class Agent implements Serializable {
 
     public void setViewPayment(boolean isViewPayment) {
         this.isViewPayment = isViewPayment;
+    }
+
+    public boolean getIsSanitaire() {
+        return isSanitaire;
+    }
+
+    public void setIsSanitaire(boolean isSanitaire) {
+        this.isSanitaire = isSanitaire;
     }
 }

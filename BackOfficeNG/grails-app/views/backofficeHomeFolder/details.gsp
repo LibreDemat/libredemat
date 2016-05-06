@@ -229,7 +229,7 @@
               </h2>
               <div class="new"></div>
               <g:each var="child" in="${children}">
-                <g:render template="static/child" model="['child':child, 'roleOwners': responsibles[child.id], 'roles': childsRoles, 'homeMappings' : homeMappings,'unarchivable': unarchivableIndividuals.contains(child.id)]" />
+                <g:render template="static/child" model="['child':child, 'roleOwners': responsibles[child.id], 'roles': childsRoles, 'homeMappings' : homeMappings,'unarchivable': unarchivableIndividuals.contains(child.id), 'isAccessSanitaire': isAccessSanitaire]" />
               </g:each>
             </div>
           </div>

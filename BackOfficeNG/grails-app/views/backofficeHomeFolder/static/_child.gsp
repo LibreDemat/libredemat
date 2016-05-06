@@ -33,7 +33,7 @@
   <!-- dans la class du <dl> -->
   <!-- : -->
   <!-- <dl class="${child?.state?.toString() != 'Archived' ? 'edit' : ''} child-childInformationSheet collapse"> -->
-  <g:if test="${informationSheetDisplayed}" >
+  <g:if test="${informationSheetDisplayed && isAccessSanitaire}" >
 	  <h3>${message(code:'homeFolder.individual.header.informationSheet')}</h3>
 	  <dl class="${child?.state?.toString() != 'Archived' ? 'edit' : ''} child-childInformationSheet collapse">
 	    <g:render template="static/childInformationSheet" model="['child':child]" />
