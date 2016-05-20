@@ -7,7 +7,7 @@
     <form method="post" id="rulesForm_${rulesField}" class="localResourceUpload" action="${createLink(action : 'saveRule')}">
       <div class="error" id="setupFormErrors_${id}"></div>
       <g:if test="${rulesFieldNames[rulesField]}">
-        <a target="_blank" href="${createLink(controller : 'localAuthorityResource', action : 'resource', params:[type:'PDF',filename:requestTypeLabelAsDir + '/' + rulesField])}">
+        <a target="_blank" href="${createLink(controller : 'localAuthorityResource', action : 'rule', params:[type:'PDF',requestTypeLabel:requestTypeLabelAsDir,filename:rulesField])}">
           ${message(code:'requestType.label.seeCurrentRule')}
         </a>
       </g:if>
