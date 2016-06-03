@@ -28,9 +28,16 @@
       </g:if>
       <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'helpFo')}" class="menu" target="blank">${message(code:'menu.help')}</a>
       <a href="${createLink(controller:'localAuthorityResource', action:'resource', id:'faqFo')}" class="menu" target="blank">${message(code:'menu.faq')}</a>
-      <a href="${createLink(controller : 'frontofficeRequestType', action : 'start', id : 'Information')}" class="menu">
-        <g:message code="menu.contact"/>
-      </a>
+      <g:if test="${session.frontContext && session.currentCredentialBean.ecitizen.homeFolder.temporary}">
+        <a href="${createLink(controller : 'frontofficeHome', action : 'logout')}" class="menu">
+          <g:message code="menu.contact"/>
+        </a>
+      </g:if>
+      <g:else>
+        <a href="${createLink(controller : 'frontofficeRequestType', action : 'start', id : 'Information')}" class="menu">
+          <g:message code="menu.contact"/>
+        </a>
+      </g:else>
     </div>
   </div>
 </div>
