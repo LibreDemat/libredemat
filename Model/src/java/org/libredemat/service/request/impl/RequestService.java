@@ -34,6 +34,7 @@ public abstract class RequestService implements IRequestService {
     protected int filingDelay;
     protected boolean archiveDocuments;
     protected boolean supportMultiple = Boolean.FALSE;
+    protected boolean supportNoValidAccount = Boolean.FALSE;
 
     protected IGenericDAO genericDAO;
     private IRequestTypeService requestTypeService;
@@ -240,6 +241,23 @@ public abstract class RequestService implements IRequestService {
 
     public void setSupportMultiple(boolean supportMultiple) {
         this.supportMultiple = supportMultiple;
+    }
+
+    @Override
+    public boolean getSupportNoValidAccount() {
+        Boolean sNoValidAccount = null;
+        try {
+            RequestType rqtType = requestTypeService.getRequestTypeByLabel(label);
+            sNoValidAccount = rqtType.getSupportNoValidAccount();
+        } catch (CvqException e) {
+            logger.error("Cannot retrieve requestTypeByLabel : " + label +
+                    "\n Error: " + e.getMessage());
+        }
+        return sNoValidAccount == null ? supportNoValidAccount : sNoValidAccount;
+    }
+
+    public void setSupportNoValidAccount(boolean supportNoValidAccount) {
+        this.supportNoValidAccount = supportNoValidAccount;
     }
 
     public IRequestTypeService getRequestTypeService() {

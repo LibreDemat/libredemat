@@ -34,6 +34,10 @@
           <input type="checkbox" value="active" ${unregisteredCreation ? 'checked' : ''} name="supportUnregisteredCreation" id="supportUnregisteredCreation"/>
         </p>
         <p class="field">
+          <label for="supportNoValidAccount">${message(code:'requestType.property.supportNoValidAccount')}</label>
+          <input type="checkbox" value="active" ${supportNoValidAccount ? 'checked' : ''} name="supportNoValidAccount" id="supportNoValidAccount"/>
+        </p>
+        <p class="field">
           <label for="filingDelay" style="margin: 0;">${message(code:'requestType.property.filingDelay')}</label>
           <input type="number" value="${filingDelay}" name="filingDelay" id="filingDelay"/>
         </p>

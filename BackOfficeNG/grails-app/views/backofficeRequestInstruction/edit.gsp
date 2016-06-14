@@ -72,20 +72,44 @@
           <span id="requestTypeLabel">${requestTypeLabel}</span>
         </div>
 
-        <g:if test="${requester.duplicateAlert}">
-          <div class="alert mainbox">
-            <h2>${message(code:'request.alert.duplicate')}</h2>
-            <h3>${message(code:'request.alert.duplicate.informations.label')}</h3>
-            <p>${message(code:'request.alert.duplicate.informations.desc')}</p>
-            <h3>${message(code:'request.alert.duplicate.actions.label')}</h3>
-            <p>${message(code:'request.alert.duplicate.actions.desc')}</p>
-            <p>
-              <a href="${createLink(controller:'backofficeHomeFolder', action:'details', id:requester.homeFolder.id)}">
-                ${message(code:'request.alert.duplicate.actions.viewHomeFolderDetails')}
-              </a>
-            </p>
-          </div>
-        </g:if>
+        <g:if test="${(requester.duplicateAlert && rqt.requestType.supportNoValidAccount) || (!homeFolderIsValid && rqt.requestType.supportNoValidAccount)}">
+            <div class="alert mainbox">
+              <h2>${message(code:'request.alert.supportNoValidAccount')}</h2>
+              <h3>${message(code:'request.alert.duplicate.informations.label')}</h3>
+              <g:if test="${requester.duplicateAlert}">
+                <p>${message(code:'request.alert.duplicate.informations.desc')}</p>
+              </g:if>
+              <g:if test="${!homeFolderIsValid}">
+                <p>${message(code:'request.alert.supportNoValidAccount.informations.desc')}</p>
+              </g:if>
+              <h3>${message(code:'request.alert.duplicate.actions.label')}</h3>
+              <p>${message(code:'request.alert.actions.homeFolder')}</p>
+              <p><g:if test="${requester.duplicateAlert}">${message(code:'request.alert.duplicate.actions.desc')}</g:if></p>
+              <p>${message(code:'request.alert.supportNoValidAccount.actions.desc')}</p>
+              <p>
+                <a href="${createLink(controller:'backofficeHomeFolder', action:'details', id:requester.homeFolder.id)}">
+                  ${message(code:'request.alert.duplicate.actions.viewHomeFolderDetails')}
+                </a>
+              </p>
+            </div>
+          </g:if>
+          <g:else>
+            <g:if test="${requester.duplicateAlert}">
+              <div class="alert mainbox">
+                <h2>${message(code:'request.alert.duplicate')}</h2>
+                <h3>${message(code:'request.alert.duplicate.informations.label')}</h3>
+                <p>${message(code:'request.alert.duplicate.informations.desc')}</p>
+                <h3>${message(code:'request.alert.duplicate.actions.label')}</h3>
+                <p>${message(code:'request.alert.actions.homeFolder')}</p>
+                <p>${message(code:'request.alert.duplicate.actions.desc')}</p>
+                <p>
+                  <a href="${createLink(controller:'backofficeHomeFolder', action:'details', id:requester.homeFolder.id)}">
+                    ${message(code:'request.alert.duplicate.actions.viewHomeFolderDetails')}
+                  </a>
+                </p>
+              </div>
+            </g:if>
+          </g:else>
 
         <g:if test="${['Error', 'NotSent'].contains(lastTraceStatus?.enumString)}">
           <div id="notSent" class="alert mainbox">

@@ -14,6 +14,7 @@ import org.libredemat.business.request.RequestState
 import org.libredemat.business.users.Child;
 import org.libredemat.business.users.Individual;
 import org.libredemat.business.users.RoleType
+import org.libredemat.business.users.UserState;
 import org.libredemat.business.payment.Payment
 import org.libredemat.business.payment.PaymentState
 import org.libredemat.exception.CvqException
@@ -36,6 +37,7 @@ import org.libredemat.service.request.IRequestActionService
 import org.libredemat.service.request.external.IRequestExternalService
 import org.libredemat.service.request.external.IRequestExternalActionService
 import org.libredemat.service.users.IUserSearchService
+import org.libredemat.service.users.impl.UserSearchService;
 import org.libredemat.util.Critere
 import org.libredemat.util.UserUtils
 import org.libredemat.util.UserUtils.UserDetails
@@ -147,6 +149,14 @@ class BackofficeRequestInstructionController {
             subMenuEntries.add("homeFolder.details.id=" + rqt.homeFolderId)
         }
 
+        def agentCanWrite = categoryService.hasWriteProfileOnCategory(SecurityContext.currentAgent,
+                rqt.requestType.category.id);
+        if(agentCanWrite) {
+            if((requester.duplicateAlert && rqt.requestType.supportNoValidAccount) || (!UserState.VALID.equals(userSearchService.getHomeFolderById(rqt.getHomeFolderId()).state) && rqt.requestType.supportNoValidAccount)) {
+                agentCanWrite = false
+            }
+        }
+
         return ([
             "rqt": rqt,
             "requestTypeLabel": rqt.requestType.label,
@@ -154,8 +164,7 @@ class BackofficeRequestInstructionController {
             "requester": requester,
             'hasHomeFolder': hasHomeFolder,
             "editableStates": (editableStates as JSON).toString(),
-            "agentCanWrite": categoryService.hasWriteProfileOnCategory(SecurityContext.currentAgent, 
-                rqt.requestType.category.id),
+            "agentCanWrite": agentCanWrite,
             "requestState": LibredematUtils.adaptLibredematEnum(rqt.state, "request.state"),
             "lastActionNote" : lastActionNote,
             "requestDataState": LibredematUtils.adaptLibredematEnum(rqt.dataState, "request.dataState"),
@@ -166,7 +175,8 @@ class BackofficeRequestInstructionController {
             "lastTraceStatus" : lastTraceStatus,
             "subject" : subject,
             "subjectIsChild" : subject != null && subject instanceof Child ? true : false,
-            "subMenuEntries" : subMenuEntries
+            "subMenuEntries" : subMenuEntries,
+            "homeFolderIsValid" : UserState.VALID.equals(userSearchService.getHomeFolderById(rqt.getHomeFolderId()).state)
         ])
     }
     

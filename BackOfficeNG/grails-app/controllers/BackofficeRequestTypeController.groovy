@@ -418,6 +418,7 @@ class BackofficeRequestTypeController {
                 "supportMultiple" : requestService.getSupportMultiple(),
                 "subjectPolicy" : requestService.getSubjectPolicy(),
                 "filingDelay" : requestService.getFilingDelay(),
+                "supportNoValidAccount" : requestService.getSupportNoValidAccount(),
                 "id" : params.id].plus(getCommonModel(requestTypeService.getRequestTypeById(Long.valueOf(id))))
         )
     }
@@ -428,6 +429,7 @@ class BackofficeRequestTypeController {
         rqtType.setSupportMultiple(params.supportMultiple.equals("active"))
         rqtType.setIsOfRegistrationKind(params.isOfRegistrationKind.equals("active"))
         rqtType.setSubjectPolicy(params.subjectPolicy)
+        rqtType.setSupportNoValidAccount(params.supportNoValidAccount.equals("active"))
         try {
             rqtType.setFilingDelay(Integer.valueOf(params.filingDelay))
             if(Integer.valueOf(params.filingDelay) <= 0) {

@@ -76,6 +76,8 @@ public interface IRequestService extends ApplicationListener<LibreDematEvent> {
      */
     boolean getSupportMultiple();
 
+    boolean getSupportNoValidAccount();
+
     String getDefaultDisplayGroup();
 
     ///////////////////////////////////////////////////////////

@@ -110,6 +110,9 @@ public class RequestType implements Serializable {
     @Column(name="is_mandatory_document_step")
     private boolean isMandatoryDocumentStep;
 
+    @Column(name="support_no_valid_account")
+    private boolean supportNoValidAccount;
+
     public RequestType() {
         setSeasons(new TreeSet<RequestSeason>());
     }
@@ -302,5 +305,13 @@ public class RequestType implements Serializable {
 
     public void setIsMandatoryDocumentStep(boolean isMandatoryDocumentStep) {
         this.isMandatoryDocumentStep = isMandatoryDocumentStep;
+    }
+
+    public boolean getSupportNoValidAccount() {
+        return supportNoValidAccount;
+    }
+
+    public void setSupportNoValidAccount(boolean supportNoValidAccount) {
+        this.supportNoValidAccount = supportNoValidAccount;
     }
 }
