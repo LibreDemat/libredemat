@@ -21,27 +21,29 @@
         <input type="text" name="firstName" value="${adult.firstName}" />
       </dd>
     </dl>
-    <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
-    <p>${message(code:'homeFolder.adult.child.property.legalResponsibles.help')}</p>
-    <dl style="margin-top:1em">
-      <g:each var="child" in="${children}" status="index">
-        <dt class="required">
-           <select name="type_${child.id}">
-            <option value="">${message(code:'homeFolder.role.message.none')}</option>
-            <g:each var="roleType" in="${org.libredemat.business.users.RoleType.childRoleTypes}">
-              <option value="${roleType}">
-                ${message(code:'layout.is')} ${g.libredematEnumToText(var:roleType, i18nKeyPrefix:'homeFolder.role.withParticle')}
-              </option>
-            </g:each>
-          </select>
-        </dt>
-        <dd>
-         ${message(code:'layout.from')}
-          ${child.firstName}
-          <input type="hidden" name="child_${child.id}" value="${child.id}" />
-        </dd>
-      </g:each>
-    </dl>
+    <g:if test="${!children.isEmpty()}">
+      <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
+      <p>${message(code:'homeFolder.adult.child.property.legalResponsibles.help')}</p>
+      <dl style="margin-top:1em">
+        <g:each var="child" in="${children}" status="index">
+          <dt class="required">
+             <select name="type_${child.id}">
+              <option value="">${message(code:'homeFolder.role.message.none')}</option>
+              <g:each var="roleType" in="${org.libredemat.business.users.RoleType.childRoleTypes}">
+                <option value="${roleType}">
+                  ${message(code:'layout.is')} ${g.libredematEnumToText(var:roleType, i18nKeyPrefix:'homeFolder.role.withParticle')}
+                </option>
+              </g:each>
+            </select>
+          </dt>
+          <dd>
+           ${message(code:'layout.from')}
+            ${child.firstName}
+            <input type="hidden" name="child_${child.id}" value="${child.id}" />
+          </dd>
+        </g:each>
+      </dl>
+    </g:if>
     <h3>${message(code:'homeFolder.individual.header.contact')}</h3>
     <dl style="margin-top:1em">
       <dt class="required">${message(code:'homeFolder.adult.property.email')}</dt>

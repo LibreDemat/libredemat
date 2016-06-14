@@ -24,10 +24,12 @@
     <g:render template="static/contact" model="['adult':adult]" />
   </dl>
 
-  <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
-  <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} individual-adultResponsibles collapse">
-    <g:render template="static/adultResponsibles" model="['adult':adult, 'roles':adultsRoles.get(adult.id)]" />
-  </dl>
+  <g:if test="${!adultsRoles.get(adult.id).isEmpty()}">
+    <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
+    <dl class="${adult?.state?.toString() != 'Archived' ? 'edit' : ''} individual-adultResponsibles collapse">
+      <g:render template="static/adultResponsibles" model="['adult':adult, 'roles':adultsRoles.get(adult.id)]" />
+    </dl>
+  </g:if>
 
   <h3>${message(code:'homeFolder.individual.header.connexion')}</h3>
   <dl class="collapse">

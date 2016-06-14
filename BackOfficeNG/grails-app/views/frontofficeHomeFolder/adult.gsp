@@ -39,8 +39,10 @@
           <g:render template="${adult.fragmentMode('address')}" />
           <h3 id="contact">${message(code:'homeFolder.individual.header.contact')}</h3>
           <g:render template="${adult.fragmentMode('contact')}" />
-          <h3 id="responsibles">${message(code:'homeFolder.individual.header.relation')}</h3>
-          <g:render template="${adult.fragmentMode('responsibles')}" />
+          <g:if test="${!childrenModfied.isEmpty()}">
+            <h3 id="responsibles">${message(code:'homeFolder.individual.header.relation')}</h3>
+            <g:render template="${adult.fragmentMode('responsibles')}" />
+          </g:if>
         </g:if>
         <g:else>
            <form action="${createLink(controller : 'frontofficeHomeFolder', action:'adult')}" method="post">

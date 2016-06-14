@@ -170,10 +170,13 @@
                 <dl class="required collapse">
                   <g:render template="static/connexion" model="['adult':homeFolderResponsible]" />
                 </dl>
+                <g:if test="${adultsRoles != null && adultsRoles.get(homeFolderResponsible.id) != null &&
+                !adultsRoles.get(homeFolderResponsible.id).isEmpty()}">
                 <h3>${message(code:'homeFolder.individual.header.responsibles.adult')}</h3>
                 <dl class="${homeFolderResponsible?.state?.toString() != 'Archived' ? 'edit' : ''} individual-adultResponsibles collapse">
                   <g:render template="static/adultResponsibles" model="['adult':homeFolderResponsible, 'roles': adultsRoles.get(homeFolderResponsible.id)]" />
                 </dl>
+                </g:if>
 
 
               </div>
