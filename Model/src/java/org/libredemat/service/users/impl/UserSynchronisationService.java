@@ -1,10 +1,11 @@
 package org.libredemat.service.users.impl;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.libredemat.business.users.Adult;
 import org.libredemat.business.users.HomeFolder;
 import org.libredemat.business.users.Individual;
 import org.libredemat.exception.CvqException;
@@ -31,13 +32,13 @@ public class UserSynchronisationService implements IUserSynchronisationService{
 
     @Override
     @Context(types = {ContextType.ADMIN}, privilege = ContextPrivilege.NONE)
-    public void synchroniseAll(List<String> servicesLabel, String email) throws CvqException {
+    public void synchroniseAll(List<String> servicesLabel, String email) throws CvqException, IOException {
         List<HomeFolder> homeFolders = userSearchService.getAll(true, true);
-        String body = "";
+        StringBuilder fileString = new StringBuilder();
         for(String serviceLabel : servicesLabel) {
             List<List<String>> informations = new ArrayList<List<String>>();
-            body += serviceLabel+ " :\n";
-            body += "--------------------------------\n\n";
+            fileString.append(serviceLabel+ " :\n");
+            fileString.append("--------------------------------\n\n");
 
             for(HomeFolder homeFolder : homeFolders) {
                 List<String> message = new ArrayList<String>();
@@ -45,10 +46,10 @@ public class UserSynchronisationService implements IUserSynchronisationService{
                 try {
                     userDeduplicationService.createCirilMapping(homeFolder);
                     userWorkflowService.synchronise(homeFolder, serviceLabel);
-                    message.add(translationService.translate("homeFolder.synchronisation.notification.body.success"));
+                    message.add(translationService.translate("homeFolder.synchronisation.notification.success"));
                 } catch (Exception ex) {
                     if (ex.getMessage() == null || ex.getMessage().isEmpty()) {
-                        message.add(translationService.translate("homeFolder.synchronisation.notification.body.fail.nomessage"));
+                        message.add(translationService.translate("homeFolder.synchronisation.notification.fail.nomessage"));
                     }
                     else {
                         message.add(ex.getMessage());
@@ -57,12 +58,17 @@ public class UserSynchronisationService implements IUserSynchronisationService{
                 informations.add(message);
             }
             for(List<String> info : informations) {
-                body += translationService.translate("homeFolder.synchronisation.notification.body", new Object[] {info.get(0), info.get(1)})+"\n";
+                fileString.append(translationService.translate("homeFolder.synchronisation.notification.info", new Object[] {info.get(0), info.get(1)})+"\n");
             }
-            body += "\n\n\n";
+            fileString.append("\n\n\n");
         }
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bos.write(fileString.toString().getBytes("UTF-8"));
+
         String subject = translationService.translate("homeFolder.synchronisation.notification.subject");
-        userNotificationService.notifyByEmail(SecurityContext.getCurrentSite().getAdminEmail() , email, subject, body, null, null);
+        String body = translationService.translate("homeFolder.synchronisation.notification.body");;
+        userNotificationService.notifyByEmail(SecurityContext.getCurrentSite().getAdminEmail() , email, subject, body, bos.toByteArray(), "rapport synchronisation.txt");
     }
 
     @Override
