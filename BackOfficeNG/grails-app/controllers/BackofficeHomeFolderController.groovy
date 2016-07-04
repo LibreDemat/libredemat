@@ -1171,12 +1171,10 @@ class BackofficeHomeFolderController {
         }
         catch (Exception ex)
         {
-            def message = ex.getMessage();
-            if (message == null || message.trim().equals("")) message = "Une erreur interne s'est produite"
-            render (new JSON([status : "error", msg : message]).toString())
+            render (new JSON([status : "error", msg : message('code' : 'homeFolder.synchronisation.notification.fail.nomessage')]).toString())
             return false
         }
-        render (new JSON([status : "success", msg : message('code' : 'homeFolder.synchronisation.notification.body.success')]).toString())
+        render (new JSON([status : "success", msg : message('code' : 'homeFolder.synchronisation.notification.success')]).toString())
         return false
     }
 
