@@ -19,7 +19,9 @@
           ${activityLabel}
           </g:if>
           <g:else>
-          	<g:translateRequestTypeLabel label="${activityCode}"/>
+            <g:if test="${activityCode}">
+              <g:translateRequestTypeLabel label="${activityCode}"/>
+            </g:if>
           </g:else>
           </span>
            <g:message code="message.for" /> ${individual}
