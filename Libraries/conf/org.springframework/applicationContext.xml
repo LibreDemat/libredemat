@@ -395,7 +395,6 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
     <property name="individualMappingDAO" ref="individualMappingDAO" />
     <property name="individualDAO" ref="individualDAO" />
     <property name="genericDAO" ref="genericDAO" />
-    <property name="requestExternalService" ref="requestExternalService" />
   </bean>
 
   <bean id="userSearchService" class="org.libredemat.service.users.impl.UserSearchService">

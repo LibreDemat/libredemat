@@ -80,7 +80,6 @@ public class UserAction {
     }
 
     public UserAction(Type type, Long targetId, JsonObject payload, Long originUserId) {
-        System.out.println("UserAction("+type+", "+targetId+", "+originUserId+", "+payload+")");
         this.date = new Date();
         this.type = type;
 

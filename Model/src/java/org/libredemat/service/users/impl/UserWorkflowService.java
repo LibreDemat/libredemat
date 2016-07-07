@@ -67,7 +67,6 @@ import org.libredemat.security.annotation.IsUser;
 import org.libredemat.service.authority.ILocalAuthorityLifecycleAware;
 import org.libredemat.service.authority.ILocalAuthorityRegistry;
 import org.libredemat.service.authority.impl.LocalAuthorityRegistry;
-import org.libredemat.service.request.external.IRequestExternalService;
 import org.libredemat.service.users.IUserDeduplicationService;
 import org.libredemat.service.users.IUserNotificationService;
 import org.libredemat.service.users.IUserSearchService;
@@ -127,7 +126,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
     private IHomeFolderMappingDAO homeFolderMappingDAO;
 
     private IIndividualMappingDAO individualMappingDAO;
-    private IRequestExternalService requestExternalService;
+
     private IUserDeduplicationService userDeduplicationService;
 
     private Map<String, UserWorkflow> workflows = new HashMap<String, UserWorkflow>();
@@ -750,10 +749,11 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 }
             }
         }
-
+        
         // change home folder state if needed
-        if (UserState.INVALID.equals(state) && !UserState.INVALID.equals(homeFolder.getState()))
+        if (UserState.INVALID.equals(state) && !UserState.INVALID.equals(homeFolder.getState())) {
             changeState(homeFolder, UserState.INVALID);
+        }
         else if (UserState.VALID.equals(state) || UserState.ARCHIVED.equals(state)) {
             UserState homeFolderState = state;
             for (Individual i : homeFolder.getIndividuals()) {
@@ -764,8 +764,9 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                     break;
                 }
             }
-            if (homeFolderState != null && !homeFolderState.equals(homeFolder.getState()))
+            if (homeFolderState != null && !homeFolderState.equals(homeFolder.getState())) {
                 changeState(individual.getHomeFolder(), homeFolderState);
+            }
         }
     }
 
@@ -1233,7 +1234,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     @Override
     @Context(types = { ContextType.ADMIN }, privilege = ContextPrivilege.NONE)
-    public void synchronise(HomeFolder homeFolder, String servicesLabel) throws CvqException {
+    public void synchronise(HomeFolder homeFolder, String serviceLabel) throws CvqException {
         if (homeFolder == null) throw new CvqException("No homeFolder object provided");
         else if (homeFolder.getId() == null) throw new CvqException("Cannot modify a transient homeFolder");
         List<HomeFolderMapping> findByHomeFolderId = homeFolderMappingDAO.findByHomeFolderId(homeFolder.getId());
@@ -1247,7 +1248,10 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
         if ((UserState.ARCHIVED.equals(homeFolder.getState())
                 && SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived())
                 || !UserState.ARCHIVED.equals(homeFolder.getState())) {
-            requestExternalService.synchronizeHomefolder(homeFolder, servicesLabel);
+            JsonObject payload = new JsonObject();
+            payload.addProperty("serviceLabel", serviceLabel);
+            UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId(), payload);
+            publishHomeFolder(homeFolder, action);
         }
     }
 
@@ -1259,7 +1263,7 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     @Override
     @Context(types = { ContextType.ECITIZEN, ContextType.AGENT }, privilege = ContextPrivilege.WRITE)
-    public void synchronise(Individual individual, String servicesLabel) throws CvqException {
+    public void synchronise(Individual individual, String serviceLabel) throws CvqException {
         if (individual == null) throw new CvqException("No adult object provided");
         else if (individual.getId() == null) throw new CvqException("Cannot modify a transient individual");
         HomeFolder homeFolder = individual.getHomeFolder();
@@ -1271,13 +1275,16 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
                 homeFolder.setExternalId(homeFolderMapping.getExternalId());
             }
         }
-        if(servicesLabel == null) {
+        if(serviceLabel == null) {
             publishHomeFolder(homeFolder, new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId()));
         } else {
             if ((UserState.ARCHIVED.equals(homeFolder.getState())
                     && SecurityContext.getCurrentConfigurationBean().isSynchroniseUserOnChangeStateToArchived())
                     || !UserState.ARCHIVED.equals(homeFolder.getState())) {
-                requestExternalService.synchronizeHomefolderWithTrace(homeFolder, servicesLabel);
+                JsonObject payload = new JsonObject();
+                payload.addProperty("serviceLabel", serviceLabel);
+                UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId(), payload);
+                publishHomeFolder(homeFolder, action);
             }
         }
     }
@@ -1332,10 +1339,6 @@ public class UserWorkflowService implements IUserWorkflowService, ApplicationEve
 
     public void setIndividualMappingDAO(IIndividualMappingDAO individualMappingDAO) {
         this.individualMappingDAO = individualMappingDAO;
-    }
-
-    public void setRequestExternalService(IRequestExternalService requestExternalService) {
-        this.requestExternalService = requestExternalService;
     }
 
     public void setUserDeduplicationService(IUserDeduplicationService userDeduplicationService) {

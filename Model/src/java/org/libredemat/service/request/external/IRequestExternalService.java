@@ -108,5 +108,7 @@ public interface IRequestExternalService {
 
     void synchronizeHomefolder(HomeFolder homeFolder, String serviceLabel) throws CvqException;
 
-    void synchronizeHomefolderWithTrace(HomeFolder homeFolder, String serviceLabel) throws CvqException;
+    void synchronizeHomefolder(HomeFolder homeFolder);
+
+    void synchronizeHomefolderWithTrace(HomeFolder homeFolder, String serviceLabel);
 }

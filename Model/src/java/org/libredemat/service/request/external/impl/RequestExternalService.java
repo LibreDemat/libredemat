@@ -537,7 +537,15 @@ public class RequestExternalService extends ExternalService implements IRequestE
     }
 
     @Override
-    public void synchronizeHomefolderWithTrace(HomeFolder homeFolder, String serviceLabel) throws CvqException {
+    public void synchronizeHomefolder(HomeFolder homeFolder) {
+        for (Entry<IExternalProviderService, ExternalServiceBean> entry :
+            SecurityContext.getCurrentConfigurationBean().getExternalServices().entrySet()) {
+            synchronizeHomefolderWithTrace(homeFolder, entry.getKey().getLabel());
+        }
+    }
+
+    @Override
+    public void synchronizeHomefolderWithTrace(HomeFolder homeFolder, String serviceLabel) {
         String message = "La synchronisation s'est effectuée avec succès";
         String status = "Sent";
         try {
@@ -575,110 +583,15 @@ public class RequestExternalService extends ExternalService implements IRequestE
             || UserAction.Type.STATE_CHANGE.equals(event.getAction().getType())
             || UserAction.Type.SYNCHRONISE.equals(event.getAction().getType())) {
 
+            JsonObject jsonObject = JSONUtils.deserialize(event.getAction().getData());
+
             if (UserState.VALID.equals(homeFolder.getState())) {
-
-                List<String> newMappings = new ArrayList<String>();
-                for (Entry<IExternalProviderService, ExternalServiceBean> entry : 
-                    SecurityContext.getCurrentConfigurationBean().getExternalServices().entrySet()) {
-                    if (entry.getValue().getProperty("sendHomeFolderCreation") != null
-                            && externalHomeFolderService.getHomeFolderMapping(entry.getKey().getLabel(), homeFolder.getId()) == null) {
-                        externalHomeFolderService.addHomeFolderMapping(
-                                entry.getKey().getLabel(), homeFolder.getId(), null);
-                        newMappings.add(entry.getKey().getLabel());
-                    }
-                }
-                for (HomeFolderMapping mapping :
-                    externalHomeFolderService.getHomeFolderMappings(homeFolder.getId())) {
-
-                    String message = "La synchronisation s'est effectuée avec succès";
-                    String status = "Sent";
-
-                    String externalServiceLabel = mapping.getExternalServiceLabel();
-                    try {
-
-                        IExternalProviderService externalProviderService =
-                            getExternalServiceByLabel(externalServiceLabel);
-                        if (externalProviderService == null) {
-                            logger.warn("onApplicationEvent() External service " 
-                                    + mapping.getExternalServiceLabel() + " is no longer existing");
-                            continue;
-                        }
-                        if (externalProviderService instanceof ExternalApplicationProviderService)
-                            continue;
-
-                        // to force user action's saving (which implies it will have an id we can use below)
-                        JpaUtil.getEntityManager().flush();
-
-                        RequestType xmlRequest = null;
-                        if (newMappings.contains(externalServiceLabel)) {
-                            VoCardRequestDocument doc = VoCardRequestDocument.Factory.newInstance();
-                            xmlRequest = doc.addNewVoCardRequest();
-                            xmlRequest.setRequestTypeLabel("VO Card");
-                        } else {
-                            HomeFolderModificationRequestDocument doc =
-                                HomeFolderModificationRequestDocument.Factory.newInstance();
-                            xmlRequest = doc.addNewHomeFolderModificationRequest();
-                            xmlRequest.setRequestTypeLabel("Home Folder Modification");
-                        }
-                        Calendar calendar = new GregorianCalendar();
-                        calendar.setTime(event.getAction().getDate());
-                        xmlRequest.setCreationDate(calendar);
-                        // set request id to the trigerring action's id to ensure uniqueness and a minimum of coherence
-                        if (UserAction.Type.SYNCHRONISE.equals(event.getAction().getType())) {
-                            xmlRequest.setId(event.getAction().getDate().getTime());
-                        } else {
-                            xmlRequest.setId(event.getAction().getId());
-                        }
-                        xmlRequest.setLastModificationDate(calendar);
-                        xmlRequest.setState(RequestStateType.Enum.forString(RequestState.VALIDATED.toString()));
-                        xmlRequest.setValidationDate(calendar);
-                        xmlRequest.addNewHomeFolder().set(homeFolder.modelToXml());
-                        xmlRequest.addNewRequester().set(userSearchService.getHomeFolderResponsible(homeFolder.getId()).modelToXml());
-                        fillRequestWithMapping(xmlRequest, mapping);
-                        String externalId = externalProviderService.sendHomeFolderModification(xmlRequest);
-                        if (externalId != null && !externalId.equals("")) {
-                            mapping.setExternalId(externalId);
-                            externalHomeFolderService.modifyHomeFolderMapping(mapping);
-                        }
-
-                        if (!externalProviderService.handlesTraces()) {
-                        genericDAO.create(new UserExternalAction(
-                            homeFolder.getId().toString(), externalServiceLabel, "Sent"));
-                        }
-
-                    } catch (Exception ex) {
-                        logger.error(ex);
-                        message = "Erreur interne : " + ex.getMessage();
-                        status = "ErrorInterne";
-                    }
-
-                    //Trace on HF validation
-                    if ((UserAction.Type.STATE_CHANGE.equals(event.getAction().getType())
-                            || UserAction.Type.MODIFICATION.equals(event.getAction().getType()))
-                          && externalServiceLabel.equals("CirilNetEnfance")) {
-
-                        UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId());
-                        JsonObject payload = UserUtils.getPayloadForUserAction(-1L, "Système", -1L, "CirilNetEnfance");
-                        payload.addProperty("state", status);
-                        payload.addProperty("message", message);
-                        action.setData(new Gson().toJson(payload));
-                        action = (UserAction) genericDAO.create(action);
-                        homeFolder.getActions().add(action);
-                        homeFolderDAO.update(homeFolder);
-                    }
-
-                    if (UserAction.Type.SYNCHRONISE.equals(event.getAction().getType())) {
-                        JsonObject payload = UserUtils.getPayloadForUserAction(SecurityContext.getCurrentUserId(),
-                                    UserUtils.getDisplayName(SecurityContext.getCurrentUserId()), -1L,
-                                    externalServiceLabel);
-                        payload.addProperty("state", status);
-                        payload.addProperty("message", message);
-                        UserAction action = new UserAction(UserAction.Type.SYNCHRONISE, homeFolder.getId());
-                        action.setData(new Gson().toJson(payload));
-                        action = (UserAction) genericDAO.create(action);
-                        homeFolder.getActions().add(action);
-                        homeFolderDAO.update(homeFolder);
-                    }
+                if (jsonObject.get("serviceLabel") != null
+                        && jsonObject.get("serviceLabel").getAsString() != null
+                        && !jsonObject.get("serviceLabel").getAsString().isEmpty()) {
+                    synchronizeHomefolderWithTrace(homeFolder, jsonObject.get("serviceLabel").getAsString());
+                } else {
+                    synchronizeHomefolder(homeFolder);
                 }
             }
         } else if (UserAction.Type.MERGE.equals(event.getAction().getType())) {
