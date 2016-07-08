@@ -71,12 +71,18 @@ class BackofficeContactController {
                 LibredematUtils.adaptLibredematEnum(it.type, "meansOfContact"))
             }
         }
-        meansOfContacts.each() {
-            it.i18nKey = message(code:it.i18nKey)
-        }
+
         def defaultMeansOfContact = rqt ?
             LibredematUtils.adaptLibredematEnum(rqt.meansOfContact?.type, "meansOfContact") :
             LibredematUtils.adaptLibredematEnum(MeansOfContactEnum.EMAIL, "meansOfContact")
+
+        if (meansOfContacts.empty) {
+            meansOfContacts.add(defaultMeansOfContact)
+        }
+
+        meansOfContacts.each() {
+            it.i18nKey = message(code:it.i18nKey)
+        }
         def requestForms = []
         if (rqt) {
             requestTypeService.getRequestTypeForms(rqt.requestType.id,
