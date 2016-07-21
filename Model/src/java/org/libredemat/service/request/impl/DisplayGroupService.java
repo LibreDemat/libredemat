@@ -83,7 +83,7 @@ public class DisplayGroupService implements IDisplayGroupService, ILocalAuthorit
         
         requestType.setDisplayGroup(displayGroup);
         displayGroup.getRequestTypes().add(requestType);
-        
+        requestType.setWeight(-1L);
         genericDAO.update(displayGroup);
         
         return displayGroup;
