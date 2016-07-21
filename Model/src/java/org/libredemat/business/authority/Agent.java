@@ -66,7 +66,7 @@ public class Agent implements Serializable {
     @Column(name="validation_code_expiration")
     private Date validationCodeExpiration;
 
-    @Column(name="is_view_payment")
+    @Column(name="is_view_payment", nullable=false, columnDefinition = "bool default false")
     private boolean isViewPayment;
 
     @Column(name="is_sanitaire", nullable=false, columnDefinition = "bool default false")

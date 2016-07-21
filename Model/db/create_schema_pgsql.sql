@@ -906,6 +906,7 @@
         email varchar(255),
         first_name varchar(255),
         is_sanitaire bool default false not null,
+        is_view_payment bool default false not null,
         last_name varchar(255),
         login varchar(255),
         password varchar(255),
