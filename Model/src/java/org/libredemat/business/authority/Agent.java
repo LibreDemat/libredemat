@@ -69,7 +69,7 @@ public class Agent implements Serializable {
     @Column(name="is_view_payment")
     private boolean isViewPayment;
 
-    @Column(name="is_sanitaire")
+    @Column(name="is_sanitaire", nullable=false, columnDefinition = "bool default false")
     private boolean isSanitaire;
 
 
