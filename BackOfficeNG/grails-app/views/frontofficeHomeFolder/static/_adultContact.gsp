@@ -10,4 +10,8 @@
   <dd>${adult.mobilePhone}</dd>
   <dt>${message(code:'homeFolder.adult.property.officePhone')} : </dt>
   <dd>${adult.officePhone}</dd>
+  <g:if test="${org.libredemat.security.SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()}">
+  <dt>${message(code:'homeFolder.adult.property.smsPermission')} : </dt>
+  <dd>${message(code:'action.'+ (adult.smsPermission==true ? 'yes':'no'))}</dd>
+  </g:if>
 </dl>

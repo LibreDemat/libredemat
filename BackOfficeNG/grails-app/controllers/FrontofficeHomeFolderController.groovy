@@ -506,6 +506,8 @@ class FrontofficeHomeFolderController {
             model['informationSheetRequired'] = ''
         }
         model['informationSheetDisplayed'] = SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
+        model['informationSheetRequiredFieldsActived'] = SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()
+        model['availableRules'] = localAuthorityRegistry.getLocalAuthorityRules('childInformationSheetRequest')
 
         def dietsList = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration()
         def dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()
@@ -639,7 +641,7 @@ class FrontofficeHomeFolderController {
         }
         if (fragment == 'contact') {
             dto = new Adult()
-            fields = ["email", "homePhone", "mobilePhone", "officePhone"]
+            fields = ["email", "homePhone", "mobilePhone", "officePhone", "smsPermission"]
         }
         if (fragment == 'connexion') {
             dto = new Adult()

@@ -118,9 +118,25 @@ public class UserService implements IUserService, ILocalAuthorityLifecycleAware 
                 ValidationUtils.collectInvalidFields(violation, invalidFields, "", "");
             }
         }
-        
+
         List<String> result = new ArrayList<String>();
         for (String profile : new String[] {"", "informationSheetRequired", "pattern"}) {
+            if (invalidFields.get(profile) != null) {
+                result.addAll(invalidFields.get(profile));
+            }
+        }
+
+        if (SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            // Pattern à vérifier seulement si la fiche de renseignement est obligatoire
+            Validator validatorInformationSheetRequired = new Validator();
+            validatorInformationSheetRequired.disableAllProfiles();
+            validatorInformationSheetRequired.enableProfile("informationSheetRequiredFieldsActived");
+            for (ConstraintViolation violation : validatorInformationSheetRequired.validate(childInformationSheet)) {
+                ValidationUtils.collectInvalidFields(violation, invalidFields, "", "");
+            }
+        }
+
+        for (String profile : new String[] {"", "informationSheetRequiredFieldsActived", "pattern"}) {
             if (invalidFields.get(profile) != null) {
                 result.addAll(invalidFields.get(profile));
             }

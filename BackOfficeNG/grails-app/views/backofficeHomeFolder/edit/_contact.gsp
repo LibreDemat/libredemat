@@ -15,5 +15,12 @@
   <dd>
     <input type="text" name="officePhone" value="${adult.officePhone}" />
   </dd>
+  <g:if test="${org.libredemat.security.SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()}">
+  <dt>${message(code:'homeFolder.adult.property.smsPermission')}</dt>
+  <dd>
+    <input type="hidden" name="_smsPermission">
+    <input type="checkbox" id="smsPermission" name="smsPermission" class="required  validate-acceptance" ${adult?.smsPermission ?'checked' : ''} value="true">
+  </dd>
+  </g:if>
   <g:render template="edit/submit" model="['object': adult]" />
 </form>

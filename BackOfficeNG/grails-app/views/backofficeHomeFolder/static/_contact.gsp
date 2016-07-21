@@ -6,3 +6,7 @@
 <dd class="required">${adult.mobilePhone}</dd>
 <dt <g:if test="${adult.officePhone != null}">class="required"</g:if>>${message(code:'homeFolder.adult.property.officePhone')}</dt>
 <dd class="required">${adult.officePhone}</dd>
+<g:if test="${org.libredemat.security.SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()}">
+<dt>${message(code:'homeFolder.adult.property.smsPermission')}</dt>
+<dd>${message(code:'action.'+ (adult.smsPermission==true ? 'yes':'no'))}</dd>
+</g:if>

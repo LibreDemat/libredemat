@@ -48,5 +48,18 @@
         class="validate-phone ${invalidFields?.contains('officePhone') ? 'validation-failed' : ''}"
         title="${message(code:'homeFolder.adult.property.officePhone.validationError')}" />
   </div>
+
+<g:if test="${org.libredemat.security.SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()}">
+    <ul>
+      <li>
+        <input type="hidden" name="_smsPermission">
+        <label for="smsPermission" class="required" style="font-size:1.2em">
+        ${message(code:'homeFolder.adult.property.smsPermission')}</a>
+        <span></span>
+        </label>
+        <input type="checkbox" id="smsPermission" name="smsPermission" class="required  validate-acceptance" ${adult?.smsPermission ?'checked' : ''} value="true">
+      </li>
+    </ul>
+</g:if>
   <g:render template="edit/submit" model="['individual':adult, 'fragment':'contact']" />
 </form>

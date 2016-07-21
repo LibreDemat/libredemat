@@ -24,6 +24,8 @@ import net.sf.oval.constraint.Email;
 import net.sf.oval.constraint.MatchPattern;
 import net.sf.oval.constraint.NotNull;
 import net.sf.oval.constraint.Past;
+
+import org.libredemat.security.SecurityContext;
 import org.libredemat.xml.common.ChildInformationSheetType;
 import org.libredemat.xml.common.DietEnumType;
 import org.libredemat.xml.common.DietType;
@@ -63,6 +65,7 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     private String emailEnfant;
     
     /** Personnes autorisées */
+    @NotNull(message = "personneAutoriseNom1", profiles = {"informationSheetRequiredFieldsActived"})
     @Column(name="personne_autorise_nom1")
     private String personneAutoriseNom1;
     
@@ -72,6 +75,7 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     @Column(name="personne_autorise_nom3")
     private String personneAutoriseNom3;
 
+    @NotNull(message = "personneAutorisePrenom1", profiles = {"informationSheetRequiredFieldsActived"})
     @Column(name="personne_autorise_prenom1")
     private String personneAutorisePrenom1;
     
@@ -81,6 +85,7 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     @Column(name="personne_autorise_prenom3")
     private String personneAutorisePrenom3;
 
+    @NotNull(message = "personneAutoriseTelephone1", profiles = {"informationSheetRequiredFieldsActived"})
     @MatchPattern(pattern = "^0[1-5679][0-9]{8}$", message = "personneAutoriseTelephone1", profiles = {"pattern"})
     @Column(name="personne_autorise_telephone1", length=32)
     private String personneAutoriseTelephone1;
@@ -95,7 +100,7 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     
     /**  Autorisation de rentrer seul */
     @Column(name="autorisation_rentrer_seul")
-    private boolean autorisationRentrerSeul = false;
+    private Boolean autorisationRentrerSeul;
     
     /** Nom de l'organisme d'assurance de la fiche de renseignement et de sécurité enfant */
     @NotNull(message = "nomOrganismeAssurance", profiles = {"informationSheetRequired"})
@@ -166,27 +171,32 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     /** pathologie de l'enfant de la fiche de renseignement et de sécurité enfant  */
     @Column(name="pathologie_enfant")
     private boolean projetAccueilIndividualise;
-    
+
     /** Autorisation pour le droit à l'image de la fiche de renseignement et de sécurité enfant  */
+    @NotNull(message = "autorisationDroitImage", profiles = {"informationSheetRequiredFieldsActived"})
     @Column(name="autorisation_droit_image")
-    private boolean autorisationDroitImage = false;
-    
+    private Boolean autorisationDroitImage;
+
     /** Autorisation de maquillage de la fiche de renseignement et de sécurité enfant  */
+    @NotNull(message = "autorisationMaquillage", profiles = {"informationSheetRequiredFieldsActived"})
     @Column(name="autorisation_maquillage")
-    private boolean autorisationMaquillage = false;
-    
+    private Boolean autorisationMaquillage;
+
+    @NotNull(message = "autorisationTransporterVehiculeMunicipal", profiles = {"informationSheetRequiredFieldsActived"})
     /** Autorisation de transporter l'enfant en véhicule municipal de la fiche de renseignement et de sécurité enfant  */
     @Column(name="autorisation_transporter_vehicule_municipal")
-    private boolean autorisationTransporterVehiculeMunicipal = false;
-    
+    private Boolean autorisationTransporterVehiculeMunicipal;
+
     /** Autorisation de transporter l'enfant en transports en commun de la fiche de renseignement et de sécurité enfant  */
+    @NotNull(message = "autorisationTransporterTransportCommun", profiles = {"informationSheetRequiredFieldsActived"})
     @Column(name="autorisation_transporter_transport_commun")
-    private boolean autorisationTransporterTransportCommun = false;
+    private Boolean autorisationTransporterTransportCommun;
     
     /** Autorisation d'hospitalisation de la fiche de renseignement et de sécurité enfant  */
+    @NotNull(message = "autorisationTransporterTransportCommun", profiles = {"informationSheetRequiredFieldsActived"})
     @Column(name="autorisation_hospitalisation")
-    private boolean autorisationHospitalisation = false; 
-    
+    private Boolean autorisationHospitalisation; 
+
     /**
      * Transforme du modele en XML
      *
@@ -211,13 +221,13 @@ public class ChildInformationSheet implements Serializable, Cloneable {
             childInformationSheetType.setDiets(diets);
         }
         
-        childInformationSheetType.setAutorisationDroitImage(childInformationSheet.isAutorisationDroitImage());
+        childInformationSheetType.setAutorisationDroitImage(childInformationSheet.isAutorisationDroitImage() == null ? false : childInformationSheet.isAutorisationDroitImage());
         // Cette info n'est pour l'instant pas synchronisée
-        childInformationSheetType.setAutorisationHospitalisation(childInformationSheet.isAutorisationHospitalisation());
-        childInformationSheetType.setAutorisationMaquillage(childInformationSheet.isAutorisationMaquillage());
-        childInformationSheetType.setAutorisationRentrerSeul(childInformationSheet.isAutorisationRentrerSeul());
-        childInformationSheetType.setAutorisationTransporterTransportCommun(childInformationSheet.isAutorisationTransporterTransportCommun());
-        childInformationSheetType.setAutorisationTransporterVehiculeMunicipal(childInformationSheet.isAutorisationTransporterVehiculeMunicipal());
+        childInformationSheetType.setAutorisationHospitalisation(childInformationSheet.isAutorisationHospitalisation() == null ? false : childInformationSheet.isAutorisationHospitalisation());
+        childInformationSheetType.setAutorisationMaquillage(childInformationSheet.isAutorisationMaquillage() == null ? false : childInformationSheet.isAutorisationMaquillage());
+        childInformationSheetType.setAutorisationRentrerSeul(childInformationSheet.isAutorisationRentrerSeul() == null ? false : childInformationSheet.isAutorisationRentrerSeul());
+        childInformationSheetType.setAutorisationTransporterTransportCommun(childInformationSheet.isAutorisationTransporterTransportCommun() == null ? false : childInformationSheet.isAutorisationTransporterTransportCommun());
+        childInformationSheetType.setAutorisationTransporterVehiculeMunicipal(childInformationSheet.isAutorisationTransporterVehiculeMunicipal() == null ? false : childInformationSheet.isAutorisationTransporterVehiculeMunicipal());
         childInformationSheetType.setDifficulteSante(childInformationSheet.getDifficulteSante());
         childInformationSheetType.setRecommandationParent(childInformationSheet.getRecommandationParent());
         childInformationSheetType.setEmailEnfant(childInformationSheet.getEmailEnfant());
@@ -350,8 +360,12 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     /**
      * @return the autorisationRentrerSeul
      */
-    public boolean isAutorisationRentrerSeul() {
-        return autorisationRentrerSeul;
+    public Boolean isAutorisationRentrerSeul() {
+        if(autorisationRentrerSeul ==null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            return false;
+        } else {
+            return autorisationRentrerSeul;
+        }
     }
 
     /**
@@ -462,36 +476,56 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     /**
      * @return the autorisationDroitImage
      */
-    public boolean isAutorisationDroitImage() {
-        return autorisationDroitImage;
+    public Boolean isAutorisationDroitImage() {
+        if(autorisationDroitImage ==null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            return false;
+        } else {
+            return autorisationDroitImage;
+        }
     }
 
     /**
      * @return the autorisationMaquillage
      */
-    public boolean isAutorisationMaquillage() {
-        return autorisationMaquillage;
+    public Boolean isAutorisationMaquillage() {
+        if(autorisationMaquillage == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            return false;
+        } else {
+            return autorisationMaquillage;
+        }
     }
 
     /**
      * @return the autorisationTransporterVehiculeMunicipal
      */
-    public boolean isAutorisationTransporterVehiculeMunicipal() {
-        return autorisationTransporterVehiculeMunicipal;
+    public Boolean isAutorisationTransporterVehiculeMunicipal() {
+        if(autorisationTransporterVehiculeMunicipal == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            return false;
+        } else {
+            return autorisationTransporterVehiculeMunicipal;
+        }
     }
 
     /**
      * @return the autorisationTransporterTransportCommun
      */
-    public boolean isAutorisationTransporterTransportCommun() {
-        return autorisationTransporterTransportCommun;
+    public Boolean isAutorisationTransporterTransportCommun() {
+        if(autorisationTransporterTransportCommun == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            return false;
+        } else {
+            return autorisationTransporterTransportCommun;
+        }
     }
 
     /**
      * @return the autorisationHospitalisation
      */
-    public boolean isAutorisationHospitalisation() {
-        return autorisationHospitalisation;
+    public Boolean isAutorisationHospitalisation() {
+        if(autorisationHospitalisation ==null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            return false;
+        } else {
+            return autorisationHospitalisation;
+        }
     }
 
     /**
@@ -525,8 +559,13 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     /**
      * @param autorisationRentrerSeul the autorisationRentrerSeul to set
      */
-    public void setAutorisationRentrerSeul(boolean autorisationRentrerSeul) {
-        this.autorisationRentrerSeul = autorisationRentrerSeul;
+    public void setAutorisationRentrerSeul(Boolean autorisationRentrerSeul) {
+        if(autorisationRentrerSeul ==null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            this.autorisationRentrerSeul = false;
+        } else {
+            this.autorisationRentrerSeul = autorisationRentrerSeul;
+        }
+        
     }
 
     /**
@@ -637,36 +676,58 @@ public class ChildInformationSheet implements Serializable, Cloneable {
     /**
      * @param autorisationDroitImage the autorisationDroitImage to set
      */
-    public void setAutorisationDroitImage(boolean autorisationDroitImage) {
-        this.autorisationDroitImage = autorisationDroitImage;
+    public void setAutorisationDroitImage(Boolean autorisationDroitImage) {
+        if(autorisationDroitImage == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            this.autorisationDroitImage = false;
+        } else {
+            this.autorisationDroitImage = autorisationDroitImage;
+        }
     }
 
     /**
      * @param autorisationMaquillage the autorisationMaquillage to set
      */
-    public void setAutorisationMaquillage(boolean autorisationMaquillage) {
-        this.autorisationMaquillage = autorisationMaquillage;
+    public void setAutorisationMaquillage(Boolean autorisationMaquillage) {
+        if(autorisationMaquillage == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            this.autorisationMaquillage = false;
+        } else {
+            this.autorisationMaquillage = autorisationMaquillage;
+        }
+        
     }
 
     /**
      * @param autorisationTransporterVehiculeMunicipal the autorisationTransporterVehiculeMunicipal to set
      */
-    public void setAutorisationTransporterVehiculeMunicipal(boolean autorisationTransporterVehiculeMunicipal) {
-        this.autorisationTransporterVehiculeMunicipal = autorisationTransporterVehiculeMunicipal;
+    public void setAutorisationTransporterVehiculeMunicipal(Boolean autorisationTransporterVehiculeMunicipal) {
+        if(autorisationTransporterVehiculeMunicipal == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            this.autorisationTransporterVehiculeMunicipal = false;
+        } else {
+            this.autorisationTransporterVehiculeMunicipal = autorisationTransporterVehiculeMunicipal;
+        }
     }
 
     /**
      * @param autorisationTransporterTransportCommun the autorisationTransporterTransportCommun to set
      */
-    public void setAutorisationTransporterTransportCommun(boolean autorisationTransporterTransportCommun) {
-        this.autorisationTransporterTransportCommun = autorisationTransporterTransportCommun;
+    public void setAutorisationTransporterTransportCommun(Boolean autorisationTransporterTransportCommun) {
+        if(autorisationTransporterTransportCommun == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            this.autorisationTransporterTransportCommun = false;
+        } else {
+            this.autorisationTransporterTransportCommun = autorisationTransporterTransportCommun;
+        }
     }
 
     /**
      * @param autorisationHospitalisation the autorisationHospitalisation to set
      */
-    public void setAutorisationHospitalisation(boolean autorisationHospitalisation) {
-        this.autorisationHospitalisation = autorisationHospitalisation;
+    public void setAutorisationHospitalisation(Boolean autorisationHospitalisation) {
+        if(autorisationHospitalisation == null && !SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()) {
+            this.autorisationHospitalisation = false;
+        } else {
+            this.autorisationHospitalisation = autorisationHospitalisation;
+        }
+        
     }
 
     /**

@@ -79,6 +79,7 @@ public class BusinessObjectsFactory {
         adult.setEmail("libredemat-dev@zenexity.fr");
         adult.setCfbn("5050505E");
         adult.setProfession("Profession");
+        adult.setSmsPermission(false);
         if (address != null)
             adult.setAddress(address);
         adult.setBirthCity("PARIS");

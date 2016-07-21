@@ -64,6 +64,7 @@ public final class LocalAuthorityConfigurationBean {
     private boolean synchroniseUserOnChangeStateToArchived = false;
     private boolean synchroniseUserOnChangeState = false;
     private boolean createOnlyTemporaryAccountInTS = false;
+    private boolean informationSheetRequiredFieldsActived = true;
 
     public LocalAuthorityConfigurationBean() {
         paymentServices =
@@ -471,5 +472,13 @@ public final class LocalAuthorityConfigurationBean {
 
     public void setSuperAdminPassword(String superAdminPassword) {
         this.superAdminPassword = superAdminPassword;
+    }
+
+    public boolean isInformationSheetRequiredFieldsActived() {
+        return informationSheetRequiredFieldsActived;
+    }
+
+    public void setInformationSheetRequiredFieldsActived(boolean informationSheetRequiredFieldsActived) {
+        this.informationSheetRequiredFieldsActived = informationSheetRequiredFieldsActived;
     }
 }

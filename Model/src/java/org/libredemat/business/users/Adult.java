@@ -78,6 +78,9 @@ public class Adult extends Individual {
     @MaxLength(value=255, message="profession")
     private String profession;
 
+    @Column(name="sms_permission", columnDefinition = "boolean default false")
+    private Boolean smsPermission;
+
     @NotNull(message = "question", profiles = {"login"})
     @NotEmpty(message = "question")
     @Column(name="question")
@@ -135,6 +138,8 @@ public class Adult extends Individual {
             adultType.setCfbn(getCfbn());
         if (getProfession() != null)
             adultType.setProfession(getProfession());
+        if (getSmsPermission() != null)
+            adultType.setSmsPermission(getSmsPermission());
         if (getLogin() != null)
             adultType.setLogin(getLogin());
         // FIXME : do we include such information when we export user information ??
@@ -347,6 +352,14 @@ public class Adult extends Individual {
 
     public void setValidationCodeExpiration(Date validationCodeExpiration) {
         this.validationCodeExpiration = validationCodeExpiration;
+    }
+
+    public Boolean getSmsPermission() {
+        return smsPermission;
+    }
+
+    public void setSmsPermission(Boolean smsPermission) {
+        this.smsPermission = smsPermission;
     }
 
 }

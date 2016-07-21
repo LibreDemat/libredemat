@@ -594,6 +594,8 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
             String profession = xmlAdult.getProfession();
             if (profession != null && profession.trim().equals("")) profession = null;
             adult.setProfession(profession);
+            Boolean smsPermission = xmlAdult.getSmsPermission();
+            adult.setSmsPermission(smsPermission!=null ? smsPermission:false);
             adult.setExternalId(xmlAdult.getIndividualExternalId());
             adult.setExternalServiceLabel("CirilNetEnfance");
             
@@ -760,11 +762,11 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
         }
 
         childInformationSheet.setAllergie(xmlChildInformationSheet.getAllergie());
-        childInformationSheet.setAutorisationDroitImage(xmlChildInformationSheet.getAuthorisationDroitImage());
+        childInformationSheet.setAutorisationDroitImage(xmlChildInformationSheet.getAutorisationDroitImage());
         childInformationSheet.setAutorisationHospitalisation(xmlChildInformationSheet.getAutorisationHospitalisation());
         
         childInformationSheet.setAutorisationMaquillage(xmlChildInformationSheet.getAutorisationMaquillage());
-        childInformationSheet.setAutorisationRentrerSeul(xmlChildInformationSheet.getAuthorisationRentrerSeul());
+        childInformationSheet.setAutorisationRentrerSeul(xmlChildInformationSheet.getAutorisationRentrerSeul());
         childInformationSheet.setAutorisationTransporterTransportCommun(xmlChildInformationSheet.getAutorisationTransporterTransportCommun());
         childInformationSheet.setAutorisationTransporterVehiculeMunicipal(xmlChildInformationSheet.getAutorisationTransporterVehiculeMunicipal());
         childInformationSheet.setDifficulteSante(xmlChildInformationSheet.getDifficulteSante());

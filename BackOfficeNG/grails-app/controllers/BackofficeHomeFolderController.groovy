@@ -237,6 +237,7 @@ class BackofficeHomeFolderController {
         result.dietsList = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration()
         result.dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()
         result.dietsListLibelle = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().values()
+        result.informationSheetRequiredFieldsActived = SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()
 
         result.groups = requestTypeAdaptorService.getActiveRequestTypeByDisplayGroup(homeFolder)
 
@@ -508,7 +509,7 @@ class BackofficeHomeFolderController {
                 def temp = new Adult()
                 bind(temp)
                 individualAdaptorService.historize(
-                    adult, adult, temp, "contact", ["email", "homePhone", "mobilePhone", "officePhone"])
+                    adult, adult, temp, "contact", ["email", "homePhone", "mobilePhone", "officePhone", "smsPermission"])
             } catch (CvqValidationException e) {
                 session.doRollback = true
                 render (['invalidFields': e.invalidFields] as JSON)
@@ -586,8 +587,8 @@ class BackofficeHomeFolderController {
       def dietsList = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration()
         def dietsListKey = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().keySet()
         def dietsListLibelle = SecurityContext.getCurrentConfigurationBean().getDietsEnumeration().values()
-
-        render(template : mode + "/childInformationSheet", model : ["child" : child, "dietsList" : dietsList, "dietsListKey" : dietsListKey, "dietsListLibelle" : dietsListLibelle])
+        def informationSheetRequiredFieldsActived = SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived()
+        render(template : mode + "/childInformationSheet", model : ["child" : child, "dietsList" : dietsList, "dietsListKey" : dietsListKey, "dietsListLibelle" : dietsListLibelle, "informationSheetRequiredFieldsActived" : informationSheetRequiredFieldsActived])
     }
     private addChildInformationSheet(child, childInformationSheet) throws CvqValidationException {
       bind(childInformationSheet)
@@ -894,12 +895,42 @@ class BackofficeHomeFolderController {
             return false
         }
     }
+
+    def saveRule = {
+        if(request.post) {
+            def requestTypeLabelAsDir = "childInformationSheetRequest"
+            def file = request.getFile('rulesFile')
+            response.contentType = 'text/html; charset=utf-8'
+            if (file.empty) {
+                render (new JSON(['status':'warning', 'message':message(code:'requestType.message.noRulesFile')]).toString())
+                return false
+            }
+            if (!file.getContentType().equals("application/pdf")) {
+                render (new JSON(['status':'warning', 'message':message(code:'requestType.message.noPdfRulesFile')]).toString())
+                return false
+            }
+            def rulesDir = new File (localAuthorityRegistry.getAssetsBase() + '/' + session.currentSiteName + '/' + Type.PDF.folder + '/' + requestTypeLabelAsDir)
+            if (!rulesDir.exists()) rulesDir.mkdir()
+            localAuthorityRegistry.saveLocalAuthorityResource(Type.PDF,
+                requestTypeLabelAsDir + '/acceptationReglementInterieur', file.bytes)
+            render (new JSON([ 'status':'success',
+                               'message':message(code:'message.updateDone')]).toString())
+        } else {
+            render (new JSON(['status':'error', 'message':message(code:'requestType.message.noPdfRulesFile')]).toString())
+            return false
+        }
+    }
+
         def childInformationSheetDateInitialisation = {
         	if (request.get) 
 			{
+                def rulesField = localAuthorityRegistry.getLocalAuthorityResourceFile(Type.PDF,
+                "childInformationSheetRequest/acceptationReglementInterieur", false)
         	    render(view : "childInformationSheetDateInitialisation", model : [
         			"subMenuEntries" : subMenuEntries,
-        			"isInformationSheetDisplayed" : SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed()
+        			"isInformationSheetDisplayed" : SecurityContext.getCurrentConfigurationBean().isInformationSheetDisplayed(),
+                     "informationSheetRequiredFieldsActived" : SecurityContext.getCurrentConfigurationBean().isInformationSheetRequiredFieldsActived(),
+                     "rulesField" : rulesField != null && rulesField.exists()
         		    ])
         	    return false
         	} 

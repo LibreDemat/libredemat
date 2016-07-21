@@ -27,7 +27,37 @@
           </g:else>
         </div>
       </div>
+      <g:if test="${informationSheetRequiredFieldsActived}">
+      <div class="yui-b">
+        <div id="fileBox" class="mainbox mainbox-yellow">
+          <h2>
+              ${message(code:'requestType.label.rule')} :
+            </h2>
+            <form method="post" id="rulesForm" class="localResourceUpload" action="${createLink(action : 'saveRule')}">
+              <div class="error" id="setupFormErrors"></div>
+              <g:if test="${rulesField}">
+                <a target="_blank" href="${createLink(controller : 'localAuthorityResource', action : 'rule', params:[type:'PDF',requestTypeLabel:'childInformationSheet',filename:'acceptationReglementInterieur'])}">
+                  ${message(code:'requestType.label.seeCurrentRule')}
+                </a>
+              </g:if>
+              <g:else>
+                ${message(code:'requestType.label.noRuleConfigured')}
+              </g:else>
+              <br />
+              <label for="">
+                ${message(code:'requestType.label.newRule')} :
+              </label>
+              <input type="file" class="required" name="rulesFile" />
+              <input type="hidden" name="requestTypeId" value="" />
+              <input type="hidden" name="rulesField" value="" />
+              <input id="saveRule" name="save" type="button" value="${message(code:'action.save')}" />
+            </form>
+        </div>
+      </div>
+      </g:if>
     </div>
+    
+    
     <div id="narrow" class="yui-b">
       <menu:subMenu i18nPrefix="header" data="${subMenuEntries}" />
     </div>

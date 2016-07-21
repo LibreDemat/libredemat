@@ -29,30 +29,31 @@
       title="${message(code:'homeFolder.individual.property.informationSheet.telephonePortable')}" 
       size="15"/>
 
-	<!-- Personnes autorisées -->            
+	<!-- Personnes autorisÃ©es -->            
     <h4>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise')}</h4>
     <p><label>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise.information')}</label></p>
     
-    <label>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise1')}</label>
-    <label for="personneAutoriseNom1">
-    	${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')} 
+    <label class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.header.informationSheet.personneAutorise1')}</label>
+
+    <label for="personneAutoriseNom1" class="${informationSheetRequiredFieldsActived ? 'required' : '' }">
+    	${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')} ${informationSheetRequiredFieldsActived ? ' *' : '' }
     </label>	
     <input type="text" id="personneAutoriseNom1" name="personneAutoriseNom1" value="${child?.childInformationSheet?.personneAutoriseNom1}" 
-      class="${flash.invalidFields?.contains('personneAutoriseNom1') ? 'validation-failed' : ''}"
+      class="${informationSheetRequiredFieldsActived ? 'required' : '' } ${flash.invalidFields?.contains('personneAutoriseNom1') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')}" />
     
-    <label for="personneAutorisePrenom1">
-    	${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')} 
+    <label for="personneAutorisePrenom1" class="${informationSheetRequiredFieldsActived ? 'required' : '' }">
+    	${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')} ${informationSheetRequiredFieldsActived ? ' *' : '' }
     </label>	
     <input type="text" id="personneAutorisePrenom1" name="personneAutorisePrenom1" value="${child?.childInformationSheet?.personneAutorisePrenom1}" 
-      class="${flash.invalidFields?.contains('personneAutorisePrenom1') ? 'validation-failed' : ''}"
+      class="${informationSheetRequiredFieldsActived ? 'required' : '' } ${flash.invalidFields?.contains('personneAutorisePrenom1') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')}" />
     
-    <label for="personneAutoriseTelephone1">
-    	${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')} 
+    <label for="personneAutoriseTelephone1" class="${informationSheetRequiredFieldsActived ? 'required' : '' }">
+    	${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')} ${informationSheetRequiredFieldsActived ? ' *' : '' }
     </label>	
     <input type="text" id="personneAutoriseTelephone1" name="personneAutoriseTelephone1" value="${child?.childInformationSheet?.personneAutoriseTelephone1}" 
-      class="${flash.invalidFields?.contains('personneAutoriseTelephone1') ? 'validation-failed' : ''}"
+      class="${informationSheetRequiredFieldsActived ? 'required' : '' } ${flash.invalidFields?.contains('personneAutoriseTelephone1') ? 'validation-failed' : ''}"
       title="${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')}" />             
        
 
@@ -259,63 +260,135 @@
 	
 	<p><label>${message(code:'homeFolder.individual.header.informationSheet.autorisation.informationDroitImage')}</label></p>
 	
-	<p>
-		<label>
-			<input type="checkbox" id="autorisationDroitImage" name="autorisationDroitImage" 
-				<g:if test="${child?.childInformationSheet?.autorisationDroitImage}">checked="checked" </g:if> >
-			</input>
-			${message(code:'homeFolder.individual.property.informationSheet.autorisation.autorisationDroitImage')}
-		</label>
+    <p>
+        <g:if test="${informationSheetRequiredFieldsActived}">
+            <label for="autorisationDroitImage" class="required">
+                ${message(code:'homeFolder.individual.property.informationSheet.autorisation.autorisationDroitImage')} *
+            </label>
+            <select id="autorisationDroitImage" name="autorisationDroitImage"  class="required validate-not-first">
+              <option value=""><g:message code="message.select.defaultOption" /></option>
+              <option value="yes" ${child?.childInformationSheet?.autorisationDroitImage ? 'selected="selected"': ''}><g:message code="message.yes" />
+              <option value="no" ${child?.childInformationSheet?.autorisationDroitImage == false ? 'selected="selected"': ''}><g:message code="message.no" />
+            </select>
+        </g:if>
+        <g:else>
+            <label>
+                <input type="checkbox" id="autorisationDroitImage" name="autorisationDroitImage" 
+                    <g:if test="${child?.childInformationSheet?.autorisationDroitImage}">checked="checked" </g:if> >
+                </input>
+                ${message(code:'homeFolder.individual.property.informationSheet.autorisation.autorisationDroitImage')}
+            </label>
+        </g:else>
 		<br/>
 	</p>
 	
-	<p>
-		<label>
-			<input type="checkbox" id="autorisationMaquillage" name="autorisationMaquillage" 
-				<g:if test="${child?.childInformationSheet?.autorisationMaquillage}">checked="checked" </g:if> >
-			</input>
-			${message(code:'homeFolder.individual.property.informationSheet.autorisation.autorisationMaquillage')}
-		</label>
-		<br/>
-	</p>
-	
-	<p>
-		<label>
-			<input type="checkbox" id="autorisationTransporterVehiculeMunicipal" name="autorisationTransporterVehiculeMunicipal" 
-				<g:if test="${child?.childInformationSheet?.autorisationTransporterVehiculeMunicipal}">checked="checked" </g:if> >
-			</input>
-			${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationTransporterVehiculeMunicipal')}
-		</label>
-		<br/>
-	</p>
-		
-	<p>
-		<label>
-			<input type="checkbox" id="autorisationTransporterTransportCommun" name="autorisationTransporterTransportCommun" 
-				<g:if test="${child?.childInformationSheet?.autorisationTransporterTransportCommun}">checked="checked" </g:if> >
-			</input>
-			${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationTransporterTransportCommun')}
-		</label>
-		<br/>
-	</p>
-	
-	<p>	
-		<label>
-			<input type="checkbox" id="autorisationHospitalisation" name="autorisationHospitalisation" 
-				<g:if test="${child?.childInformationSheet?.autorisationHospitalisation}">checked="checked" </g:if> >
-			</input>
-			${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationHospitalisation')}
-		</label>
-		<br/>
-	</p>
-	
-	<p>	
-		<label>
-			<input type="checkbox" id="autorisationRentrerSeul" name="autorisationRentrerSeul" 
-				<g:if test="${child?.childInformationSheet?.autorisationRentrerSeul}">checked="checked" </g:if> >
-			</input>
-			${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationRentrerSeul')}
-		</label>
+    <p>
+        <g:if test="${informationSheetRequiredFieldsActived}">
+            <label for="autorisationMaquillage" class="required">
+                ${message(code:'homeFolder.individual.property.informationSheet.autorisation.autorisationMaquillage')} *
+            </label>
+            <select id="autorisationMaquillage" name="autorisationMaquillage"  class="required validate-not-first">
+              <option value=""><g:message code="message.select.defaultOption" /></option>
+              <option value="yes" ${child?.childInformationSheet?.autorisationMaquillage ? 'selected="selected"': ''}><g:message code="message.yes" />
+              <option value="no" ${child?.childInformationSheet?.autorisationMaquillage == false ? 'selected="selected"': ''}><g:message code="message.no" />
+            </select>
+        </g:if>
+        <g:else>
+        <label>
+            <input type="checkbox" id="autorisationMaquillage" name="autorisationMaquillage" 
+                <g:if test="${child?.childInformationSheet?.autorisationMaquillage}">checked="checked" </g:if> >
+            </input>
+            ${message(code:'homeFolder.individual.property.informationSheet.autorisation.autorisationMaquillage')}
+        </label>
+        </g:else>
+        <br/>
+    </p>
+
+    <p>
+        <g:if test="${informationSheetRequiredFieldsActived}">
+            <label for="autorisationTransporterVehiculeMunicipal" class="required">
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationTransporterVehiculeMunicipal')} *
+            </label>
+            <select id="autorisationTransporterVehiculeMunicipal" name="autorisationTransporterVehiculeMunicipal"  class="required validate-not-first">
+              <option value=""><g:message code="message.select.defaultOption" /></option>
+              <option value="yes" ${child?.childInformationSheet?.autorisationTransporterVehiculeMunicipal ? 'selected="selected"': ''}><g:message code="message.yes" />
+              <option value="no" ${child?.childInformationSheet?.autorisationTransporterVehiculeMunicipal == false ? 'selected="selected"': ''}><g:message code="message.no" />
+            </select>
+        </g:if>
+        <g:else>
+            <label>
+                <input type="checkbox" id="autorisationTransporterVehiculeMunicipal" name="autorisationTransporterVehiculeMunicipal" 
+                    <g:if test="${child?.childInformationSheet?.autorisationTransporterVehiculeMunicipal}">checked="checked" </g:if> >
+                </input>
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationTransporterVehiculeMunicipal')}
+            </label>
+        </g:else>
+        <br/>
+    </p>
+
+    <p>
+        <g:if test="${informationSheetRequiredFieldsActived}">
+            <label for="autorisationTransporterTransportCommun" class="required">
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationTransporterTransportCommun')} *
+            </label>
+            <select id="autorisationTransporterTransportCommun" name="autorisationTransporterTransportCommun"  class="required validate-not-first">
+              <option value=""><g:message code="message.select.defaultOption" /></option>
+              <option value="yes" ${child?.childInformationSheet?.autorisationTransporterTransportCommun ? 'selected="selected"': ''}><g:message code="message.yes" />
+              <option value="no" ${child?.childInformationSheet?.autorisationTransporterTransportCommun == false ? 'selected="selected"': ''}><g:message code="message.no" />
+            </select>
+        </g:if>
+        <g:else>
+            <label>
+                <input type="checkbox" id="autorisationTransporterTransportCommun" name="autorisationTransporterTransportCommun" 
+                    <g:if test="${child?.childInformationSheet?.autorisationTransporterTransportCommun}">checked="checked" </g:if> >
+                </input>
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationTransporterTransportCommun')}
+            </label>
+        </g:else>
+        <br/>
+    </p>
+
+    <p>
+        <g:if test="${informationSheetRequiredFieldsActived}">
+            <label for="autorisationHospitalisation" class="required">
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationHospitalisation')} *
+            </label>
+            <select id="autorisationHospitalisation" name="autorisationHospitalisation"  class="required validate-not-first">
+              <option value=""><g:message code="message.select.defaultOption" /></option>
+              <option value="yes" ${child?.childInformationSheet?.autorisationHospitalisation ? 'selected="selected"': ''}><g:message code="message.yes" />
+              <option value="no" ${child?.childInformationSheet?.autorisationHospitalisation == false ? 'selected="selected"': ''}><g:message code="message.no" />
+            </select>
+        </g:if>
+        <g:else>
+            <label>
+                <input type="checkbox" id="autorisationHospitalisation" name="autorisationHospitalisation" 
+                    <g:if test="${child?.childInformationSheet?.autorisationHospitalisation}">checked="checked" </g:if> >
+                </input>
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationHospitalisation')}
+            </label>
+        </g:else>
+        <br/>
+    </p>
+
+    <p>
+        <g:if test="${informationSheetRequiredFieldsActived}">
+            <label for="autorisationRentrerSeul" class="required">
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationRentrerSeul')} *
+            </label>
+            <select id="autorisationRentrerSeul" name="autorisationRentrerSeul"  class="required validate-not-first">
+              <option value=""><g:message code="message.select.defaultOption" /></option>
+              <option value="yes" ${child?.childInformationSheet?.autorisationRentrerSeul ? 'selected="selected"': ''}><g:message code="message.yes" />
+              <option value="no" ${child?.childInformationSheet?.autorisationRentrerSeul == false ? 'selected="selected"': ''}><g:message code="message.no" />
+            </select>
+        </g:if>
+        <g:else>
+            <label>
+                <input type="checkbox" id="autorisationRentrerSeul" name="autorisationRentrerSeul" 
+                    <g:if test="${child?.childInformationSheet?.autorisationRentrerSeul}">checked="checked" </g:if> >
+                </input>
+                ${message(code:'homeFolder.individual.header.informationSheet.autorisation.autorisationRentrerSeul')}
+            </label>
+        </g:else>
 		<br/>
 	</p>
 		
@@ -327,5 +400,22 @@
 		</label>
 	</p>
 
+    <g:if test="${informationSheetRequiredFieldsActived}">
+    <g:if test="${availableRules.contains('acceptationReglementInterieur')}">
+    <br/>
+    <ul>
+      <li>
+        <input type="hidden" name="_childInformationSheetAcceptationReglement">
+        <input type="checkbox" id="childInformationSheetAcceptationReglement" name="childInformationSheetAcceptationReglement" class="required  validate-acceptance" title="" value="true">
+        <label for="childInformationSheetAcceptationReglement" class="required" style="font-size:1.2em">
+            ${message(code:'homeFolder.individual.header.informationSheet.autorisation.acceptance')}
+              <a target="_blank" href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':'childInformationSheet', 'filename':'acceptationReglementInterieur']).encodeAsXML()}"><span><g:message code="request.action.consult.rules" /></span></a>
+          <span></span>
+        </label>
+      </li>
+    </ul>
+    <br/>
+    </g:if>
+    </g:if>
     <g:render template="edit/submit" model="['individual':child, 'fragment':'informationSheet']" />
 </form>

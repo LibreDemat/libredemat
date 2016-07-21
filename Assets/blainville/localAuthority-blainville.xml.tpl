@@ -24,7 +24,8 @@
         <property name="accountValidationRequired" value="false"/>
         <property name="viewDocumentInPanelInBO" value="false"/>
         <property name="informationSheetDisplayed" value="true"/>
-        <property name="informationSheetRequired" value="false"/>
+        <property name="informationSheetRequired" value="true"/>
+        <property name="informationSheetRequiredFieldsActived" value="true"/>
         <property name="addresseReferentialCityRestriction" value="true"/>
         <property name="activeCocheAllInReservationPlaningMonth" value="true"/>
         <property name="activeGlobalReservation" value="false"/>

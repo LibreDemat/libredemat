@@ -15,7 +15,7 @@ public class SecurityService {
                 "backofficeDisplayGroup" : /.*/,
                 "backofficeExternal" : /.*/,
                 "backofficeExternalApplication" : /.*/,
-                "backofficeHomeFolder" : [/importHomeFolders/,/meansOfContact/,/childInformationSheetDateInitialisation/, /moCs/,/moC/,/synchronisation/],
+                "backofficeHomeFolder" : [/importHomeFolders/,/meansOfContact/,/childInformationSheetDateInitialisation/, /moCs/,/moC/,/synchronisation/,/saveRule/],
                 "backofficeLocalAuthority" : /.*/,
                 "backofficeLogin" : /.*/,
                 "backofficeReferential" : /.*/,

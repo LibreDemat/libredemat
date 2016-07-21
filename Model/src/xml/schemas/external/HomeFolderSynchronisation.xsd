@@ -167,6 +167,7 @@
 						minOccurs="0" />
 					<xs:element name="Profession" type="xs:string"
 						minOccurs="0" />
+					<xs:element name="SmsPermission" type="xs:boolean" minOccurs="0" default="false"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -334,9 +335,9 @@
 				minOccurs="0" />
 			<xs:element name="ProjetAccueilIndividualise" type="xs:boolean"
 				minOccurs="0" />
-			<xs:element name="AuthorisationDroitImage" type="xs:boolean"
+			<xs:element name="AutorisationDroitImage" type="xs:boolean"
 				minOccurs="0" />
-			<xs:element name="AuthorisationRentrerSeul" type="xs:boolean"
+			<xs:element name="AutorisationRentrerSeul" type="xs:boolean"
 				minOccurs="0" />
 			<xs:element name="AutorisationHospitalisation" type="xs:boolean"
 				minOccurs="0" />	

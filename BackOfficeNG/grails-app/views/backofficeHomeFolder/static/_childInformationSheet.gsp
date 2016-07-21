@@ -8,12 +8,12 @@
   	
 <dt>${message(code:'homeFolder.individual.header.informationSheet.personneAutoriseCourt')}</dt>
 
-<dt>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise1')}</dt>
-<dt>${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')}</dt>
+<dt class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.header.informationSheet.personneAutorise1')}</dt>
+<dt class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')}</dt>
 <dd>${child?.childInformationSheet?.personneAutoriseNom1}</dd>
-<dt>${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')}</dt>
+<dt class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')}</dt>
 <dd>${child?.childInformationSheet?.personneAutorisePrenom1}</dd>
-<dt>${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')}</dt>
+<dt class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')}</dt>
 <dd>${child?.childInformationSheet?.personneAutoriseTelephone1}</dd>
 
 <dt>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise2')}</dt>

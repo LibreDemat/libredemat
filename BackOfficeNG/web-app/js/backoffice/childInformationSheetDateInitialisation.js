@@ -13,6 +13,7 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.bong.homeFolder");
     return {
       init: function() {
         yue.on(yud.get("initialisation"), "click",  zcbh.Import.upload);
+        yue.on(yud.get("saveRule"), "click",  zcbh.Import.save);
       },
       upload : function(e) {
         yue.stopEvent(e);
@@ -26,6 +27,15 @@ zenexity.libredemat.tools.namespace("zenexity.libredemat.bong.homeFolder");
             zct.Notifier.processMessage("modelError", ylj.parse(o.responseText).error_msg);
           }
           yue.on(yud.get("initialisation"), "click",  zcbh.Import.upload);
+        }, true);
+      },
+      save : function(e) {
+        yue.preventDefault(e);
+        var target = yue.getTarget(e);
+        var formEl = yud.getAncestorByTagName(target, 'form');
+        zct.doAjaxFormSubmitCall(formEl.id,[],function(o){
+          var json = ylj.parse(o.responseText);
+          zct.Notifier.processMessage(json.status, json.message);
         }, true);
       }
     };

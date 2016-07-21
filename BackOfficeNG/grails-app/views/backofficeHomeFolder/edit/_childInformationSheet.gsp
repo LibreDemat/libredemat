@@ -16,21 +16,21 @@
 	<!-- Personnes autorisées -->            
     <dt>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise')}</dt>
     
-    <dt>${message(code:'homeFolder.individual.header.informationSheet.personneAutorise1')}</dt>
-    <dt>${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')}</dt>	
-    <dd>
+    <dt class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.header.informationSheet.personneAutorise1')}</dt>
+    <dt class="${informationSheetRequiredFieldsActived ? 'required' : '' }">${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')} ${informationSheetRequiredFieldsActived ? '*' : '' }</dt>
+    <dd class="${informationSheetRequiredFieldsActived ? 'required' : '' }">
 	    <input type="text" id="personneAutoriseNom1" name="personneAutoriseNom1" value="${child?.childInformationSheet?.personneAutoriseNom1}" 
-	      class="${flash.invalidFields?.contains('personneAutoriseNom1') ? 'validation-failed' : ''}"
+	      class="${informationSheetRequiredFieldsActived ? 'required' : '' } ${flash.invalidFields?.contains('personneAutoriseNom1') ? 'validation-failed' : ''}"
 	      title="${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseNom1')}" />
     </dd>
     <dt>${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')}</dt>
-    <dd>	
+    <dd class="${informationSheetRequiredFieldsActived ? 'required' : '' }">
 	    <input type="text" id="personneAutorisePrenom1" name="personneAutorisePrenom1" value="${child?.childInformationSheet?.personneAutorisePrenom1}" 
 	      class="${flash.invalidFields?.contains('personneAutorisePrenom1') ? 'validation-failed' : ''}"
 	      title="${message(code:'homeFolder.individual.property.informationSheet.personneAutorisePrenom1')}" />
     </dd>
     <dt>${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')}</dt>
-    <dd>	
+    <dd class="${informationSheetRequiredFieldsActived ? 'required' : '' }">
 	    <input type="text" id="personneAutoriseTelephone1" name="personneAutoriseTelephone1" value="${child?.childInformationSheet?.personneAutoriseTelephone1}" 
 	      class="${flash.invalidFields?.contains('personneAutoriseTelephone1') ? 'validation-failed' : ''}"
 	      title="${message(code:'homeFolder.individual.property.informationSheet.personneAutoriseTelephone1')}" />             
