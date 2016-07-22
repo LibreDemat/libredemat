@@ -169,7 +169,9 @@
             </g:if>
           >
             
-              <g:message code="srr.step.registration.label" /> *
+              
+                <g:message code="srr.step.registration.label" /> *
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['registration'].state}" />
@@ -199,7 +201,9 @@
             </g:if>
           >
             
-              <g:message code="srr.step.rules.label" /> *
+              
+                <g:message code="srr.step.rules.label" /> *
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['rules'].state}" />
@@ -231,7 +235,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.document.label" />
+              
+                <g:message code="request.step.document.label" />${rqt.requestType.isMandatoryDocumentStep ? ' *' :''}
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['document'].state}" />
@@ -263,7 +269,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.validation.label" /> *
+              
+                <g:message code="request.step.validation.label" /> *
+              
               <span class="help">
                 
                 <g:if test="${rqt.stepStates.validation.state == 'unavailable'}">
