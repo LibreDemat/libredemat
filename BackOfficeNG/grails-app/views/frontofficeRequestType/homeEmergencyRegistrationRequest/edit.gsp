@@ -201,7 +201,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.document.label" />
+              
+                <g:message code="request.step.document.label" />${rqt.requestType.isMandatoryDocumentStep ? ' *' :''}
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['document'].state}" />
