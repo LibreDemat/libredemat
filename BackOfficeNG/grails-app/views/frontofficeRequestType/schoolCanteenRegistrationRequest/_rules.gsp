@@ -4,21 +4,25 @@
   
     
     
-              <label class="">
-                <g:message code="scrr.property.hospitalizationPermission.label" /> 
-                <g:if test="${availableRules.contains('hospitalizationPermission')}">
-                  <a target="_blank" href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':rqt.requestType.label, 'filename':'hospitalizationPermission']).encodeAsXML()}"><span><g:message code="request.action.consult.rules" /></span></a>
-                </g:if>
-                <span><g:message code="scrr.property.hospitalizationPermission.help" /></span>
-              </label>
-              <ul class="yes-no  ${rqt.stepStates['rules'].invalidFields.contains('hospitalizationPermission') ? 'validation-failed' : ''}">
-                <g:each in="${[true,false]}">
-                  <li>
-                    <input type="radio" id="hospitalizationPermission_${it ? 'yes' : 'no'}" class="  " title="" value="${it}" name="hospitalizationPermission" ${it == rqt.hospitalizationPermission ? 'checked="checked"': ''} />
-                    <label for="hospitalizationPermission_${it ? 'yes' : 'no'}"><g:message code="message.${it ? 'yes' : 'no'}" /></label>
-                  </li>
-                </g:each>
-              </ul>
+            <ul ${rqt.stepStates['rules'].invalidFields.contains('hospitalizationPermission') ? 'class="validation-failed"' : ''}>
+              <li>
+                <input type="hidden" name="_hospitalizationPermission" /><!-- Grails 1.2.x convention to bind checkboxes. -->
+                <input type="checkbox" id="hospitalizationPermission" name="hospitalizationPermission"
+                           class="  "
+                           title="${message(code:'scrr.property.hospitalizationPermission.validationError')}"
+                       ${rqt.hospitalizationPermission ? 'checked="checked"' : ''} value="true" />
+                <label for="hospitalizationPermission" class="">
+                  ${message(code:'scrr.property.hospitalizationPermission.label')}
+                  <g:if test="${availableRules.contains('hospitalizationPermission')}">
+                  <a target="_blank"
+                     href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':rqt.requestType.label, 'filename':'hospitalizationPermission']).encodeAsXML()}">
+                    <span>${message(code:'request.action.consult.rules')}</span>
+                  </a>
+                  </g:if>
+                  <span>${message(code:'scrr.property.hospitalizationPermission.help')}</span>
+                </label>
+              </li>
+            </ul>
             
 
   
@@ -26,21 +30,25 @@
   
     
     
-              <label class="">
-                <g:message code="scrr.property.rulesAndRegulationsAcceptance.label" /> 
-                <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">
-                  <a target="_blank" href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':rqt.requestType.label, 'filename':'rulesAndRegulationsAcceptance']).encodeAsXML()}"><span><g:message code="request.action.consult.rules" /></span></a>
-                </g:if>
-                <span><g:message code="scrr.property.rulesAndRegulationsAcceptance.help" /></span>
-              </label>
-              <ul class="yes-no  ${rqt.stepStates['rules'].invalidFields.contains('rulesAndRegulationsAcceptance') ? 'validation-failed' : ''}">
-                <g:each in="${[true,false]}">
-                  <li>
-                    <input type="radio" id="rulesAndRegulationsAcceptance_${it ? 'yes' : 'no'}" class="  " title="" value="${it}" name="rulesAndRegulationsAcceptance" ${it == rqt.rulesAndRegulationsAcceptance ? 'checked="checked"': ''} />
-                    <label for="rulesAndRegulationsAcceptance_${it ? 'yes' : 'no'}"><g:message code="message.${it ? 'yes' : 'no'}" /></label>
-                  </li>
-                </g:each>
-              </ul>
+            <ul ${rqt.stepStates['rules'].invalidFields.contains('rulesAndRegulationsAcceptance') ? 'class="validation-failed"' : ''}>
+              <li>
+                <input type="hidden" name="_rulesAndRegulationsAcceptance" /><!-- Grails 1.2.x convention to bind checkboxes. -->
+                <input type="checkbox" id="rulesAndRegulationsAcceptance" name="rulesAndRegulationsAcceptance"
+                           class="required  validate-acceptance"
+                           title="${message(code:'scrr.property.rulesAndRegulationsAcceptance.validationError')}"
+                       ${rqt.rulesAndRegulationsAcceptance ? 'checked="checked"' : ''} value="true" />
+                <label for="rulesAndRegulationsAcceptance" class="required">
+                  ${message(code:'scrr.property.rulesAndRegulationsAcceptance.label')}&nbsp;*
+                  <g:if test="${availableRules.contains('rulesAndRegulationsAcceptance')}">
+                  <a target="_blank"
+                     href="${createLink(controller:'localAuthorityResource', action:'rule', params:['requestTypeLabel':rqt.requestType.label, 'filename':'rulesAndRegulationsAcceptance']).encodeAsXML()}">
+                    <span>${message(code:'request.action.consult.rules')}</span>
+                  </a>
+                  </g:if>
+                  <span>${message(code:'scrr.property.rulesAndRegulationsAcceptance.help')}</span>
+                </label>
+              </li>
+            </ul>
             
 
   

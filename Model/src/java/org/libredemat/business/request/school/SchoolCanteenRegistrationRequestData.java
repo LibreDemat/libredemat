@@ -282,6 +282,20 @@ public class SchoolCanteenRegistrationRequestData implements Serializable {
     }
   
     
+      @NotNull(
+        
+        
+        profiles = {"rules"},
+        message = "rulesAndRegulationsAcceptance"
+      )
+    
+      @AssertTrue(
+        
+        
+        profiles = {"rules"},
+        message = "rulesAndRegulationsAcceptance"
+      )
+    
     private Boolean rulesAndRegulationsAcceptance;
 
     public void setRulesAndRegulationsAcceptance(final Boolean rulesAndRegulationsAcceptance) {

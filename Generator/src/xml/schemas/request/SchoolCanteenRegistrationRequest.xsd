@@ -208,28 +208,32 @@
             <xs:element name="HospitalizationPermission" type="cvq:AcceptanceType" default="false" minOccurs="0">
               <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Autorisation d'hospitalisation de l'enfant
+                  J'autorise l'hospitalisation de mon enfant
 		        </xs:documentation>
                 <xs:appinfo>
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                   <pdf />
 		            </xs:appinfo>
 	          </xs:annotation>
 	        </xs:element>
-	        <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false" minOccurs="0">
+	        <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false">
 	          <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/shortdesc">
-                  Acceptation du règlement intérieur
+                  J'accepte et je m'engage à respecter le règlement intérieur
 		        </xs:documentation>
 		        <xs:appinfo>
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                   <pdf />
                 </xs:appinfo>
