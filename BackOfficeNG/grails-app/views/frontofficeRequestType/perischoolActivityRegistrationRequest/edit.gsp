@@ -169,7 +169,9 @@
             </g:if>
           >
             
-              <g:message code="parr.step.registration.label" /> *
+              
+                <g:message code="parr.step.registration.label" /> *
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['registration'].state}" />
@@ -199,7 +201,9 @@
             </g:if>
           >
             
-              <g:message code="parr.step.contact.label" />
+              
+                <g:message code="parr.step.contact.label" />
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['contact'].state}" />
@@ -229,7 +233,9 @@
             </g:if>
           >
             
-              <g:message code="parr.step.authorization.label" />
+              
+                <g:message code="parr.step.authorization.label" />
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['authorization'].state}" />
@@ -259,7 +265,9 @@
             </g:if>
           >
             
-              <g:message code="parr.step.rules.label" /> *
+              
+                <g:message code="parr.step.rules.label" /> *
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['rules'].state}" />
@@ -291,7 +299,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.document.label" />
+              
+                <g:message code="request.step.document.label" />${rqt.requestType.isMandatoryDocumentStep ? ' *' :''}
+              
               <span class="help">
                 
                   <g:message code="request.step.message.${rqt.stepStates['document'].state}" />
@@ -323,7 +333,9 @@
             </g:if>
           >
             
-              <g:message code="request.step.validation.label" /> *
+              
+                <g:message code="request.step.validation.label" /> *
+              
               <span class="help">
                 
                 <g:if test="${rqt.stepStates.validation.state == 'unavailable'}">

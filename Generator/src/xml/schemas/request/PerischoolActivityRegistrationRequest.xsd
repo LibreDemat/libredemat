@@ -161,7 +161,7 @@
                 </xs:appinfo>
               </xs:annotation>
             </xs:element>
-            <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false" minOccurs="0">
+            <xs:element name="RulesAndRegulationsAcceptance" type="cvq:AcceptanceType" default="false">
               <xs:annotation>
                 <xs:documentation xml:lang="fr" source="http://www.libredemat.org/schema/longdesc">
                   Prise en compte et acceptation du règlement intérieur
@@ -173,7 +173,9 @@
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                   <pdf />
                 </xs:appinfo>
@@ -191,7 +193,9 @@
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                   <pdf />
                 </xs:appinfo>
@@ -210,7 +214,9 @@
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                   <pdf />
                 </xs:appinfo>
@@ -228,7 +234,9 @@
                   <common>
                     <step name="rules" />
                   </common>
-                  <fo />
+                  <fo>
+                    <checkbox />
+                  </fo>
                   <bo column="1" />
                   <pdf />
                 </xs:appinfo>
