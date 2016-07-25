@@ -374,10 +374,8 @@ class FrontofficeHomeFolderController {
                 model["invalidFields"] = e.invalidFields
                 session.doRollback = true
             }
-        } else {
-          //Creating a new individual in homefolder
-          model.hideAddressFields = true
         }
+        model.hideAddressFields = true
         Adult.metaClass.fragmentMode = { name ->
             def template = '/adult' + StringUtils.firstCase(name,'Upper')
             return (name == params.fragment  ? 'edit' : 'static') + template
