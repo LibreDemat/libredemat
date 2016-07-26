@@ -39,6 +39,14 @@
                             </a>
                           </span>
                         </g:if>
+                        <g:if test="${contact.hasFile}">
+                          </br>
+                          <span> <g:message code='${"requestAction.action.download." + contact.type.enumString}' /> :
+                            <a title="<g:message code='requestAction.property.requestCertificate' />" href="${createLink(controller: 'frontofficeRequestContact', action: 'view', id : rqt.id,params: ['requestActionId': contact.id,'requestId': rqt.id])}">
+                              <img alt="<g:message code='requestAction.action.download.Creation' />" src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
+                            </a>
+                          </span>
+                        </g:if>
                         <p>
                             <a href="${createLink(controller:'frontofficeRequestContact', action : 'reply', id : rqt.id, params: ['parentId': contact.id])}" >${message(code:'request.contact.authority.reply')}</a>
                         </p>
@@ -57,12 +65,20 @@
                                 <div class="reply expand">
                                   <span>${message(code:reply.channel?.i18nKey)}</span> 
                                   <q id="toggleReply_${reply.id}">
-                                    ${reply.note}
+                                    ${reply.message?reply.message:reply.note}
                                   </q>
                                   <g:if test="${reply.attachment}">
                                     </br>
                                     <span> <g:message code="request.contact.pj.action.download" /> : 
                                       <a title="<g:message code='requestAction.property.requestCertificate' />" href="${createLink(controller: 'frontofficeRequestContact', action: 'viewAttachment', id : rqt.id,params: ['requestNoteId': reply.id,'requestId': rqt.id])}">
+                                        <img alt="<g:message code='requestAction.action.download.Creation' />" src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
+                                      </a>
+                                    </span>
+                                  </g:if>
+                                  <g:if test="${reply.file}">
+                                    </br>
+                                    <span> <g:message code='${"requestAction.action.download." + reply.type.enumString}' /> :
+                                      <a title="<g:message code='requestAction.property.requestCertificate' />" href="${createLink(controller: 'frontofficeRequestContact', action: 'view', id : rqt.id,params: ['requestActionId': reply.id,'requestId': rqt.id])}">
                                         <img alt="<g:message code='requestAction.action.download.Creation' />" src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
                                       </a>
                                     </span>

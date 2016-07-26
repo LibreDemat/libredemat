@@ -49,13 +49,24 @@
                 </span>
               </dd>
               <dd class="replyBot note-${reply.css}">
-                <div class="">${reply.note}</div>
+                <div class=""><strong><g:message code="requestAction.property.note" /> :</strong>${reply.note}</div>
+                <div class=""><strong><g:message code="requestAction.property.message" /> :</strong>${reply.message}</div>
                 <g:if test="${reply.attachmentName}">
                   <strong><g:message code="request.contact.pj" /> :</strong>
                    <a href="${createLink(controller : 'backofficeContact', action : 'viewNote',
           params : ['requestId' : requestId, 'requestNoteId' : reply.id])}">
                     <img src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
                   </a>
+                </g:if>
+                <g:if test="${reply.fileName}">
+                  <strong><g:message code="request.contact.pj" /> :</strong>
+                    <a title="<g:message code='${"requestAction.action.download." + reply.type.enumString}' />"
+                        href="${createLink(controller : 'backofficeContact', action : 'view',
+                          params : ['requestId' : requestId, 'requestActionId' : reply.id])}">
+                      <img
+                          alt="<g:message code='${"requestAction.action.download." + reply.type.enumString}' />"
+                          src="${resource(dir:'images/icons',file:'pdficon_small.gif')}" />
+                    </a>
                 </g:if>
               </dd>
             </dl>

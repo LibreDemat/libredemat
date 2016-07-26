@@ -35,11 +35,9 @@
         <dt><g:message code="requestAction.property.filename" /> :</dt>
         <dd>${action.filename}</dd>
       </g:if>
-      <g:if test="${!action.hasFile}">
-        <g:if test="${action.message}">
-          <dt><g:message code="requestAction.property.message" /> :</dt>
-          <dd>${action.message}</dd>
-        </g:if>
+      <g:if test="${action.message && action.message!=null}">
+        <dt><g:message code="requestAction.property.message" /> :</dt>
+        <dd>${action.message}</dd>
       </g:if>
       <g:if test="${action.note}">
         <g:if test="${action.user.nature == 'agent'}">

@@ -115,11 +115,14 @@ class RequestAdaptorService {
             'user': UserUtils.getUserDetails(requestAction.agentId),
             'type': LibredematUtils.adaptLibredematEnum(requestAction.type, "request.action.type"),
             'note': requestAction.note,
+            'message' : requestAction.message,
             'date': requestAction.date,
             'template' : 'requestNote',
             'css' : 'reverse',
             'attachment' : requestAction.attachment,
             'attachmentName' : requestAction.attachmentName,
+            'file' : requestAction.file,
+            'fileName' : requestAction.filename,
             'replies' : []
         ]
     }

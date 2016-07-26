@@ -593,13 +593,13 @@ class FrontofficeRequestController {
             if (it.type.equals(RequestActionType.STATE_CHANGE)) {
                 resultingState = LibredematUtils.adaptLibredematEnum(it.resultingState, "request.state")
             }
-            if(it.replyParentId == null) {
+            if(it.replyParentId == null && RequestActionType.CONTACT_CITIZEN.equals(it.type)) {
                 def requestAction = [
                     'id':it.id,
                     "requestId" : Long.parseLong(params.id),
                     "user" : UserUtils.getUserDetails(it.agentId),
                     "type" : LibredematUtils.adaptLibredematEnum(it.type, "requestAction.type"),
-                    'note':it.note,
+                    'note':it.message,
                     "message" : it.message,
                     'date':it.date,
                     'resulting_state':resultingState,
@@ -617,6 +617,7 @@ class FrontofficeRequestController {
               repliesActions.add(it)
             }
         }
+        def contacts = (requestAdaptorService.prepareNotes(requestNoteService.getNotes(Long.parseLong(params.id), null),repliesActions) + actions).sort{it.date}
         return ['rqt': rqt,
                 'requestTypeLabel':requestTypeLabel,
                 'requester':requester,
@@ -627,7 +628,7 @@ class FrontofficeRequestController {
                 "documentsByTypes" : documentAdaptorService.getDocumentsByType(rqt),
                 "lrTypes" : requestTypeAdaptorService.getLocalReferentialTypes(rqt.requestType.label),
                 'validationTemplateDirectory':LibredematUtils.requestTypeLabelAsDir(rqt.requestType.label),
-                'contacts': requestAdaptorService.prepareNotes(requestNoteService.getNotes(Long.parseLong(params.id), null),repliesActions)
+                'contacts': contacts
         ]
     }
 

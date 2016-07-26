@@ -1,11 +1,13 @@
 import org.libredemat.business.request.RequestNoteType;
 import org.libredemat.business.users.MeansOfContactEnum;
+import org.libredemat.service.request.IRequestActionService;
 import org.libredemat.service.request.IRequestNoteService;
 
 class FrontofficeRequestContactController {
 
     IRequestNoteService requestNoteService
     RequestAdaptorService requestAdaptorService
+    IRequestActionService requestActionService
 
     def reply = {
         def model = ['requestId':params.id, 'parentId':params.long('parentId')]
@@ -52,4 +54,15 @@ class FrontofficeRequestContactController {
         response.outputStream.flush()
     }
 
+    def view = {
+        if (!request.get) return false
+        response.contentType = "application/pdf"
+        response.setHeader("Content-disposition",
+            "attachment; filename=letter.pdf")
+        def data = requestActionService.getAction(Long.valueOf(params.requestId),
+            Long.valueOf(params.requestActionId)).file
+        response.contentLength = data.length
+        response.outputStream << data
+        response.outputStream.flush()
+    }
 }
