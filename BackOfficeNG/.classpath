@@ -96,7 +96,7 @@
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
-	<class pathentry kind="lib" path="/LibreDemat/Libraries/org.libredemat/model/LibreDemat-ExternalServicesSchemas-4.7.0.jar"/>
+	<classpathentry kind="lib" path="/LibreDemat/Libraries/org.libredemat/model/LibreDemat-ExternalServicesSchemas-4.7.0.jar"/>
 	<classpathentry kind="lib" path="/LibreDemat/Libraries/org.libredemat/model/LibreDemat-Model-4.7.0.jar"/>
 	<classpathentry kind="lib" path="/LibreDemat/Libraries/org.libredemat/model/LibreDemat-RequestSchemas-4.7.0.jar"/>
 	<classpathentry kind="lib" path="/LibreDemat/Libraries/gson/gson-1.6.jar"/>
