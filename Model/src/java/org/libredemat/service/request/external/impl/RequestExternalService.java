@@ -538,9 +538,23 @@ public class RequestExternalService extends ExternalService implements IRequestE
 
     @Override
     public void synchronizeHomefolder(HomeFolder homeFolder) {
-        for (Entry<IExternalProviderService, ExternalServiceBean> entry :
-            SecurityContext.getCurrentConfigurationBean().getExternalServices().entrySet()) {
-            synchronizeHomefolderWithTrace(homeFolder, entry.getKey().getLabel());
+        for (HomeFolderMapping mapping : externalHomeFolderService.getHomeFolderMappings(homeFolder
+                .getId())) {
+            String externalServiceLabel = mapping.getExternalServiceLabel();
+            try {
+                IExternalProviderService externalProviderService = getExternalServiceByLabel(externalServiceLabel);
+                if (externalProviderService == null) {
+                    logger.warn("onApplicationEvent() External service "
+                            + mapping.getExternalServiceLabel() + " is no longer existing");
+                    continue;
+                }
+                if (externalProviderService instanceof ExternalApplicationProviderService)
+                    continue;
+
+                synchronizeHomefolderWithTrace(homeFolder, externalServiceLabel);
+            } catch (Exception ex) {
+                logger.error(ex);
+            }
         }
     }
 
