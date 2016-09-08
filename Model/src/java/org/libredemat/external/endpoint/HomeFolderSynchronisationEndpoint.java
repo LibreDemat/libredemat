@@ -955,10 +955,11 @@ public class HomeFolderSynchronisationEndpoint extends AbstractMarshallingPayloa
                     && ((Child) individualSendByWs).isBorn()
                     && ((Child) individual).getBirthDate().compareTo(((Child) individualSendByWs).getBirthDate()) == 0) return true;
         }
-        else if ((individualSendByWs.getFirstName() != null && individual.getFirstName() != null && individual
+        else if ( (individual instanceof Adult && individualSendByWs instanceof Adult) &&
+                ((individualSendByWs.getFirstName() != null && individual.getFirstName() != null && individual
                 .getFirstName().toLowerCase().trim().equals(individualSendByWs.getFirstName().toLowerCase().trim()))
                 && (individual.getLastName().toLowerCase().trim().equals(individualSendByWs.getLastName().toLowerCase()
-                        .trim()))) return true;
+                        .trim())))) return true;
         return false;
     }
 
