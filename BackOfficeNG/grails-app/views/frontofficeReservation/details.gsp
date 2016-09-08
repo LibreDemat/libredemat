@@ -7,12 +7,12 @@
   </head>
 
   <body>
+  <g:if test="${commonInfo != null}">
+    <div class="information-box"><h2>Information</h2>${commonInfo}</div>
+  </g:if>
   <div id="yui-main">
 
     <div id="main" class="yui-b">
-    <g:if test="${commonInfo != null}">
-      	<div class="information-box"><h2>Information</h2>${commonInfo}</div>
-      </g:if>
       <div class="main-box">
         <h2>
           <span style="display: inline;line-height: 0.5em;font-size: 1em;" class="activity planning ${isAdult ? 'adult':'child'}"><g:if test="${activityLabel}">
