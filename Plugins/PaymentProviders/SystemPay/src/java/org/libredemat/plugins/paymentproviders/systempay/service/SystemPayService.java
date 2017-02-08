@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
@@ -15,8 +16,10 @@ import java.util.TimeZone;
 import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
+import org.libredemat.business.payment.ExternalAccountItem;
 import org.libredemat.business.payment.Payment;
 import org.libredemat.business.payment.PaymentMode;
+import org.libredemat.business.payment.PurchaseItem;
 import org.libredemat.dao.jpa.GenericDAO;
 import org.libredemat.dao.jpa.IGenericDAO;
 import org.libredemat.exception.CvqConfigurationException;
@@ -73,6 +76,29 @@ public class SystemPayService implements IPaymentProviderService{
 
         urlParameters.append("&vads_language=").append("fr");
         parameters.put("vads_language", "fr");
+
+        String billsId = "";
+        String billsIdEncoded = "";
+        try {
+            if(payment.getPurchaseItems() != null && !payment.getPurchaseItems().isEmpty()) {
+                for (PurchaseItem p : payment.getPurchaseItems()) {
+                    if(p instanceof ExternalAccountItem) {
+                        billsId += ((ExternalAccountItem) p).getExternalItemId() + " ";
+                    }
+                }
+            }
+            billsId = billsId.substring(0, Math.min(255, billsId.length()));
+            billsId = Normalizer.normalize(billsId, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+            billsIdEncoded = URLEncoder.encode(billsId ,"UTF-8");
+        } catch (UnsupportedEncodingException uee) {
+            logger.error("initPayment() Error while encode billsId", uee);
+            throw new CvqException();
+        }
+        if (billsId != null && !billsId.equals("") && billsIdEncoded != null
+                && !billsIdEncoded.equals("")) {
+            urlParameters.append("&vads_order_info=").append(billsIdEncoded);
+            parameters.put("vads_order_info", billsId);
+        }
 
         Object vads_trans_id = genericDAO.getEntityManager().createNativeQuery(
                 "select nextval ('systempay_trans_id_seq')").getSingleResult();
