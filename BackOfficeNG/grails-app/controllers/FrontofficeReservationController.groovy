@@ -1114,7 +1114,7 @@ class FrontofficeReservationController
 				session.setAttribute("homeFolderId", ecitizen.homeFolder.id.toString())
 				result.activityCode = getPlanning.get("activityCode")
 				result.deadLine = getPlanning.get("deadLine").toString()
-				if (!result.deadLine)
+				if (!getPlanning.get("deadLine"))
 				{
 					return "deadLine";
 				}
