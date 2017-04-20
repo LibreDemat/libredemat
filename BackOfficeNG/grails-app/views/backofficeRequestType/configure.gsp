@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title><g:message code="requestType.header.configuration" /> "${requestTypeLabel}"</title>
+    <title><g:message code="requestType.header.configuration" />"${requestTypeLabel}"</title>
     <meta name="layout" content="main" />
     <link rel="stylesheet" href="${resource(dir:'css/backoffice',file:'configuration.css')}" />
     <link rel="stylesheet" href="${resource(dir:'css/backoffice/yui/editor',file:'simpleeditor.css')}" />

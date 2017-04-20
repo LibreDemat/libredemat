@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-Transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta name="Content-language" content="fr-FR">
+    <meta http-equiv="Content-language" content="fr-FR">
     <title><g:layoutTitle default="Back Office LibreDémat" /></title>
     <g:render template="/shared/resources" />
     <g:layoutHead />

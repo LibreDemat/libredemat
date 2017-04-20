@@ -13,10 +13,12 @@ import org.libredemat.service.authority.ILocalAuthorityRegistry
 import org.libredemat.service.document.IDocumentTypeService
 import org.libredemat.service.request.ICategoryService
 import org.libredemat.service.request.ILocalReferentialService
+import org.libredemat.service.request.IParkCardService
 import org.libredemat.service.request.IRequestTypeService
 import org.libredemat.service.request.IRequestServiceRegistry
 import org.libredemat.service.request.impl.RequestServiceRegistry;
 import org.libredemat.util.Critere
+import org.libredemat.exception.CvqParkCardException
 
 import org.springframework.web.context.request.RequestContextHolder
 import org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine
@@ -35,6 +37,7 @@ class BackofficeRequestTypeController {
     ILocalReferentialService localReferentialService
     IRequestServiceRegistry requestServiceRegistry
     ILocalAuthorityRegistry localAuthorityRegistry
+    IParkCardService parkCardService
 
     GroovyPagesTemplateEngine groovyPagesTemplateEngine
     
@@ -151,8 +154,58 @@ class BackofficeRequestTypeController {
                     ["requestType.configuration.parkingPermitTemporaryWork", true]
         }
 
+        // Inexine Hack - Frederic Fabre && PP
+        if (requestType.label == 'Park Card')
+        {
+            result["configurationItems"]["localReferential"] =
+                [
+                    "requestType.configuration.localReferential",
+                    true
+                ]
+            result["configurationItems"]["streetBorderReferentials"] =
+                [
+                    "requestType.configuration.streetBorderReferential",
+                    true
+                ]
+        }
+
         return result
     }
+
+    /**
+     * START - Hack inexine park card request
+     */
+
+    def streetBorderReferentials =
+    {
+        def id = Long.valueOf(params.id)
+        def addresses = parkCardService.getAllStreets()
+        render(view : "configure", model : ['streetBorderReferentials' : addresses, 'id' : id].plus(getCommonModel(requestTypeService.getRequestTypeById(id))))
+    }
+
+    def importStreet =
+    {
+        def file = request.getFile("csvFile")
+        def id = Long.valueOf(params.id)
+        if (file.empty)
+        {
+            render (new JSON(['status':'warning', 'message':message(code:'requestType.configuration.parkCard.message.noFile')]).toString())
+            return false
+        }
+        try
+        {
+            parkCardService.importStreets(file.bytes)
+        }
+        catch (CvqParkCardException ex)
+        {
+            render (new JSON([ 'status':'error', 'message':message(code:ex.i18nKey)]).toString())
+            return false
+        }
+        redirect(controller:"backofficeRequestType",action:"streetBorderReferentials", params:['id':id])
+    }
+    /**
+     * END - Hack inexine park card request end
+     */
 
     def forms = {
         def id = Long.valueOf(params.id)
