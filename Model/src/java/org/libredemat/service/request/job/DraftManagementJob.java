@@ -62,7 +62,11 @@ public class DraftManagementJob {
     public void deleteExpiredDrafts() {
         Request request;
         while ((request = getNextDraftToDelete()) != null) {
-            requestWorkflowService.delete(request, false);
+            try {
+                requestWorkflowService.delete(request, false);
+            } catch (Exception e) {
+                logger.error("Unable to delete draft : " + request.getId(), e);
+            }
             JpaUtil.closeAndReOpen(false);
         }
     }
