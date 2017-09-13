@@ -12,7 +12,6 @@ import org.libredemat.business.request.Request;
 import org.libredemat.business.request.RequestActionType;
 import org.libredemat.business.request.RequestState;
 import org.libredemat.business.users.Adult;
-import org.libredemat.dao.jpa.JpaUtil;
 import org.libredemat.dao.request.IRequestDAO;
 import org.libredemat.exception.CvqException;
 import org.libredemat.security.SecurityContext;
@@ -60,14 +59,15 @@ public class DraftManagementJob {
     }
     
     public void deleteExpiredDrafts() {
-        Request request;
-        while ((request = getNextDraftToDelete()) != null) {
-            try {
-                requestWorkflowService.delete(request, false);
-            } catch (Exception e) {
-                logger.error("Unable to delete draft : " + request.getId(), e);
+        List<Request> requests = getDraftsToDelete();
+        if (requests != null) {
+            for(Request request : requests) {
+                try {
+                    requestWorkflowService.delete(request, false);
+                } catch (Exception e) {
+                    logger.error("Unable to delete draft : " + request.getId(), e);
+                }
             }
-            JpaUtil.closeAndReOpen(false);
         }
     }
 
@@ -140,14 +140,10 @@ public class DraftManagementJob {
         return template;
     }
 
-    private Request getNextDraftToDelete() {
+    private List<Request> getDraftsToDelete() {
         Set<Critere> criterias = prepareQueryParams(
                 requestTypeService.getGlobalRequestTypeConfiguration().getDraftLiveDuration());
-        List<Request> requests = requestDAO.search(criterias,null,null,1,0, true);
-        if (requests != null && !requests.isEmpty())
-            return requests.get(0);
-        else
-            return null;
+        return requestDAO.search(criterias,null,null,0,0, true);
     }
 
     protected Set<Critere> prepareQueryParams(Integer dateInterval) {
