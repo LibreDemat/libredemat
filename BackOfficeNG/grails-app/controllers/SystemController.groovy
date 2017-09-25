@@ -5,7 +5,7 @@ public class SystemController {
 
     def error = {
         def exception = request.exception
-        def currentSiteDisplayTitle = SecurityContext.currentSite.displayTitle
+        def currentSiteDisplayTitle = SecurityContext.currentSite?.displayTitle
         def temporary = SecurityContext.currentEcitizen?.homeFolder?.isTemporary()
 
         log.error "Error intercepted by system controller : ${exception}"

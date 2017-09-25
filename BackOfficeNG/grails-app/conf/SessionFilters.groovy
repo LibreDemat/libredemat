@@ -96,6 +96,9 @@ class SessionFilters {
         
         openSessionInView(controller:'localAuthorityResource', invert:'true') {
             before = {
+                if (controllerName == 'system' && actionName == 'error') {
+                    return true
+                }
                 try {
                     LocalAuthority la
                     LocalAuthorityConfigurationBean lacb
@@ -166,6 +169,9 @@ class SessionFilters {
 
         enableAddressesReferential(controller: '*', action: '*') {
             before = {
+                if (controllerName == 'system' && actionName == 'error') {
+                    return true
+                }
                 if (SecurityContext.currentSite.token != null
                     && SecurityContext.currentSite.token != "") {
                     flash.put("addressesReferentialEnabled", !!SecurityContext.currentSite.token)
@@ -175,6 +181,9 @@ class SessionFilters {
 
         includeGoogleAnalytics(uri: '/frontoffice/**') {
             before = {
+                if (controllerName == 'system' && actionName == 'error') {
+                    return true
+                }
                 if (SecurityContext.currentSite.googleAnalyticsId != null
                 && SecurityContext.currentSite.googleAnalyticsId != "") {
                     session.setAttribute("googleAnalyticsId", SecurityContext.currentSite.googleAnalyticsId)
@@ -242,6 +251,9 @@ class SessionFilters {
 
         emailCheck(controller: 'frontofficeHomeFolder|frontofficeHome', action: 'editImportedAccount|logout', invert: true) {
             before = {
+                if (controllerName == 'system' && actionName == 'error') {
+                    return true
+                }
                 if (!SecurityContext.isFrontOfficeContext())
                     return true
                 def ecitizen = SecurityContext.getCurrentEcitizen()
@@ -258,7 +270,9 @@ class SessionFilters {
 
         casAuth(uri: '/backoffice/**') {
             before = {
-            		
+                if (controllerName == 'system' && actionName == 'error') {
+                    return true
+                }
                 if (authenticationService.getAuthenticationMethod() != "cas") {
                     return true
                 }
@@ -313,6 +327,9 @@ class SessionFilters {
 
         oauth2Auth(uri: '/backoffice/**') {
           before = {
+            if (controllerName == 'system' && actionName == 'error') {
+                return true
+            }
             if (authenticationService.getAuthenticationMethod() != "oauth2") {
               return true
             }
@@ -358,6 +375,9 @@ class SessionFilters {
 
         builtinAuth(uri: '/backoffice/**') {
             before = {
+                if (controllerName == 'system' && actionName == 'error') {
+                    return true
+                }
                 if (authenticationService.getAuthenticationMethod() != "builtin") {
                     return true
                 }
@@ -402,6 +422,9 @@ class SessionFilters {
 
         setupBackUser(uri: '/backoffice/**') {
         	before = {
+               if (controllerName == 'system' && actionName == 'error') {
+                    return true
+               }
                if (authenticationService.getAuthenticationMethod() != "cas") {
                    return true
                }
@@ -507,6 +530,9 @@ class SessionFilters {
 
 		    setBackOfficeAgentForRequests(uri: '/backoffice/**') {
 			    before = {
+                    if (controllerName == 'system' && actionName == 'error') {
+                        return true
+                    }
 			        if (SecurityContext.currentAgent) {
 			            if (!categoryService.getManaged().isEmpty()) {
 			                session['isACategoryManager'] = true
