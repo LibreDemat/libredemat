@@ -1,4 +1,4 @@
-# CIRIL LibreDemat #
+# LibreDemat #
 
 ### Pré-requis ###
 
@@ -7,11 +7,4 @@
 * PostgreSQL 9.x
 * Grails 1.2.0
 
-### Procédure de lancement ###
-
-* ant prepare-webapp-fobo
-* ant deploy-plugins
-* ant prepare-webapp-fobo
-* cd BackOfficeNG/
-* grails run-app
-* Go to : localhost:8080/LibreDemat/cas.gsp
+License GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
