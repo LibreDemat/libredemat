@@ -788,6 +788,7 @@ class FrontofficeHomeFolderController {
                     return model
                 } else {
                     def adult = userSearchService.getByLogin(params.login)
+                    adult.homeFolder.isImportedAndNotInitialized = false
                     userWorkflowService.modifyConnection(adult, params.newPassword, params.question, params.answer)
                     securityService.setEcitizenSessionInformation(adult, session)
                     flash.successMessage = message("code": "homeFolder.action.resetPwd.success")
