@@ -7,6 +7,7 @@
     <script type="text/javascript" src="${resource(dir:'js/yui/editor',file:'simpleeditor-min.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/common',file:'editor.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js/backoffice',file:'localAuthorityInformation.js')}"></script>
+    <script src="${resource(dir:'js/backoffice/ckeditor', file:'ckeditor.js')}"></script>
     <meta name="layout" content="main" />
   </head>
   <body>
@@ -27,7 +28,7 @@
               </p>
               <input type="hidden" name="id" value="${currentMessage.id}" />
               <div class="form-button">
-                <input type="button" value="${message(code:'action.save')}" id="${currentMessage.id}Button" />
+                <input type="submit" value="${message(code:'action.save')}" id="${currentMessage.id}Button" />
               </div>
             </form>
           </div>

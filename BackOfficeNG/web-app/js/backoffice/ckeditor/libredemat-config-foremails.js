@@ -2,6 +2,8 @@
 CKEDITOR.editorConfig = function(config) {
   config.dataIndentationChars = '  '
   config.defaultLanguage = 'fr'
+  config.language = 'fr'
+  config.contentsLanguage = 'fr'
   config.disableNativeSpellChecker = false
   config.enterMode = CKEDITOR.ENTER_BR
   config.format_tags = 'h1;h2;p;div;pre'
